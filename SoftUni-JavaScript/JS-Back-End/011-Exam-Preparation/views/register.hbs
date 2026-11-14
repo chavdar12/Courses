@@ -1,0 +1,18 @@
+<section class="form-page">
+    <form action="/register" method="post">
+        <h2>Register</h2>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" value="{{data.email}}">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+        <label for="repeatPassword">Repeat Password</label>
+        <input type="password" id="repeatPassword" name="repeatPassword">
+        <fieldset class="gender">
+            <legend>Gender</legend>
+            <label><input type="radio" name="gender" value="male"{{#if (eq data.gender "male")}} checked{{/if}}> Male</label>
+            <label><input type="radio" name="gender" value="female"{{#if (eq data.gender "female")}} checked{{/if}}> Female</label>
+        </fieldset>
+        <button class="btn" type="submit">Register</button>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </form>
+</section>

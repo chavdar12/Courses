@@ -1,0 +1,28 @@
+# Normalize line endings: LF in the repo and on checkout
+* text=auto eol=lf
+
+# Source
+*.js     text diff=javascript
+*.mjs    text diff=javascript
+*.cjs    text diff=javascript
+*.json   text
+*.html   text diff=html
+*.hbs    text diff=html linguist-language=Handlebars
+*.css    text diff=css
+*.svg    text
+*.md     text diff=markdown
+*.yml    text
+
+# Binary assets
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.webp   binary
+*.pdf    binary
+*.woff   binary
+*.woff2  binary
+
+# Keep generated files out of diffs and language stats
+package-lock.json  -diff linguist-generated

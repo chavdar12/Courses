@@ -1,0 +1,20 @@
+<section class="catalog">
+    <h1>All Posts</h1>
+    {{#if posts}}
+        <div class="cards">
+            {{#each posts}}
+                <article class="card">
+                    <img src="{{image}}" alt="{{title}}">
+                    <div class="overlay">
+                        <h3>{{title}}</h3>
+                        <p class="keyword">{{keyword}}</p>
+                        <p>{{description}}</p>
+                        <a class="btn" href="/posts/{{_id}}">Details</a>
+                    </div>
+                </article>
+            {{/each}}
+        </div>
+    {{else}}
+        <p class="no-posts">No posts yet!</p>
+    {{/if}}
+</section>
