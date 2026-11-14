@@ -21,7 +21,11 @@ CASES = [('001_bonus_points.py', '20', '6\n26'),
  ('008_world_swimming_record.py', '10464\n1500\n20', 'No, he failed! He was 20786.00 seconds slower.'),
  ('008_world_swimming_record.py',
   '1000\n29\n30',
-  'Yes, he succeeded! The new world record is 882.50 seconds.')]
+  'Yes, he succeeded! The new world record is 882.50 seconds.'),
+ ('009_shopping.py', '900\n2\n1\n3', 'You have 198.75 leva left!'),
+ ('009_shopping.py', '920.45\n3\n1\n1', 'Not enough money! You need 3.92 leva more!'),
+ ('010_lunch_break.py', 'Game of Thrones\n60\n96', 'You have enough time to watch Game of Thrones and left with 0 minutes free time.'),
+ ('010_lunch_break.py', 'Teen Wolf\n48\n60', "You don't have enough time to watch Teen Wolf, you need 11 more minutes.")]
 
 
 def normalize(text):

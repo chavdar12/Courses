@@ -120,7 +120,14 @@ CASES = [('001_divide_without_remainder.py', '3\n3\n6\n9', '33.33%\n100.00%\n0.0
   '1\n1',
   'OddSum=1.00,\nOddMin=1.00,\nOddMax=1.00,\nEvenSum=0.00,\nEvenMin=No,\nEvenMax=No'),
  ('006_salary.py', '3\n500\nFacebook\nInstagram\nReddit', '200'),
- ('006_salary.py', '2\n200\nFacebook\nFacebook', 'You have lost your salary.')]
+ ('006_salary.py', '2\n200\nFacebook\nFacebook', 'You have lost your salary.'),
+ ('007_oscars.py', 'Zahari Baharov\n205\n4\nJohnny Depp\n45\nWill Smith\n29\nJet Lee\n10\nMatthew Mcconaughey\n39', 'Sorry, Zahari Baharov you need 247.5 more!'),
+ ('007_oscars.py', 'Sandra Bullock\n340\n5\nRobert De Niro\n50\nJulia Roberts\n40.5\nDaniel Day-Lewis\n39.4\nNicolas Cage\n29.9\nStoyanka Mutafova\n33', 'Congratulations, Sandra Bullock got a nominee for leading role with 1268.5!'),
+ ('008_trekking_mania.py', '10\n10\n5\n1\n100\n12\n26\n17\n37\n40\n78', '1.84%\n6.75%\n5.21%\n31.60%\n54.60%'),
+ ('008_trekking_mania.py', '5\n25\n41\n31\n250\n6', '0.00%\n1.70%\n7.08%\n8.78%\n82.44%'),
+ ('009_tennis_ranklist.py', '5\n1400\nF\nSF\nW\nW\nSF', 'Final points: 8040\nAverage points: 1328\n40.00%'),
+ ('009_tennis_ranklist.py', '4\n750\nSF\nW\nSF\nW', 'Final points: 6190\nAverage points: 1360\n50.00%'),
+ ('009_tennis_ranklist.py', '7\n1200\nSF\nF\nW\nF\nW\nSF\nW', 'Final points: 11040\nAverage points: 1405\n42.86%')]
 
 
 def normalize(text):

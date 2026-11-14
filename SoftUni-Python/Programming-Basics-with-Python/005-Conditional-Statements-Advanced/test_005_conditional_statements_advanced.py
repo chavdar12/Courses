@@ -26,7 +26,10 @@ CASES = [('001_animal_type.py', 'dog', 'mammal'),
  ('011_trade_commissions.py', 'Sofia\n1500', '120.00'),
  ('011_trade_commissions.py', 'Kaspichan\n100', 'error'),
  ('012_working_hours.py', '11\nSunday', 'closed'),
- ('012_working_hours.py', '11\nMonday', 'open')]
+ ('012_working_hours.py', '11\nMonday', 'open'),
+ ('013_weekend_or_working_day.py', 'Monday', 'Working day'),
+ ('013_weekend_or_working_day.py', 'Sunday', 'Weekend'),
+ ('013_weekend_or_working_day.py', 'April', 'Error')]
 
 
 def normalize(text):

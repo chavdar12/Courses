@@ -117,7 +117,10 @@ CASES = [('001_character_sequence.py', 'abc', 'a\nb\nc'),
  ('007_numbers_n_to_1.py', '3', '3\n2\n1'),
  ('008_numbers_1_to_n_step_3.py', '10', '1\n4\n7\n10'),
  ('009_sum_numbers.py', '2\n10\n20', '30'),
- ('010_vowels_sum.py', 'hello', '6')]
+ ('010_vowels_sum.py', 'hello', '6'),
+ ('011_odd_even_sum.py', '4\n10\n50\n60\n20', 'Yes\nSum = 70'),
+ ('011_odd_even_sum.py', '4\n3\n5\n1\n-2', 'No\nDiff = 1'),
+ ('011_odd_even_sum.py', '3\n5\n8\n1', 'No\nDiff = 2')]
 
 
 def normalize(text):
