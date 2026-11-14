@@ -1,33 +1,61 @@
-# .NET build output
-bin/
-obj/
+# --- .NET build output ---
+[Bb]in/
+[Oo]bj/
 [Dd]ebug/
 [Rr]elease/
-*.user
-*.suo
+[Ll]og/
+artifacts/
 *.binlog
 
-# Test results / coverage
+# --- User-specific files ---
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.DotSettings.user
+
+# --- Test results / coverage ---
 TestResults/
+[Tt]est[Rr]esult*/
 *.trx
 coverage*.json
 coverage*.xml
+coverage*.info
+*.coverage
+*.coveragexml
 
-# NuGet
+# --- NuGet ---
 *.nupkg
+*.snupkg
 .nuget/
 packages/
+project.lock.json
 
-# IDEs
+# --- IDEs ---
 .idea/
 .vs/
 .vscode/
-*.DotSettings.user
+*.code-workspace
+.fleet/
+*.swp
+*~
 
-# macOS
+# --- OS ---
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
 .Spotlight-V100
 .Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Files the Streams exercises write when you `dotnet run` them ---
+0*-Streams-Files-And-Directories/Ex*/output.txt
+0*-Streams-Files-And-Directories/Ex*/Part-*.txt
+0*-Streams-Files-And-Directories/Ex*/actualResults.txt
+0*-Streams-Files-And-Directories/Ex*/copyMe-copy.png
+0*-Streams-Files-And-Directories/Ex*/copyMe.zip
+0*-Streams-Files-And-Directories/Ex*/extracted/
+0*-Streams-Files-And-Directories/Ex*/report.txt
