@@ -1,5 +1,6 @@
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.zip.ZipFile;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -53,6 +54,18 @@ class FilesTest {
     }
 
     @Test
+    void createZipArchiveHoldsEveryFile() throws Exception {
+        String one = write("one.txt", "first");
+        String two = write("two.txt", "second");
+        String zipPath = dir.resolve("files.zip").toString();
+        CreateZipArchive.main(new String[]{zipPath, one, two});
+        try (ZipFile zip = new ZipFile(zipPath)) {
+            assertEquals("first", new String(zip.getInputStream(zip.getEntry("one.txt")).readAllBytes()));
+            assertEquals("second", new String(zip.getInputStream(zip.getEntry("two.txt")).readAllBytes()));
+        }
+    }
+
+    @Test
     void getFolderSizeIncludesSubfolders() throws Exception {
         write("a.txt", "12345");
         Files.createDirectory(dir.resolve("sub"));
@@ -70,6 +83,12 @@ class FilesTest {
     void mergeTwoFiles() throws Exception {
         MergeTwoFiles.main(new String[]{write("one.txt", "1\n2\n"), write("two.txt", "3\n4\n"), out()});
         assertEquals("1\n2\n3\n4", read("output.txt"));
+    }
+
+    @Test
+    void serializeArrayListRoundTrips() throws Exception {
+        String list = dir.resolve("list.ser").toString();
+        check("[1.5, 2.25, -3.0, 4.0]", () -> SerializeArrayList.main(new String[]{list}), "");
     }
 
     @Test
