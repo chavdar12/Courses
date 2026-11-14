@@ -1,0 +1,36 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - 001-Intro-To-React-And-Jsx/Jsx-App
+          - 002-Components-Basic-Idea/Components-App
+          - 003-Components-Deep-Dive/Deep-Dive-App
+          - 004-Workshop-Components/Origami
+          - 005-Routing/Routing-App
+          - 006-Workshop-Single-Page-Application/Pet-My-Pet
+          - 007-Forms/Register-Form-App
+          - 008-React-Hooks/Hooks-App
+          - 010-Advanced-Techniques/Advanced-App
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: ${{ matrix.project }}/package-lock.json
+      - run: npm ci
+      - run: npm test -- --run
+      - run: npm run build

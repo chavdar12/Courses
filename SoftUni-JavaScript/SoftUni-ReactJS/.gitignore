@@ -1,23 +1,27 @@
-# deps & builds
+# Dependencies
 node_modules/
+
+# Build output & caches
 dist/
 coverage/
-*.tsbuildinfo
 .vite/
+*.tsbuildinfo
 
-# secrets: only the example is committed
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
 .env
 .env.*
 !.env.example
 
-# test output (Playwright, vitest, k6)
-test-results/
-playwright-report/
-blob-report/
-e2e/.auth/
-
-# editors / OS / logs
+# Editors & IDEs
 .idea/
 .vscode/
+*.swp
+*.sublime-workspace
+
+# OS
 .DS_Store
-*.log
+Thumbs.db
