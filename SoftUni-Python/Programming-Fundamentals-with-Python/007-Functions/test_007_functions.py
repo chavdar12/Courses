@@ -14,7 +14,11 @@ CASES = [('001_calculate_rectangle_area.py', '3\n4', '12\n'),
  ('003_grades.py', '5.6', 'Excellent\n'),
  ('004_orders.py', 'water\n5', '5.00\n'),
  ('004_orders.py', 'coffee\n2', '3.00\n'),
- ('005_repeat_string.py', 'abc\n3', 'abcabcabc\n')]
+ ('005_repeat_string.py', 'abc\n3', 'abcabcabc\n'),
+ ('006_absolute_values.py', '1 2.5 -3 -4.5', '[1.0, 2.5, 3.0, 4.5]\n'),
+ ('006_absolute_values.py', '-0 1 10 -6.66', '[0.0, 1.0, 10.0, 6.66]\n'),
+ ('007_rounding.py', '1.0 2.5 3.0 4.5', '[1, 2, 3, 4]\n'),
+ ('007_rounding.py', '2.56 1.9 -3.4 8.1', '[3, 2, -3, 8]\n')]
 
 
 def normalize(text):

@@ -112,7 +112,9 @@ CASES = [('001_a_miner_task.py', 'Gold\n155\nSilver\n10\nGold\n15\nstop', 'Gold 
   'John => CS1234JS\n'),
  ('016_student_academy.py',
   '5\nJohn\n5.5\nJohn\n4.5\nAlice\n6\nAlice\n3\nGeorge\n5',
-  'John -> 5.00\nGeorge -> 5.00\nAlice -> 4.50\n')]
+  'John -> 5.00\nGeorge -> 5.00\nAlice -> 4.50\n'),
+ ('017_phonebook.py', 'Adam-0888080808\n2\nMery\nAdam', 'Contact Mery does not exist.\nAdam -> 0888080808\n'),
+ ('017_phonebook.py', 'Adam-+359888001122\nRalf-666\nGeorge-5559393\nSilvester-02/987665544\n4\nSilvester\nsilvester\nRolf\nRalf', 'Silvester -> 02/987665544\nContact silvester does not exist.\nContact Rolf does not exist.\nRalf -> 666\n')]
 
 
 def normalize(text):

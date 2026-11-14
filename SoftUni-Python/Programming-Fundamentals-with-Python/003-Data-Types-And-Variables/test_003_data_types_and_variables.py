@@ -28,7 +28,9 @@ CASES = [('001_centuries_to_minutes.py',
   '12 -> False\n'
   '13 -> False\n'
   '14 -> True\n'
-  '15 -> False\n')]
+  '15 -> False\n'),
+ ('005_pounds_to_dollars.py', '80', '104.800\n'),
+ ('005_pounds_to_dollars.py', '39', '51.090\n')]
 
 
 def normalize(text):

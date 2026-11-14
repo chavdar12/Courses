@@ -37,7 +37,10 @@ CASES = [('001_add_and_subtract.py', '23\n6\n10', '19\n'),
  ('014_perfect_number.py', '5', "It's not so perfect.\n"),
  ('015_smallest_of_three_numbers.py', '2\n5\n3', '2\n'),
  ('016_tribonacci_sequence.py', '4', '1 1 2 4\n'),
- ('016_tribonacci_sequence.py', '2', '1 1\n')]
+ ('016_tribonacci_sequence.py', '2', '1 1\n'),
+ ('017_even_numbers.py', '1 2 3 4', '[2, 4]\n'),
+ ('018_sort.py', '6 2 4', '[2, 4, 6]\n'),
+ ('019_min_max_and_sum.py', '2 4 6', 'The minimum number is 2\nThe maximum number is 6\nThe sum number is: 12\n')]
 
 
 def normalize(text):

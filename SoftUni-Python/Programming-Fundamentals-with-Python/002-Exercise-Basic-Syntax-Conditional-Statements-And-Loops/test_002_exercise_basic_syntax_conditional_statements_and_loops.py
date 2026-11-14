@@ -33,7 +33,11 @@ CASES = [('001_can_t_sleep_count_sheep.py', '3', '1 sheep...2 sheep...3 sheep...
  ('016_wolf_in_sheep_s_clothing.py', 'sheep, sheep, wolf', 'Please go away and stop eating my sheep\n'),
  ('016_wolf_in_sheep_s_clothing.py',
   'sheep, wolf, sheep, sheep',
-  'Oi! Sheep number 2! You are about to be eaten by a wolf!\n')]
+  'Oi! Sheep number 2! You are about to be eaten by a wolf!\n'),
+ ('017_mutate_strings.py', 'bubble gum\nturtle hum', 'tubble gum\nturble gum\nturtle gum\nturtle hum\n'),
+ ('017_mutate_strings.py', 'Kitty\nDoggy', 'Ditty\nDotty\nDogty\nDoggy\n'),
+ ('018_christmas_spirit.py', '1\n7', 'Total cost: 37\nTotal spirit: 58\n'),
+ ('018_christmas_spirit.py', '3\n20', 'Total cost: 558\nTotal spirit: 156\n')]
 
 
 def normalize(text):
