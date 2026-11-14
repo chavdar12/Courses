@@ -7,7 +7,7 @@ internal class Program
         var input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
         var sum = input.Sum(CalculateItemSum);
 
-        Console.WriteLine($"{sum:f2}");
+        Console.WriteLine($"{Math.Round(sum, 2, MidpointRounding.AwayFromZero):f2}");
     }
 
     private static double CalculateItemSum(string arg)

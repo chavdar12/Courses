@@ -21,7 +21,7 @@ internal class Program
             data[company].Add(idNumber);
         }
 
-        foreach (var (key, students) in data)
+        foreach (var (key, students) in data.OrderBy(c => c.Key))
         {
             Console.WriteLine(key);
             foreach (var student in students) Console.WriteLine($"-- {student}");

@@ -4,10 +4,12 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var words = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var largest = Console.ReadLine()
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .OrderDescending()
+            .Take(3);
 
-        foreach (var word in words)
-            if (word.Length % 2 == 0)
-                Console.WriteLine(word);
+        Console.WriteLine(string.Join(" ", largest));
     }
 }

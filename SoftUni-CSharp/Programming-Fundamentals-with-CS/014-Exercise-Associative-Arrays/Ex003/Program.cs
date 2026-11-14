@@ -41,14 +41,14 @@ internal class Program
 
                     legendary[items[i].ToLower()] -= 250;
 
-                    foreach (var item in legendary)
+                    foreach (var item in legendary.OrderByDescending(m => m.Value).ThenBy(m => m.Key))
                     {
                         var keyMaterial = item.Key;
                         var qty = item.Value;
                         Console.WriteLine($"{keyMaterial}: {qty}");
                     }
 
-                    foreach (var item in junk) Console.WriteLine($"{item.Key}: {item.Value}");
+                    foreach (var item in junk.OrderBy(m => m.Key)) Console.WriteLine($"{item.Key}: {item.Value}");
 
                     return;
                 }

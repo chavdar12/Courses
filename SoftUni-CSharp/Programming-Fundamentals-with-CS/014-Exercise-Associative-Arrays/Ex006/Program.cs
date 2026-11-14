@@ -20,11 +20,11 @@ internal class Program
         }
 
 
-        foreach (var (course, students) in data)
+        foreach (var (course, students) in data.OrderByDescending(c => c.Value.Count))
         {
             Console.WriteLine($"{course}: {students.Count}");
 
-            foreach (var student in students) Console.WriteLine($"-- {student}");
+            foreach (var student in students.Order()) Console.WriteLine($"-- {student}");
         }
     }
 }

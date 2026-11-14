@@ -18,8 +18,7 @@ internal class Program
             data[name].Add(grade);
         }
 
-        foreach (var (key, value) in data)
-            if (value.Average() >= 4.5)
-                Console.WriteLine($"{key} -> {value.Average():f2}");
+        foreach (var (key, value) in data.Where(s => s.Value.Average() >= 4.5).OrderByDescending(s => s.Value.Average()))
+            Console.WriteLine($"{key} -> {value.Average():f2}");
     }
 }
