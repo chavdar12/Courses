@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - 002-Components/Articles-App
+          - 003-Di-Intro-To-Rxjs-Services/Posts-App
+          - 004-Workshop-Components/Forum
+          - 005-Modules-And-Routing/Routing-App
+          - 006-Workshop-Modules-And-Routing/Forum
+          - 007-Forms/Register-Form-App
+          - 008-Workshop-Forms/Forum
+          - 009-Pipes-Interceptors-And-Subjects/Pipes-Interceptors-App
+          - 010-Workshop-Pipes-Interceptors-And-Subjects/Forum
+          - 011-State-Management/Counter-App
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: npm run build
+
+  typescript:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 001-Intro-To-Angular-And-Typescript
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - run: npm install
+      - run: npm run check
