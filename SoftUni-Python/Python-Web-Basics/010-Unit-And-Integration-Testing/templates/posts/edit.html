@@ -1,0 +1,9 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+    <h1 class="display-5 text-center">Edit post</h1>
+    <form method="post" class="m-auto w-50">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button type="submit" class="btn btn-primary mt-2">Edit</button>
+    </form>
+{% endblock %}

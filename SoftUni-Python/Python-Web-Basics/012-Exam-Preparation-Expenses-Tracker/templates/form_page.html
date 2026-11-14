@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="mb-4">{{ title }}</h1>
+    <form method="post" class="w-50">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button class="btn {% if danger %}btn-danger{% else %}btn-primary{% endif %} mt-3" type="submit">{{ button }}</button>
+    </form>
+{% endblock %}

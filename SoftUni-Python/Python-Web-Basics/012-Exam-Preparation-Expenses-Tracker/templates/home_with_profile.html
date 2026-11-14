@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1>Summary</h1>
+            <p class="mb-0">Budget: {{ profile.budget }}$</p>
+            {% for expense in expenses %}
+                <p class="mb-0 text-danger">- {{ expense.price|floatformat:2 }}$</p>
+            {% endfor %}
+            <p class="budget-left">= {{ budget_left|floatformat:2 }}$ left</p>
+        </div>
+        <a class="btn btn-success" href="{% url 'create expense' %}">Add expense</a>
+    </div>
+    <div class="row">
+        {% for expense in expenses %}
+            <div class="col-md-4 mb-4">
+                <div class="card expense-card">
+                    <img src="{{ expense.image_url }}" class="card-img-top" alt="{{ expense.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ expense.title }}</h5>
+                        <p class="card-text">{{ expense.description }}</p>
+                        <p class="fw-bold">{{ expense.price|floatformat:2 }}$</p>
+                        <a href="{% url 'edit expense' expense.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'delete expense' expense.pk %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>You have no expenses yet.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+body {
+    background-color: #f4f6f8;
+}
+
+.expense-card img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.budget-left {
+    font-size: 1.5rem;
+    font-weight: bold;
+}

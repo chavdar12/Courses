@@ -1,0 +1,12 @@
+body {
+    background-color: #f8f5f2;
+}
+
+.landing {
+    min-height: 70vh;
+}
+
+.pet-card img {
+    height: 220px;
+    object-fit: cover;
+}

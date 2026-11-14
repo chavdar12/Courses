@@ -1,0 +1,32 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+    <a class="btn btn-success" href="{% url 'create post' %}">Create</a>
+    <h1 class="display-5 mt-2">Lost and Found</h1>
+    <div class="d-flex flex-wrap">
+        {% for post in posts %}
+            <div class="card m-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ post.location }}</h6>
+                    <p class="card-text">{{ post.description }}</p>
+                    {% if post.is_found %}
+                        <span class="badge bg-success">Found</span>
+                    {% else %}
+                        <span class="badge bg-danger">Not Found</span>
+                        <form method="post" action="{% url 'found post' post.pk %}" class="d-inline">
+                            {% csrf_token %}
+                            <button class="btn btn-sm btn-success">Found it!</button>
+                        </form>
+                    {% endif %}
+                    <a class="btn btn-sm btn-primary" href="{% url 'edit post' post.pk %}">Edit</a>
+                    <form method="post" action="{% url 'delete post' post.pk %}" class="d-inline">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        {% empty %}
+            <p>There are no posts yet.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
