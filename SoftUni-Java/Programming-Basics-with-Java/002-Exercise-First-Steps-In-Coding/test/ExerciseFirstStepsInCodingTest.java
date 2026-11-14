@@ -16,7 +16,9 @@ class ExerciseFirstStepsInCodingTest {
                 arguments(DepositCalculator.class, "200\n3\n5.7", "202.85"),
                 arguments(FoodDelivery.class, "2\n4\n3", "116.20"),
                 arguments(Repainting.class, "10\n11\n4", "175.410"),
-                arguments(StudyMaterials.class, "2\n3\n4", "34.200"));
+                arguments(StudyMaterials.class, "2\n3\n4", "34.200"),
+                arguments(VacationBooksList.class, "212\n20\n2", "5"),
+                arguments(VacationBooksList.class, "432\n15\n4", "7"));
     }
 
     @ParameterizedTest(name = "{0} <- {1}")
