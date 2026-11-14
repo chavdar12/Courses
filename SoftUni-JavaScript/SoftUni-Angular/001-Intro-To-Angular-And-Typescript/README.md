@@ -15,4 +15,4 @@ Node.js 22.18+ runs TypeScript directly (type stripping), so no build step is ne
 node 002-Tickets/index.ts
 ```
 
-Type-check all exercises with `npm run typescript` from the repository root.
+Type-check all exercises with `npm run check`, run the tests with `npm test`.

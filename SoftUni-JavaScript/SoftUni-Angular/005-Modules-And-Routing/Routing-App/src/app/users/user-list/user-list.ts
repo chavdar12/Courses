@@ -12,8 +12,8 @@ import { UsersService } from '../../core/users.service';
 export class UserList {
   private readonly router = inject(Router);
 
-  // `?search=` query param, bound as an input.
-  readonly search = input('');
+  // `?search=` query param, bound as an input - the router sets it to undefined when absent.
+  readonly search = input('', { transform: (v: string | undefined) => v ?? '' });
 
   protected readonly users = toSignal(inject(UsersService).getUsers(), { initialValue: [] });
 

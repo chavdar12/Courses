@@ -1,5 +1,28 @@
+# Dependencies
 node_modules/
+
+# Build output & caches
 dist/
+out-tsc/
 .angular/
-.DS_Store
+coverage/
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
 .env
+.env.*
+!.env.example
+
+# Editors & IDEs
+.idea/
+.vscode/
+*.swp
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
