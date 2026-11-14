@@ -1,5 +1,5 @@
 // Only leaf modules carry sources; the 005/006 parent folders are plain containers.
-configure(subprojects.filter { it.file("src").isDirectory }) {
+configure(allprojects.filter { it.file("src").isDirectory }) {
     apply(plugin = "java")
 
     repositories {
