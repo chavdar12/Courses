@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ source.name }}</h1>
+    <p><a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.url }}</a></p>
+    <h3>Related articles</h3>
+    {% include 'news/article_list.html' with articles=object_list %}
+{% endblock %}

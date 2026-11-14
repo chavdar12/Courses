@@ -1,0 +1,8 @@
+<div class="card pet-card m-3" style="width: 18rem;">
+    <img class="card-img-top" src="{{ pet.image.url }}" alt="{{ pet.name }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ pet.name }}, Age: {{ pet.age }}</h5>
+        <p class="card-text">{{ pet.description|truncatechars:60 }}</p>
+        <a href="{% url 'pet details' pet.pk %}" class="btn btn-primary">See details</a>
+    </div>
+</div>

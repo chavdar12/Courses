@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center">Are you sure you want to delete {{ pet.name }}?</h1>
+    <div class="text-center">
+        <img class="img-thumbnail mb-3" src="{{ pet.image.url }}" alt="{{ pet.name }}" style="max-width: 300px">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Delete</button>
+            <a href="{% url 'pet details' pet.pk %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

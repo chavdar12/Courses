@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Sources</h1>
+    <ul class="list-group">
+        {% for source in sources %}
+            <li class="list-group-item d-flex justify-content-between">
+                <a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.name }}</a>
+                <a href="{% url 'source details' source.pk %}">See related articles</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No sources yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

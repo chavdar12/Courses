@@ -1,0 +1,7 @@
+<div class="d-flex flex-wrap">
+    {% for article in articles %}
+        {% include 'news/article_card.html' %}
+    {% empty %}
+        <h3>No articles yet.</h3>
+    {% endfor %}
+</div>

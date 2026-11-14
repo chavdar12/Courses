@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to Petstagram!</h1>
+        <p class="lead">Share the photos of your pets with the world.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'list pets' %}">See all pets</a>
+    </div>
+{% endblock %}

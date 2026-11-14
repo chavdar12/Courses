@@ -1,0 +1,26 @@
+# Normalize line endings, LF in the repo
+* text=auto eol=lf
+
+*.py text diff=python
+*.html text diff=html
+*.css text diff=css
+*.js text
+*.sql text
+*.md text diff=markdown
+*.txt text
+*.yml text
+Procfile text
+
+# Windows scripts need CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.sqlite3 binary

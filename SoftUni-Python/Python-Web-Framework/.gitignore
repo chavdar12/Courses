@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+*.log
+staticfiles/
+
+# User uploads: keep folder placeholders and the default profile picture
+**/media/**
+!**/media/**/
+!**/media/**/.gitkeep
+!**/media/profiles/default.png
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

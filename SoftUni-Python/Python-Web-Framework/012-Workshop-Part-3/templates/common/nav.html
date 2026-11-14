@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'landing page' %}">Petstagram</a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'landing page' %}">Home</a></li>
+        {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'list pets' %}">All Pets</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'create pet' %}">Add Pet</a></li>
+        {% endif %}
+    </ul>
+    <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'user profile' user.userprofile.pk %}">{{ user.username }}</a></li>
+            <li class="nav-item">
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-link nav-link">Logout</button>
+                </form>
+            </li>
+        {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Register</a></li>
+        {% endif %}
+    </ul>
+</nav>
