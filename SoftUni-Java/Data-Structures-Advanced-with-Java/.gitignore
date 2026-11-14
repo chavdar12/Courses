@@ -44,3 +44,6 @@ Icon?
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Each lesson ships its own Gradle wrapper
+!gradle-wrapper.jar
