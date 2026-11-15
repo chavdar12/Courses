@@ -26,14 +26,15 @@ public class Main {
 
         Person comparePerson = people.get(n - 1);
 
-        int equalPeople = (int) people.stream()
-                .filter(p -> p.compareTo(comparePerson) == 0)
-                .count();
+        int equalPeople =
+                (int) people.stream().filter(p -> p.compareTo(comparePerson) == 0).count();
 
         if (equalPeople == 1) {
             System.out.println("No matches");
         } else {
-            System.out.println(String.format("%d %d %d", equalPeople, people.size() - equalPeople, people.size()));
+            System.out.println(
+                    String.format(
+                            "%d %d %d", equalPeople, people.size() - equalPeople, people.size()));
         }
     }
 }

@@ -1,15 +1,19 @@
 package FilterByAge;
 
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
 
+import org.junit.jupiter.api.Test;
+
 class MainTest {
-    private static final String PEOPLE = "5\nPeter, 20\nGeorge, 18\nReag, 33\nSimon, 22\nKiril, 25\n";
+    private static final String PEOPLE =
+            "5\nPeter, 20\nGeorge, 18\nReag, 33\nSimon, 22\nKiril, 25\n";
 
     @Test
     void olderPrintsNameAndAge() throws Exception {
-        check("Peter - 20\nReag - 33\nSimon - 22\nKiril - 25", () -> Main.main(new String[0]), PEOPLE + "older\n20\nname age\n");
+        check(
+                "Peter - 20\nReag - 33\nSimon - 22\nKiril - 25",
+                () -> Main.main(new String[0]),
+                PEOPLE + "older\n20\nname age\n");
     }
 
     @Test

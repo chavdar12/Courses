@@ -12,7 +12,6 @@ public class Main {
 
         while (n-- > 0) {
             System.out.printf("%s%n", new Box<>(reader.readLine()));
-
         }
     }
 }

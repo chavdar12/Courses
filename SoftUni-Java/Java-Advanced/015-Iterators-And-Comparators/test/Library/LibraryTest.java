@@ -1,13 +1,14 @@
 package Library;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import static support.Console.check;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static support.Console.check;
+import java.util.ArrayList;
+import java.util.List;
 
 class LibraryTest {
     @Test
@@ -26,6 +27,9 @@ class LibraryTest {
 
     @Test
     void mainPrintsTitles() throws Exception {
-        check("Animal Farm\nThe Documents in the Case\nThe Documents in the Case", () -> Main.main(new String[0]), "");
+        check(
+                "Animal Farm\nThe Documents in the Case\nThe Documents in the Case",
+                () -> Main.main(new String[0]),
+                "");
     }
 }

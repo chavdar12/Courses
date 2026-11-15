@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 public class AllCapitals {
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(args[0]));
-             PrintWriter writer = new PrintWriter(new FileWriter(args[1]))) {
+                PrintWriter writer = new PrintWriter(new FileWriter(args[1]))) {
             String line = reader.readLine();
             while (line != null) {
                 writer.println(line.toUpperCase());

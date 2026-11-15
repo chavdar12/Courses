@@ -1,11 +1,12 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class SerbianUnleashedTest {
     @Test
     void sumsMoneyPerVenueAndSinger() throws Exception {
-        check("""
+        check(
+                """
                 Sunny Beach
                 #  Ceca -> 385000
                 #  Mile Kitic -> 105000
@@ -13,7 +14,9 @@ class SerbianUnleashedTest {
                 #  Dragana -> 80500
                 Belgrade
                 #  Ceca -> 12
-                """, () -> SerbianUnleashed.main(new String[0]), """
+                """,
+                () -> SerbianUnleashed.main(new String[0]),
+                """
                 Lepa Brena @Sunny Beach 25 3500
                 Dragana @Sunny Beach 23 3500
                 Ceca @Sunny Beach 28 5000

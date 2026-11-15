@@ -21,7 +21,8 @@ public class Main {
         printFilteredStudent(people, tester, printer);
     }
 
-    private static void printFilteredStudent(Person[] people, Predicate<Person> tester, Consumer<Person> printer) {
+    private static void printFilteredStudent(
+            Person[] people, Predicate<Person> tester, Consumer<Person> printer) {
         for (Person person : people) {
             if (tester.test(person)) {
                 printer.accept(person);

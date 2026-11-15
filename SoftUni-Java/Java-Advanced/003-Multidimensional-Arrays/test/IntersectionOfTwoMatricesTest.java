@@ -1,15 +1,18 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class IntersectionOfTwoMatricesTest {
     @Test
     void marksDifferencesWithStar() throws Exception {
-        check("""
+        check(
+                """
                 * b c *
                 a b * d
                 a * c d
-                """, () -> IntersectionOfTwoMatrices.main(new String[0]), """
+                """,
+                () -> IntersectionOfTwoMatrices.main(new String[0]),
+                """
                 3
                 4
                 a b c d

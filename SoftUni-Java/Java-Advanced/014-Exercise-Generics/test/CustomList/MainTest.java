@@ -1,13 +1,15 @@
 package CustomList;
 
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class MainTest {
     @Test
     void supportsAllCommands() throws Exception {
-        check("cc\naa\n2\ntrue\ncc\nbb\naa", () -> Main.main(new String[0]),
+        check(
+                "cc\naa\n2\ntrue\ncc\nbb\naa",
+                () -> Main.main(new String[0]),
                 "Add aa\nAdd bb\nAdd cc\nMax\nMin\nGreater aa\nSwap 0 2\nContains aa\nPrint\nEND\n");
     }
 

@@ -1,6 +1,6 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class LargestThreeNumbersTest {
     @Test

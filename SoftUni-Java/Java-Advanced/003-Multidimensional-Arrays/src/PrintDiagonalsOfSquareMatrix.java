@@ -12,9 +12,10 @@ public class PrintDiagonalsOfSquareMatrix {
         int[][] matrix = new int[rows][rows];
 
         for (int row = 0; row < rows; row++) {
-            int[] line = Arrays.stream(scanner.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] line =
+                    Arrays.stream(scanner.nextLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
             System.arraycopy(line, 0, matrix[row], 0, rows);
         }
 

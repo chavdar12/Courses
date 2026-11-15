@@ -1,14 +1,15 @@
 package BankAccount;
 
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class MainTest {
     // account ids and the interest rate are static, so the whole scenario lives in one test
     @Test
     void createDepositAndInterest() throws Exception {
-        check("""
+        check(
+                """
                 Account ID1 created
                 Account ID2 created
                 Deposited 20 to ID1
@@ -19,7 +20,9 @@ class MainTest {
                 Account does not exist
                 Withdrew 5 from ID1
                 Insufficient balance
-                """, () -> Main.main(new String[0]), """
+                """,
+                () -> Main.main(new String[0]),
+                """
                 Create
                 Create
                 Deposit 1 20

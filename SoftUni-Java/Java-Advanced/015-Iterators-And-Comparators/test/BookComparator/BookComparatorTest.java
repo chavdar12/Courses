@@ -1,10 +1,11 @@
 package BookComparator;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class BookComparatorTest {
     @Test
@@ -17,10 +18,13 @@ class BookComparatorTest {
 
     @Test
     void mainPrintsSortedBooks() throws Exception {
-        check("""
+        check(
+                """
                 Animal Farm 2003
                 The Documents in the Case 1930
                 The Documents in the Case 2002
-                """, () -> Main.main(new String[0]), "");
+                """,
+                () -> Main.main(new String[0]),
+                "");
     }
 }

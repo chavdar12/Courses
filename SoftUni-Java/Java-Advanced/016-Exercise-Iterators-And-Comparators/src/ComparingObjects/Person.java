@@ -21,7 +21,5 @@ public class Person implements Comparable<Person> {
             result = this.town.compareTo(other.town);
         }
         return result;
-
     }
 }
-

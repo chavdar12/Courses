@@ -13,7 +13,7 @@ public class BrowserHistory {
                 browserHistory.push(instruction);
                 System.out.println(browserHistory.peek());
             } else {
-                if(browserHistory.size() <= 1) {
+                if (browserHistory.size() <= 1) {
                     System.out.println("no previous URLs");
                 } else {
                     browserHistory.pop();

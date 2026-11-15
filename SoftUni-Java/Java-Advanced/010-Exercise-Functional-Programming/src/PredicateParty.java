@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 public class PredicateParty {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<String> names = Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
+        List<String> names =
+                Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
         String input = scanner.nextLine();
         while (!input.equals("Party!")) {
             String[] tokens = input.split("\\s+");
@@ -30,7 +31,8 @@ public class PredicateParty {
             System.out.println("Nobody is going to the party!");
         } else {
             Collections.sort(names);
-            System.out.println(names.toString().replaceAll("[\\[\\]]", "") + " are going to the party!");
+            System.out.println(
+                    names.toString().replaceAll("[\\[\\]]", "") + " are going to the party!");
         }
     }
 

@@ -11,7 +11,8 @@ public class CitiesByContinentAndCountry {
         Map<String, Map<String, List<String>>> continents = new LinkedHashMap<>();
         for (int i = 0; i < n; i++) {
             String[] tokens = scanner.nextLine().split(" ");
-            continents.computeIfAbsent(tokens[0], k -> new LinkedHashMap<>())
+            continents
+                    .computeIfAbsent(tokens[0], k -> new LinkedHashMap<>())
                     .computeIfAbsent(tokens[1], k -> new ArrayList<>())
                     .add(tokens[2]);
         }

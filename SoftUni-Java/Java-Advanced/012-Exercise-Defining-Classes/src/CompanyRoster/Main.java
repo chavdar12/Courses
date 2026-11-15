@@ -47,24 +47,32 @@ public class Main {
             deparments.get(nameDepartnment).getEmployees().add(employee);
         }
 
-        List<Employee> employeeList = deparments.entrySet().stream()
-                .sorted((dep1, dep2) -> Double.compare(averageSalary(dep2.getValue()), averageSalary(dep1.getValue())))
-                .map(emp -> emp.getValue().getEmployees())
-                .findFirst().orElse(null);
+        List<Employee> employeeList =
+                deparments.entrySet().stream()
+                        .sorted((dep1, dep2) ->
+                                Double.compare(
+                                        averageSalary(dep2.getValue()),
+                                        averageSalary(dep1.getValue())))
+                        .map(emp -> emp.getValue().getEmployees())
+                        .findFirst()
+                        .orElse(null);
 
-        System.out.printf("Highest Average Salary: %s%n", employeeList.get(0).getDepartment().getName());
+        System.out.printf(
+                "Highest Average Salary: %s%n", employeeList.get(0).getDepartment().getName());
 
-        employeeList.stream().sorted((emp1, emp2) -> Double.compare(emp2.getSalary(), emp1.getSalary()))
+        employeeList.stream()
+                .sorted((emp1, emp2) -> Double.compare(emp2.getSalary(), emp1.getSalary()))
                 .forEach(emp -> {
-                    System.out.printf("%s %.2f %s %d%n",
-                            emp.getName(),
-                            emp.getSalary(),
-                            emp.getEmail(),
-                            emp.getAge());
+                    System.out.printf(
+                            "%s %.2f %s %d%n",
+                            emp.getName(), emp.getSalary(), emp.getEmail(), emp.getAge());
                 });
     }
 
     private static double averageSalary(Department department) {
-        return department.getEmployees().stream().mapToDouble(Employee::getSalary).average().orElse(0);
+        return department.getEmployees().stream()
+                .mapToDouble(Employee::getSalary)
+                .average()
+                .orElse(0);
     }
 }

@@ -17,7 +17,9 @@ public class LegendaryFarming {
             for (int i = 0; i < input.length; i += 2) {
                 int quantity = Integer.parseInt(input[i]);
                 String material = input[i + 1].toLowerCase();
-                if (material.equals("shards") || material.equals("fragments") || material.equals("motes")) {
+                if (material.equals("shards")
+                        || material.equals("fragments")
+                        || material.equals("motes")) {
                     keyMaterials.putIfAbsent(material, 0);
                     keyMaterials.put(material, keyMaterials.get(material) + quantity);
                     if (keyMaterials.get(material) >= 250) {

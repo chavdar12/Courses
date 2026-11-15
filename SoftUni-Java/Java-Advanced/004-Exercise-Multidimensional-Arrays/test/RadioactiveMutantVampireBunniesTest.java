@@ -1,18 +1,21 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class RadioactiveMutantVampireBunniesTest {
     @Test
     void playerEscapes() throws Exception {
-        check("""
+        check(
+                """
                 ......
                 ...B..
                 ..BBB.
                 ...B..
                 ......
                 won: 0 5
-                """, () -> RadioactiveMutantVampireBunnies.main(new String[0]), """
+                """,
+                () -> RadioactiveMutantVampireBunnies.main(new String[0]),
+                """
                 5 6
                 .....P
                 ......
@@ -25,13 +28,16 @@ class RadioactiveMutantVampireBunniesTest {
 
     @Test
     void playerWalksIntoBunny() throws Exception {
-        check("""
+        check(
+                """
                 .B...
                 BBB..
                 BBBB.
                 BBB..
                 dead: 3 1
-                """, () -> RadioactiveMutantVampireBunnies.main(new String[0]), """
+                """,
+                () -> RadioactiveMutantVampireBunnies.main(new String[0]),
+                """
                 4 5
                 .....
                 .....

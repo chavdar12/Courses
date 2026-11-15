@@ -52,6 +52,5 @@ public class Stack<T> implements Iterable<T> {
             this.prev = null;
             this.element = element;
         }
-
     }
 }

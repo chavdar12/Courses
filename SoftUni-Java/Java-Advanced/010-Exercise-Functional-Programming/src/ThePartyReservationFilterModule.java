@@ -23,9 +23,11 @@ public class ThePartyReservationFilterModule {
             }
             input = scanner.nextLine();
         }
-        System.out.println(guests.stream()
-                .filter(guest -> filters.values().stream().noneMatch(filter -> filter.test(guest)))
-                .collect(Collectors.joining(" ")));
+        System.out.println(
+                guests.stream()
+                        .filter(guest ->
+                                filters.values().stream().noneMatch(filter -> filter.test(guest)))
+                        .collect(Collectors.joining(" ")));
     }
 
     private static Predicate<String> createFilter(String type, String parameter) {

@@ -1,6 +1,5 @@
 package StrategyPattern;
 
-
 import java.util.Comparator;
 
 public class ComparatorPeopleByAge implements Comparator<Person> {

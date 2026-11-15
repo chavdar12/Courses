@@ -1,11 +1,14 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class ParkingLotTest {
     @Test
     void keepsParkedCarsInArrivalOrder() throws Exception {
-        check("CA9999TT\nCA2844AA\nCA9876HH\nCA2822UU", () -> ParkingLot.main(new String[0]), """
+        check(
+                "CA9999TT\nCA2844AA\nCA9876HH\nCA2822UU",
+                () -> ParkingLot.main(new String[0]),
+                """
                 IN, CA2844AA
                 IN, CA1234TA
                 OUT, CA2844AA
@@ -22,6 +25,9 @@ class ParkingLotTest {
 
     @Test
     void emptyLot() throws Exception {
-        check("Parking Lot is Empty", () -> ParkingLot.main(new String[0]), "IN, CA2844AA\nOUT, CA2844AA\nEND\n");
+        check(
+                "Parking Lot is Empty",
+                () -> ParkingLot.main(new String[0]),
+                "IN, CA2844AA\nOUT, CA2844AA\nEND\n");
     }
 }

@@ -1,14 +1,15 @@
 package Google;
 
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class MainTest {
     // Main keeps its reader and collections in static fields, so there is one scenario per JVM
     @Test
     void printsPersonProfile() throws Exception {
-        check("""
+        check(
+                """
                 TonchoTonchev
                 Company:
                 Car:
@@ -17,7 +18,9 @@ class MainTest {
                 Electrode Electricity
                 Parents:
                 Children:
-                """, () -> Main.main(new String[0]), """
+                """,
+                () -> Main.main(new String[0]),
+                """
                 PeshoPeshev company PeshInc Management 1000.00
                 TonchoTonchev car Trabant 30
                 PeshoPeshev pokemon Pikachu Electricity

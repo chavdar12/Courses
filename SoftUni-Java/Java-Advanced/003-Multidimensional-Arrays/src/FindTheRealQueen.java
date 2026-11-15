@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class FindTheRealQueen {
     private static final int SIZE = 8;
-    private static final int[][] DIRECTIONS = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
+    private static final int[][] DIRECTIONS = {
+        {-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}
+    };
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

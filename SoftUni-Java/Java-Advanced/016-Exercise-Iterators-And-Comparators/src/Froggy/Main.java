@@ -9,9 +9,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] stones = Arrays.stream(reader.readLine().split(", "))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] stones =
+                Arrays.stream(reader.readLine().split(", ")).mapToInt(Integer::parseInt).toArray();
 
         Lake lake = new Lake(stones);
 

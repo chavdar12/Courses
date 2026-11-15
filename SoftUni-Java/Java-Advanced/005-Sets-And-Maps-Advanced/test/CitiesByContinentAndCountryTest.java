@@ -1,11 +1,12 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class CitiesByContinentAndCountryTest {
     @Test
     void groupsInInputOrder() throws Exception {
-        check("""
+        check(
+                """
                 Europe:
                   Bulgaria -> Sofia, Plovdiv
                   Poland -> Warsaw, Poznan
@@ -15,7 +16,9 @@ class CitiesByContinentAndCountryTest {
                   Japan -> Tokyo
                 Africa:
                   Nigeria -> Abuja
-                """, () -> CitiesByContinentAndCountry.main(new String[0]), """
+                """,
+                () -> CitiesByContinentAndCountry.main(new String[0]),
+                """
                 9
                 Europe Bulgaria Sofia
                 Asia China Beijing

@@ -7,7 +7,10 @@ public class DiagonalDifference {
         int size = Integer.parseInt(scanner.nextLine());
         int[][] matrix = new int[size][size];
         for (int row = 0; row < size; row++) {
-            matrix[row] = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+            matrix[row] =
+                    Arrays.stream(scanner.nextLine().split(" "))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
         }
         int primaryDiagonalSum = 0;
         int secondaryDiagonalSum = 0;

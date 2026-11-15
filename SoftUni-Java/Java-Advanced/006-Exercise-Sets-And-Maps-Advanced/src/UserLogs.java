@@ -20,9 +20,10 @@ public class UserLogs {
         }
         users.forEach((key, value) -> {
             System.out.println(key + ":");
-            System.out.println(value.entrySet().stream()
-                    .map(e -> e.getKey() + " => " + e.getValue())
-                    .collect(Collectors.joining(", ", "", ".")));
+            System.out.println(
+                    value.entrySet().stream()
+                            .map(e -> e.getKey() + " => " + e.getValue())
+                            .collect(Collectors.joining(", ", "", ".")));
         });
     }
 }

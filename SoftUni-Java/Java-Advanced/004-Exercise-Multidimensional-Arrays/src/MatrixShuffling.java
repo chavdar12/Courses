@@ -20,7 +20,14 @@ public class MatrixShuffling {
                 int col1 = Integer.parseInt(tokens[2]);
                 int row2 = Integer.parseInt(tokens[3]);
                 int col2 = Integer.parseInt(tokens[4]);
-                if (row1 < 0 || row1 >= rows || row2 < 0 || row2 >= rows || col1 < 0 || col1 >= cols || col2 < 0 || col2 >= cols) {
+                if (row1 < 0
+                        || row1 >= rows
+                        || row2 < 0
+                        || row2 >= rows
+                        || col1 < 0
+                        || col1 >= cols
+                        || col2 < 0
+                        || col2 >= cols) {
                     System.out.println("Invalid input!");
                 } else {
                     String temp = matrix[row1][col1];

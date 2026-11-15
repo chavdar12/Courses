@@ -1,11 +1,12 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class CountSymbolsTest {
     @Test
     void countsInAlphabeticalOrder() throws Exception {
-        check("""
+        check(
+                """
                  : 1 time/s
                 S: 1 time/s
                 U: 1 time/s
@@ -18,6 +19,8 @@ class CountSymbolsTest {
                 r: 1 time/s
                 s: 1 time/s
                 t: 1 time/s
-                """, () -> CountSymbols.main(new String[0]), "SoftUni rocks\n");
+                """,
+                () -> CountSymbols.main(new String[0]),
+                "SoftUni rocks\n");
     }
 }

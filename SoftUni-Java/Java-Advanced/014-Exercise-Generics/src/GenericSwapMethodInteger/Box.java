@@ -25,11 +25,12 @@ public class Box<T> {
     public String toString() {
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < this.collection.size(); i++) {
-            output.append(String.format("%s: %s%n",
-                    this.collection.get(i).getClass().getCanonicalName(),
-                    this.collection.get(i)));
+            output.append(
+                    String.format(
+                            "%s: %s%n",
+                            this.collection.get(i).getClass().getCanonicalName(),
+                            this.collection.get(i)));
         }
         return output.toString();
     }
 }
-

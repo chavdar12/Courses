@@ -7,7 +7,10 @@ import java.util.stream.Stream;
 public class GetFolderSize {
     public static void main(String[] args) throws IOException {
         try (Stream<Path> paths = Files.walk(Path.of(args[0]))) {
-            long size = paths.filter(Files::isRegularFile).mapToLong(path -> path.toFile().length()).sum();
+            long size =
+                    paths.filter(Files::isRegularFile)
+                            .mapToLong(path -> path.toFile().length())
+                            .sum();
             System.out.println("Folder size: " + size);
         }
     }

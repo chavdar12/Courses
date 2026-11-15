@@ -11,7 +11,8 @@ public class AverageStudentsGrades {
         Map<String, List<Double>> students = new TreeMap<>();
         for (int i = 0; i < n; i++) {
             String[] tokens = scanner.nextLine().split(" ");
-            students.computeIfAbsent(tokens[0], k -> new ArrayList<>()).add(Double.parseDouble(tokens[1]));
+            students.computeIfAbsent(tokens[0], k -> new ArrayList<>())
+                    .add(Double.parseDouble(tokens[1]));
         }
         students.forEach((name, grades) -> {
             StringBuilder line = new StringBuilder(name).append(" -> ");

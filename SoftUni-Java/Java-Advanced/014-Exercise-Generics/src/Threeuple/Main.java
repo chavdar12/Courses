@@ -14,8 +14,10 @@ public class Main {
         // the town is the last word, the address is everything between the names and the town
         String address = String.join(" ", Arrays.copyOfRange(person, 2, person.length - 1));
 
-        System.out.println(new Threeuple<>(person[0] + " " + person[1], address, person[person.length - 1]));
-        System.out.println(new Threeuple<>(beer[0], Integer.parseInt(beer[1]), beer[2].equals("drunk")));
+        System.out.println(
+                new Threeuple<>(person[0] + " " + person[1], address, person[person.length - 1]));
+        System.out.println(
+                new Threeuple<>(beer[0], Integer.parseInt(beer[1]), beer[2].equals("drunk")));
         System.out.println(new Threeuple<>(bank[0], Double.parseDouble(bank[1]), bank[2]));
     }
 }

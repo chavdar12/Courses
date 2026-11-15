@@ -10,9 +10,10 @@ public class Main {
         int n = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < n; i++) {
             String[] carInfo = scanner.nextLine().split("\\s+");
-            Car car = carInfo.length == 1
-                    ? new Car(carInfo[0])
-                    : new Car(carInfo[0], carInfo[1], Integer.parseInt(carInfo[2]));
+            Car car =
+                    carInfo.length == 1
+                            ? new Car(carInfo[0])
+                            : new Car(carInfo[0], carInfo[1], Integer.parseInt(carInfo[2]));
             cars.add(car);
         }
         cars.forEach(car -> System.out.println(car.carInfo()));

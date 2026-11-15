@@ -10,6 +10,7 @@ public class Cymric extends Cat {
 
     @Override
     public String toString() {
-        return String.format("%s %s %.2f", this.getClass().getSimpleName(), super.getName(), this.furLength);
+        return String.format(
+                "%s %s %.2f", this.getClass().getSimpleName(), super.getName(), this.furLength);
     }
 }

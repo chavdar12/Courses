@@ -17,7 +17,10 @@ public class Robotics {
         processingTimes.keySet().forEach(name -> busyUntil.put(name, 0));
 
         String[] time = scanner.nextLine().split(":");
-        int seconds = Integer.parseInt(time[0]) * 3600 + Integer.parseInt(time[1]) * 60 + Integer.parseInt(time[2]);
+        int seconds =
+                Integer.parseInt(time[0]) * 3600
+                        + Integer.parseInt(time[1]) * 60
+                        + Integer.parseInt(time[2]);
 
         ArrayDeque<String> products = new ArrayDeque<>();
         String product = scanner.nextLine();
@@ -42,7 +45,9 @@ public class Robotics {
             }
             busyUntil.put(freeRobot, seconds + processingTimes.get(freeRobot));
             int clock = seconds % (24 * 3600);
-            System.out.printf("%s - %s [%02d:%02d:%02d]%n", freeRobot, current, clock / 3600, clock / 60 % 60, clock % 60);
+            System.out.printf(
+                    "%s - %s [%02d:%02d:%02d]%n",
+                    freeRobot, current, clock / 3600, clock / 60 % 60, clock % 60);
         }
     }
 }

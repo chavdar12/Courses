@@ -18,6 +18,7 @@ public class LogsAggregator {
             ips.computeIfAbsent(user, k -> new TreeSet<>()).add(ip);
         }
         durations.forEach((user, duration) ->
-                System.out.printf("%s: %d [%s]%n", user, duration, String.join(", ", ips.get(user))));
+                System.out.printf(
+                        "%s: %d [%s]%n", user, duration, String.join(", ", ips.get(user))));
     }
 }

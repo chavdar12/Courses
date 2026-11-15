@@ -11,9 +11,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        ArrayList<String> data = Arrays.stream(reader.readLine().split(" "))
-                .skip(1)
-                .collect(Collectors.toCollection(ArrayList::new));
+        ArrayList<String> data =
+                Arrays.stream(reader.readLine().split(" "))
+                        .skip(1)
+                        .collect(Collectors.toCollection(ArrayList::new));
 
         ListIterator listIterator = new ListIterator(data);
 

@@ -1,14 +1,15 @@
 package CarSalesman;
 
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class MainTest {
     // Main keeps its reader and collections in static fields, so there is one scenario per JVM
     @Test
     void printsCarsWithOptionalFields() throws Exception {
-        check("""
+        check(
+                """
                 FordFocus:
                 V4-33:
                 Power: 140
@@ -30,7 +31,9 @@ class MainTest {
                 Efficiency: B
                 Weight: n/a
                 Color: Orange
-                """, () -> Main.main(new String[0]), """
+                """,
+                () -> Main.main(new String[0]),
+                """
                 2
                 V8-101 220 50
                 V4-33 140 28 B

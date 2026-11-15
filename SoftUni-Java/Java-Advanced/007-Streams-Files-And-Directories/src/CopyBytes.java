@@ -6,7 +6,8 @@ import java.io.OutputStream;
 
 public class CopyBytes {
     public static void main(String[] args) throws IOException {
-        try (InputStream in = new FileInputStream(args[0]); OutputStream out = new FileOutputStream(args[1])) {
+        try (InputStream in = new FileInputStream(args[0]);
+                OutputStream out = new FileOutputStream(args[1])) {
             int b;
             while ((b = in.read()) != -1) {
                 if (b == ' ' || b == '\n' || b == '\r') {

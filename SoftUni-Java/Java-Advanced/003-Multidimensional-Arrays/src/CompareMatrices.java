@@ -13,9 +13,10 @@ public class CompareMatrices {
         int rows = Integer.parseInt(scanner.nextLine().trim().split("\\s+")[0]);
         int[][] matrix = new int[rows][];
         for (int row = 0; row < rows; row++) {
-            matrix[row] = Arrays.stream(scanner.nextLine().trim().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            matrix[row] =
+                    Arrays.stream(scanner.nextLine().trim().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
         }
         return matrix;
     }

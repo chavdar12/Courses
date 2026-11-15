@@ -13,6 +13,7 @@ public class Main {
 
         System.out.println(new Tuple<>(person[0] + " " + person[1], person[2]));
         System.out.println(new Tuple<>(beer[0], Integer.parseInt(beer[1])));
-        System.out.println(new Tuple<>(Integer.parseInt(numbers[0]), Double.parseDouble(numbers[1])));
+        System.out.println(
+                new Tuple<>(Integer.parseInt(numbers[0]), Double.parseDouble(numbers[1])));
     }
 }

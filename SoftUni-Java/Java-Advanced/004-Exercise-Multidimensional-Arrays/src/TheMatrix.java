@@ -24,7 +24,11 @@ public class TheMatrix {
     }
 
     private static void fillMatrix(char[][] matrix, int row, int col, char symbol, char fillChar) {
-        if (row < 0 || row >= matrix.length || col < 0 || col >= matrix[row].length || matrix[row][col] != symbol) {
+        if (row < 0
+                || row >= matrix.length
+                || col < 0
+                || col >= matrix[row].length
+                || matrix[row][col] != symbol) {
             return;
         }
         matrix[row][col] = fillChar;

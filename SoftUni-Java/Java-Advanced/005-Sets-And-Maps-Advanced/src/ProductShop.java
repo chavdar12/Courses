@@ -22,7 +22,8 @@ public class ProductShop {
         for (Map.Entry<String, Map<String, Double>> entry : shops.entrySet()) {
             System.out.println(entry.getKey() + "->");
             for (Map.Entry<String, Double> product : entry.getValue().entrySet()) {
-                System.out.printf("Product: %s, Price: %.1f%n", product.getKey(), product.getValue());
+                System.out.printf(
+                        "Product: %s, Price: %.1f%n", product.getKey(), product.getValue());
             }
         }
     }

@@ -10,7 +10,6 @@ public class Employee {
     private String email;
     private int age;
 
-
     public Employee(String name, double salary, String position, Department department) {
         this.name = name;
         this.salary = salary;
@@ -20,13 +19,20 @@ public class Employee {
         this.age = -1;
     }
 
-    public Employee(String name, double salary, String position, Department department, String email, int age) {
+    public Employee(
+            String name,
+            double salary,
+            String position,
+            Department department,
+            String email,
+            int age) {
         this(name, salary, position, department);
         this.email = email;
         this.age = age;
     }
 
-    public Employee(String name, double salary, String position, Department department, String email) {
+    public Employee(
+            String name, double salary, String position, Department department, String email) {
         this(name, salary, position, department);
         this.email = email;
     }

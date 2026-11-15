@@ -31,7 +31,6 @@ public class Main {
                     break;
                 default:
                     break;
-
             }
             command = bufferedReader.readLine();
         }

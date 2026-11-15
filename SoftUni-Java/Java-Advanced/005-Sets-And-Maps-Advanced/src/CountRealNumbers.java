@@ -6,7 +6,10 @@ import java.util.Scanner;
 public class CountRealNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        double[] numbers = Arrays.stream(scanner.nextLine().split(" ")).mapToDouble(Double::parseDouble).toArray();
+        double[] numbers =
+                Arrays.stream(scanner.nextLine().split(" "))
+                        .mapToDouble(Double::parseDouble)
+                        .toArray();
         Map<Double, Integer> counts = new LinkedHashMap<>();
         for (double number : numbers) {
             if (!counts.containsKey(number)) {

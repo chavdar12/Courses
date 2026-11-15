@@ -1,5 +1,7 @@
 package support;
 
+import org.junit.jupiter.api.Assertions;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -8,21 +10,18 @@ import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-import org.junit.jupiter.api.Assertions;
-
 public final class Console {
     @FunctionalInterface
     public interface Program {
         void run() throws Exception;
     }
 
-    private Console() {
-    }
+    private Console() {}
 
     /**
-     * Runs a console program with the given stdin and returns its stdout.
-     * Line endings are normalised and trailing whitespace on every line is dropped,
-     * since the programs print "1 2 3 " style output.
+     * Runs a console program with the given stdin and returns its stdout. Line endings are
+     * normalised and trailing whitespace on every line is dropped, since the programs print "1 2 3
+     * " style output.
      */
     public static String run(Program program, String input) throws Exception {
         InputStream originalIn = System.in;
@@ -43,13 +42,17 @@ public final class Console {
         return normalise(out.toString(StandardCharsets.UTF_8));
     }
 
-    /** Asserts the program prints {@code expected} (compared after {@link #normalise}) for the given stdin. */
+    /**
+     * Asserts the program prints {@code expected} (compared after {@link #normalise}) for the given
+     * stdin.
+     */
     public static void check(String expected, Program program, String input) throws Exception {
         Assertions.assertEquals(normalise(expected), run(program, input));
     }
 
     public static String normalise(String text) {
-        return text.replace("\r\n", "\n").lines()
+        return text.replace("\r\n", "\n")
+                .lines()
                 .map(String::stripTrailing)
                 .collect(Collectors.joining("\n"))
                 .stripTrailing();

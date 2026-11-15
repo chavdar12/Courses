@@ -7,18 +7,15 @@ public class ListyIterator implements Iterable<String> {
     private List<String> collection;
     private int position;
 
-
     public ListyIterator() {
         this.collection = new ArrayList<>();
         this.position = 0;
-
     }
 
     public ListyIterator(String... strings) {
         this();
         this.collection = new ArrayList<>(Arrays.asList(strings));
     }
-
 
     public void create(String[] lines) {
         for (int i = 1; i < lines.length; i++) {
@@ -74,7 +71,6 @@ public class ListyIterator implements Iterable<String> {
     private class ListIterator implements Iterator<String> {
 
         private int position;
-
 
         @Override
         public boolean hasNext() {

@@ -1,6 +1,5 @@
 package RawData;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,7 +30,6 @@ public class Main {
                         .forEach(System.out::println);
                 break;
         }
-
     }
 
     private static void getCars() throws IOException {

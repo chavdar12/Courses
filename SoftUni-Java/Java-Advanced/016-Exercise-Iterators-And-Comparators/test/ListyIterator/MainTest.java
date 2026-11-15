@@ -1,13 +1,15 @@
 package ListyIterator;
 
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class MainTest {
     @Test
     void movesAndPrints() throws Exception {
-        check("true\nStefcho\ntrue\nGoshky\nfalse", () -> Main.main(new String[0]),
+        check(
+                "true\nStefcho\ntrue\nGoshky\nfalse",
+                () -> Main.main(new String[0]),
                 "Create Stefcho Goshky\nHasNext\nPrint\nMove\nPrint\nMove\nEND\n");
     }
 

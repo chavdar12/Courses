@@ -1,6 +1,5 @@
 package FamilyTree;
 
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -46,9 +45,10 @@ public class FamilyTree {
     }
 
     private Person getPerson(String parameter) {
-        return this.predecessors
-                .stream()
-                .filter(person -> person.getName().equals(parameter) || person.getBirthDate().equals(parameter))
+        return this.predecessors.stream()
+                .filter(person ->
+                        person.getName().equals(parameter)
+                                || person.getBirthDate().equals(parameter))
                 .findFirst()
                 .orElse(null);
     }
@@ -65,7 +65,10 @@ public class FamilyTree {
     public String toString() {
         Collection<Person> parents = this.descendent.getParents();
         Collection<Person> children = this.descendent.getChildren();
-        String output = String.format("%s %s\nParents:\n", this.descendent.getName(), this.descendent.getBirthDate());
+        String output =
+                String.format(
+                        "%s %s\nParents:\n",
+                        this.descendent.getName(), this.descendent.getBirthDate());
         if (!parents.isEmpty()) {
             output += getCollectionToString(parents);
             output += "\n";

@@ -6,8 +6,9 @@ import java.util.regex.Pattern;
 
 public class SerbianUnleashed {
     // "{singer} @{venue} {ticketsPrice} {ticketsCount}", singer and venue are one to three words
-    private static final Pattern CONCERT = Pattern.compile(
-            "^(?<singer>[A-Za-z]+(?: [A-Za-z]+){0,2}) @(?<venue>[A-Za-z]+(?: [A-Za-z]+){0,2}) (?<price>\\d+) (?<count>\\d+)$");
+    private static final Pattern CONCERT =
+            Pattern.compile(
+                    "^(?<singer>[A-Za-z]+(?: [A-Za-z]+){0,2}) @(?<venue>[A-Za-z]+(?: [A-Za-z]+){0,2}) (?<price>\\d+) (?<count>\\d+)$");
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +17,9 @@ public class SerbianUnleashed {
         while (!input.equals("End")) {
             Matcher matcher = CONCERT.matcher(input);
             if (matcher.matches()) {
-                long money = Long.parseLong(matcher.group("price")) * Long.parseLong(matcher.group("count"));
+                long money =
+                        Long.parseLong(matcher.group("price"))
+                                * Long.parseLong(matcher.group("count"));
                 venues.computeIfAbsent(matcher.group("venue"), k -> new LinkedHashMap<>())
                         .merge(matcher.group("singer"), money, Long::sum);
             }
@@ -26,7 +29,8 @@ public class SerbianUnleashed {
             System.out.println(venue);
             singers.entrySet().stream()
                     .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-                    .forEach(singer -> System.out.printf("#  %s -> %d%n", singer.getKey(), singer.getValue()));
+                    .forEach(singer ->
+                            System.out.printf("#  %s -> %d%n", singer.getKey(), singer.getValue()));
         });
     }
 }

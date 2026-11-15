@@ -11,7 +11,8 @@ public class TheHeiganDance {
         boolean isCloud = false;
         String lastSpell = "";
         while (playerHealth > 0) {
-            // each turn: player hits Heigan, then a lingering cloud hits the player, then both deaths are checked
+            // each turn: player hits Heigan, then a lingering cloud hits the player, then both
+            // deaths are checked
             heiganHealth -= playerDamage;
             if (isCloud) {
                 playerHealth -= 3500;
@@ -25,13 +26,17 @@ public class TheHeiganDance {
             int targetRow = Integer.parseInt(input[1]);
             int targetCol = Integer.parseInt(input[2]);
             if (isInDamageZone(playerRow, playerCol, targetRow, targetCol)) {
-                if (!isInDamageZone(playerRow - 1, playerCol, targetRow, targetCol) && isInside(playerRow - 1)) {
+                if (!isInDamageZone(playerRow - 1, playerCol, targetRow, targetCol)
+                        && isInside(playerRow - 1)) {
                     playerRow--;
-                } else if (!isInDamageZone(playerRow, playerCol + 1, targetRow, targetCol) && isInside(playerCol + 1)) {
+                } else if (!isInDamageZone(playerRow, playerCol + 1, targetRow, targetCol)
+                        && isInside(playerCol + 1)) {
                     playerCol++;
-                } else if (!isInDamageZone(playerRow + 1, playerCol, targetRow, targetCol) && isInside(playerRow + 1)) {
+                } else if (!isInDamageZone(playerRow + 1, playerCol, targetRow, targetCol)
+                        && isInside(playerRow + 1)) {
                     playerRow++;
-                } else if (!isInDamageZone(playerRow, playerCol - 1, targetRow, targetCol) && isInside(playerCol - 1)) {
+                } else if (!isInDamageZone(playerRow, playerCol - 1, targetRow, targetCol)
+                        && isInside(playerCol - 1)) {
                     playerCol--;
                 } else {
                     if (spell.equals("Cloud")) {
@@ -62,7 +67,11 @@ public class TheHeiganDance {
         return i >= 0 && i < 15;
     }
 
-    private static boolean isInDamageZone(int playerRow, int playerCol, int targetRow, int targetCol) {
-        return playerRow >= targetRow - 1 && playerRow <= targetRow + 1 && playerCol >= targetCol - 1 && playerCol <= targetCol + 1;
+    private static boolean isInDamageZone(
+            int playerRow, int playerCol, int targetRow, int targetCol) {
+        return playerRow >= targetRow - 1
+                && playerRow <= targetRow + 1
+                && playerCol >= targetCol - 1
+                && playerCol <= targetCol + 1;
     }
 }

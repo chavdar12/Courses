@@ -16,14 +16,18 @@ public class DragonArmy {
             int damage = tokens[2].equals("null") ? 45 : Integer.parseInt(tokens[2]);
             int health = tokens[3].equals("null") ? 250 : Integer.parseInt(tokens[3]);
             int armor = tokens[4].equals("null") ? 10 : Integer.parseInt(tokens[4]);
-            dragons.computeIfAbsent(type, k -> new TreeMap<>()).put(name, new int[]{damage, health, armor});
+            dragons.computeIfAbsent(type, k -> new TreeMap<>())
+                    .put(name, new int[] {damage, health, armor});
         }
         dragons.forEach((key, value) -> {
             double averageDamage = value.values().stream().mapToInt(x -> x[0]).average().orElse(0);
             double averageHealth = value.values().stream().mapToInt(x -> x[1]).average().orElse(0);
             double averageArmor = value.values().stream().mapToInt(x -> x[2]).average().orElse(0);
-            System.out.printf("%s::(%.2f/%.2f/%.2f)%n", key, averageDamage, averageHealth, averageArmor);
-            value.forEach((k, v) -> System.out.printf("-%s -> damage: %d, health: %d, armor: %d%n", k, v[0], v[1], v[2]));
+            System.out.printf(
+                    "%s::(%.2f/%.2f/%.2f)%n", key, averageDamage, averageHealth, averageArmor);
+            value.forEach((k, v) ->
+                    System.out.printf(
+                            "-%s -> damage: %d, health: %d, armor: %d%n", k, v[0], v[1], v[2]));
         });
     }
 }

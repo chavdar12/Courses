@@ -24,7 +24,6 @@ public class Person implements Comparable<Person> {
             result = this.age - other.age;
         }
         return result;
-
     }
 
     @Override
@@ -32,4 +31,3 @@ public class Person implements Comparable<Person> {
         return this.name + " " + this.age;
     }
 }
-

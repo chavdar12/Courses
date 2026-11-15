@@ -24,11 +24,15 @@ public class PopulationCounter {
                     return Long.compare(secondPopulation, firstPopulation);
                 })
                 .forEach(country -> {
-                    long totalPopulation = country.getValue().values().stream().mapToLong(e -> e).sum();
-                    System.out.printf("%s (total population: %d)%n", country.getKey(), totalPopulation);
+                    long totalPopulation =
+                            country.getValue().values().stream().mapToLong(e -> e).sum();
+                    System.out.printf(
+                            "%s (total population: %d)%n", country.getKey(), totalPopulation);
                     country.getValue().entrySet().stream()
                             .sorted((a, b) -> b.getValue().compareTo(a.getValue()))
-                            .forEach(city -> System.out.printf("=>%s: %d%n", city.getKey(), city.getValue()));
+                            .forEach(city ->
+                                    System.out.printf(
+                                            "=>%s: %d%n", city.getKey(), city.getValue()));
                 });
     }
 }

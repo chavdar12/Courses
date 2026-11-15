@@ -65,7 +65,7 @@ public class RadioactiveMutantVampireBunnies {
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[row].length; col++) {
                 if (matrix[row][col] == 'B') {
-                    bunnies.add(new int[]{row, col});
+                    bunnies.add(new int[] {row, col});
                 }
             }
         }

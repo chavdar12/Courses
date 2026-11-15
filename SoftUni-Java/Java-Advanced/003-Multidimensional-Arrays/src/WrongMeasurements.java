@@ -11,20 +11,23 @@ public class WrongMeasurements {
         int[][] matrix = new int[rows][cols];
 
         for (int row = 0; row < rows; row++) {
-            matrix[row] = Arrays.stream(scanner.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            matrix[row] =
+                    Arrays.stream(scanner.nextLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
         }
 
-        int[] wrongValue = Arrays.stream(scanner.nextLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] wrongValue =
+                Arrays.stream(scanner.nextLine().split("\\s+"))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
 
         int wrongValueRow = wrongValue[0];
         int wrongValueCol = wrongValue[1];
 
         int wrongValueReal = matrix[wrongValueRow][wrongValueCol];
-        // read neighbours from the original values so earlier replacements do not leak into later sums
+        // read neighbours from the original values so earlier replacements do not leak into later
+        // sums
         int[][] original = Arrays.stream(matrix).map(int[]::clone).toArray(int[][]::new);
 
         for (int row = 0; row < rows; row++) {

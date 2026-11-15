@@ -6,7 +6,7 @@ import java.io.IOException;
 public class CopyAPicture {
     public static void main(String[] args) throws IOException {
         try (FileInputStream reader = new FileInputStream(args[0]);
-             FileOutputStream writer = new FileOutputStream(args[1])) {
+                FileOutputStream writer = new FileOutputStream(args[1])) {
             byte[] buffer = new byte[4096];
             int readBytes = reader.read(buffer);
             while (readBytes != -1) {

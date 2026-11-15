@@ -1,6 +1,5 @@
 package CustomListIterator;
 
-
 import java.util.List;
 
 public class Sorter {

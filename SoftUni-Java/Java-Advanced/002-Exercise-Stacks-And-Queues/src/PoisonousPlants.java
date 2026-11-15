@@ -6,10 +6,12 @@ public class PoisonousPlants {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
-        int[] plants = Arrays.stream(scanner.nextLine().trim().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-        // days[i] = the day plant i dies (0 = never); the stack holds indexes of plants still alive to the left
+        int[] plants =
+                Arrays.stream(scanner.nextLine().trim().split("\\s+"))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
+        // days[i] = the day plant i dies (0 = never); the stack holds indexes of plants still alive
+        // to the left
         int[] days = new int[n];
         ArrayDeque<Integer> stack = new ArrayDeque<>();
         int maxDays = 0;

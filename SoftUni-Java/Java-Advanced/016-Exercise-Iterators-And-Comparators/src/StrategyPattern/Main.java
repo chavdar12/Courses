@@ -1,6 +1,5 @@
 package StrategyPattern;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,6 +30,5 @@ public class Main {
         for (Person person : peopleByAges) {
             System.out.println(person.toString());
         }
-
     }
 }

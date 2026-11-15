@@ -36,10 +36,10 @@ public class Trainer {
             this.badgesCount++;
         } else {
             pokemons.forEach(Pokemon::reduceHealth);
-            this.pokemons = this.pokemons.stream()
-                    .filter(Pokemon::isAlive)
-                    .collect(Collectors.toCollection(ArrayList::new));
-
+            this.pokemons =
+                    this.pokemons.stream()
+                            .filter(Pokemon::isAlive)
+                            .collect(Collectors.toCollection(ArrayList::new));
         }
     }
 
@@ -53,6 +53,7 @@ public class Trainer {
 
     @Override
     public String toString() {
-        return String.format("%s %d %d", this.getName(), this.getBadgesCount(), this.getPokemonsCount());
+        return String.format(
+                "%s %d %d", this.getName(), this.getBadgesCount(), this.getPokemonsCount());
     }
 }

@@ -1,14 +1,17 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class LogsAggregatorTest {
     @Test
     void aggregatesDurationAndIps() throws Exception {
-        check("""
+        check(
+                """
                 alex: 62 [10.10.17.33, 212.50.118.81]
                 peter: 303 [10.10.17.34, 10.10.17.35, 192.168.0.11]
-                """, () -> LogsAggregator.main(new String[0]), """
+                """,
+                () -> LogsAggregator.main(new String[0]),
+                """
                 7
                 192.168.0.11 peter 33
                 10.10.17.33 alex 12

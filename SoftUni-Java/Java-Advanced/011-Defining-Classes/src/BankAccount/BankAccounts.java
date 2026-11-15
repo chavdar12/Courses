@@ -35,6 +35,4 @@ public class BankAccounts {
     public BankAccount getUser(int id) {
         return users.get(id);
     }
-
-
 }

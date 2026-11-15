@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class HotPotato {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayDeque<String> queue = new ArrayDeque<>(Arrays.asList(scanner.nextLine().split("\\s+")));
+        ArrayDeque<String> queue =
+                new ArrayDeque<>(Arrays.asList(scanner.nextLine().split("\\s+")));
         int n = Integer.parseInt(scanner.nextLine());
         while (queue.size() > 1) {
             for (int i = 1; i < n; i++) {

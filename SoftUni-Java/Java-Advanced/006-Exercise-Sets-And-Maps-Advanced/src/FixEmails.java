@@ -19,4 +19,3 @@ public class FixEmails {
         emails.forEach((key, value) -> System.out.println(key + " -> " + value));
     }
 }
-

@@ -15,7 +15,8 @@ public class Main {
 
         while (!input.equals("END")) {
             if (input.contains("Push")) {
-                Arrays.stream(input.split("([, ]+)")).skip(1)
+                Arrays.stream(input.split("([, ]+)"))
+                        .skip(1)
                         .mapToInt(Integer::parseInt)
                         .forEach(stack::push);
             } else {
@@ -24,7 +25,6 @@ public class Main {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-
             }
             input = reader.readLine();
         }

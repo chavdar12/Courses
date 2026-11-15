@@ -7,7 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Main {
-    private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static final BufferedReader reader =
+            new BufferedReader(new InputStreamReader(System.in));
     private static final Map<String, Trainer> trainers = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException {
@@ -19,10 +20,7 @@ public class Main {
             String element = line;
             trainers.values().forEach(trainer -> trainer.processElement(element));
         }
-        trainers.values()
-                .stream()
-                .sorted(Trainer::compareTo)
-                .forEach(System.out::println);
+        trainers.values().stream().sorted(Trainer::compareTo).forEach(System.out::println);
     }
 
     private static void getPokemons() throws IOException {
@@ -37,7 +35,6 @@ public class Main {
 
             trainers.putIfAbsent(trainer, new Trainer(trainer));
             trainers.get(trainer).add(new Pokemon(pokemonName, element, health));
-
         }
     }
 }

@@ -1,11 +1,12 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class DragonArmyTest {
     @Test
     void typesInInputOrderDragonsByName() throws Exception {
-        check("""
+        check(
+                """
                 Red::(160.00/2350.00/30.00)
                 -Bazgargal -> damage: 100, health: 2500, armor: 25
                 -Obsidion -> damage: 220, health: 2200, armor: 35
@@ -14,7 +15,9 @@ class DragonArmyTest {
                 Blue::(62.50/1950.00/35.00)
                 -Algordox -> damage: 65, health: 1800, armor: 50
                 -Kerizsa -> damage: 60, health: 2100, armor: 20
-                """, () -> DragonArmy.main(new String[0]), """
+                """,
+                () -> DragonArmy.main(new String[0]),
+                """
                 5
                 Red Bazgargal 100 2500 25
                 Black Dargonax 200 3500 18
@@ -26,9 +29,12 @@ class DragonArmyTest {
 
     @Test
     void nullStatsUseDefaultsAndDuplicatesOverwrite() throws Exception {
-        check("""
+        check(
+                """
                 Green::(45.00/250.00/10.00)
                 -Viper -> damage: 45, health: 250, armor: 10
-                """, () -> DragonArmy.main(new String[0]), "2\nGreen Viper 1 1 1\nGreen Viper null null null\n");
+                """,
+                () -> DragonArmy.main(new String[0]),
+                "2\nGreen Viper 1 1 1\nGreen Viper null null null\n");
     }
 }

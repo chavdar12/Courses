@@ -41,7 +41,6 @@ public class Book {
         } else {
             this.authors = Arrays.asList(authors);
         }
-
     }
 
     public boolean compareTo(Book bookTwo) {

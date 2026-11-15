@@ -56,6 +56,7 @@ public class Car {
     }
 
     public String toString() {
-        return String.format("%s %.2f %.0f", this.getModel(), getFuelAmount(), getDistancedTravelled());
+        return String.format(
+                "%s %.2f %.0f", this.getModel(), getFuelAmount(), getDistancedTravelled());
     }
 }

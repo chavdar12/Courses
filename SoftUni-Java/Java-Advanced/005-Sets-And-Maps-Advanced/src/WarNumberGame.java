@@ -27,9 +27,13 @@ public class WarNumberGame {
             }
         }
         if (firstPlayer.size() > secondPlayer.size()) {
-            System.out.println("First player wins! Sum: " + firstPlayer.stream().mapToInt(Integer::intValue).sum());
+            System.out.println(
+                    "First player wins! Sum: "
+                            + firstPlayer.stream().mapToInt(Integer::intValue).sum());
         } else if (secondPlayer.size() > firstPlayer.size()) {
-            System.out.println("Second player wins! Sum: " + secondPlayer.stream().mapToInt(Integer::intValue).sum());
+            System.out.println(
+                    "Second player wins! Sum: "
+                            + secondPlayer.stream().mapToInt(Integer::intValue).sum());
         } else {
             System.out.println("Draw!");
         }

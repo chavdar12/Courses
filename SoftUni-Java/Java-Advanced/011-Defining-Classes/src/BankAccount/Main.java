@@ -27,7 +27,9 @@ public class Main {
                 case "GetInterest" -> {
                     int id = Integer.parseInt(tokens[1]);
                     if (accounts.isExist(id)) {
-                        System.out.printf("%.2f%n", accounts.getUser(id).getInterest(Integer.parseInt(tokens[2])));
+                        System.out.printf(
+                                "%.2f%n",
+                                accounts.getUser(id).getInterest(Integer.parseInt(tokens[2])));
                     }
                 }
             }

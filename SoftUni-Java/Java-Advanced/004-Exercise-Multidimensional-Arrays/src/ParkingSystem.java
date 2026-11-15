@@ -24,7 +24,8 @@ public class ParkingSystem {
         }
     }
 
-    // Column 0 is the road, so spots start at 1; on a tie the spot closer to the entrance (left) wins
+    // Column 0 is the road, so spots start at 1; on a tie the spot closer to the entrance (left)
+    // wins
     private static int findSpot(boolean[] row, int targetCol) {
         if (!row[targetCol]) {
             return targetCol;

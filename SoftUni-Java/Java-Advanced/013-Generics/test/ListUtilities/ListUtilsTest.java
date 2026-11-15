@@ -1,12 +1,13 @@
 package ListUtilities;
 
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static support.Console.check;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static support.Console.check;
+import java.util.List;
 
 class ListUtilsTest {
     @Test

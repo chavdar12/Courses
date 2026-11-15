@@ -1,11 +1,12 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class BrowserHistoryTest {
     @Test
     void navigatesBackThroughHistory() throws Exception {
-        check("""
+        check(
+                """
                 https://softuni.bg/
                 no previous URLs
                 https://softuni.bg/trainings/courses
@@ -14,7 +15,9 @@ class BrowserHistoryTest {
                 https://softuni.bg/
                 https://softuni.bg/trainings/live
                 https://softuni.bg/trainings/live/details
-                """, () -> BrowserHistory.main(new String[0]), """
+                """,
+                () -> BrowserHistory.main(new String[0]),
+                """
                 https://softuni.bg/
                 back
                 https://softuni.bg/trainings/courses

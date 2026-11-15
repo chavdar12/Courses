@@ -1,6 +1,5 @@
 package CarSalesman;
 
-
 public class Car {
     private static final String DEFAULT_VALUE = "n/a";
 
@@ -31,9 +30,13 @@ public class Car {
 
     @Override
     public String toString() {
-        return this.model + ":\n" +
-                this.engine.toString() +
-                "Weight: " + this.weight + "\n" +
-                "Color: " + this.color;
+        return this.model
+                + ":\n"
+                + this.engine.toString()
+                + "Weight: "
+                + this.weight
+                + "\n"
+                + "Color: "
+                + this.color;
     }
 }

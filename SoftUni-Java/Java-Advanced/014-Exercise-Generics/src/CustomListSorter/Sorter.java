@@ -1,6 +1,5 @@
 package CustomListSorter;
 
-
 import java.util.List;
 
 public class Sorter {

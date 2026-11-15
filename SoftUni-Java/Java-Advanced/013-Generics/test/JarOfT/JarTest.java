@@ -1,12 +1,13 @@
 package JarOfT;
 
-import java.util.NoSuchElementException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static support.Console.check;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static support.Console.check;
+import java.util.NoSuchElementException;
 
 class JarTest {
     @Test

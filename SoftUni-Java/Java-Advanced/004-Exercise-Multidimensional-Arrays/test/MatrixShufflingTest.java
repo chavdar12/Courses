@@ -1,18 +1,21 @@
-import org.junit.jupiter.api.Test;
-
 import static support.Console.check;
+
+import org.junit.jupiter.api.Test;
 
 class MatrixShufflingTest {
     @Test
     void swapsAndRejectsInvalidCommands() throws Exception {
-        check("""
+        check(
+                """
                 5 2 3
                 4 1 6
                 Invalid input!
                 Invalid input!
                 5 4 3
                 2 1 6
-                """, () -> MatrixShuffling.main(new String[0]), """
+                """,
+                () -> MatrixShuffling.main(new String[0]),
+                """
                 2 3
                 1 2 3
                 4 5 6

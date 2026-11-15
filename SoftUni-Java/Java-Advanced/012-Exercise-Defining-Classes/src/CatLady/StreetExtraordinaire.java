@@ -10,6 +10,8 @@ public class StreetExtraordinaire extends Cat {
 
     @Override
     public String toString() {
-        return String.format("%s %s %.2f", this.getClass().getSimpleName(), super.getName(), this.decibelsOfMeows);
+        return String.format(
+                "%s %s %.2f",
+                this.getClass().getSimpleName(), super.getName(), this.decibelsOfMeows);
     }
 }

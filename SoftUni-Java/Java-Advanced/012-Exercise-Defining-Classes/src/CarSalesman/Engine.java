@@ -30,9 +30,16 @@ public class Engine {
 
     @Override
     public String toString() {
-        return this.model + ":\n" +
-                "Power: " + this.power + "\n" +
-                "Displacement: " + this.displacement + "\n" +
-                "Efficiency: " + this.efficiency + "\n";
+        return this.model
+                + ":\n"
+                + "Power: "
+                + this.power
+                + "\n"
+                + "Displacement: "
+                + this.displacement
+                + "\n"
+                + "Efficiency: "
+                + this.efficiency
+                + "\n";
     }
 }

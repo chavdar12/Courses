@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-import static java.lang.Math.max;
-import static java.util.Collections.min;
-
 public class IntersectionOfTwoMatrices {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
