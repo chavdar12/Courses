@@ -1,10 +1,14 @@
-import {useState} from 'react';
-import {Box, Button, Dialog, DialogActions, DialogContent, Typography} from '@mui/material';
-import type {Prescription} from '@/api/types';
-import {formatDate} from '@/lib/dates';
+import { useState } from 'react';
+import { Box, Button, Dialog, DialogActions, DialogContent, Typography } from '@mui/material';
+import type { Prescription } from '@/api/types';
+import { formatDate } from '@/lib/dates';
 
 /** Opens a printable prescription; the print stylesheet in main.tsx prints only `.printable`. */
-export default function PrintPrescriptionButton({prescription: p}: {prescription: Prescription}) {
+export default function PrintPrescriptionButton({
+    prescription: p,
+}: {
+    prescription: Prescription;
+}) {
     const [open, setOpen] = useState(false);
     return (
         <>
@@ -13,7 +17,7 @@ export default function PrintPrescriptionButton({prescription: p}: {prescription
             </Button>
             <Dialog open={open} onClose={() => setOpen(false)} fullWidth>
                 <DialogContent>
-                    <Box className="printable" sx={{p: 2, bgcolor: 'background.paper'}}>
+                    <Box className="printable" sx={{ p: 2, bgcolor: 'background.paper' }}>
                         <Typography variant="h5" component="h2" gutterBottom>
                             Prescription
                         </Typography>
@@ -27,7 +31,7 @@ export default function PrintPrescriptionButton({prescription: p}: {prescription
                         <Typography variant="h6" component="h3">
                             Medication
                         </Typography>
-                        <Typography sx={{whiteSpace: 'pre-wrap'}}>{p.medication}</Typography>
+                        <Typography sx={{ whiteSpace: 'pre-wrap' }}>{p.medication}</Typography>
                     </Box>
                 </DialogContent>
                 <DialogActions className="no-print">

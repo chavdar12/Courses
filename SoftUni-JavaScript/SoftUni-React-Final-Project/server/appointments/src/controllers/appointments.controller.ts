@@ -1,6 +1,6 @@
-import type {Request, Response} from 'express';
+import type { Request, Response } from 'express';
 import * as appointments from '#appointments/services/appointments.service.ts';
-import type {Caller} from '#appointments/lib/identityClient.ts';
+import type { Caller } from '#appointments/lib/identityClient.ts';
 import type {
     AvailabilityQueryDto,
     BookDto,
@@ -17,17 +17,26 @@ import type {
 
 const id = (req: Request) => String(req.params.id);
 const query = (req: Request) => req.query as unknown as ListQueryDto;
-const caller = (req: Request, res: Response): Caller => ({authorization: req.get('Authorization') ?? '', reqId: res.locals.reqId});
+const caller = (req: Request, res: Response): Caller => ({
+    authorization: req.get('Authorization') ?? '',
+    reqId: res.locals.reqId,
+});
 
 /** The body stays a plain array; the total goes in X-Total-Count. */
-const sendPage = <T>(res: Response, {items, total}: PageDto<T>) => res.set('X-Total-Count', String(total)).json(items);
+const sendPage = <T>(res: Response, { items, total }: PageDto<T>) =>
+    res.set('X-Total-Count', String(total)).json(items);
 
 export async function list(req: Request, res: Response) {
     sendPage(res, await appointments.list(req.user, query(req)));
 }
 
 export async function availability(req: Request, res: Response) {
-    res.json(await appointments.availability(caller(req, res), req.query as unknown as AvailabilityQueryDto));
+    res.json(
+        await appointments.availability(
+            caller(req, res),
+            req.query as unknown as AvailabilityQueryDto,
+        ),
+    );
 }
 
 export async function book(req: Request, res: Response) {
@@ -39,7 +48,14 @@ export async function cancel(req: Request, res: Response) {
 }
 
 export async function reschedule(req: Request, res: Response) {
-    res.json(await appointments.reschedule(req.user, caller(req, res), id(req), req.body as RescheduleDto));
+    res.json(
+        await appointments.reschedule(
+            req.user,
+            caller(req, res),
+            id(req),
+            req.body as RescheduleDto,
+        ),
+    );
 }
 
 export async function prescribe(req: Request, res: Response) {
@@ -63,7 +79,9 @@ export async function requestRefill(req: Request, res: Response) {
 }
 
 export async function decideRefill(req: Request, res: Response) {
-    res.json(await appointments.decideRefill(req.user, id(req), (req.body as RefillDecisionDto).approve));
+    res.json(
+        await appointments.decideRefill(req.user, id(req), (req.body as RefillDecisionDto).approve),
+    );
 }
 
 export async function stats(_req: Request, res: Response) {

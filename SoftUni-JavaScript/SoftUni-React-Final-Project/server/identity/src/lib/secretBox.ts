@@ -1,5 +1,5 @@
-import {createCipheriv, createDecipheriv, hkdfSync, randomBytes} from 'node:crypto';
-import {config} from '#shared/config.ts';
+import { createCipheriv, createDecipheriv, hkdfSync, randomBytes } from 'node:crypto';
+import { config } from '#shared/config.ts';
 
 // Authenticator secrets are encrypted at rest (AES-256-GCM), so a database dump alone can't generate codes.
 // The key is derived from JWT_SECRET: rotating that secret makes users set up their authenticator again.

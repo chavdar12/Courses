@@ -1,12 +1,12 @@
-import {once} from 'node:events';
-import express, {type Router} from 'express';
+import { once } from 'node:events';
+import express, { type Router } from 'express';
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
-import {config} from './config.ts';
-import {logger} from './lib/logger.ts';
-import {redis} from './lib/redis.ts';
-import {errorHandler} from './middleware/errors.ts';
-import {requestLog} from './middleware/requestLog.ts';
+import { config } from './config.ts';
+import { logger } from './lib/logger.ts';
+import { redis } from './lib/redis.ts';
+import { errorHandler } from './middleware/errors.ts';
+import { requestLog } from './middleware/requestLog.ts';
 
 interface Service {
     dbName: string;
@@ -15,14 +15,14 @@ interface Service {
 }
 
 /** Boots a service: Mongo, HTTP with probes + logging, crash handlers and graceful shutdown. */
-export async function startService({dbName, routes, onStart}: Service) {
+export async function startService({ dbName, routes, onStart }: Service) {
     // After an unexpected error the process state is unknown: log it and exit; the orchestrator restarts the pod.
     process.on('uncaughtException', (err) => {
-        logger.fatal('uncaught exception', {err});
+        logger.fatal('uncaught exception', { err });
         process.exit(1);
     });
     process.on('unhandledRejection', (err) => {
-        logger.fatal('unhandled rejection', {err});
+        logger.fatal('unhandled rejection', { err });
         process.exit(1);
     });
 
@@ -30,10 +30,10 @@ export async function startService({dbName, routes, onStart}: Service) {
     mongoose.connection.on('reconnected', () => logger.info('mongo reconnected'));
 
     try {
-        await mongoose.connect(config.mongoUrl, {dbName, serverSelectionTimeoutMS: 10_000});
+        await mongoose.connect(config.mongoUrl, { dbName, serverSelectionTimeoutMS: 10_000 });
         await onStart?.();
     } catch (err) {
-        logger.fatal('startup failed', {err});
+        logger.fatal('startup failed', { err });
         process.exit(1);
     }
 
@@ -44,18 +44,18 @@ export async function startService({dbName, routes, onStart}: Service) {
 
     // Probes sit before the request log so they don't flood it.
     app.get('/healthz', (_req, res) => {
-        res.json({ok: true});
+        res.json({ ok: true });
     });
     app.get('/readyz', (_req, res) => {
         const ready = !draining && mongoose.connection.readyState === 1;
-        res.status(ready ? 200 : 503).json({ready});
+        res.status(ready ? 200 : 503).json({ ready });
     });
 
-    app.use(requestLog, express.json({limit: '100kb'}), cookieParser());
+    app.use(requestLog, express.json({ limit: '100kb' }), cookieParser());
     app.use('/api', routes);
     app.use(errorHandler);
 
-    const server = app.listen(config.port, () => logger.info('listening', {port: config.port}));
+    const server = app.listen(config.port, () => logger.info('listening', { port: config.port }));
     // Longer than nginx's upstream keepalive (60s), so nginx never reuses a socket we already closed (-> 502).
     server.keepAliveTimeout = 65_000;
 
@@ -63,7 +63,7 @@ export async function startService({dbName, routes, onStart}: Service) {
     async function shutdown(signal: string) {
         if (draining) return;
         draining = true;
-        logger.info('draining', {signal});
+        logger.info('draining', { signal });
         setTimeout(() => {
             logger.error('forced exit: requests still open after 20s');
             process.exit(1);

@@ -1,10 +1,10 @@
-import {createHash, randomBytes} from 'node:crypto';
+import { createHash, randomBytes } from 'node:crypto';
 import jwt from 'jsonwebtoken';
-import {config as shared} from '#shared/config.ts';
-import {config} from '#identity/config.ts';
-import {redis} from '#shared/lib/redis.ts';
-import {HttpError} from '#shared/lib/HttpError.ts';
-import type {AuthUser} from '#shared/lib/jwt.ts';
+import { config as shared } from '#shared/config.ts';
+import { config } from '#identity/config.ts';
+import { redis } from '#shared/lib/redis.ts';
+import { HttpError } from '#shared/lib/HttpError.ts';
+import type { AuthUser } from '#shared/lib/jwt.ts';
 
 // Refresh and reset tokens are opaque; Redis holds only their hash, so a Redis dump can't be replayed.
 const hash = (token: string) => createHash('sha256').update(token).digest('hex');
@@ -14,7 +14,10 @@ const resetKey = (token: string) => `reset:${hash(token)}`;
 const sessionsKey = (userId: string) => `sessions:${userId}`;
 
 export const signAccessToken = (u: AuthUser) =>
-    jwt.sign({role: u.role, name: u.name, email: u.email}, shared.jwtSecret, {subject: u.id, expiresIn: config.accessTtl});
+    jwt.sign({ role: u.role, name: u.name, email: u.email }, shared.jwtSecret, {
+        subject: u.id,
+        expiresIn: config.accessTtl,
+    });
 
 export async function issueRefreshToken(userId: string) {
     const token = randomBytes(32).toString('base64url');
@@ -73,8 +76,10 @@ export async function readMfaToken(token: string, consume = false) {
 }
 
 /** Stores a WebAuthn challenge we issued; consumeChallenge succeeds once per challenge. */
-export const saveChallenge = (challenge: string) => redis.set(`webauthn:${challenge}`, '1', 'EX', 300);
-export const consumeChallenge = async (challenge: string) => !!(await redis.getdel(`webauthn:${challenge}`));
+export const saveChallenge = (challenge: string) =>
+    redis.set(`webauthn:${challenge}`, '1', 'EX', 300);
+export const consumeChallenge = async (challenge: string) =>
+    !!(await redis.getdel(`webauthn:${challenge}`));
 
 /** Single use. Returns the user id. */
 export async function consumeResetToken(token: string) {

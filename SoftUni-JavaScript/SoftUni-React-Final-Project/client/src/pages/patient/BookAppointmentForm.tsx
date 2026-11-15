@@ -1,6 +1,6 @@
-import {Button, Paper, Stack, TextField, Typography} from '@mui/material';
-import {z} from 'zod';
-import {useBookAppointment, useDoctors, useRatings} from '@/api/hooks';
+import { Button, Paper, Stack, TextField, Typography } from '@mui/material';
+import { z } from 'zod';
+import { useBookAppointment, useDoctors, useRatings } from '@/api/hooks';
 import useZodForm from '@/useZodForm';
 import FormStatus from '@/components/FormStatus';
 import SlotPicker from '@/components/SlotPicker';
@@ -12,13 +12,13 @@ const schema = z.object({
     reason: z.string().trim().max(500, 'At most 500 characters').optional(),
 });
 
-const nativeSelect = {select: {native: true}, inputLabel: {shrink: true}};
+const nativeSelect = { select: { native: true }, inputLabel: { shrink: true } };
 
 export default function BookAppointmentForm() {
-    const {data: doctors = []} = useDoctors();
-    const {data: ratings = []} = useRatings();
+    const { data: doctors = [] } = useDoctors();
+    const { data: ratings = [] } = useRatings();
     const book = useBookAppointment();
-    const {handleSubmit, field, reset, setValue, watch, formState} = useZodForm(schema);
+    const { handleSubmit, field, reset, setValue, watch, formState } = useZodForm(schema);
 
     const specialization = watch('specialization');
     const doctorId = watch('doctorId');
@@ -28,26 +28,29 @@ export default function BookAppointmentForm() {
         const r = ratings.find((x) => x.doctorId === id);
         return r ? `, ★ ${r.average} (${r.count})` : '';
     };
-    const onSubmit = handleSubmit(({doctorId, date, reason}) =>
-        book.mutate({doctorId, date, reason: reason || undefined}, {onSuccess: () => reset()}),
+    const onSubmit = handleSubmit(({ doctorId, date, reason }) =>
+        book.mutate({ doctorId, date, reason: reason || undefined }, { onSuccess: () => reset() }),
     );
 
     return (
-        <Paper sx={{p: 2, maxWidth: 480}}>
+        <Paper sx={{ p: 2, maxWidth: 480 }}>
             <Typography variant="h5" component="h1" gutterBottom>
                 Book an appointment
             </Typography>
-            <Stack component="form" noValidate onSubmit={onSubmit} sx={{gap: 2}}>
-                <FormStatus error={book.error?.message} message={book.isSuccess ? 'Appointment booked.' : ''}/>
+            <Stack component="form" noValidate onSubmit={onSubmit} sx={{ gap: 2 }}>
+                <FormStatus
+                    error={book.error?.message}
+                    message={book.isSuccess ? 'Appointment booked.' : ''}
+                />
                 <TextField
                     label="Specialization"
                     select
                     required
                     defaultValue=""
                     slotProps={nativeSelect}
-                    {...field('specialization', {onChange: () => setValue('doctorId', '')})}
+                    {...field('specialization', { onChange: () => setValue('doctorId', '') })}
                 >
-                    <option value="" disabled/>
+                    <option value="" disabled />
                     {specializations.map((s) => (
                         <option key={s}>{s}</option>
                     ))}
@@ -59,12 +62,13 @@ export default function BookAppointmentForm() {
                     defaultValue=""
                     disabled={!specialization}
                     slotProps={nativeSelect}
-                    {...field('doctorId', {onChange: () => setValue('date', '')})}
+                    {...field('doctorId', { onChange: () => setValue('date', '') })}
                 >
-                    <option value="" disabled/>
+                    <option value="" disabled />
                     {matching.map((d) => (
                         <option key={d.id} value={d.id}>
-                            {d.name} (room {d.roomNumber}{stars(d.id)})
+                            {d.name} (room {d.roomNumber}
+                            {stars(d.id)})
                         </option>
                     ))}
                 </TextField>
@@ -72,10 +76,17 @@ export default function BookAppointmentForm() {
                     key={doctorId}
                     doctorId={doctorId ?? ''}
                     value={watch('date') ?? ''}
-                    onChange={(start) => setValue('date', start, {shouldValidate: formState.isSubmitted})}
+                    onChange={(start) =>
+                        setValue('date', start, { shouldValidate: formState.isSubmitted })
+                    }
                     error={formState.errors.date?.message}
                 />
-                <TextField label="Reason for visit (optional)" multiline minRows={2} {...field('reason')}/>
+                <TextField
+                    label="Reason for visit (optional)"
+                    multiline
+                    minRows={2}
+                    {...field('reason')}
+                />
                 <Button type="submit" variant="contained" disabled={book.isPending}>
                     {book.isPending ? 'Booking…' : 'Book appointment'}
                 </Button>

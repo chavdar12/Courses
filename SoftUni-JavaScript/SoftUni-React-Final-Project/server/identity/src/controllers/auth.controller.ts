@@ -1,18 +1,32 @@
-import type {Request, Response} from 'express';
-import {config} from '#identity/config.ts';
+import type { Request, Response } from 'express';
+import { config } from '#identity/config.ts';
 import * as auth from '#identity/services/auth.service.ts';
 import * as account from '#identity/services/account.service.ts';
-import type {IssuedSession} from '#identity/services/session.service.ts';
-import type {ChangePasswordDto, ForgotPasswordDto, LoginDto, MfaTokenDto, ResetPasswordDto, SignupDto, UpdateProfileDto, VerifyMfaDto} from '#identity/dto/auth.dto.ts';
+import type { IssuedSession } from '#identity/services/session.service.ts';
+import type {
+    ChangePasswordDto,
+    ForgotPasswordDto,
+    LoginDto,
+    MfaTokenDto,
+    ResetPasswordDto,
+    SignupDto,
+    UpdateProfileDto,
+    VerifyMfaDto,
+} from '#identity/dto/auth.dto.ts';
 
 // HTTP only: bodies arrive validated (validate middleware + DTO schemas); the services hold the rules.
 
 const COOKIE = 'refreshToken';
-const cookieOptions = {httpOnly: true, secure: true, sameSite: 'strict', path: '/api/auth'} as const;
+const cookieOptions = {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'strict',
+    path: '/api/auth',
+} as const;
 
 /** Refresh token into the httpOnly cookie, session into the body. */
-export function sendSession(res: Response, {session, refreshToken}: IssuedSession, status = 200) {
-    res.cookie(COOKIE, refreshToken, {...cookieOptions, maxAge: config.refreshTtlSeconds * 1000});
+export function sendSession(res: Response, { session, refreshToken }: IssuedSession, status = 200) {
+    res.cookie(COOKIE, refreshToken, { ...cookieOptions, maxAge: config.refreshTtlSeconds * 1000 });
     res.status(status).json(session);
 }
 

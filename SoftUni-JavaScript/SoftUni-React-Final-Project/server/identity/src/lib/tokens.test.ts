@@ -1,9 +1,9 @@
-import {mock, test} from 'node:test';
+import { mock, test } from 'node:test';
 import assert from 'node:assert/strict';
-import {fakeRedis} from '#shared/test/fakeRedis.ts';
+import { fakeRedis } from '#shared/test/fakeRedis.ts';
 
 const redis = fakeRedis();
-mock.module(import.meta.resolve('#shared/lib/redis.ts'), {exports: {redis}});
+mock.module(import.meta.resolve('#shared/lib/redis.ts'), { exports: { redis } });
 const tokens = await import('./tokens.ts');
 
 test('refresh tokens are single use', async () => {

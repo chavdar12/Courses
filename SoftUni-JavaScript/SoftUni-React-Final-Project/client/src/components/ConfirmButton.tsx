@@ -1,10 +1,10 @@
-import {useState} from 'react';
-import {Button, type ButtonProps, Dialog, DialogActions, DialogTitle} from '@mui/material';
+import { useState } from 'react';
+import { Button, type ButtonProps, Dialog, DialogActions, DialogTitle } from '@mui/material';
 
-type Props = ButtonProps & {question: string; onConfirm: () => void};
+type Props = ButtonProps & { question: string; onConfirm: () => void };
 
 /** Button that asks "question" in a dialog before calling onConfirm. */
-export default function ConfirmButton({question, onConfirm, children, ...buttonProps}: Props) {
+export default function ConfirmButton({ question, onConfirm, children, ...buttonProps }: Props) {
     const [open, setOpen] = useState(false);
 
     return (

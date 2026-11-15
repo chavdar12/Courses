@@ -1,15 +1,23 @@
-import {useState} from 'react';
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack, TextField} from '@mui/material';
-import {useUpdateDoctor} from '@/api/hooks';
-import type {User} from '@/api/types';
+import { useState } from 'react';
+import {
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    Stack,
+    TextField,
+} from '@mui/material';
+import { useUpdateDoctor } from '@/api/hooks';
+import type { User } from '@/api/types';
 import FormStatus from '@/components/FormStatus';
-import WorkingHoursFields, {DEFAULT_HOURS} from '@/components/WorkingHoursFields';
-import {SPECIALIZATIONS} from './AddDoctorForm';
+import WorkingHoursFields, { DEFAULT_HOURS } from '@/components/WorkingHoursFields';
+import { SPECIALIZATIONS } from './AddDoctorForm';
 
-const nativeSelect = {select: {native: true}, inputLabel: {shrink: true}};
+const nativeSelect = { select: { native: true }, inputLabel: { shrink: true } };
 
 /** Edit button + dialog for a doctor's name, specialization, room and hours. */
-export default function EditDoctorButton({doctor}: {doctor: User}) {
+export default function EditDoctorButton({ doctor }: { doctor: User }) {
     const update = useUpdateDoctor();
     const [open, setOpen] = useState(false);
     const [form, setForm] = useState({
@@ -19,7 +27,11 @@ export default function EditDoctorButton({doctor}: {doctor: User}) {
         workingHours: doctor.workingHours ?? DEFAULT_HOURS,
     });
     const room = Number(form.roomNumber);
-    const valid = form.name.trim() && Number.isInteger(room) && room >= 1 && form.workingHours.days.length > 0 &&
+    const valid =
+        form.name.trim() &&
+        Number.isInteger(room) &&
+        room >= 1 &&
+        form.workingHours.days.length > 0 &&
         form.workingHours.start < form.workingHours.end;
     const close = () => {
         setOpen(false);
@@ -34,14 +46,19 @@ export default function EditDoctorButton({doctor}: {doctor: User}) {
             <Dialog open={open} onClose={close} fullWidth>
                 <DialogTitle>Edit {doctor.name}</DialogTitle>
                 <DialogContent>
-                    <Stack sx={{gap: 2, pt: 1}}>
-                        <FormStatus error={update.error?.message}/>
-                        <TextField label="Name" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})}/>
+                    <Stack sx={{ gap: 2, pt: 1 }}>
+                        <FormStatus error={update.error?.message} />
+                        <TextField
+                            label="Name"
+                            required
+                            value={form.name}
+                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        />
                         <TextField
                             label="Specialization"
                             select
                             value={form.specialization}
-                            onChange={(e) => setForm({...form, specialization: e.target.value})}
+                            onChange={(e) => setForm({ ...form, specialization: e.target.value })}
                             slotProps={nativeSelect}
                         >
                             {SPECIALIZATIONS.map((s) => (
@@ -52,9 +69,12 @@ export default function EditDoctorButton({doctor}: {doctor: User}) {
                             label="Room"
                             type="number"
                             value={form.roomNumber}
-                            onChange={(e) => setForm({...form, roomNumber: e.target.value})}
+                            onChange={(e) => setForm({ ...form, roomNumber: e.target.value })}
                         />
-                        <WorkingHoursFields value={form.workingHours} onChange={(workingHours) => setForm({...form, workingHours})}/>
+                        <WorkingHoursFields
+                            value={form.workingHours}
+                            onChange={(workingHours) => setForm({ ...form, workingHours })}
+                        />
                     </Stack>
                 </DialogContent>
                 <DialogActions>
@@ -63,7 +83,15 @@ export default function EditDoctorButton({doctor}: {doctor: User}) {
                         variant="contained"
                         disabled={!valid || update.isPending}
                         onClick={() =>
-                            update.mutate({id: doctor.id, ...form, name: form.name.trim(), roomNumber: room}, {onSuccess: close})
+                            update.mutate(
+                                {
+                                    id: doctor.id,
+                                    ...form,
+                                    name: form.name.trim(),
+                                    roomNumber: room,
+                                },
+                                { onSuccess: close },
+                            )
                         }
                     >
                         Save

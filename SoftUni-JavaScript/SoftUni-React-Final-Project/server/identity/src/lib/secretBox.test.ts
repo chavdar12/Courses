@@ -1,6 +1,6 @@
-import {test} from 'node:test';
+import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import {open, seal} from './secretBox.ts';
+import { open, seal } from './secretBox.ts';
 
 test('round-trips, is randomized, and rejects tampering', () => {
     const a = seal('JBSWY3DPEHPK3PXP');

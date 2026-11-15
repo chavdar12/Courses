@@ -1,4 +1,4 @@
-import {createHmac, randomBytes, timingSafeEqual} from 'node:crypto';
+import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 
 // RFC 6238 TOTP (SHA-1, 6 digits, 30 s), what every authenticator app speaks.
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
@@ -7,11 +7,15 @@ export const PERIOD_SECONDS = 30;
 export function base32Encode(buf: Buffer) {
     let bits = '';
     for (const byte of buf) bits += byte.toString(2).padStart(8, '0');
-    return (bits.match(/.{1,5}/g) ?? []).map((c) => ALPHABET[parseInt(c.padEnd(5, '0'), 2)]).join('');
+    return (bits.match(/.{1,5}/g) ?? [])
+        .map((c) => ALPHABET[parseInt(c.padEnd(5, '0'), 2)])
+        .join('');
 }
 
 export function base32Decode(s: string) {
-    const bits = [...s.replace(/=+$/, '').toUpperCase()].map((c) => ALPHABET.indexOf(c).toString(2).padStart(5, '0')).join('');
+    const bits = [...s.replace(/=+$/, '').toUpperCase()]
+        .map((c) => ALPHABET.indexOf(c).toString(2).padStart(5, '0'))
+        .join('');
     return Buffer.from((bits.match(/.{8}/g) ?? []).map((b) => parseInt(b, 2)));
 }
 
@@ -40,4 +44,10 @@ export const generateSecret = () => base32Encode(randomBytes(20));
 
 export const otpauthUrl = (secret: string, account: string, issuer = 'HMS') =>
     `otpauth://totp/${encodeURIComponent(`${issuer}:${account}`)}?` +
-    new URLSearchParams({secret, issuer, algorithm: 'SHA1', digits: '6', period: String(PERIOD_SECONDS)});
+    new URLSearchParams({
+        secret,
+        issuer,
+        algorithm: 'SHA1',
+        digits: '6',
+        period: String(PERIOD_SECONDS),
+    });

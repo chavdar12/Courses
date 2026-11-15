@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
-import {HttpError} from '#shared/lib/HttpError.ts';
-import {userRepository} from '#identity/repositories/user.repository.ts';
+import { HttpError } from '#shared/lib/HttpError.ts';
+import { userRepository } from '#identity/repositories/user.repository.ts';
 
 // Shared by several services; kept here so the services don't import each other in a circle.
 

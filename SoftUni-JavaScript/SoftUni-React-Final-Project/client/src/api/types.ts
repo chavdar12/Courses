@@ -38,7 +38,7 @@ export interface Appointment {
     status: Status;
     closedBy?: string;
     cancelReason?: string;
-    prescription?: {disease: string; medication: string};
+    prescription?: { disease: string; medication: string };
     rating?: number;
     refillStatus?: RefillStatus;
 }
@@ -70,7 +70,7 @@ export interface DoctorRating {
 export interface Stats {
     total: number;
     byStatus: Record<Status, number>;
-    byDoctor: {doctorId: string; doctorName: string; count: number}[];
+    byDoctor: { doctorId: string; doctorName: string; count: number }[];
 }
 
 export interface Note {
@@ -102,7 +102,7 @@ export interface Paged<T> {
 export type MfaMethod = 'totp' | 'email';
 
 /** /auth/login answers with a session, or asks for a second step. */
-export type LoginResult = Session | {mfaRequired: true; mfaToken: string; methods: MfaMethod[]};
+export type LoginResult = Session | { mfaRequired: true; mfaToken: string; methods: MfaMethod[] };
 
 export interface Passkey {
     id: string;

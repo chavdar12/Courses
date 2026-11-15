@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import {config} from '#shared/config.ts';
-import {HttpError} from './HttpError.ts';
+import { config } from '#shared/config.ts';
+import { HttpError } from './HttpError.ts';
 
 export const ROLES = ['admin', 'doctor', 'patient'] as const;
 export type Role = (typeof ROLES)[number];
@@ -16,7 +16,7 @@ export interface AuthUser {
 export function verifyAccessToken(token: string): AuthUser {
     try {
         const p = jwt.verify(token, config.jwtSecret) as jwt.JwtPayload;
-        return {id: p.sub!, role: p.role, name: p.name, email: p.email};
+        return { id: p.sub!, role: p.role, name: p.name, email: p.email };
     } catch {
         throw new HttpError(401, 'Session expired');
     }

@@ -1,9 +1,9 @@
-import {useState} from 'react';
-import {TextField} from '@mui/material';
-import {useAvailability} from '@/api/hooks';
-import {formatTime, toDayValue} from '@/lib/dates';
+import { useState } from 'react';
+import { TextField } from '@mui/material';
+import { useAvailability } from '@/api/hooks';
+import { formatTime, toDayValue } from '@/lib/dates';
 
-const nativeSelect = {select: {native: true}, inputLabel: {shrink: true}};
+const nativeSelect = { select: { native: true }, inputLabel: { shrink: true } };
 
 interface Props {
     doctorId: string;
@@ -14,10 +14,12 @@ interface Props {
 }
 
 /** Date + a select of the doctor's slots that day; taken ones are disabled. Give it key={doctorId}. */
-export default function SlotPicker({doctorId, value, onChange, error}: Props) {
+export default function SlotPicker({ doctorId, value, onChange, error }: Props) {
     const [day, setDay] = useState('');
     const slots = useAvailability(doctorId, day);
-    const hint = slots.error?.message ?? (slots.data?.length === 0 ? 'The doctor doesn’t work that day' : undefined);
+    const hint =
+        slots.error?.message ??
+        (slots.data?.length === 0 ? 'The doctor doesn’t work that day' : undefined);
 
     return (
         <>
@@ -31,7 +33,10 @@ export default function SlotPicker({doctorId, value, onChange, error}: Props) {
                     setDay(e.target.value);
                     onChange('');
                 }}
-                slotProps={{inputLabel: {shrink: true}, htmlInput: {min: toDayValue(new Date())}}}
+                slotProps={{
+                    inputLabel: { shrink: true },
+                    htmlInput: { min: toDayValue(new Date()) },
+                }}
             />
             <TextField
                 label="Time"
@@ -44,7 +49,7 @@ export default function SlotPicker({doctorId, value, onChange, error}: Props) {
                 helperText={error ?? hint}
                 slotProps={nativeSelect}
             >
-                <option value="" disabled/>
+                <option value="" disabled />
                 {slots.data?.map((s) => (
                     <option key={s.start} value={s.start} disabled={!s.free}>
                         {formatTime(s.start)}

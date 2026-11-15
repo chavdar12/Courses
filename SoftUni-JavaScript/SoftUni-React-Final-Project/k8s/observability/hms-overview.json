@@ -1,9 +1,7 @@
 {
   "uid": "hms-overview",
   "title": "HMS overview",
-  "tags": [
-    "hms"
-  ],
+  "tags": ["hms"],
   "timezone": "browser",
   "schemaVersion": 39,
   "refresh": "10s",

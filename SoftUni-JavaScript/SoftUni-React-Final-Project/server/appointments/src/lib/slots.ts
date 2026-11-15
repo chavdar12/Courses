@@ -1,5 +1,5 @@
-import {TZDate} from '@date-fns/tz';
-import {type WorkingHours, SLOT_MINUTES, toMinutes} from '#shared/lib/hours.ts';
+import { TZDate } from '@date-fns/tz';
+import { type WorkingHours, SLOT_MINUTES, toMinutes } from '#shared/lib/hours.ts';
 
 /** Midnight of `day` (YYYY-MM-DD) on the clinic's clock. */
 const midnight = (day: string, tz: string) => {
@@ -18,7 +18,11 @@ export const zonedTime = (day: string, minutes: number, tz: string) => {
 export function daySlots(day: string, hours: WorkingHours, tz: string): Date[] {
     if (!hours.days.includes(midnight(day, tz).getDay())) return [];
     const slots = [];
-    for (let min = toMinutes(hours.start); min + SLOT_MINUTES <= toMinutes(hours.end); min += SLOT_MINUTES) {
+    for (
+        let min = toMinutes(hours.start);
+        min + SLOT_MINUTES <= toMinutes(hours.end);
+        min += SLOT_MINUTES
+    ) {
         slots.push(zonedTime(day, min, tz));
     }
     return slots;

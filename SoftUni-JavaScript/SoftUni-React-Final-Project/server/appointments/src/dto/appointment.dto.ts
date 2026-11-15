@@ -1,7 +1,7 @@
-import {z} from 'zod';
-import {objectId} from '#shared/schemas.ts';
-import {SLOT_MINUTES} from '#shared/lib/hours.ts';
-import type {AppointmentDoc} from '#appointments/repositories/appointment.repository.ts';
+import { z } from 'zod';
+import { objectId } from '#shared/schemas.ts';
+import { SLOT_MINUTES } from '#shared/lib/hours.ts';
+import type { AppointmentDoc } from '#appointments/repositories/appointment.repository.ts';
 
 // --- input ---
 
@@ -9,15 +9,22 @@ import type {AppointmentDoc} from '#appointments/repositories/appointment.reposi
 const slot = z.iso
     .datetime()
     .refine((d) => new Date(d).getTime() > Date.now(), 'Must be in the future')
-    .refine((d) => new Date(d).getTime() % (SLOT_MINUTES * 60_000) === 0, `Must start on a ${SLOT_MINUTES}-minute slot`);
+    .refine(
+        (d) => new Date(d).getTime() % (SLOT_MINUTES * 60_000) === 0,
+        `Must start on a ${SLOT_MINUTES}-minute slot`,
+    );
 
-export const bookDto = z.object({doctorId: objectId, date: slot, reason: z.string().trim().max(500).optional()});
+export const bookDto = z.object({
+    doctorId: objectId,
+    date: slot,
+    reason: z.string().trim().max(500).optional(),
+});
 export type BookDto = z.infer<typeof bookDto>;
 
-export const rescheduleDto = z.object({date: slot});
+export const rescheduleDto = z.object({ date: slot });
 export type RescheduleDto = z.infer<typeof rescheduleDto>;
 
-export const cancelDto = z.object({reason: z.string().trim().max(500).optional()});
+export const cancelDto = z.object({ reason: z.string().trim().max(500).optional() });
 export type CancelDto = z.infer<typeof cancelDto>;
 
 export const prescribeDto = z.object({
@@ -26,10 +33,10 @@ export const prescribeDto = z.object({
 });
 export type PrescribeDto = z.infer<typeof prescribeDto>;
 
-export const rateDto = z.object({stars: z.number().int().min(1).max(5)});
+export const rateDto = z.object({ stars: z.number().int().min(1).max(5) });
 export type RateDto = z.infer<typeof rateDto>;
 
-export const refillDecisionDto = z.object({approve: z.boolean()});
+export const refillDecisionDto = z.object({ approve: z.boolean() });
 export type RefillDecisionDto = z.infer<typeof refillDecisionDto>;
 
 // shortcut: CSV export asks for up to MAX_LIMIT rows; stream it server-side if lists outgrow that.
@@ -45,7 +52,7 @@ export const listQueryDto = z.object({
 });
 export type ListQueryDto = z.infer<typeof listQueryDto>;
 
-export const availabilityQueryDto = z.object({doctorId: objectId, day: z.iso.date()});
+export const availabilityQueryDto = z.object({ doctorId: objectId, day: z.iso.date() });
 export type AvailabilityQueryDto = z.infer<typeof availabilityQueryDto>;
 
 // --- output ---
@@ -66,7 +73,7 @@ export interface AppointmentDto {
     status: Status;
     closedBy?: string;
     cancelReason?: string;
-    prescription?: {disease: string; medication: string};
+    prescription?: { disease: string; medication: string };
     rating?: number;
     refillStatus?: RefillStatus;
     createdAt?: Date;
@@ -87,7 +94,9 @@ export const toAppointmentDto = (a: AppointmentDoc): AppointmentDto => ({
     status: a.status as Status,
     closedBy: opt(a.closedBy),
     cancelReason: opt(a.cancelReason),
-    prescription: a.prescription ? {disease: a.prescription.disease!, medication: a.prescription.medication!} : undefined,
+    prescription: a.prescription
+        ? { disease: a.prescription.disease!, medication: a.prescription.medication! }
+        : undefined,
     rating: opt(a.rating),
     refillStatus: opt(a.refillStatus) as RefillStatus | undefined,
     createdAt: opt(a.createdAt),
@@ -138,5 +147,5 @@ export interface RatingDto {
 export interface StatsDto {
     total: number;
     byStatus: Record<Status, number>;
-    byDoctor: {doctorId: string; doctorName: string; count: number}[];
+    byDoctor: { doctorId: string; doctorName: string; count: number }[];
 }

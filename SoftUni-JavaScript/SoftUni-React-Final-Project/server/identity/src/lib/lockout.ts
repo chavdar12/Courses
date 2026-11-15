@@ -1,5 +1,5 @@
-import {redis} from '#shared/lib/redis.ts';
-import {HttpError} from '#shared/lib/HttpError.ts';
+import { redis } from '#shared/lib/redis.ts';
+import { HttpError } from '#shared/lib/HttpError.ts';
 
 // Per-account, unlike the gateway's per-IP limit, so spreading guesses over many IPs doesn't help.
 export const MAX_FAILURES = 5;

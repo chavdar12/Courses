@@ -1,5 +1,13 @@
-import {type ReactNode, useState} from 'react';
-import {Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow} from '@mui/material';
+import { type ReactNode, useState } from 'react';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TablePagination,
+    TableRow,
+} from '@mui/material';
 
 export interface Column<T> {
     id: keyof T & string;
@@ -13,13 +21,24 @@ interface Props<T> {
     /** Rendered in a trailing "Actions" column. */
     actions?: (row: T) => ReactNode;
     /** Server paging: `rows` is already one page of `total`; the parent owns page/perPage. */
-    paging?: {total: number; page: number; perPage: number; onChange: (page: number, perPage: number) => void};
+    paging?: {
+        total: number;
+        page: number;
+        perPage: number;
+        onChange: (page: number, perPage: number) => void;
+    };
 }
 
-export default function DataTable<T extends {id: string}>({columns, rows, actions, paging}: Props<T>) {
-    const [own, setOwn] = useState({page: 0, perPage: 10});
-    const {page, perPage} = paging ?? own;
-    const onChange = paging?.onChange ?? ((p: number, pp: number) => setOwn({page: p, perPage: pp}));
+export default function DataTable<T extends { id: string }>({
+    columns,
+    rows,
+    actions,
+    paging,
+}: Props<T>) {
+    const [own, setOwn] = useState({ page: 0, perPage: 10 });
+    const { page, perPage } = paging ?? own;
+    const onChange =
+        paging?.onChange ?? ((p: number, pp: number) => setOwn({ page: p, perPage: pp }));
     const visible = paging ? rows : rows.slice(page * perPage, (page + 1) * perPage);
     const span = columns.length + (actions ? 1 : 0);
 
@@ -39,7 +58,11 @@ export default function DataTable<T extends {id: string}>({columns, rows, action
                         {visible.map((row) => (
                             <TableRow hover key={row.id}>
                                 {columns.map((c) => (
-                                    <TableCell key={c.id}>{c.format ? c.format(row[c.id], row) : (row[c.id] as ReactNode)}</TableCell>
+                                    <TableCell key={c.id}>
+                                        {c.format
+                                            ? c.format(row[c.id], row)
+                                            : (row[c.id] as ReactNode)}
+                                    </TableCell>
                                 ))}
                                 {actions && <TableCell>{actions(row)}</TableCell>}
                             </TableRow>

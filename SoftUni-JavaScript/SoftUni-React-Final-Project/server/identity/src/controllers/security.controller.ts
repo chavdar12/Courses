@@ -1,7 +1,14 @@
-import type {Request, Response} from 'express';
+import type { Request, Response } from 'express';
 import * as security from '#identity/services/security.service.ts';
-import {sendSession} from './auth.controller.ts';
-import type {AddPasskeyDto, CodeDto, PasskeyLoginDto, PasskeyOptionsDto, RenamePasskeyDto, UpdateSecurityDto} from '#identity/dto/security.dto.ts';
+import { sendSession } from './auth.controller.ts';
+import type {
+    AddPasskeyDto,
+    CodeDto,
+    PasskeyLoginDto,
+    PasskeyOptionsDto,
+    RenamePasskeyDto,
+    UpdateSecurityDto,
+} from '#identity/dto/security.dto.ts';
 
 const done = (res: Response, status = 204) => res.status(status).end();
 const code = (req: Request) => (req.body as CodeDto).code;
@@ -60,7 +67,11 @@ export async function addPasskey(req: Request, res: Response) {
 }
 
 export async function renamePasskey(req: Request, res: Response) {
-    await security.renamePasskey(req.user.id, credentialId(req), (req.body as RenamePasskeyDto).name);
+    await security.renamePasskey(
+        req.user.id,
+        credentialId(req),
+        (req.body as RenamePasskeyDto).name,
+    );
     done(res);
 }
 

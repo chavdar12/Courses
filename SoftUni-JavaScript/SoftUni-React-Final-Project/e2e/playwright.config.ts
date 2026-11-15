@@ -1,4 +1,4 @@
-import {defineConfig} from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 try {
     process.loadEnvFile('../.env');

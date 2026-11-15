@@ -1,11 +1,11 @@
-import type {Request, Response} from 'express';
+import type { Request, Response } from 'express';
 import * as users from '#identity/services/users.service.ts';
-import type {CreateDoctorDto, UpdateDoctorDto} from '#identity/dto/user.dto.ts';
+import type { CreateDoctorDto, UpdateDoctorDto } from '#identity/dto/user.dto.ts';
 
 const id = (req: Request) => String(req.params.id);
 
 export async function listDoctors(_req: Request, res: Response) {
-    const {doctors, cached} = await users.listDoctors();
+    const { doctors, cached } = await users.listDoctors();
     res.set('X-Cache', cached ? 'HIT' : 'MISS').json(doctors);
 }
 

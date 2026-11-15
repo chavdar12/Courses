@@ -1,6 +1,6 @@
-import type {Request, Response} from 'express';
+import type { Request, Response } from 'express';
 import * as records from '#appointments/services/records.service.ts';
-import type {AddNoteDto} from '#appointments/dto/record.dto.ts';
+import type { AddNoteDto } from '#appointments/dto/record.dto.ts';
 
 export async function history(req: Request, res: Response) {
     res.json(await records.history(req.user, String(req.params.patientId)));

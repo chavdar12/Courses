@@ -1,14 +1,17 @@
-import {z} from 'zod';
-import {SPECIALIZATIONS} from '#identity/models/User.ts';
-import {type WorkingHours, workingHoursSchema} from '#shared/lib/hours.ts';
-import type {Role} from '#shared/lib/jwt.ts';
-import type {UserDoc} from '#identity/repositories/user.repository.ts';
+import { z } from 'zod';
+import { SPECIALIZATIONS } from '#identity/models/User.ts';
+import { type WorkingHours, workingHoursSchema } from '#shared/lib/hours.ts';
+import type { Role } from '#shared/lib/jwt.ts';
+import type { UserDoc } from '#identity/repositories/user.repository.ts';
 
 // --- input ---
 
 export const name = z.string().trim().min(1).max(100);
 /** E.164: +, country code, number. The client builds it from a country picker. */
-export const phone = z.string().trim().regex(/^\+[1-9]\d{6,14}$/, 'Use international format, e.g. +359888123456');
+export const phone = z
+    .string()
+    .trim()
+    .regex(/^\+[1-9]\d{6,14}$/, 'Use international format, e.g. +359888123456');
 export const password = z.string().min(6).max(200);
 
 export const createDoctorDto = z.object({
@@ -21,7 +24,7 @@ export const createDoctorDto = z.object({
 });
 export type CreateDoctorDto = z.infer<typeof createDoctorDto>;
 
-export const updateDoctorDto = createDoctorDto.omit({email: true, password: true}).partial();
+export const updateDoctorDto = createDoctorDto.omit({ email: true, password: true }).partial();
 export type UpdateDoctorDto = z.infer<typeof updateDoctorDto>;
 
 // --- output ---
@@ -46,5 +49,7 @@ export const toUserDto = (u: UserDoc): UserDto => ({
     phone: u.phone ?? undefined,
     specialization: u.specialization ?? undefined,
     roomNumber: u.roomNumber ?? undefined,
-    workingHours: u.workingHours ? {days: [...u.workingHours.days], start: u.workingHours.start!, end: u.workingHours.end!} : undefined,
+    workingHours: u.workingHours
+        ? { days: [...u.workingHours.days], start: u.workingHours.start!, end: u.workingHours.end! }
+        : undefined,
 });

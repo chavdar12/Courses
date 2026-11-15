@@ -1,10 +1,9 @@
-import {TZDate} from '@date-fns/tz';
-import {addHours, format} from 'date-fns';
-import {appointmentRepository} from '#appointments/repositories/appointment.repository.ts';
-import {sendMail} from '#shared/lib/mailer.ts';
-import {logger} from '#shared/lib/logger.ts';
-import {config} from '#appointments/config.ts';
-
+import { TZDate } from '@date-fns/tz';
+import { addHours, format } from 'date-fns';
+import { appointmentRepository } from '#appointments/repositories/appointment.repository.ts';
+import { sendMail } from '#shared/lib/mailer.ts';
+import { logger } from '#shared/lib/logger.ts';
+import { config } from '#appointments/config.ts';
 
 /**
  * Emails every active appointment starting within 24h, once. Each one is claimed with an atomic
@@ -25,5 +24,8 @@ export async function sendDueReminders(now = new Date()) {
 }
 
 export function startReminders() {
-    setInterval(() => sendDueReminders().catch((err) => logger.error('reminders failed', {err})), 60_000).unref();
+    setInterval(
+        () => sendDueReminders().catch((err) => logger.error('reminders failed', { err })),
+        60_000,
+    ).unref();
 }

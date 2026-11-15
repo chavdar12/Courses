@@ -1,7 +1,7 @@
-import {useEffect} from 'react';
-import {useQueryClient} from '@tanstack/react-query';
-import {endSession, getAccessToken, refreshSession} from './client';
-import {keys} from './hooks';
+import { useEffect } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
+import { endSession, getAccessToken, refreshSession } from './client';
+import { keys } from './hooks';
 
 const RETRY_MS = 5000;
 
@@ -18,14 +18,14 @@ export function useLiveUpdates(enabled: boolean) {
         const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
         const refetch = () =>
             [keys.appointments, keys.prescriptions, keys.stats, keys.history].forEach((queryKey) =>
-                qc.invalidateQueries({queryKey}),
+                qc.invalidateQueries({ queryKey }),
             );
 
         void (async () => {
             while (!ctrl.signal.aborted) {
                 try {
                     const res = await fetch('/api/events', {
-                        headers: {Authorization: `Bearer ${getAccessToken()}`},
+                        headers: { Authorization: `Bearer ${getAccessToken()}` },
                         signal: ctrl.signal,
                     });
                     if (res.status === 401) {
@@ -38,7 +38,7 @@ export function useLiveUpdates(enabled: boolean) {
                     if (!res.ok || !res.body) throw new Error(`events: ${res.status}`);
                     const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
                     for (;;) {
-                        const {value, done} = await reader.read();
+                        const { value, done } = await reader.read();
                         if (done) break;
                         if (value.includes('data:')) refetch();
                     }
