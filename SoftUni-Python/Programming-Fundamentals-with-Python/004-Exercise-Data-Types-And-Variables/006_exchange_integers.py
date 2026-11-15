@@ -1,10 +1,6 @@
 a = int(input())
 b = int(input())
-print(f"Before:\n"
-      f"a = {a}\n"
-      f"b = {b}")
+print(f"Before:\na = {a}\nb = {b}")
 
 a, b = b, a
-print(f"After:\n"
-      f"a = {a}\n"
-      f"b = {b}")
+print(f"After:\na = {a}\nb = {b}")

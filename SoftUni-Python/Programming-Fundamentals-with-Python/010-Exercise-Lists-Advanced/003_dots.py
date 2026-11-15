@@ -1,7 +1,13 @@
 def check_chain(x, y):
     if field[x][y] and not visited[x][y]:
         visited[x][y] = True
-        return check_chain(x - 1, y) + check_chain(x + 1, y) + check_chain(x, y - 1) + check_chain(x, y + 1) + 1
+        return (
+            check_chain(x - 1, y)
+            + check_chain(x + 1, y)
+            + check_chain(x, y - 1)
+            + check_chain(x, y + 1)
+            + 1
+        )
     else:
         return 0
 

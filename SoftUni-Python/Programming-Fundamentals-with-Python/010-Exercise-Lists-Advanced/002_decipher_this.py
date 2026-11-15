@@ -5,6 +5,6 @@ for i in range(len(message)):
         first_letter.append(message[i].pop(0))
 
     message[i][0], message[i][-1] = message[i][-1], message[i][0]
-    message[i] = chr(int(''.join(first_letter))) + "".join(message[i])
+    message[i] = chr(int("".join(first_letter))) + "".join(message[i])
 
-print(' '.join(message))
+print(" ".join(message))

@@ -3,7 +3,6 @@ days_count = int(input())
 earned_coins = 0
 
 for day in range(1, days_count + 1):
-
     if day % 10 == 0:
         companions_count -= 2
 

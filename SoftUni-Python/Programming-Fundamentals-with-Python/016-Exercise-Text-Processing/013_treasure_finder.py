@@ -3,7 +3,7 @@ text = input()
 while text != "find":
     keys_i = 0
     for i in range(len(text)):
-        text = text[:i] + chr(ord(text[i]) - keys[keys_i]) + text[i + 1:]
+        text = text[:i] + chr(ord(text[i]) - keys[keys_i]) + text[i + 1 :]
         keys_i += 1
         if keys_i == len(keys):
             keys_i = 0

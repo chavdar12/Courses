@@ -34,5 +34,5 @@ zoo = Zoo(input())
 for _ in range(int(input())):
     s, n = input().split()
     zoo.add_animal(s, n)
-    
+
 print(zoo.get_info(input()))

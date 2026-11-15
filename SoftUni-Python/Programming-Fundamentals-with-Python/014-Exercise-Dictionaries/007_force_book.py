@@ -3,9 +3,9 @@ def pipe(side, user, sides):
     if user not in users:
         if side not in sides:
             sides[side] = []
-        
+
         sides[side].append(user)
-    
+
     return sides
 
 
@@ -17,17 +17,17 @@ def arrow(side, user, sides):
         if user in sides[s]:
             sides[side].append(sides[s].pop(sides[s].index(user)))
             return sides
-    
+
     sides[side].append(user)
     return sides
-        
+
 
 command, sides_data = input(), {}
 while command != "Lumpawaroo":
     if "|" in command:
         f_side, f_user = command.split(" | ")
         sides_data = pipe(f_side, f_user, sides_data)
-    
+
     elif "->" in command:
         f_user, f_side = command.split(" -> ")
         sides_data = arrow(f_side, f_user, sides_data)

@@ -3,7 +3,7 @@ while resource != "stop":
     quantity = int(input())
     if resource not in items:
         items[resource] = 0
-    
+
     items[resource] += quantity
     resource = input()
 

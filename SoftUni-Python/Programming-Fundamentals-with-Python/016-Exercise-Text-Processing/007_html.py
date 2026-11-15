@@ -6,5 +6,5 @@ while comment != "end of comments":
     comments.append(f"<div>\n{comment}\n</div>")
     comment = input()
 
-comments = '\n'.join(comments)
+comments = "\n".join(comments)
 print(f"{title}\n{content}\n{comments}")

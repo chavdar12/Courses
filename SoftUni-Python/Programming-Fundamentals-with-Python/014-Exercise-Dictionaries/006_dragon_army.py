@@ -7,11 +7,11 @@ for _ in range(int(input())):
         health = 250
     if armor == "null":
         armor = 10
-    
+
     damage, health, armor = int(damage), int(health), int(armor)
     if d_type not in dragons:
         dragons[d_type] = {}
-    
+
     dragons[d_type].update({d_name: {"d": damage, "h": health, "a": armor}})
 
 for d_type, values in dragons.items():

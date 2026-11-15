@@ -21,10 +21,10 @@ while command != "End":
         if index - radius not in range(len(targets)) or index + radius not in range(len(targets)):
             print("Strike missed!")
         else:
-            cutted = targets[:index - radius]
-            cutted.extend(targets[index + radius + 1:])
+            cutted = targets[: index - radius]
+            cutted.extend(targets[index + radius + 1 :])
             targets = cutted
 
     command = input()
 
-print('|'.join(str(n) for n in targets))
+print("|".join(str(n) for n in targets))

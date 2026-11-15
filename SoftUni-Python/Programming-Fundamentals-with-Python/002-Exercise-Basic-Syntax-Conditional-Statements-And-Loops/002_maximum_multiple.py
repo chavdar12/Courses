@@ -38,5 +38,4 @@ for day in range(1, days_count + 1):
 if days_count % 10 == 0:
     spirit_points -= 30
 
-print(f"Total cost: {total_cost}\n"
-      f"Total spirit: {spirit_points}")
+print(f"Total cost: {total_cost}\nTotal spirit: {spirit_points}")

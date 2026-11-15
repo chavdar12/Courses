@@ -2,10 +2,10 @@ def add_player(pl, pos, sk, pool):
     sk = int(sk)
     if pl not in pool:
         pool[pl] = {}
-    
+
     if pos not in pool[pl] or pool[pl][pos] < sk:
         pool[pl][pos] = sk
-    
+
     return pool
 
 

@@ -5,15 +5,15 @@ while i < len(usernames):
         usernames.pop(i)
         continue
 
-    u = ''.join(usernames[i].split("-"))
-    u = ''.join(u.split("_"))
+    u = "".join(usernames[i].split("-"))
+    u = "".join(u.split("_"))
     if not u.isalnum():
         usernames.pop(i)
         continue
 
     i += 1
 
-print('\n'.join(usernames))
+print("\n".join(usernames))
 
 # import re
 

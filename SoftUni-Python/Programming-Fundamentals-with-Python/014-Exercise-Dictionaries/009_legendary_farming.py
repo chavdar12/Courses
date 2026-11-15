@@ -1,9 +1,5 @@
-materials = {"shards":  0, "fragments": 0, "motes": 0}
-mapper = {
-    "shards": "Shadowmourne",
-    "fragments": "Valanyr",
-    "motes": "Dragonwrath"
-}
+materials = {"shards": 0, "fragments": 0, "motes": 0}
+mapper = {"shards": "Shadowmourne", "fragments": "Valanyr", "motes": "Dragonwrath"}
 obtained_legendary_item = None
 current_materials = input()
 while current_materials:
@@ -12,14 +8,14 @@ while current_materials:
         quantity, material = int(current_materials[i]), current_materials[i + 1].lower()
         if material not in materials:
             materials[material] = 0
-        
+
         materials[material] += quantity
         if material in mapper and materials[material] >= 250:
             materials[material] -= 250
             obtained_legendary_item = mapper[material]
             print(f"{obtained_legendary_item} obtained!")
             break
-    
+
     if obtained_legendary_item is not None:
         break
 

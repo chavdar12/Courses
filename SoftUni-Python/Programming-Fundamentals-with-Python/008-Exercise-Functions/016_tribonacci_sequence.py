@@ -13,4 +13,4 @@ def tribonacci_sequence(n):
 
 
 numbers = tribonacci_sequence(int(input()))
-print(' '.join(str(s) for s in numbers))
+print(" ".join(str(s) for s in numbers))

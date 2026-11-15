@@ -10,7 +10,7 @@ while command != "Travel":
     elif action == "Remove Stop":
         start, end = int(args[0]), int(args[1])
         if 0 <= start <= end < len(stops):
-            stops = stops[:start] + stops[end + 1:]
+            stops = stops[:start] + stops[end + 1 :]
     elif action == "Switch":
         stops = stops.replace(args[0], args[1])
     print(stops)

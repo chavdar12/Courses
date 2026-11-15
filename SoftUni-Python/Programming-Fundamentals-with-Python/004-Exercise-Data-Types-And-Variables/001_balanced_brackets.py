@@ -6,7 +6,6 @@ for line in range(lines_count):
     command_input = input()
 
     if command_input == "(":
-
         if is_bracket_open:
             is_balanced = False
             break
@@ -14,7 +13,6 @@ for line in range(lines_count):
         is_bracket_open = True
 
     elif command_input == ")":
-
         if not is_bracket_open:
             is_balanced = False
             break

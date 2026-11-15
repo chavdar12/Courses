@@ -25,7 +25,9 @@ while line != "End":
             print("Gold added cannot be a negative number!")
         else:
             towns[town]["gold"] += gold
-            print(f"{gold} gold added to the city treasury. {town} now has {towns[town]['gold']} gold.")
+            print(
+                f"{gold} gold added to the city treasury. {town} now has {towns[town]['gold']} gold."
+            )
     line = input()
 
 if towns:

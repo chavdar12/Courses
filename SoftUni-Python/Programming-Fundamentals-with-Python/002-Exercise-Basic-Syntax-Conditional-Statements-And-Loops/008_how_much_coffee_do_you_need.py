@@ -8,7 +8,6 @@ for i in lower_cases:
     upper_cases.append(i)
 
 while command != "END":
-
     if command in lower_cases:
         coffee_count += 1
     elif command in upper_cases:

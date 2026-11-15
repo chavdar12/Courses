@@ -6,4 +6,4 @@ while version[i] > 9:
     i -= 1
     version[i] += 1
 
-print('.'.join(str(s) for s in version))
+print(".".join(str(s) for s in version))

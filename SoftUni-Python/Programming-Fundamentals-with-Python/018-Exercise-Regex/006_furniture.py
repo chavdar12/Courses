@@ -12,5 +12,5 @@ while command != "Purchase":
 
 print(f"Bought furniture:")
 if products:
-    print('\n'.join(products))
+    print("\n".join(products))
 print(f"Total money spend: {total_price:.2f}")

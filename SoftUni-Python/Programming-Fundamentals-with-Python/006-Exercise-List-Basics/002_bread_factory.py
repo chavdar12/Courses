@@ -11,8 +11,7 @@ for event_index in range(len(events)):
             event_value = missing_energy
 
         energy += event_value
-        print(f"You gained {event_value} energy.\n"
-              f"Current energy: {energy}.")
+        print(f"You gained {event_value} energy.\nCurrent energy: {energy}.")
 
     elif event == "order":
         if energy < 30:
@@ -32,6 +31,4 @@ for event_index in range(len(events)):
 
         print(f"You bought {event}.")
 
-print(f'Day completed!\n'
-      f'Coins: {coins}\n'
-      f'Energy: {energy}')
+print(f"Day completed!\nCoins: {coins}\nEnergy: {energy}")

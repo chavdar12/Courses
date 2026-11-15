@@ -15,14 +15,16 @@ while command != "end of submissions":
 
     if username not in contests:
         contests[username] = {}
-    
+
     if contest not in contests[username] or contests[username][contest] < points:
         contests[username][contest] = points
-    
+
     command = input()
 
 best_candidate, best_contests = max(contests.items(), key=lambda x: sum(x[1].values()))
-print(f"Best candidate is {best_candidate} with total {sum(best_contests.values())} points.\nRanking:")
+print(
+    f"Best candidate is {best_candidate} with total {sum(best_contests.values())} points.\nRanking:"
+)
 for u, contests_data in sorted(contests.items()):
     print(u)
     for l, p in sorted(contests_data.items(), key=lambda x: -x[1]):

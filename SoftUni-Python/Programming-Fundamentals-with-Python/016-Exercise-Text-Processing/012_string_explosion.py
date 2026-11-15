@@ -10,4 +10,4 @@ while i < len(text):
         continue
     i += 1
 
-print(''.join(text))
+print("".join(text))

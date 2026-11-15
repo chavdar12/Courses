@@ -16,4 +16,6 @@ for snowball in range(snowballs_count):
         best_snowball_time = snowball_time
         best_snowball_quality = snowball_quality
 
-print(f"{best_snowball_snow} : {best_snowball_time} = {int(best_snowball_value)} ({best_snowball_quality})")
+print(
+    f"{best_snowball_snow} : {best_snowball_time} = {int(best_snowball_value)} ({best_snowball_quality})"
+)

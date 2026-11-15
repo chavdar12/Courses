@@ -8,7 +8,7 @@ for _ in range(int(input())):
         else:
             plates[user] = plate
             print(f"{user} registered {plates[user]} successfully")
-    
+
     elif "unregister" in command:
         user = command[1]
         if user not in plates:

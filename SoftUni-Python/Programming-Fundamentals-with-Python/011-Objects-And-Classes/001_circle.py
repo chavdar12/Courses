@@ -3,18 +3,15 @@ class Circle:
 
     def __init__(self, d):
         self.d = d
-    
 
     def calculate_circumference(self):
         return Circle.__pi * self.d
 
-    
     def calculate_area(self):
-        return Circle.__pi * (self.d / 2)**2
+        return Circle.__pi * (self.d / 2) ** 2
 
-    
     def calculate_area_of_sector(self, a):
-        return (a / 360) * Circle.__pi * (self.d / 2)**2
+        return (a / 360) * Circle.__pi * (self.d / 2) ** 2
 
 
 circle = Circle(10)

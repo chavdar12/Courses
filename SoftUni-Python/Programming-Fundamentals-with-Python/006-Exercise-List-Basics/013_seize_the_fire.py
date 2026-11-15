@@ -30,5 +30,4 @@ print("Cells:")
 for i in range(len(cells_out)):
     print(f" - {cells_out[i]}")
 
-print(f"Effort: {total_effort:.2f}\n"
-      f"Total Fire: {total_fire}")
+print(f"Effort: {total_effort:.2f}\nTotal Fire: {total_fire}")

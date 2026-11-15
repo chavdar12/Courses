@@ -5,7 +5,7 @@ while command != "Once upon a time":
 
     if color not in colors:
         colors[color] = {}
-    
+
     if name not in colors[color] or colors[color][name] < physics:
         colors[color][name] = physics
 

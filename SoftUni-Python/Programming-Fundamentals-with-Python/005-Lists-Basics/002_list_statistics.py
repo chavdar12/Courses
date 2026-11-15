@@ -10,6 +10,8 @@ for _ in range(n):
     else:
         negatives.append(num)
 
-print(f"{positives}\n"
-      f"{negatives}\n"
-      f"Count of positives: {len(positives)}. Sum of negatives: {sum(negatives)}")
+print(
+    f"{positives}\n"
+    f"{negatives}\n"
+    f"Count of positives: {len(positives)}. Sum of negatives: {sum(negatives)}"
+)

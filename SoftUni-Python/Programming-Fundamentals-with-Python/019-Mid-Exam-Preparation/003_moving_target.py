@@ -15,7 +15,7 @@ while command != "End":
             print("Invalid placement!")
     elif action == "Strike":
         if 0 <= index - value and index + value < len(targets):
-            del targets[index - value:index + value + 1]
+            del targets[index - value : index + value + 1]
         else:
             print("Strike missed!")
     command = input()

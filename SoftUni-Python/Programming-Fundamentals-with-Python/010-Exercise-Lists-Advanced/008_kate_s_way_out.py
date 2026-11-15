@@ -20,7 +20,10 @@ def moves_count(x, y):
 
 
 initial_maze = [list(f"#{input()}#") for _ in range(int(input()))]
-maze = [[1 if initial_maze[r][c] == " " else 0 for c in range(len(initial_maze[0]))] for r in range(len(initial_maze))]
+maze = [
+    [1 if initial_maze[r][c] == " " else 0 for c in range(len(initial_maze[0]))]
+    for r in range(len(initial_maze))
+]
 maze.append([2 for _ in range(len(initial_maze[0]))])
 maze.insert(0, [2 for _ in range(len(initial_maze[0]))])
 for i in range(len(maze)):

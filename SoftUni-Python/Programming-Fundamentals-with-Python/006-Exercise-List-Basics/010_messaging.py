@@ -8,4 +8,4 @@ for num in numbers:
 
     message.append(text.pop(index))
 
-print(''.join(message))
+print("".join(message))

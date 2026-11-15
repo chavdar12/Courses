@@ -3,8 +3,8 @@ def exchange(data: list, index: int):
         print(f"Invalid index")
         return data
 
-    data1 = data[index + 1:]
-    data1.extend(data[:index + 1])
+    data1 = data[index + 1 :]
+    data1.extend(data[: index + 1])
     return data1
 
 
@@ -62,12 +62,12 @@ def last_n(data: list, int_type: str, count: int):
         evens = [n for n in data if n % 2 == 0]
         if count > len(evens):
             count = len(evens)
-        return evens[len(evens) - count:]
+        return evens[len(evens) - count :]
 
     odds = [n for n in data if n % 2 == 1]
     if count > len(odds):
         count = len(odds)
-    return odds[len(odds) - count:]
+    return odds[len(odds) - count :]
 
 
 numbers = [int(n) for n in input().split()]

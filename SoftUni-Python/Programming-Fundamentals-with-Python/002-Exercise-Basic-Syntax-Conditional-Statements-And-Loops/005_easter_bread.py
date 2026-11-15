@@ -18,4 +18,6 @@ while budget > 0:
     if cozonacs_made % 3 == 0:
         colored_eggs -= cozonacs_made - 2
 
-print(f"You made {cozonacs_made} cozonacs! Now you have {colored_eggs} eggs and {budget:.2f}BGN left.")
+print(
+    f"You made {cozonacs_made} cozonacs! Now you have {colored_eggs} eggs and {budget:.2f}BGN left."
+)

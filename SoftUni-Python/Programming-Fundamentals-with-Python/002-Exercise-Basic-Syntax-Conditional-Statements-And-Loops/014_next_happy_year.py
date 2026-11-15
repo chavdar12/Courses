@@ -5,7 +5,6 @@ for current_year in range(year + 1, 999999999):
     control_year = []
 
     for i in str(current_year):
-
         if i in control_year:
             is_happy_year = False
             break

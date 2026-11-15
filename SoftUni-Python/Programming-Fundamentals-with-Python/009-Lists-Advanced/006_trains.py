@@ -15,5 +15,5 @@ while command != "End":
         train[index] -= people_count
 
     command = input()
-    
+
 print(train)

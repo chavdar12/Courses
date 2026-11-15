@@ -4,7 +4,7 @@ result = 0
 for word in words:
     first_l = word[0]
     last_l = word[-1]
-    n = int(word[1:len(word) - 1])
+    n = int(word[1 : len(word) - 1])
     if first_l.isupper():
         n = n / (possitions.index(first_l.upper()) + 1)
     else:

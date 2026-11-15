@@ -6,7 +6,7 @@ planets_pattern = r"@([A-Za-z]+)[^@\-!:>]*:(\d+)[^@\-!:>]*!([AD])![^@\-!:>]*->(\
 for _ in range(int(input())):
     line = input()
     c = len(re.findall(star_pattern, line, re.IGNORECASE))
-    line = ''.join(chr(ord(ch) - c) for ch in line)
+    line = "".join(chr(ord(ch) - c) for ch in line)
     line = re.findall(planets_pattern, line)
     if line:
         planet_name, attack_type = line[0][0], line[0][2]
@@ -16,9 +16,9 @@ for _ in range(int(input())):
             planets["D"].append(planet_name)
 
 print(f"Attacked planets: {len(planets['A'])}")
-for p in sorted(planets['A']):
+for p in sorted(planets["A"]):
     print(f"-> {p}")
 
 print(f"Destroyed planets: {len(planets['D'])}")
-for p in sorted(planets['D']):
+for p in sorted(planets["D"]):
     print(f"-> {p}")
