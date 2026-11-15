@@ -9,6 +9,7 @@ internal class Program
 
         var wc = new WordCruncher(input, target);
 
-        foreach (var path in wc.GetPaths()) Console.WriteLine(path);
+        foreach (var path in wc.GetPaths())
+            Console.WriteLine(path);
     }
 }

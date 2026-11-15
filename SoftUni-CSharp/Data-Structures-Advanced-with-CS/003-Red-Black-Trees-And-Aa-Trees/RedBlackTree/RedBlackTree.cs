@@ -1,7 +1,7 @@
 ﻿namespace RedBlackTree;
 
-public class RedBlackTree<T>
-    : IBinarySearchTree<T> where T : IComparable
+public class RedBlackTree<T> : IBinarySearchTree<T>
+    where T : IComparable
 {
     private const bool Red = true;
     private const bool Black = false;
@@ -13,9 +13,7 @@ public class RedBlackTree<T>
         PreOrderCopy(node);
     }
 
-    public RedBlackTree()
-    {
-    }
+    public RedBlackTree() { }
 
     public void Insert(T element)
     {
@@ -44,7 +42,8 @@ public class RedBlackTree<T>
 
     public void DeleteMin()
     {
-        if (root == null) throw new InvalidOperationException();
+        if (root == null)
+            throw new InvalidOperationException();
 
         root = DeleteMin(root);
     }
@@ -52,7 +51,8 @@ public class RedBlackTree<T>
     public T Select(int rank)
     {
         var node = Select(rank, root);
-        if (node == null) throw new InvalidOperationException();
+        if (node == null)
+            throw new InvalidOperationException();
 
         return node.Value;
     }
@@ -68,14 +68,16 @@ public class RedBlackTree<T>
 
     public void Delete(T element)
     {
-        if (root == null) throw new InvalidOperationException();
+        if (root == null)
+            throw new InvalidOperationException();
 
         root = Delete(element, root);
     }
 
     public void DeleteMax()
     {
-        if (root == null) throw new InvalidOperationException();
+        if (root == null)
+            throw new InvalidOperationException();
 
         root = DeleteMax(root);
     }
@@ -102,7 +104,8 @@ public class RedBlackTree<T>
 
     private Node DeleteMin(Node node)
     {
-        if (node.Left == null) return node.Right;
+        if (node.Left == null)
+            return node.Right;
 
         node.Left = DeleteMin(node.Left);
         node.Count = 1 + Count(node.Left) + Count(node.Right);
@@ -127,7 +130,8 @@ public class RedBlackTree<T>
 
     private void PreOrderCopy(Node node)
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         Insert(node.Value);
         PreOrderCopy(node.Left);
@@ -140,13 +144,17 @@ public class RedBlackTree<T>
             node = new Node(element);
         else if (element.CompareTo(node.Value) < 0)
             node.Left = Insert(element, node.Left);
-        else if (element.CompareTo(node.Value) > 0) node.Right = Insert(element, node.Right);
+        else if (element.CompareTo(node.Value) > 0)
+            node.Right = Insert(element, node.Right);
 
-        if (IsRed(node.Right) && !IsRed(node.Left)) node = RotateLeft(node);
+        if (IsRed(node.Right) && !IsRed(node.Left))
+            node = RotateLeft(node);
 
-        if (IsRed(node.Left) && IsRed(node.Left.Left)) node = RotateRight(node);
+        if (IsRed(node.Left) && IsRed(node.Left.Left))
+            node = RotateRight(node);
 
-        if (IsRed(node.Left) && IsRed(node.Right)) FlipColors(node);
+        if (IsRed(node.Left) && IsRed(node.Right))
+            FlipColors(node);
 
         node.Count = 1 + Count(node.Left) + Count(node.Right);
         return node;
@@ -154,21 +162,26 @@ public class RedBlackTree<T>
 
     private void Range(Node node, Queue<T> queue, T startRange, T endRange)
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         var nodeInLowerRange = startRange.CompareTo(node.Value);
         var nodeInHigherRange = endRange.CompareTo(node.Value);
 
-        if (nodeInLowerRange < 0) Range(node.Left, queue, startRange, endRange);
+        if (nodeInLowerRange < 0)
+            Range(node.Left, queue, startRange, endRange);
 
-        if (nodeInLowerRange <= 0 && nodeInHigherRange >= 0) queue.Enqueue(node.Value);
+        if (nodeInLowerRange <= 0 && nodeInHigherRange >= 0)
+            queue.Enqueue(node.Value);
 
-        if (nodeInHigherRange > 0) Range(node.Right, queue, startRange, endRange);
+        if (nodeInHigherRange > 0)
+            Range(node.Right, queue, startRange, endRange);
     }
 
     private void EachInOrder(Node node, Action<T> action)
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         EachInOrder(node.Left, action);
         action(node.Value);
@@ -177,14 +190,16 @@ public class RedBlackTree<T>
 
     private int Count(Node node)
     {
-        if (node == null) return 0;
+        if (node == null)
+            return 0;
 
         return node.Count;
     }
 
     private Node Delete(T element, Node node)
     {
-        if (node == null) return null;
+        if (node == null)
+            return null;
 
         var compare = element.CompareTo(node.Value);
 
@@ -198,9 +213,11 @@ public class RedBlackTree<T>
         }
         else
         {
-            if (node.Right == null) return node.Left;
+            if (node.Right == null)
+                return node.Left;
 
-            if (node.Left == null) return node.Right;
+            if (node.Left == null)
+                return node.Right;
 
             var temp = node;
             node = FindMin(temp.Right);
@@ -215,14 +232,16 @@ public class RedBlackTree<T>
 
     private Node FindMin(Node node)
     {
-        if (node.Left == null) return node;
+        if (node.Left == null)
+            return node;
 
         return FindMin(node.Left);
     }
 
     private Node DeleteMax(Node node)
     {
-        if (node.Right == null) return node.Left;
+        if (node.Right == null)
+            return node.Left;
 
         node.Right = DeleteMax(node.Right);
         node.Count = 1 + Count(node.Left) + Count(node.Right);
@@ -232,33 +251,40 @@ public class RedBlackTree<T>
 
     private int Rank(T element, Node node)
     {
-        if (node == null) return 0;
+        if (node == null)
+            return 0;
 
         var compare = element.CompareTo(node.Value);
 
-        if (compare < 0) return Rank(element, node.Left);
+        if (compare < 0)
+            return Rank(element, node.Left);
 
-        if (compare > 0) return 1 + Count(node.Left) + Rank(element, node.Right);
+        if (compare > 0)
+            return 1 + Count(node.Left) + Rank(element, node.Right);
 
         return Count(node.Left);
     }
 
     private Node Select(int rank, Node node)
     {
-        if (node == null) return null;
+        if (node == null)
+            return null;
 
         var leftCount = Count(node.Left);
 
-        if (leftCount == rank) return node;
+        if (leftCount == rank)
+            return node;
 
-        if (leftCount > rank) return Select(rank, node.Left);
+        if (leftCount > rank)
+            return Select(rank, node.Left);
 
         return Select(rank - (leftCount + 1), node.Right);
     }
 
     private bool IsRed(Node node)
     {
-        if (node == null) return false;
+        if (node == null)
+            return false;
 
         return node.Color == Red;
     }

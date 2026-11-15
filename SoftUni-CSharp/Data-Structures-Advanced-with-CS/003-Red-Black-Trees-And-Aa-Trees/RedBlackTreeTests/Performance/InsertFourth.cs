@@ -9,6 +9,7 @@ internal class InsertFourth
     {
         var rbt = new RedBlackTree<int>();
 
-        for (var i = 0; i < 100000; i++) rbt.Insert(i);
+        for (var i = 0; i < 100000; i++)
+            rbt.Insert(i);
     }
 }

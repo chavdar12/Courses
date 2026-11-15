@@ -39,7 +39,10 @@ public class GetCommonElements : BaseTest
 
         var result = Hierarchy.GetCommonElements(otherHierarchy).ToArray();
 
-        CollectionAssert.AreEquivalent(result, new[] { -22, 34, 10 },
-            "GetCommonElements returned an incorrect collection!");
+        CollectionAssert.AreEquivalent(
+            result,
+            new[] { -22, 34, 10 },
+            "GetCommonElements returned an incorrect collection!"
+        );
     }
 }

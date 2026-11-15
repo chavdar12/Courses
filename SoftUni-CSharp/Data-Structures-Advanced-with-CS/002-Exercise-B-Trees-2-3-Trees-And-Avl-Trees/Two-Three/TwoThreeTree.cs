@@ -2,7 +2,8 @@
 
 namespace Two_Three;
 
-public class TwoThreeTree<T> where T : IComparable<T>
+public class TwoThreeTree<T>
+    where T : IComparable<T>
 {
     private TreeNode<T> root;
 
@@ -21,9 +22,11 @@ public class TwoThreeTree<T> where T : IComparable<T>
 
     private void RecursivePrint(TreeNode<T> node, StringBuilder sb)
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
-        if (node.LeftKey != null) sb.Append(node.LeftKey).Append(" ");
+        if (node.LeftKey != null)
+            sb.Append(node.LeftKey).Append(" ");
 
         if (node.IsThreeNode())
             sb.Append(node.RightKey).Append(Environment.NewLine);
@@ -45,11 +48,13 @@ public class TwoThreeTree<T> where T : IComparable<T>
 
     private TreeNode<T> Insert(TreeNode<T> node, T key)
     {
-        if (node == null) return new TreeNode<T>(key);
+        if (node == null)
+            return new TreeNode<T>(key);
 
         TreeNode<T> returnNode;
 
-        if (node.IsLeaf()) return Merge(node, new TreeNode<T>(key));
+        if (node.IsLeaf())
+            return Merge(node, new TreeNode<T>(key));
 
         if (key.CompareTo(node.LeftKey) < 0)
         {
@@ -103,11 +108,7 @@ public class TwoThreeTree<T> where T : IComparable<T>
 
         if (a.LeftKey.CompareTo(b.LeftKey) >= 0)
         {
-            var mergedNode = new TreeNode<T>(a.LeftKey)
-            {
-                LeftChild = b,
-                MiddleChild = a
-            };
+            var mergedNode = new TreeNode<T>(a.LeftKey) { LeftChild = b, MiddleChild = a };
             a.LeftChild = a.MiddleChild;
             a.MiddleChild = a.RightChild;
             a.RightChild = null;
@@ -119,11 +120,7 @@ public class TwoThreeTree<T> where T : IComparable<T>
 
         if (a.RightKey.CompareTo(b.LeftKey) >= 0)
         {
-            b.MiddleChild = new TreeNode<T>(a.RightKey)
-            {
-                LeftChild = b.MiddleChild,
-                MiddleChild = a.RightChild
-            };
+            b.MiddleChild = new TreeNode<T>(a.RightKey) { LeftChild = b.MiddleChild, MiddleChild = a.RightChild };
             a.MiddleChild = b.LeftChild;
             b.LeftChild = a;
             a.ClearRightKey();
@@ -133,11 +130,7 @@ public class TwoThreeTree<T> where T : IComparable<T>
         }
 
         {
-            var mergedNode = new TreeNode<T>(a.RightKey)
-            {
-                LeftChild = a,
-                MiddleChild = b
-            };
+            var mergedNode = new TreeNode<T>(a.RightKey) { LeftChild = a, MiddleChild = b };
             a.RightChild = null;
             a.ClearRightKey();
 

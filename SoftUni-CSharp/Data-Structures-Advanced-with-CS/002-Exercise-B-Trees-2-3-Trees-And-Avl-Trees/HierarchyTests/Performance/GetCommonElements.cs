@@ -21,8 +21,11 @@ public class GetCommonElements
         var timer = new Stopwatch();
         timer.Start();
 
-        CollectionAssert.AreEqual(new int[0], hierarchy.GetCommonElements(hierarchy2).ToArray(),
-            "GetCommonElements method returned incorrect collection!");
+        CollectionAssert.AreEqual(
+            new int[0],
+            hierarchy.GetCommonElements(hierarchy2).ToArray(),
+            "GetCommonElements method returned incorrect collection!"
+        );
 
         timer.Stop();
         Assert.IsTrue(timer.ElapsedMilliseconds < 200);
@@ -36,17 +39,22 @@ public class GetCommonElements
         var hierarchy = new Hierarchy<int>(start1);
         var hierarchy2 = new Hierarchy<int>(start2);
 
-        for (var i = 1; i <= 50000; i++) hierarchy.Add(start1, i);
+        for (var i = 1; i <= 50000; i++)
+            hierarchy.Add(start1, i);
 
-        for (var i = start2 - 1; i > 25000; i--) hierarchy2.Add(start2, i);
+        for (var i = start2 - 1; i > 25000; i--)
+            hierarchy2.Add(start2, i);
 
         var common = Enumerable.Range(25001, 25000).ToArray();
 
         var timer = new Stopwatch();
         timer.Start();
 
-        CollectionAssert.AreEqual(common, hierarchy.GetCommonElements(hierarchy2).ToArray(),
-            "GetCommonElements method returned incorrect collection!");
+        CollectionAssert.AreEqual(
+            common,
+            hierarchy.GetCommonElements(hierarchy2).ToArray(),
+            "GetCommonElements method returned incorrect collection!"
+        );
 
         timer.Stop();
         Assert.IsTrue(timer.ElapsedMilliseconds < 200);

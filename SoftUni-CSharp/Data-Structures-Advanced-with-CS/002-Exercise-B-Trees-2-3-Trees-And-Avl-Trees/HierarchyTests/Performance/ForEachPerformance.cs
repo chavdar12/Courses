@@ -61,11 +61,13 @@ public class ForEachPerformance
             for (var j = i + 1; j <= i + 510; j = j + 51)
             {
                 hierarchy.Add(i, j);
-                for (var k = j + 1; k <= j + 50; k++) hierarchy.Add(j, k);
+                for (var k = j + 1; k <= j + 50; k++)
+                    hierarchy.Add(j, k);
             }
         }
 
-        for (var i = 1; i <= 51100; i = i + 511) elements.Add(i);
+        for (var i = 1; i <= 51100; i = i + 511)
+            elements.Add(i);
 
         for (var i = 1; i <= 51100; i = i + 511)
         for (var j = i + 1; j <= i + 510; j = j + 51)

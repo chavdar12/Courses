@@ -10,19 +10,22 @@ public class WordCruncher
         permutation = GeneratePermutations(input.OrderBy(s => s).ToList(), target);
 
         // No word fits: VisitPath(null) would otherwise yield one empty path
-        if (permutation == null) return;
+        if (permutation == null)
+            return;
 
         foreach (var path in GetAllPaths())
         {
             var result = string.Join(' ', path);
 
-            if (!results.Contains(result)) results.Add(result);
+            if (!results.Contains(result))
+                results.Add(result);
         }
     }
 
     public IEnumerable<string> GetPaths()
     {
-        foreach (var result in results) yield return result;
+        foreach (var result in results)
+            yield return result;
     }
 
     private IEnumerable<IEnumerable<string>> GetAllPaths()
@@ -42,7 +45,8 @@ public class WordCruncher
 
     private List<Node> GeneratePermutations(List<string> input, string target)
     {
-        if (string.IsNullOrEmpty(target) || input.Count() == 0) return null;
+        if (string.IsNullOrEmpty(target) || input.Count() == 0)
+            return null;
 
         List<Node> returnValues = null;
 
@@ -55,13 +59,17 @@ public class WordCruncher
                 var node = new Node()
                 {
                     Key = key,
-                    Value = GeneratePermutations(input.Where((s, index) => index != i).ToList(),
-                        target.Substring(key.Length))
+                    Value = GeneratePermutations(
+                        input.Where((s, index) => index != i).ToList(),
+                        target.Substring(key.Length)
+                    ),
                 };
 
-                if (node.Value == null && node.Key != target) continue;
+                if (node.Value == null && node.Key != target)
+                    continue;
 
-                if (returnValues == null) returnValues = new List<Node>();
+                if (returnValues == null)
+                    returnValues = new List<Node>();
 
                 returnValues.Add(node);
             }
@@ -74,7 +82,8 @@ public class WordCruncher
     {
         if (permutation == null)
         {
-            foreach (var pathItem in path) yield return pathItem;
+            foreach (var pathItem in path)
+                yield return pathItem;
 
             yield return null;
         }
@@ -84,7 +93,8 @@ public class WordCruncher
             {
                 path.Add(node.Key);
 
-                foreach (var item in VisitPath(node.Value, path)) yield return item;
+                foreach (var item in VisitPath(node.Value, path))
+                    yield return item;
 
                 path.RemoveAt(path.Count - 1);
             }

@@ -15,7 +15,10 @@ public class Remove : BaseTest
     [Test]
     public void Remove_WithRootElement_ShouldThrowException()
     {
-        Assert.Throws<InvalidOperationException>(() => { Hierarchy.Remove(DefaultRootValue); });
+        Assert.Throws<InvalidOperationException>(() =>
+        {
+            Hierarchy.Remove(DefaultRootValue);
+        });
     }
 
     [Test]
@@ -70,8 +73,6 @@ public class Remove : BaseTest
         Assert.AreEqual(DefaultRootValue, Hierarchy.GetParent(13));
 
         var rootChildren = Hierarchy.GetChildren(DefaultRootValue).ToArray();
-        CollectionAssert.AreEqual(
-            rootChildren,
-            new[] { 11, 12, 13 });
+        CollectionAssert.AreEqual(rootChildren, new[] { 11, 12, 13 });
     }
 }

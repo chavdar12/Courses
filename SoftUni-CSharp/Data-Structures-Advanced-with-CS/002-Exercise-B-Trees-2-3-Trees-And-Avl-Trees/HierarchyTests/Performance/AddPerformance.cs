@@ -33,10 +33,16 @@ public class AddPerformance
             Assert.AreEqual(25001, hierarchy.GetParent(++counter2), "Parent did not match!");
         }
 
-        CollectionAssert.AreEqual(Enumerable.Range(2, 24999).ToArray(), hierarchy.GetChildren(1).ToArray(),
-            "Children did not match!");
-        CollectionAssert.AreEqual(Enumerable.Range(25002, 24999).ToArray(), hierarchy.GetChildren(25001).ToArray(),
-            "Children did not match!");
+        CollectionAssert.AreEqual(
+            Enumerable.Range(2, 24999).ToArray(),
+            hierarchy.GetChildren(1).ToArray(),
+            "Children did not match!"
+        );
+        CollectionAssert.AreEqual(
+            Enumerable.Range(25002, 24999).ToArray(),
+            hierarchy.GetChildren(25001).ToArray(),
+            "Children did not match!"
+        );
     }
 
     [Test]
@@ -77,14 +83,10 @@ public class AddPerformance
             Assert.AreEqual(counter2 + 1, hierarchy.GetParent(counter2), "Parent did not match!");
             Assert.AreEqual(counter3 + 1, hierarchy.GetParent(counter3), "Parent did not match!");
             Assert.AreEqual(counter4 + 1, hierarchy.GetParent(counter4), "Parent did not match!");
-            Assert.AreEqual(counter1, hierarchy.GetChildren(counter1 + 1).FirstOrDefault(),
-                "Children did not match!");
-            Assert.AreEqual(counter2, hierarchy.GetChildren(counter2 + 1).FirstOrDefault(),
-                "Children did not match!");
-            Assert.AreEqual(counter3, hierarchy.GetChildren(counter3 + 1).FirstOrDefault(),
-                "Children did not match!");
-            Assert.AreEqual(counter4, hierarchy.GetChildren(counter4 + 1).FirstOrDefault(),
-                "Children did not match!");
+            Assert.AreEqual(counter1, hierarchy.GetChildren(counter1 + 1).FirstOrDefault(), "Children did not match!");
+            Assert.AreEqual(counter2, hierarchy.GetChildren(counter2 + 1).FirstOrDefault(), "Children did not match!");
+            Assert.AreEqual(counter3, hierarchy.GetChildren(counter3 + 1).FirstOrDefault(), "Children did not match!");
+            Assert.AreEqual(counter4, hierarchy.GetChildren(counter4 + 1).FirstOrDefault(), "Children did not match!");
             counter1++;
             counter2++;
             counter3++;

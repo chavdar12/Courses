@@ -17,7 +17,8 @@ public class Hierarchy<T> : IHierarchy<T>
     public void Add(T element, T child)
     {
         ContainsItemOrThrowException(element);
-        if (elements.ContainsKey(child)) throw new ArgumentException();
+        if (elements.ContainsKey(child))
+            throw new ArgumentException();
 
         var node = CreateNode(child);
         node.Parent = elements[element];
@@ -26,7 +27,8 @@ public class Hierarchy<T> : IHierarchy<T>
 
     public void Remove(T element)
     {
-        if (root.Value.Equals(element)) throw new InvalidOperationException();
+        if (root.Value.Equals(element))
+            throw new InvalidOperationException();
 
         ContainsItemOrThrowException(element);
 
@@ -71,7 +73,8 @@ public class Hierarchy<T> : IHierarchy<T>
             var node = queue.Dequeue();
             yield return node.Value;
 
-            foreach (var child in node.Children) queue.Enqueue(child);
+            foreach (var child in node.Children)
+                queue.Enqueue(child);
         }
     }
 
@@ -82,7 +85,8 @@ public class Hierarchy<T> : IHierarchy<T>
 
     private void ContainsItemOrThrowException(T element)
     {
-        if (!Contains(element)) throw new ArgumentException();
+        if (!Contains(element))
+            throw new ArgumentException();
     }
 
     private Node<T> CreateNode(T element)

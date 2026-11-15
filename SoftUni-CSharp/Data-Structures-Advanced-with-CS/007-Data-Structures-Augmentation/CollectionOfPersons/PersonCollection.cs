@@ -1,5 +1,8 @@
 ﻿using Wintellect.PowerCollections;
-using OrderedDictionary = Wintellect.PowerCollections.OrderedDictionary<int, System.Collections.Generic.SortedSet<Collection_of_Persons.Person>>;
+using OrderedDictionary = Wintellect.PowerCollections.OrderedDictionary<
+    int,
+    System.Collections.Generic.SortedSet<Collection_of_Persons.Person>
+>;
 
 namespace Collection_of_Persons;
 
@@ -23,7 +26,7 @@ public class PersonCollection : IPersonCollection
             Email = email,
             Name = name,
             Age = age,
-            Town = town
+            Town = town,
         };
 
         // Add by email

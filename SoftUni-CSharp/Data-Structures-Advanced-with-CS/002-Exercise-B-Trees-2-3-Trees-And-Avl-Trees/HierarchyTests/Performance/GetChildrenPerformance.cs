@@ -9,15 +9,15 @@ public class GetChildrenPerformance
     {
         var hierarchy = new Hierarchy<int>(-17);
 
-        for (var i = 50000; i > 0; i--) hierarchy.Add(-17, i);
+        for (var i = 50000; i > 0; i--)
+            hierarchy.Add(-17, i);
 
         var children = Enumerable.Range(1, 50000).Reverse().ToArray();
 
         var timer = new Stopwatch();
         timer.Start();
 
-        CollectionAssert.AreEqual(children, hierarchy.GetChildren(-17).ToArray(),
-            "Children collection did not match!");
+        CollectionAssert.AreEqual(children, hierarchy.GetChildren(-17).ToArray(), "Children collection did not match!");
 
         timer.Stop();
         Assert.IsTrue(timer.ElapsedMilliseconds < 200);
@@ -31,7 +31,8 @@ public class GetChildrenPerformance
         for (var i = 1; i <= 5000; i++)
         {
             hierarchy.Add(-88, i);
-            for (var j = 0; j < 10; j++) hierarchy.Add(i, counter++);
+            for (var j = 0; j < 10; j++)
+                hierarchy.Add(i, counter++);
         }
 
         var baseChildren = Enumerable.Range(1, 5000).ToArray();
@@ -52,8 +53,11 @@ public class GetChildrenPerformance
             Assert.AreEqual(10, count, "Incorrect children collection count!");
         }
 
-        CollectionAssert.AreEqual(baseChildren, hierarchy.GetChildren(-88).ToArray(),
-            "Expected children did not match!");
+        CollectionAssert.AreEqual(
+            baseChildren,
+            hierarchy.GetChildren(-88).ToArray(),
+            "Expected children did not match!"
+        );
 
         timer.Stop();
         Assert.IsTrue(timer.ElapsedMilliseconds < 300);

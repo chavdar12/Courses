@@ -13,9 +13,7 @@ public class KeyValue<TKey, TValue>
 
     public override bool Equals(object other)
     {
-        return other is KeyValue<TKey, TValue> element
-               && Equals(Key, element.Key)
-               && Equals(Value, element.Value);
+        return other is KeyValue<TKey, TValue> element && Equals(Key, element.Key) && Equals(Value, element.Value);
     }
 
     public override int GetHashCode()

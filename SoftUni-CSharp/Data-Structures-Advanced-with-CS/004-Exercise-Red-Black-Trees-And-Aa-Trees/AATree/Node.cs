@@ -1,6 +1,7 @@
 ﻿namespace AATree;
 
-public class Node<T> where T : IComparable<T>
+public class Node<T>
+    where T : IComparable<T>
 {
     public Node(T element)
     {

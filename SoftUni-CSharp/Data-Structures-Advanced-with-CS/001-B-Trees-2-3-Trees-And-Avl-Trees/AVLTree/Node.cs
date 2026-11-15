@@ -1,6 +1,7 @@
 ﻿namespace AVLTree;
 
-public class Node<T> where T : IComparable<T>
+public class Node<T>
+    where T : IComparable<T>
 {
     public T Value;
     public Node<T> Left;

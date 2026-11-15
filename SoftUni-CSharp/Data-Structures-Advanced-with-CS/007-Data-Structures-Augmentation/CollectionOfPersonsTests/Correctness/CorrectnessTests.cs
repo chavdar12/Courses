@@ -9,8 +9,7 @@ public class CorrectnessTests
         var persons = new PersonCollection();
 
         // Act
-        var isAdded =
-            persons.AddPerson("pesho@gmail.com", "Peter", 18, "Sofia");
+        var isAdded = persons.AddPerson("pesho@gmail.com", "Peter", 18, "Sofia");
 
         // Assert
         Assert.That(isAdded, Is.True);
@@ -24,10 +23,8 @@ public class CorrectnessTests
         var persons = new PersonCollection();
 
         // Act
-        var isAddedFirst =
-            persons.AddPerson("pesho@gmail.com", "Peter", 18, "Sofia");
-        var isAddedSecond =
-            persons.AddPerson("pesho@gmail.com", "Maria", 24, "Plovdiv");
+        var isAddedFirst = persons.AddPerson("pesho@gmail.com", "Peter", 18, "Sofia");
+        var isAddedSecond = persons.AddPerson("pesho@gmail.com", "Maria", 24, "Plovdiv");
 
         // Assert
         Assert.That(isAddedFirst);
@@ -71,10 +68,8 @@ public class CorrectnessTests
         persons.AddPerson("pesho@gmail.com", "Peter", 28, "Plovdiv");
 
         // Act
-        var isDeletedExisting =
-            persons.DeletePerson("pesho@gmail.com");
-        var isDeletedNonExisting =
-            persons.DeletePerson("pesho@gmail.com");
+        var isDeletedExisting = persons.DeletePerson("pesho@gmail.com");
+        var isDeletedNonExisting = persons.DeletePerson("pesho@gmail.com");
 
         // Assert
         Assert.That(isDeletedExisting);
@@ -101,13 +96,10 @@ public class CorrectnessTests
         // Assert
         CollectionAssert.AreEqual(
             new[] { "ani@gmail.com", "mary@gmail.com", "pesho@gmail.com" },
-            personsGmail.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new[] { "kiro@yahoo.co.uk" },
-            personsYahoo.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { },
-            personsHoo.Select(p => p.Email).ToList());
+            personsGmail.Select(p => p.Email).ToList()
+        );
+        CollectionAssert.AreEqual(new[] { "kiro@yahoo.co.uk" }, personsYahoo.Select(p => p.Email).ToList());
+        CollectionAssert.AreEqual(new string[] { }, personsHoo.Select(p => p.Email).ToList());
     }
 
     [Test]
@@ -130,16 +122,11 @@ public class CorrectnessTests
         // Assert
         CollectionAssert.AreEqual(
             new string[] { "pepi@gmail.com", "pepi2@yahoo.fr", "pesho@gmail.com" },
-            personsPeshoPlovdiv.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { },
-            personsLowercase.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { },
-            personsPeshoNoTown.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { "ani@gmail.com" },
-            personsAnnaBourgas.Select(p => p.Email).ToList());
+            personsPeshoPlovdiv.Select(p => p.Email).ToList()
+        );
+        CollectionAssert.AreEqual(new string[] { }, personsLowercase.Select(p => p.Email).ToList());
+        CollectionAssert.AreEqual(new string[] { }, personsPeshoNoTown.Select(p => p.Email).ToList());
+        CollectionAssert.AreEqual(new string[] { "ani@gmail.com" }, personsAnnaBourgas.Select(p => p.Email).ToList());
     }
 
     [Test]
@@ -164,23 +151,26 @@ public class CorrectnessTests
         // Assert
         CollectionAssert.AreEqual(
             new string[] { "asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr", "kiro@yahoo.co.uk" },
-            personsAgedFrom21to22.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { },
-            personsAgedFrom10to11.Select(p => p.Email).ToList());
+            personsAgedFrom21to22.Select(p => p.Email).ToList()
+        );
+        CollectionAssert.AreEqual(new string[] { }, personsAgedFrom10to11.Select(p => p.Email).ToList());
         CollectionAssert.AreEqual(
             new string[] { "asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr" },
-            personsAged21.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { "ani@gmail.com" },
-            personsAged19.Select(p => p.Email).ToList());
+            personsAged21.Select(p => p.Email).ToList()
+        );
+        CollectionAssert.AreEqual(new string[] { "ani@gmail.com" }, personsAged19.Select(p => p.Email).ToList());
         CollectionAssert.AreEqual(
             new string[]
             {
-                "ani@gmail.com", "asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr", "kiro@yahoo.co.uk",
-                "pesho@gmail.com"
+                "ani@gmail.com",
+                "asen@gmail.com",
+                "pepi@gmail.com",
+                "pepi2@yahoo.fr",
+                "kiro@yahoo.co.uk",
+                "pesho@gmail.com",
             },
-            personsAgedFrom0to1000.Select(p => p.Email).ToList());
+            personsAgedFrom0to1000.Select(p => p.Email).ToList()
+        );
     }
 
     [Test]
@@ -209,23 +199,26 @@ public class CorrectnessTests
         // Assert
         CollectionAssert.AreEqual(
             new string[] { "asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr", "kiro@yahoo.co.uk" },
-            personsAgedFrom21to22Plovdiv.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { },
-            personsAgedFrom10to11Sofia.Select(p => p.Email).ToList());
+            personsAgedFrom21to22Plovdiv.Select(p => p.Email).ToList()
+        );
+        CollectionAssert.AreEqual(new string[] { }, personsAgedFrom10to11Sofia.Select(p => p.Email).ToList());
         CollectionAssert.AreEqual(
             new string[] { "asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr" },
-            personsAged21Plovdiv.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { "ani@gmail.com" },
-            personsAged19Bourgas.Select(p => p.Email).ToList());
+            personsAged21Plovdiv.Select(p => p.Email).ToList()
+        );
+        CollectionAssert.AreEqual(new string[] { "ani@gmail.com" }, personsAged19Bourgas.Select(p => p.Email).ToList());
         CollectionAssert.AreEqual(
             new string[]
-                { "asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr", "kiro@yahoo.co.uk", "pesho@gmail.com" },
-            personsAgedFrom0to1000Plovdiv.Select(p => p.Email).ToList());
-        CollectionAssert.AreEqual(
-            new string[] { },
-            personsAgedFrom0to1000NewYork.Select(p => p.Email).ToList());
+            {
+                "asen@gmail.com",
+                "pepi@gmail.com",
+                "pepi2@yahoo.fr",
+                "kiro@yahoo.co.uk",
+                "pesho@gmail.com",
+            },
+            personsAgedFrom0to1000Plovdiv.Select(p => p.Email).ToList()
+        );
+        CollectionAssert.AreEqual(new string[] { }, personsAgedFrom0to1000NewYork.Select(p => p.Email).ToList());
     }
 
     [Test]
@@ -314,12 +307,14 @@ public class CorrectnessTests
         var personsGmail = persons.FindPersons("gmail.com");
         CollectionAssert.AreEqual(
             new string[] { "asen@gmail.com", "pesho@gmail.com" },
-            personsGmail.Select(p => p.Email).ToList());
+            personsGmail.Select(p => p.Email).ToList()
+        );
 
         var personsPeshoPlovdiv = persons.FindPersons("Pesho", "Plovdiv");
         CollectionAssert.AreEqual(
             new string[] { "pesho@gmail.com" },
-            personsPeshoPlovdiv.Select(p => p.Email).ToList());
+            personsPeshoPlovdiv.Select(p => p.Email).ToList()
+        );
 
         var personsPeshoSofia = persons.FindPersons("Pesho", "Sofia");
         Assert.AreEqual(0, personsPeshoSofia.Count());
@@ -330,12 +325,14 @@ public class CorrectnessTests
         var personsAge22To28 = persons.FindPersons(22, 28);
         CollectionAssert.AreEqual(
             new string[] { "asen@gmail.com", "kiro@yahoo.co.uk", "pesho@gmail.com" },
-            personsAge22To28.Select(p => p.Email).ToList());
+            personsAge22To28.Select(p => p.Email).ToList()
+        );
 
         var personsAge22To28Plovdiv = persons.FindPersons(22, 28, "Plovdiv");
         CollectionAssert.AreEqual(
             new string[] { "kiro@yahoo.co.uk", "pesho@gmail.com" },
-            personsAge22To28Plovdiv.Select(p => p.Email).ToList());
+            personsAge22To28Plovdiv.Select(p => p.Email).ToList()
+        );
 
         var isDeleted = persons.DeletePerson("pesho@gmail.com");
         Assert.IsTrue(isDeleted);
@@ -347,14 +344,10 @@ public class CorrectnessTests
         Assert.IsNull(person);
 
         personsGmail = persons.FindPersons("gmail.com");
-        CollectionAssert.AreEqual(
-            new string[] { "asen@gmail.com" },
-            personsGmail.Select(p => p.Email).ToList());
+        CollectionAssert.AreEqual(new string[] { "asen@gmail.com" }, personsGmail.Select(p => p.Email).ToList());
 
         personsPeshoPlovdiv = persons.FindPersons("Pesho", "Plovdiv");
-        CollectionAssert.AreEqual(
-            new string[] { },
-            personsPeshoPlovdiv.Select(p => p.Email).ToList());
+        CollectionAssert.AreEqual(new string[] { }, personsPeshoPlovdiv.Select(p => p.Email).ToList());
 
         personsPeshoSofia = persons.FindPersons("Pesho", "Sofia");
         Assert.AreEqual(0, personsPeshoSofia.Count());
@@ -365,11 +358,13 @@ public class CorrectnessTests
         personsAge22To28 = persons.FindPersons(22, 28);
         CollectionAssert.AreEqual(
             new string[] { "asen@gmail.com", "kiro@yahoo.co.uk" },
-            personsAge22To28.Select(p => p.Email).ToList());
+            personsAge22To28.Select(p => p.Email).ToList()
+        );
 
         personsAge22To28Plovdiv = persons.FindPersons(22, 28, "Plovdiv");
         CollectionAssert.AreEqual(
             new string[] { "kiro@yahoo.co.uk" },
-            personsAge22To28Plovdiv.Select(p => p.Email).ToList());
+            personsAge22To28Plovdiv.Select(p => p.Email).ToList()
+        );
     }
 }

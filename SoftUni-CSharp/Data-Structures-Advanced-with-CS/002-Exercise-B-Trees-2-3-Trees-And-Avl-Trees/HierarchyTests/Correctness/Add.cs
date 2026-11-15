@@ -16,7 +16,10 @@ public class Add : BaseTest
     [Test]
     public void Add_ToNonExistingElement_ShouldThrowException()
     {
-        Assert.Throws<ArgumentException>(() => { Hierarchy.Add(DefaultRootValue + 1, 2); });
+        Assert.Throws<ArgumentException>(() =>
+        {
+            Hierarchy.Add(DefaultRootValue + 1, 2);
+        });
     }
 
     [Test]

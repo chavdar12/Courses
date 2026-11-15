@@ -9,7 +9,8 @@ public class GetParentPerformance
     {
         var hierarchy = new Hierarchy<int>(0);
 
-        for (var i = 1; i < 50001; i++) hierarchy.Add(0, i);
+        for (var i = 1; i < 50001; i++)
+            hierarchy.Add(0, i);
 
         var timer = new Stopwatch();
         timer.Start();
@@ -29,7 +30,8 @@ public class GetParentPerformance
         for (var i = 1; i <= 5000; i++)
         {
             hierarchy.Add(-88, i);
-            for (var j = 0; j < 10; j++) hierarchy.Add(i, counter++);
+            for (var j = 0; j < 10; j++)
+                hierarchy.Add(i, counter++);
         }
 
         counter = 5001;

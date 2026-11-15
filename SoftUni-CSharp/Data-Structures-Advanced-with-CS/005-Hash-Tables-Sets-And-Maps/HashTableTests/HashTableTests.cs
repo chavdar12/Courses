@@ -9,14 +9,9 @@ public class HashTableTests
         var hashTable = new HashTable<string, int>();
 
         // Act
-        KeyValue<string, int>[] elements =
-        {
-            new("Peter", 5),
-            new("Maria", 6),
-            new("George", 4),
-            new("Kiril", 5)
-        };
-        foreach (var element in elements) hashTable.Add(element.Key, element.Value);
+        KeyValue<string, int>[] elements = { new("Peter", 5), new("Maria", 6), new("George", 4), new("Kiril", 5) };
+        foreach (var element in elements)
+            hashTable.Add(element.Key, element.Value);
 
         // Assert
         var actualElements = hashTable.ToList();
@@ -27,11 +22,12 @@ public class HashTableTests
     public void Add_EmptyHashTable_Duplicates_ShouldThrowException()
     {
         // Arrange
-        Assert.Throws<ArgumentException>(delegate()
-        {
-            var hashTable = new HashTable<string, string>
-                { { "Peter", "first" }, { "Peter", "second" } };
-        });
+        Assert.Throws<ArgumentException>(
+            delegate()
+            {
+                var hashTable = new HashTable<string, string> { { "Peter", "first" }, { "Peter", "second" } };
+            }
+        );
     }
 
     [Test]
@@ -67,11 +63,7 @@ public class HashTableTests
         hashTable.AddOrReplace("Peter", 5);
 
         // Assert
-        KeyValue<string, int>[] expectedElements =
-        {
-            new("Peter", 5),
-            new("Maria", 6)
-        };
+        KeyValue<string, int>[] expectedElements = { new("Peter", 5), new("Maria", 6) };
         var actualElements = hashTable.ToList();
         CollectionAssert.AreEquivalent(expectedElements, actualElements);
     }
@@ -124,7 +116,12 @@ public class HashTableTests
         var hashTable = new HashTable<int, string>();
 
         // Act
-        Assert.Throws<KeyNotFoundException>(delegate() { hashTable.Get(12345); });
+        Assert.Throws<KeyNotFoundException>(
+            delegate()
+            {
+                hashTable.Get(12345);
+            }
+        );
     }
 
     [Test]
@@ -147,10 +144,12 @@ public class HashTableTests
         var hashTable = new HashTable<int, string>();
 
         // Act
-        Assert.Throws<KeyNotFoundException>(delegate()
-        {
-            var value = hashTable[12345];
-        });
+        Assert.Throws<KeyNotFoundException>(
+            delegate()
+            {
+                var value = hashTable[12345];
+            }
+        );
     }
 
     [Test]
@@ -163,7 +162,7 @@ public class HashTableTests
             ["Maria"] = 999,
             ["Maria"] = 123,
             ["Maria"] = 6,
-            ["Peter"] = 5
+            ["Peter"] = 5,
         };
 
         // Act
@@ -172,7 +171,7 @@ public class HashTableTests
         KeyValue<string, int>[] expectedElements =
         [
             new KeyValue<string, int>("Peter", 5),
-            new KeyValue<string, int>("Maria", 6)
+            new KeyValue<string, int>("Maria", 6),
         ];
         var actualElements = hashTable.ToList();
         CollectionAssert.AreEquivalent(expectedElements, actualElements);

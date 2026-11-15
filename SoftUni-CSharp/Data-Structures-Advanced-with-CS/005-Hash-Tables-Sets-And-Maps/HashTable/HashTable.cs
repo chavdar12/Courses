@@ -31,7 +31,8 @@ public class HashTable<TKey, TValue> : IEnumerable<KeyValue<TKey, TValue>>
         GrowIfNeeded();
         var slotNumber = FindSlotNumber(key);
 
-        if (slots[slotNumber] == null) slots[slotNumber] = new LinkedList<KeyValue<TKey, TValue>>();
+        if (slots[slotNumber] == null)
+            slots[slotNumber] = new LinkedList<KeyValue<TKey, TValue>>();
 
         foreach (var element in slots[slotNumber])
             if (element.Key.Equals(key))
@@ -48,7 +49,8 @@ public class HashTable<TKey, TValue> : IEnumerable<KeyValue<TKey, TValue>>
 
         var slotNumber = FindSlotNumber(key);
 
-        if (slots[slotNumber] == null) slots[slotNumber] = new LinkedList<KeyValue<TKey, TValue>>();
+        if (slots[slotNumber] == null)
+            slots[slotNumber] = new LinkedList<KeyValue<TKey, TValue>>();
 
         foreach (var element in slots[slotNumber])
             if (element.Key.Equals(key))
@@ -69,7 +71,8 @@ public class HashTable<TKey, TValue> : IEnumerable<KeyValue<TKey, TValue>>
     {
         var element = Find(key);
 
-        if (element == null) throw new KeyNotFoundException();
+        if (element == null)
+            throw new KeyNotFoundException();
 
         return element.Value;
     }
@@ -188,7 +191,8 @@ public class HashTable<TKey, TValue> : IEnumerable<KeyValue<TKey, TValue>>
     {
         var newHashTable = new HashTable<TKey, TValue>(2 * Capacity);
 
-        foreach (var element in this) newHashTable.Add(element.Key, element.Value);
+        foreach (var element in this)
+            newHashTable.Add(element.Key, element.Value);
 
         slots = newHashTable.slots;
         Count = newHashTable.Count;

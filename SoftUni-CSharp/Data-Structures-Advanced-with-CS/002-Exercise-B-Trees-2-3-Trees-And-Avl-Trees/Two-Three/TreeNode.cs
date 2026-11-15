@@ -1,6 +1,7 @@
 ﻿namespace Two_Three;
 
-public class TreeNode<T> where T : IComparable<T>
+public class TreeNode<T>
+    where T : IComparable<T>
 {
     public T LeftKey;
 

@@ -5,7 +5,10 @@ public class GetParent : BaseTest
     [Test]
     public void GetParent_WithNonExistentElement_ShouldThrowException()
     {
-        Assert.Throws<ArgumentException>(() => { Hierarchy.GetParent(-17); });
+        Assert.Throws<ArgumentException>(() =>
+        {
+            Hierarchy.GetParent(-17);
+        });
     }
 
     [Test]

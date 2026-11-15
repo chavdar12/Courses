@@ -4,31 +4,16 @@ public class AaTreeTests
 {
     private AATree<int> AATree;
 
-    private int[] input =
-    [
-        18,
-        13,
-        1,
-        7,
-        42,
-        73,
-        56,
-        24,
-        6,
-        2,
-        74,
-        69,
-        55
-    ];
+    private int[] input = [18, 13, 1, 7, 42, 73, 56, 24, 6, 2, 74, 69, 55];
 
     [SetUp]
     public void Setup()
     {
         AATree = new AATree<int>();
 
-        foreach (var integer in input) AATree.Insert(integer);
+        foreach (var integer in input)
+            AATree.Insert(integer);
     }
-
 
     [Test]
     public void TestCountNodes()

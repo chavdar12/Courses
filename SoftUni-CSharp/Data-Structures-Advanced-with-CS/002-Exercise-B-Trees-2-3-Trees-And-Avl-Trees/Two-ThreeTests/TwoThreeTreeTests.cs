@@ -25,9 +25,10 @@ public class TwoThreeTreeTests
         tree.Insert("A");
         tree.Insert("B");
         tree.Insert("C");
-        Assert.That(tree.ToString(), Is.EqualTo("B " + Environment.NewLine +
-                                                "A " + Environment.NewLine +
-                                                "C " + Environment.NewLine));
+        Assert.That(
+            tree.ToString(),
+            Is.EqualTo("B " + Environment.NewLine + "A " + Environment.NewLine + "C " + Environment.NewLine)
+        );
     }
 
     [Test]
@@ -36,19 +37,36 @@ public class TwoThreeTreeTests
         var tree = new TwoThreeTree<string>();
 
         string[] arr = { "F", "C", "G", "A", "B", "D", "E", "K", "I", "G", "H", "J", "K" };
-        for (var i = 0; i < 13; i++) tree.Insert(arr[i]);
+        for (var i = 0; i < 13; i++)
+            tree.Insert(arr[i]);
 
-        Assert.That(tree.ToString(), Is.EqualTo("D G" + Environment.NewLine +
-                                                "B " + Environment.NewLine +
-                                                "A " + Environment.NewLine +
-                                                "C " + Environment.NewLine +
-                                                "F " + Environment.NewLine +
-                                                "E " + Environment.NewLine +
-                                                "G " + Environment.NewLine +
-                                                "I K" + Environment.NewLine +
-                                                "H " + Environment.NewLine +
-                                                "J " + Environment.NewLine +
-                                                "K " + Environment.NewLine));
+        Assert.That(
+            tree.ToString(),
+            Is.EqualTo(
+                "D G"
+                    + Environment.NewLine
+                    + "B "
+                    + Environment.NewLine
+                    + "A "
+                    + Environment.NewLine
+                    + "C "
+                    + Environment.NewLine
+                    + "F "
+                    + Environment.NewLine
+                    + "E "
+                    + Environment.NewLine
+                    + "G "
+                    + Environment.NewLine
+                    + "I K"
+                    + Environment.NewLine
+                    + "H "
+                    + Environment.NewLine
+                    + "J "
+                    + Environment.NewLine
+                    + "K "
+                    + Environment.NewLine
+            )
+        );
     }
 
     [Test]
@@ -56,7 +74,8 @@ public class TwoThreeTreeTests
     {
         var tree = new TwoThreeTree<int>();
         var keys = Enumerable.Range(0, 200).Select(i => i * 37 % 200).ToArray();
-        foreach (var key in keys) tree.Insert(key);
+        foreach (var key in keys)
+            tree.Insert(key);
 
         var printed = tree.ToString()
             .Split((char[])[' ', '\r', '\n'], StringSplitOptions.RemoveEmptyEntries)

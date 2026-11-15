@@ -20,7 +20,8 @@ public class PerformanceTests
                     "pesho" + i + "@gmail" + i % 100 + ".com",
                     "Pesho" + i % 100,
                     i % 100,
-                    "Sofia" + i % 100);
+                    "Sofia" + i % 100
+                );
         }
     }
 
@@ -48,7 +49,8 @@ public class PerformanceTests
                     "pesho" + i + "@gmail" + i % 100 + ".com",
                     "Pesho" + i % 100,
                     i % 100,
-                    "Sofia" + i % 100);
+                    "Sofia" + i % 100
+                );
         }
     }
 
@@ -63,11 +65,9 @@ public class PerformanceTests
         // Act
         for (var i = 0; i < 10000; i++)
         {
-            var existingPersons =
-                persons.FindPersons("gmail1.com").ToList();
+            var existingPersons = persons.FindPersons("gmail1.com").ToList();
             Assert.That(existingPersons.Count, Is.EqualTo(50));
-            var notExistingPersons =
-                persons.FindPersons("non-existing email").ToList();
+            var notExistingPersons = persons.FindPersons("non-existing email").ToList();
             Assert.That(notExistingPersons.Count, Is.EqualTo(0));
         }
 
@@ -78,7 +78,8 @@ public class PerformanceTests
                     "pesho" + i + "@gmail" + i % 100 + ".com",
                     "Pesho" + i % 100,
                     i % 100,
-                    "Sofia" + i % 100);
+                    "Sofia" + i % 100
+                );
         }
     }
 
@@ -93,11 +94,9 @@ public class PerformanceTests
         // Act
         for (var i = 0; i < 10000; i++)
         {
-            var existingPersons =
-                persons.FindPersons("Pesho1", "Sofia1").ToList();
+            var existingPersons = persons.FindPersons("Pesho1", "Sofia1").ToList();
             Assert.That(existingPersons.Count, Is.EqualTo(50));
-            var notExistingPersons =
-                persons.FindPersons("Pesho1", "Sofia5").ToList();
+            var notExistingPersons = persons.FindPersons("Pesho1", "Sofia5").ToList();
             Assert.That(notExistingPersons.Count, Is.EqualTo(0));
         }
 
@@ -108,7 +107,8 @@ public class PerformanceTests
                     "pesho" + i + "@gmail" + i % 100 + ".com",
                     "Pesho" + i % 100,
                     i % 100,
-                    "Sofia" + i % 100);
+                    "Sofia" + i % 100
+                );
         }
     }
 
@@ -123,11 +123,9 @@ public class PerformanceTests
         // Act
         for (var i = 0; i < 2000; i++)
         {
-            var existingPersons =
-                persons.FindPersons(20, 21).ToList();
+            var existingPersons = persons.FindPersons(20, 21).ToList();
             Assert.That(existingPersons.Count, Is.EqualTo(100));
-            var notExistingPersons =
-                persons.FindPersons(500, 600).ToList();
+            var notExistingPersons = persons.FindPersons(500, 600).ToList();
             Assert.That(notExistingPersons.Count, Is.EqualTo(0));
         }
 
@@ -138,7 +136,8 @@ public class PerformanceTests
                     "pesho" + i + "@gmail" + i % 100 + ".com",
                     "Pesho" + i % 100,
                     i % 100,
-                    "Sofia" + i % 100);
+                    "Sofia" + i % 100
+                );
         }
     }
 
@@ -153,14 +152,11 @@ public class PerformanceTests
         // Act
         for (var i = 0; i < 5000; i++)
         {
-            var existingPersons =
-                persons.FindPersons(18, 22, "Sofia20").ToList();
+            var existingPersons = persons.FindPersons(18, 22, "Sofia20").ToList();
             Assert.That(existingPersons.Count, Is.EqualTo(50));
-            var notExistingTownPersons =
-                persons.FindPersons(20, 30, "Missing town").ToList();
+            var notExistingTownPersons = persons.FindPersons(20, 30, "Missing town").ToList();
             Assert.That(notExistingTownPersons.Count, Is.EqualTo(0));
-            var notExistingAgePersons =
-                persons.FindPersons(200, 300, "Sofia1").ToList();
+            var notExistingAgePersons = persons.FindPersons(200, 300, "Sofia1").ToList();
             Assert.That(notExistingTownPersons.Count, Is.EqualTo(0));
         }
 
@@ -171,7 +167,8 @@ public class PerformanceTests
                     "pesho" + i + "@gmail" + i % 100 + ".com",
                     "Pesho" + i % 100,
                     i % 100,
-                    "Sofia" + i % 100);
+                    "Sofia" + i % 100
+                );
         }
     }
 }

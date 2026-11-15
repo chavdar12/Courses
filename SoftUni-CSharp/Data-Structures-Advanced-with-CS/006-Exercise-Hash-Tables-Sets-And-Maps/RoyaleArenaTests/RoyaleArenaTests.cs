@@ -12,7 +12,8 @@ public class RoyaleArenaTests
         ra.Add(cd);
 
         //Assert
-        foreach (var bc in ra) Assert.That(cd, Is.EqualTo(bc));
+        foreach (var bc in ra)
+            Assert.That(cd, Is.EqualTo(bc));
     }
 
     [Test]
@@ -70,9 +71,7 @@ public class RoyaleArenaTests
 
         //Assert
         Assert.That(ra.GetById(5), Is.EqualTo(cd1));
-        Assert.That(
-            ra.GetById(7)
-            , Is.Not.EqualTo(new BattleCard(53, CardType.RANGED, "a", 10, 5)));
+        Assert.That(ra.GetById(7), Is.Not.EqualTo(new BattleCard(53, CardType.RANGED, "a", 10, 5)));
     }
 
     [Test]
@@ -112,7 +111,8 @@ public class RoyaleArenaTests
 
         var actual = new List<BattleCard>();
 
-        foreach (var battlecard in ra) actual.Add(battlecard);
+        foreach (var battlecard in ra)
+            actual.Add(battlecard);
 
         //Assert
         CollectionAssert.AreEqual(expected, actual);
@@ -240,7 +240,6 @@ public class RoyaleArenaTests
 
         CollectionAssert.AreEquivalent(expected, actual);
     }
-
 
     [Test]
     public void GetByCardTypeAndMaximumDamage_ShouldWorkCorrectly_OnExistingSender()

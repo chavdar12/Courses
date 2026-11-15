@@ -28,7 +28,8 @@ public class InsertSecond
     public void Ceiling_And_Floor_ShouldReturnNeighbours()
     {
         var rbt = new RedBlackTree<int>();
-        foreach (var i in new[] { 10, 20, 30, 40 }) rbt.Insert(i);
+        foreach (var i in new[] { 10, 20, 30, 40 })
+            rbt.Insert(i);
 
         Assert.That(rbt.Ceiling(20), Is.EqualTo(30));
         Assert.That(rbt.Ceiling(25), Is.EqualTo(30));

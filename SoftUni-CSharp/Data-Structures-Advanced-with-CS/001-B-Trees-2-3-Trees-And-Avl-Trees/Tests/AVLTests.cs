@@ -132,7 +132,8 @@ public class AVLTests
     {
         // Arrange
         var avl = new AVL<int>();
-        for (var i = 1; i < 10; i++) avl.Insert(i);
+        for (var i = 1; i < 10; i++)
+            avl.Insert(i);
 
         // Assert
         Assert.AreEqual(1, avl.Root.Left.Left.Height); // 1
@@ -147,7 +148,8 @@ public class AVLTests
     {
         // Arrange
         var avl = new AVL<int>();
-        for (var i = 1; i < 10; i++) avl.Insert(i);
+        for (var i = 1; i < 10; i++)
+            avl.Insert(i);
 
         // Assert
         Assert.AreEqual(2, avl.Root.Left.Height); // 2
@@ -159,7 +161,8 @@ public class AVLTests
     {
         // Arrange
         var avl = new AVL<int>();
-        for (var i = 1; i < 10; i++) avl.Insert(i);
+        for (var i = 1; i < 10; i++)
+            avl.Insert(i);
 
         // Assert
         Assert.AreEqual(3, avl.Root.Right.Height); // 6
@@ -170,7 +173,8 @@ public class AVLTests
     {
         // Arrange
         var avl = new AVL<int>();
-        for (var i = 1; i < 10; i++) avl.Insert(i);
+        for (var i = 1; i < 10; i++)
+            avl.Insert(i);
 
         // Assert
         Assert.AreEqual(4, avl.Root.Height); // 4
@@ -248,8 +252,10 @@ public class AVLTests
     {
         var avl = new AVL<int>();
 
-        for (var i = 0; i < 100000; i++) avl.Insert(i);
+        for (var i = 0; i < 100000; i++)
+            avl.Insert(i);
 
-        for (var i = 0; i < 100000; i++) Assert.IsTrue(avl.Contains(i));
+        for (var i = 0; i < 100000; i++)
+            Assert.IsTrue(avl.Contains(i));
     }
 }

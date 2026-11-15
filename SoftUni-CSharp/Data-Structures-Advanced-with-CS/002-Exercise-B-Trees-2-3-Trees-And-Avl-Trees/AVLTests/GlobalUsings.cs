@@ -1,2 +1,2 @@
-global using NUnit.Framework;
 global using AVL;
+global using NUnit.Framework;

@@ -19,7 +19,6 @@ public class RemovePerformance
             hierarchy.Add(counter2, ++counter2);
         }
 
-
         var timer = new Stopwatch();
         timer.Start();
         for (var i = 1; i < 25001; i++)
@@ -35,8 +34,11 @@ public class RemovePerformance
 
         Assert.AreEqual(1, hierarchy.Count, "Incorrect count after removal!");
         Assert.IsTrue(hierarchy.Contains(-1));
-        CollectionAssert.AreEqual(new int[0], hierarchy.GetChildren(-1).ToArray(),
-            "Children were not deleted correcly after removal!");
+        CollectionAssert.AreEqual(
+            new int[0],
+            hierarchy.GetChildren(-1).ToArray(),
+            "Children were not deleted correcly after removal!"
+        );
     }
 
     [Test]
@@ -94,13 +96,25 @@ public class RemovePerformance
         }
 
         Assert.IsTrue(hierarchy.Contains(-2));
-        CollectionAssert.AreEqual(new[] { 4000 }, hierarchy.GetChildren(9001).ToArray(),
-            "Children were not correctly reattached!");
-        CollectionAssert.AreEqual(new[] { 13000 }, hierarchy.GetChildren(18001).ToArray(),
-            "Children were not correctly reattached!");
-        CollectionAssert.AreEqual(new[] { 22000 }, hierarchy.GetChildren(27001).ToArray(),
-            "Children were not correctly reattached!");
-        CollectionAssert.AreEqual(new[] { 31000 }, hierarchy.GetChildren(36001).ToArray(),
-            "Children were not correctly reattached!");
+        CollectionAssert.AreEqual(
+            new[] { 4000 },
+            hierarchy.GetChildren(9001).ToArray(),
+            "Children were not correctly reattached!"
+        );
+        CollectionAssert.AreEqual(
+            new[] { 13000 },
+            hierarchy.GetChildren(18001).ToArray(),
+            "Children were not correctly reattached!"
+        );
+        CollectionAssert.AreEqual(
+            new[] { 22000 },
+            hierarchy.GetChildren(27001).ToArray(),
+            "Children were not correctly reattached!"
+        );
+        CollectionAssert.AreEqual(
+            new[] { 31000 },
+            hierarchy.GetChildren(36001).ToArray(),
+            "Children were not correctly reattached!"
+        );
     }
 }

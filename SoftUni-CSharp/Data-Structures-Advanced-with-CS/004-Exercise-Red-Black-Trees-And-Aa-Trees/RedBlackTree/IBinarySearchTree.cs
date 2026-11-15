@@ -1,6 +1,7 @@
 ﻿namespace RedBlackTree;
 
-public interface IBinarySearchTree<T> where T : IComparable
+public interface IBinarySearchTree<T>
+    where T : IComparable
 {
     int Count { get; }
 

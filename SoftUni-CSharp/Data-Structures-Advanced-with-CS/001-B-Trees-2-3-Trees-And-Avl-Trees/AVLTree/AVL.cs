@@ -1,6 +1,7 @@
 ﻿namespace AVLTree;
 
-public class AVL<T> where T : IComparable<T>
+public class AVL<T>
+    where T : IComparable<T>
 {
     public Node<T> Root { get; private set; }
 
@@ -23,12 +24,14 @@ public class AVL<T> where T : IComparable<T>
 
     private Node<T> Insert(Node<T> node, T item)
     {
-        if (node == null) return new Node<T>(item);
+        if (node == null)
+            return new Node<T>(item);
 
         var cmp = item.CompareTo(node.Value);
         if (cmp < 0)
             node.Left = Insert(node.Left, item);
-        else if (cmp > 0) node.Right = Insert(node.Right, item);
+        else if (cmp > 0)
+            node.Right = Insert(node.Right, item);
 
         node = Balance(node);
         UpdateHeight(node);
@@ -38,19 +41,22 @@ public class AVL<T> where T : IComparable<T>
 
     private Node<T> Search(Node<T> node, T item)
     {
-        if (node == null) return null;
+        if (node == null)
+            return null;
 
         var cmp = item.CompareTo(node.Value);
         if (cmp < 0)
             return Search(node.Left, item);
-        else if (cmp > 0) return Search(node.Right, item);
+        else if (cmp > 0)
+            return Search(node.Right, item);
 
         return node;
     }
 
     private static void EachInOrder(Node<T> node, Action<T> action)
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         EachInOrder(node.Left, action);
         action(node.Value);
@@ -59,7 +65,8 @@ public class AVL<T> where T : IComparable<T>
 
     private static int Height(Node<T> node)
     {
-        if (node == null) return 0;
+        if (node == null)
+            return 0;
 
         return node.Height;
     }
@@ -109,7 +116,6 @@ public class AVL<T> where T : IComparable<T>
                 return RotateLeft(node);
             }
         }
-
         else if (balance > 1) // left child is heavy
         {
             // Rotate node right

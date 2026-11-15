@@ -9,7 +9,8 @@ public class ContainsPerformance
     {
         var hierarchy = new Hierarchy<int>(-3);
 
-        for (var i = 1; i < 50001; i++) hierarchy.Add(-3, i);
+        for (var i = 1; i < 50001; i++)
+            hierarchy.Add(-3, i);
 
         var timer = new Stopwatch();
         timer.Start();
@@ -20,13 +21,13 @@ public class ContainsPerformance
         Assert.IsTrue(timer.ElapsedMilliseconds < 50);
     }
 
-
     [Test]
     public void PerformanceContains_With25000ExistingAnd25000NonexistentElements()
     {
         var hierarchy = new Hierarchy<int>(-1);
 
-        for (var i = 1; i < 50001; i = i + 2) hierarchy.Add(i - 2, i);
+        for (var i = 1; i < 50001; i = i + 2)
+            hierarchy.Add(i - 2, i);
 
         var timer = new Stopwatch();
         timer.Start();

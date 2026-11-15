@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RootNamespace>Collection_of_Persons</RootNamespace>
@@ -8,5 +7,4 @@
   <ItemGroup>
     <PackageReference Include="SoftUni.Wintellect.PowerCollections" Version="2.0.0" />
   </ItemGroup>
-
 </Project>

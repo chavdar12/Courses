@@ -6,11 +6,11 @@ public static class DictionaryExtensions
     /// Ensures the specified key exists in the dictionary.
     /// If the key does not exist, it is mapped to a new empty value.
     /// </summary>
-    public static void EnsureKeyExists<TKey, TValue>(
-        this IDictionary<TKey, TValue> dict, TKey key)
+    public static void EnsureKeyExists<TKey, TValue>(this IDictionary<TKey, TValue> dict, TKey key)
         where TValue : new()
     {
-        if (!dict.ContainsKey(key)) dict.Add(key, new TValue());
+        if (!dict.ContainsKey(key))
+            dict.Add(key, new TValue());
     }
 
     /// <summary>
@@ -21,7 +21,10 @@ public static class DictionaryExtensions
     /// <param name="key">The key that holds a collection of values</param>
     /// <param name="value">The value to be added to the collection for this key</param>
     public static void AppendValueToKey<TKey, TCollection, TValue>(
-        this IDictionary<TKey, TCollection> dict, TKey key, TValue value)
+        this IDictionary<TKey, TCollection> dict,
+        TKey key,
+        TValue value
+    )
         where TCollection : ICollection<TValue>, new()
     {
         TCollection collection;
@@ -40,11 +43,14 @@ public static class DictionaryExtensions
     /// If the key is missng, an empty sequence is returned.
     /// </summary>
     public static IEnumerable<TValue> GetValuesForKey<TKey, TValue>(
-        this IDictionary<TKey, SortedSet<TValue>> dict, TKey key)
+        this IDictionary<TKey, SortedSet<TValue>> dict,
+        TKey key
+    )
     {
         SortedSet<TValue> collection;
 
-        if (dict.TryGetValue(key, out collection)) return collection;
+        if (dict.TryGetValue(key, out collection))
+            return collection;
 
         return Enumerable.Empty<TValue>();
     }

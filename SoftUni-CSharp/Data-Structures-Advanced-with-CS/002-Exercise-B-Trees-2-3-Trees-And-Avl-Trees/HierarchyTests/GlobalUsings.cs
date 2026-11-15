@@ -1,2 +1,2 @@
-global using NUnit.Framework;
 global using Hierarchy;
+global using NUnit.Framework;

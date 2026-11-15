@@ -4,47 +4,21 @@ public class RedBlackThreeTests
 {
     private RedBlackTree<string> RedBlackTree;
 
-    private string[] input =
-    [
-        "S",
-        "E",
-        "A",
-        "R",
-        "C",
-        "H",
-        "E",
-        "X",
-        "A",
-        "M",
-        "P",
-        "L",
-        "E"
-    ];
+    private string[] input = ["S", "E", "A", "R", "C", "H", "E", "X", "A", "M", "P", "L", "E"];
 
     [SetUp]
     public void Setup()
     {
         RedBlackTree = new RedBlackTree<string>();
 
-        for (var i = 0; i < input.Length; i++) RedBlackTree.Insert(input[i]);
+        for (var i = 0; i < input.Length; i++)
+            RedBlackTree.Insert(input[i]);
     }
 
     [Test]
     public void TestEachInOrder()
     {
-        var expected = new List<string>
-        {
-            "A",
-            "C",
-            "E",
-            "H",
-            "L",
-            "M",
-            "P",
-            "R",
-            "S",
-            "X"
-        };
+        var expected = new List<string> { "A", "C", "E", "H", "L", "M", "P", "R", "S", "X" };
 
         Assert.That(RedBlackTree.Count, Is.EqualTo(expected.Count));
 
