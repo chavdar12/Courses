@@ -4,7 +4,7 @@ from forms_demo.forms import UserForm
 
 
 def index(request):
-    if request.method == 'GET':
+    if request.method == "GET":
         form = UserForm()
     else:
         form = UserForm(request.POST)
@@ -12,6 +12,6 @@ def index(request):
             print(form.cleaned_data)
 
     context = {
-        'form': form,
+        "form": form,
     }
-    return render(request, 'forms_demo/index.html', context)
+    return render(request, "forms_demo/index.html", context)

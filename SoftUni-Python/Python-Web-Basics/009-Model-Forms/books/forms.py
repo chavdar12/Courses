@@ -10,18 +10,18 @@ class BookForm(forms.ModelForm):
         self.add_form_control_class()
 
     def add_form_control_class(self):
-        for (_, field) in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
+        for _, field in self.fields.items():
+            field.widget.attrs["class"] = "form-control"
 
     def clean_pages(self):
-        pages = self.cleaned_data['pages']
+        pages = self.cleaned_data["pages"]
         if pages <= 0:
-            raise ValidationError('Pages should be more than 0')
+            raise ValidationError("Pages should be more than 0")
         return pages
 
     class Meta:
         model = Book
-        fields = ('title', 'pages', 'author', 'description')
+        fields = ("title", "pages", "author", "description")
         widgets = {
-            'description': forms.Textarea,
+            "description": forms.Textarea,
         }

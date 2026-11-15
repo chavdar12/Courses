@@ -5,7 +5,7 @@ from posts.forms import PostForm
 
 class PostFormTests(TestCase):
     def test_postForm_whenValid_shouldSaveAsNotFound(self):
-        form = PostForm(data={'title': 'Keys', 'description': 'Car keys', 'location': 'Sofia'})
+        form = PostForm(data={"title": "Keys", "description": "Car keys", "location": "Sofia"})
 
         self.assertTrue(form.is_valid())
         self.assertFalse(form.save().is_found)
@@ -14,7 +14,7 @@ class PostFormTests(TestCase):
         form = PostForm(data={})
 
         self.assertFalse(form.is_valid())
-        self.assertEqual({'title', 'description', 'location'}, set(form.errors))
+        self.assertEqual({"title", "description", "location"}, set(form.errors))
 
     def test_postForm_shouldNotExposeIsFound(self):
-        self.assertNotIn('is_found', PostForm().fields)
+        self.assertNotIn("is_found", PostForm().fields)

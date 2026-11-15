@@ -14,17 +14,17 @@ class UserForm(forms.Form):
     age = forms.IntegerField(
         widget=forms.NumberInput,
         validators=[
-            validators.MinValueValidator(0, 'The age cannot be less than zero.'),
+            validators.MinValueValidator(0, "The age cannot be less than zero."),
         ],
     )
     email = forms.EmailField(
         widget=forms.EmailInput,
-        error_messages={'invalid': 'Enter a valid email.'},
+        error_messages={"invalid": "Enter a valid email."},
     )
     password = forms.CharField(
         widget=forms.PasswordInput,
         validators=[
-            validators.MinLengthValidator(8, 'Enter a valid password.'),
+            validators.MinLengthValidator(8, "Enter a valid password."),
             only_letters_and_digits,
         ],
     )
@@ -33,6 +33,6 @@ class UserForm(forms.Form):
         required=False,
         widget=forms.HiddenInput,
         validators=[
-            validators.MaxLengthValidator(0, 'This form was created by a bot'),
+            validators.MaxLengthValidator(0, "This form was created by a bot"),
         ],
     )

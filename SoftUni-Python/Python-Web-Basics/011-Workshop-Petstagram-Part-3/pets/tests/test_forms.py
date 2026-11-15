@@ -9,18 +9,18 @@ class CreatePetFormTests(TestCase):
         form = CreatePetForm(data=VALID_PET)
 
         self.assertTrue(form.is_valid())
-        self.assertEqual('Rex', form.save().name)
+        self.assertEqual("Rex", form.save().name)
 
     def test_createPetForm_whenInvalidImageUrl_shouldBeInvalid(self):
-        form = CreatePetForm(data={**VALID_PET, 'image_url': 'not a url'})
+        form = CreatePetForm(data={**VALID_PET, "image_url": "not a url"})
 
         self.assertFalse(form.is_valid())
-        self.assertIn('image_url', form.errors)
+        self.assertIn("image_url", form.errors)
 
     def test_createPetForm_whenUnknownType_shouldBeInvalid(self):
-        self.assertFalse(CreatePetForm(data={**VALID_PET, 'type': 'fish'}).is_valid())
+        self.assertFalse(CreatePetForm(data={**VALID_PET, "type": "fish"}).is_valid())
 
     def test_createPetForm_shouldStyleEveryField(self):
         for name, field in CreatePetForm().fields.items():
             with self.subTest(field=name):
-                self.assertIn('form-control', field.widget.attrs['class'])
+                self.assertIn("form-control", field.widget.attrs["class"])

@@ -6,29 +6,29 @@ from books.models import Book
 
 def index(request):
     context = {
-        'books': Book.objects.all(),
+        "books": Book.objects.all(),
     }
-    return render(request, 'books/index.html', context)
+    return render(request, "books/index.html", context)
 
 
 def create(request):
-    return persist(request, Book(), 'create')
+    return persist(request, Book(), "create")
 
 
 def edit(request, pk):
-    return persist(request, get_object_or_404(Book, pk=pk), 'edit')
+    return persist(request, get_object_or_404(Book, pk=pk), "edit")
 
 
 def persist(request, book, template_name):
-    if request.method == 'GET':
+    if request.method == "GET":
         form = BookForm(instance=book)
     else:
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect("index")
 
     context = {
-        'form': form,
+        "form": form,
     }
-    return render(request, f'books/{template_name}.html', context)
+    return render(request, f"books/{template_name}.html", context)
