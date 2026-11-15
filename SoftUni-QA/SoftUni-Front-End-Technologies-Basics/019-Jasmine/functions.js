@@ -14,13 +14,11 @@ function factorial(n) {
 }
 
 function isPalindrome(str) {
-    if (str === "") {
+    if (str === '') {
         return false;
     }
-    const cleanStr = str.toLowerCase()
-        .replace(/[\W_]/g, "");
-    const reversedStr = cleanStr.split("")
-        .reverse().join("");
+    const cleanStr = str.toLowerCase().replace(/[\W_]/g, '');
+    const reversedStr = cleanStr.split('').reverse().join('');
 
     return cleanStr === reversedStr;
 }
@@ -105,5 +103,5 @@ module.exports = {
     nthPrime,
     isPrime,
     pascalsTriangle,
-    isPerfectSquare
-}
+    isPerfectSquare,
+};

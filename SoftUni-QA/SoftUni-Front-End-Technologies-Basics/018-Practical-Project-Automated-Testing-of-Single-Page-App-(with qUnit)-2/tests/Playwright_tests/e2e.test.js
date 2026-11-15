@@ -1,4 +1,12 @@
-const { describe, test, beforeAll, afterAll, beforeEach, afterEach, expect } = require('@playwright/test');
+const {
+    describe,
+    test,
+    beforeAll,
+    afterAll,
+    beforeEach,
+    afterEach,
+    expect,
+} = require('@playwright/test');
 const { chromium } = require('playwright');
 
 const host = 'http://localhost:3001';
@@ -12,16 +20,16 @@ let game = {
     category: 'Random category',
     maxLevel: '71',
     imgaeUrl: './images/ZombieLang.png',
-    summary: 'summary'
-}
+    summary: 'summary',
+};
 
 let user = {
     email: '',
     password: '123456',
-    confirmPassword: '123456'
+    confirmPassword: '123456',
 };
 
-describe("e2e tests", () => {
+describe('e2e tests', () => {
     beforeAll(async () => {
         browser = await chromium.launch();
     });
@@ -40,8 +48,8 @@ describe("e2e tests", () => {
         await context.close();
     });
 
-    describe("authentication", () => {
-        test("register with valid data", async () => {
+    describe('authentication', () => {
+        test('register with valid data', async () => {
             // Arrange
             await page.goto(host);
             let random = Math.floor(Math.random() * 10000);
@@ -56,8 +64,11 @@ describe("e2e tests", () => {
             await page.locator('#confirm-password').fill(user.confirmPassword);
 
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/users/register') && response.status() === 200),
-                page.click('[type="submit"]')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/users/register') && response.status() === 200,
+                ),
+                page.click('[type="submit"]'),
             ]);
             let userData = await response.json();
 
@@ -67,7 +78,7 @@ describe("e2e tests", () => {
             expect(userData.password).toBe(user.password);
         });
 
-        test("try to register with empty fields", async () => {
+        test('try to register with empty fields', async () => {
             // Arrange
             await page.goto(host);
 
@@ -79,7 +90,7 @@ describe("e2e tests", () => {
             expect(page.url()).toBe(host + '/register');
         });
 
-        test("login with valid data", async () => {
+        test('login with valid data', async () => {
             // Arrange
             await page.goto(host);
             await page.click('text=Login');
@@ -89,8 +100,10 @@ describe("e2e tests", () => {
             await page.locator('#email').fill(user.email);
             await page.locator('#login-password').fill(user.password);
             let [response] = await Promise.all([
-                page.waitForResponse(res => res.url().includes('users/login') && res.status() === 200),
-                page.click('[type="submit"]')
+                page.waitForResponse(
+                    (res) => res.url().includes('users/login') && res.status() === 200,
+                ),
+                page.click('[type="submit"]'),
             ]);
             let userData = await response.json();
 
@@ -100,7 +113,7 @@ describe("e2e tests", () => {
             expect(userData.password).toBe(user.password);
         });
 
-        test("try to login with empty fields", async () => {
+        test('try to login with empty fields', async () => {
             // Arrange
             await page.goto(host);
             await page.click('text=Login');
@@ -109,34 +122,35 @@ describe("e2e tests", () => {
             // Act
             await page.click('[type="submit"]');
 
-
             // Assert
             expect(page.url()).toBe(host + '/login');
         });
 
-        test("logout successfuly", async () => {
+        test('logout successfuly', async () => {
             // Arrange
             await page.goto(host);
             await page.click('text=Login');
-            await page.waitForSelector('form')
+            await page.waitForSelector('form');
             await page.locator('#email').fill(user.email);
             await page.locator('#login-password').fill(user.password);
             await page.click('[type="submit"]');
 
             // Act
             let [response] = await Promise.all([
-                page.waitForResponse(res => res.url().includes('users/logout') && res.status() === 204),
-                page.click('text=Logout')
+                page.waitForResponse(
+                    (res) => res.url().includes('users/logout') && res.status() === 204,
+                ),
+                page.click('text=Logout'),
             ]);
             await page.waitForSelector('text=Login');
 
             // Assert
             expect(response.ok).toBeTruthy();
-            expect(page.url()).toBe(host + "/");
+            expect(page.url()).toBe(host + '/');
         });
     });
 
-    describe("navbar", () => {
+    describe('navbar', () => {
         test('navbar for logged in user', async () => {
             // Arrange
             await page.goto(host);
@@ -155,7 +169,6 @@ describe("e2e tests", () => {
 
             await expect(page.locator('nav >> text=Login')).toBeHidden();
             await expect(page.locator('nav >> text=Register')).toBeHidden();
-
         });
 
         test('navbar for non-logged user', async () => {
@@ -169,13 +182,10 @@ describe("e2e tests", () => {
 
             await expect(page.locator('nav >> text=Create game')).toBeHidden();
             await expect(page.locator('nav >> text=Logout')).toBeHidden();
-
-
-
         });
     });
 
-    describe("CRUD", () => {
+    describe('CRUD', () => {
         beforeEach(async () => {
             // Login user
             await page.goto(host);
@@ -213,8 +223,11 @@ describe("e2e tests", () => {
             await page.fill('[name="imageUrl"]', game.imgaeUrl);
             await page.fill('[name="summary"]', game.summary);
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/data/games') && response.status() === 200),
-                page.click('[type="submit"]')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/data/games') && response.status() === 200,
+                ),
+                page.click('[type="submit"]'),
             ]);
             let gameData = await response.json();
 
@@ -260,8 +273,11 @@ describe("e2e tests", () => {
             // Act
             await page.locator('[name="title"]').fill('Edited Title');
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/data/games') && response.status() === 200),
-                page.click('[type="submit"]')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/data/games') && response.status() === 200,
+                ),
+                page.click('[type="submit"]'),
             ]);
             let gameData = await response.json();
 
@@ -279,17 +295,19 @@ describe("e2e tests", () => {
 
             // Act
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/data/games') && response.status() === 200),
-                page.click('text=Delete')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/data/games') && response.status() === 200,
+                ),
+                page.click('text=Delete'),
             ]);
 
             // Assert
             expect(response.ok()).toBeTruthy();
-
         });
     });
 
-    describe("home page", () => {
+    describe('home page', () => {
         test('verify home page has correct data', async () => {
             // Act
             await page.goto(host);

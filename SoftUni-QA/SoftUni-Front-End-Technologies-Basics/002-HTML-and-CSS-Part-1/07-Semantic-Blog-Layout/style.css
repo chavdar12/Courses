@@ -9,18 +9,18 @@ header * {
     vertical-align: middle;
 }
 nav ul {
-  margin: 0;
-  padding: 10px;
+    margin: 0;
+    padding: 10px;
 }
-nav li {  
-  margin:10px;
+nav li {
+    margin: 10px;
 }
 nav li a {
     text-decoration: none;
 }
 
-body{
-    background-color:#b7d7e8;
+body {
+    background-color: #b7d7e8;
 }
 
 section h2 {

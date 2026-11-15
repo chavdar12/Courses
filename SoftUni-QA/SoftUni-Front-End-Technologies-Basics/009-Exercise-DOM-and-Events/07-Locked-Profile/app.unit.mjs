@@ -5,7 +5,12 @@ import { openPage, click } from '../test-utils.mjs';
 async function setup() {
     const window = await openPage(new URL('./template.html', import.meta.url));
     const profile = window.document.querySelectorAll('.profile')[0];
-    return { window, profile, button: profile.querySelector('button'), hidden: profile.querySelector('div') };
+    return {
+        window,
+        profile,
+        button: profile.querySelector('button'),
+        hidden: profile.querySelector('div'),
+    };
 }
 
 test('a locked profile ignores Show more', async () => {

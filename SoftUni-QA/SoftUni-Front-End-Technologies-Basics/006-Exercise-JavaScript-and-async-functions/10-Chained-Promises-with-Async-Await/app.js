@@ -1,19 +1,19 @@
 async function chainedPromisesAsync() {
     let promise1 = new Promise(function (resolve, reject) {
-        setTimeout(function() {
-            resolve("Promise 1");
+        setTimeout(function () {
+            resolve('Promise 1');
         }, 1000);
     });
 
     let promise2 = new Promise(function (resolve, reject) {
-        setTimeout(function() {
-            resolve("Promise 2");
+        setTimeout(function () {
+            resolve('Promise 2');
         }, 2000);
     });
 
     let promise3 = new Promise(function (resolve, reject) {
-        setTimeout(function() {
-            resolve("Promise 3");
+        setTimeout(function () {
+            resolve('Promise 3');
         }, 3000);
     });
 

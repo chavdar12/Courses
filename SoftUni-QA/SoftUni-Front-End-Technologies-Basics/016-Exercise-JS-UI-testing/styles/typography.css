@@ -1,5 +1,8 @@
 html {
-    font: 12px/1.5 "PT Sans", "PT Serif Caption", "PT Serif";
+    font:
+        12px/1.5 'PT Sans',
+        'PT Serif Caption',
+        'PT Serif';
 }
 
 @media screen and (min-width: 500px) {
@@ -48,19 +51,23 @@ h1 {
     font-size: 55px;
     font-weight: bold;
     color: #101010;
-    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
+    text-shadow:
+        2px 8px 6px rgba(0, 0, 0, 0.2),
+        0px -5px 35px rgba(255, 255, 255, 0.3);
 }
 
 h1:before,
 h1:after {
     background-color: #101010;
-    content: "";
+    content: '';
     display: inline-block;
     height: 3px;
     position: relative;
     vertical-align: middle;
     width: 50%;
-    box-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
+    box-shadow:
+        2px 8px 6px rgba(0, 0, 0, 0.2),
+        0px -5px 35px rgba(255, 255, 255, 0.3);
 }
 
 h1:before {
@@ -74,7 +81,7 @@ h1:after {
 }
 
 h2 {
-    font-size: 2.0rem;
+    font-size: 2rem;
 }
 
 h3 {
@@ -110,7 +117,7 @@ li {
 blockquote {
     width: 80%;
     margin: 0 auto;
-    border-left: 4px solid #DDD;
+    border-left: 4px solid #ddd;
     font-style: italic;
     padding: 1rem 2rem;
     position: relative;

@@ -18,7 +18,6 @@ function getGamesUrl() {
     return `${getBaseUrl()}/data/games`; //must be changed
 }
 
-
 function encodeURL(url) {
     return encodeURIComponent(url);
 }
@@ -29,5 +28,5 @@ export const url = {
     getLogoutUrl,
     getBaseUrl,
     getGamesUrl,
-    encodeURL
-}
+    encodeURL,
+};

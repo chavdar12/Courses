@@ -9,7 +9,7 @@ async function startCountdown() {
 
     for (let i = n; i >= 0; i--) {
         displayRemainingTime(i);
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second
     }
 
     console.log('Countdown finished!');
@@ -22,6 +22,6 @@ async function startCountdown() {
 async function saveRemainingTime() {
     // Simulate an asynchronous operation (e.g., API call)
     console.log('Saving remaining time...');
-    await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate 2 seconds
+    await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate 2 seconds
     console.log('Remaining time saved successfully!');
 }

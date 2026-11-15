@@ -13,14 +13,20 @@ async function setup(...tasks) {
         document.getElementById('filter').value = value;
         document.getElementById('filter').dispatchEvent(new window.Event('change'));
     };
-    const visible = () => [...document.querySelectorAll('.task')].filter((li) => li.style.display !== 'none').map((li) => li.firstChild.textContent);
+    const visible = () =>
+        [...document.querySelectorAll('.task')]
+            .filter((li) => li.style.display !== 'none')
+            .map((li) => li.firstChild.textContent);
     return { window, document, filter, visible };
 }
 
 test('adding tasks creates numbered list items and clears the input', async () => {
     const { document } = await setup('A', 'B');
     const tasks = document.querySelectorAll('.task');
-    assert.deepEqual([...tasks].map((t) => t.id), ['task-0', 'task-1']);
+    assert.deepEqual(
+        [...tasks].map((t) => t.id),
+        ['task-0', 'task-1'],
+    );
     assert.equal(document.getElementById('task-input').value, '');
 });
 

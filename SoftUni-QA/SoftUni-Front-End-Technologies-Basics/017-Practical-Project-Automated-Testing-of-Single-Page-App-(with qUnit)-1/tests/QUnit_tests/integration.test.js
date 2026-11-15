@@ -2,7 +2,7 @@ const baseUrl = 'http://localhost:3030/';
 
 let user = {
     email: '',
-    password: '1234567'
+    password: '1234567',
 };
 
 let game = {
@@ -10,7 +10,7 @@ let game = {
     category: '',
     maxLevel: '71',
     imageUrl: './images/ZombieLang.png',
-    summary: ''
+    summary: '',
 };
 
 let lastCreatedGameId = '';
@@ -22,9 +22,8 @@ let userId = '';
 
 QUnit.config.reorder = false;
 
-QUnit.module("user functionalities", () => {
-
-    QUnit.test("registration", async (assert) => {
+QUnit.module('user functionalities', () => {
+    QUnit.test('registration', async (assert) => {
         // Arrange
         let path = 'users/register';
         let random = Math.floor(Math.random() * 10000);
@@ -35,15 +34,15 @@ QUnit.module("user functionalities", () => {
         let response = await fetch(baseUrl + path, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
         });
 
         let json = await response.json();
 
         // Assert
-        assert.ok(response.ok, "successful response");
+        assert.ok(response.ok, 'successful response');
 
         assert.ok(json.hasOwnProperty('email'), 'email exists');
         assert.equal(json['email'], user.email, 'correct email');
@@ -65,7 +64,7 @@ QUnit.module("user functionalities", () => {
         sessionStorage.setItem('game-user', JSON.stringify(user));
     });
 
-    QUnit.test("login", async (assert) => {
+    QUnit.test('login', async (assert) => {
         // Arrange
         let path = 'users/login';
 
@@ -73,9 +72,9 @@ QUnit.module("user functionalities", () => {
         let response = await fetch(baseUrl + path, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
         });
         let json = await response.json();
 
@@ -103,9 +102,8 @@ QUnit.module("user functionalities", () => {
     });
 });
 
-QUnit.module("games functionalities", () => {
-
-    QUnit.test("get all games", async (assert) => {
+QUnit.module('games functionalities', () => {
+    QUnit.test('get all games', async (assert) => {
         // Arrange
         let path = 'data/games';
         let queryParams = '?sortBy=_createdOn%20desc';
@@ -118,34 +116,58 @@ QUnit.module("games functionalities", () => {
         assert.ok(response.ok, 'successful response');
         assert.ok(Array.isArray(json), 'response is array');
 
-        json.forEach(jsonProp => {
+        json.forEach((jsonProp) => {
             assert.ok(jsonProp.hasOwnProperty('category', 'property category exists'));
-            assert.strictEqual(typeof jsonProp.category, 'string', 'property category has correct type');
+            assert.strictEqual(
+                typeof jsonProp.category,
+                'string',
+                'property category has correct type',
+            );
 
             assert.ok(jsonProp.hasOwnProperty('imageUrl', 'property imageUrl exists'));
-            assert.strictEqual(typeof jsonProp.imageUrl, 'string', 'property imageUrl has correct type');
+            assert.strictEqual(
+                typeof jsonProp.imageUrl,
+                'string',
+                'property imageUrl has correct type',
+            );
 
             assert.ok(jsonProp.hasOwnProperty('maxLevel', 'property maxLevel exists'));
-            assert.strictEqual(typeof jsonProp.maxLevel, 'string', 'property maxLevel has correct type');
+            assert.strictEqual(
+                typeof jsonProp.maxLevel,
+                'string',
+                'property maxLevel has correct type',
+            );
 
             assert.ok(jsonProp.hasOwnProperty('title', 'property title exists'));
             assert.strictEqual(typeof jsonProp.title, 'string', 'property title has correct type');
 
             assert.ok(jsonProp.hasOwnProperty('summary', 'property summary exists'));
-            assert.strictEqual(typeof jsonProp.summary, 'string', 'property summary has correct type');
+            assert.strictEqual(
+                typeof jsonProp.summary,
+                'string',
+                'property summary has correct type',
+            );
 
             assert.ok(jsonProp.hasOwnProperty('_createdOn', 'property _createdOn exists'));
-            assert.strictEqual(typeof jsonProp._createdOn, 'number', 'property _createdOn has correct type');
+            assert.strictEqual(
+                typeof jsonProp._createdOn,
+                'number',
+                'property _createdOn has correct type',
+            );
 
             assert.ok(jsonProp.hasOwnProperty('_id', 'property _id exists'));
             assert.strictEqual(typeof jsonProp._id, 'string', 'property _id has correct type');
 
             assert.ok(jsonProp.hasOwnProperty('_ownerId', 'property _ownerId exists'));
-            assert.strictEqual(typeof jsonProp._ownerId, 'string', 'property _ownerId has correct type');
+            assert.strictEqual(
+                typeof jsonProp._ownerId,
+                'string',
+                'property _ownerId has correct type',
+            );
         });
     });
 
-    QUnit.test("create a game", async (assert) => {
+    QUnit.test('create a game', async (assert) => {
         // Arrange
         let path = 'data/games';
         let random = Math.floor(Math.random() * 10000);
@@ -159,9 +181,9 @@ QUnit.module("games functionalities", () => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'X-Authorization': token
+                'X-Authorization': token,
             },
-            body: JSON.stringify(game)
+            body: JSON.stringify(game),
         });
         let json = await response.json();
 
@@ -201,7 +223,7 @@ QUnit.module("games functionalities", () => {
         assert.strictEqual(typeof json._ownerId, 'string', 'prop _ownerId has correct type');
     });
 
-    QUnit.test("get game by id", async (assert) => {
+    QUnit.test('get game by id', async (assert) => {
         // Arrange
         let path = 'data/games';
 
@@ -242,7 +264,7 @@ QUnit.module("games functionalities", () => {
         assert.strictEqual(typeof json._ownerId, 'string', 'prop _ownerId has correct type');
     });
 
-    QUnit.test("edit game", async (assert) => {
+    QUnit.test('edit game', async (assert) => {
         // Arrange
         let path = 'data/games';
         let random = Math.floor(Math.random() * 10000);
@@ -256,9 +278,9 @@ QUnit.module("games functionalities", () => {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
-                'X-Authorization': token
+                'X-Authorization': token,
             },
-            body: JSON.stringify(game)
+            body: JSON.stringify(game),
         });
         let json = await response.json();
 
@@ -306,8 +328,8 @@ QUnit.module("games functionalities", () => {
         let response = await fetch(baseUrl + path + `/${lastCreatedGameId}`, {
             method: 'DELETE',
             headers: {
-                'X-Authorization': token
-            }
+                'X-Authorization': token,
+            },
         });
 
         // Assert
@@ -315,22 +337,22 @@ QUnit.module("games functionalities", () => {
     });
 });
 
-QUnit.module("comment functionalities", () => {
-
-    QUnit.test("new created games has no comments", async (assert) => {
+QUnit.module('comment functionalities', () => {
+    QUnit.test('new created games has no comments', async (assert) => {
         // Arrange
         let path = 'data/comments';
 
         // create a new game
-        let gameId = (await fetch(baseUrl + path, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'X-Authorization': token
-            },
-            body: JSON.stringify(game)
-        })
-            .then(response => response.json()))._id;
+        let gameId = (
+            await fetch(baseUrl + path, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    'X-Authorization': token,
+                },
+                body: JSON.stringify(game),
+            }).then((response) => response.json())
+        )._id;
 
         gameIdForComments = gameId;
 
@@ -346,13 +368,13 @@ QUnit.module("comment functionalities", () => {
         assert.ok(json.length === 0, 'array is empty');
     });
 
-    QUnit.test("create a new comment", async (assert) => {
+    QUnit.test('create a new comment', async (assert) => {
         // Arrange
         let path = 'data/comments';
         let random = Math.floor(Math.random() * 10000);
         let comment = {
             gameId: gameIdForComments,
-            comment: `comment ${random}`
+            comment: `comment ${random}`,
         };
 
         // Act
@@ -360,9 +382,9 @@ QUnit.module("comment functionalities", () => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'X-Authorization': token
+                'X-Authorization': token,
             },
-            body: JSON.stringify(comment)
+            body: JSON.stringify(comment),
         });
         let json = await response.json();
 
@@ -384,7 +406,7 @@ QUnit.module("comment functionalities", () => {
         assert.strictEqual(typeof json._id, 'string', 'prop _id has correct type');
     });
 
-    QUnit.test("get comment for specific game", async (assert) => {
+    QUnit.test('get comment for specific game', async (assert) => {
         // Arrange
         let path = 'data/comments';
         let queryParams = `?where=gameId%3D%22${gameIdForComments}%22`;
@@ -397,8 +419,7 @@ QUnit.module("comment functionalities", () => {
         assert.ok(response.ok, 'successful response');
         assert.ok(Array.isArray(json), 'response is array');
 
-        json.forEach(comment => {
-
+        json.forEach((comment) => {
             assert.ok(comment.hasOwnProperty('comment'), 'comment prop exists');
             assert.strictEqual(typeof comment.comment, 'string', 'prop comment has correct type');
 
@@ -406,11 +427,14 @@ QUnit.module("comment functionalities", () => {
             assert.strictEqual(typeof comment.gameId, 'string', 'prop gameId has correct type');
 
             assert.ok(comment.hasOwnProperty('_createdOn'), '_createdOn prop exists');
-            assert.strictEqual(typeof comment._createdOn, 'number', 'prop _createdOn has correct type');
+            assert.strictEqual(
+                typeof comment._createdOn,
+                'number',
+                'prop _createdOn has correct type',
+            );
 
             assert.ok(comment.hasOwnProperty('_id'), '_id prop exists');
             assert.strictEqual(typeof comment._id, 'string', 'prop _id has correct type');
-
         });
     });
 });

@@ -13,11 +13,21 @@ function run(answers) {
 }
 
 test('all correct answers score 3', async () => {
-    assert.deepEqual(await run(['1', '2', '0']), ['Correct!', 'Correct!', 'Correct!', 'Final score: 3']);
+    assert.deepEqual(await run(['1', '2', '0']), [
+        'Correct!',
+        'Correct!',
+        'Correct!',
+        'Final score: 3',
+    ]);
 });
 
 test('wrong and cancelled answers are not counted', async () => {
-    assert.deepEqual(await run(['0', null, '0']), ['Not correct!', 'Not correct!', 'Correct!', 'Final score: 1']);
+    assert.deepEqual(await run(['0', null, '0']), [
+        'Not correct!',
+        'Not correct!',
+        'Correct!',
+        'Final score: 1',
+    ]);
 });
 
 test('askQuestion lists the numbered answers in the prompt', async () => {

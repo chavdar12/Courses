@@ -13,7 +13,7 @@ html {
 }
 
 .viewport:nth-child(2) {
-    background-image: linear-gradient(to right, #A83279, #C53764, #D6494C, #DB6532, #D38312);
+    background-image: linear-gradient(to right, #a83279, #c53764, #d6494c, #db6532, #d38312);
 }
 
 .card {

@@ -39,6 +39,8 @@ test('asyncGenerator throws a rejected promise back into the generator', async (
 
 test('asyncGenerator rejects when the generator throws before yielding', async () => {
     const { context } = loadScript(file);
-    const gen = function* () { throw new Error('early'); };
+    const gen = function* () {
+        throw new Error('early');
+    };
     await assert.rejects(context.asyncGenerator(gen), { message: 'early' });
 });

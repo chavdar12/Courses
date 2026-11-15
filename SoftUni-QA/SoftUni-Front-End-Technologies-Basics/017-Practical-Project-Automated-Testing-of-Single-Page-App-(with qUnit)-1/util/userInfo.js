@@ -1,9 +1,9 @@
-function getUserObj(){
+function getUserObj() {
     return JSON.parse(sessionStorage.getItem('game-user'));
 }
 
-function getToken(){
-    if(getUserObj()){
+function getToken() {
+    if (getUserObj()) {
         return getUserObj().accessToken;
     }
     return null;
@@ -11,5 +11,5 @@ function getToken(){
 
 export const userInfo = {
     getUserObj,
-    getToken
-}
+    getToken,
+};

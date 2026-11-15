@@ -1,8 +1,8 @@
-import { render } from '../node_modules/lit-html/lit-html.js'
-import { templates } from '../templates/templates.js'
-import { requests } from '../api/requests.js'
+import { render } from '../node_modules/lit-html/lit-html.js';
+import { templates } from '../templates/templates.js';
+import { requests } from '../api/requests.js';
 import page from '../node_modules/page/page.mjs';
-import {userInfo} from '../util/userInfo.js'
+import { userInfo } from '../util/userInfo.js';
 
 let mainElement = document.querySelector('#box #main-content');
 let headerElement = document.querySelector('#box header');
@@ -32,16 +32,14 @@ async function catalogView(ctx) {
     render(templates.getCatalogTemplate(games), mainElement);
 }
 
-
-
 function createView(ctx) {
     render(templates.getCreateView(), mainElement);
 }
 
-async function editView(ctx){
+async function editView(ctx) {
     let team = await requests.games.getById(ctx.params.id);
 
-    render(templates.getEditTemplate(team), mainElement)
+    render(templates.getEditTemplate(team), mainElement);
 }
 
 async function detailsView(ctx) {
@@ -51,20 +49,18 @@ async function detailsView(ctx) {
     render(templates.getDetailsView(game, comments), mainElement);
 }
 
-function deleteView(ctx){
-    requests.games.deleteById(ctx.params.id)
-    .then(res => {
-        if(res.ok){
+function deleteView(ctx) {
+    requests.games.deleteById(ctx.params.id).then((res) => {
+        if (res.ok) {
             page.redirect('/');
         }
-    })
+    });
 }
 
-function logoutView(ctx){
+function logoutView(ctx) {
     debugger;
-    requests.user.logout()
-    .then(res => {
-        if(res.status == 204){
+    requests.user.logout().then((res) => {
+        if (res.status == 204) {
             sessionStorage.removeItem('game-user');
             page.redirect('/');
         }
@@ -81,5 +77,5 @@ export const viewHandler = {
     detailsView,
     createView,
     editView,
-    deleteView
-}
+    deleteView,
+};

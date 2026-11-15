@@ -14,5 +14,10 @@ test('counts down from 10 to 0, then saves', async () => {
     const lines = logs.map((l) => l[0]);
     const expected = [];
     for (let i = 10; i >= 0; i--) expected.push(`Remaining time: ${i} seconds`);
-    assert.deepEqual(lines, [...expected, 'Countdown finished!', 'Saving remaining time...', 'Remaining time saved successfully!']);
+    assert.deepEqual(lines, [
+        ...expected,
+        'Countdown finished!',
+        'Saving remaining time...',
+        'Remaining time saved successfully!',
+    ]);
 });

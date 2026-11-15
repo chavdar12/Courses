@@ -1,21 +1,21 @@
 .page {
-	overflow: hidden;
-	display: flex;
-	flex-wrap: wrap;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .page > header {
-	width: 100%;
+    width: 100%;
 }
 
 .page main {
-	width: 70%;
+    width: 70%;
 }
 
 main article {
-	padding-right: 2rem;
+    padding-right: 2rem;
 }
 
 aside section {
-	padding-left: 4rem;
+    padding-left: 4rem;
 }

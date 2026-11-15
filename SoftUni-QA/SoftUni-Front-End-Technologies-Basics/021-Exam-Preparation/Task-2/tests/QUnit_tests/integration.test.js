@@ -2,7 +2,7 @@ const baseUrl = 'http://localhost:3030/';
 
 let user = {
     email: '',
-    password: '123456'
+    password: '123456',
 };
 
 let myEvent = {
@@ -10,8 +10,8 @@ let myEvent = {
     date: '25.06.2024',
     title: '',
     description: '',
-    imageUrl: '/images/Moulin-Rouge!-The-Musical.jpg'
-}
+    imageUrl: '/images/Moulin-Rouge!-The-Musical.jpg',
+};
 
 let token = '';
 let userId = '';
@@ -32,9 +32,9 @@ QUnit.module('user functionalities', () => {
         let response = await fetch(baseUrl + path, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
         });
         let jsonData = await response.json();
 
@@ -71,9 +71,9 @@ QUnit.module('user functionalities', () => {
         let response = await fetch(baseUrl + path, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
         });
         let jsonData = await response.json();
 
@@ -117,7 +117,7 @@ QUnit.module('event functionalities', () => {
         assert.ok(response.ok, 'success response');
         assert.ok(Array.isArray(jsonData), 'response is array');
 
-        jsonData.forEach(element => {
+        jsonData.forEach((element) => {
             assert.ok(element.hasOwnProperty('author'), 'author exists');
             assert.strictEqual(typeof element.author, 'string', 'author is correct type');
 
@@ -156,9 +156,9 @@ QUnit.module('event functionalities', () => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'X-Authorization': token
+                'X-Authorization': token,
             },
-            body: JSON.stringify(myEvent)
+            body: JSON.stringify(myEvent),
         });
         let jsonData = await response.json();
 
@@ -166,23 +166,23 @@ QUnit.module('event functionalities', () => {
         assert.ok(response.ok, 'success response');
 
         assert.ok(jsonData.hasOwnProperty('author'), 'author exists');
-        assert.strictEqual(jsonData.author, myEvent.author, 'author is expected')
+        assert.strictEqual(jsonData.author, myEvent.author, 'author is expected');
         assert.strictEqual(typeof jsonData.author, 'string', 'author is correct type');
 
         assert.ok(jsonData.hasOwnProperty('date'), 'date exists');
-        assert.strictEqual(jsonData.date, myEvent.date, 'date is expected')
+        assert.strictEqual(jsonData.date, myEvent.date, 'date is expected');
         assert.strictEqual(typeof jsonData.date, 'string', 'date is correct type');
 
         assert.ok(jsonData.hasOwnProperty('description'), 'description exists');
-        assert.strictEqual(jsonData.description, myEvent.description, 'description is expected')
+        assert.strictEqual(jsonData.description, myEvent.description, 'description is expected');
         assert.strictEqual(typeof jsonData.description, 'string', 'description is correct type');
 
         assert.ok(jsonData.hasOwnProperty('imageUrl'), 'imageUrl exists');
-        assert.strictEqual(jsonData.imageUrl, myEvent.imageUrl, 'imageUrl is expected')
+        assert.strictEqual(jsonData.imageUrl, myEvent.imageUrl, 'imageUrl is expected');
         assert.strictEqual(typeof jsonData.imageUrl, 'string', 'imageUrl is correct type');
 
         assert.ok(jsonData.hasOwnProperty('title'), 'title exists');
-        assert.strictEqual(jsonData.title, myEvent.title, 'title is expected')
+        assert.strictEqual(jsonData.title, myEvent.title, 'title is expected');
         assert.strictEqual(typeof jsonData.title, 'string', 'title is correct type');
 
         assert.ok(jsonData.hasOwnProperty('_createdOn'), '_createdOn exists');
@@ -208,9 +208,9 @@ QUnit.module('event functionalities', () => {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
-                'X-Authorization': token
+                'X-Authorization': token,
             },
-            body: JSON.stringify(myEvent)
+            body: JSON.stringify(myEvent),
         });
         let jsonData = await response.json();
 
@@ -218,23 +218,23 @@ QUnit.module('event functionalities', () => {
         assert.ok(response.ok, 'success response');
 
         assert.ok(jsonData.hasOwnProperty('author'), 'author exists');
-        assert.strictEqual(jsonData.author, myEvent.author, 'author is expected')
+        assert.strictEqual(jsonData.author, myEvent.author, 'author is expected');
         assert.strictEqual(typeof jsonData.author, 'string', 'author is correct type');
 
         assert.ok(jsonData.hasOwnProperty('date'), 'date exists');
-        assert.strictEqual(jsonData.date, myEvent.date, 'date is expected')
+        assert.strictEqual(jsonData.date, myEvent.date, 'date is expected');
         assert.strictEqual(typeof jsonData.date, 'string', 'date is correct type');
 
         assert.ok(jsonData.hasOwnProperty('description'), 'description exists');
-        assert.strictEqual(jsonData.description, myEvent.description, 'description is expected')
+        assert.strictEqual(jsonData.description, myEvent.description, 'description is expected');
         assert.strictEqual(typeof jsonData.description, 'string', 'description is correct type');
 
         assert.ok(jsonData.hasOwnProperty('imageUrl'), 'imageUrl exists');
-        assert.strictEqual(jsonData.imageUrl, myEvent.imageUrl, 'imageUrl is expected')
+        assert.strictEqual(jsonData.imageUrl, myEvent.imageUrl, 'imageUrl is expected');
         assert.strictEqual(typeof jsonData.imageUrl, 'string', 'imageUrl is correct type');
 
         assert.ok(jsonData.hasOwnProperty('title'), 'title exists');
-        assert.strictEqual(jsonData.title, myEvent.title, 'title is expected')
+        assert.strictEqual(jsonData.title, myEvent.title, 'title is expected');
         assert.strictEqual(typeof jsonData.title, 'string', 'title is correct type');
 
         assert.ok(jsonData.hasOwnProperty('_createdOn'), '_createdOn exists');
@@ -255,8 +255,8 @@ QUnit.module('event functionalities', () => {
         let response = await fetch(baseUrl + path + `/${lastCreatedEventId}`, {
             method: 'DELETE',
             headers: {
-                'X-Authorization': token
-            }
+                'X-Authorization': token,
+            },
         });
 
         // Assert

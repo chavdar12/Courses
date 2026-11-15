@@ -3,39 +3,39 @@ const addTaskButton = document.getElementById('add-task');
 const taskList = document.getElementById('task-list');
 const filter = document.getElementById('filter');
 
-let taskId = 0;  
+let taskId = 0;
 
 addTaskButton.addEventListener('click', () => {
     if (taskInput.value.trim() === '') return;
     const li = document.createElement('li');
     li.className = 'task';
     li.textContent = taskInput.value;
-    li.id = `task-${taskId}`;  
-    
+    li.id = `task-${taskId}`;
+
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
-    deleteButton.classList.add('delete-task'); 
+    deleteButton.classList.add('delete-task');
     deleteButton.addEventListener('click', () => {
         taskList.removeChild(li);
     });
-    
+
     const completeButton = document.createElement('button');
     completeButton.textContent = 'Complete';
-    completeButton.classList.add('task-complete'); 
+    completeButton.classList.add('task-complete');
     completeButton.addEventListener('click', () => {
         li.classList.add('completed');
     });
-    
+
     li.appendChild(deleteButton);
     li.appendChild(completeButton);
     taskList.appendChild(li);
     taskInput.value = '';
-    taskId++;  
+    taskId++;
 });
 
 filter.addEventListener('change', () => {
     const tasks = taskList.getElementsByTagName('li');
-    Array.from(tasks).forEach(task => {
+    Array.from(tasks).forEach((task) => {
         switch (filter.value) {
             case 'all':
                 task.style.display = '';

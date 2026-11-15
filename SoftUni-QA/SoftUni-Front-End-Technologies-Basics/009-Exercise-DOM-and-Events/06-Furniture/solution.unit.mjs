@@ -41,7 +41,10 @@ test('Buy summarises only the checked rows', async () => {
     boxes[1].checked = true; // Sofa
     boxes[3].checked = true; // Desk
     click(window, buy);
-    assert.equal(output.value, 'Bought furniture: Sofa, Desk\nTotal price: 309\nAverage decoration factor: 0.8');
+    assert.equal(
+        output.value,
+        'Bought furniture: Sofa, Desk\nTotal price: 309\nAverage decoration factor: 0.8',
+    );
 });
 
 test('Buy with nothing checked reports zero instead of NaN', async () => {

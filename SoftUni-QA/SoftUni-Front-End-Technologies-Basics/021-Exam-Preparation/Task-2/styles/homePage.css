@@ -1,4 +1,5 @@
-#welcomeMessage, #events {
+#welcomeMessage,
+#events {
     background-color: rgba(255, 255, 255, 0.904) 10%;
     margin: 1em 3em;
     padding: 1em;
@@ -8,7 +9,7 @@
     font-size: 18px;
 }
 
-#event>h1 {
+#event > h1 {
     margin-bottom: 0.5em;
     font-size: 2em;
 }
@@ -34,7 +35,7 @@
     overflow-x: scroll;
 }
 
-.theaters-container>div {
+.theaters-container > div {
     flex: 0 0 5em;
     margin: 1em;
     background-color: gray;
@@ -43,7 +44,7 @@
     color: black;
 }
 
-.theaters-container>div>.info {
+.theaters-container > div > .info {
     position: absolute;
     display: block;
     width: 100%;
@@ -55,18 +56,17 @@
 
 h4 {
     margin: 1em 1em;
-    
 }
 
 img {
     margin: 0 auto;
 }
 
-.home-image{
+.home-image {
     max-height: 40em;
 }
 
-.home-image>img{
+.home-image > img {
     max-height: 20em;
     max-width: 20em;
 }
@@ -77,24 +77,24 @@ img {
 
 ::-webkit-scrollbar {
     width: 20px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.411); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.411);
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #918181; 
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #918181;
+}
 
 .btn-details:hover {
     cursor: pointer;

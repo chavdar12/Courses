@@ -1,8 +1,8 @@
-import { render } from '../node_modules/lit-html/lit-html.js'
-import { templates } from '../templates/templates.js'
-import { requests } from '../api/requests.js'
+import { render } from '../node_modules/lit-html/lit-html.js';
+import { templates } from '../templates/templates.js';
+import { requests } from '../api/requests.js';
 import page from '../node_modules/page/page.mjs';
-import { userInfo } from '../util/userInfo.js'
+import { userInfo } from '../util/userInfo.js';
 
 let mainElement = document.querySelector('#container #content');
 let headerElement = document.querySelector('#container header');
@@ -31,8 +31,6 @@ async function catalogView(ctx) {
     render(templates.getCatalogTemplate(theaters, user), mainElement);
 }
 
-
-
 function createView(ctx) {
     render(templates.getCreateView(), mainElement);
 }
@@ -40,7 +38,7 @@ function createView(ctx) {
 async function editView(ctx) {
     let theater = await requests.theaters.getById(ctx.params.id);
 
-    render(templates.getEditTemplate(theater), mainElement)
+    render(templates.getEditTemplate(theater), mainElement);
 }
 
 async function detailsView(ctx) {
@@ -55,38 +53,37 @@ async function detailsView(ctx) {
 
 function deleteView(ctx) {
     if (confirm('Are you sure you want to delete it?') == true) {
-        requests.theaters.deleteById(ctx.params.id)
-            .then(res => {
-                if (!res.ok) {
-                    alert('Unable to delete!')
-                }
-                page.redirect('/profile');
-            })
-    } 
+        requests.theaters.deleteById(ctx.params.id).then((res) => {
+            if (!res.ok) {
+                alert('Unable to delete!');
+            }
+            page.redirect('/profile');
+        });
+    }
 }
 
 function logoutView(ctx) {
     debugger;
-    requests.user.logout()
-        .then(res => {
-            if (res.status == 204) {
-                sessionStorage.removeItem('theater-user');
-                page.redirect('/');
-            }
-        });
+    requests.user.logout().then((res) => {
+        if (res.status == 204) {
+            sessionStorage.removeItem('theater-user');
+            page.redirect('/');
+        }
+    });
 }
 
 function likeView(ctx) {
-    requests.likes.postALike(ctx.params.id)
-        .then(res => {
+    requests.likes
+        .postALike(ctx.params.id)
+        .then((res) => {
             if (!res.ok) {
-                throw new Error('Unable to make a like!')
+                throw new Error('Unable to make a like!');
             }
-            page.redirect(`/details/${ctx.params.id}`)
+            page.redirect(`/details/${ctx.params.id}`);
         })
-        .catch(err => {
+        .catch((err) => {
             alert(err.message);
-        })
+        });
 }
 
 export const viewHandler = {
@@ -100,5 +97,5 @@ export const viewHandler = {
     createView,
     editView,
     deleteView,
-    likeView
-}
+    likeView,
+};

@@ -1,4 +1,12 @@
-const { test, describe, beforeEach, afterEach, beforeAll, afterAll, expect } = require('@playwright/test');
+const {
+    test,
+    describe,
+    beforeEach,
+    afterEach,
+    beforeAll,
+    afterAll,
+    expect,
+} = require('@playwright/test');
 const { chromium } = require('playwright');
 
 const host = 'http://localhost:3001'; // Application host (NOT service host - that can be anything)
@@ -8,12 +16,12 @@ let context;
 let page;
 
 let user = {
-    email: "",
-    password: "123456",
-    confirmPass: "123456",
+    email: '',
+    password: '123456',
+    confirmPass: '123456',
 };
 
-describe("e2e tests", () => {
+describe('e2e tests', () => {
     beforeAll(async () => {
         browser = await chromium.launch();
     });
@@ -32,8 +40,7 @@ describe("e2e tests", () => {
         await context.close();
     });
 
-
-    describe("authentication", () => {
+    describe('authentication', () => {
         test('register user with valid data', async () => {
             // Arrange
             await page.goto(host);
@@ -48,8 +55,10 @@ describe("e2e tests", () => {
             await page.locator('#repeatPassword').fill(user.confirmPass);
 
             let [response] = await Promise.all([
-                page.waitForResponse(res => res.url().includes('/users/register') && res.status() === 200),
-                page.click('[type="submit"]')
+                page.waitForResponse(
+                    (res) => res.url().includes('/users/register') && res.status() === 200,
+                ),
+                page.click('[type="submit"]'),
             ]);
             let jsonData = await response.json();
 
@@ -71,8 +80,10 @@ describe("e2e tests", () => {
             await page.locator('#password').fill(user.password);
 
             let [response] = await Promise.all([
-                page.waitForResponse(res => res.url().includes('/users/login') && res.status() === 200),
-                page.click('[type="submit"]')
+                page.waitForResponse(
+                    (res) => res.url().includes('/users/login') && res.status() === 200,
+                ),
+                page.click('[type="submit"]'),
             ]);
             let jsonData = await response.json();
 
@@ -95,19 +106,20 @@ describe("e2e tests", () => {
 
             // Act
             let [response] = await Promise.all([
-                page.waitForResponse(res => res.url().includes('/users/logout') && res.status() === 204),
-                page.click('nav >> text=Logout')
+                page.waitForResponse(
+                    (res) => res.url().includes('/users/logout') && res.status() === 204,
+                ),
+                page.click('nav >> text=Logout'),
             ]);
 
             // Assert
             expect(response.ok).toBeTruthy();
             await page.waitForSelector('nav >> text=Login');
             expect(page.url()).toBe(host + '/');
-
         });
     });
 
-    describe("navbar", () => {
+    describe('navbar', () => {
         test('navbar for logged in user', async () => {
             // Arrange
             await page.goto(host);
@@ -145,7 +157,7 @@ describe("e2e tests", () => {
         });
     });
 
-    describe("CRUD", () => {
+    describe('CRUD', () => {
         beforeEach(async () => {
             await page.goto(host);
             await page.click('text=Login');
@@ -168,8 +180,10 @@ describe("e2e tests", () => {
             await page.fill('#imageUrl', '/images/background.jpg');
 
             let [response] = await Promise.all([
-                page.waitForResponse(res => res.url().includes('/data/theaters') && res.status() === 200),
-                page.click('[type="submit"]')
+                page.waitForResponse(
+                    (res) => res.url().includes('/data/theaters') && res.status() === 200,
+                ),
+                page.click('[type="submit"]'),
             ]);
             let eventData = await response.json();
 
@@ -192,8 +206,10 @@ describe("e2e tests", () => {
             // Act
             await page.fill('#title', 'Random Edited Title');
             let [response] = await Promise.all([
-                page.waitForResponse(res => res.url().includes('/data/theaters') && res.status() === 200),
-                page.click('[type="submit"]')
+                page.waitForResponse(
+                    (res) => res.url().includes('/data/theaters') && res.status() === 200,
+                ),
+                page.click('[type="submit"]'),
             ]);
             let eventData = await response.json();
 
@@ -213,13 +229,15 @@ describe("e2e tests", () => {
 
             // Act
             let [response] = await Promise.all([
-                page.waitForResponse(res => res.url().includes('/data/theaters') && res.status() === 200),
-                page.on('dialog', dialog => dialog.accept()),
-                page.click('text=Delete')
+                page.waitForResponse(
+                    (res) => res.url().includes('/data/theaters') && res.status() === 200,
+                ),
+                page.on('dialog', (dialog) => dialog.accept()),
+                page.click('text=Delete'),
             ]);
 
             // Assert
             expect(response.ok).toBeTruthy();
         });
-    })
-})
+    });
+});

@@ -3,7 +3,7 @@ function attachEventsListeners() {
         days: 1,
         hours: 24,
         minutes: 1440,
-        seconds: 86400
+        seconds: 86400,
     };
 
     function convert(value, unit) {
@@ -12,19 +12,19 @@ function attachEventsListeners() {
             days: inDays,
             hours: inDays * ratios.hours,
             minutes: inDays * ratios.minutes,
-            seconds: inDays * ratios.seconds
+            seconds: inDays * ratios.seconds,
         };
     }
 
-    let daysInput = document.getElementById("days");
-    let hoursInput = document.getElementById("hours");
-    let minutesInput = document.getElementById("minutes");
-    let secondsInput = document.getElementById("seconds");
+    let daysInput = document.getElementById('days');
+    let hoursInput = document.getElementById('hours');
+    let minutesInput = document.getElementById('minutes');
+    let secondsInput = document.getElementById('seconds');
 
-    document.querySelector("main").addEventListener("click", onConvert);
+    document.querySelector('main').addEventListener('click', onConvert);
 
     function onConvert(e) {
-        if (e.target.tagName !== "INPUT" || e.target.type !== "button") {
+        if (e.target.tagName !== 'INPUT' || e.target.type !== 'button') {
             return;
         }
 

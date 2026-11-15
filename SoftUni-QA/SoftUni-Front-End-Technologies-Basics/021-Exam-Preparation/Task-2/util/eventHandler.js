@@ -1,9 +1,8 @@
-import page from '../node_modules/page/page.mjs'
-import { requests } from '../api/requests.js'
-import { userInfo } from '../util/userInfo.js'
+import page from '../node_modules/page/page.mjs';
+import { requests } from '../api/requests.js';
+import { userInfo } from '../util/userInfo.js';
 
 async function onCreateSubmit(evt) {
-
     evt.preventDefault();
 
     let formData = new FormData(evt.currentTarget);
@@ -16,20 +15,20 @@ async function onCreateSubmit(evt) {
             date,
             author,
             imageUrl,
-            description
+            description,
+        };
 
-        }
-
-        requests.theaters.create(item)
-        .then(res => {
-            if(!res.ok){
-                throw new Error('Unable to create a event!')
-            }
-            page.redirect('/');
-        })
-        .catch(err => {
-            alert(err.message);
-        })
+        requests.theaters
+            .create(item)
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error('Unable to create a event!');
+                }
+                page.redirect('/');
+            })
+            .catch((err) => {
+                alert(err.message);
+            });
     } else {
         alert('All fields are required!');
     }
@@ -46,25 +45,22 @@ async function onLoginSubmit(evt) {
     if (email == '' || password == '') {
         alert('All fileds are required');
     } else {
-        await requests.user.login(email, password)
-            .then(res => {
+        await requests.user
+            .login(email, password)
+            .then((res) => {
                 if (!res.ok) {
                     throw new Error('Email or password does not exist!');
                 }
                 return res.json();
             })
-            .then(user => {
+            .then((user) => {
                 sessionStorage.setItem('theater-user', JSON.stringify(user));
                 page.redirect('/');
             })
-            .catch(err => {
+            .catch((err) => {
                 alert(err.message);
-            })
+            });
     }
-
-
-
-
 }
 
 async function onRegisterSubmit(evt) {
@@ -78,23 +74,24 @@ async function onRegisterSubmit(evt) {
         let userInfo = {
             email,
             username,
-            password
+            password,
         };
 
-        requests.user.register(userInfo)
-            .then(res => {
+        requests.user
+            .register(userInfo)
+            .then((res) => {
                 if (!res.ok) {
                     throw new Error('Unable to register new user!');
                 }
                 return res.json();
             })
-            .then(data => {
+            .then((data) => {
                 sessionStorage.setItem('theater-user', JSON.stringify(data));
                 page.redirect('/');
             })
-            .catch(err => {
-                alert(err.message)
-            })
+            .catch((err) => {
+                alert(err.message);
+            });
     } else {
         alert('All fields are required and confirm password need to match password');
     }
@@ -106,55 +103,56 @@ function onEditSubmit(evt) {
     let formData = new FormData(evt.currentTarget);
     let id = evt.currentTarget.getAttribute('theaterId');
 
-    let { title, date, author, imageUrl, description} = Object.fromEntries(formData);
+    let { title, date, author, imageUrl, description } = Object.fromEntries(formData);
 
     if (isValidCreatingOrEditing(title, date, author, imageUrl, description)) {
         let item = {
-            title, 
-            date, 
-            author, 
-            imageUrl, 
-            description
-        }
+            title,
+            date,
+            author,
+            imageUrl,
+            description,
+        };
 
-        requests.theaters.edit(item, id)
-            .then(res => {
+        requests.theaters
+            .edit(item, id)
+            .then((res) => {
                 if (!res.ok) {
                     throw new Error();
                 }
                 return res.json();
             })
-            .then(data => {
-                page.redirect(`/details/${data._id}`)
+            .then((data) => {
+                page.redirect(`/details/${data._id}`);
             })
-            .catch(err => {
-
-            })
-    }
-    else {
+            .catch((err) => {});
+    } else {
         alert('All fields are required!');
     }
 }
-
-
 
 export const event = {
     onCreateSubmit,
     onLoginSubmit,
     onRegisterSubmit,
-    onEditSubmit
-}
+    onEditSubmit,
+};
 
 function isValidRegister(email, username, password, repeatPassword) {
-
-    if (email == '' || username == '' || password == '' || repeatPassword == '' || password != repeatPassword) {
+    if (
+        email == '' ||
+        username == '' ||
+        password == '' ||
+        repeatPassword == '' ||
+        password != repeatPassword
+    ) {
         return false;
     }
     return true;
 }
 
 function isValidCreatingOrEditing(title, date, author, imageUrl, descriptio) {
-    if(title == '' || date == '' || author == '' || imageUrl == '' || descriptio == ''){
+    if (title == '' || date == '' || author == '' || imageUrl == '' || descriptio == '') {
         return false;
     }
     return true;

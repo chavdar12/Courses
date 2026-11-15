@@ -11,28 +11,30 @@ body {
 }
 
 h1 {
-    color: #FFC107;
-    font-size: 2em; 
+    color: #ffc107;
+    font-size: 2em;
 }
 
-input, select, button {
-    font-size: 1.2em; 
+input,
+select,
+button {
+    font-size: 1.2em;
     margin: 10px 0;
     padding: 10px;
 }
 
 #task-input {
-    width: 70%; 
+    width: 70%;
 }
 
 button {
-    background-color: #FFC107; 
+    background-color: #ffc107;
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    transition-duration: 0.4s; 
+    transition-duration: 0.4s;
     border-radius: 12px;
 }
 

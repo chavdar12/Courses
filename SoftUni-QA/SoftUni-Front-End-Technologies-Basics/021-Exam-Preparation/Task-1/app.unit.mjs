@@ -2,15 +2,28 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { openPage, click } from './test-utils.mjs';
 
-const fields = { employee: 'Ivan', category: 'Hardware', urgency: 'High', team: 'Hardware Support Division', description: 'Broken mouse' };
+const fields = {
+    employee: 'Ivan',
+    category: 'Hardware',
+    urgency: 'High',
+    team: 'Hardware Support Division',
+    description: 'Broken mouse',
+};
 
 async function setup() {
     const window = await openPage(new URL('./index.html', import.meta.url));
     const { document } = window;
     const $ = (s) => document.querySelector(s);
-    const fill = (values = fields) => Object.entries(values).forEach(([id, v]) => (document.getElementById(id).value = v));
+    const fill = (values = fields) =>
+        Object.entries(values).forEach(([id, v]) => (document.getElementById(id).value = v));
     const values = () => Object.keys(fields).map((id) => document.getElementById(id).value);
-    return { window, $, fill, values, add: () => click(window, document.getElementById('add-btn')) };
+    return {
+        window,
+        $,
+        fill,
+        values,
+        add: () => click(window, document.getElementById('add-btn')),
+    };
 }
 
 test('Add with an empty field does nothing', async () => {
@@ -24,8 +37,16 @@ test('Add shows the problem in preview and clears + disables the form', async ()
     const { $, fill, values, add } = await setup();
     fill();
     add();
-    const ps = [...$('.preview-list li.problem-content article').children].map((p) => p.textContent);
-    assert.deepEqual(ps, ['From: Ivan', 'Category: Hardware', 'Urgency: High', 'Assigned to: Hardware Support Division', 'Description: Broken mouse']);
+    const ps = [...$('.preview-list li.problem-content article').children].map(
+        (p) => p.textContent,
+    );
+    assert.deepEqual(ps, [
+        'From: Ivan',
+        'Category: Hardware',
+        'Urgency: High',
+        'Assigned to: Hardware Support Division',
+        'Description: Broken mouse',
+    ]);
     assert.deepEqual(values(), ['', '', '', '', '']);
     assert.equal($('#add-btn').disabled, true);
 });

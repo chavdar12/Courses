@@ -3,10 +3,10 @@ nav {
     overflow: hidden;
 }
 
-
 /* Style the links inside the navigation bar */
 
-nav a, nav span {
+nav a,
+nav span {
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -23,7 +23,8 @@ nav a:hover {
 }
 
 /* Add a color to the active/current link */
-nav a, #common {
+nav a,
+#common {
     float: left;
 }
 nav a.active {

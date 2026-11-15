@@ -7,10 +7,10 @@ function startStopWatch() {
 
     stopWatchInterval = setInterval(function () {
         stopWatchSec++;
-        console.log("Elapsed time: " + stopWatchSec + " s")
+        console.log('Elapsed time: ' + stopWatchSec + ' s');
     }, 1000);
 
-    savedTimeInterval = setInterval(async function() {
+    savedTimeInterval = setInterval(async function () {
         await saveTime(stopWatchSec);
     }, 5000);
 }
@@ -24,7 +24,7 @@ function stopStopWatch() {
 
 function saveTime(saveTime) {
     return new Promise(function (resolve, reject) {
-        console.log("Saved time: " + saveTime + " s");
+        console.log('Saved time: ' + saveTime + ' s');
         resolve();
-    })
+    });
 }

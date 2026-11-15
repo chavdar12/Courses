@@ -7,7 +7,9 @@ async function search(text) {
     const { document } = window;
     document.getElementById('searchText').value = text;
     click(window, document.querySelector('button'));
-    const bold = [...document.querySelectorAll('li')].filter((li) => li.style.fontWeight === 'bold').map((li) => li.textContent);
+    const bold = [...document.querySelectorAll('li')]
+        .filter((li) => li.style.fontWeight === 'bold')
+        .map((li) => li.textContent);
     return { result: document.getElementById('result').textContent, bold, window };
 }
 
@@ -22,8 +24,13 @@ test('a new search clears the previous highlight', async () => {
     const { document } = window;
     document.getElementById('searchText').value = 'Varna';
     click(window, document.querySelector('button'));
-    const styled = [...document.querySelectorAll('li')].filter((li) => li.style.textDecoration === 'underline');
-    assert.deepEqual(styled.map((li) => li.textContent), ['Varna']);
+    const styled = [...document.querySelectorAll('li')].filter(
+        (li) => li.style.textDecoration === 'underline',
+    );
+    assert.deepEqual(
+        styled.map((li) => li.textContent),
+        ['Varna'],
+    );
 });
 
 test('no matches', async () => {

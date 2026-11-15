@@ -18,9 +18,9 @@ function asyncGenerator(generatorFunc) {
     function handle(result) {
         if (result.done) return Promise.resolve(result.value);
         return Promise.resolve(result.value).then(
-            res => handle(generator.next(res)),
-            err => handle(generator.throw(err))
-        )
+            (res) => handle(generator.next(res)),
+            (err) => handle(generator.throw(err)),
+        );
     }
 
     try {
@@ -32,13 +32,17 @@ function asyncGenerator(generatorFunc) {
 
 function startAsyncGenerator() {
     asyncGenerator(function* () {
-        const data1 = yield new Promise(resolve => setTimeout(() => resolve("Task 1 is done"), 1000));
+        const data1 = yield new Promise((resolve) =>
+            setTimeout(() => resolve('Task 1 is done'), 1000),
+        );
         console.log(data1);
-        const data2 = yield new Promise(resolve => setTimeout(() => resolve("Task 2 is done"), 1000));
+        const data2 = yield new Promise((resolve) =>
+            setTimeout(() => resolve('Task 2 is done'), 1000),
+        );
         console.log(data2);
-        const data3 = yield new Promise(resolve => setTimeout(() => resolve("Task 3 is done"), 1000));
+        const data3 = yield new Promise((resolve) =>
+            setTimeout(() => resolve('Task 3 is done'), 1000),
+        );
         console.log(data3);
-    }
-
-    )
+    });
 }

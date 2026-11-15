@@ -1,7 +1,7 @@
-body{
+body {
     display: flex;
     background-color: rgb(238, 238, 238);
 }
-div.card{
+div.card {
     background-color: rgb(255, 255, 255);
 }

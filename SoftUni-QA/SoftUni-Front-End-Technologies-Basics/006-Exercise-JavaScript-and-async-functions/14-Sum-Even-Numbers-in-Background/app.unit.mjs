@@ -11,11 +11,14 @@ test('handleCommand responds to show, exit and anything else', () => {
     context.handleCommand('show');
     context.handleCommand('exit');
     context.handleCommand('foo');
-    assert.deepEqual(logs.map((l) => l[0]), [
-        'Current sum of even numbers: 0',
-        'Calculation stopped.',
-        'Invalid command. Use "show" or "exit".',
-    ]);
+    assert.deepEqual(
+        logs.map((l) => l[0]),
+        [
+            'Current sum of even numbers: 0',
+            'Calculation stopped.',
+            'Invalid command. Use "show" or "exit".',
+        ],
+    );
 });
 
 test('startCalculation computes the exact sum, same on every click and stops on Cancel', () => {

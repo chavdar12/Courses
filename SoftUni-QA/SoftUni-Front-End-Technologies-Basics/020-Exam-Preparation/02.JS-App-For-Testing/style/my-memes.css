@@ -10,7 +10,7 @@
     width: 25%;
 }
 
-.my-meme>img {
+.my-meme > img {
     margin: auto;
     display: block;
     width: 100%;
@@ -27,7 +27,7 @@
     color: #4438ea;
 }
 
-#container>div.my-memes>div>div>div {
+#container > div.my-memes > div > div > div {
     padding-top: 20px;
 }
 

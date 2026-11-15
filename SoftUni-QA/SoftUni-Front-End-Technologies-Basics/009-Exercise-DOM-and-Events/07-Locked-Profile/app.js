@@ -1,8 +1,8 @@
 function lockedProfile() {
-    let buttons = document.getElementsByTagName("button");
+    let buttons = document.getElementsByTagName('button');
 
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener("click", showInfo);   
+        buttons[i].addEventListener('click', showInfo);
     }
 
     function showInfo(event) {
@@ -10,13 +10,12 @@ function lockedProfile() {
         let divHiddenContent = event.target.previousElementSibling;
 
         if (lockRadioButton.checked === false) {
-            if (event.target.textContent === "Hide it") {
-                divHiddenContent.style.display = "none";
-                event.target.textContent = "Show more";
-            }
-            else {
-                divHiddenContent.style.display = "inline";
-                event.target.textContent = "Hide it";
+            if (event.target.textContent === 'Hide it') {
+                divHiddenContent.style.display = 'none';
+                event.target.textContent = 'Show more';
+            } else {
+                divHiddenContent.style.display = 'inline';
+                event.target.textContent = 'Hide it';
             }
         }
     }

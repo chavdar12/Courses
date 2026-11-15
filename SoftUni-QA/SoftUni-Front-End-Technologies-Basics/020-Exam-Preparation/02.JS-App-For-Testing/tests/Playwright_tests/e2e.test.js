@@ -1,4 +1,12 @@
-const { test, describe, beforeEach, afterEach, beforeAll, afterAll, expect } = require('@playwright/test');
+const {
+    test,
+    describe,
+    beforeEach,
+    afterEach,
+    beforeAll,
+    afterAll,
+    expect,
+} = require('@playwright/test');
 const { chromium } = require('playwright');
 
 const host = 'http://localhost:3001';
@@ -8,13 +16,13 @@ let context;
 let page;
 
 let user = {
-    username: "",
-    email: "",
-    password: "123456",
-    confirmPass: "123456",
+    username: '',
+    email: '',
+    password: '123456',
+    confirmPass: '123456',
 };
 
-describe("e2e tests", () => {
+describe('e2e tests', () => {
     beforeAll(async () => {
         browser = await chromium.launch();
     });
@@ -33,8 +41,7 @@ describe("e2e tests", () => {
         await context.close();
     });
 
-
-    describe("authentication", () => {
+    describe('authentication', () => {
         test('user register with valid data', async () => {
             // Arrange
             await page.goto(host);
@@ -52,8 +59,11 @@ describe("e2e tests", () => {
             await page.locator('#repeatPass').fill(user.confirmPass);
 
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/users/register') && response.status() === 200),
-                page.click('input[type="submit"]')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/users/register') && response.status() === 200,
+                ),
+                page.click('input[type="submit"]'),
             ]);
             let userData = await response.json();
 
@@ -75,8 +85,11 @@ describe("e2e tests", () => {
             await page.locator('#password').fill(user.password);
 
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/users/login') && response.status() === 200),
-                page.click('input[type="submit"]')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/users/login') && response.status() === 200,
+                ),
+                page.click('input[type="submit"]'),
             ]);
             let userData = await response.json();
 
@@ -98,8 +111,11 @@ describe("e2e tests", () => {
             await page.click('input[type="submit"]');
 
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/users/logout') && response.status() === 204),
-                page.locator('a[href="/logout"]').click()
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/users/logout') && response.status() === 204,
+                ),
+                page.locator('a[href="/logout"]').click(),
             ]);
 
             // Assert
@@ -110,10 +126,10 @@ describe("e2e tests", () => {
         });
     });
 
-    describe("navbar", () => {
+    describe('navbar', () => {
         test('navbar for logged in user', async () => {
             // Arrange
-            await page.goto(host)
+            await page.goto(host);
             await page.locator('a[href="/login"]').first().click();
             await page.waitForSelector('form');
 
@@ -148,9 +164,9 @@ describe("e2e tests", () => {
         });
     });
 
-    describe("CRUD", () => {
+    describe('CRUD', () => {
         beforeEach(async () => {
-            await page.goto(host)
+            await page.goto(host);
             await page.locator('a[href="/login"]').first().click();
             await page.waitForSelector('form');
 
@@ -169,8 +185,11 @@ describe("e2e tests", () => {
             await page.fill('[name="imageUrl"]', 'https://jpeg.org/images/jpeg-home.jpg');
 
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/data/memes') && response.status() === 200),
-                page.click('input[type="submit"]')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/data/memes') && response.status() === 200,
+                ),
+                page.click('input[type="submit"]'),
             ]);
             let memeData = await response.json();
 
@@ -190,11 +209,14 @@ describe("e2e tests", () => {
             await page.waitForSelector('form');
 
             // Act
-            await page.fill('[name="description"]', 'Random edited description')
+            await page.fill('[name="description"]', 'Random edited description');
 
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/data/memes') && response.status() === 200),
-                page.click('input[type="submit"]')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/data/memes') && response.status() === 200,
+                ),
+                page.click('input[type="submit"]'),
             ]);
             let memeData = await response.json();
 
@@ -213,8 +235,11 @@ describe("e2e tests", () => {
 
             // Act
             let [response] = await Promise.all([
-                page.waitForResponse(response => response.url().includes('/data/memes') && response.status() === 200),
-                page.click('//button[text()="Delete"]')
+                page.waitForResponse(
+                    (response) =>
+                        response.url().includes('/data/memes') && response.status() === 200,
+                ),
+                page.click('//button[text()="Delete"]'),
             ]);
 
             // Assert

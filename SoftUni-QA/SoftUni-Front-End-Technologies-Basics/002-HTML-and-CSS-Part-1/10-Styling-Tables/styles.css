@@ -9,7 +9,8 @@ table thead tr th {
     background-color: lightblue;
 }
 
-body th, td {
+body th,
+td {
     width: 144px;
     height: 32px;
     border: 1px solid #ccc;

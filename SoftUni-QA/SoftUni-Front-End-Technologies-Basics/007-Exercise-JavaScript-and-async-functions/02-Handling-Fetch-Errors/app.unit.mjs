@@ -9,14 +9,20 @@ function fakeFetch(routes, calls = []) {
         calls.push(url);
         const body = routes[url];
         if (body instanceof Error) throw body;
-        return { ok: body !== undefined, status: body !== undefined ? 200 : 404, json: async () => body };
+        return {
+            ok: body !== undefined,
+            status: body !== undefined ? 200 : 404,
+            json: async () => body,
+        };
     };
 }
 const luke = { name: 'Luke Skywalker' };
 const c3po = { name: 'C-3PO' };
 
 test('logs the data when the response is ok', async () => {
-    const { context, logs } = loadScript(file, { fetch: fakeFetch({ 'https://swapi.dev/api/people/1': luke }) });
+    const { context, logs } = loadScript(file, {
+        fetch: fakeFetch({ 'https://swapi.dev/api/people/1': luke }),
+    });
     await context.fetchDataWithErrorHandling();
     assert.deepEqual(logs, [[luke]]);
 });
@@ -29,7 +35,9 @@ test('logs an error for a non-ok response', async () => {
 });
 
 test('logs an error when the network fails', async () => {
-    const { context, logs } = loadScript(file, { fetch: fakeFetch({ 'https://swapi.dev/api/people/1': new Error('offline') }) });
+    const { context, logs } = loadScript(file, {
+        fetch: fakeFetch({ 'https://swapi.dev/api/people/1': new Error('offline') }),
+    });
     await context.fetchDataWithErrorHandling();
     assert.equal(logs[0][1].message, 'offline');
 });

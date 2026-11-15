@@ -22,9 +22,17 @@ test('functions.js (XMLHttpRequest) writes the response text on status 200', () 
     let button;
     let xhr;
     class FakeXHR {
-        constructor() { xhr = this; this.listeners = {}; }
-        addEventListener(type, fn) { this.listeners[type] = fn; }
-        open(method, url) { this.method = method; this.url = url; }
+        constructor() {
+            xhr = this;
+            this.listeners = {};
+        }
+        addEventListener(type, fn) {
+            this.listeners[type] = fn;
+        }
+        open(method, url) {
+            this.method = method;
+            this.url = url;
+        }
         send() {}
     }
     const document = {

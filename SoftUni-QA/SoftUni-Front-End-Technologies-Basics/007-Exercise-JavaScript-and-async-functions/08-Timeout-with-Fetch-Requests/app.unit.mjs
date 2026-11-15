@@ -23,7 +23,9 @@ test('logs Timeout reached! when fetch is too slow', async () => {
 });
 
 test('logs the fetch error message', async () => {
-    const fetch = async () => { throw new Error('fetch failed'); };
+    const fetch = async () => {
+        throw new Error('fetch failed');
+    };
     const { context, logs } = loadScript(file, { fetch });
     await context.fetchWithTimeout();
     assert.deepEqual(logs, [['fetch failed']]);

@@ -1,5 +1,5 @@
 body {
-    background: #FFF;
+    background: #fff;
     padding: 1rem;
 }
 
@@ -91,9 +91,9 @@ form label {
     order: 1;
 }
 
-.field .input input+.actions {
+.field .input input + .actions {
     display: block;
-    background: #FFF;
+    background: #fff;
     border: 1px solid rgb(192, 191, 191);
     border-radius: 0.3rem;
     position: absolute;
@@ -108,7 +108,7 @@ form label {
     border-color: #090;
 }
 
-.field .input input:focus+.fas {
+.field .input input:focus + .fas {
     color: #090;
 }
 

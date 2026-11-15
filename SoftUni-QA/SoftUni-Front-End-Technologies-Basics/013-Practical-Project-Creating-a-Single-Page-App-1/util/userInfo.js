@@ -11,5 +11,5 @@ function getToken() {
 
 export const userInfo = {
     getUserObj,
-    getToken
-}
+    getToken,
+};

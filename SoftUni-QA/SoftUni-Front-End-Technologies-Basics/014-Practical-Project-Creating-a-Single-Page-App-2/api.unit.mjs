@@ -46,7 +46,9 @@ test('logout sends the auth token', async () => {
 });
 
 test('games read endpoints sort by newest and parse json', async () => {
-    assert.deepEqual(await requests.games.getAll(), { url: `${base}/data/games?sortBy=_createdOn%20desc` });
+    assert.deepEqual(await requests.games.getAll(), {
+        url: `${base}/data/games?sortBy=_createdOn%20desc`,
+    });
     await requests.games.getMostResently();
     assert.match(calls[1].url, /distinct=category$/);
     assert.deepEqual(await requests.games.getById('7'), { url: `${base}/data/games/7` });
@@ -56,11 +58,14 @@ test('games write endpoints are authorized', async () => {
     await requests.games.create({ title: 'T' });
     await requests.games.edit({ title: 'U' }, '7');
     await requests.games.deleteById('7');
-    assert.deepEqual(calls.map((c) => [c.method, c.url]), [
-        ['POST', `${base}/data/games`],
-        ['PUT', `${base}/data/games/7`],
-        ['DELETE', `${base}/data/games/7`],
-    ]);
+    assert.deepEqual(
+        calls.map((c) => [c.method, c.url]),
+        [
+            ['POST', `${base}/data/games`],
+            ['PUT', `${base}/data/games/7`],
+            ['DELETE', `${base}/data/games/7`],
+        ],
+    );
     assert.ok(calls.every((c) => c.headers['X-Authorization'] === 'token-1'));
 });
 

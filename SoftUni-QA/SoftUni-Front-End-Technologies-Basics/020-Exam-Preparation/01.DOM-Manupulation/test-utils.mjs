@@ -38,7 +38,9 @@ export const flush = () => nextMacrotask();
 class LocalOnlyLoader extends ResourceLoader {
     fetch(url, options) {
         // CDN scripts/styles are not needed for the tests and would make them network dependent
-        return url.startsWith('file:') ? super.fetch(url, options) : Promise.resolve(Buffer.from(''));
+        return url.startsWith('file:')
+            ? super.fetch(url, options)
+            : Promise.resolve(Buffer.from(''));
     }
 }
 
@@ -63,4 +65,5 @@ export async function openPage(file, { beforeParse } = {}) {
     return window;
 }
 
-export const click = (window, el) => el.dispatchEvent(new window.MouseEvent('click', { bubbles: true, cancelable: true }));
+export const click = (window, el) =>
+    el.dispatchEvent(new window.MouseEvent('click', { bubbles: true, cancelable: true }));

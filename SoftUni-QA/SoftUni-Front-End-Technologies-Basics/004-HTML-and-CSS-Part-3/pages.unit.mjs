@@ -6,8 +6,9 @@ import { fileURLToPath } from 'node:url';
 import { JSDOM } from 'jsdom';
 
 const root = dirname(fileURLToPath(import.meta.url));
-const pages = readdirSync(root, { recursive: true })
-    .filter((f) => f.endsWith('.html') && !f.startsWith('node_modules'));
+const pages = readdirSync(root, { recursive: true }).filter(
+    (f) => f.endsWith('.html') && !f.startsWith('node_modules'),
+);
 
 // Only files on disk: skip web links, anchors, mail/tel and data URIs.
 const isLocal = (ref) => ref && !/^([a-z]+:|\/\/|#)/i.test(ref);

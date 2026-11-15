@@ -9,7 +9,11 @@ function fakeFetch(routes, calls = []) {
         calls.push(url);
         const body = routes[url];
         if (body instanceof Error) throw body;
-        return { ok: body !== undefined, status: body !== undefined ? 200 : 404, json: async () => body };
+        return {
+            ok: body !== undefined,
+            status: body !== undefined ? 200 : 404,
+            json: async () => body,
+        };
     };
 }
 const luke = { name: 'Luke Skywalker' };
@@ -17,7 +21,9 @@ const c3po = { name: 'C-3PO' };
 
 test('fetches person 1 and logs the parsed JSON', async () => {
     const calls = [];
-    const { context, logs } = loadScript(file, { fetch: fakeFetch({ 'https://swapi.dev/api/people/1': luke }, calls) });
+    const { context, logs } = loadScript(file, {
+        fetch: fakeFetch({ 'https://swapi.dev/api/people/1': luke }, calls),
+    });
     await context.fetchData();
     assert.deepEqual(calls, ['https://swapi.dev/api/people/1']);
     assert.deepEqual(logs, [[luke]]);

@@ -11,8 +11,14 @@ test('ticks every second and saves every 5 seconds', async () => {
     context.startStopWatch();
     await advance(mock.timers, 5000);
     const lines = logs.map((l) => l[0]);
-    assert.deepEqual(lines.filter((l) => l.startsWith('Elapsed')), [1, 2, 3, 4, 5].map((s) => `Elapsed time: ${s} s`));
-    assert.deepEqual(lines.filter((l) => l.startsWith('Saved')), ['Saved time: 5 s']);
+    assert.deepEqual(
+        lines.filter((l) => l.startsWith('Elapsed')),
+        [1, 2, 3, 4, 5].map((s) => `Elapsed time: ${s} s`),
+    );
+    assert.deepEqual(
+        lines.filter((l) => l.startsWith('Saved')),
+        ['Saved time: 5 s'],
+    );
     context.stopStopWatch();
 });
 

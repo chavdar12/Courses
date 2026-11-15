@@ -9,7 +9,9 @@ body {
 }
 
 img {
-    box-shadow: 2px 5px 13px 0px #000000, 8px -15px 31px -12px rgb(0 0 0 / 0%);
+    box-shadow:
+        2px 5px 13px 0px #000000,
+        8px -15px 31px -12px rgb(0 0 0 / 0%);
     margin-bottom: 15px;
 }
 

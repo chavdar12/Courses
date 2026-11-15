@@ -1,8 +1,7 @@
 import page from '../node_modules/page/page.mjs';
-import {viewHandler} from './viewHandler.js';
+import { viewHandler } from './viewHandler.js';
 
-function start(){
-
+function start() {
     page(viewHandler.navView);
 
     page('/', viewHandler.homeView);
@@ -13,11 +12,11 @@ function start(){
     page('/details/:id', viewHandler.detailsView);
     page('/create', viewHandler.createView);
     page('/edit/:id', viewHandler.editView);
-    page('/delete/:id', viewHandler.deleteView)
+    page('/delete/:id', viewHandler.deleteView);
 
     page.start();
 }
 
 export const engine = {
-    start
-}
+    start,
+};

@@ -8,7 +8,12 @@ function fakeFirebase(docs, { failWrites = false } = {}) {
         initializeApp() {},
         firestore: () => ({
             collection: () => ({
-                doc: () => ({ set: async (d) => { if (failWrites) throw new Error('denied'); docs.push(d); } }),
+                doc: () => ({
+                    set: async (d) => {
+                        if (failWrites) throw new Error('denied');
+                        docs.push(d);
+                    },
+                }),
                 get: async () => ({ forEach: (fn) => docs.forEach((d) => fn({ data: () => d })) }),
             }),
         }),
@@ -35,7 +40,10 @@ test('submit saves the form values and alerts after the write', async () => {
     document.getElementById('country-input').value = 'Bulgaria';
     click(window, document.getElementById('submit'));
     await flush();
-    assert.deepEqual(docs.map((d) => ({ ...d })), [{ fname: 'Ivan', lname: 'Petrov', email: 'ivan@abv.bg', country: 'Bulgaria' }]);
+    assert.deepEqual(
+        docs.map((d) => ({ ...d })),
+        [{ fname: 'Ivan', lname: 'Petrov', email: 'ivan@abv.bg', country: 'Bulgaria' }],
+    );
     assert.deepEqual(alerts, ['Form is submitted successfully']);
 });
 

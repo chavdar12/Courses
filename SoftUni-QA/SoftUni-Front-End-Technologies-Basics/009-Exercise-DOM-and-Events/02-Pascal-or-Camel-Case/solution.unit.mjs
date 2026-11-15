@@ -13,8 +13,13 @@ async function transform(text, convention) {
     return document.getElementById('result').textContent;
 }
 
-test('Camel Case', async () => assert.equal(await transform('this is an example', 'Camel Case'), 'thisIsAnExample'));
-test('Pascal Case', async () => assert.equal(await transform('secOND eXamPLE', 'Pascal Case'), 'SecondExample'));
-test('unknown convention gives Error!', async () => assert.equal(await transform('Invalid Input', 'Another Case'), 'Error!'));
-test('extra spaces are ignored', async () => assert.equal(await transform('  a  b ', 'Camel Case'), 'aB'));
-test('empty text gives empty result', async () => assert.equal(await transform('', 'Pascal Case'), ''));
+test('Camel Case', async () =>
+    assert.equal(await transform('this is an example', 'Camel Case'), 'thisIsAnExample'));
+test('Pascal Case', async () =>
+    assert.equal(await transform('secOND eXamPLE', 'Pascal Case'), 'SecondExample'));
+test('unknown convention gives Error!', async () =>
+    assert.equal(await transform('Invalid Input', 'Another Case'), 'Error!'));
+test('extra spaces are ignored', async () =>
+    assert.equal(await transform('  a  b ', 'Camel Case'), 'aB'));
+test('empty text gives empty result', async () =>
+    assert.equal(await transform('', 'Pascal Case'), ''));

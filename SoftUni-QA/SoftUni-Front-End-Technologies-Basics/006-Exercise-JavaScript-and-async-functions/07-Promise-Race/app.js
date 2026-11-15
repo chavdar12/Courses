@@ -1,24 +1,23 @@
 function racePromise() {
     let promise1 = new Promise(function (resolve, reject) {
         setTimeout(function () {
-            resolve("Resolve 1");
+            resolve('Resolve 1');
         });
     });
 
     let promise2 = new Promise(function (resolve, reject) {
         setTimeout(function () {
-            resolve("Resolve 2");
+            resolve('Resolve 2');
         });
     });
 
     let promise3 = new Promise(function (resolve, reject) {
         setTimeout(function () {
-            resolve("Resolve 3");
+            resolve('Resolve 3');
         });
     });
 
-    Promise.race([promise1, promise2, promise3])
-        .then(function (result) {
-            console.log(result);
-        });
+    Promise.race([promise1, promise2, promise3]).then(function (result) {
+        console.log(result);
+    });
 }

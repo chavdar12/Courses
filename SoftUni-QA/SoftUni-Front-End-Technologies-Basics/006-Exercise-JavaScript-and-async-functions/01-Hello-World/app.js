@@ -1,21 +1,20 @@
 // Callback functions
 function helloWorld() {
-    console.log("Hello");
+    console.log('Hello');
     setTimeout(function () {
-        console.log("World");
+        console.log('World');
     }, 2000);
 }
 // let button = document.querySelector("button");
 // button.addEventListener('click', helloWorld);
 
-
 // Make it with Promise
 function helloWorldWithPromise() {
-    console.log("Hello");
+    console.log('Hello');
 
     let promise = new Promise(function (resolve, reject) {
         setTimeout(function () {
-            resolve("World");
+            resolve('World');
         }, 2000);
     });
 
@@ -26,11 +25,11 @@ function helloWorldWithPromise() {
 
 // Asynchronous Function
 async function helloWorldWithAsync() {
-    console.log("Hello");
-    
+    console.log('Hello');
+
     let promise = new Promise(function (resolve, reject) {
         setTimeout(function () {
-            resolve("World");
+            resolve('World');
         }, 2000);
     });
 

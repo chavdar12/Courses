@@ -4,7 +4,7 @@ let user = {
     username: '',
     email: '',
     password: '123456',
-    gender: 'male'
+    gender: 'male',
 };
 
 let token = '';
@@ -13,7 +13,7 @@ let userId = '';
 let meme = {
     title: '',
     description: '',
-    imageUrl: './images/2.png'
+    imageUrl: './images/2.png',
 };
 
 let lastCreatedMemeId = '';
@@ -35,9 +35,9 @@ QUnit.module('user functionalities', () => {
         let response = await fetch(baseUrl + path, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
         });
         let userData = await response.json();
 
@@ -79,12 +79,12 @@ QUnit.module('user functionalities', () => {
         let response = await fetch(baseUrl + path, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
             body: JSON.stringify({
                 email: user.email,
-                password: user.password
-            })
+                password: user.password,
+            }),
         });
         let userData = await response.json();
 
@@ -119,7 +119,6 @@ QUnit.module('user functionalities', () => {
     });
 });
 
-
 QUnit.module('meme functionalities', () => {
     QUnit.test('get all memes', async (assert) => {
         // Arrange
@@ -134,7 +133,7 @@ QUnit.module('meme functionalities', () => {
         assert.ok(response.ok, 'success response');
         assert.ok(Array.isArray(userData), 'response is array');
 
-        userData.forEach(element => {
+        userData.forEach((element) => {
             assert.ok(element.hasOwnProperty('description'), 'description exist');
             assert.strictEqual(typeof element.description, 'string', 'description type is correct');
 
@@ -157,7 +156,7 @@ QUnit.module('meme functionalities', () => {
 
     QUnit.test('create meme', async (assert) => {
         // Arrange
-        let path = '/data/meme'
+        let path = '/data/meme';
         let random = Math.floor(Math.random() * 10000);
         let randomTitle = `Random meme title ${random}`;
         let randomDesc = `Random meme description ${random}`;
@@ -170,9 +169,9 @@ QUnit.module('meme functionalities', () => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'X-Authorization': token
+                'X-Authorization': token,
             },
-            body: JSON.stringify(meme)
+            body: JSON.stringify(meme),
         });
         let memeData = await response.json();
 
@@ -205,7 +204,7 @@ QUnit.module('meme functionalities', () => {
 
     QUnit.test('edit meme', async (assert) => {
         // Arrange
-        let path = '/data/meme'
+        let path = '/data/meme';
         let random = Math.floor(Math.random() * 10000);
         let randomTitle = `Edited title ${random}`;
         meme.title = randomTitle;
@@ -215,9 +214,9 @@ QUnit.module('meme functionalities', () => {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
-                'X-Authorization': token
+                'X-Authorization': token,
             },
-            body: JSON.stringify(meme)
+            body: JSON.stringify(meme),
         });
         let memeData = await response.json();
 
@@ -253,14 +252,14 @@ QUnit.module('meme functionalities', () => {
 
     QUnit.test('delete meme', async (assert) => {
         // Arrange
-        let path = '/data/meme'
+        let path = '/data/meme';
 
         // Act
         let response = await fetch(baseUrl + path + `/${lastCreatedMemeId}`, {
             method: 'DELETE',
             headers: {
-                'X-Authorization': token
-            }
+                'X-Authorization': token,
+            },
         });
 
         // Assert

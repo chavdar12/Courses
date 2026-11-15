@@ -1,8 +1,8 @@
-import { render } from '../node_modules/lit-html/lit-html.js'
-import { templates } from '../templates/templates.js'
-import { requests } from '../api/requests.js'
+import { render } from '../node_modules/lit-html/lit-html.js';
+import { templates } from '../templates/templates.js';
+import { requests } from '../api/requests.js';
 import page from '../node_modules/page/page.mjs';
-import {userInfo} from '../util/userInfo.js'
+import { userInfo } from '../util/userInfo.js';
 
 let mainElement = document.querySelector('#container main');
 let navElement = document.querySelector('#container nav');
@@ -22,12 +22,10 @@ function registerView(ctx) {
 
 function homeView(ctx) {
     let user = userInfo.getUserObj();
-    if(user){
-
+    if (user) {
     } else {
         render(templates.getHomeTemplate(), mainElement);
     }
-   
 }
 
 async function itemsView(ctx) {
@@ -35,22 +33,20 @@ async function itemsView(ctx) {
     render(templates.getCatalogTemplate(teams), mainElement);
 }
 
-
-
 function createView(ctx) {
     render(templates.getCreateView(), mainElement);
 }
 
-async function editView(ctx){
+async function editView(ctx) {
     let meme = await requests.items.getById(ctx.params.id);
 
-    render(templates.getEditTemplate(meme), mainElement)
+    render(templates.getEditTemplate(meme), mainElement);
 }
 
 async function detailsView(ctx) {
     debugger;
     let meme = await requests.items.getById(ctx.params.id);
-    
+
     render(templates.getDetailsView(meme), mainElement);
 }
 
@@ -63,18 +59,17 @@ async function detailsView(ctx) {
 //     })
 // }
 
-function logoutView(ctx){
+function logoutView(ctx) {
     debugger;
-    requests.user.logout()
-    .then(res => {
-        if(res.status == 204 || res.status == 200){
+    requests.user.logout().then((res) => {
+        if (res.status == 204 || res.status == 200) {
             sessionStorage.removeItem('meme-user');
             page.redirect('/');
         }
     });
 }
 
-async function profileView(ctx){
+async function profileView(ctx) {
     let user = userInfo.getUserObj();
     let memes = await requests.items.getMyMemes(user._id);
 
@@ -91,6 +86,6 @@ export const viewHandler = {
     detailsView,
     createView,
     editView,
-    profileView
+    profileView,
     //deleteView
-}
+};

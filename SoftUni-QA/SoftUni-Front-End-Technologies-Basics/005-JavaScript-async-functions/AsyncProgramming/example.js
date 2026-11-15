@@ -1,9 +1,9 @@
 function running() {
-    return "Running";
+    return 'Running';
 }
 
-function category (run, type) {
-    console.log(run() + " " + type);
+function category(run, type) {
+    console.log(run() + ' ' + type);
 }
 
-category(running, "sprint");
+category(running, 'sprint');

@@ -1,42 +1,42 @@
 body {
     margin: 0 5%;
     background-color: rgb(238, 238, 238);
-  }
-  .mainHeader {
+}
+.mainHeader {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid black;
-  }
-  header p {
+}
+header p {
     display: flex;
     font-size: 28px;
     font-weight: bold;
     font-family: Georgia, serif;
-  }
-  header nav ul {
+}
+header nav ul {
     display: flex;
-  }
-  header nav ul li {
+}
+header nav ul li {
     margin: 20px 20px 0 0;
     list-style: none;
-  }
-  main {
+}
+main {
     display: inline-block;
     width: 80%;
-  }
-  main h1,
-  h2,
-  h3 {
+}
+main h1,
+h2,
+h3 {
     font-family: Georgia, serif;
-  }
-  
-  .articleOne section p {
+}
+
+.articleOne section p {
     display: inline-block;
     margin-right: 200px;
     vertical-align: top;
-  }
-  
-  .articleOne section img {
+}
+
+.articleOne section img {
     display: inline;
     position: absolute;
     margin-right: 340px;
@@ -45,17 +45,17 @@ body {
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.25);
     right: 10px;
-  }
-  
-  .articleTwo section div {
+}
+
+.articleTwo section div {
     display: flex;
     width: 100%;
-  }
-  .articleTwo section div p {
+}
+.articleTwo section div p {
     display: inline-block;
     width: 50%;
-  }
-  .articleTwo section div blockquote {
+}
+.articleTwo section div blockquote {
     width: 50%;
     display: inline-block;
     border-left: 4px solid gray;
@@ -63,19 +63,19 @@ body {
     color: grey;
     font-style: italic;
     font-family: Georgia, serif;
-  }
-  .articleTwo section div blockquote span {
+}
+.articleTwo section div blockquote span {
     display: block;
     text-align: right;
-  }
-  
-  .articleThree section p {
+}
+
+.articleThree section p {
     display: inline-block;
     margin-left: 230px;
     vertical-align: top;
-  }
-  
-  .articleThree section img {
+}
+
+.articleThree section img {
     display: inline;
     position: absolute;
     margin-top: 20px;
@@ -84,19 +84,18 @@ body {
     padding: 5px;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.25);
-  }
-  
-  aside {
+}
+
+aside {
     display: inline-block;
     width: 10%;
     margin: 0 50px;
-  }
-  aside section ul li a {
+}
+aside section ul li a {
     color: rgb(0, 102, 0);
     text-decoration: none;
-  }
-  main,
-  aside {
+}
+main,
+aside {
     vertical-align: top;
-  }
-  
+}

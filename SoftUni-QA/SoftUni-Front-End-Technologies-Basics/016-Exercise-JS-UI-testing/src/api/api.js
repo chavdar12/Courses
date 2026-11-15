@@ -14,7 +14,6 @@ async function request(url, options) {
         try {
             const data = await response.json();
             return data;
-
         } catch (error) {
             return response;
         }
@@ -57,7 +56,6 @@ export async function put(url, data) {
 export async function del(url) {
     return await request(url, getOptions('delete'));
 }
-
 
 export async function login(email, password) {
     const result = await post(settings.host + '/users/login', { email, password });
