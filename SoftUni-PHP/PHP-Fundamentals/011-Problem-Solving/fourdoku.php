@@ -1,117 +1,71 @@
 <?php
-class Fourdoku {
-    private $matrix;
-    private $changed;
+// A filled 4x4 sudoku: every row, column and 2x2 box holds 1-4 exactly once.
+class Fourdoku
+{
+    private array $matrix;
 
-    public function __construct() {
-        $this->changed = false;
-        $this->init();
-    }
-
-    public function init(): void
+    public function __construct()
     {
-        $this->matrix = array_fill(0, 4, array_fill(0, 4, 0));
+        $this->generate();
     }
 
     public function generate(): void
     {
-        $this->fillDiagonal();
-        $this->placeOne();
-        $this->placeCandidates();
-        $this->placeZeroes();
-
-        $tries = 0;
-        while ($this->changed && $tries < 10) {
-            $tries++;
-            $this->changed = false;
-            $this->placeCandidates();
-            $this->placeZeroes();
-        }
-
-        if ($tries >= 10) {
-            $this->init();
-            $this->generate();
-        }
+        $this->matrix = array_fill(0, 4, array_fill(0, 4, 0));
+        $this->fill(0);
     }
 
-    private function fillDiagonal(): void
+    public function getMatrix(): array
     {
-        $nums = [1, 2, 3, 4];
-        for ($i = 0; $i < 4; $i++) {
-            shuffle($nums);
-            $this->matrix[$i][$i] = $nums[0];
-        }
+        return $this->matrix;
     }
 
-    private function placeOne(): void
+    // backtracking over the 16 cells in row order, trying the numbers in random order
+    private function fill(int $cell): bool
     {
-        for ($i = 0; $i < 4; $i++) {
-            for ($j = 0; $j < 4; $j++) {
-                if ($this->matrix[$i][$j] == 0) {
-                    $candidates = $this->getCandidates($i, $j);
-                    if (count($candidates) == 1) {
-                        $this->matrix[$i][$j] = $candidates[0];
-                        $this->changed = true;
-                    }
+        if ($cell === 16) {
+            return true;
+        }
+        $row = intdiv($cell, 4);
+        $col = $cell % 4;
+        $numbers = [1, 2, 3, 4];
+        shuffle($numbers);
+        foreach ($numbers as $number) {
+            if ($this->fits($row, $col, $number)) {
+                $this->matrix[$row][$col] = $number;
+                if ($this->fill($cell + 1)) {
+                    return true;
                 }
             }
         }
+        $this->matrix[$row][$col] = 0;
+        return false;
     }
 
-    private function placeCandidates(): void
+    private function fits(int $row, int $col, int $number): bool
     {
+        $boxRow = $row - $row % 2;
+        $boxCol = $col - $col % 2;
         for ($i = 0; $i < 4; $i++) {
-            for ($j = 0; $j < 4; $j++) {
-                if ($this->matrix[$i][$j] == 0) {
-                    $candidates = $this->getCandidates($i, $j);
-                    if (count($candidates) == 1) {
-                        $this->matrix[$i][$j] = $candidates[0];
-                        $this->changed = true;
-                    }
-                }
+            if ($this->matrix[$row][$i] === $number
+                || $this->matrix[$i][$col] === $number
+                || $this->matrix[$boxRow + intdiv($i, 2)][$boxCol + $i % 2] === $number) {
+                return false;
             }
         }
-    }
-
-    private function placeZeroes(): void
-    {
-        for ($i = 0; $i < 4; $i++) {
-            for ($j = 0; $j < 4; $j++) {
-                if ($this->matrix[$i][$j] == 0) {
-                    $candidates = $this->getCandidates($i, $j);
-                    if (count($candidates) != 1) {
-                        $this->matrix[$i][$j] = 0;
-                    }
-                }
-            }
-        }
-    }
-
-    private function getCandidates($row, $col): array
-    {
-        $candidates = [1, 2, 3, 4];
-        for ($i = 0; $i < 4; $i++) {
-            if (in_array($this->matrix[$row][$i], $candidates)) {
-                unset($candidates[array_search($this->matrix[$row][$i], $candidates)]);
-            }
-            if (in_array($this->matrix[$i][$col], $candidates)) {
-                unset($candidates[array_search($this->matrix[$i][$col], $candidates)]);
-            }
-        }
-        return $candidates;
+        return true;
     }
 
     public function print(): void
     {
         echo "<table>";
-        for ($i = 0; $i < 4; $i++) {
+        foreach ($this->matrix as $row) {
             echo "<tr>";
-            for ($j = 0; $j < 4; $j++) {
-                echo "<td>" . ($this->matrix[$i][$j] == 0 ? "&nbsp;" : $this->matrix[$i][$j]) . "</td>";
+            foreach ($row as $value) {
+                echo "<td>$value</td>";
             }
             echo "</tr>";
         }
         echo "</table>";
     }
 }
-?>

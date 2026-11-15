@@ -1,0 +1,25 @@
+name: PHP
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        php-version: ["8.5"]
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: none
+
+      - name: Lint (syntax check every script)
+        run: find . -name '*.php' -print0 | xargs -0 -n1 php -l > /dev/null
+
+      - name: Test every lesson on its own
+        run: for lesson in [0-9][0-9][0-9]-*/; do (cd "$lesson" && php test_*.php) || exit 1; done
