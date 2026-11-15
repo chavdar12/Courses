@@ -28,6 +28,8 @@ public class CookieController {
             @RequestParam(name = "lang") String langFromHTMLForm, HttpServletResponse response) {
 
         Cookie langCookie = new Cookie(LANG_COOKIE_NAME, langFromHTMLForm);
+        langCookie.setSecure(true);
+        langCookie.setHttpOnly(true);
         response.addCookie(langCookie);
 
         System.out.println("Preferred user language is: " + langFromHTMLForm);

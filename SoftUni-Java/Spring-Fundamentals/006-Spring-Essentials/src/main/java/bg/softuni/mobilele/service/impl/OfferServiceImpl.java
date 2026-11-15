@@ -99,6 +99,7 @@ public class OfferServiceImpl implements OfferService {
         this.offerRepository.deleteById(id);
     }
 
+    @Override
     public boolean isOwner(String userName, Long id) {
         Optional<OfferEntity> offer = this.offerRepository.findById(id);
         Optional<UserEntity> user = this.userRepository.findByUsername(userName);

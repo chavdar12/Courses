@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Map;
 
 @Service
@@ -28,7 +29,8 @@ public class CloudinaryServiceImpl implements CloudinaryService {
     @Override
     public CloudinaryImage upload(MultipartFile multipartFile) throws IOException {
 
-        File tempFile = File.createTempFile(TEMP_FILE, null);
+        // Files.createTempFile makes it owner-only (0600), unlike File.createTempFile
+        File tempFile = Files.createTempFile(TEMP_FILE, null).toFile();
         try {
             multipartFile.transferTo(tempFile);
 
