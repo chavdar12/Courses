@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Users>
+  <User><firstName>Chrissy</firstName><lastName>Falconbridge</lastName><age>50</age></User>
+  <User><firstName>Almire</firstName><lastName>Ainslee</lastName><age>33</age></User>
+  <User><lastName>Stewart</lastName></User>
+  <User><firstName>Wallas</firstName><lastName>Duffyn</lastName><age>24</age></User>
+</Users>

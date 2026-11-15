@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="SoftUni/SoftUni.csproj" />
+  <Project Path="SoftUniTests/SoftUniTests.csproj" />
+</Solution>

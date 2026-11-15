@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.7" />
+    <!-- SqlClient pulls in a vulnerable 9.0.x build transitively; pin the patched one. -->
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Sql/*.sql" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

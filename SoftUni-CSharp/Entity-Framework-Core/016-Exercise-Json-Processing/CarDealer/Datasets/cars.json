@@ -1,0 +1,7 @@
+[
+  { "make": "Opel", "model": "Omega", "travelledDistance": 176664996, "partsId": [] },
+  { "make": "Opel", "model": "Corsa", "travelledDistance": 347259126, "partsId": [2, 3, 4, 4, 99] },
+  { "make": "Toyota", "model": "Camry Hybrid", "travelledDistance": 397831570, "partsId": [1] },
+  { "make": "Toyota", "model": "Camry Hybrid", "travelledDistance": 486872832, "partsId": [1, 2] },
+  { "make": "Toyota", "model": "Auris", "travelledDistance": 1000, "partsId": [] }
+]

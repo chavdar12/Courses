@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="PetStore.Data/PetStore.Data.csproj" />
+  <Project Path="PetStore.Services/PetStore.Services.csproj" />
+  <Project Path="PetStoreTests/PetStoreTests.csproj" />
+</Solution>

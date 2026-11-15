@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CategoryProducts>
+  <CategoryProduct><CategoryId>1</CategoryId><ProductId>1</ProductId></CategoryProduct>
+  <CategoryProduct><CategoryId>1</CategoryId><ProductId>2</ProductId></CategoryProduct>
+  <CategoryProduct><CategoryId>2</CategoryId><ProductId>3</ProductId></CategoryProduct>
+  <CategoryProduct><CategoryId>2</CategoryId><ProductId>4</ProductId></CategoryProduct>
+  <CategoryProduct><CategoryId>2</CategoryId><ProductId>5</ProductId></CategoryProduct>
+  <CategoryProduct><CategoryId>9</CategoryId><ProductId>1</ProductId></CategoryProduct>
+  <CategoryProduct><CategoryId>1</CategoryId><ProductId>99</ProductId></CategoryProduct>
+</CategoryProducts>

@@ -1,0 +1,9 @@
+[
+  { "Name": "Allopurinol", "Price": 518.50, "SellerId": 5, "BuyerId": 4 },
+  { "Name": "TRAMADOL HYDROCHLORIDE", "Price": 516.48, "SellerId": 1, "BuyerId": null },
+  { "Name": "Metoprolol Tartrate", "Price": 1405.74, "SellerId": 2, "BuyerId": 4 },
+  { "Name": "Finasteride", "Price": 1374.01, "SellerId": 3, "BuyerId": 1 },
+  { "Name": "Glyburide", "Price": 95.1, "SellerId": 3, "BuyerId": 2 },
+  { "Name": "Parsley", "Price": 999.99, "SellerId": 2 },
+  { "Name": "EMEND", "Price": 1365.51, "SellerId": 3 }
+]

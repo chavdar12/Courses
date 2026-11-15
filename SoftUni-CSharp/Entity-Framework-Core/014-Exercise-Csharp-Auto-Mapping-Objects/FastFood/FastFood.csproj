@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <!-- 16.x is the first release without known advisories; it needs a (free for individuals) license key, otherwise it only logs a warning. -->
+    <PackageReference Include="AutoMapper" Version="16.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.13" />
+    <!-- SqlClient pulls in a vulnerable 9.0.x build transitively; pin the patched one. -->
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
+</Project>

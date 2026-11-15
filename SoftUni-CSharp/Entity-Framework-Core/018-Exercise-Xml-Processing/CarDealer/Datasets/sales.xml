@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sales>
+  <Sale><carId>1</carId><customerId>1</customerId><discount>30.00</discount></Sale>
+  <Sale><carId>2</carId><customerId>2</customerId><discount>10.00</discount></Sale>
+  <Sale><carId>4</carId><customerId>1</customerId><discount>0.00</discount></Sale>
+  <Sale><carId>42</carId><customerId>1</customerId><discount>5.00</discount></Sale>
+</Sales>

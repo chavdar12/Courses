@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MinionsDb/MinionsDb.csproj" />
+  <Project Path="MinionsDbTests/MinionsDbTests.csproj" />
+</Solution>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Customers>
+  <Customer><name>Hipolito Lamoreaux</name><birthDate>1980-02-12T00:00:00</birthDate><isYoungDriver>false</isYoungDriver></Customer>
+  <Customer><name>Hai Everton</name><birthDate>1997-10-04T00:00:00</birthDate><isYoungDriver>true</isYoungDriver></Customer>
+</Customers>

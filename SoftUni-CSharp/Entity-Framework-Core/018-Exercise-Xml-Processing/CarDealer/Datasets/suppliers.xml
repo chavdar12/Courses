@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Suppliers>
+  <Supplier><name>3M Company</name><isImporter>true</isImporter></Supplier>
+  <Supplier><name>VF Corporation</name><isImporter>false</isImporter></Supplier>
+  <Supplier><name>Saks Inc</name><isImporter>false</isImporter></Supplier>
+</Suppliers>

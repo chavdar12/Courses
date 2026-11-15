@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../MiniORM/MiniORM.csproj" />
+    <None Include="Sql/*.sql" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
