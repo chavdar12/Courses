@@ -20,7 +20,8 @@ public class LongestCommonSubsequence {
                     dp[rowIndex][colIndex] = dp[rowIndex - 1][colIndex - 1] + 1;
                 } else {
 
-                    dp[rowIndex][colIndex] = Math.max(dp[rowIndex - 1][colIndex], dp[rowIndex][colIndex - 1]);
+                    dp[rowIndex][colIndex] =
+                            Math.max(dp[rowIndex - 1][colIndex], dp[rowIndex][colIndex - 1]);
                 }
             }
         }

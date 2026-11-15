@@ -19,6 +19,5 @@ final class Graphs {
         return graph;
     }
 
-    private Graphs() {
-    }
+    private Graphs() {}
 }

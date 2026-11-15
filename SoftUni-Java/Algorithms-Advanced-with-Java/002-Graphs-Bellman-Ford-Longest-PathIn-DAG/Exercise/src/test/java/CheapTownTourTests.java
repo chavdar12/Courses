@@ -1,6 +1,6 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 public class CheapTownTourTests {
 
@@ -13,7 +13,8 @@ public class CheapTownTourTests {
 
     @Test
     public void joinsChainsOfTrees() throws Exception {
-        // the last edge joins two multi-node trees, so roots must be found through more than one parent
+        // the last edge joins two multi-node trees, so roots must be found through more than one
+        // parent
         String input = "6\n5\n0 - 1 - 1\n2 - 3 - 1\n1 - 3 - 2\n4 - 5 - 1\n5 - 0 - 3\n";
 
         assertEquals("Total cost: 8", Console.run(CheapTownTour::main, input));

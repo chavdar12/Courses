@@ -26,6 +26,5 @@ public final class Console {
         return buffer.toString(StandardCharsets.UTF_8).replace("\r\n", "\n").strip();
     }
 
-    private Console() {
-    }
+    private Console() {}
 }

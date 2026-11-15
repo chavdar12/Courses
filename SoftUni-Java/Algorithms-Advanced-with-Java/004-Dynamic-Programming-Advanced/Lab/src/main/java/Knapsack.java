@@ -39,7 +39,8 @@ public class Knapsack {
 
             String[] tokens = line.split("\\s+");
 
-            items.add(new Item(tokens[0], Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2])));
+            items.add(
+                    new Item(tokens[0], Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2])));
 
             line = sc.nextLine();
         }

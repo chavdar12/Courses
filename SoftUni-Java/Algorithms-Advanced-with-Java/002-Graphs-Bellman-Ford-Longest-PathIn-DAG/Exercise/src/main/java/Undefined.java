@@ -17,12 +17,13 @@ public class Undefined {
 
         for (int i = 0; i < edgesCount; i++) {
 
-            int[] tokens = Arrays.stream(sc.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] tokens =
+                    Arrays.stream(sc.nextLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
 
             graph[tokens[0]][tokens[1]] = tokens[2];
-            edges.add(new int[]{tokens[0], tokens[1]});
+            edges.add(new int[] {tokens[0], tokens[1]});
         }
 
         int[] distances = new int[nodes + 1];

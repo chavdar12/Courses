@@ -17,7 +17,6 @@ public class CheapTownTour {
             this.weight = weight;
         }
 
-
         @Override
         public int compareTo(Edge other) {
 
@@ -51,8 +50,10 @@ public class CheapTownTour {
 
         int[] parents = new int[nodes];
 
-        PriorityQueue<Edge> edges = graph.values().stream().flatMap(List::stream)
-                .collect(Collectors.toCollection(PriorityQueue::new));
+        PriorityQueue<Edge> edges =
+                graph.values().stream()
+                        .flatMap(List::stream)
+                        .collect(Collectors.toCollection(PriorityQueue::new));
 
         int forestWeight = 0;
 

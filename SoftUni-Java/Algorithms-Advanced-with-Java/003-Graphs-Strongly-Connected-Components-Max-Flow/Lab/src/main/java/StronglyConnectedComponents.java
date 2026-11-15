@@ -8,7 +8,6 @@ public class StronglyConnectedComponents {
     private static List<Integer>[] reversedGraph;
     private static List<Integer>[] graph;
 
-
     public static List<List<Integer>> findStronglyConnectedComponents(List<Integer>[] targetGraph) {
         graph = targetGraph;
         visited = new boolean[graph.length];

@@ -53,8 +53,7 @@ public class ArticulationPoints {
             }
         }
 
-        if ((parents[node] == -1 && children > 1) ||
-                (parents[node] != -1 && isArticulationPoint)) {
+        if ((parents[node] == -1 && children > 1) || (parents[node] != -1 && isArticulationPoint)) {
             points.add(node);
         }
     }

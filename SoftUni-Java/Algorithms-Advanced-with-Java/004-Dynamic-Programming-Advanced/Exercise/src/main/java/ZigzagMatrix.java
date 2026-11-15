@@ -14,9 +14,8 @@ public class ZigzagMatrix {
 
         for (int row = 0; row < rows; row++) {
 
-            matrix[row] = Arrays.stream(sc.nextLine().split(","))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            matrix[row] =
+                    Arrays.stream(sc.nextLine().split(",")).mapToInt(Integer::parseInt).toArray();
         }
 
         sc.close();
@@ -24,7 +23,8 @@ public class ZigzagMatrix {
         int[][] maxDp = new int[rows][cols];
         int[][] prevs = new int[rows][cols];
 
-        // MIN_VALUE marks cells no zigzag path can reach; the first move goes up, so row 0 can't start
+        // MIN_VALUE marks cells no zigzag path can reach; the first move goes up, so row 0 can't
+        // start
         maxDp[0][0] = Integer.MIN_VALUE;
 
         for (int row = 1; row < rows; row++) {
@@ -60,7 +60,10 @@ public class ZigzagMatrix {
                     }
                 }
 
-                maxDp[row][col] = prevMax == Integer.MIN_VALUE ? Integer.MIN_VALUE : prevMax + matrix[row][col];
+                maxDp[row][col] =
+                        prevMax == Integer.MIN_VALUE
+                                ? Integer.MIN_VALUE
+                                : prevMax + matrix[row][col];
             }
         }
 
@@ -89,9 +92,9 @@ public class ZigzagMatrix {
 
         Collections.reverse(result);
 
-        System.out.println(result.stream()
-                .mapToInt(e -> e).sum() + " = " + result.stream()
-                .map(String::valueOf)
-                .collect(Collectors.joining(" + ")));
+        System.out.println(
+                result.stream().mapToInt(e -> e).sum()
+                        + " = "
+                        + result.stream().map(String::valueOf).collect(Collectors.joining(" + ")));
     }
 }

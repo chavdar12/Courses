@@ -20,7 +20,6 @@ public class CableNetwork {
             this.weight = weight;
         }
 
-
         @Override
         public int compareTo(Edge other) {
 
@@ -68,10 +67,11 @@ public class CableNetwork {
 
     private static boolean prim(boolean[] used, int budget) {
 
-        PriorityQueue<Edge> edges = graph.values()
-                .stream().flatMap(List::stream)
-                .filter(e -> (used[e.from] && !used[e.to]) || (!used[e.from] && used[e.to]))
-                .collect(Collectors.toCollection(PriorityQueue::new));
+        PriorityQueue<Edge> edges =
+                graph.values().stream()
+                        .flatMap(List::stream)
+                        .filter(e -> (used[e.from] && !used[e.to]) || (!used[e.from] && used[e.to]))
+                        .collect(Collectors.toCollection(PriorityQueue::new));
 
         while (!edges.isEmpty()) {
 
@@ -86,10 +86,12 @@ public class CableNetwork {
             budget -= minEdge.weight;
             cost += minEdge.weight;
 
-            edges = graph.values()
-                    .stream().flatMap(List::stream)
-                    .filter(e -> (used[e.from] && !used[e.to]) || (!used[e.from] && used[e.to]))
-                    .collect(Collectors.toCollection(PriorityQueue::new));
+            edges =
+                    graph.values().stream()
+                            .flatMap(List::stream)
+                            .filter(e ->
+                                    (used[e.from] && !used[e.to]) || (!used[e.from] && used[e.to]))
+                            .collect(Collectors.toCollection(PriorityQueue::new));
         }
 
         return true;

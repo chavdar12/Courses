@@ -24,7 +24,6 @@ public class MaximumTasksAssignment {
             int node = queue.poll();
 
             for (int child = graph[node].length - 1; child >= 0; --child)
-
                 if (graph[node][child] && !visited[child]) {
 
                     visited[child] = true;
@@ -43,39 +42,35 @@ public class MaximumTasksAssignment {
         int persons = Integer.parseInt(rd.readLine().substring("Persons: ".length()));
         int tasks = Integer.parseInt(rd.readLine().substring("Tasks: ".length()));
 
-        int nodes = persons + tasks + 2;//first persons then tasks
+        int nodes = persons + tasks + 2; // first persons then tasks
 
-        source = nodes - 2;//node before last
-        sink = nodes - 1;//last node
+        source = nodes - 2; // node before last
+        sink = nodes - 1; // last node
 
         graph = new boolean[nodes][nodes];
         parents = new int[nodes];
         parents[source] = -1;
 
-        //read task/person table
+        // read task/person table
         for (int i = 0; i < persons; ++i) {
 
             String line = rd.readLine();
 
-            for (int j = 0; j < tasks; ++j)
-
-                if (line.charAt(j) == 'Y')
-
-                    graph[i][persons + j] = true;
+            for (int j = 0; j < tasks; ++j) if (line.charAt(j) == 'Y') graph[i][persons + j] = true;
         }
 
         rd.close();
 
-        //add source to persons edges
+        // add source to persons edges
         for (int i = 0; i < persons; ++i) {
 
             graph[source][i] = true;
         }
-        //add tasks to sink edges
+        // add tasks to sink edges
         for (int i = 0; i < tasks; ++i) {
             graph[persons + i][sink] = true;
 
-            //Edmonds-Karp
+            // Edmonds-Karp
             while (bfs()) {
 
                 int node = sink;
@@ -94,8 +89,12 @@ public class MaximumTasksAssignment {
 
         for (int i = 0; i < persons; ++i)
             for (int j = 0; j < tasks; ++j)
-                if (graph[persons + j][i]) //back edge from j-th task to i-th person, so there is flow there
-                    result.append((char) ('A' + i)).append('-').append(j + 1).append('\n'); //j -> j+1, renumber tasks
+                if (graph[persons + j][
+                        i]) // back edge from j-th task to i-th person, so there is flow there
+                result.append((char) ('A' + i))
+                            .append('-')
+                            .append(j + 1)
+                            .append('\n'); // j -> j+1, renumber tasks
 
         System.out.print(result);
     }

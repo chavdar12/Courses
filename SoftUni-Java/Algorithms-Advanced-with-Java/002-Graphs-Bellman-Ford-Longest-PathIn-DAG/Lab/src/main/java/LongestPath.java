@@ -8,7 +8,6 @@ public class LongestPath {
     public static int[] distance;
     public static boolean[] visited;
 
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -20,9 +19,10 @@ public class LongestPath {
 
         for (int i = 0; i < edges; i++) {
 
-            int[] tokens = Arrays.stream(sc.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] tokens =
+                    Arrays.stream(sc.nextLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
 
             int source = tokens[0];
             int destination = tokens[1];

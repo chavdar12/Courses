@@ -23,7 +23,7 @@ public class FindBiConnectedComponents {
 
             int child = graph[node][childIndex];
 
-            if (depths[child] == 0) {//depth == 0 <=> child is not visited
+            if (depths[child] == 0) { // depth == 0 <=> child is not visited
 
                 parents[child] = node;
                 List<Integer> childComponent = new ArrayList<>();

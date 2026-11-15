@@ -15,14 +15,14 @@ public class MostReliablePath {
         int source = Integer.parseInt(path[1]);
         int destination = Integer.parseInt(path[3]);
 
-
         int[][] graph = new int[nodes][nodes];
 
         for (int i = 0; i < edges; i++) {
 
-            int[] tokens = Arrays.stream(sc.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] tokens =
+                    Arrays.stream(sc.nextLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
 
             graph[tokens[0]][tokens[1]] = tokens[2];
             graph[tokens[1]][tokens[0]] = tokens[2];
@@ -39,10 +39,11 @@ public class MostReliablePath {
 
         distances[source] = 100.00;
 
-        // {node, reliability} snapshots: ordering by the live distances array would corrupt the heap
+        // {node, reliability} snapshots: ordering by the live distances array would corrupt the
+        // heap
         PriorityQueue<double[]> queue = new PriorityQueue<>((f, s) -> Double.compare(s[1], f[1]));
 
-        queue.offer(new double[]{source, distances[source]});
+        queue.offer(new double[] {source, distances[source]});
 
         while (!queue.isEmpty()) {
 
@@ -66,7 +67,7 @@ public class MostReliablePath {
 
                         distances[i] = newDistance;
                         prev[i] = minNode;
-                        queue.offer(new double[]{i, newDistance});
+                        queue.offer(new double[] {i, newDistance});
                     }
                 }
             }

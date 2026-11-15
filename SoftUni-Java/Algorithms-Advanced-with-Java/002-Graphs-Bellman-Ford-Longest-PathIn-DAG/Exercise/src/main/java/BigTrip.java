@@ -20,9 +20,10 @@ public class BigTrip {
 
         for (int i = 0; i < e; i++) {
 
-            int[] nextLine = Arrays.stream(rd.readLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] nextLine =
+                    Arrays.stream(rd.readLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
 
             int source = nextLine[0];
             int dest = nextLine[1];
@@ -86,7 +87,6 @@ public class BigTrip {
 
         System.out.println(distances[destination]);
         System.out.println(path.stream().map(String::valueOf).collect(Collectors.joining(" ")));
-
     }
 
     private static void topSortDfs(int node, Deque<Integer> sortedNodes) {

@@ -14,9 +14,8 @@ public class TheMadGardener {
 
         Scanner sc = new Scanner(System.in);
 
-        int[] input = Arrays.stream(sc.nextLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] input =
+                Arrays.stream(sc.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
 
         sc.close();
 
@@ -81,7 +80,6 @@ public class TheMadGardener {
             index = secondLIS[index].prev;
         }
 
-
         for (int i = 1; i < maxSize; i++) {
 
             System.out.print(result[i] + " ");
@@ -110,7 +108,7 @@ public class TheMadGardener {
 
                     if (LIS[j].size + 1 > LIS[i].size
                             || ((LIS[j].size + 1 == LIS[i].size)
-                            && LIS[j].sum + plants[i] > LIS[i].sum)) {
+                                    && LIS[j].sum + plants[i] > LIS[i].sum)) {
 
                         LIS[i].sum = LIS[j].sum + plants[i];
                         LIS[i].size = LIS[j].size + 1;

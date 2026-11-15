@@ -2,7 +2,8 @@ import java.util.*;
 
 public class Dijkstra {
 
-    public static List<Integer> dijkstraAlgorithm(int[][] graph, int sourceNode, int destinationNode) {
+    public static List<Integer> dijkstraAlgorithm(
+            int[][] graph, int sourceNode, int destinationNode) {
 
         int[] distances = new int[graph.length];
         Arrays.fill(distances, Integer.MAX_VALUE);
@@ -12,13 +13,13 @@ public class Dijkstra {
 
         boolean[] visited = new boolean[graph.length];
 
-
         distances[sourceNode] = 0;
 
         // {node, distance} snapshots: ordering by the live distances array would corrupt the heap
-        PriorityQueue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(entry -> entry[1]));
+        PriorityQueue<int[]> queue =
+                new PriorityQueue<>(Comparator.comparingInt(entry -> entry[1]));
 
-        queue.offer(new int[]{sourceNode, 0});
+        queue.offer(new int[] {sourceNode, 0});
 
         while (!queue.isEmpty()) {
             int parent = queue.poll()[0];
@@ -35,7 +36,7 @@ public class Dijkstra {
                     if (distance < distances[childNode]) {
                         distances[childNode] = distance;
                         previous[childNode] = parent;
-                        queue.offer(new int[]{childNode, distance});
+                        queue.offer(new int[] {childNode, distance});
                     }
                 }
             }

@@ -16,9 +16,10 @@ public class BellmanFord {
         graph = new int[nodes + 1][nodes + 1];
 
         for (int i = 0; i < edges; i++) {
-            int[] tokens = Arrays.stream(sc.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] tokens =
+                    Arrays.stream(sc.nextLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
 
             int source = tokens[0];
             int destination = tokens[1];
@@ -77,12 +78,10 @@ public class BellmanFord {
                                 previous[destination] = source;
                             }
                         }
-
                     }
                 }
             }
         }
-
 
         for (int r = 1; r < graph.length; r++) {
             for (int c = 1; c < graph[r].length; c++) {
@@ -97,7 +96,6 @@ public class BellmanFord {
                             throw new IllegalStateException("Negative Cycle Detected");
                         }
                     }
-
                 }
             }
         }

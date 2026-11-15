@@ -4,15 +4,14 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 /**
- * Calculates total area of all overlapping rectangles without the overlapping.
- * We divide the rectangles into horizontal sections in which there is no change in the vertical
- * section. This means that we have a delta X for which the Y should be a constant. The solution is to
- * sum all the delta X for its specific Y.
- * <p>
- * There is a more optimal solution using interval trees to optimize the storing of overlapping
+ * Calculates total area of all overlapping rectangles without the overlapping. We divide the
+ * rectangles into horizontal sections in which there is no change in the vertical section. This
+ * means that we have a delta X for which the Y should be a constant. The solution is to sum all the
+ * delta X for its specific Y.
+ *
+ * <p>There is a more optimal solution using interval trees to optimize the storing of overlapping
  * rectangle sections.
  */
-
 public class RectangleIntersection {
     public static class Point {
 
@@ -38,9 +37,7 @@ public class RectangleIntersection {
         @Override
         public String toString() {
 
-            return "Point{coordinate=" + coordinate +
-                    ", isEnd=" + isEnd +
-                    "}";
+            return "Point{coordinate=" + coordinate + ", isEnd=" + isEnd + "}";
         }
     }
 
@@ -81,18 +78,23 @@ public class RectangleIntersection {
 
         public int getArea() {
 
-            return (maxX.getCoordinate() - minX.getCoordinate()) * (maxY.getCoordinate() - minY.getCoordinate());
+            return (maxX.getCoordinate() - minX.getCoordinate())
+                    * (maxY.getCoordinate() - minY.getCoordinate());
         }
 
         @Override
         public String toString() {
 
-            return "Rectangle{" +
-                    "minX=" + minX +
-                    ", maxX=" + maxX +
-                    ", minY=" + minY +
-                    ", maxY=" + maxY +
-                    '}';
+            return "Rectangle{"
+                    + "minX="
+                    + minX
+                    + ", maxX="
+                    + maxX
+                    + ", minY="
+                    + minY
+                    + ", maxY="
+                    + maxY
+                    + '}';
         }
     }
 
@@ -126,10 +128,13 @@ public class RectangleIntersection {
         @Override
         public String toString() {
 
-            return "Section{start=" + start +
-                    ", end=" + end +
-                    ", heightPoints=" + heightPoints +
-                    "}";
+            return "Section{start="
+                    + start
+                    + ", end="
+                    + end
+                    + ", heightPoints="
+                    + heightPoints
+                    + "}";
         }
     }
 
@@ -144,9 +149,10 @@ public class RectangleIntersection {
 
         for (int i = 0; i < rectangleCount; i++) {
 
-            int[] coordinates = Arrays.stream(rd.readLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] coordinates =
+                    Arrays.stream(rd.readLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
 
             Point minX = new Point(coordinates[0], false);
             Point maxX = new Point(coordinates[1], true);
@@ -212,7 +218,8 @@ public class RectangleIntersection {
 
     /**
      * Used to find the overlapping of Y of each rectangle
-     * @param points        - each staring and ending point of each rectangle
+     *
+     * @param points - each staring and ending point of each rectangle
      * @param coverRequired - the amount of times that the lines must overlap
      * @return - the length of the needed overlap
      */
