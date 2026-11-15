@@ -29,7 +29,7 @@ public class MathPotato {
         if (cycle == 1) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(cycle); i++) {
+        for (int i = 2; i <= cycle / i; i++) {
             if (cycle % i == 0) {
                 return false;
             }
