@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="AsynchronousProcessingTests/AsynchronousProcessingTests.csproj" />
+  <Project Path="Chronometer/Chronometer.csproj" />
+  <Project Path="EvenNumbersThread/EvenNumbersThread.csproj" />
+  <Project Path="ParallelMergeSort/ParallelMergeSort.csproj" />
+  <Project Path="SIS.Demo/SIS.Demo.csproj" />
+  <Project Path="SIS.HTTP/SIS.HTTP.csproj" />
+  <Project Path="SIS.WebServer/SIS.WebServer.csproj" />
+  <Project Path="SumPrimes/SumPrimes.csproj" />
+</Solution>

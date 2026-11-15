@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SIS.Demo/SIS.Demo.csproj" />
+  <Project Path="SIS.HTTP/SIS.HTTP.csproj" />
+  <Project Path="SIS.WebServer/SIS.WebServer.csproj" />
+  <Project Path="StateManagementTests/StateManagementTests.csproj" />
+</Solution>
