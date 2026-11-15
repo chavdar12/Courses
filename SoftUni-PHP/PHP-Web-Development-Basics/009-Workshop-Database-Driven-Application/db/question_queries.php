@@ -11,7 +11,7 @@ function createQuestion(
     array  $existingTags,
     array  $newTags): int
 {
-    foreach ($newTags as $newTag) {
+    foreach (array_filter(array_map('trim', $newTags)) as $newTag) {
         $tagId = findTag($db, $newTag);
         $existingTags[] = $tagId;
     }
@@ -28,7 +28,7 @@ function createQuestion(
           ?,
           ?,
           ?,
-          NOW()          
+          CURRENT_TIMESTAMP
         );
     ";
 
@@ -44,7 +44,7 @@ function createQuestion(
 
     $questionId = $db->lastInsertId();
 
-    foreach ($existingTags as $tagId) {
+    foreach (array_unique($existingTags) as $tagId) {
         $query = "INSERT INTO questions_tags (question_id, tag_id) VALUES (?, ?);";
         $stmt = $db->prepare($query);
         $stmt->execute([$questionId, $tagId]);
@@ -53,7 +53,7 @@ function createQuestion(
     return (int)$questionId;
 }
 
-function getQuestionById(PDO $db, int $id): array
+function getQuestionById(PDO $db, int $id): array|false
 {
     $query = "
         SELECT

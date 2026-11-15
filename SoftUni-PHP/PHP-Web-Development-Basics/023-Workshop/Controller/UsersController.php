@@ -5,6 +5,7 @@ namespace Controller;
 
 
 use DTO\RequestModels\UserRegisterBindingModel;
+use Exception\User\RegistrationException;
 use DTO\ViewModels\UserProfileViewModel;
 use Services\Users\UserServiceInterface;
 use ViewEngine\ViewInterface;
@@ -28,15 +29,22 @@ class UsersController
     {
         if ($userService->verifyCredentials($model->getUsername(), $model->getPassword())) {
             $_SESSION['id'] = $userService->findByUsername($model->getUsername())->getId();
+            session_regenerate_id(true);
             header("Location: profile");
             exit;
-
         }
+
+        $this->view->render('Invalid username or password', 'users/login');
     }
 
     public function registerProcess(UserRegisterBindingModel $bindingModel, UserServiceInterface $userService)
     {
-        $userService->register($bindingModel);
+        try {
+            $userService->register($bindingModel);
+        } catch (RegistrationException $e) {
+            $this->view->render($e->getMessage(), 'users/register');
+            return;
+        }
         header("Location: login");
         exit;
     }

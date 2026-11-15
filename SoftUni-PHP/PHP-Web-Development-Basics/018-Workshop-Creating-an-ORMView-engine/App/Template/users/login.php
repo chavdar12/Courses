@@ -5,16 +5,16 @@
 
 
 <?php if ($error): ?>
-    <span style="color: red"><?= $error->getMessage(); ?></span>
+    <span style="color: red"><?= htmlspecialchars((string)($error->getMessage())) ?></span>
     <br/><br/>
 <?php endif; ?>
 
 <form method="post">
     <label>
-        Username: <input type="text" name="username" value="<?= $data === null ? null : $data->getUsername() ?>"/> <br/>
+        Username: <input type="text" name="username" value="<?= htmlspecialchars((string)($data === null ? null : $data->getUsername())) ?>"/> <br/>
     </label>
     <label>
-        Password: <input type="text" name="password" value=""/> <br/>
+        Password: <input type="password" name="password" value=""/> <br/>
     </label>
     <label>
         <input type="submit" name="login" value="Login"/>

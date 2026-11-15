@@ -9,7 +9,7 @@
 namespace App\Service\Encryption;
 
 
-class BcryptEncryptionService
+class BcryptEncryptionService implements EncryptionServiceInterface
 {
     public function hash(string $password)
     {

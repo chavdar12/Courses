@@ -1,17 +1,16 @@
 <?php
-
-/** @var Routing\Router $router */
+/** @var \Routing\RouterInterface $router */
 
 $router->registerRoute(
-    'profile\/(.*?)\/edit',
+    'profile\/(\d+)\/edit',
     'GET',
     function ($matches) {
-        (new \Controller\UsersController())->editProfile($matches[1][0]);
+        (new \Controller\ProfileController())->editProfile($matches[1][0]);
     });
 
 $router->registerRoute(
-    'profile\/(.*?)\/edit',
+    'profile\/(\d+)\/edit',
     'POST',
     function ($matches) {
-        (new \Controller\UsersController())->editProfileProcess($matches[1][0]);
+        (new \Controller\ProfileController())->editProfileProcess($matches[1][0]);
     });

@@ -15,7 +15,7 @@ if (isset($_POST['username'], $_POST['password'])) {
         header("Location: login.php");
         exit;
     } else {
-        $response = 'Error';
+        $response = 'This username is taken';
     }
 }
 require_once 'templates/register_form.php';

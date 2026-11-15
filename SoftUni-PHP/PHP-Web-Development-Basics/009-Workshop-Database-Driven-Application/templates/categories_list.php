@@ -23,7 +23,7 @@
         <tr>
             <td>
                 <a href="<?= url("category.php?id={$category['id']}"); ?>">
-                    <?= $category['name']; ?>
+                    <?= e($category['name']); ?>
                 </a>
             </td>
             <td><?= $category['questions_count']; ?></td>

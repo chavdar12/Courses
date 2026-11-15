@@ -18,7 +18,7 @@ function removeLike(PDO $db, $userId, $questionId)
 
 function like(PDO $db, $userId, $questionId)
 {
-    $query = "INSERT INTO user_likes (user_id, question_id) VALUES (?, ?)";
+    $query = "INSERT OR IGNORE INTO user_likes (user_id, question_id) VALUES (?, ?)";
     $stmt = $db->prepare($query);
     $stmt->execute([$userId, $questionId]);
 }
@@ -129,11 +129,8 @@ function verifyCredentials(PDO $db, string $username, string $password): int
     }
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    $passwordHash = $user['password'];
 
-    $result = password_verify($password, $passwordHash);
-
-    if ($result) {
+    if ($user && password_verify($password, $user['password'])) {
         return (int)$user['id'];
     }
 
@@ -155,14 +152,13 @@ function register(PDO $db, string $username, string $password): bool
     ";
 
     $statement = $db->prepare($query);
-    $result = $statement->execute(
-        [
-            $username,
-            password_hash($password, PASSWORD_ARGON2I)
-        ]
-    );
+    try {
+        $statement->execute([$username, password_hash($password, PASSWORD_ARGON2I)]);
+    } catch (PDOException $e) {
+        return false; // username taken
+    }
 
-    $userId = $db->lastInsertId();
+    $userId = (int)$db->lastInsertId();
 
     $roles = ['USER'];
 
@@ -171,11 +167,9 @@ function register(PDO $db, string $username, string $password): bool
     }
 
     foreach ($roles as $roleName) {
-        $query = "SELECT id FROM roles WHERE name = '$roleName'";
-        $roleId = $db->query($query)->fetch(PDO::FETCH_ASSOC)['id'];
-        $query = "INSERT INTO users_roles (user_id, role_id) VALUES ($userId, $roleId)";
-        $db->query($query);
+        $stmt = $db->prepare("INSERT INTO users_roles (user_id, role_id) SELECT ?, id FROM roles WHERE name = ?");
+        $stmt->execute([$userId, $roleName]);
     }
 
-    return $result;
+    return true;
 }

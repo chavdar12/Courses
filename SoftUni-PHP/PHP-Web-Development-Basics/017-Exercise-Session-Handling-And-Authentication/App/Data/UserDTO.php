@@ -4,8 +4,14 @@ namespace App\Data;
 
 class UserDTO
 {
+    private $id;
     private $username;
     private $password;
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function getUsername()
     {

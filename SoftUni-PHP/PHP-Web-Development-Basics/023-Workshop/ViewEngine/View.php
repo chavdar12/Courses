@@ -8,7 +8,7 @@ use Core\MvcContextInterface;
 
 class View implements ViewInterface
 {
-    const VIEW_FOLDER = 'views/';
+    const VIEW_FOLDER = __DIR__ . '/../views/';
     const VIEW_EXTENSION = '.php';
 
     /** @var MvcContextInterface $mvcContext */
@@ -31,7 +31,7 @@ class View implements ViewInterface
         } else {
             $folder = strtolower($this->mvcContext->getControllerName());
             $name = strtolower($this->mvcContext->getActionName());
-            $viewName = $folder . DIRECTORY_SEPARATOR . $name;
+            $viewName = $folder . '/' . $name;
             include self::VIEW_FOLDER . $viewName . self::VIEW_EXTENSION;
         }
     }

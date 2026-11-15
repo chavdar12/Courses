@@ -11,6 +11,10 @@ require_once 'db/question_queries.php';
 require_once 'db/answer_queries.php';
 
 $question = getQuestionById($db, $id);
+if (!$question) {
+    header("Location: " . url("categories.php"));
+    exit;
+}
 $answers = getAnswersByQuestionId($db, $id);
 
 if (isset($_POST['answer'])) {

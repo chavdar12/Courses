@@ -15,41 +15,40 @@ class UserHttpHandler extends UserHttpHandlerAbstract
 
     public function all(UserServiceInterface $userService)
     {
+        if (!$userService->isLogged()) {
+            $this->redirect("login.php");
+        }
+
         $this->render("users/all", $userService->getAll());
     }
 
-    public function profile(UserServiceInterface $userService,
-                            array                $formData = [])
+    public function profile(UserServiceInterface $userService, array $formData = [])
     {
         if (!$userService->isLogged()) {
             $this->redirect("login.php");
         }
 
-        $currentUser = $userService->currentUser();
-
         if (isset($formData['edit'])) {
             $this->handleEditProcess($userService, $formData);
         } else {
-            $this->render("users/profile", $currentUser);
+            $this->render("users/profile", $userService->currentUser());
         }
     }
 
-    private function handleEditProcess($userService, $formData)
+    private function handleEditProcess(UserServiceInterface $userService, array $formData)
     {
-        /** @var UserServiceInterface $userService */
         $user = $this->dataBinder->bind($formData, UserDTO::class);
 
-
-        if ($userService->edit($user)) {
+        if ($user->getPassword() !== ($formData['confirm_password'] ?? '')) {
+            $this->render("users/profile", $user, new ErrorDTO("Password mismatch."));
+        } elseif ($userService->edit($user)) {
             $this->redirect("profile.php");
         } else {
-            $this->render("users/login", null,
-                new ErrorDTO("Username already exist."));
+            $this->render("users/profile", $user, new ErrorDTO("Username already exist."));
         }
     }
 
-    public function login(UserServiceInterface $userService,
-                          array                $formData = [])
+    public function login(UserServiceInterface $userService, array $formData = [])
     {
         if (isset($formData['login'])) {
             $this->handleLoginProcess($userService, $formData);
@@ -58,25 +57,21 @@ class UserHttpHandler extends UserHttpHandlerAbstract
         }
     }
 
-    private function handleLoginProcess($userService, $formData)
+    private function handleLoginProcess(UserServiceInterface $userService, array $formData)
     {
-        /** @var UserServiceInterface $userService */
         $user = $userService->login($formData['username'], $formData['password']);
 
-        $currentUser = $this->dataBinder->bind($formData, UserDTO::class);
-
         if (null !== $user) {
+            session_regenerate_id(true);
             $_SESSION['id'] = $user->getId();
             $this->redirect("profile.php");
-        } else {
-            $this->render("users/login", $currentUser,
-                new ErrorDTO("Username does not exist or password mismatch."));
         }
 
+        $this->render("users/login", $this->dataBinder->bind($formData, UserDTO::class),
+            new ErrorDTO("Username does not exist or password mismatch."));
     }
 
-    public function register(UserServiceInterface $userService,
-                             array                $formData = [])
+    public function register(UserServiceInterface $userService, array $formData = [])
     {
         if (isset($formData['register'])) {
             $this->handleRegisterProcess($userService, $formData);
@@ -85,18 +80,16 @@ class UserHttpHandler extends UserHttpHandlerAbstract
         }
     }
 
-    private function handleRegisterProcess($userService, $formData)
+    private function handleRegisterProcess(UserServiceInterface $userService, array $formData)
     {
         $user = $this->dataBinder->bind($formData, UserDTO::class);
 
-        /** @var UserServiceInterface $userService */
-        if ($userService->register($user, $formData['confirm_password'])) {
+        if ($user->getPassword() !== ($formData['confirm_password'] ?? '')) {
+            $this->render("users/register", $user, new ErrorDTO("Password mismatch."));
+        } elseif ($userService->register($user, $formData['confirm_password'])) {
             $this->redirect("login.php");
         } else {
-            $this->render("users/register", $user,
-                new ErrorDTO("Password mismatch."));
+            $this->render("users/register", $user, new ErrorDTO("Username already exist."));
         }
     }
-
-
 }

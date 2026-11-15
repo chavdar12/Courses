@@ -46,7 +46,9 @@ class Application
     {
         $fullControllerName = 'Controller\\' . ucfirst($this->mvcContext->getControllerName()) . 'Controller';
 
-        if (!class_exists($fullControllerName) || !method_exists($fullControllerName, $this->mvcContext->getActionName())) {
+        $action = (string)$this->mvcContext->getActionName();
+        // magic methods like __construct are not actions
+        if (!class_exists($fullControllerName) || str_starts_with($action, '_') || !method_exists($fullControllerName, $action)) {
             if (!$this->router->invoke($this->uri, $_SERVER['REQUEST_METHOD'])) {
                 http_response_code(404);
                 echo "<h1>404 Not Found</h1>";
@@ -66,8 +68,7 @@ class Application
 
         for ($i = $paramCount; $i < count($paramsInfo); $i++) {
             $param = $paramsInfo[$i];
-            $paramInterface = $param->getClass();
-            $paramInterfaceName = $paramInterface->getName();
+            $paramInterfaceName = $param->getType()->getName();
 
             if (key_exists($paramInterfaceName, $this->dependencies)) {
                 $paramClassName = $this->dependencies[$paramInterfaceName];
@@ -103,11 +104,11 @@ class Application
         $resolvedParams = [];
         for ($i = 0; $i < count($params); $i++) {
             $parameter = $params[$i];
-            $dependencyInterface = $parameter->getClass();
-            if (key_exists($dependencyInterface->getName(), $this->resolvedDependencies)) {
-                $resolvedParams[] = $this->resolvedDependencies[$dependencyInterface->getName()];
+            $dependencyInterface = $parameter->getType()->getName();
+            if (key_exists($dependencyInterface, $this->resolvedDependencies)) {
+                $resolvedParams[] = $this->resolvedDependencies[$dependencyInterface];
             } else {
-                $dependencyClass = $this->dependencies[$dependencyInterface->getName()];
+                $dependencyClass = $this->dependencies[$dependencyInterface];
                 $dependencyInstance = $this->resolve($dependencyClass);
                 $resolvedParams[] = $dependencyInstance;
             }
@@ -126,7 +127,6 @@ class Application
         $fields = $classInfo->getProperties();
 
         foreach ($fields as $field) {
-            $field->setAccessible(true);
             if (key_exists($field->getName(), $data)) {
                 $field->setValue($object, $data[$field->getName()]);
             }

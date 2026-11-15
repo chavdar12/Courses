@@ -7,7 +7,7 @@
 <body>
 <?php include_once 'logged_in_header.php'; ?>
 
-<a href="<?= url("categories.php?"); ?>">Back to all categories</a>
+<a href="<?= url("categories.php"); ?>">Back to all categories</a>
 |
 <a href="<?= url("ask_question.php?category_id=$id"); ?>">Ask new question</a>
 <?php foreach ($questions as $question): ?>
@@ -23,7 +23,7 @@
         <br/>
         <span><?= htmlspecialchars($question['author_name']); ?></span>
         <span><?= $question['created_on']; ?></span>
-        <span><?= $question['category_name']; ?></span>
+        <span><?= e($question['category_name']); ?></span>
     </div>
     <div>
         <?php if (hasLiked($db, $userId, $question['id'])): ?>

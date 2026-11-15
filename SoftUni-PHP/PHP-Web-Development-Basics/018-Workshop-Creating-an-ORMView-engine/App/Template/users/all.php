@@ -14,9 +14,9 @@
     <?php foreach ($data as $userDTO): ?>
         <tr>
             <td><?= $userDTO->getId(); ?></td>
-            <td><?= $userDTO->getUsername(); ?></td>
-            <td><?= $userDTO->getFirstName() . " " . $userDTO->getLastName() ?></td>
-            <td><?= $userDTO->getBornOn() ?></td>
+            <td><?= htmlspecialchars((string)($userDTO->getUsername())) ?></td>
+            <td><?= htmlspecialchars((string)($userDTO->getFirstName() . " " . $userDTO->getLastName())) ?></td>
+            <td><?= htmlspecialchars((string)($userDTO->getBornOn())) ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>

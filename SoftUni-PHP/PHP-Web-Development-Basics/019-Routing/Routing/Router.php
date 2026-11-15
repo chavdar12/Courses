@@ -25,7 +25,7 @@ class Router implements RouterInterface
     public function invoke(string $uri, string $requestMethod): bool
     {
 
-        foreach ($this->routes[$requestMethod] as $route => $handler) {
+        foreach ($this->routes[$requestMethod] ?? [] as $route => $handler) {
             $res = preg_match_all('/^' . $route . '$/', $uri, $matches);
             if (!$res) {
                 continue;

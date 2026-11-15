@@ -15,7 +15,7 @@ if (isset($_POST['title'], $_POST['body'])) {
     $body = $_POST['body'];
     $category = $_POST['category'];
     $existingTags = isset($_POST['existing_tags']) ? $_POST['existing_tags'] : [];
-    $newTags = explode(',', $_POST['new_tags']);
+    $newTags = explode(',', $_POST['new_tags'] ?? '');
     require_once 'db/question_queries.php';
 
     $result = createQuestion($db, $userId, $title, $body, $category, $existingTags, $newTags);

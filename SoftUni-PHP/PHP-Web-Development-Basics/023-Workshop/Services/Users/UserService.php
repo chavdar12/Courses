@@ -36,11 +36,14 @@ class UserService implements UserServiceInterface
     {
         if ($userDTO->getPassword() != $userDTO->getConfirmPassword()) {
             throw new RegistrationException("Password mismatch");
-            echo "this";
         }
 
         if (strlen($userDTO->getUsername()) < self::MIN_USER_LENGTH) {
             throw new RegistrationException("User length too short");
+        }
+
+        if ($this->userRepository->getByUsername($userDTO->getUsername()) !== null) {
+            throw new RegistrationException("This username is taken");
         }
 
         $passwordHash = $this->encryptionService->hash($userDTO->getPassword());

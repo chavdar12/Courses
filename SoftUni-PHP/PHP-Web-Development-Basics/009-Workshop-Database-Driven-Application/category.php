@@ -1,7 +1,7 @@
 <?php
 require_once 'common.php';
-if (!isset($_GET{'id'})) {
-    header("Location: categories.php");
+if (!isset($_GET['id'])) {
+    header("Location: " . url("categories.php"));
     exit;
 }
 

@@ -24,6 +24,6 @@ class PDODatabase implements DatabaseInterface
 
     public function getErrorInfo(): array
     {
-        // TODO: Implement getErrorInfo() method.
+        return $this->pdo->errorInfo();
     }
 }

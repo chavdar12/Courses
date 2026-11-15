@@ -9,7 +9,7 @@
 <body>
 <h1>Profile</h1>
 <h2 style="color:green">
-    Welcome, <?= $model->getUsername(); ?>
+    Welcome, <?= htmlspecialchars($model->getUsername()); ?>
 </h2>
 
 </body>

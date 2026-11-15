@@ -1,41 +1,40 @@
 <?php
 
+namespace App\Repository;
+
 use App\Data\UserDTO;
 use Database\DatabaseInterface;
 
-class UserRepository implements UserRepositoryInterfacepublic
+class UserRepository implements UserRepositoryInterface
 {
-    /**
-     * @var DatabaseInterface
-     */
     private $db;
 
-    /**
-     * UserRepository constructor.
-     * @param DatabaseInterface $database
-     */
     public function __construct(DatabaseInterface $database)
     {
         $this->db = $database;
     }
 
-
-    function insert(UserDTO $userDTO): bool
+    public function insert(UserDTO $userDTO): bool
     {
-        $this->db->query("
-            INSERT INTO users(username, password)
-             VALUES(?, ?)
-            ")->execute([
-            $userDTO->getUsername(),
-            $userDTO->getPassword()
-        ]);
+        $this->db->query("INSERT INTO users(username, password) VALUES(?, ?)")
+            ->execute([$userDTO->getUsername(), $userDTO->getPassword()]);
 
         return true;
     }
 
-    public function fundByUsername(string $username): UserDTO
+    public function findByUsername(string $username): ?UserDTO
     {
-        // TODO: Implement fundByUsername() method.
+        return $this->db->query("SELECT id, username, password FROM users WHERE username = ?")
+            ->execute([$username])
+            ->fetch(UserDTO::class)
+            ->current();
     }
 
+    public function findById(int $id): ?UserDTO
+    {
+        return $this->db->query("SELECT id, username, password FROM users WHERE id = ?")
+            ->execute([$id])
+            ->fetch(UserDTO::class)
+            ->current();
+    }
 }

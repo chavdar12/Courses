@@ -7,6 +7,10 @@
 <body>
 <h1>Login form</h1>
 
+<?php if (is_string($model)): ?>
+    <p style="color: red"><?= htmlspecialchars($model) ?></p>
+<?php endif; ?>
+
 <form method="post" action="loginProcess">
     Username: <input type="text" name="username"><br/>
     Password: <input type="password" name="password"><br/>

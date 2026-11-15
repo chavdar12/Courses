@@ -75,7 +75,7 @@ class UserService implements UserServiceInterface
 
     public function currentUser(): ?UserDTO
     {
-        if (!$_SESSION['id']) {
+        if (empty($_SESSION['id'])) {
             return null;
         }
 
@@ -97,7 +97,12 @@ class UserService implements UserServiceInterface
             return false;
         }
 
-        $this->encryptPassword($userDTO);
+        // an empty password field keeps the current password
+        if ((string)$userDTO->getPassword() === '') {
+            $userDTO->setPassword($currentUser->getPassword());
+        } else {
+            $this->encryptPassword($userDTO);
+        }
         return $this->userRepository->update(intval($_SESSION['id']), $userDTO);
     }
 
