@@ -16,8 +16,6 @@ jobs:
       - name: Install tools
         run: sudo apt-get update && sudo apt-get install -y clang-format clang-tidy
 
-      - uses: lukka/get-cmake@latest
-
       # Pull requests: fail if unformatted. Pushes: format and commit.
       - name: Check formatting (PR)
         if: github.event_name == 'pull_request'
@@ -38,13 +36,10 @@ jobs:
             git push
           fi
 
-      - name: Configure
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-
       - name: Lint (clang-tidy)
         continue-on-error: true
         run: |
           find . -path ./build -prune -o -name '*.cpp' -print0 \
-            | xargs -0 -n1 -P4 clang-tidy -p build --quiet \
+            | xargs -0 -n1 -P4 clang-tidy --quiet \
                 --checks='-*,clang-analyzer-*,bugprone-*,performance-*' \
-                --header-filter='^$' 2>/dev/null || true
+                --header-filter='^$' 2>/dev/null -- -std=c++17 || true
