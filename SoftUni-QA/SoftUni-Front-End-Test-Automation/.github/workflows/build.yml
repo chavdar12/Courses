@@ -30,8 +30,20 @@ jobs:
           nohup npm start > app.log 2>&1 &
           curl --silent --fail --retry 15 --retry-connrefused --retry-delay 1 http://localhost:8080/ > /dev/null
 
-      - run: dotnet restore SoftUni-Front-End-Test-Automation.slnx
+      # Every lesson folder is its own project (two share the name SeleniumIdeTests), so gather them
+      # into a throwaway solution with one folder per project.
+      - name: Generate solution
+        run: |
+          {
+            echo '<Solution>'
+            git ls-files '*.csproj' | while read -r p; do
+              echo "  <Folder Name=\"/$(dirname "$p")/\"><Project Path=\"$GITHUB_WORKSPACE/$p\" /></Folder>"
+            done
+            echo '</Solution>'
+          } > "$RUNNER_TEMP/All.slnx"
 
-      - run: dotnet build SoftUni-Front-End-Test-Automation.slnx --no-restore --configuration Release
+      - run: dotnet restore "$RUNNER_TEMP/All.slnx"
 
-      - run: dotnet test SoftUni-Front-End-Test-Automation.slnx --no-build --configuration Release --logger "console;verbosity=normal"
+      - run: dotnet build "$RUNNER_TEMP/All.slnx" --no-restore --configuration Release
+
+      - run: dotnet test "$RUNNER_TEMP/All.slnx" --no-build --configuration Release --logger "console;verbosity=normal"
