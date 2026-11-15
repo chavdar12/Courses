@@ -101,8 +101,14 @@ public class ListTests
 
         for (var i = 0; i < count; i++)
         {
-            Assert.Throws<IndexOutOfRangeException>(() => { list[-(1 + i)] = 3; });
-            Assert.Throws<IndexOutOfRangeException>(() => { list[count + i] = 3; });
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                list[-(1 + i)] = 3;
+            });
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                list[count + i] = 3;
+            });
         }
     }
 
@@ -216,8 +222,14 @@ public class ListTests
 
         for (var i = 0; i < count; i++)
         {
-            Assert.Throws<IndexOutOfRangeException>(() => { list.RemoveAt(-(1 + i)); });
-            Assert.Throws<IndexOutOfRangeException>(() => { list.RemoveAt(count + i); });
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                list.RemoveAt(-(1 + i));
+            });
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                list.RemoveAt(count + i);
+            });
         }
     }
 
@@ -285,8 +297,14 @@ public class ListTests
 
         for (var i = 0; i < count; i++)
         {
-            Assert.Throws<IndexOutOfRangeException>(() => { list.Insert(-(1 + i), _random.Next(1, 5)); });
-            Assert.Throws<IndexOutOfRangeException>(() => { list.Insert(count + i, _random.Next(1, 5)); });
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                list.Insert(-(1 + i), _random.Next(1, 5));
+            });
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                list.Insert(count + i, _random.Next(1, 5));
+            });
         }
     }
 

@@ -90,7 +90,6 @@ public class BinarySearchTreeTests
         CollectionAssert.AreEqual(expectedNodes, nodes);
     }
 
-
     [Test]
     public void DeleteMin_EmptyTree_ShouldThrow()
     {
@@ -367,7 +366,6 @@ public class BinarySearchTreeTests
         int[] expectedNodes = { };
         CollectionAssert.AreEqual(expectedNodes, nodes);
     }
-
 
     [Test]
     public void Search_ExistingElement_ShouldReturnSubTree()
@@ -817,7 +815,8 @@ public class BinarySearchTreeTests
     public void Ceiling_NonExistingElement_ShouldReturnNextGreater()
     {
         var bst = new BinarySearchTree<int>();
-        foreach (var e in new[] { 10, 5, 3, 1, 4, 8, 9, 37, 39, 45 }) bst.Insert(e);
+        foreach (var e in new[] { 10, 5, 3, 1, 4, 8, 9, 37, 39, 45 })
+            bst.Insert(e);
 
         Assert.AreEqual(8, bst.Ceiling(6));
         Assert.AreEqual(5, bst.Floor(6));

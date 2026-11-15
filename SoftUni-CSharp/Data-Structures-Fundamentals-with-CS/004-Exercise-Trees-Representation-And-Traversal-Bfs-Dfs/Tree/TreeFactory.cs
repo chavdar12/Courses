@@ -13,9 +13,7 @@ public class TreeFactory
     {
         foreach (var line in input)
         {
-            var keys = line.Split(' ')
-                .Select(int.Parse)
-                .ToArray();
+            var keys = line.Split(' ').Select(int.Parse).ToArray();
 
             var parentKey = keys[0];
             var childKey = keys[1];
@@ -28,7 +26,8 @@ public class TreeFactory
 
     public Tree<int> CreateNodeByKey(int key)
     {
-        if (!nodesBykeys.ContainsKey(key)) nodesBykeys.Add(key, new Tree<int>(key));
+        if (!nodesBykeys.ContainsKey(key))
+            nodesBykeys.Add(key, new Tree<int>(key));
 
         return nodesBykeys[key];
     }

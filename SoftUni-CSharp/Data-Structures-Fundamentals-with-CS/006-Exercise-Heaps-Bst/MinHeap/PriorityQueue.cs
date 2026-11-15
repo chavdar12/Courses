@@ -1,6 +1,7 @@
 ﻿namespace MinHeap;
 
-public class PriorityQueue<T> : MinHeap<T> where T : IComparable<T>
+public class PriorityQueue<T> : MinHeap<T>
+    where T : IComparable<T>
 {
     public PriorityQueue()
     {

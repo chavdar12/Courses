@@ -106,7 +106,8 @@ public class QueueTests
     public void QueueContainsTwoPrivateNodes()
     {
         var queueType = typeof(FastQueue<sbyte>);
-        var allFields = queueType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+        var allFields = queueType
+            .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
             .Where(f => f.FieldType.Name.Contains("Node"))
             .ToList();
         Assert.AreEqual(2, allFields.Count);

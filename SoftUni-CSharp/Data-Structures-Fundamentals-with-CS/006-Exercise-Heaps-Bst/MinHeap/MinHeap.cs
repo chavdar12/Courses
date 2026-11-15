@@ -21,7 +21,8 @@ public class MinHeap<T> : IAbstractHeap<T>
 
     public T ExtractMin()
     {
-        if (elements.Count == 0) throw new InvalidOperationException();
+        if (elements.Count == 0)
+            throw new InvalidOperationException();
 
         var element = elements[0];
         Swap(0, elements.Count - 1);
@@ -33,7 +34,8 @@ public class MinHeap<T> : IAbstractHeap<T>
 
     public T Peek()
     {
-        if (elements.Count == 0) throw new InvalidOperationException();
+        if (elements.Count == 0)
+            throw new InvalidOperationException();
         return elements[0];
     }
 
@@ -80,7 +82,8 @@ public class MinHeap<T> : IAbstractHeap<T>
 
         if (secondChildIndex < elements.Count)
         {
-            if (elements[firstChildIndex].CompareTo(elements[secondChildIndex]) < 0) return firstChildIndex;
+            if (elements[firstChildIndex].CompareTo(elements[secondChildIndex]) < 0)
+                return firstChildIndex;
 
             return secondChildIndex;
         }

@@ -27,7 +27,8 @@ public class QueueTests
         }
 
         var index = 0;
-        foreach (var queueElement in _queue) Assert.AreEqual(array[index++], queueElement);
+        foreach (var queueElement in _queue)
+            Assert.AreEqual(array[index++], queueElement);
     }
 
     [Test]
@@ -91,7 +92,8 @@ public class QueueTests
         for (var i = 0; i < count; i++)
             _queue.Enqueue(i);
 
-        for (var i = 0; i < count; i++) Assert.That(_queue.Contains(i), Is.True);
+        for (var i = 0; i < count; i++)
+            Assert.That(_queue.Contains(i), Is.True);
 
         Assert.That(_queue.Contains(count), Is.False);
     }

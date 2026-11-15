@@ -9,9 +9,7 @@ public class ReversedList<T> : IAbstractList<T>
     private T[] _items;
 
     public ReversedList()
-        : this(DefaultCapacity)
-    {
-    }
+        : this(DefaultCapacity) { }
 
     public ReversedList(int capacity)
     {
@@ -48,7 +46,6 @@ public class ReversedList<T> : IAbstractList<T>
         return IndexOf(item) != -1;
     }
 
-
     public int IndexOf(T item)
     {
         for (var i = 0; i < Count; i++)
@@ -65,7 +62,8 @@ public class ReversedList<T> : IAbstractList<T>
 
         var indexToInsertAt = Count - index;
 
-        for (var i = Count; i > indexToInsertAt; i--) _items[i] = _items[i - 1];
+        for (var i = Count; i > indexToInsertAt; i--)
+            _items[i] = _items[i - 1];
 
         _items[indexToInsertAt] = item;
         Count++;
@@ -75,7 +73,8 @@ public class ReversedList<T> : IAbstractList<T>
     {
         var indexToRemoveAt = IndexOf(item);
 
-        if (indexToRemoveAt == -1) return false;
+        if (indexToRemoveAt == -1)
+            return false;
 
         RemoveAt(indexToRemoveAt);
         return true;
@@ -87,7 +86,8 @@ public class ReversedList<T> : IAbstractList<T>
 
         var indexToRemoveAt = Count - 1 - index;
 
-        for (var i = indexToRemoveAt; i < Count - 1; i++) _items[i] = _items[i + 1];
+        for (var i = indexToRemoveAt; i < Count - 1; i++)
+            _items[i] = _items[i + 1];
 
         _items[Count - 1] = default;
         Count--;
@@ -95,7 +95,8 @@ public class ReversedList<T> : IAbstractList<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        for (var i = Count - 1; i >= 0; i--) yield return _items[i];
+        for (var i = Count - 1; i >= 0; i--)
+            yield return _items[i];
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -105,12 +106,14 @@ public class ReversedList<T> : IAbstractList<T>
 
     private void ValidateIndex(int index)
     {
-        if (index < 0 || index >= Count) throw new IndexOutOfRangeException(nameof(index));
+        if (index < 0 || index >= Count)
+            throw new IndexOutOfRangeException(nameof(index));
     }
 
     private void GrowIfNecessary()
     {
-        if (Count == _items.Length) _items = Grow();
+        if (Count == _items.Length)
+            _items = Grow();
     }
 
     private T[] Grow()

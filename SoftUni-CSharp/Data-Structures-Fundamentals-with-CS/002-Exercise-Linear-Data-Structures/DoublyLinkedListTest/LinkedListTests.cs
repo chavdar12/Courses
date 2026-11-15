@@ -174,7 +174,8 @@ public class LinkedListTests
     public void LinkedListContainsTwoPrivateNodes()
     {
         var linkedListType = typeof(DoublyLinkedList<>);
-        var allFields = linkedListType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+        var allFields = linkedListType
+            .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
             .Where(f => f.FieldType.Name.Contains("Node"))
             .ToList();
         Assert.AreEqual(2, allFields.Count);

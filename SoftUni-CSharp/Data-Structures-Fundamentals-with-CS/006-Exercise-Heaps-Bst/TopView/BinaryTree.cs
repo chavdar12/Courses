@@ -25,10 +25,15 @@ public class BinaryTree<T> : IAbstractBinaryTree<T>
         return dict.OrderBy(kv => kv.Key).Select(kv => kv.Value.nodeValue).ToList();
     }
 
-    private void TopView(BinaryTree<T> node, int distance, int level,
-        Dictionary<int, (T nodeValue, int nodeLevel)> dict)
+    private void TopView(
+        BinaryTree<T> node,
+        int distance,
+        int level,
+        Dictionary<int, (T nodeValue, int nodeLevel)> dict
+    )
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         if (!dict.TryGetValue(distance, out var existing) || level < existing.nodeLevel)
             dict[distance] = (node.Value, level);

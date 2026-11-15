@@ -1,7 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <ItemGroup>
     <ProjectReference Include="..\SinglyLinkedList\SinglyLinkedList.csproj" />
   </ItemGroup>
-
 </Project>

@@ -28,7 +28,8 @@ public class MaxHeap<T> : IAbstractHeap<T>
 
     private void EnsureNotEmpty()
     {
-        if (Size == 0) throw new InvalidOperationException("Max heap is empty!");
+        if (Size == 0)
+            throw new InvalidOperationException("Max heap is empty!");
     }
 
     private void HeapifyUp()
@@ -36,9 +37,7 @@ public class MaxHeap<T> : IAbstractHeap<T>
         var currentIndex = Size - 1;
         var parentIndex = GetParentIndex(currentIndex);
 
-        while (
-            IndexIsValid(currentIndex)
-            && IsGreater(currentIndex, parentIndex))
+        while (IndexIsValid(currentIndex) && IsGreater(currentIndex, parentIndex))
         {
             Swap(currentIndex, parentIndex);
 

@@ -41,7 +41,8 @@ public class PriorityQueue<T> : IAbstractHeap<T>
 
     private void EnsureNotEmpty()
     {
-        if (Size == 0) throw new InvalidOperationException("Priority queue is empty!");
+        if (Size == 0)
+            throw new InvalidOperationException("Priority queue is empty!");
     }
 
     private void HeapifyUp()
@@ -49,8 +50,7 @@ public class PriorityQueue<T> : IAbstractHeap<T>
         var currentIndex = Size - 1;
         var parentIndex = GetParentIndex(currentIndex);
 
-        while (IndexIsValid(currentIndex)
-               && IsGreater(currentIndex, parentIndex))
+        while (IndexIsValid(currentIndex) && IsGreater(currentIndex, parentIndex))
         {
             Swap(currentIndex, parentIndex);
 
@@ -68,11 +68,11 @@ public class PriorityQueue<T> : IAbstractHeap<T>
             var toSwapWith = GetLeftChildIndex(index);
             var rightChildIndex = GetRightChildIndex(index);
 
-            if (IndexIsValid(rightChildIndex)
-                && IsLess(toSwapWith, rightChildIndex))
+            if (IndexIsValid(rightChildIndex) && IsLess(toSwapWith, rightChildIndex))
                 toSwapWith = rightChildIndex;
 
-            if (!IsLess(index, toSwapWith)) break;
+            if (!IsLess(index, toSwapWith))
+                break;
 
             Swap(toSwapWith, index);
             index = toSwapWith;

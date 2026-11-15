@@ -22,11 +22,7 @@ public class SinglyLinkedList<T> : IAbstractLinkedList<T>
 
     public void AddFirst(T item)
     {
-        var newNode = new Node<T>(item)
-        {
-            Item = item,
-            Next = _head
-        };
+        var newNode = new Node<T>(item) { Item = item, Next = _head };
 
         _head = newNode;
         Count++;
@@ -44,7 +40,8 @@ public class SinglyLinkedList<T> : IAbstractLinkedList<T>
         {
             var current = _head;
 
-            while (current.Next != null) current = current.Next;
+            while (current.Next != null)
+                current = current.Next;
 
             current.Next = nodeToInsert;
         }
@@ -65,7 +62,8 @@ public class SinglyLinkedList<T> : IAbstractLinkedList<T>
 
         var current = _head;
 
-        while (current.Next != null) current = current.Next;
+        while (current.Next != null)
+            current = current.Next;
 
         return current.Item;
     }
@@ -133,6 +131,7 @@ public class SinglyLinkedList<T> : IAbstractLinkedList<T>
 
     private void EnsureNotEmpty()
     {
-        if (Count == 0) throw new InvalidOperationException("Linked List is empty!");
+        if (Count == 0)
+            throw new InvalidOperationException("Linked List is empty!");
     }
 }

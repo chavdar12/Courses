@@ -23,10 +23,7 @@ public class DoublyLinkedList<T> : IAbstractLinkedList<T>
 
     public void AddFirst(T item)
     {
-        var nodeToInsert = new Node<T>
-        {
-            Item = item
-        };
+        var nodeToInsert = new Node<T> { Item = item };
 
         if (Count == 0)
         {
@@ -44,10 +41,7 @@ public class DoublyLinkedList<T> : IAbstractLinkedList<T>
 
     public void AddLast(T item)
     {
-        var nodeToInsert = new Node<T>
-        {
-            Item = item
-        };
+        var nodeToInsert = new Node<T> { Item = item };
 
         if (Count == 0)
         {
@@ -135,6 +129,7 @@ public class DoublyLinkedList<T> : IAbstractLinkedList<T>
 
     private void EnsureNotEmpty()
     {
-        if (Count == 0) throw new InvalidOperationException("Linked List is empty!");
+        if (Count == 0)
+            throw new InvalidOperationException("Linked List is empty!");
     }
 }

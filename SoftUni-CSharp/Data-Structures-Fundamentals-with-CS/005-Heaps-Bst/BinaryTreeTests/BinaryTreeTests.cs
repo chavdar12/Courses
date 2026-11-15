@@ -10,11 +10,10 @@ public class BinaryTreeTests
     [SetUp]
     public void InitializeBinaryTree()
     {
-        _tree = new BinaryTree<int>(17,
-            new BinaryTree<int>(9, new BinaryTree<int>(3, null, null),
-                new BinaryTree<int>(11, null, null)),
-            new BinaryTree<int>(25, new BinaryTree<int>(20, null, null),
-                new BinaryTree<int>(31, null, null))
+        _tree = new BinaryTree<int>(
+            17,
+            new BinaryTree<int>(9, new BinaryTree<int>(3, null, null), new BinaryTree<int>(11, null, null)),
+            new BinaryTree<int>(25, new BinaryTree<int>(20, null, null), new BinaryTree<int>(31, null, null))
         );
     }
 
@@ -22,13 +21,12 @@ public class BinaryTreeTests
     public void TestAsIndentedPreOrder()
     {
         var indentedPreOrder = _tree.AsIndentedPreOrder(0);
-        Assert.AreEqual(("17\r\n" +
-                        "  9\r\n" +
-                        "    3\r\n" +
-                        "    11\r\n" +
-                        "  25\r\n" +
-                        "    20\r\n" +
-                        "    31").ReplaceLineEndings(), indentedPreOrder.TrimEnd());
+        Assert.AreEqual(
+            (
+                "17\r\n" + "  9\r\n" + "    3\r\n" + "    11\r\n" + "  25\r\n" + "    20\r\n" + "    31"
+            ).ReplaceLineEndings(),
+            indentedPreOrder.TrimEnd()
+        );
     }
 
     [Test]
@@ -37,9 +35,9 @@ public class BinaryTreeTests
         var trees = _tree.PreOrder();
         int[] expected = { 17, 9, 3, 11, 25, 20, 31 };
         Assert.AreEqual(expected.Length, trees.Count);
-        for (var i = 0; i < expected.Length; i++) Assert.AreEqual(expected[i], trees[i].Value);
+        for (var i = 0; i < expected.Length; i++)
+            Assert.AreEqual(expected[i], trees[i].Value);
     }
-
 
     [Test]
     public void TestInOrder()
@@ -47,9 +45,9 @@ public class BinaryTreeTests
         var trees = _tree.InOrder();
         int[] expected = { 3, 9, 11, 17, 20, 25, 31 };
         Assert.AreEqual(expected.Length, trees.Count);
-        for (var i = 0; i < expected.Length; i++) Assert.AreEqual(expected[i], trees[i].Value);
+        for (var i = 0; i < expected.Length; i++)
+            Assert.AreEqual(expected[i], trees[i].Value);
     }
-
 
     [Test]
     public void TestPostOrder()
@@ -57,7 +55,8 @@ public class BinaryTreeTests
         var trees = _tree.PostOrder();
         int[] expected = { 3, 11, 9, 20, 31, 25, 17 };
         Assert.AreEqual(expected.Length, trees.Count);
-        for (var i = 0; i < expected.Length; i++) Assert.AreEqual(expected[i], trees[i].Value);
+        for (var i = 0; i < expected.Length; i++)
+            Assert.AreEqual(expected[i], trees[i].Value);
     }
 
     [Test]

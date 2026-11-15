@@ -4,8 +4,7 @@ public class BalancedParenthesesSolve : ISolvable
 {
     public bool AreBalanced(string parentheses)
     {
-        if (string.IsNullOrEmpty(parentheses)
-            || parentheses.Length % 2 == 1)
+        if (string.IsNullOrEmpty(parentheses) || parentheses.Length % 2 == 1)
             return false;
 
         var openBrackets = new Stack<char>(parentheses.Length / 2);
@@ -33,8 +32,7 @@ public class BalancedParenthesesSolve : ISolvable
                     break;
             }
 
-            if (expectedCharacter != default
-                && (openBrackets.Count == 0 || openBrackets.Pop() != expectedCharacter))
+            if (expectedCharacter != default && (openBrackets.Count == 0 || openBrackets.Pop() != expectedCharacter))
                 return false;
         }
 

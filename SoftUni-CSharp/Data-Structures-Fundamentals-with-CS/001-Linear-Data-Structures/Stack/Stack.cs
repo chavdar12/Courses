@@ -22,11 +22,7 @@ public class Stack<T> : IAbstractStack<T>
 
     public void Push(T item)
     {
-        var newNode = new Node<T>(item)
-        {
-            Item = item,
-            Next = _top
-        };
+        var newNode = new Node<T>(item) { Item = item, Next = _top };
 
         _top = newNode;
         Count++;
@@ -61,7 +57,8 @@ public class Stack<T> : IAbstractStack<T>
 
         while (current != null)
         {
-            if (EqualityComparer<T>.Default.Equals(current.Item, item)) return true;
+            if (EqualityComparer<T>.Default.Equals(current.Item, item))
+                return true;
 
             current = current.Next;
         }
@@ -87,6 +84,7 @@ public class Stack<T> : IAbstractStack<T>
 
     private void EnsureNotEmpty()
     {
-        if (Count == 0) throw new InvalidOperationException("Stack is empty!");
+        if (Count == 0)
+            throw new InvalidOperationException("Stack is empty!");
     }
 }

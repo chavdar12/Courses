@@ -19,7 +19,6 @@ public class BinarySearchTreeTests
         _bst.Insert(23);
     }
 
-
     [Test]
     public void TestLeftSideBST()
     {

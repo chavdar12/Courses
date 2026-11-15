@@ -24,10 +24,7 @@ public class FastQueue<T> : IAbstractQueue<T>
 
     public void Enqueue(T item)
     {
-        var nodeToInsert = new Node<T>
-        {
-            Item = item
-        };
+        var nodeToInsert = new Node<T> { Item = item };
 
         if (Count == 0)
         {
@@ -70,7 +67,8 @@ public class FastQueue<T> : IAbstractQueue<T>
 
         while (current != null)
         {
-            if (EqualityComparer<T>.Default.Equals(current.Item, item)) return true;
+            if (EqualityComparer<T>.Default.Equals(current.Item, item))
+                return true;
 
             current = current.Next;
         }
@@ -96,6 +94,7 @@ public class FastQueue<T> : IAbstractQueue<T>
 
     private void EnsureNotEmpty()
     {
-        if (Count == 0) throw new InvalidOperationException("Queue is empty!");
+        if (Count == 0)
+            throw new InvalidOperationException("Queue is empty!");
     }
 }

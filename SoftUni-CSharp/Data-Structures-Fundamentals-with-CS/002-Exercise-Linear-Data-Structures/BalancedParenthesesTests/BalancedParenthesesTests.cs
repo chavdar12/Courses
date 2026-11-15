@@ -31,7 +31,8 @@ public class BalancedParenthesesTests
     [TestCase("", false)]
     [TestCase(
         "()(((({{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))",
-        true)]
+        true
+    )]
     public void ImplementationShouldWorkCorrectly(string input, bool expectedOutcome)
     {
         var solve = _instance.AreBalanced(input);

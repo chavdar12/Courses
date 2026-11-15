@@ -27,15 +27,15 @@ public class Tree<T> : IAbstractTree<T>
 
     public Tree<T> Parent { get; private set; }
 
-    public IReadOnlyCollection<Tree<T>> Children
-        => _children.AsReadOnly();
+    public IReadOnlyCollection<Tree<T>> Children => _children.AsReadOnly();
 
     public ICollection<T> OrderBfs()
     {
         var result = new List<T>();
         var queue = new Queue<Tree<T>>();
 
-        if (IsRootDeleted) return result;
+        if (IsRootDeleted)
+            return result;
 
         queue.Enqueue(this);
 
@@ -45,7 +45,8 @@ public class Tree<T> : IAbstractTree<T>
 
             result.Add(subtree.Value);
 
-            foreach (var child in subtree.Children) queue.Enqueue(child);
+            foreach (var child in subtree.Children)
+                queue.Enqueue(child);
         }
 
         return result;
@@ -55,7 +56,8 @@ public class Tree<T> : IAbstractTree<T>
     {
         var result = new List<T>();
 
-        if (IsRootDeleted) return result;
+        if (IsRootDeleted)
+            return result;
 
         Dfs(this, result);
 
@@ -78,7 +80,8 @@ public class Tree<T> : IAbstractTree<T>
 
         CheckEmptyNode(searchedNode);
 
-        foreach (var child in searchedNode.Children) child.Parent = null;
+        foreach (var child in searchedNode.Children)
+            child.Parent = null;
 
         searchedNode._children.Clear();
 
@@ -143,7 +146,8 @@ public class Tree<T> : IAbstractTree<T>
 
     private void Dfs(Tree<T> tree, List<T> result)
     {
-        foreach (var child in tree.Children) Dfs(child, result);
+        foreach (var child in tree.Children)
+            Dfs(child, result);
 
         result.Add(tree.Value);
     }
@@ -158,9 +162,11 @@ public class Tree<T> : IAbstractTree<T>
         {
             var subtree = queue.Dequeue();
 
-            if (EqualityComparer<T>.Default.Equals(subtree.Value, parentKey)) return subtree;
+            if (EqualityComparer<T>.Default.Equals(subtree.Value, parentKey))
+                return subtree;
 
-            foreach (var child in subtree.Children) queue.Enqueue(child);
+            foreach (var child in subtree.Children)
+                queue.Enqueue(child);
         }
 
         return null;
@@ -168,6 +174,7 @@ public class Tree<T> : IAbstractTree<T>
 
     private void CheckEmptyNode(Tree<T> searchedNode)
     {
-        if (searchedNode == null) throw new ArgumentNullException("Searched node not found!");
+        if (searchedNode == null)
+            throw new ArgumentNullException("Searched node not found!");
     }
 }

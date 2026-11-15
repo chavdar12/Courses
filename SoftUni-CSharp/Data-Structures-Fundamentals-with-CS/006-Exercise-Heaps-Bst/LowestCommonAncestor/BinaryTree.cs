@@ -3,17 +3,16 @@
 public class BinaryTree<T> : IAbstractBinaryTree<T>
     where T : IComparable<T>
 {
-    public BinaryTree(
-        T value,
-        BinaryTree<T> leftChild,
-        BinaryTree<T> rightChild)
+    public BinaryTree(T value, BinaryTree<T> leftChild, BinaryTree<T> rightChild)
     {
         Value = value;
         LeftChild = leftChild;
         RightChild = rightChild;
-        if (leftChild != null) LeftChild.Parent = this;
+        if (leftChild != null)
+            LeftChild.Parent = this;
 
-        if (rightChild != null) RightChild.Parent = this;
+        if (rightChild != null)
+            RightChild.Parent = this;
     }
 
     public T Value { get; set; }
@@ -29,7 +28,8 @@ public class BinaryTree<T> : IAbstractBinaryTree<T>
         var firstNode = FindBfs(first, this);
         var secondNode = FindBfs(second, this);
 
-        if (firstNode == null || secondNode == null) throw new InvalidOperationException();
+        if (firstNode == null || secondNode == null)
+            throw new InvalidOperationException();
 
         var firstAncestor = FindAncestors(firstNode);
         var secondAncestor = FindAncestors(secondNode);
@@ -62,11 +62,14 @@ public class BinaryTree<T> : IAbstractBinaryTree<T>
         {
             var currentNode = queue.Dequeue();
 
-            if (element.Equals(currentNode.Value)) return currentNode;
+            if (element.Equals(currentNode.Value))
+                return currentNode;
 
-            if (currentNode.LeftChild != null) queue.Enqueue(currentNode.LeftChild);
+            if (currentNode.LeftChild != null)
+                queue.Enqueue(currentNode.LeftChild);
 
-            if (currentNode.RightChild != null) queue.Enqueue(currentNode.RightChild);
+            if (currentNode.RightChild != null)
+                queue.Enqueue(currentNode.RightChild);
         }
 
         return null;

@@ -9,6 +9,5 @@ public interface IAbstractBinaryTree<T>
 
     BinaryTree<T> RightChild { get; }
 
-
     List<T> TopView();
 }

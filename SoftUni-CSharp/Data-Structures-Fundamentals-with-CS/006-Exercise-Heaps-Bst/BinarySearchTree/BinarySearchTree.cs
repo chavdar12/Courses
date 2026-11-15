@@ -1,6 +1,7 @@
 ﻿namespace BinarySearchTree;
 
-public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
+public class BinarySearchTree<T> : IBinarySearchTree<T>
+    where T : IComparable
 {
     private Node root;
 
@@ -9,9 +10,7 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
         PreOrderCopy(node);
     }
 
-    public BinarySearchTree()
-    {
-    }
+    public BinarySearchTree() { }
 
     public void Insert(T element)
     {
@@ -39,14 +38,16 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
 
     public void DeleteMax()
     {
-        if (root == null) throw new InvalidOperationException();
+        if (root == null)
+            throw new InvalidOperationException();
 
         root = DeleteMax(root);
     }
 
     public void DeleteMin()
     {
-        if (root == null) throw new InvalidOperationException();
+        if (root == null)
+            throw new InvalidOperationException();
 
         root = DeleteMin(root);
     }
@@ -65,7 +66,8 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
     {
         var node = Select(root, rank);
 
-        if (node == null) throw new InvalidOperationException();
+        if (node == null)
+            throw new InvalidOperationException();
 
         return node.Value;
     }
@@ -90,14 +92,16 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
 
     public void Delete(T element)
     {
-        if (root == null) throw new InvalidOperationException();
+        if (root == null)
+            throw new InvalidOperationException();
 
         root = Delete(root, element);
     }
 
     private Node DeleteMax(Node node)
     {
-        if (node.Right == null) return node.Left;
+        if (node.Right == null)
+            return node.Left;
 
         node.Right = DeleteMax(node.Right);
 
@@ -106,7 +110,8 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
 
     private Node DeleteMin(Node node)
     {
-        if (node.Left == null) return node.Right;
+        if (node.Left == null)
+            return node.Right;
 
         node.Left = DeleteMin(node.Left);
 
@@ -115,29 +120,34 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
 
     private int Count(Node node)
     {
-        if (node == null) return 0;
+        if (node == null)
+            return 0;
 
         return 1 + Count(node.Left) + Count(node.Right);
     }
 
     private int Rank(Node node, T element)
     {
-        if (node == null) return 0;
+        if (node == null)
+            return 0;
 
         if (element.CompareTo(node.Value) < 0)
             return Rank(node.Left, element);
-        if (element.CompareTo(node.Value) > 0) return 1 + Count(node.Left) + Rank(node.Right, element);
+        if (element.CompareTo(node.Value) > 0)
+            return 1 + Count(node.Left) + Rank(node.Right, element);
 
         return Count(node.Left);
     }
 
     private Node Select(Node node, int rank)
     {
-        if (node == null) return null;
+        if (node == null)
+            return null;
 
         var leftCount = Count(node.Left);
 
-        if (leftCount == rank) return node;
+        if (leftCount == rank)
+            return node;
 
         if (leftCount > rank)
             return Select(node.Left, rank);
@@ -146,16 +156,20 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
 
     private void Range(Node node, T startRange, T endRange, Queue<T> queue)
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         var nodeInLowerRange = startRange.CompareTo(node.Value) < 0;
         var nodeInUpperRange = endRange.CompareTo(node.Value) > 0;
 
-        if (nodeInLowerRange) Range(node.Left, startRange, endRange, queue);
+        if (nodeInLowerRange)
+            Range(node.Left, startRange, endRange, queue);
 
-        if (startRange.CompareTo(node.Value) <= 0 && endRange.CompareTo(node.Value) >= 0) queue.Enqueue(node.Value);
+        if (startRange.CompareTo(node.Value) <= 0 && endRange.CompareTo(node.Value) >= 0)
+            queue.Enqueue(node.Value);
 
-        if (nodeInUpperRange) Range(node.Right, startRange, endRange, queue);
+        if (nodeInUpperRange)
+            Range(node.Right, startRange, endRange, queue);
     }
 
     private Node FindElement(T element)
@@ -175,7 +189,8 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
 
     private void PreOrderCopy(Node node)
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         Insert(node.Value);
         PreOrderCopy(node.Left);
@@ -188,14 +203,16 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
             node = new Node(element);
         else if (element.CompareTo(node.Value) < 0)
             node.Left = Insert(element, node.Left);
-        else if (element.CompareTo(node.Value) > 0) node.Right = Insert(element, node.Right);
+        else if (element.CompareTo(node.Value) > 0)
+            node.Right = Insert(element, node.Right);
 
         return node;
     }
 
     private void EachInOrder(Node node, Action<T> action)
     {
-        if (node == null) return;
+        if (node == null)
+            return;
 
         EachInOrder(node.Left, action);
         action(node.Value);
@@ -204,7 +221,8 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
 
     private Node Delete(Node node, T element)
     {
-        if (node == null) return null;
+        if (node == null)
+            return null;
 
         var compare = element.CompareTo(node.Value);
 
@@ -218,9 +236,11 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
         }
         else
         {
-            if (node.Left == null) return node.Right;
+            if (node.Left == null)
+                return node.Right;
 
-            if (node.Right == null) return node.Left;
+            if (node.Right == null)
+                return node.Left;
 
             var successor = FindMin(node.Right);
             node.Value = successor.Value;
@@ -232,7 +252,8 @@ public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable
 
     private Node FindMin(Node node)
     {
-        while (node.Left != null) node = node.Left;
+        while (node.Left != null)
+            node = node.Left;
 
         return node;
     }

@@ -22,9 +22,7 @@ public class Tree<T> : IAbstractTree<T>
 
     public Tree<T> Parent { get; private set; }
 
-
-    public IReadOnlyCollection<Tree<T>> Children
-        => _children.AsReadOnly();
+    public IReadOnlyCollection<Tree<T>> Children => _children.AsReadOnly();
 
     public void AddChild(Tree<T> child)
     {
@@ -56,9 +54,11 @@ public class Tree<T> : IAbstractTree<T>
         {
             var currentNode = nodes.Dequeue();
 
-            if (IsLeaf(currentNode)) leafKeys.Add(currentNode.Key);
+            if (IsLeaf(currentNode))
+                leafKeys.Add(currentNode.Key);
 
-            foreach (var child in currentNode.Children) nodes.Enqueue(child);
+            foreach (var child in currentNode.Children)
+                nodes.Enqueue(child);
         }
 
         return leafKeys;
@@ -75,9 +75,11 @@ public class Tree<T> : IAbstractTree<T>
         {
             var currentNode = nodes.Dequeue();
 
-            if (IsMiddle(currentNode)) middleKeys.Add(currentNode.Key);
+            if (IsMiddle(currentNode))
+                middleKeys.Add(currentNode.Key);
 
-            foreach (var child in currentNode.Children) nodes.Enqueue(child);
+            foreach (var child in currentNode.Children)
+                nodes.Enqueue(child);
         }
 
         return middleKeys;
@@ -85,8 +87,7 @@ public class Tree<T> : IAbstractTree<T>
 
     public Tree<T> GetDeepestLeftomostNode()
     {
-        var leafNodes = OrderBfs()
-            .Where(node => IsLeaf(node));
+        var leafNodes = OrderBfs().Where(node => IsLeaf(node));
 
         var deepestNodeDepth = -1;
         Tree<T> deepestNode = null;
@@ -146,31 +147,30 @@ public class Tree<T> : IAbstractTree<T>
         {
             var currentNode = nodes.Dequeue();
 
-            if (HasGivenSum(currentNode, sum)) allNodes.Add(currentNode);
+            if (HasGivenSum(currentNode, sum))
+                allNodes.Add(currentNode);
 
-            foreach (var child in currentNode.Children) nodes.Enqueue(child);
+            foreach (var child in currentNode.Children)
+                nodes.Enqueue(child);
         }
 
         foreach (var node in allNodes)
         {
             var currentNodeSum = GetSubtreeSumDfs(node);
 
-            if (currentNodeSum == sum) result.Add(node);
+            if (currentNodeSum == sum)
+                result.Add(node);
         }
 
         return result;
     }
 
-    private void OrderDfsForString(int depth,
-        StringBuilder result,
-        Tree<T> subtree)
+    private void OrderDfsForString(int depth, StringBuilder result, Tree<T> subtree)
     {
-        result
-            .Append(new string(' ', depth))
-            .Append(subtree.Key)
-            .Append(Environment.NewLine);
+        result.Append(new string(' ', depth)).Append(subtree.Key).Append(Environment.NewLine);
 
-        foreach (var child in subtree.Children) OrderDfsForString(depth + 2, result, child);
+        foreach (var child in subtree.Children)
+            OrderDfsForString(depth + 2, result, child);
     }
 
     private bool IsLeaf(Tree<T> node)
@@ -201,7 +201,8 @@ public class Tree<T> : IAbstractTree<T>
 
             result.Add(currentNode);
 
-            foreach (var child in currentNode.Children) nodes.Enqueue(child);
+            foreach (var child in currentNode.Children)
+                nodes.Enqueue(child);
         }
 
         return result;
@@ -226,7 +227,8 @@ public class Tree<T> : IAbstractTree<T>
         List<List<T>> wantedPaths,
         List<T> currentPath,
         ref int currentSum,
-        int wantedSum)
+        int wantedSum
+    )
     {
         foreach (var child in current.Children)
         {
@@ -235,7 +237,8 @@ public class Tree<T> : IAbstractTree<T>
             GetPathsWithSumDfs(child, wantedPaths, currentPath, ref currentSum, wantedSum);
         }
 
-        if (IsLeaf(current) && currentSum == wantedSum) wantedPaths.Add(new List<T>(currentPath));
+        if (IsLeaf(current) && currentSum == wantedSum)
+            wantedPaths.Add(new List<T>(currentPath));
 
         currentSum -= Convert.ToInt32(current.Key);
         currentPath.RemoveAt(currentPath.Count - 1);
@@ -253,7 +256,8 @@ public class Tree<T> : IAbstractTree<T>
         var currentSum = Convert.ToInt32(currentNode.Key);
         var childSum = 0;
 
-        foreach (var childNode in currentNode.Children) childSum += GetSubtreeSumDfs(childNode);
+        foreach (var childNode in currentNode.Children)
+            childSum += GetSubtreeSumDfs(childNode);
 
         return currentSum + childSum;
     }

@@ -32,7 +32,8 @@ public class Queue<T> : IAbstractQueue<T>
         {
             var current = _head;
 
-            while (current.Next != null) current = current.Next;
+            while (current.Next != null)
+                current = current.Next;
 
             current.Next = nodeToInsert;
         }
@@ -65,7 +66,8 @@ public class Queue<T> : IAbstractQueue<T>
 
         while (current != null)
         {
-            if (EqualityComparer<T>.Default.Equals(current.Item, item)) return true;
+            if (EqualityComparer<T>.Default.Equals(current.Item, item))
+                return true;
 
             current = current.Next;
         }
@@ -91,6 +93,7 @@ public class Queue<T> : IAbstractQueue<T>
 
     private void EnsureNotEmpty()
     {
-        if (Count == 0) throw new InvalidOperationException("Queue is empty!");
+        if (Count == 0)
+            throw new InvalidOperationException("Queue is empty!");
     }
 }

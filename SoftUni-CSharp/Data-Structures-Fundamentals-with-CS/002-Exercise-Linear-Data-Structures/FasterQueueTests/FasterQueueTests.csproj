@@ -1,7 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <ItemGroup>
     <ProjectReference Include="..\FasterQueue\FasterQueue.csproj" />
   </ItemGroup>
-
 </Project>

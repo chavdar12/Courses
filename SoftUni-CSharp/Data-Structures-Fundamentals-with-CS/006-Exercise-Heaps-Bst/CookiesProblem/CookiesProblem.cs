@@ -4,11 +4,13 @@ public class CookiesProblem
 {
     public int Solve(int minSweetness, int[] cookies)
     {
-        if (cookies == null || cookies.Length == 0) return -1;
+        if (cookies == null || cookies.Length == 0)
+            return -1;
 
         var priorityQueue = new PriorityQueue<int, int>();
 
-        foreach (var cookie in cookies) priorityQueue.Enqueue(cookie, cookie);
+        foreach (var cookie in cookies)
+            priorityQueue.Enqueue(cookie, cookie);
 
         var counter = 0;
 

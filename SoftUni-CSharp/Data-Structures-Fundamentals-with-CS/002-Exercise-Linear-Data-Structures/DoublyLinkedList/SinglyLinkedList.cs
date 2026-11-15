@@ -10,11 +10,7 @@ public class SinglyLinkedList<T> : IAbstractLinkedList<T>
 
     public void AddFirst(T item)
     {
-        var newNode = new Node<T>
-        {
-            Item = item,
-            Next = head
-        };
+        var newNode = new Node<T> { Item = item, Next = head };
 
         head = newNode;
         Count++;
@@ -22,10 +18,7 @@ public class SinglyLinkedList<T> : IAbstractLinkedList<T>
 
     public void AddLast(T item)
     {
-        var newNode = new Node<T>
-        {
-            Item = item
-        };
+        var newNode = new Node<T> { Item = item };
 
         if (head is null)
         {
@@ -84,7 +77,8 @@ public class SinglyLinkedList<T> : IAbstractLinkedList<T>
 
         var current = head;
 
-        while (current.Next.Next != null) current = current.Next;
+        while (current.Next.Next != null)
+            current = current.Next;
 
         var lastItem = current.Next.Item;
         current.Next = null;

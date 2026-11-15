@@ -7,13 +7,13 @@ public class List<T> : IAbstractList<T>
     private const int DEFAULT_CAPACITY = 4;
     private T[] _items;
 
-    public List() : this(DEFAULT_CAPACITY)
-    {
-    }
+    public List()
+        : this(DEFAULT_CAPACITY) { }
 
     public List(int capacity)
     {
-        if (capacity < 0) throw new ArgumentOutOfRangeException(nameof(capacity));
+        if (capacity < 0)
+            throw new ArgumentOutOfRangeException(nameof(capacity));
 
         _items = new T[capacity];
     }
@@ -59,7 +59,8 @@ public class List<T> : IAbstractList<T>
         ValidateIndex(index);
         GrowIfNecessary();
 
-        for (var i = Count; i > index; i--) _items[i] = _items[i - 1];
+        for (var i = Count; i > index; i--)
+            _items[i] = _items[i - 1];
 
         this[index] = item;
         Count++;
@@ -69,7 +70,8 @@ public class List<T> : IAbstractList<T>
     {
         var index = IndexOf(item);
 
-        if (index == -1) return false;
+        if (index == -1)
+            return false;
 
         RemoveAt(index);
         return true;
@@ -79,7 +81,8 @@ public class List<T> : IAbstractList<T>
     {
         ValidateIndex(index);
 
-        for (var i = index; i < Count - 1; i++) _items[i] = _items[i + 1];
+        for (var i = index; i < Count - 1; i++)
+            _items[i] = _items[i + 1];
 
         _items[Count - 1] = default;
         Count--;
@@ -87,7 +90,8 @@ public class List<T> : IAbstractList<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        for (var i = 0; i < Count; i++) yield return _items[i];
+        for (var i = 0; i < Count; i++)
+            yield return _items[i];
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -97,12 +101,14 @@ public class List<T> : IAbstractList<T>
 
     private void ValidateIndex(int index)
     {
-        if (index < 0 || index >= Count) throw new IndexOutOfRangeException(nameof(index));
+        if (index < 0 || index >= Count)
+            throw new IndexOutOfRangeException(nameof(index));
     }
 
     private void GrowIfNecessary()
     {
-        if (Count == _items.Length) _items = Grow();
+        if (Count == _items.Length)
+            _items = Grow();
     }
 
     private T[] Grow()

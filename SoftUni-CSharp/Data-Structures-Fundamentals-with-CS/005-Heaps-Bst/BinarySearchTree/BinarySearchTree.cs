@@ -3,9 +3,7 @@
 public class BinarySearchTree<T> : IAbstractBinarySearchTree<T>
     where T : IComparable<T>
 {
-    public BinarySearchTree()
-    {
-    }
+    public BinarySearchTree() { }
 
     public BinarySearchTree(Node<T> root)
     {
@@ -41,7 +39,7 @@ public class BinarySearchTree<T> : IAbstractBinarySearchTree<T>
     {
         // Check if first added element is the root
         // Find where to add element (while)
-        // If element exists return            
+        // If element exists return
 
         var toInsert = new Node<T>(element, null, null);
 
@@ -79,7 +77,8 @@ public class BinarySearchTree<T> : IAbstractBinarySearchTree<T>
         while (current != null && !AreEqual(element, current.Value))
             if (IsLess(element, current.Value))
                 current = current.LeftChild;
-            else if (IsGreater(element, current.Value)) current = current.RightChild;
+            else if (IsGreater(element, current.Value))
+                current = current.RightChild;
 
         return new BinarySearchTree<T>(current);
     }

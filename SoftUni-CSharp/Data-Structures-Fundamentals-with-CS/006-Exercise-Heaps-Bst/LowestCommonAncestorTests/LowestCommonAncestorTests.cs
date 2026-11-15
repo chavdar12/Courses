@@ -11,16 +11,11 @@ public class LowestCommonAncestorTests
     {
         binaryTree = new BinaryTree<int>(
             12,
-            new BinaryTree<int>(5,
-                new BinaryTree<int>(1, null, null),
-                new BinaryTree<int>(8, null, null)
-            ),
-            new BinaryTree<int>(19,
+            new BinaryTree<int>(5, new BinaryTree<int>(1, null, null), new BinaryTree<int>(8, null, null)),
+            new BinaryTree<int>(
+                19,
                 new BinaryTree<int>(16, null, null),
-                new BinaryTree<int>(23,
-                    new BinaryTree<int>(21, null, null),
-                    new BinaryTree<int>(30, null, null)
-                )
+                new BinaryTree<int>(23, new BinaryTree<int>(21, null, null), new BinaryTree<int>(30, null, null))
             )
         );
     }
@@ -32,8 +27,11 @@ public class LowestCommonAncestorTests
     [TestCase(23, 23, 30)]
     [TestCase(12, 23, 8)]
     [TestCase(19, 19, 23)]
-    public void FindLowestCommonAncestor_WithExistingNodes_ReturnsCorrectAncestor(int expected, int firstNode,
-        int secondNode)
+    public void FindLowestCommonAncestor_WithExistingNodes_ReturnsCorrectAncestor(
+        int expected,
+        int firstNode,
+        int secondNode
+    )
     {
         Assert.AreEqual(expected, binaryTree.FindLowestCommonAncestor(firstNode, secondNode));
     }

@@ -14,7 +14,8 @@ public class SlowQueue<T> : IAbstractQueue<T>
 
         while (current != null)
         {
-            if (EqualityComparer<T>.Default.Equals(current.Item, item)) return true;
+            if (EqualityComparer<T>.Default.Equals(current.Item, item))
+                return true;
 
             current = current.Next;
         }
@@ -38,11 +39,7 @@ public class SlowQueue<T> : IAbstractQueue<T>
 
     public void Enqueue(T item)
     {
-        var newNode = new Node<T>
-        {
-            Item = item,
-            Next = null
-        };
+        var newNode = new Node<T> { Item = item, Next = null };
 
         if (_head is null)
         {
