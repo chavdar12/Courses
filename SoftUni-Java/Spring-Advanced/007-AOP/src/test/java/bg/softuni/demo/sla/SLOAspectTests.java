@@ -93,10 +93,12 @@ class SLOAspectTests {
 
     private static TrackLatency latency(String id) {
         return new TrackLatency() {
+            @Override
             public String latency() {
                 return id;
             }
 
+            @Override
             public Class<TrackLatency> annotationType() {
                 return TrackLatency.class;
             }
