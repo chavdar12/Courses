@@ -15,66 +15,66 @@ const detailsTemplate = (
     likeBook,
     userAlreadyLiked,
 ) => html`
-    <section id="details-page" class="details">
-        <div class="book-information">
-            <h3>${data.title}</h3>
-            <p class="type">Type: ${data.type}</p>
-            <p class="img"><img src=${data.imageUrl} /></p>
-            <div class="actions">
-                <!-- Edit/Delete buttons ( Only for creator of this book )  -->
-                ${
-                    isCreator
-                        ? html` <a class="button" href="/edit/${data._id}">Edit</a>
-                              <a @click=${onDelete} class="button" href="javascript:void(0)"
-                                  >Delete</a
-                              >`
-                        : ''
-                }
+<section id="details-page" class="details">
+    <div class="book-information">
+        <h3>${data.title}</h3>
+        <p class="type">Type: ${data.type}</p>
+        <p class="img"><img src=${data.imageUrl}></p>
+        <div class="actions">
+            <!-- Edit/Delete buttons ( Only for creator of this book )  -->
+            ${
+                isCreator
+                    ? html` <a class="button" href="/edit/${data._id}">Edit</a>
+            <a @click=${onDelete} class="button" href="javascript:void(0)">Delete</a>`
+                    : ''
+            }
 
-                <!-- Bonus -->
-                <!-- Like button ( Only for logged-in users, which is not creators of the current book ) -->
-                ${
-                    !isCreator && !userAlreadyLiked
-                        ? html`<a @click=${likeBook} class="button" href="javascript:void(0)"
-                              >Like</a
-                          >`
-                        : ''
-                }
 
-                <!-- ( for Guests and Users )  -->
-                <div class="likes">
-                    <img class="hearts" src="/images/heart.png" />
-                    <span id="total-likes">Likes: ${bookTotalLikes}</span>
-                </div>
-                <!-- Bonus -->
+            <!-- Bonus -->
+            <!-- Like button ( Only for logged-in users, which is not creators of the current book ) -->
+            ${
+                !isCreator && !userAlreadyLiked
+                    ? html`<a @click=${likeBook} class="button"
+                href="javascript:void(0)">Like</a>`
+                    : ''
+            }
+
+            <!-- ( for Guests and Users )  -->
+            <div class="likes">
+                <img class="hearts" src="/images/heart.png">
+                <span id="total-likes">Likes: ${bookTotalLikes}</span>
             </div>
+            <!-- Bonus -->
         </div>
-        <div class="book-description">
-            <h3>Description:</h3>
-            <p>${data.description}</p>
-        </div>
-    </section>
+    </div>
+    <div class="book-description">
+        <h3>Description:</h3>
+        <p>${data.description}</p>
+    </div>
+</section>
 `;
 
 const detailsTemplateGuests = (data, bookTotalLikes) => html`
-    <section id="details-page" class="details">
-        <div class="book-information">
-            <h3>${data.title}</h3>
-            <p class="type">Type: ${data.type}</p>
-            <p class="img"><img src=${data.imageUrl} /></p>
-            <div class="actions">
-                <!-- ( for Guests and Users )  -->
-                <div class="likes">
-                    <img class="hearts" src="/images/heart.png" />
-                    <span id="total-likes">Likes: ${bookTotalLikes}</span>
-                </div>
+<section id="details-page" class="details">
+    <div class="book-information">
+        <h3>${data.title}</h3>
+        <p class="type">Type: ${data.type}</p>
+        <p class="img"><img src=${data.imageUrl}></p>
+        <div class="actions">
+
+            <!-- ( for Guests and Users )  -->
+            <div class="likes">
+                <img class="hearts" src="/images/heart.png">
+                <span id="total-likes">Likes: ${bookTotalLikes}</span>
             </div>
+
         </div>
-        <div class="book-description">
-            <h3>Description:</h3>
-            <p>${data.description}</p>
-        </div>
-    </section>
+    </div>
+    <div class="book-description">
+        <h3>Description:</h3>
+        <p>${data.description}</p>
+    </div>
+</section>
 `;
 
 export async function detailsPage(ctx) {
