@@ -51,8 +51,8 @@ export function createApp() {
     // Supports the subset the spec sends: field="value" [and field="value" ...]
     const matches = (where: string | null) => (doc: Doc) =>
         !where ||
-        where.split(/\s+and\s+/i).every((cond) => {
-            const [, field, value] = cond.match(/^(\w+)\s*=\s*"(.*)"$/) ?? [];
+        where.split(/\sand\s/i).every((cond) => {
+            const [, field, value] = cond.trim().match(/^(\w+)\s*=\s*"(.*)"$/) ?? [];
             if (!field) throw new Error(`Unsupported where clause: ${cond}`);
             return String(doc[field]) === value;
         });
