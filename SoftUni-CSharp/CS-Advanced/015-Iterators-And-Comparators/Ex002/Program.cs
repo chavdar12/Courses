@@ -10,6 +10,8 @@ internal class Program
         var libraryOne = new Library();
         var libraryTwo = new Library(bookOne, bookTwo, bookThree);
         foreach (var book in libraryTwo)
-            Console.WriteLine($"{book.Title} by {(book.Authors.Count > 0 ? string.Join(", ", book.Authors) : "Anonymous")}");
+            Console.WriteLine(
+                $"{book.Title} by {(book.Authors.Count > 0 ? string.Join(", ", book.Authors) : "Anonymous")}"
+            );
     }
 }

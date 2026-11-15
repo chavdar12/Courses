@@ -27,8 +27,15 @@ public class Car
         FuelConsumption = fuelConsumption;
     }
 
-    public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption, Engine engine,
-        Tire[] tires)
+    public Car(
+        string make,
+        string model,
+        int year,
+        double fuelQuantity,
+        double fuelConsumption,
+        Engine engine,
+        Tire[] tires
+    )
         : this(make, model, year, fuelQuantity, fuelConsumption)
     {
         Engine = engine;
@@ -62,7 +69,8 @@ public class Car
     {
         var sb = new StringBuilder();
         sb.Append(
-            $"Make: {Make}\nModel: {Model}\nYear: {Year}\nHorsePowers: {Engine.HorsePower}\nFuelQuantity: {FuelQuantity}");
+            $"Make: {Make}\nModel: {Model}\nYear: {Year}\nHorsePowers: {Engine.HorsePower}\nFuelQuantity: {FuelQuantity}"
+        );
         return sb.ToString();
     }
 }

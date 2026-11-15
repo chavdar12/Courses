@@ -11,6 +11,7 @@ internal class Program
         using var destination = new FileStream(output, FileMode.Create);
         var buffer = new byte[4096];
         int read;
-        while ((read = source.Read(buffer, 0, buffer.Length)) > 0) destination.Write(buffer, 0, read);
+        while ((read = source.Read(buffer, 0, buffer.Length)) > 0)
+            destination.Write(buffer, 0, read);
     }
 }

@@ -15,7 +15,8 @@ internal class Program
             var pokemonHealth = int.Parse(caughtPokemon[3]);
             var currentTrainer = new Trainer(trainerName);
             var currentPokemon = new Pokemon(pokemonName, pokemonElement, pokemonHealth);
-            if (!pokemonTrainers.Exists(t => t.Name == trainerName)) pokemonTrainers.Add(currentTrainer);
+            if (!pokemonTrainers.Exists(t => t.Name == trainerName))
+                pokemonTrainers.Add(currentTrainer);
             pokemonTrainers.First(t => t.Name == trainerName).Pokemons.Add(currentPokemon);
         }
 

@@ -33,7 +33,8 @@ public class CustomStack<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        for (var i = 0; i < Count; i++) yield return myStack[i];
+        for (var i = 0; i < Count; i++)
+            yield return myStack[i];
     }
 
     IEnumerator IEnumerable.GetEnumerator()

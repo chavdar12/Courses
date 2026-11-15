@@ -11,12 +11,14 @@ internal class Program
             var studentInfo = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
             var studentName = studentInfo[0];
             var grade = decimal.Parse(studentInfo[1]);
-            if (!studentGrades.ContainsKey(studentName)) studentGrades.Add(studentName, new List<decimal>());
+            if (!studentGrades.ContainsKey(studentName))
+                studentGrades.Add(studentName, new List<decimal>());
             studentGrades[studentName].Add(grade);
         }
 
         foreach (var student in studentGrades)
             Console.WriteLine(
-                $"{student.Key} -> {string.Join(" ", student.Value.Select(v => $"{v:f2}"))} (avg: {student.Value.Average():f2})");
+                $"{student.Key} -> {string.Join(" ", student.Value.Select(v => $"{v:f2}"))} (avg: {student.Value.Average():f2})"
+            );
     }
 }

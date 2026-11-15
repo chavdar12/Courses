@@ -30,7 +30,8 @@ internal class Program
             var city = info[2];
             var currentCountry = new Country(country);
             currentCountry.Cities = new List<string>();
-            if (!continents.ContainsKey(cont)) continents.Add(cont, new List<Country>());
+            if (!continents.ContainsKey(cont))
+                continents.Add(cont, new List<Country>());
 
             var idx = continents[cont].FindIndex(c => c.Name == country);
             if (idx == -1)

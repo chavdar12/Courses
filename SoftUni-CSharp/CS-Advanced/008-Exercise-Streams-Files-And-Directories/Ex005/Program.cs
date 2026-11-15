@@ -12,15 +12,19 @@ internal class Program
         var expected = args.Length > 3 ? args[3] : "expectedResult.txt";
 
         var tokens = Regex.Matches(text, @"[\w']+").Select(m => m.Value).ToList();
-        var counts = words.Where(w => w != "").Distinct()
+        var counts = words
+            .Where(w => w != "")
+            .Distinct()
             .Select(word => (word, count: tokens.Count(t => t == word)))
             .OrderByDescending(x => x.count)
             .Select(x => $"{x.word} - {x.count}")
             .ToArray();
 
         File.WriteAllLines(actual, counts);
-        Console.WriteLine(counts.SequenceEqual(File.ReadAllLines(expected))
-            ? "Actual results match the expected results."
-            : "Actual results differ from the expected results.");
+        Console.WriteLine(
+            counts.SequenceEqual(File.ReadAllLines(expected))
+                ? "Actual results match the expected results."
+                : "Actual results differ from the expected results."
+        );
     }
 }

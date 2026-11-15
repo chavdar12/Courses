@@ -15,7 +15,8 @@ internal class Program
         Console.WriteLine(FilterCount(doubles, double.Parse(Console.ReadLine())));
     }
 
-    private static int FilterCount<T>(List<Box<T>> list, T item) where T : IComparable
+    private static int FilterCount<T>(List<Box<T>> list, T item)
+        where T : IComparable
     {
         return list.Count(b => b.Value.CompareTo(item) > 0);
     }

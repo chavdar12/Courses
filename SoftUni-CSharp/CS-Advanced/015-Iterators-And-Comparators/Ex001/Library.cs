@@ -31,9 +31,7 @@ public class Library : IEnumerable<Book>
 
         object? IEnumerator.Current => Current;
 
-        public void Dispose()
-        {
-        }
+        public void Dispose() { }
     }
 
     public Library(params Book[] books)

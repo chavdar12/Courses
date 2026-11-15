@@ -9,7 +9,8 @@ internal class Program
         for (var i = 0; i < n; i++)
         {
             var value = Console.ReadLine();
-            if (!occurrences.ContainsKey(value)) occurrences.Add(value, 0);
+            if (!occurrences.ContainsKey(value))
+                occurrences.Add(value, 0);
 
             occurrences[value]++;
         }

@@ -56,7 +56,8 @@ internal class Program
         foreach (var (key, value) in studentData)
         {
             var sum = value.Sum(contest => contest.Value);
-            if (sum <= highestPoints) continue;
+            if (sum <= highestPoints)
+                continue;
             bestCard = key;
             highestPoints = sum;
         }

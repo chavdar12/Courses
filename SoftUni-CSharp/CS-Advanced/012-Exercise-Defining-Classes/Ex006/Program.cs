@@ -27,13 +27,7 @@ internal class Program
             var tire2 = new Tire(tire2Age, tire2Pressure);
             var tire3 = new Tire(tire3Age, tire3Pressure);
             var tire4 = new Tire(tire4Age, tire4Pressure);
-            var tires = new List<Tire>
-            {
-                tire1,
-                tire2,
-                tire3,
-                tire4
-            };
+            var tires = new List<Tire> { tire1, tire2, tire3, tire4 };
             var currentEngine = new Engine(engSpeed, engPower);
             var currentCar = new Car(model, currentEngine, tires, currentCargo);
             cars.Add(currentCar);
@@ -41,10 +35,15 @@ internal class Program
 
         var filterCargoType = Console.ReadLine();
         if (filterCargoType == "fragile")
-            Console.WriteLine(string.Join(Environment.NewLine,
-                cars.FindAll(c => c.Cargo.Type == "fragile" && c.Tires.Any(t => t.Pressure < 1))));
+            Console.WriteLine(
+                string.Join(
+                    Environment.NewLine,
+                    cars.FindAll(c => c.Cargo.Type == "fragile" && c.Tires.Any(t => t.Pressure < 1))
+                )
+            );
         else if (filterCargoType == "flammable")
-            Console.WriteLine(string.Join(Environment.NewLine,
-                cars.FindAll(c => c.Cargo.Type == "flammable" && c.Engine.Power > 250)));
+            Console.WriteLine(
+                string.Join(Environment.NewLine, cars.FindAll(c => c.Cargo.Type == "flammable" && c.Engine.Power > 250))
+            );
     }
 }

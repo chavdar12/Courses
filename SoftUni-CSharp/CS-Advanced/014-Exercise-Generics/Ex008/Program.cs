@@ -11,8 +11,11 @@ internal class Program
         var firstThreeuple = new Threeuple<string, string, string>(name, address, town);
         Console.WriteLine(firstThreeuple);
         var second = Console.ReadLine().Split();
-        var secondThreeuple =
-            new Threeuple<string, int, bool>(second[0], int.Parse(second[1]), second[2].ToLower() == "drunk");
+        var secondThreeuple = new Threeuple<string, int, bool>(
+            second[0],
+            int.Parse(second[1]),
+            second[2].ToLower() == "drunk"
+        );
         Console.WriteLine(secondThreeuple);
         var third = Console.ReadLine().Split();
         var thirdThreeuple = new Threeuple<string, double, string>(third[0], double.Parse(third[1]), third[2]);

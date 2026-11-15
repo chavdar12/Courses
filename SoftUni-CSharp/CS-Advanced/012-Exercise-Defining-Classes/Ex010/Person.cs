@@ -3,14 +3,10 @@ namespace Ex010;
 public class Person
 {
     public Person()
-        : this(1)
-    {
-    }
+        : this(1) { }
 
     public Person(int age)
-        : this("No name", age)
-    {
-    }
+        : this("No name", age) { }
 
     public Person(string name, int age)
     {

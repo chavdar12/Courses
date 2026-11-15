@@ -9,7 +9,8 @@ public class Person : IComparable<Person>
     {
         // the spec treats "John 17" and "john 17" as the same person
         var byName = string.Compare(Name, other.Name, StringComparison.OrdinalIgnoreCase);
-        if (byName != 0) return byName;
+        if (byName != 0)
+            return byName;
 
         return Age.CompareTo(other.Age) != 0 ? Age.CompareTo(other.Age) : 0;
     }

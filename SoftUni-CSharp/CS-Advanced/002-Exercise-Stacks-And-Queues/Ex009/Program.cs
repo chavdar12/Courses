@@ -15,13 +15,16 @@ internal class Program
                     integers.Push(int.Parse(command[1]));
                     break;
                 case "2":
-                    if (integers.Any()) integers.Pop();
+                    if (integers.Any())
+                        integers.Pop();
                     break;
                 case "3":
-                    if (integers.Count > 0) Console.WriteLine(integers.Max());
+                    if (integers.Count > 0)
+                        Console.WriteLine(integers.Max());
                     break;
                 case "4":
-                    if (integers.Count > 0) Console.WriteLine(integers.Min());
+                    if (integers.Count > 0)
+                        Console.WriteLine(integers.Min());
                     break;
             }
         }

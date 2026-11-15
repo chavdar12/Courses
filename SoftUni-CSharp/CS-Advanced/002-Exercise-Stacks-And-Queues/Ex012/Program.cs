@@ -45,7 +45,8 @@ internal class Program
             }
 
             pumps.Enqueue(pumps.Dequeue());
-            if (counter == numPumps) isEnough = true;
+            if (counter == numPumps)
+                isEnough = true;
         }
 
         Console.WriteLine(pumps.Peek().Name);

@@ -11,7 +11,8 @@ internal class Program
         for (var i = 0; i < matrixSize; i++)
         {
             var row = Console.ReadLine().Split().Select(int.Parse).ToArray();
-            for (var j = 0; j < row.Length; j++) matrix[i, j] = row[j];
+            for (var j = 0; j < row.Length; j++)
+                matrix[i, j] = row[j];
         }
 
         for (var i = 0; i < matrixSize; i++)

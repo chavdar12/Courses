@@ -23,9 +23,9 @@ internal class Program
             bottles.Pop();
         }
 
-        Console.WriteLine(cups.Count == 0
-            ? $"Bottles: {string.Join(" ", bottles)}"
-            : $"Cups: {string.Join(" ", cups)}");
+        Console.WriteLine(
+            cups.Count == 0 ? $"Bottles: {string.Join(" ", bottles)}" : $"Cups: {string.Join(" ", cups)}"
+        );
         Console.WriteLine($"Wasted litters of water: {wastedWater}");
     }
 }

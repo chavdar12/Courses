@@ -8,7 +8,10 @@ internal class Program
         var jaggedArr = new double[n][];
         for (var i = 0; i < n; i++)
         {
-            var row = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(double.Parse)
+            var row = Console
+                .ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse)
                 .ToArray();
             jaggedArr[i] = row.ToArray();
         }
@@ -24,9 +27,11 @@ internal class Program
             }
             else
             {
-                for (var j = 0; j < jaggedArr[i].Length; j++) jaggedArr[i][j] /= 2;
+                for (var j = 0; j < jaggedArr[i].Length; j++)
+                    jaggedArr[i][j] /= 2;
 
-                for (var j = 0; j < jaggedArr[i + 1].Length; j++) jaggedArr[i + 1][j] /= 2;
+                for (var j = 0; j < jaggedArr[i + 1].Length; j++)
+                    jaggedArr[i + 1][j] /= 2;
             }
 
         var command = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
@@ -55,6 +60,7 @@ internal class Program
             command = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
         }
 
-        for (var i = 0; i < jaggedArr.Length; i++) Console.WriteLine(string.Join(" ", jaggedArr[i]));
+        for (var i = 0; i < jaggedArr.Length; i++)
+            Console.WriteLine(string.Join(" ", jaggedArr[i]));
     }
 }

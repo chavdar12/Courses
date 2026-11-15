@@ -15,9 +15,11 @@ public class Person : IComparable<Person>
 
     public int CompareTo(Person other)
     {
-        if (string.Compare(Name, other.Name, StringComparison.Ordinal) != 0) return Name.CompareTo(other.Name);
+        if (string.Compare(Name, other.Name, StringComparison.Ordinal) != 0)
+            return Name.CompareTo(other.Name);
 
-        if (Age.CompareTo(other.Age) != 0) return Age.CompareTo(other.Age);
+        if (Age.CompareTo(other.Age) != 0)
+            return Age.CompareTo(other.Age);
 
         return string.Compare(Town, other.Town, StringComparison.Ordinal) != 0 ? Town.CompareTo(other.Town) : 0;
     }

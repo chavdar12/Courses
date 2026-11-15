@@ -6,7 +6,8 @@ internal class Program
     {
         var rows = int.Parse(Console.ReadLine());
         var jaggedArray = new int[rows][];
-        for (var i = 0; i < rows; i++) jaggedArray[i] = Console.ReadLine().Split().Select(int.Parse).ToArray();
+        for (var i = 0; i < rows; i++)
+            jaggedArray[i] = Console.ReadLine().Split().Select(int.Parse).ToArray();
 
         var command = Console.ReadLine().Split();
         while (command[0] != "END")
@@ -38,6 +39,7 @@ internal class Program
             command = Console.ReadLine().Split();
         }
 
-        for (var i = 0; i < rows; i++) Console.WriteLine(string.Join(" ", jaggedArray[i]));
+        for (var i = 0; i < rows; i++)
+            Console.WriteLine(string.Join(" ", jaggedArray[i]));
     }
 }

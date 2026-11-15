@@ -11,7 +11,9 @@ internal class Program
         var output = args.Length > 2 ? args[2] : "output.txt";
 
         var tokens = Regex.Matches(text, @"[\w']+").Select(m => m.Value).ToList();
-        var counts = words.Where(w => w != "").Distinct()
+        var counts = words
+            .Where(w => w != "")
+            .Distinct()
             .Select(word => (word, count: tokens.Count(t => t == word)))
             .OrderByDescending(x => x.count);
 

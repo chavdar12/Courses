@@ -15,8 +15,9 @@ public static class ProgramRunner
     /// </summary>
     public static string Run(string assemblyName, string input = "", params string[] args)
     {
-        var entryPoint = Assembly.Load(assemblyName).EntryPoint
-                         ?? throw new InvalidOperationException($"{assemblyName} has no entry point");
+        var entryPoint =
+            Assembly.Load(assemblyName).EntryPoint
+            ?? throw new InvalidOperationException($"{assemblyName} has no entry point");
         var output = new StringWriter();
         var (originalIn, originalOut, originalCulture) = (Console.In, Console.Out, CultureInfo.CurrentCulture);
         Console.SetIn(new StringReader(input));

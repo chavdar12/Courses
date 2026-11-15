@@ -45,10 +45,12 @@ internal class Program
             foreach (var s in secondSplit)
             {
                 var typeOfClothing = new Type(s);
-                if (clothes.All(c => c.Color != currentClothing.Color)) clothes.Add(currentClothing);
+                if (clothes.All(c => c.Color != currentClothing.Color))
+                    clothes.Add(currentClothing);
 
                 var idx = clothes.FindIndex(c => c.Color == color);
-                if (clothes[idx].Type.All(t => t.ClothesType != s)) clothes[idx].Type.Add(typeOfClothing);
+                if (clothes[idx].Type.All(t => t.ClothesType != s))
+                    clothes[idx].Type.Add(typeOfClothing);
                 var countIdx = clothes[idx].Type.FindIndex(t => t.ClothesType == s);
                 clothes[idx].Type[countIdx].Count++;
             }
@@ -60,7 +62,8 @@ internal class Program
         foreach (var cloth in clothes)
         {
             Console.WriteLine($"{cloth.Color} clothes:");
-            foreach (var type in cloth.Type) Console.WriteLine(type.ToStrings(clothing, colour, cloth.Color));
+            foreach (var type in cloth.Type)
+                Console.WriteLine(type.ToStrings(clothing, colour, cloth.Color));
         }
     }
 }

@@ -24,9 +24,11 @@ internal class Program
             }
         }
 
-        Console.WriteLine(partyPeople.Any()
-            ? $"{string.Join(", ", partyPeople)} are going to the party!"
-            : "Nobody is going to the party!");
+        Console.WriteLine(
+            partyPeople.Any()
+                ? $"{string.Join(", ", partyPeople)} are going to the party!"
+                : "Nobody is going to the party!"
+        );
     }
 
     private static Predicate<string> GetPredicate(string commandType, string arg)

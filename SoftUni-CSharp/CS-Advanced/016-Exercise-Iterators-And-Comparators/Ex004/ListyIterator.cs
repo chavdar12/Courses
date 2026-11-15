@@ -21,8 +21,10 @@ public class ListyIterator<T> : IEnumerable<T>
 
     public bool Move()
     {
-        if (Elements.Count <= 0) return false;
-        if (currentIndex == Elements.Count - 1) return false;
+        if (Elements.Count <= 0)
+            return false;
+        if (currentIndex == Elements.Count - 1)
+            return false;
         currentIndex++;
         return true;
     }
@@ -40,21 +42,24 @@ public class ListyIterator<T> : IEnumerable<T>
 
     public void PrintAll()
     {
-        foreach (var element in Elements) Console.Write(element + " ");
+        foreach (var element in Elements)
+            Console.Write(element + " ");
 
         Console.WriteLine();
     }
 
     public bool HasNext()
     {
-        if (Elements.Count == 0) return false;
+        if (Elements.Count == 0)
+            return false;
 
         return currentIndex + 1 < Elements.Count;
     }
 
     public IEnumerator<T> GetEnumerator()
     {
-        foreach (var element in Elements) yield return element;
+        foreach (var element in Elements)
+            yield return element;
     }
 
     IEnumerator IEnumerable.GetEnumerator()

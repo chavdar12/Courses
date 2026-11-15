@@ -9,7 +9,8 @@ internal class Program
         for (var i = 0; i < n; i++)
         {
             var row = Console.ReadLine();
-            for (var j = 0; j < n; j++) matrix[i, j] = row[j];
+            for (var j = 0; j < n; j++)
+                matrix[i, j] = row[j];
         }
 
         var symbolLookingFor = char.Parse(Console.ReadLine());

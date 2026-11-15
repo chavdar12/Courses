@@ -26,7 +26,8 @@ internal class Program
             switch (split[1])
             {
                 case "joined":
-                    if (!theVLogger.ContainsKey(username)) theVLogger.Add(username, new Vlogger());
+                    if (!theVLogger.ContainsKey(username))
+                        theVLogger.Add(username, new Vlogger());
                     break;
                 case "followed":
                     if (theVLogger.ContainsKey(username) && theVLogger.ContainsKey(username2) && username2 != username)
@@ -39,21 +40,28 @@ internal class Program
             }
         }
 
-        theVLogger = theVLogger.OrderByDescending(v => v.Value.Followers.Count).ThenBy(v => v.Value.Following.Count)
+        theVLogger = theVLogger
+            .OrderByDescending(v => v.Value.Followers.Count)
+            .ThenBy(v => v.Value.Following.Count)
             .ToDictionary(k => k.Key, v => v.Value);
         Console.WriteLine($"The V-Logger has a total of {theVLogger.Count} vloggers in its logs.");
         Console.WriteLine(
-            $"1. {theVLogger.First().Key} : {theVLogger.First().Value.Followers.Count} followers, {theVLogger.First().Value.Following.Count} following");
+            $"1. {theVLogger.First().Key} : {theVLogger.First().Value.Followers.Count} followers, {theVLogger.First().Value.Following.Count} following"
+        );
         foreach (var follower in theVLogger.First().Value.Followers.OrderBy(f => f))
             Console.WriteLine($"*  {follower}");
 
         theVLogger.Remove(theVLogger.First().Key);
         var counter = 2;
-        foreach (var vlogger in theVLogger.OrderByDescending(f => f.Value.Followers.Count)
-                     .ThenBy(f => f.Value.Following.Count))
+        foreach (
+            var vlogger in theVLogger
+                .OrderByDescending(f => f.Value.Followers.Count)
+                .ThenBy(f => f.Value.Following.Count)
+        )
         {
             Console.WriteLine(
-                $"{counter}. {vlogger.Key} : {vlogger.Value.Followers.Count} followers, {vlogger.Value.Following.Count} following");
+                $"{counter}. {vlogger.Key} : {vlogger.Value.Followers.Count} followers, {vlogger.Value.Following.Count} following"
+            );
             counter++;
         }
     }

@@ -13,7 +13,8 @@ internal class Program
             for (var j = 0; j < n; j++)
             {
                 matrix[i, j] = row[j];
-                if (i == j) sum += matrix[i, j];
+                if (i == j)
+                    sum += matrix[i, j];
             }
         }
 

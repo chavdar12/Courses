@@ -10,7 +10,8 @@ internal class Program
         {
             if (customer == "Paid")
             {
-                foreach (var customer1 in customers) Console.WriteLine(customer1);
+                foreach (var customer1 in customers)
+                    Console.WriteLine(customer1);
                 customers.Clear();
                 customer = Console.ReadLine();
                 continue;

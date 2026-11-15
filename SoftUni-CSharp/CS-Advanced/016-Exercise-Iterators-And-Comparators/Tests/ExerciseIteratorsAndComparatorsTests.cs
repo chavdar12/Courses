@@ -15,8 +15,7 @@ public class ExerciseIteratorsAndComparatorsTests
     [Theory]
     [InlineData("4\nPeter 20\nPetter 20\nGeorge 15\nPeter 21", "4\n4")]
     [InlineData("7\nJohn 17\njohn 17\nStoqn 25\nJohn 18\nJohn 17\nSam 25\nSamm 25", "5\n5")]
-    public void Ex002_EqualityLogic(string input, string expected) =>
-        AssertOutput(Module + "Ex002", input, expected);
+    public void Ex002_EqualityLogic(string input, string expected) => AssertOutput(Module + "Ex002", input, expected);
 
     [Theory]
     [InlineData("1, 2, 3, 4, 5, 6, 7, 8", "1, 3, 5, 7, 8, 6, 4, 2")]
@@ -27,13 +26,18 @@ public class ExerciseIteratorsAndComparatorsTests
     [Theory]
     [InlineData("Create\nPrint\nEND", "Invalid Operation!")]
     [InlineData("Create Stefcho Goshky\nHasNext\nPrint\nMove\nPrint\nEND", "True\nStefcho\nTrue\nGoshky")]
-    [InlineData("Create 1 2 3\nHasNext\nMove\nHasNext\nHasNext\nMove\nHasNext\nEND", "True\nTrue\nTrue\nTrue\nTrue\nFalse")]
+    [InlineData(
+        "Create 1 2 3\nHasNext\nMove\nHasNext\nHasNext\nMove\nHasNext\nEND",
+        "True\nTrue\nTrue\nTrue\nTrue\nFalse"
+    )]
     public void Ex004_ListyIterator(string input, string expected) => AssertOutput(Module + "Ex004", input, expected);
 
     [Theory]
     [InlineData("Create 1 2 3 4 5\nMove\nPrintAll\nEND", "True\n1 2 3 4 5")]
-    [InlineData("Create Stefcho Goshky Peshu\nPrintAll\nMove\nMove\nPrint\nHasNext\nEND",
-        "Stefcho Goshky Peshu\nTrue\nTrue\nPeshu\nFalse")]
+    [InlineData(
+        "Create Stefcho Goshky Peshu\nPrintAll\nMove\nMove\nPrint\nHasNext\nEND",
+        "Stefcho Goshky Peshu\nTrue\nTrue\nPeshu\nFalse"
+    )]
     public void Ex004_CollectionPrintAll(string input, string expected) =>
         AssertOutput(Module + "Ex004", input, expected);
 
@@ -44,10 +48,15 @@ public class ExerciseIteratorsAndComparatorsTests
     public void Ex005_Stack(string input, string expected) => AssertOutput(Module + "Ex005", input, expected);
 
     [Fact]
-    public void Ex006_CustomLinkedListIsForeachable() => AssertOutput(Module + "Ex006", "", """
-        0
-        3
-        30
-        Sum: 33
-        """);
+    public void Ex006_CustomLinkedListIsForeachable() =>
+        AssertOutput(
+            Module + "Ex006",
+            "",
+            """
+            0
+            3
+            30
+            Sum: 33
+            """
+        );
 }

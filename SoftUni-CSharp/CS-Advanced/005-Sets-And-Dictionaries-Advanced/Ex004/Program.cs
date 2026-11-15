@@ -12,7 +12,8 @@ internal class Program
             switch (split[0])
             {
                 case "IN":
-                    if (!licensePlates.Contains(split[1])) licensePlates.Add(split[1]);
+                    if (!licensePlates.Contains(split[1]))
+                        licensePlates.Add(split[1]);
                     break;
                 case "OUT":
                     licensePlates.Remove(split[1]);
@@ -21,6 +22,7 @@ internal class Program
         }
 
         Console.WriteLine(
-            licensePlates.Any() ? string.Join(Environment.NewLine, licensePlates) : "Parking Lot is Empty");
+            licensePlates.Any() ? string.Join(Environment.NewLine, licensePlates) : "Parking Lot is Empty"
+        );
     }
 }

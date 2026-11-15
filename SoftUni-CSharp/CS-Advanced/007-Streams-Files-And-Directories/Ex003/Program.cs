@@ -11,8 +11,10 @@ internal class Program
         var merged = new List<string>();
         for (var i = 0; i < Math.Max(first.Length, second.Length); i++)
         {
-            if (i < first.Length) merged.Add(first[i]);
-            if (i < second.Length) merged.Add(second[i]);
+            if (i < first.Length)
+                merged.Add(first[i]);
+            if (i < second.Length)
+                merged.Add(second[i]);
         }
 
         File.WriteAllLines(output, merged);

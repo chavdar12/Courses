@@ -36,14 +36,25 @@ internal class Program
             var carInfo = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             var engine = engines[int.Parse(carInfo[5])];
             var tireSet = tires[int.Parse(carInfo[6])];
-            var currentCar = new Car(carInfo[0], carInfo[1], int.Parse(carInfo[2]), double.Parse(carInfo[3]),
-                double.Parse(carInfo[4]), engine, tireSet);
+            var currentCar = new Car(
+                carInfo[0],
+                carInfo[1],
+                int.Parse(carInfo[2]),
+                double.Parse(carInfo[3]),
+                double.Parse(carInfo[4]),
+                engine,
+                tireSet
+            );
             cars.Add(currentCar);
         }
 
         cars = cars.Where(c =>
-            c.Year >= 2017 && c.Engine.HorsePower > 330 && c.Tires.Sum(t => t.Pressure) >= 9 &&
-            c.Tires.Sum(t => t.Pressure) <= 10).ToList();
+                c.Year >= 2017
+                && c.Engine.HorsePower > 330
+                && c.Tires.Sum(t => t.Pressure) >= 9
+                && c.Tires.Sum(t => t.Pressure) <= 10
+            )
+            .ToList();
 
         foreach (var car in cars)
         {

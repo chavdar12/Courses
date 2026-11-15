@@ -45,8 +45,6 @@ public class Library : IEnumerable<Book>
             currentIndex = -1;
         }
 
-        public void Dispose()
-        {
-        }
+        public void Dispose() { }
     }
 }

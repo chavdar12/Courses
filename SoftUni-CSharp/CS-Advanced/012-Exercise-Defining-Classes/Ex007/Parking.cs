@@ -12,15 +12,15 @@ public class Parking
 
     private int Capacity { get; set; }
 
-    public int Count
-        => Cars.Count;
+    public int Count => Cars.Count;
 
     public string AddCar(Car car)
     {
         if (Cars.Any(c => c.RegistrationNumber == car.RegistrationNumber))
             return "Car with that registration number, already exists!";
 
-        if (Count == Capacity) return "Parking is full!";
+        if (Count == Capacity)
+            return "Parking is full!";
 
         Cars.Add(car);
         return $"Successfully added new car {car.Make} {car.RegistrationNumber}";

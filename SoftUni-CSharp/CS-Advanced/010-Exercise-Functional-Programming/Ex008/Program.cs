@@ -11,7 +11,11 @@ internal class Program
             return str.Length <= n;
         }
 
-        Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList().FindAll(Condition)
+        Console
+            .ReadLine()
+            .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+            .ToList()
+            .FindAll(Condition)
             .ForEach(Console.WriteLine);
     }
 }

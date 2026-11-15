@@ -9,7 +9,10 @@ internal class Program
             return str.Insert(0, "Sir ");
         }
 
-        Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select((Func<string, string>)AddPrefix)
+        Console
+            .ReadLine()
+            .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+            .Select((Func<string, string>)AddPrefix)
             .ToList()
             .ForEach(Console.WriteLine);
     }

@@ -6,17 +6,20 @@ internal class Program
     {
         void Add(IList<int> i)
         {
-            for (var j = 0; j < i.Count; j++) i[j]++;
+            for (var j = 0; j < i.Count; j++)
+                i[j]++;
         }
 
         void Multiply(IList<int> i)
         {
-            for (var j = 0; j < i.Count; j++) i[j] *= 2;
+            for (var j = 0; j < i.Count; j++)
+                i[j] *= 2;
         }
 
         void Subtract(IList<int> i)
         {
-            for (var j = 0; j < i.Count; j++) i[j]--;
+            for (var j = 0; j < i.Count; j++)
+                i[j]--;
         }
 
         void Print(IEnumerable<int> i)

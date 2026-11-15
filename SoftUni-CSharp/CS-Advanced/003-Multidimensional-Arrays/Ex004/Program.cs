@@ -11,7 +11,8 @@ internal class Program
         for (var i = 0; i < matrixSizes[0]; i++)
         {
             var row = Console.ReadLine().Split(", ").Select(int.Parse).ToArray();
-            for (var j = 0; j < matrixSizes[1]; j++) matrix[i, j] = row[j];
+            for (var j = 0; j < matrixSizes[1]; j++)
+                matrix[i, j] = row[j];
         }
 
         for (var i = 0; i < matrixSizes[0] - 1; i++)
@@ -27,7 +28,8 @@ internal class Program
 
         for (var i = 0; i < 2; i++)
         {
-            for (var j = 0; j < 2; j++) Console.Write(matrix2x2[i, j] + " ");
+            for (var j = 0; j < 2; j++)
+                Console.Write(matrix2x2[i, j] + " ");
 
             Console.WriteLine();
         }

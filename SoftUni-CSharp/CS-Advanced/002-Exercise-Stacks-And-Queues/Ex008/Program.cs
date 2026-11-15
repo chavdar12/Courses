@@ -24,15 +24,18 @@ internal class Program
 
             bullets.Dequeue();
             Console.WriteLine(isDestroyed ? "Bang!" : "Ping!");
-            if (shotsFiredCounter != barrelSize || bullets.Count <= 0) continue;
+            if (shotsFiredCounter != barrelSize || bullets.Count <= 0)
+                continue;
             shotsFiredCounter = 0;
             Console.WriteLine("Reloading!");
         }
 
         var bulletsCost = shotsFiredTotal * bulletPrice;
         var moneyEarned = intelligenceValue - bulletsCost;
-        Console.WriteLine(locks.Count == 0
-            ? $"{bullets.Count} bullets left. Earned ${moneyEarned}"
-            : $"Couldn't get through. Locks left: {locks.Count}");
+        Console.WriteLine(
+            locks.Count == 0
+                ? $"{bullets.Count} bullets left. Earned ${moneyEarned}"
+                : $"Couldn't get through. Locks left: {locks.Count}"
+        );
     }
 }

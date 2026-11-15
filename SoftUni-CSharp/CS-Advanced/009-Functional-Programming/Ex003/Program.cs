@@ -18,7 +18,7 @@ internal class Program
         {
             "older" => (i, j) => i >= j,
             "younger" => (i, j) => i < j,
-            _ => null
+            _ => null,
         };
 
         var ageFilter = int.Parse(Console.ReadLine());
@@ -26,11 +26,13 @@ internal class Program
         switch (filter)
         {
             case "name":
-                foreach (var person in people.Where(p => cond(p.Value, ageFilter))) Console.WriteLine(person.Key);
+                foreach (var person in people.Where(p => cond(p.Value, ageFilter)))
+                    Console.WriteLine(person.Key);
 
                 break;
             case "age":
-                foreach (var person in people.Where(p => cond(p.Value, ageFilter))) Console.WriteLine(person.Value);
+                foreach (var person in people.Where(p => cond(p.Value, ageFilter)))
+                    Console.WriteLine(person.Value);
 
                 break;
             case "name age":

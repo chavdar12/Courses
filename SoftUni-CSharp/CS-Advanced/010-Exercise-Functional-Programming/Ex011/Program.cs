@@ -24,7 +24,8 @@ internal class Program
             }
         }
 
-        foreach (var filter in filters) partyPeople.RemoveAll(filter.Value);
+        foreach (var filter in filters)
+            partyPeople.RemoveAll(filter.Value);
         Console.WriteLine(string.Join(" ", partyPeople));
     }
 

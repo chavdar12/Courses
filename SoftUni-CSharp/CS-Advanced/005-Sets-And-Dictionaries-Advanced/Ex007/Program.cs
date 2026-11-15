@@ -31,7 +31,9 @@ internal class Program
         }
 
         Console.WriteLine(vip.Count + regular.Count);
-        foreach (var g in vip) Console.WriteLine(g);
-        foreach (var g in regular) Console.WriteLine(g);
+        foreach (var g in vip)
+            Console.WriteLine(g);
+        foreach (var g in regular)
+            Console.WriteLine(g);
     }
 }

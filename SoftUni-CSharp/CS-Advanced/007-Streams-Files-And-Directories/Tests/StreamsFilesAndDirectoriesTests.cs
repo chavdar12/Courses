@@ -43,12 +43,15 @@ public class StreamsFilesAndDirectoriesTests : IDisposable
     {
         Run(Module + "Ex002", "", Write("input.txt", Romeo), PathOf("output.txt"));
 
-        Assert.Equal([
-            "1. Two households, both alike in dignity,",
-            "2. In fair Verona, where we lay our scene,",
-            "3. From ancient grudge break to new mutiny,",
-            "4. Where civil blood makes civil hands unclean."
-        ], File.ReadAllLines(PathOf("output.txt")));
+        Assert.Equal(
+            [
+                "1. Two households, both alike in dignity,",
+                "2. In fair Verona, where we lay our scene,",
+                "3. From ancient grudge break to new mutiny,",
+                "4. Where civil blood makes civil hands unclean.",
+            ],
+            File.ReadAllLines(PathOf("output.txt"))
+        );
     }
 
     [Fact]
@@ -64,10 +67,10 @@ public class StreamsFilesAndDirectoriesTests : IDisposable
     {
         Run(Module + "Ex004", "", Write("input.txt", Romeo), PathOf("output.txt"));
 
-        Assert.Equal([
-            "In fair Verona, where we lay our scene,",
-            "Where civil blood makes civil hands unclean."
-        ], File.ReadAllLines(PathOf("output.txt")));
+        Assert.Equal(
+            ["In fair Verona, where we lay our scene,", "Where civil blood makes civil hands unclean."],
+            File.ReadAllLines(PathOf("output.txt"))
+        );
     }
 
     [Fact]

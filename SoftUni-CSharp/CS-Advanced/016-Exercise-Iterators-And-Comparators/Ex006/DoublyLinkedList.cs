@@ -56,12 +56,15 @@ public class DoublyLinkedList<T> : IEnumerable<T>
 
     public T RemoveFirst()
     {
-        if (Count == 0) throw new InvalidOperationException("The list is empty");
+        if (Count == 0)
+            throw new InvalidOperationException("The list is empty");
 
         var firstListNode = Head.Value;
         Head = Head.Next;
-        if (Head == null) Tail = null;
-        else Head.Previous = null;
+        if (Head == null)
+            Tail = null;
+        else
+            Head.Previous = null;
 
         Count--;
         return firstListNode;
@@ -69,12 +72,15 @@ public class DoublyLinkedList<T> : IEnumerable<T>
 
     public T RemoveLast()
     {
-        if (Count == 0) throw new InvalidOperationException("The list is empty");
+        if (Count == 0)
+            throw new InvalidOperationException("The list is empty");
 
         var lastListNode = Tail.Value;
         Tail = Tail.Previous;
-        if (Tail == null) Head = null;
-        else Tail.Next = null;
+        if (Tail == null)
+            Head = null;
+        else
+            Tail.Next = null;
 
         Count--;
         return lastListNode;
@@ -107,7 +113,8 @@ public class DoublyLinkedList<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        for (var node = Head; node != null; node = node.Next) yield return node.Value;
+        for (var node = Head; node != null; node = node.Next)
+            yield return node.Value;
     }
 
     IEnumerator IEnumerable.GetEnumerator()

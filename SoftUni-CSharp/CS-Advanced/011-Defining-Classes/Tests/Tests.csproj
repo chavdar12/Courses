@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <RootNamespace>CS_Advanced.Tests</RootNamespace>
     <Nullable>enable</Nullable>
@@ -17,5 +16,4 @@
     <!-- Tests load each exercise by assembly name and run its Main; see ProgramRunner. -->
     <ProjectReference Include="../Ex*/*.csproj" />
   </ItemGroup>
-
 </Project>

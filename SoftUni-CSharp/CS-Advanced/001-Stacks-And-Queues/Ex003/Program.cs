@@ -11,7 +11,8 @@ internal class Program
         for (var i = 0; i < count; i++)
         {
             var number = input.Dequeue();
-            if (number % 2 == 0) input.Enqueue(number);
+            if (number % 2 == 0)
+                input.Enqueue(number);
         }
 
         Console.WriteLine(string.Join(", ", input));

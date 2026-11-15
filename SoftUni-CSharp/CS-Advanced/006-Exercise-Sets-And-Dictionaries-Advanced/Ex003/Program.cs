@@ -9,7 +9,8 @@ internal class Program
         for (var i = 0; i < n; i++)
         {
             var elements = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
-            foreach (var element in elements) table.Add(element);
+            foreach (var element in elements)
+                table.Add(element);
         }
 
         Console.WriteLine(string.Join(" ", table));

@@ -26,8 +26,15 @@ public class Car
         FuelConsumption = fuelConsumption;
     }
 
-    public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption, Engine engine,
-        Tire[] tires)
+    public Car(
+        string make,
+        string model,
+        int year,
+        double fuelQuantity,
+        double fuelConsumption,
+        Engine engine,
+        Tire[] tires
+    )
         : this(make, model, year, fuelQuantity, fuelConsumption)
     {
         Engine = engine;

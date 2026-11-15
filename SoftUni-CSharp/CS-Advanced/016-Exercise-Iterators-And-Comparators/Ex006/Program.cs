@@ -11,7 +11,8 @@ internal class Program
         list.AddLast(42);
         list.RemoveLast();
 
-        foreach (var item in list) Console.WriteLine(item);
+        foreach (var item in list)
+            Console.WriteLine(item);
 
         Console.WriteLine($"Sum: {list.Sum()}");
     }

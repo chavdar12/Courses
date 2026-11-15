@@ -11,7 +11,8 @@ internal class Program
         string line;
         while ((line = reader.ReadLine()) != null)
         {
-            if (index++ % 2 != 0) continue;
+            if (index++ % 2 != 0)
+                continue;
 
             var words = Regex.Replace(line, @"[-,.!?]", "@").Split(' ', StringSplitOptions.RemoveEmptyEntries);
             Console.WriteLine(string.Join(" ", words.Reverse()));

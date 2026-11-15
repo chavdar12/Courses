@@ -49,40 +49,56 @@ public class ExerciseStreamsFilesAndDirectoriesTests : IDisposable
 
         Run(Module + "Ex002", "", PathOf("src"), PathOf("report.txt"));
 
-        Assert.Equal([
-            ".cs",
-            "--Small.cs - 0.994kb",
-            "--Big.cs - 2kb",
-            ".config",
-            "--App.config - 0.187kb",
-            ".txt",
-            "--log.txt - 6.72kb"
-        ], File.ReadAllLines(PathOf("report.txt")));
+        Assert.Equal(
+            [
+                ".cs",
+                "--Small.cs - 0.994kb",
+                "--Big.cs - 2kb",
+                ".config",
+                "--App.config - 0.187kb",
+                ".txt",
+                "--log.txt - 6.72kb",
+            ],
+            File.ReadAllLines(PathOf("report.txt"))
+        );
     }
 
     [Fact]
-    public void Ex003_EvenLines() => Assert.Equal("""
-        fault@ his wasn't it but him@ judge to quick was @I
-        safer@ is It here@ hide @Quick@
-        """.ReplaceLineEndings("\n"), Run(Module + "Ex003", "", Write("text.txt", Text)));
+    public void Ex003_EvenLines() =>
+        Assert.Equal(
+            """
+            fault@ his wasn't it but him@ judge to quick was @I
+            safer@ is It here@ hide @Quick@
+            """.ReplaceLineEndings("\n"),
+            Run(Module + "Ex003", "", Write("text.txt", Text))
+        );
 
     [Fact]
     public void Ex004_LineNumbersCountLettersAndPunctuation()
     {
         Run(Module + "Ex004", "", Write("text.txt", Text), PathOf("output.txt"));
 
-        Assert.Equal([
-            "Line 1: -I was quick to judge him, but it wasn't his fault. (37)(4)",
-            "Line 2: -Is this some kind of joke?! Is it? (24)(4)",
-            "Line 3: -Quick, hide here. It is safer. (22)(4)"
-        ], File.ReadAllLines(PathOf("output.txt")));
+        Assert.Equal(
+            [
+                "Line 1: -I was quick to judge him, but it wasn't his fault. (37)(4)",
+                "Line 2: -Is this some kind of joke?! Is it? (24)(4)",
+                "Line 3: -Quick, hide here. It is safer. (22)(4)",
+            ],
+            File.ReadAllLines(PathOf("output.txt"))
+        );
     }
 
     [Fact]
     public void Ex005_WordCountWritesAndComparesResults()
     {
-        var output = Run(Module + "Ex005", "", Write("words.txt", "quick\nis\nfault"), Write("text.txt", Text),
-            PathOf("actualResults.txt"), Write("expectedResult.txt", "is - 3\nquick - 2\nfault - 1"));
+        var output = Run(
+            Module + "Ex005",
+            "",
+            Write("words.txt", "quick\nis\nfault"),
+            Write("text.txt", Text),
+            PathOf("actualResults.txt"),
+            Write("expectedResult.txt", "is - 3\nquick - 2\nfault - 1")
+        );
 
         Assert.Equal(["is - 3", "quick - 2", "fault - 1"], File.ReadAllLines(PathOf("actualResults.txt")));
         Assert.Equal("Actual results match the expected results.", output);

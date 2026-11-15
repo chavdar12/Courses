@@ -30,7 +30,8 @@ internal class Program
                             if (freeWindowLeft < 0)
                             {
                                 Console.WriteLine(
-                                    $"A crash happened!{Environment.NewLine}{car} was hit at {car[car.Length + freeWindowLeft]}.");
+                                    $"A crash happened!{Environment.NewLine}{car} was hit at {car[car.Length + freeWindowLeft]}."
+                                );
                                 return;
                             }
 

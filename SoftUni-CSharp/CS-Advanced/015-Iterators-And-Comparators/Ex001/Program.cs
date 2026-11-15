@@ -9,6 +9,7 @@ internal class StartUp
         var bookThree = new Book("The Documents in the Case", 1930);
         var libraryOne = new Library();
         var libraryTwo = new Library(bookOne, bookTwo, bookThree);
-        foreach (var book in libraryTwo) Console.WriteLine(book);
+        foreach (var book in libraryTwo)
+            Console.WriteLine(book);
     }
 }

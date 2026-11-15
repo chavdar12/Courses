@@ -49,7 +49,8 @@ internal class Program
             var currentStore = new Store(store, new List<Product>());
             var currentProduct = new Product(product, price);
 
-            if (stores.All(s => s.Name != store)) stores.Add(currentStore);
+            if (stores.All(s => s.Name != store))
+                stores.Add(currentStore);
             var idx = stores.FindIndex(s => s.Name == store);
             stores[idx].Product.Add(currentProduct);
         }

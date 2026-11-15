@@ -7,8 +7,12 @@ public class GenericsTests
     private const string Module = "013-Generics.";
 
     [Fact]
-    public void Ex001_GenericArrayCreator() => AssertOutput(Module + "Ex001", "",
-        string.Join("\n", Enumerable.Repeat("Pesho", 5).Concat(Enumerable.Repeat("33", 10))));
+    public void Ex001_GenericArrayCreator() =>
+        AssertOutput(
+            Module + "Ex001",
+            "",
+            string.Join("\n", Enumerable.Repeat("Pesho", 5).Concat(Enumerable.Repeat("33", 10)))
+        );
 
     [Fact]
     public void Ex002_BoxOfTRemovesTopmost() => AssertOutput(Module + "Ex002", "", "3\n5");

@@ -13,7 +13,8 @@ internal class Program
             switch (commands[0])
             {
                 case "Push":
-                    for (var i = 1; i < commands.Length; i++) myStack.Push(commands[i]);
+                    for (var i = 1; i < commands.Length; i++)
+                        myStack.Push(commands[i]);
 
                     break;
                 case "Pop":
@@ -22,8 +23,10 @@ internal class Program
             }
         }
 
-        foreach (var item in myStack) Console.WriteLine(item);
+        foreach (var item in myStack)
+            Console.WriteLine(item);
 
-        foreach (var item in myStack) Console.WriteLine(item);
+        foreach (var item in myStack)
+            Console.WriteLine(item);
     }
 }

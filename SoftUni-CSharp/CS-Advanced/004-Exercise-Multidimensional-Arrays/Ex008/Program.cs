@@ -9,13 +9,17 @@ internal class Program
         bunnyMultiply.Enqueue(new Tuple<int, int>(0, 1));
         bunnyMultiply.Enqueue(new Tuple<int, int>(1, 0));
         bunnyMultiply.Enqueue(new Tuple<int, int>(0, -1));
-        var lairSizes = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse)
+        var lairSizes = Console
+            .ReadLine()
+            .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
             .ToArray();
         var lair = new char[lairSizes[0], lairSizes[1]];
         for (var i = 0; i < lairSizes[0]; i++)
         {
             var row = Console.ReadLine();
-            for (var j = 0; j < lairSizes[1]; j++) lair[i, j] = row[j];
+            for (var j = 0; j < lairSizes[1]; j++)
+                lair[i, j] = row[j];
         }
 
         var commands = Console.ReadLine();
@@ -112,18 +116,20 @@ internal class Program
                 }
             }
 
-            if (isWon || isDead) break;
+            if (isWon || isDead)
+                break;
         }
 
         for (var i = 0; i < lair.GetLength(0); i++)
         {
-            for (var j = 0; j < lair.GetLength(1); j++) Console.Write(lair[i, j]);
+            for (var j = 0; j < lair.GetLength(1); j++)
+                Console.Write(lair[i, j]);
 
             Console.WriteLine();
         }
 
-        Console.WriteLine(isWon
-            ? $"won: {playerIndexes[0]} {playerIndexes[1]}"
-            : $"dead: {playerIndexes[0]} {playerIndexes[1]}");
+        Console.WriteLine(
+            isWon ? $"won: {playerIndexes[0]} {playerIndexes[1]}" : $"dead: {playerIndexes[0]} {playerIndexes[1]}"
+        );
     }
 }
