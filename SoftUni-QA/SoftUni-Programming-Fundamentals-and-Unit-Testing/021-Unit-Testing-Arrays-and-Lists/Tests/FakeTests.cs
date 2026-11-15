@@ -10,7 +10,7 @@ public class FakeTests
     {
         char[] chars = { '0', '1', 'a' };
 
-        char[] actualResult = Fake.RemoveStringNumbers(chars);
+        var actualResult = Fake.RemoveStringNumbers(chars);
         char[] expectedResult = { 'a' };
 
         Assert.AreEqual(expectedResult, actualResult);
@@ -21,7 +21,7 @@ public class FakeTests
     {
         char[] noDigitsCharsArray = { '#', 'a', '+' };
 
-        char[] actualResult = Fake.RemoveStringNumbers(noDigitsCharsArray);
+        var actualResult = Fake.RemoveStringNumbers(noDigitsCharsArray);
         char[] expectedResult = { '#', 'a', '+' };
 
         Assert.AreEqual(expectedResult, actualResult);
@@ -32,7 +32,7 @@ public class FakeTests
     {
         var noDigitsCharsArray = Array.Empty<char>();
 
-        char[] actualResult = Fake.RemoveStringNumbers(noDigitsCharsArray);
+        var actualResult = Fake.RemoveStringNumbers(noDigitsCharsArray);
         var expectedResult = Array.Empty<char>();
 
         Assert.AreEqual(expectedResult, actualResult);

@@ -14,7 +14,7 @@ public class PalindromeTests
 
 
         // Act
-        bool actualResult = Palindrome.IsPalindrome(validPalindrome);
+        var actualResult = Palindrome.IsPalindrome(validPalindrome);
 
         // Assert
         Assert.IsTrue(actualResult);
@@ -29,7 +29,7 @@ public class PalindromeTests
 
 
         // Act
-        bool actualResult = Palindrome.IsPalindrome(emptyList);
+        var actualResult = Palindrome.IsPalindrome(emptyList);
 
         // Assert
         Assert.IsTrue(actualResult);
@@ -43,7 +43,7 @@ public class PalindromeTests
 
 
         // Act
-        bool actualResult = Palindrome.IsPalindrome(randomWord);
+        var actualResult = Palindrome.IsPalindrome(randomWord);
 
         // Assert
         Assert.IsTrue(actualResult);
@@ -56,7 +56,7 @@ public class PalindromeTests
 
 
         // Act
-        bool actualResult = Palindrome.IsPalindrome(notPalindrome);
+        var actualResult = Palindrome.IsPalindrome(notPalindrome);
 
         // Assert
         Assert.IsFalse(actualResult);
@@ -69,7 +69,7 @@ public class PalindromeTests
 
 
         // Act
-        bool actualResult = Palindrome.IsPalindrome(notPalindrome);
+        var actualResult = Palindrome.IsPalindrome(notPalindrome);
 
         // Assert
         Assert.IsTrue(actualResult);

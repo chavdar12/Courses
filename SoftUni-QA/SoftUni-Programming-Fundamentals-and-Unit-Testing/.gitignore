@@ -1,25 +1,28 @@
-## .NET build output
-bin/
-obj/
-artifacts/
+# .NET build output
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
 *.nupkg
+*.binlog
 
-## Test results and coverage
-TestResults/
+# Test results and coverage
+[Tt]est[Rr]esults/
 *.trx
 coverage*.xml
+coverage*.json
 *.coverage
 
-## IDEs: Rider / Visual Studio / VS Code
+# IDEs (Rider, Visual Studio, VS Code)
 .idea/
 *.sln.iml
+*.DotSettings.user
 .vs/
 *.user
 *.suo
 *.userprefs
 .vscode/
 
-## macOS
+# macOS
 .DS_Store
 .AppleDouble
 .LSOverride

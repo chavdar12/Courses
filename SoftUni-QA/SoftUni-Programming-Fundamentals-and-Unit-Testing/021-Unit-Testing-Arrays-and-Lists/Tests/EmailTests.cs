@@ -14,7 +14,7 @@ public class EmailTests
 
 
         // Act
-        bool actualResult = Email.IsValidEmail(email);
+        var actualResult = Email.IsValidEmail(email);
 
 
         // Assert
@@ -26,7 +26,7 @@ public class EmailTests
     [TestCase("company@.de")]
     public void Test_IsValidEmail_InvalidEmail(string email)
     {
-        bool actualResult = Email.IsValidEmail(email);
+        var actualResult = Email.IsValidEmail(email);
 
         Assert.IsFalse(actualResult);
     }
@@ -36,7 +36,7 @@ public class EmailTests
     {
         var noEmail = " ";
 
-        bool actualResult = Email.IsValidEmail(noEmail);
+        var actualResult = Email.IsValidEmail(noEmail);
 
         Assert.IsFalse(actualResult);
     }

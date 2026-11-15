@@ -11,7 +11,7 @@ public class FactorialTests
         var input = 0;
 
         //act
-        int result = Factorial.CalculateFactorial(input);
+        var result = Factorial.CalculateFactorial(input);
         //assert
         Assert.AreEqual(1, result);
     }
@@ -23,7 +23,7 @@ public class FactorialTests
         var input = 3;
 
         //act
-        int result = Factorial.CalculateFactorial(input);
+        var result = Factorial.CalculateFactorial(input);
         //assert
         Assert.AreEqual(6, result);
     }

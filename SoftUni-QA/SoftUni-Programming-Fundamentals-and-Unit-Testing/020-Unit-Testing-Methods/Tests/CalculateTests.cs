@@ -12,7 +12,7 @@ public class CalculateTests
 
 
         // Act
-        int actual = calculator.Addition(5, 2);
+        var actual = calculator.Addition(5, 2);
 
         // Assert
         Assert.AreEqual(7, actual);
@@ -26,7 +26,7 @@ public class CalculateTests
 
         //act
 
-        int actual = calculator.Addition(-5, -2);
+        var actual = calculator.Addition(-5, -2);
 
         //assert
 
@@ -40,7 +40,7 @@ public class CalculateTests
         Calculate calculator = new();
         //act
 
-        int actual = calculator.Subtraction(5, 2);
+        var actual = calculator.Subtraction(5, 2);
 
         //assert
         Assert.AreEqual(3, actual);

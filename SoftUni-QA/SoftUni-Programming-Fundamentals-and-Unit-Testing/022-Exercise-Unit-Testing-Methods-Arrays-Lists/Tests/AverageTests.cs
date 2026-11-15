@@ -12,7 +12,7 @@ public class AverageTests
         int[] array = { 42 };
 
         // Act
-        double result = Average.CalculateAverage(array);
+        var result = Average.CalculateAverage(array);
 
         // Assert
         Assert.That(result, Is.EqualTo(42));
@@ -25,7 +25,7 @@ public class AverageTests
         int[] array = { 1, 2, 3, 4 };
 
         // Act
-        double result = Average.CalculateAverage(array);
+        var result = Average.CalculateAverage(array);
 
         // Assert
         Assert.That(result, Is.EqualTo(2.5));
@@ -38,7 +38,7 @@ public class AverageTests
         int[] array = { -4, -6, -8, -10 };
 
         // Act
-        double result = Average.CalculateAverage(array);
+        var result = Average.CalculateAverage(array);
         double expectedResult = -7;
 
         // Assert
@@ -52,7 +52,7 @@ public class AverageTests
         int[] array = { -1, 2, 5, 3 };
 
         // Act
-        double result = Average.CalculateAverage(array);
+        var result = Average.CalculateAverage(array);
 
         // Assert
         Assert.That(result, Is.EqualTo(2.25));

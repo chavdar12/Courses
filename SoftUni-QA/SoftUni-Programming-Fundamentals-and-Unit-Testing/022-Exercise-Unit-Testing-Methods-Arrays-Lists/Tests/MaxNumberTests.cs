@@ -10,7 +10,7 @@ public class MaxNumberTests
     {
         List<int> oneElementArray = new() { 110 };
 
-        int actualResult = MaxNumber.FindMax(oneElementArray);
+        var actualResult = MaxNumber.FindMax(oneElementArray);
         var expectedResult = 110;
 
         Assert.That(expectedResult == actualResult);
@@ -21,7 +21,7 @@ public class MaxNumberTests
     {
         List<int> oneElementArray = new() { 10, 20, 30 };
 
-        int actualResult = MaxNumber.FindMax(oneElementArray);
+        var actualResult = MaxNumber.FindMax(oneElementArray);
         var expectedResult = 30;
 
         Assert.That(expectedResult == actualResult);
@@ -32,7 +32,7 @@ public class MaxNumberTests
     {
         List<int> oneElementArray = new() { -10, -20, -30 };
 
-        int actualResult = MaxNumber.FindMax(oneElementArray);
+        var actualResult = MaxNumber.FindMax(oneElementArray);
         var expectedResult = -10;
 
         Assert.That(expectedResult == actualResult);
@@ -43,7 +43,7 @@ public class MaxNumberTests
     {
         List<int> oneElementArray = new() { -10, 25, -30, 0 };
 
-        int actualResult = MaxNumber.FindMax(oneElementArray);
+        var actualResult = MaxNumber.FindMax(oneElementArray);
         var expectedResult = 25;
 
         Assert.That(expectedResult == actualResult);
@@ -54,7 +54,7 @@ public class MaxNumberTests
     {
         List<int> oneElementArray = new() { -10, 25, -30, 25 };
 
-        int actualResult = MaxNumber.FindMax(oneElementArray);
+        var actualResult = MaxNumber.FindMax(oneElementArray);
         var expectedResult = 25;
 
         Assert.That(expectedResult == actualResult);

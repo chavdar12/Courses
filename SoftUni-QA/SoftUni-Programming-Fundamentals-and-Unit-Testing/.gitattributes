@@ -1,0 +1,26 @@
+# Normalize line endings; let Git decide what is text.
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF.
+*.cmd    text eol=crlf
+*.bat    text eol=crlf
+*.ps1    text eol=crlf
+
+# Source and project files
+*.cs     text diff=csharp
+*.csproj text
+*.slnx   text
+*.props  text
+*.targets text
+*.json   text
+*.yml    text
+*.md     text diff=markdown
+
+# Binaries
+*.png    binary
+*.jpg    binary
+*.ico    binary
+*.pdf    binary
+*.dll    binary
+*.exe    binary
+*.nupkg  binary

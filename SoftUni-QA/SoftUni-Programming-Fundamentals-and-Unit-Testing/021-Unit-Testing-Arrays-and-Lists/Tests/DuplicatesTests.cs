@@ -13,7 +13,7 @@ public class DuplicatesTests
         var emptyArray = Array.Empty<int>();
 
         // Act
-        int[] actualResult = Duplicates.RemoveDuplicates(emptyArray);
+        var actualResult = Duplicates.RemoveDuplicates(emptyArray);
         var expectedResult = Array.Empty<int>();
 
         // Assert
@@ -28,7 +28,7 @@ public class DuplicatesTests
         var noDuplicatesArray = new int[] { 1, 2, 3, 4 };
 
         // Act
-        int[] actualResult = Duplicates.RemoveDuplicates(noDuplicatesArray);
+        var actualResult = Duplicates.RemoveDuplicates(noDuplicatesArray);
         var expectedResult = new int[] { 1, 2, 3, 4 };
 
         // Assert
@@ -44,7 +44,7 @@ public class DuplicatesTests
         var someDuplicatesArray = new int[] { 2, 2, 3, 3, 5, 7 };
 
         // Act
-        int[] actualResult = Duplicates.RemoveDuplicates(someDuplicatesArray);
+        var actualResult = Duplicates.RemoveDuplicates(someDuplicatesArray);
         var expectedResult = new int[] { 2, 3, 5, 7 };
 
         // Assert
@@ -58,7 +58,7 @@ public class DuplicatesTests
         var allDuplicatesArray = new int[] { 2, 2, 2, 2, 2 };
 
         // Act
-        int[] actualResult = Duplicates.RemoveDuplicates(allDuplicatesArray);
+        var actualResult = Duplicates.RemoveDuplicates(allDuplicatesArray);
         var expectedResult = new int[] { 2 };
 
         // Assert

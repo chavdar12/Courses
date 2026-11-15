@@ -9,7 +9,7 @@ internal class Program
         NumSign(number);
     }
 
-    static void NumSign(int n)
+    private static void NumSign(int n)
     {
         switch (n)
         {

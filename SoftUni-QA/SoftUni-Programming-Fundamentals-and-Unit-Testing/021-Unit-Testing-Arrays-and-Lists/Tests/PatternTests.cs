@@ -10,7 +10,7 @@ public class PatternTests
     {
         var intsArray = new int[] { 1, 2, 3, 4, 5 };
 
-        int[] actualResult = Pattern.SortInPattern(intsArray);
+        var actualResult = Pattern.SortInPattern(intsArray);
         var expectedResult = new int[] { 1, 5, 2, 4, 3 };
 
         Assert.AreEqual(expectedResult, actualResult);
@@ -21,7 +21,7 @@ public class PatternTests
     {
         var intsArray = Array.Empty<int>();
 
-        int[] actualResult = Pattern.SortInPattern(intsArray);
+        var actualResult = Pattern.SortInPattern(intsArray);
         var expectedResult = Array.Empty<int>();
 
         Assert.AreEqual(expectedResult, actualResult);
@@ -32,7 +32,7 @@ public class PatternTests
     {
         var intsArray = new int[] { 100 };
 
-        int[] actualResult = Pattern.SortInPattern(intsArray);
+        var actualResult = Pattern.SortInPattern(intsArray);
         var expectedResult = new int[] { 100 };
 
         Assert.AreEqual(expectedResult, actualResult);
@@ -46,7 +46,7 @@ public class PatternTests
         //2, 3, 4, 5, 18  - asc sort
         //2, 18, 3, 5, 4  - pattern sort
 
-        int[] actualResult = Pattern.SortInPattern(intsArray);
+        var actualResult = Pattern.SortInPattern(intsArray);
         var expectedResult = new int[] { 2, 18, 3, 5, 4 };
 
         Assert.AreEqual(expectedResult, actualResult);

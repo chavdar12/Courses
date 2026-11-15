@@ -12,7 +12,7 @@ public class TriangleTests
 
         var input = 0;
         //act
-        string actual = Triangle.PrintTriangle(input);
+        var actual = Triangle.PrintTriangle(input);
         //assert
         Assert.AreEqual("", actual);
     }
@@ -28,7 +28,7 @@ public class TriangleTests
                              $"1 2{Environment.NewLine}" +
                              $"1";
 
-        string result = Triangle.PrintTriangle(input);
+        var result = Triangle.PrintTriangle(input);
 
 
         Assert.AreEqual(expectedOutput, result);
@@ -49,7 +49,7 @@ public class TriangleTests
                              $"1 2{Environment.NewLine}" +
                              $"1";
 
-        string result = Triangle.PrintTriangle(input);
+        var result = Triangle.PrintTriangle(input);
 
         Assert.AreEqual(expectedOutput, result);
     }

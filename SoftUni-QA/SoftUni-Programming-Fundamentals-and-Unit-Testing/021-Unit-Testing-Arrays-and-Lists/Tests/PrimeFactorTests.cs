@@ -10,7 +10,7 @@ public class PrimeFactorTests
         long primeNumber = 7;
         long expectedResult = 7;
 
-        long actualResult = PrimeFactor.FindLargestPrimeFactor(primeNumber);
+        var actualResult = PrimeFactor.FindLargestPrimeFactor(primeNumber);
 
         Assert.AreEqual(expectedResult, actualResult);
     }
@@ -21,7 +21,7 @@ public class PrimeFactorTests
         long primeNumber = 100;
         long expectedResult = 5;
 
-        long actualResult = PrimeFactor.FindLargestPrimeFactor(primeNumber);
+        var actualResult = PrimeFactor.FindLargestPrimeFactor(primeNumber);
 
         Assert.AreEqual(expectedResult, actualResult);
     }

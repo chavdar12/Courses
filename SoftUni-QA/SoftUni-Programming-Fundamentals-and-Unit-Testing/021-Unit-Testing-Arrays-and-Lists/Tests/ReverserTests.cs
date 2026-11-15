@@ -9,10 +9,10 @@ public class ReverserTests
     public void Test_ReverseStrings_WithEmptyArray_ReturnsEmptyArray()
     {
         // Arrange
-        string[] inputArray = Array.Empty<string>();
+        var inputArray = Array.Empty<string>();
 
         // Act
-        string[] result = Reverser.ReverseStrings(inputArray);
+        var result = Reverser.ReverseStrings(inputArray);
 
         // Assert
         Assert.That(result, Is.Empty);
@@ -23,11 +23,11 @@ public class ReverserTests
     public void Test_ReverseStrings_WithSingleString_ReturnsReversedString()
     {
         // Arrange
-        string[] singleStringArray = new string[] { "Inception" };
+        var singleStringArray = new string[] { "Inception" };
 
         // Act
-        string[] actualResult = Reverser.ReverseStrings(singleStringArray);
-        string[] expectedResult = new string[] { "noitpecnI" };
+        var actualResult = Reverser.ReverseStrings(singleStringArray);
+        var expectedResult = new string[] { "noitpecnI" };
 
         // Assert
 
@@ -37,11 +37,11 @@ public class ReverserTests
     [Test]
     public void Test_ReverseStrings_WithMultipleStrings_ReturnsReversedStrings()
     {
-        string[] multiStringArray = new string[] { "Sunday", "Monday" };
+        var multiStringArray = new string[] { "Sunday", "Monday" };
 
         // Act
-        string[] actualResult = Reverser.ReverseStrings(multiStringArray);
-        string[] expectedResult = new string[] { "yadnuS", "yadnoM" };
+        var actualResult = Reverser.ReverseStrings(multiStringArray);
+        var expectedResult = new string[] { "yadnuS", "yadnoM" };
 
         // Assert
 
@@ -51,11 +51,11 @@ public class ReverserTests
     [Test]
     public void Test_ReverseStrings_WithSpecialCharacters_ReturnsReversedSpecialCharacters()
     {
-        string[] charStringArray = new string[] { "M@d", "$ollar" };
+        var charStringArray = new string[] { "M@d", "$ollar" };
 
         // Act
-        string[] actualResult = Reverser.ReverseStrings(charStringArray);
-        string[] expectedResult = new string[] { "d@M", "rallo$" };
+        var actualResult = Reverser.ReverseStrings(charStringArray);
+        var expectedResult = new string[] { "d@M", "rallo$" };
 
         // Assert
 

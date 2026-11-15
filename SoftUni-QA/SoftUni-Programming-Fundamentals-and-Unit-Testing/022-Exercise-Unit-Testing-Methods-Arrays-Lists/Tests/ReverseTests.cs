@@ -12,7 +12,7 @@ public class ReverseTests
         var emptyArray = Array.Empty<int>();
 
         // Act
-        string result = Reverse.ReverseArray(emptyArray);
+        var result = Reverse.ReverseArray(emptyArray);
 
         // Assert
         Assert.That(result, Is.EqualTo(string.Empty));
@@ -27,7 +27,7 @@ public class ReverseTests
         // Arrange
         int[] oneElementArray = { 42 };
         // Act
-        string actualResult = Reverse.ReverseArray(oneElementArray);
+        var actualResult = Reverse.ReverseArray(oneElementArray);
         var expectedResult = "42";
 
         // Assert
@@ -45,7 +45,7 @@ public class ReverseTests
 
         //Act
 
-        string actualResult = Reverse.ReverseArray(multipleElementsArray);
+        var actualResult = Reverse.ReverseArray(multipleElementsArray);
         var expectedResult = "0 101 21 -10";
 
         //arrange

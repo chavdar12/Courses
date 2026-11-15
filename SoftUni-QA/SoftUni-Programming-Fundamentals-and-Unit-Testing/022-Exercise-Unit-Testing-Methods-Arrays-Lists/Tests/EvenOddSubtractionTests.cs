@@ -12,7 +12,7 @@ public class EvenOddSubtractionTests
         var emptyArray = Array.Empty<int>();
 
         // Act
-        int actualResult = EvenOddSubtraction.FindDifference(emptyArray);
+        var actualResult = EvenOddSubtraction.FindDifference(emptyArray);
         var expectedResult = 0;
 
         // Assert
@@ -27,7 +27,7 @@ public class EvenOddSubtractionTests
         int[] onlyEvenNumbersArray = { 20, 40, 60, 80 };
 
         // Act
-        int actualResult = EvenOddSubtraction.FindDifference(onlyEvenNumbersArray);
+        var actualResult = EvenOddSubtraction.FindDifference(onlyEvenNumbersArray);
         var expectedResult = 200;
 
         // Assert
@@ -41,7 +41,7 @@ public class EvenOddSubtractionTests
         int[] onlyOddNumbersArray = { -3, 1, 3, 5 };
 
         //act
-        int actualResult = EvenOddSubtraction.FindDifference(onlyOddNumbersArray);
+        var actualResult = EvenOddSubtraction.FindDifference(onlyOddNumbersArray);
         var expectedResult = -6;
 
         //assert
@@ -56,7 +56,7 @@ public class EvenOddSubtractionTests
         int[] mixedNumbersArray = { 5, 8, 11, 14 };
 
         //act
-        int actualResult = EvenOddSubtraction.FindDifference(mixedNumbersArray);
+        var actualResult = EvenOddSubtraction.FindDifference(mixedNumbersArray);
 
         var expectedResult = 6;
 

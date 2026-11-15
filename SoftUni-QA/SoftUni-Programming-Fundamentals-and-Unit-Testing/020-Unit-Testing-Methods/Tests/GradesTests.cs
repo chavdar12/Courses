@@ -14,7 +14,7 @@ public class GradesTests
         // Arrange
 
         // Act
-        string actualResult = Grades.GradeAsWords(grade);
+        var actualResult = Grades.GradeAsWords(grade);
 
         // Assert
         Assert.AreEqual(expectedResult, actualResult);
@@ -33,7 +33,7 @@ public class GradesTests
         // Arrange
 
         // Act
-        string actual = Grades.GradeAsWords(grade);
+        var actual = Grades.GradeAsWords(grade);
 
         // Assert
         Assert.AreEqual(expected, actual);

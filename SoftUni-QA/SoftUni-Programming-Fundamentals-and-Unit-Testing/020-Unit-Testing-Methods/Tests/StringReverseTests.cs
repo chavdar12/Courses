@@ -14,7 +14,7 @@ public class StringReverseTests
 
 
         // Act
-        string actualResult = StringReverse.Reverse(reversedString);
+        var actualResult = StringReverse.Reverse(reversedString);
 
         // Assert
         Assert.AreEqual(expectedResult, actualResult);
@@ -27,7 +27,7 @@ public class StringReverseTests
     {
         //act
 
-        string actual = StringReverse.Reverse(input);
+        var actual = StringReverse.Reverse(input);
 
         //assert
 
@@ -40,7 +40,7 @@ public class StringReverseTests
         var input = "test";
         var expectedResult = "tset";
 
-        string actual = StringReverse.Reverse(input);
+        var actual = StringReverse.Reverse(input);
 
         Assert.AreEqual(expectedResult, actual);
         Assert.AreEqual(input.Length, actual.Length);

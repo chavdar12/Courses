@@ -11,7 +11,7 @@ public class Tests
     [TestCase(new int[] { -1, -2, -3, -4 }, "-3 -7")]
     public void Test_FoldArray_ReturnsCorrectString(int[] arr, string expected)
     {
-        string actualResult = FoldSum.FoldArray(arr);
+        var actualResult = FoldSum.FoldArray(arr);
 
         Assert.AreEqual(expected, actualResult);
     }

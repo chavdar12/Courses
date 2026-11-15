@@ -13,7 +13,7 @@ public class AdjacentEqualTests
         List<int> emptyList = new();
 
         // Act
-        string actualResult = AdjacentEqual.Sum(emptyList);
+        var actualResult = AdjacentEqual.Sum(emptyList);
         var expectedResult = string.Empty;
 
         // Assert
@@ -30,7 +30,7 @@ public class AdjacentEqualTests
 
         // Act
 
-        string actualResult = AdjacentEqual.Sum(numbers);
+        var actualResult = AdjacentEqual.Sum(numbers);
         var expectedResult = "1 2 3 4 5";
 
         // Assert
@@ -46,7 +46,7 @@ public class AdjacentEqualTests
 
         // Act
 
-        string actualResult = AdjacentEqual.Sum(numbers);
+        var actualResult = AdjacentEqual.Sum(numbers);
         var expectedResult = "8 10";
 
         // Assert
@@ -61,7 +61,7 @@ public class AdjacentEqualTests
 
         // Act
 
-        string actualResult = AdjacentEqual.Sum(numbers);
+        var actualResult = AdjacentEqual.Sum(numbers);
         var expectedResult = "24";
 
         // Assert
@@ -75,7 +75,7 @@ public class AdjacentEqualTests
 
         // Act
 
-        string actualResult = AdjacentEqual.Sum(numbers);
+        var actualResult = AdjacentEqual.Sum(numbers);
         var expectedResult = "12 5 3 7 9";
 
         // Assert
@@ -89,7 +89,7 @@ public class AdjacentEqualTests
 
         // Act
 
-        string actualResult = AdjacentEqual.Sum(numbers);
+        var actualResult = AdjacentEqual.Sum(numbers);
         var expectedResult = "6 1 5 3 18";
 
         // Assert
@@ -103,7 +103,7 @@ public class AdjacentEqualTests
 
         // Act
 
-        string actualResult = AdjacentEqual.Sum(numbers);
+        var actualResult = AdjacentEqual.Sum(numbers);
         var expectedResult = "6 1 10 9 11";
 
         // Assert
@@ -115,7 +115,7 @@ public class AdjacentEqualTests
     [TestCase(new[] { 5, 4, 2, 1, 1, 4 }, "5 8 4")]
     public void Test_Sum_NewSumEqualsNeighbour_ShouldKeepSumming(int[] numbers, string expectedResult)
     {
-        string actualResult = AdjacentEqual.Sum(numbers.ToList());
+        var actualResult = AdjacentEqual.Sum(numbers.ToList());
 
         Assert.That(actualResult, Is.EqualTo(expectedResult));
     }

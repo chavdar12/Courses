@@ -14,7 +14,7 @@ public class NumberProcessorTests
         List<double> expectedResult = new() { 4, 16, 36 };
 
         // Act
-        List<double> actualResult = NumberProcessor.ProcessNumbers(evenNumbersList);
+        var actualResult = NumberProcessor.ProcessNumbers(evenNumbersList);
 
         // Assert
         CollectionAssert.AreEqual(expectedResult, actualResult);
@@ -29,7 +29,7 @@ public class NumberProcessorTests
         List<double> expectedResult = new() { Math.Sqrt(3), Math.Sqrt(5), Math.Sqrt(7), Math.Sqrt(9) };
 
         // Act
-        List<double> actualResult = NumberProcessor.ProcessNumbers(oddNumbersList);
+        var actualResult = NumberProcessor.ProcessNumbers(oddNumbersList);
 
         // Assert
         CollectionAssert.AreEqual(expectedResult, actualResult);
@@ -44,7 +44,7 @@ public class NumberProcessorTests
         List<int> expected = new() { 0 };
 
         // Act
-        List<double> actualResult = NumberProcessor.ProcessNumbers(input);
+        var actualResult = NumberProcessor.ProcessNumbers(input);
 
 
         // Assert
@@ -58,7 +58,7 @@ public class NumberProcessorTests
         List<int> expected = new();
 
         // Act
-        List<double> actualResult = NumberProcessor.ProcessNumbers(input);
+        var actualResult = NumberProcessor.ProcessNumbers(input);
 
 
         // Assert

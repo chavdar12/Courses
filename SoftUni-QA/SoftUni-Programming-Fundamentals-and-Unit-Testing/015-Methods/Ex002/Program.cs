@@ -9,7 +9,7 @@ internal class Program
         GradeInWords(gr);
     }
 
-    static void GradeInWords(double grade)
+    private static void GradeInWords(double grade)
     {
         switch (grade)
         {
