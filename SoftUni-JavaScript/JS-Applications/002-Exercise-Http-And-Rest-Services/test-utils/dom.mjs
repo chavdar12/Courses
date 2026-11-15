@@ -2,25 +2,59 @@ import { readFile } from 'node:fs/promises';
 import { JSDOM, VirtualConsole, requestInterceptor } from 'jsdom';
 
 const ORIGIN = 'http://localhost:3000';
-const TYPES = { js: 'text/javascript', mjs: 'text/javascript', css: 'text/css', html: 'text/html', json: 'application/json' };
+const TYPES = {
+    js: 'text/javascript',
+    mjs: 'text/javascript',
+    css: 'text/css',
+    html: 'text/html',
+    json: 'application/json',
+};
 
 // Serves the program folder as http://localhost:3000/ so absolute script paths and localStorage work;
 // anything else (CDNs) gets an empty body.
-const localLoader = (root) => requestInterceptor(async (request) => {
-    const u = new URL(request.url);
-    const type = TYPES[u.pathname.split('.').pop()] ?? 'text/plain';
-    if (u.origin !== ORIGIN) {
-        return new Response('', { headers: { 'Content-Type': type } });
-    }
-    const body = await readFile(new URL('.' + decodeURIComponent(u.pathname), root));
-    return new Response(body, { headers: { 'Content-Type': type } });
-});
+const localLoader = (root) =>
+    requestInterceptor(async (request) => {
+        const u = new URL(request.url);
+        const type = TYPES[u.pathname.split('.').pop()] ?? 'text/plain';
+        if (u.origin !== ORIGIN) {
+            return new Response('', { headers: { 'Content-Type': type } });
+        }
+        const body = await readFile(new URL('.' + decodeURIComponent(u.pathname), root));
+        return new Response(body, { headers: { 'Content-Type': type } });
+    });
 
 // Globals that ES modules read as free identifiers (classic scripts get them from window).
-const GLOBALS = ['window', 'document', 'location', 'history', 'localStorage', 'sessionStorage', 'navigator',
-    'alert', 'confirm', 'fetch', 'FormData', 'Event', 'CustomEvent', 'MouseEvent', 'KeyboardEvent', 'SubmitEvent',
-    'HTMLElement', 'HTMLFormElement', 'HTMLAnchorElement', 'Element', 'Node', 'NodeFilter', 'DocumentFragment',
-    'Text', 'Comment', 'MutationObserver', 'getComputedStyle', 'requestAnimationFrame', 'scrollTo'];
+const GLOBALS = [
+    'window',
+    'document',
+    'location',
+    'history',
+    'localStorage',
+    'sessionStorage',
+    'navigator',
+    'alert',
+    'confirm',
+    'fetch',
+    'FormData',
+    'Event',
+    'CustomEvent',
+    'MouseEvent',
+    'KeyboardEvent',
+    'SubmitEvent',
+    'HTMLElement',
+    'HTMLFormElement',
+    'HTMLAnchorElement',
+    'Element',
+    'Node',
+    'NodeFilter',
+    'DocumentFragment',
+    'Text',
+    'Comment',
+    'MutationObserver',
+    'getComputedStyle',
+    'requestAnimationFrame',
+    'scrollTo',
+];
 
 let importCounter = 0;
 
@@ -30,9 +64,17 @@ let importCounter = 0;
  * Options: fetch stub, local/session storage seed, confirm() answer, setup(window) hook,
  * root folder served as the site root (defaults to the page's folder).
  */
-export async function loadPage(pageUrl, {
-    fetch = mockFetch({}), storage = {}, session = {}, confirm = true, setup, root = new URL('./', pageUrl)
-} = {}) {
+export async function loadPage(
+    pageUrl,
+    {
+        fetch = mockFetch({}),
+        storage = {},
+        session = {},
+        confirm = true,
+        setup,
+        root = new URL('./', pageUrl),
+    } = {},
+) {
     const html = await readFile(pageUrl, 'utf8');
     const alerts = [];
     const errors = [];
@@ -59,7 +101,7 @@ export async function loadPage(pageUrl, {
             Object.entries(storage).forEach(([k, v]) => window.localStorage.setItem(k, v));
             Object.entries(session).forEach(([k, v]) => window.sessionStorage.setItem(k, v));
             setup?.(window);
-        }
+        },
     });
     const { window } = dom;
     if (window.document.readyState !== 'complete') {
@@ -67,7 +109,11 @@ export async function loadPage(pageUrl, {
     }
 
     for (const key of GLOBALS) {
-        Object.defineProperty(globalThis, key, { value: window[key], configurable: true, writable: true });
+        Object.defineProperty(globalThis, key, {
+            value: window[key],
+            configurable: true,
+            writable: true,
+        });
     }
 
     // jsdom does not execute module scripts, so import them here; ?v= gives each load a fresh entry module.
@@ -114,7 +160,8 @@ export function mockFetch(routes) {
             // non-JSON body is kept as is
         }
         const headers = Object.fromEntries(
-            Object.entries(options.headers || {}).map(([k, v]) => [k.toLowerCase(), v]));
+            Object.entries(options.headers || {}).map(([k, v]) => [k.toLowerCase(), v]),
+        );
         const request = { method, url: url.href, path, body, headers };
         fn.calls.push(request);
 
@@ -131,7 +178,10 @@ export function mockFetch(routes) {
         if (status === 204) {
             return new Response(null, { status });
         }
-        return new Response(JSON.stringify(data ?? null), { status, headers: { 'Content-Type': 'application/json' } });
+        return new Response(JSON.stringify(data ?? null), {
+            status,
+            headers: { 'Content-Type': 'application/json' },
+        });
     };
     fn.calls = [];
     return fn;
@@ -156,5 +206,7 @@ export function submit(form, values = {}) {
 /** Clicks like a real left mouse button; page.js ignores jsdom's element.click() because it reports which=0. */
 export function click(element) {
     const { MouseEvent } = element.ownerDocument.defaultView;
-    element.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, button: 0, which: 1 }));
+    element.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true, button: 0, which: 1 }),
+    );
 }

@@ -6,7 +6,16 @@ const root = new URL('./', import.meta.url);
 const page = (name) => new URL(`./src/${name}`, import.meta.url);
 const user = { email: 'peter@abv.bg', id: 'u1', token: 'tok' };
 const storage = { userData: JSON.stringify(user) };
-const mine = { _id: 'c1', _ownerId: 'u1', angler: 'Paulo', weight: 636, species: 'Marlin', location: 'Brazil', bait: 'pink', captureTime: 80 };
+const mine = {
+    _id: 'c1',
+    _ownerId: 'u1',
+    angler: 'Paulo',
+    weight: 636,
+    species: 'Marlin',
+    location: 'Brazil',
+    bait: 'pink',
+    captureTime: 80,
+};
 const theirs = { ...mine, _id: 'c2', _ownerId: 'u2', angler: 'John' };
 
 async function loadCatches(options) {
@@ -39,17 +48,32 @@ test('load renders catches; only the owner can edit', async () => {
 });
 
 test('add posts a catch with numeric fields and reloads', async () => {
-    const fetch = mockFetch({ 'GET /data/catches': [], 'POST /data/catches': (body) => ({ ...body, _id: 'c3' }) });
+    const fetch = mockFetch({
+        'GET /data/catches': [],
+        'POST /data/catches': (body) => ({ ...body, _id: 'c3' }),
+    });
     const { document, alerts } = await loadPage(page('index.html'), { fetch, storage, root });
 
     submit(document.getElementById('addForm'), {
-        angler: 'Ivan', weight: '10', species: 'Carp', location: 'Iskar', bait: 'corn', captureTime: '15'
+        angler: 'Ivan',
+        weight: '10',
+        species: 'Carp',
+        location: 'Iskar',
+        bait: 'corn',
+        captureTime: '15',
     });
     await settle();
 
     const post = fetch.calls.find((c) => c.method === 'POST');
     assert.equal(post.headers['x-authorization'], 'tok');
-    assert.deepEqual(post.body, { angler: 'Ivan', weight: 10, species: 'Carp', location: 'Iskar', bait: 'corn', captureTime: 15 });
+    assert.deepEqual(post.body, {
+        angler: 'Ivan',
+        weight: 10,
+        species: 'Carp',
+        location: 'Iskar',
+        bait: 'corn',
+        captureTime: 15,
+    });
     assert.deepEqual(alerts, []);
 });
 
@@ -68,7 +92,7 @@ test('update sends edited values, delete removes the catch', async () => {
     const fetch = mockFetch({
         'GET /data/catches': [mine],
         'PUT /data/catches/c1': (body) => body,
-        'DELETE /data/catches/c1': {}
+        'DELETE /data/catches/c1': {},
     });
     const { document } = await loadCatches({ fetch, storage });
     const card = document.querySelector('.catch');
@@ -97,16 +121,17 @@ test('logout clears the session and returns to guest mode', async () => {
 
 test('login stores user data, failure shows notification', async () => {
     const fetch = mockFetch({
-        'POST /users/login': (body) => body.password === '123'
-            ? { email: body.email, _id: 'u1', accessToken: 'tok' }
-            : reply(403, { message: 'Login or password don\'t match' })
+        'POST /users/login': (body) =>
+            body.password === '123'
+                ? { email: body.email, _id: 'u1', accessToken: 'tok' }
+                : reply(403, { message: "Login or password don't match" }),
     });
     const { document, window } = await loadPage(page('login.html'), { fetch, root });
     const form = document.getElementById('login-form');
 
     submit(form, { email: 'peter@abv.bg', password: 'bad' });
     await settle();
-    assert.equal(form.querySelector('.notification').textContent, 'Login or password don\'t match');
+    assert.equal(form.querySelector('.notification').textContent, "Login or password don't match");
 
     submit(form, { password: '123' });
     await settle();
@@ -114,7 +139,9 @@ test('login stores user data, failure shows notification', async () => {
 });
 
 test('register validates matching passwords', async () => {
-    const fetch = mockFetch({ 'POST /users/register': { email: 'a@a.bg', _id: 'u9', accessToken: 'x' } });
+    const fetch = mockFetch({
+        'POST /users/register': { email: 'a@a.bg', _id: 'u9', accessToken: 'x' },
+    });
     const { document, window } = await loadPage(page('register.html'), { fetch, root });
     const form = document.getElementById('register-form');
 

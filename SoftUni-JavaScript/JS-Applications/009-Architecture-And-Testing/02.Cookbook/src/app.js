@@ -13,7 +13,7 @@ registerViews({
     create: createPage,
     edit: editPage,
     login: loginPage,
-    register: registerPage
+    register: registerPage,
 });
 
 document.querySelector('header').addEventListener('click', (e) => {

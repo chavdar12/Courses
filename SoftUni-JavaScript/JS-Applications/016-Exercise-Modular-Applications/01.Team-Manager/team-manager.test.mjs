@@ -5,13 +5,25 @@ import { click as userClick, loadPage, mockFetch, settle, submit } from '../test
 // page.js is a singleton bound to one window, so the whole file walks through one session.
 const users = { u1: { username: 'Peter' }, u2: { username: 'George' }, u9: { username: 'Neo' } };
 const teams = [
-    { _id: 't1', _ownerId: 'u1', name: 'Storm Troopers', logoUrl: '/atat.png', description: 'These ARE the droids' },
-    { _id: 't2', _ownerId: 'u2', name: 'Team Rocket', logoUrl: '/rocket.png', description: 'Gotta catch them all' }
+    {
+        _id: 't1',
+        _ownerId: 'u1',
+        name: 'Storm Troopers',
+        logoUrl: '/atat.png',
+        description: 'These ARE the droids',
+    },
+    {
+        _id: 't2',
+        _ownerId: 'u2',
+        name: 'Team Rocket',
+        logoUrl: '/rocket.png',
+        description: 'Gotta catch them all',
+    },
 ];
 let members = [
     { _id: 'm1', _ownerId: 'u1', teamId: 't1', status: 'member' },
     { _id: 'm2', _ownerId: 'u2', teamId: 't2', status: 'member' },
-    { _id: 'm3', _ownerId: 'u1', teamId: 't2', status: 'member' }
+    { _id: 'm3', _ownerId: 'u1', teamId: 't2', status: 'member' },
 ];
 let nextId = 10;
 const q = (query) => encodeURIComponent(query);
@@ -28,11 +40,18 @@ const routes = {
         members.push({ ...body, _id: `m${nextId++}`, _ownerId: 'u9', status: 'pending' });
         return members.at(-1);
     },
-    [`GET /data/members?where=${q('_ownerId="u9" AND status="member"')}&load=team%3DteamId%3Ateams`]: () =>
-        members.filter((m) => m._ownerId === 'u9' && m.status === 'member').map((m) => ({ ...m, team: teams.find((t) => t._id === m.teamId) }))
+    [`GET /data/members?where=${q('_ownerId="u9" AND status="member"')}&load=team%3DteamId%3Ateams`]:
+        () =>
+            members
+                .filter((m) => m._ownerId === 'u9' && m.status === 'member')
+                .map((m) => ({ ...m, team: teams.find((t) => t._id === m.teamId) })),
 };
 for (const id of ['m10', 'm11', 'm12', 'm20', 'm3']) {
-    routes[`PUT /data/members/${id}`] = (body) => Object.assign(members.find((m) => m._id === id), body);
+    routes[`PUT /data/members/${id}`] = (body) =>
+        Object.assign(
+            members.find((m) => m._id === id),
+            body,
+        );
     routes[`DELETE /data/members/${id}`] = () => {
         members = members.filter((m) => m._id !== id);
         return {};
@@ -44,8 +63,9 @@ for (const id of ['t1', 't2', 't9']) {
         members.filter((m) => m.teamId === id).map((m) => ({ ...m, user: users[m._ownerId] }));
 }
 for (const ids of [['t1', 't2'], ['t9'], ['t1', 't2', 't9']]) {
-    routes[`GET /data/members?where=${q(`teamId IN (${ids.map((i) => `"${i}"`).join(',')}) AND status="member"`)}`] = () =>
-        members.filter((m) => ids.includes(m.teamId) && m.status === 'member');
+    routes[
+        `GET /data/members?where=${q(`teamId IN (${ids.map((i) => `"${i}"`).join(',')}) AND status="member"`)}`
+    ] = () => members.filter((m) => ids.includes(m.teamId) && m.status === 'member');
 }
 const fetch = mockFetch(routes);
 let ctx;
@@ -73,8 +93,14 @@ test('guest sees the guest navbar and Sign Up Now', () => {
 
 test('browse lists teams with member counts and no create button for guests', async () => {
     await go('nav a[href="/browse"]');
-    assert.deepEqual($$('.tm-tile h2').map((h) => h.textContent), ['Storm Troopers', 'Team Rocket']);
-    assert.deepEqual($$('.member-count').map((s) => s.textContent), ['1 Member', '2 Members']);
+    assert.deepEqual(
+        $$('.tm-tile h2').map((h) => h.textContent),
+        ['Storm Troopers', 'Team Rocket'],
+    );
+    assert.deepEqual(
+        $$('.member-count').map((s) => s.textContent),
+        ['1 Member', '2 Members'],
+    );
     assert.equal($('a[href="/create"]'), null);
 });
 
@@ -94,9 +120,18 @@ test('register validates and then signs the user in', async () => {
     await settle();
     assert.equal($('.error').textContent, 'Username must be at least 3 characters.');
 
-    submit($('main form'), { email: 'neo@abv.bg', username: 'Neo', password: '123', repass: '123' });
+    submit($('main form'), {
+        email: 'neo@abv.bg',
+        username: 'Neo',
+        password: '123',
+        repass: '123',
+    });
     await settle();
-    assert.deepEqual(fetch.calls.findLast((c) => c.path === '/users/register').body, { email: 'neo@abv.bg', username: 'Neo', password: '123' });
+    assert.deepEqual(fetch.calls.findLast((c) => c.path === '/users/register').body, {
+        email: 'neo@abv.bg',
+        username: 'Neo',
+        password: '123',
+    });
     assert.equal(path(), '/my-teams');
     assert.ok(visible('nav .user'));
     assert.ok($('.empty'));
@@ -113,8 +148,15 @@ test('create validates, then adds the owner as an approved member', async () => 
     await settle();
     const start = fetch.calls.findIndex((c) => c.method === 'POST' && c.path === '/data/teams');
     const calls = fetch.calls.slice(start).map((c) => `${c.method} ${c.path.split('?')[0]}`);
-    assert.deepEqual(calls.slice(0, 3), ['POST /data/teams', 'POST /data/members', 'PUT /data/members/m10']);
-    assert.deepEqual(fetch.calls.find((c) => c.method === 'PUT').body, { teamId: 't9', status: 'member' });
+    assert.deepEqual(calls.slice(0, 3), [
+        'POST /data/teams',
+        'POST /data/members',
+        'PUT /data/members/m10',
+    ]);
+    assert.deepEqual(fetch.calls.find((c) => c.method === 'PUT').body, {
+        teamId: 't9',
+        status: 'member',
+    });
     assert.equal(path(), '/details/t9');
     assert.deepEqual(memberNames(), ['Neo']);
     assert.equal($('.member-list button'), null, 'owner cannot remove themself');

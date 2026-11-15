@@ -10,11 +10,13 @@ async function loadCommits() {
         }
         const commits = await res.json();
 
-        list.replaceChildren(...commits.map(({ commit }) => {
-            const li = document.createElement('li');
-            li.textContent = `${commit.author.name}: ${commit.message}`;
-            return li;
-        }));
+        list.replaceChildren(
+            ...commits.map(({ commit }) => {
+                const li = document.createElement('li');
+                li.textContent = `${commit.author.name}: ${commit.message}`;
+                return li;
+            }),
+        );
     } catch (err) {
         const li = document.createElement('li');
         li.textContent = err.message;

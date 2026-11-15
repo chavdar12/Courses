@@ -4,12 +4,15 @@ import { loadPage } from '../test-utils/dom.mjs';
 
 const page = new URL('./index.html', import.meta.url);
 
-const visible = (document) => [...document.querySelectorAll('body > section')]
-    .filter((s) => s.style.display !== 'none')
-    .map((s) => s.id);
+const visible = (document) =>
+    [...document.querySelectorAll('body > section')]
+        .filter((s) => s.style.display !== 'none')
+        .map((s) => s.id);
 
-const cell = (document, sectionId, text) => [...document.querySelectorAll(`#${sectionId} td.day`)]
-    .find((td) => td.textContent.trim() === text);
+const cell = (document, sectionId, text) =>
+    [...document.querySelectorAll(`#${sectionId} td.day`)].find(
+        (td) => td.textContent.trim() === text,
+    );
 
 test('starts with only the years view', async () => {
     const { document } = await loadPage(page);

@@ -23,7 +23,10 @@ async function request(path, method = 'GET', body) {
 
 async function authenticate(action, username, password) {
     const data = await request(`/users/${action}`, 'POST', { username, password });
-    sessionStorage.setItem('userData', JSON.stringify({ id: data._id, username: data.username, token: data.accessToken }));
+    sessionStorage.setItem(
+        'userData',
+        JSON.stringify({ id: data._id, username: data.username, token: data.accessToken }),
+    );
 }
 
 export const login = (username, password) => authenticate('login', username, password);
@@ -35,8 +38,10 @@ export async function logout() {
 }
 
 export const getCars = () => request('/data/cars?sortBy=_createdOn%20desc');
-export const getMyCars = (userId) => request(`/data/cars?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
-export const searchByYear = (year) => request(`/data/cars?where=year%3D${encodeURIComponent(year)}`);
+export const getMyCars = (userId) =>
+    request(`/data/cars?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+export const searchByYear = (year) =>
+    request(`/data/cars?where=year%3D${encodeURIComponent(year)}`);
 export const getCar = (id) => request(`/data/cars/${id}`);
 export const createCar = (car) => request('/data/cars', 'POST', car);
 export const updateCar = (id, car) => request(`/data/cars/${id}`, 'PUT', car);

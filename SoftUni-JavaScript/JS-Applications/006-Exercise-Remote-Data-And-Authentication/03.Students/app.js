@@ -37,7 +37,7 @@ function solve() {
         const res = await fetch(URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...data, grade })
+            body: JSON.stringify({ ...data, grade }),
         });
         tbody.appendChild(createRow(await res.json()));
         form.reset();

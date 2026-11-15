@@ -8,8 +8,8 @@ test('refresh shows all messages one per line', async () => {
     const fetch = mockFetch({
         'GET /jsonstore/messenger': {
             a: { author: 'Spami', content: 'Init message' },
-            b: { author: 'Garry', content: 'Hello' }
-        }
+            b: { author: 'Garry', content: 'Hello' },
+        },
     });
     const { document } = await loadPage(page, { fetch });
 

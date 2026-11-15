@@ -32,7 +32,9 @@ function decorateContext(ctx, next) {
     document.getElementById('profile').style.display = user ? '' : 'none';
     document.getElementById('guest').style.display = user ? 'none' : '';
     document.getElementById('welcome').textContent = user ? `Welcome ${user.username}` : '';
-    document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === ctx.pathname));
+    document
+        .querySelectorAll('nav a')
+        .forEach((a) => a.classList.toggle('active', a.getAttribute('href') === ctx.pathname));
     ctx.user = user;
     ctx.render = (template) => render(template, main);
     next();

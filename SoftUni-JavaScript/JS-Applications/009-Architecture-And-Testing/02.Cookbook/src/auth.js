@@ -7,7 +7,10 @@ export function getUser() {
 
 async function authenticate(action, credentials) {
     const data = await request(`/users/${action}`, 'POST', credentials);
-    sessionStorage.setItem('userData', JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }));
+    sessionStorage.setItem(
+        'userData',
+        JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }),
+    );
 }
 
 export const login = (email, password) => authenticate('login', { email, password });

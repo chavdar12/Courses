@@ -5,10 +5,10 @@ const townsRoot = document.getElementById('towns');
 const result = document.getElementById('result');
 const input = document.getElementById('searchText');
 
-const townsTemplate = (match) => html`
-<ul>
-    ${towns.map((t) => html`<li class=${match && t.includes(match) ? 'active' : ''}>${t}</li>`)}
-</ul>`;
+const townsTemplate = (match) =>
+    html` <ul>
+        ${towns.map((t) => html`<li class=${match && t.includes(match) ? 'active' : ''}>${t}</li>`)}
+    </ul>`;
 
 render(townsTemplate(''), townsRoot);
 document.querySelector('button').addEventListener('click', search);

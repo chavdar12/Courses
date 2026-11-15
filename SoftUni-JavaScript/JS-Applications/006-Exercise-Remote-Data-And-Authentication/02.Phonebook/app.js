@@ -10,15 +10,17 @@ function attachEvents() {
     async function load() {
         const res = await fetch(URL);
         const data = await res.json();
-        list.replaceChildren(...Object.entries(data).map(([key, entry]) => {
-            const li = document.createElement('li');
-            li.textContent = `${entry.person}: ${entry.phone}`;
-            const btn = document.createElement('button');
-            btn.textContent = 'Delete';
-            btn.addEventListener('click', () => remove(key));
-            li.appendChild(btn);
-            return li;
-        }));
+        list.replaceChildren(
+            ...Object.entries(data).map(([key, entry]) => {
+                const li = document.createElement('li');
+                li.textContent = `${entry.person}: ${entry.phone}`;
+                const btn = document.createElement('button');
+                btn.textContent = 'Delete';
+                btn.addEventListener('click', () => remove(key));
+                li.appendChild(btn);
+                return li;
+            }),
+        );
     }
 
     async function remove(key) {
@@ -33,7 +35,7 @@ function attachEvents() {
         await fetch(URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ person: person.value, phone: phone.value })
+            body: JSON.stringify({ person: person.value, phone: phone.value }),
         });
         person.value = '';
         phone.value = '';

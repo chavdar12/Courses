@@ -1,10 +1,34 @@
 import { before, test } from 'node:test';
 import assert from 'node:assert/strict';
-import { click as userClick, loadPage, mockFetch, reply, settle, submit } from '../test-utils/dom.mjs';
+import {
+    click as userClick,
+    loadPage,
+    mockFetch,
+    reply,
+    settle,
+    submit,
+} from '../test-utils/dom.mjs';
 
 // page.js is a singleton bound to one window, so the whole file walks through one session.
-const table = { _id: 't1', _ownerId: 'u1', make: 'Table', model: 'Swedish', year: 2015, description: 'Medium table', price: 235, img: '/images/table.png', material: 'Wood' };
-const sofa = { ...table, _id: 's1', _ownerId: 'u2', make: 'Sofa', description: 'Comfy sofa!', price: 1200 };
+const table = {
+    _id: 't1',
+    _ownerId: 'u1',
+    make: 'Table',
+    model: 'Swedish',
+    year: 2015,
+    description: 'Medium table',
+    price: 235,
+    img: '/images/table.png',
+    material: 'Wood',
+};
+const sofa = {
+    ...table,
+    _id: 's1',
+    _ownerId: 'u2',
+    make: 'Sofa',
+    description: 'Comfy sofa!',
+    price: 1200,
+};
 let catalog = [table, sofa];
 const fetch = mockFetch({
     'GET /data/catalog': () => catalog,
@@ -25,10 +49,11 @@ const fetch = mockFetch({
         catalog = catalog.filter((i) => i._id !== 't1');
         return {};
     },
-    'POST /users/login': (body) => (body.password === '123'
-        ? { email: body.email, _id: 'u1', accessToken: 'tok' }
-        : reply(403, { message: 'Login or password don\'t match' })),
-    'GET /users/logout': reply(204)
+    'POST /users/login': (body) =>
+        body.password === '123'
+            ? { email: body.email, _id: 'u1', accessToken: 'tok' }
+            : reply(403, { message: "Login or password don't match" }),
+    'GET /users/logout': reply(204),
 });
 let ctx;
 
@@ -48,8 +73,17 @@ test('validate checks the course rules', async () => {
     // imported after loadPage: lit-html needs the DOM globals at import time
     const { validate } = await import('./src/views/form.js');
     assert.deepEqual(validate(table), []);
-    assert.deepEqual(validate({ make: 'Abc', model: 'Swedish', year: 1949, description: 'short', price: 0, img: '' }),
-        ['make', 'year', 'description', 'price', 'img']);
+    assert.deepEqual(
+        validate({
+            make: 'Abc',
+            model: 'Swedish',
+            year: 1949,
+            description: 'short',
+            price: 0,
+            img: '',
+        }),
+        ['make', 'year', 'description', 'price', 'img'],
+    );
 });
 
 test('guest sees the catalog and guest navigation', () => {
@@ -71,7 +105,7 @@ test('login alerts on bad credentials, then logs in', async () => {
     await go('#loginLink');
     submit($('.container form'), { email: 'peter@abv.bg', password: 'bad' });
     await settle();
-    assert.deepEqual(ctx.alerts, ['Login or password don\'t match']);
+    assert.deepEqual(ctx.alerts, ["Login or password don't match"]);
 
     submit($('.container form'), { password: '123' });
     await settle();
@@ -82,11 +116,21 @@ test('login alerts on bad credentials, then logs in', async () => {
 test('create marks invalid fields, then saves and opens details', async () => {
     await go('#createLink');
     const form = () => $('.container form');
-    submit(form(), { make: 'Ch', model: 'Model', year: '2020', description: 'A nice chair', price: '55', img: '/images/chair.jpg' });
+    submit(form(), {
+        make: 'Ch',
+        model: 'Model',
+        year: '2020',
+        description: 'A nice chair',
+        price: '55',
+        img: '/images/chair.jpg',
+    });
     await settle();
     assert.ok($('#new-make').classList.contains('is-invalid'));
     assert.ok($('#new-model').classList.contains('is-valid'));
-    assert.equal(fetch.calls.filter((c) => c.method === 'POST' && c.path === '/data/catalog').length, 0);
+    assert.equal(
+        fetch.calls.filter((c) => c.method === 'POST' && c.path === '/data/catalog').length,
+        0,
+    );
 
     submit(form(), { make: 'Chair' });
     await settle();

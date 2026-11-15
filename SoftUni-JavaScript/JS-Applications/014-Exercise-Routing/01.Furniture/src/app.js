@@ -35,5 +35,7 @@ function updateNav(pathname) {
     const user = getUser();
     document.getElementById('user').style.display = user ? 'inline-block' : 'none';
     document.getElementById('guest').style.display = user ? 'none' : 'inline-block';
-    document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === pathname));
+    document
+        .querySelectorAll('nav a')
+        .forEach((a) => a.classList.toggle('active', a.getAttribute('href') === pathname));
 }

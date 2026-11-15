@@ -3,25 +3,45 @@ import assert from 'node:assert/strict';
 import { loadPage, mockFetch, settle, type } from '../test-utils/dom.mjs';
 
 const page = new URL('./index.html', import.meta.url);
-const topic = { _id: 'p1', title: 'Angular 10', username: 'David', content: 'Lorem', createdOn: '2020-10-10T12:08:28.451Z' };
+const topic = {
+    _id: 'p1',
+    title: 'Angular 10',
+    username: 'David',
+    content: 'Lorem',
+    createdOn: '2020-10-10T12:08:28.451Z',
+};
 
 function forumServer() {
     const posts = { p1: topic };
     const comments = {
-        c1: { _id: 'c1', postId: 'p1', username: 'Daniel', text: 'Nice', createdOn: '2021-03-15T00:39:02.000Z' },
-        c2: { _id: 'c2', postId: 'other', username: 'X', text: 'not here', createdOn: '2021-03-15T00:39:02.000Z' }
+        c1: {
+            _id: 'c1',
+            postId: 'p1',
+            username: 'Daniel',
+            text: 'Nice',
+            createdOn: '2021-03-15T00:39:02.000Z',
+        },
+        c2: {
+            _id: 'c2',
+            postId: 'other',
+            username: 'X',
+            text: 'not here',
+            createdOn: '2021-03-15T00:39:02.000Z',
+        },
     };
     return mockFetch({
         'GET /jsonstore/collections/myboard/posts': () => posts,
         'POST /jsonstore/collections/myboard/posts': (body) => (posts.p2 = { ...body, _id: 'p2' }),
         'GET /jsonstore/collections/myboard/posts/p1': topic,
         'GET /jsonstore/collections/myboard/comments': () => comments,
-        'POST /jsonstore/collections/myboard/comments': (body) => ({ ...body, _id: 'c3' })
+        'POST /jsonstore/collections/myboard/comments': (body) => ({ ...body, _id: 'c3' }),
     });
 }
 
-const fill = (form, values) => Object.entries(values).forEach(([k, v]) => type(form.elements[k], v));
-const topicTitles = (document) => [...document.querySelectorAll('.topic-container h2')].map((h) => h.textContent);
+const fill = (form, values) =>
+    Object.entries(values).forEach(([k, v]) => type(form.elements[k], v));
+const topicTitles = (document) =>
+    [...document.querySelectorAll('.topic-container h2')].map((h) => h.textContent);
 
 test('home lists topics from the server instead of the sample', async () => {
     const { document } = await loadPage(page, { fetch: forumServer() });
@@ -48,7 +68,10 @@ test('post creates a topic; empty fields alert; cancel clears', async () => {
     await settle();
 
     const body = fetch.calls.find((c) => c.method === 'POST').body;
-    assert.deepEqual({ ...body, createdOn: undefined }, { title: 'Vue', username: 'Ivo', content: 'Hi', createdOn: undefined });
+    assert.deepEqual(
+        { ...body, createdOn: undefined },
+        { title: 'Vue', username: 'Ivo', content: 'Hi', createdOn: undefined },
+    );
     assert.deepEqual(topicTitles(document), ['Angular 10', 'Vue']);
 });
 
@@ -62,7 +85,8 @@ test('clicking a topic shows its details and only its comments, then a comment c
     assert.equal(document.getElementById('title-post').textContent, 'Angular 10');
     assert.equal(document.getElementById('creator-username').textContent, 'David');
     assert.equal(document.querySelector('.comment .post-content').textContent, 'Lorem');
-    const comments = () => [...document.querySelectorAll('#current-post-comments strong')].map((s) => s.textContent);
+    const comments = () =>
+        [...document.querySelectorAll('#current-post-comments strong')].map((s) => s.textContent);
     assert.deepEqual(comments(), ['Daniel']);
 
     const form = document.getElementById('create-comment-form');

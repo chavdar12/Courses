@@ -5,7 +5,10 @@ export function getUser() {
 }
 
 export function setUser(data) {
-    sessionStorage.setItem('userData', JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }));
+    sessionStorage.setItem(
+        'userData',
+        JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }),
+    );
 }
 
 export async function request(path, method = 'GET', body) {

@@ -40,7 +40,8 @@ async function lockedProfile() {
             return;
         }
         const show = e.target.textContent === 'Show more';
-        profile.querySelectorAll('.hiddenInfo > input, .hiddenInfo > label')
+        profile
+            .querySelectorAll('.hiddenInfo > input, .hiddenInfo > label')
             .forEach((el) => (el.style.display = show ? 'block' : ''));
         e.target.textContent = show ? 'Hide it' : 'Show more';
     }

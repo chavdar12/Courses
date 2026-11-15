@@ -1,7 +1,14 @@
 import { before, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { click as userClick, loadPage, mockFetch, reply, settle, submit } from '../../test-utils/dom.mjs';
+import {
+    click as userClick,
+    loadPage,
+    mockFetch,
+    reply,
+    settle,
+    submit,
+} from '../../test-utils/dom.mjs';
 
 // page.js is a singleton bound to one window, so the whole file walks through one session.
 const mock = JSON.parse(await readFile(new URL('./mock-data.json', import.meta.url), 'utf8'));
@@ -18,7 +25,7 @@ const fetch = mockFetch({
     'DELETE /data/ideas/0003': {},
     'POST /users/register': reply(409, { message: 'A user with the same email already exists' }),
     'POST /users/login': { email: 'peter@abv.bg', _id: 'u1', accessToken: 'tok' },
-    'GET /users/logout': reply(204)
+    'GET /users/logout': reply(204),
 });
 let ctx;
 
@@ -41,7 +48,10 @@ test('empty dashboard shows the placeholder', async () => {
     click('a[href="/dashboard"]');
     await settle();
     assert.equal(path(), '/dashboard');
-    assert.equal(ctx.document.querySelector('#dashboard-holder h1').textContent, 'No ideas yet! Be the first one :)');
+    assert.equal(
+        ctx.document.querySelector('#dashboard-holder h1').textContent,
+        'No ideas yet! Be the first one :)',
+    );
 });
 
 test('register validates input and shows server errors', async () => {
@@ -51,7 +61,10 @@ test('register validates input and shows server errors', async () => {
     submit(form, { email: 'peter@abv.bg', password: '123', repeatPassword: '321' });
     submit(form, { repeatPassword: '123' });
     await settle();
-    assert.deepEqual(ctx.alerts, ['Passwords don\'t match!', 'A user with the same email already exists']);
+    assert.deepEqual(ctx.alerts, [
+        "Passwords don't match!",
+        'A user with the same email already exists',
+    ]);
 });
 
 test('login stores the user and switches navigation', async () => {
@@ -77,7 +90,11 @@ test('create validates and posts an idea, then shows it on the dashboard', async
     assert.equal(ctx.alerts.length, 1);
     const post = fetch.calls.find((c) => c.method === 'POST' && c.path === '/data/ideas');
     assert.equal(post.headers['x-authorization'], 'tok');
-    assert.deepEqual(post.body, { title: 'Dinner Recipe', description: 'long enough text', img: 'http://x' });
+    assert.deepEqual(post.body, {
+        title: 'Dinner Recipe',
+        description: 'long enough text',
+        img: 'http://x',
+    });
     assert.equal(path(), '/dashboard');
     assert.equal(ctx.document.querySelector('.card-text').textContent, 'Dinner Recipe');
 });

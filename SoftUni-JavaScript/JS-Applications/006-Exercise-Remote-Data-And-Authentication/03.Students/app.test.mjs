@@ -3,7 +3,13 @@ import assert from 'node:assert/strict';
 import { loadPage, mockFetch, settle, submit } from '../test-utils/dom.mjs';
 
 const page = new URL('./index.html', import.meta.url);
-const student = { firstName: 'Isaac', lastName: 'Netero', facultyNumber: '9000', grade: 4.99, _id: 's1' };
+const student = {
+    firstName: 'Isaac',
+    lastName: 'Netero',
+    facultyNumber: '9000',
+    grade: 4.99,
+    _id: 's1',
+};
 
 test('loads students into the table on start', async () => {
     const fetch = mockFetch({ 'GET /jsonstore/collections/students': { s1: student } });
@@ -16,14 +22,24 @@ test('loads students into the table on start', async () => {
 test('submits a valid student and appends the row', async () => {
     const fetch = mockFetch({
         'GET /jsonstore/collections/students': {},
-        'POST /jsonstore/collections/students': (body) => ({ ...body, _id: 's2' })
+        'POST /jsonstore/collections/students': (body) => ({ ...body, _id: 's2' }),
     });
     const { document } = await loadPage(page, { fetch });
 
-    submit(document.getElementById('form'), { firstName: 'Gon', lastName: 'Freecss', facultyNumber: '1', grade: '5' });
+    submit(document.getElementById('form'), {
+        firstName: 'Gon',
+        lastName: 'Freecss',
+        facultyNumber: '1',
+        grade: '5',
+    });
     await settle();
 
-    assert.deepEqual(fetch.calls[1].body, { firstName: 'Gon', lastName: 'Freecss', facultyNumber: '1', grade: 5 });
+    assert.deepEqual(fetch.calls[1].body, {
+        firstName: 'Gon',
+        lastName: 'Freecss',
+        facultyNumber: '1',
+        grade: 5,
+    });
     assert.equal(document.querySelectorAll('#results tbody tr').length, 1);
     assert.equal(document.querySelector('[name="firstName"]').value, '');
 });

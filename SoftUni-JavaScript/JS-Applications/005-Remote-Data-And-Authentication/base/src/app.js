@@ -21,9 +21,12 @@ async function loadRecipes() {
 }
 
 function createPreview(recipe) {
-    const preview = el('article', { className: 'preview' },
+    const preview = el(
+        'article',
+        { className: 'preview' },
         el('div', { className: 'title' }, el('h2', {}, recipe.name)),
-        el('div', { className: 'small' }, el('img', { src: recipe.img })));
+        el('div', { className: 'small' }, el('img', { src: recipe.img })),
+    );
     preview.addEventListener('click', () => showDetails(recipe._id, preview));
     return preview;
 }
@@ -32,16 +35,30 @@ async function showDetails(id, preview) {
     const res = await fetch(`http://localhost:3030/data/recipes/${id}`);
     const recipe = await res.json();
 
-    preview.replaceWith(el('article', {},
-        el('h2', {}, recipe.name),
-        el('div', { className: 'band' },
-            el('div', { className: 'thumb' }, el('img', { src: recipe.img })),
-            el('div', { className: 'ingredients' },
-                el('h3', {}, 'Ingredients:'),
-                el('ul', {}, ...recipe.ingredients.map((i) => el('li', {}, i))))),
-        el('div', { className: 'description' },
-            el('h3', {}, 'Preparation:'),
-            ...recipe.steps.map((s) => el('p', {}, s)))));
+    preview.replaceWith(
+        el(
+            'article',
+            {},
+            el('h2', {}, recipe.name),
+            el(
+                'div',
+                { className: 'band' },
+                el('div', { className: 'thumb' }, el('img', { src: recipe.img })),
+                el(
+                    'div',
+                    { className: 'ingredients' },
+                    el('h3', {}, 'Ingredients:'),
+                    el('ul', {}, ...recipe.ingredients.map((i) => el('li', {}, i))),
+                ),
+            ),
+            el(
+                'div',
+                { className: 'description' },
+                el('h3', {}, 'Preparation:'),
+                ...recipe.steps.map((s) => el('p', {}, s)),
+            ),
+        ),
+    );
 }
 
 async function logout() {

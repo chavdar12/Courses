@@ -9,5 +9,10 @@ export const cats = [
     { id: '406', statusCode: 406, statusMessage: 'Not Acceptable', imageLocation: 'cat406' },
     { id: '410', statusCode: 410, statusMessage: 'Gone', imageLocation: 'cat410' },
     { id: '500', statusCode: 500, statusMessage: 'Internal Server Error', imageLocation: 'cat500' },
-    { id: '511', statusCode: 511, statusMessage: 'Network Authentication Required', imageLocation: 'cat511' }
+    {
+        id: '511',
+        statusCode: 511,
+        statusMessage: 'Network Authentication Required',
+        imageLocation: 'cat511',
+    },
 ];

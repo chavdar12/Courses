@@ -11,7 +11,9 @@ label {
     line-height: 48px;
 }
 
-input[type="text"], input[type="password"], textarea {
+input[type='text'],
+input[type='password'],
+textarea {
     position: absolute;
     right: 0px;
     width: 500px;
@@ -27,7 +29,7 @@ textarea {
     height: 300px;
 }
 
-input[type="submit"] {
+input[type='submit'] {
     display: block;
     border: none;
     margin: auto;
@@ -37,7 +39,7 @@ input[type="submit"] {
     color: black;
 }
 
-input[type="submit"]:hover {
+input[type='submit']:hover {
     background-color: #6c8b47;
     color: white;
     cursor: pointer;

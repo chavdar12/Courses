@@ -11,7 +11,7 @@ const setups = {
     catalog: setupCatalog,
     create: setupCreate,
     login: (section, go) => setupAuth(section, go, 'login'),
-    register: (section, go) => setupAuth(section, go, 'register')
+    register: (section, go) => setupAuth(section, go, 'register'),
 };
 for (const [name, setup] of Object.entries(setups)) {
     const section = document.getElementById(`${name}-view`);
@@ -44,5 +44,7 @@ function updateNav(active) {
     const loggedIn = Boolean(getToken());
     document.getElementById('user').style.display = loggedIn ? 'inline-block' : 'none';
     document.getElementById('guest').style.display = loggedIn ? 'none' : 'inline-block';
-    nav.querySelectorAll('[data-view]').forEach((a) => a.classList.toggle('active', a.dataset.view === active));
+    nav.querySelectorAll('[data-view]').forEach((a) =>
+        a.classList.toggle('active', a.dataset.view === active),
+    );
 }

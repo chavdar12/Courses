@@ -12,7 +12,7 @@ async function onSubmit(e, action) {
             throw new Error('All fields are required!');
         }
         if (action === 'register' && password !== rePass) {
-            throw new Error('Passwords don\'t match!');
+            throw new Error("Passwords don't match!");
         }
         setUser(await request(`/users/${action}`, 'POST', { email, password }));
         window.location.href = 'homeLogged.html';

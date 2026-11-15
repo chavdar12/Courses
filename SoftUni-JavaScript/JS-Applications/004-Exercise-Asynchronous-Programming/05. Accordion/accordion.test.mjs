@@ -6,16 +6,22 @@ const page = new URL('./index.html', import.meta.url);
 const fetch = mockFetch({
     'GET /jsonstore/advanced/articles/list': [
         { _id: 'svg', title: 'Scalable Vector Graphics' },
-        { _id: 'open', title: 'Open standard' }
+        { _id: 'open', title: 'Open standard' },
     ],
-    'GET /jsonstore/advanced/articles/details/open': { _id: 'open', title: 'Open standard', content: 'An open standard is...' }
+    'GET /jsonstore/advanced/articles/details/open': {
+        _id: 'open',
+        title: 'Open standard',
+        content: 'An open standard is...',
+    },
 });
 
 test('renders an accordion per article', async () => {
     const { document } = await loadPage(page, { fetch });
 
-    assert.deepEqual([...document.querySelectorAll('.accordion .head span')].map((s) => s.textContent),
-        ['Scalable Vector Graphics', 'Open standard']);
+    assert.deepEqual(
+        [...document.querySelectorAll('.accordion .head span')].map((s) => s.textContent),
+        ['Scalable Vector Graphics', 'Open standard'],
+    );
     assert.equal(document.querySelectorAll('.accordion button')[1].id, 'open');
 });
 

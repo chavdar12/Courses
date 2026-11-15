@@ -1,11 +1,11 @@
 function attachEvents() {
     const BASE_URL = 'http://localhost:3030/jsonstore/forecaster';
     const symbols = {
-        'Sunny': '☀',
+        Sunny: '☀',
         'Partly sunny': '⛅',
-        'Overcast': '☁',
-        'Rain': '☔',
-        'Degrees': '°'
+        Overcast: '☁',
+        Rain: '☔',
+        Degrees: '°',
     };
 
     const input = document.getElementById('location');
@@ -48,29 +48,36 @@ function attachEvents() {
             }
             const [today, threeDay] = await Promise.all([
                 getJson(`${BASE_URL}/today/${location.code}`),
-                getJson(`${BASE_URL}/upcoming/${location.code}`)
+                getJson(`${BASE_URL}/upcoming/${location.code}`),
             ]);
 
             const conditions = span('condition', '');
             conditions.append(
                 span('forecast-data', today.name),
                 span('forecast-data', temps(today.forecast)),
-                span('forecast-data', today.forecast.condition));
+                span('forecast-data', today.forecast.condition),
+            );
             const todayDiv = document.createElement('div');
             todayDiv.className = 'forecasts';
-            todayDiv.append(span('condition symbol', symbols[today.forecast.condition]), conditions);
+            todayDiv.append(
+                span('condition symbol', symbols[today.forecast.condition]),
+                conditions,
+            );
             current.appendChild(todayDiv);
 
             const upcomingDiv = document.createElement('div');
             upcomingDiv.className = 'forecast-info';
-            upcomingDiv.append(...threeDay.forecast.map((day) => {
-                const el = span('upcoming', '');
-                el.append(
-                    span('symbol', symbols[day.condition]),
-                    span('forecast-data', temps(day)),
-                    span('forecast-data', day.condition));
-                return el;
-            }));
+            upcomingDiv.append(
+                ...threeDay.forecast.map((day) => {
+                    const el = span('upcoming', '');
+                    el.append(
+                        span('symbol', symbols[day.condition]),
+                        span('forecast-data', temps(day)),
+                        span('forecast-data', day.condition),
+                    );
+                    return el;
+                }),
+            );
             upcoming.appendChild(upcomingDiv);
         } catch {
             const error = document.createElement('div');

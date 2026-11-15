@@ -4,7 +4,13 @@ import { loadPage, mockFetch, reply, settle, submit } from '../test-utils/dom.mj
 
 const page = new URL('./index.html', import.meta.url);
 const LIST = 'GET /data/recipes?select=_id%2Cname%2Cimg';
-const recipe = { _id: '01', name: 'Easy Lasagna', img: 'assets/lasagna.jpg', ingredients: ['pasta'], steps: ['bake'] };
+const recipe = {
+    _id: '01',
+    name: 'Easy Lasagna',
+    img: 'assets/lasagna.jpg',
+    ingredients: ['pasta'],
+    steps: ['bake'],
+};
 
 const nav = (document, view) => document.querySelector(`[data-view="${view}"]`).click();
 
@@ -13,7 +19,10 @@ test('opens on the catalog and expands a recipe', async () => {
     const { document } = await loadPage(page, { fetch });
 
     assert.equal(document.querySelectorAll('main > section').length, 1);
-    assert.equal(document.querySelector('main #catalog-view .preview h2').textContent, 'Easy Lasagna');
+    assert.equal(
+        document.querySelector('main #catalog-view .preview h2').textContent,
+        'Easy Lasagna',
+    );
     assert.equal(document.getElementById('guest').style.display, 'inline-block');
 
     document.querySelector('.preview').click();
@@ -34,7 +43,10 @@ test('nav switches views without reloading the page', async () => {
 });
 
 test('login stores the token, shows user nav and returns to catalog', async () => {
-    const fetch = mockFetch({ [LIST]: [], 'POST /users/login': { accessToken: 'tok', email: 'a@a.bg', _id: 'u1' } });
+    const fetch = mockFetch({
+        [LIST]: [],
+        'POST /users/login': { accessToken: 'tok', email: 'a@a.bg', _id: 'u1' },
+    });
     const { document, window } = await loadPage(page, { fetch });
 
     nav(document, 'login');
@@ -47,7 +59,12 @@ test('login stores the token, shows user nav and returns to catalog', async () =
 });
 
 test('register checks passwords; server errors alert', async () => {
-    const fetch = mockFetch({ [LIST]: [], 'POST /users/register': reply(409, { message: 'A user with the same email already exists' }) });
+    const fetch = mockFetch({
+        [LIST]: [],
+        'POST /users/register': reply(409, {
+            message: 'A user with the same email already exists',
+        }),
+    });
     const { document, alerts } = await loadPage(page, { fetch });
 
     nav(document, 'register');
@@ -56,19 +73,36 @@ test('register checks passwords; server errors alert', async () => {
     submit(form, { rePass: '1' });
     await settle();
 
-    assert.deepEqual(alerts, ['Passwords don\'t match!', 'A user with the same email already exists']);
+    assert.deepEqual(alerts, [
+        "Passwords don't match!",
+        'A user with the same email already exists',
+    ]);
 });
 
 test('create posts the recipe with the token, logout clears it', async () => {
-    const fetch = mockFetch({ [LIST]: [], 'POST /data/recipes': (b) => b, 'GET /users/logout': reply(204) });
+    const fetch = mockFetch({
+        [LIST]: [],
+        'POST /data/recipes': (b) => b,
+        'GET /users/logout': reply(204),
+    });
     const { document, window } = await loadPage(page, { fetch, session: { accessToken: 'tok' } });
 
     nav(document, 'create');
-    submit(document.querySelector('#create-view form'), { name: 'Soup', img: 's.jpg', ingredients: 'a\nb', steps: 'c' });
+    submit(document.querySelector('#create-view form'), {
+        name: 'Soup',
+        img: 's.jpg',
+        ingredients: 'a\nb',
+        steps: 'c',
+    });
     await settle();
     const post = fetch.calls.find((c) => c.method === 'POST');
     assert.equal(post.headers['x-authorization'], 'tok');
-    assert.deepEqual(post.body, { name: 'Soup', img: 's.jpg', ingredients: ['a', 'b'], steps: ['c'] });
+    assert.deepEqual(post.body, {
+        name: 'Soup',
+        img: 's.jpg',
+        ingredients: ['a', 'b'],
+        steps: ['c'],
+    });
     assert.equal(document.querySelector('main > section').id, 'catalog-view');
 
     document.getElementById('logoutBtn').click();

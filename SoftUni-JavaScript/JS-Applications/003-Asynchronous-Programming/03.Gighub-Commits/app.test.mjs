@@ -8,16 +8,18 @@ test('lists commits as "author: message"', async () => {
     const fetch = mockFetch({
         'GET /repos/nakov/nakov.io.cin/commits': [
             { commit: { author: { name: 'Nakov' }, message: 'Initial' } },
-            { commit: { author: { name: 'Ivan' }, message: 'Fix' } }
-        ]
+            { commit: { author: { name: 'Ivan' }, message: 'Fix' } },
+        ],
     });
     const { document } = await loadPage(page, { fetch });
 
     document.querySelector('button').click();
     await settle();
 
-    assert.deepEqual([...document.querySelectorAll('#commits li')].map((li) => li.textContent),
-        ['Nakov: Initial', 'Ivan: Fix']);
+    assert.deepEqual(
+        [...document.querySelectorAll('#commits li')].map((li) => li.textContent),
+        ['Nakov: Initial', 'Ivan: Fix'],
+    );
 });
 
 test('shows the status code on error', async () => {

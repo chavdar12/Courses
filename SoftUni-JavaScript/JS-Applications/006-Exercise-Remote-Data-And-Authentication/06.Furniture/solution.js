@@ -13,16 +13,20 @@ function solve() {
         const bought = [...tbody.querySelectorAll('tr')]
             .filter((tr) => tr.querySelector('input[type="checkbox"]').checked)
             .map((tr) => {
-                const [name, price, factor] = [...tr.querySelectorAll('p')].map((p) => p.textContent);
+                const [name, price, factor] = [...tr.querySelectorAll('p')].map(
+                    (p) => p.textContent,
+                );
                 return { name, price: Number(price), factor: Number(factor) };
             });
         const total = bought.reduce((sum, f) => sum + f.price, 0);
-        const avgFactor = bought.length ? bought.reduce((sum, f) => sum + f.factor, 0) / bought.length : 0;
+        const avgFactor = bought.length
+            ? bought.reduce((sum, f) => sum + f.factor, 0) / bought.length
+            : 0;
 
         output.value = [
             `Bought furniture: ${bought.map((f) => f.name).join(', ')}`,
             `Total price: ${total.toFixed(2)}`,
-            `Average decoration factor: ${avgFactor}`
+            `Average decoration factor: ${avgFactor}`,
         ].join('\n');
     });
 

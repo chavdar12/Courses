@@ -1,14 +1,31 @@
 import { before, test } from 'node:test';
 import assert from 'node:assert/strict';
-import { click as userClick, loadPage, mockFetch, reply, settle, submit } from '../test-utils/dom.mjs';
+import {
+    click as userClick,
+    loadPage,
+    mockFetch,
+    reply,
+    settle,
+    submit,
+} from '../test-utils/dom.mjs';
 
 // page.js is a singleton bound to one window, so the whole file walks through one session.
-const audi = { _id: 'c1', _ownerId: 'u2', brand: 'Audi', model: 'A3', description: 'Clean', year: 2018, imageUrl: '/a.jpg', price: 25000 };
+const audi = {
+    _id: 'c1',
+    _ownerId: 'u2',
+    brand: 'Audi',
+    model: 'A3',
+    description: 'Clean',
+    year: 2018,
+    imageUrl: '/a.jpg',
+    price: 25000,
+};
 let cars = [audi];
 const car = (id) => () => cars.find((c) => c._id === id);
 const fetch = mockFetch({
     'GET /data/cars?sortBy=_createdOn%20desc': () => cars,
-    'GET /data/cars?where=_ownerId%3D%22u1%22&sortBy=_createdOn%20desc': () => cars.filter((c) => c._ownerId === 'u1'),
+    'GET /data/cars?where=_ownerId%3D%22u1%22&sortBy=_createdOn%20desc': () =>
+        cars.filter((c) => c._ownerId === 'u1'),
     'GET /data/cars?where=year%3D2018': () => cars.filter((c) => c.year === 2018),
     'GET /data/cars?where=year%3D1990': [],
     'GET /data/cars/c1': car('c1'),
@@ -24,7 +41,7 @@ const fetch = mockFetch({
     },
     'POST /users/register': reply(409, { message: 'A user with the same username already exists' }),
     'POST /users/login': (body) => ({ ...body, _id: 'u1', accessToken: 'tok' }),
-    'GET /users/logout': reply(204)
+    'GET /users/logout': reply(204),
 });
 let ctx;
 
@@ -72,7 +89,10 @@ test('register validates, login stores the session', async () => {
     submit($('main form'), { username: 'Peter', password: '1', repeatPass: '2' });
     submit($('main form'), { repeatPass: '1' });
     await settle();
-    assert.deepEqual(ctx.alerts, ['Passwords don\'t match!', 'A user with the same username already exists']);
+    assert.deepEqual(ctx.alerts, [
+        "Passwords don't match!",
+        'A user with the same username already exists',
+    ]);
 
     await go('a[href="/login"]');
     submit($('main form'), { username: 'Peter', password: '123456' });
@@ -84,12 +104,19 @@ test('register validates, login stores the session', async () => {
 
 test('my listings is empty before creating', async () => {
     await go('a[href="/my-listings"]');
-    assert.equal($('.no-cars').textContent, 'You haven\'t listed any cars yet.');
+    assert.equal($('.no-cars').textContent, "You haven't listed any cars yet.");
 });
 
 test('create validates numbers and posts the listing', async () => {
     await go('a[href="/create"]');
-    const values = { brand: 'BMW', model: 'M3', description: 'Fast', year: '2020', imageUrl: '/b.jpg', price: '-1' };
+    const values = {
+        brand: 'BMW',
+        model: 'M3',
+        description: 'Fast',
+        year: '2020',
+        imageUrl: '/b.jpg',
+        price: '-1',
+    };
     submit($('main form'), values);
     await settle();
     assert.equal(ctx.alerts.at(-1), 'Year and price must be positive numbers!');

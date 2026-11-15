@@ -14,11 +14,15 @@ test('loadRepos writes the XHR response text into #res', async () => {
                     this.cb = cb;
                 }
                 send() {
-                    Object.assign(this, { readyState: 4, status: 200, responseText: '[{"name":"repo"}]' });
+                    Object.assign(this, {
+                        readyState: 4,
+                        status: 200,
+                        responseText: '[{"name":"repo"}]',
+                    });
                     this.cb();
                 }
             };
-        }
+        },
     });
 
     document.querySelector('button').click();

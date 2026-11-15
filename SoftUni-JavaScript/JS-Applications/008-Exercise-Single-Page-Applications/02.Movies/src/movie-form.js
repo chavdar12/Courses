@@ -14,9 +14,10 @@ export function setupMovieForm(section, navigate, mode) {
         }
         const body = { title, description, img: imageUrl };
         try {
-            const movie = mode === 'edit'
-                ? await request(`/data/movies/${editing._id}`, 'PUT', body)
-                : await request('/data/movies', 'POST', body);
+            const movie =
+                mode === 'edit'
+                    ? await request(`/data/movies/${editing._id}`, 'PUT', body)
+                    : await request('/data/movies', 'POST', body);
             form.reset();
             navigate('details', movie._id);
         } catch (err) {

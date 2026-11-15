@@ -25,7 +25,12 @@ export function setupHome([formWrapper, topicList], navigate) {
             alert('All fields are required!');
             return;
         }
-        await post('posts', { title: topicName, username, content: postText, createdOn: new Date().toISOString() });
+        await post('posts', {
+            title: topicName,
+            username,
+            content: postText,
+            createdOn: new Date().toISOString(),
+        });
         form.reset();
         await showHome();
     }

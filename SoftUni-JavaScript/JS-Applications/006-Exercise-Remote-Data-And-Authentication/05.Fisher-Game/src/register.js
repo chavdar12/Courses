@@ -11,7 +11,7 @@ form.addEventListener('submit', async (e) => {
             throw new Error('All fields are required!');
         }
         if (password !== rePass) {
-            throw new Error('Passwords don\'t match!');
+            throw new Error("Passwords don't match!");
         }
         await authenticate('register', { email, password });
         window.location.href = 'index.html';

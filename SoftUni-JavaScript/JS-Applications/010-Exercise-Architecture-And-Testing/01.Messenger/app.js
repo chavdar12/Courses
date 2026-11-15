@@ -14,7 +14,7 @@ function attachEvents() {
         await fetch(URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ author: author.value, content: content.value })
+            body: JSON.stringify({ author: author.value, content: content.value }),
         });
         content.value = '';
     }
@@ -22,7 +22,9 @@ function attachEvents() {
     async function refresh() {
         const res = await fetch(URL);
         const data = await res.json();
-        messages.value = Object.values(data).map((m) => `${m.author}: ${m.content}`).join('\n');
+        messages.value = Object.values(data)
+            .map((m) => `${m.author}: ${m.content}`)
+            .join('\n');
     }
 }
 

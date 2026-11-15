@@ -23,7 +23,10 @@ async function request(path, method = 'GET', body) {
 
 async function authenticate(action, credentials) {
     const data = await request(`/users/${action}`, 'POST', credentials);
-    sessionStorage.setItem('userData', JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }));
+    sessionStorage.setItem(
+        'userData',
+        JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }),
+    );
 }
 
 export const login = (email, password) => authenticate('login', { email, password });
@@ -35,7 +38,8 @@ export async function logout() {
 }
 
 export const getAll = () => request('/data/catalog');
-export const getMine = (userId) => request(`/data/catalog?where=${encodeURIComponent(`_ownerId="${userId}"`)}`);
+export const getMine = (userId) =>
+    request(`/data/catalog?where=${encodeURIComponent(`_ownerId="${userId}"`)}`);
 export const getById = (id) => request(`/data/catalog/${id}`);
 export const create = (item) => request('/data/catalog', 'POST', item);
 export const update = (id, item) => request(`/data/catalog/${id}`, 'PUT', item);

@@ -12,11 +12,13 @@ async function getInfo() {
         const data = await res.json();
 
         stopName.textContent = data.name;
-        buses.replaceChildren(...Object.entries(data.buses).map(([bus, time]) => {
-            const li = document.createElement('li');
-            li.textContent = `Bus ${bus} arrives in ${time} minutes`;
-            return li;
-        }));
+        buses.replaceChildren(
+            ...Object.entries(data.buses).map(([bus, time]) => {
+                const li = document.createElement('li');
+                li.textContent = `Bus ${bus} arrives in ${time} minutes`;
+                return li;
+            }),
+        );
     } catch {
         stopName.textContent = 'Error';
     }

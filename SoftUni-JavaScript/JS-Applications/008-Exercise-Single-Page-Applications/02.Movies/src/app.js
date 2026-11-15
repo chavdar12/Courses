@@ -8,14 +8,21 @@ const container = document.getElementById('container');
 const footer = container.querySelector('footer');
 
 const setups = {
-    'home': setupHome,
+    home: setupHome,
     'add-movie': (s, go) => setupMovieForm(s, go, 'add'),
     'movie-example': setupDetails,
     'edit-movie': (s, go) => setupMovieForm(s, go, 'edit'),
     'form-login': (s, go) => setupAuth(s, go, 'login'),
-    'form-sign-up': (s, go) => setupAuth(s, go, 'register')
+    'form-sign-up': (s, go) => setupAuth(s, go, 'register'),
 };
-const names = { 'home': 'home', 'add': 'add-movie', 'details': 'movie-example', 'edit': 'edit-movie', 'login': 'form-login', 'register': 'form-sign-up' };
+const names = {
+    home: 'home',
+    add: 'add-movie',
+    details: 'movie-example',
+    edit: 'edit-movie',
+    login: 'form-login',
+    register: 'form-sign-up',
+};
 const routes = { '/': 'home', '/add-movie': 'add', '/login': 'login', '/register': 'register' };
 
 const views = {};
@@ -50,7 +57,10 @@ function navigate(name, ...params) {
 
 function updateNav() {
     const user = getUser();
-    document.querySelectorAll('.logged-in-user').forEach((li) => (li.style.display = user ? '' : 'none'));
+    document
+        .querySelectorAll('.logged-in-user')
+        .forEach((li) => (li.style.display = user ? '' : 'none'));
     document.querySelectorAll('.guest').forEach((li) => (li.style.display = user ? 'none' : ''));
-    document.getElementById('welcome-user-email').textContent = `Welcome, ${user ? user.email : 'guest'}`;
+    document.getElementById('welcome-user-email').textContent =
+        `Welcome, ${user ? user.email : 'guest'}`;
 }

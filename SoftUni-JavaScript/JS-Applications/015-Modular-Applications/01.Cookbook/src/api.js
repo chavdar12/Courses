@@ -23,7 +23,10 @@ async function request(path, method = 'GET', body) {
 
 async function authenticate(action, credentials) {
     const data = await request(`/users/${action}`, 'POST', credentials);
-    sessionStorage.setItem('userData', JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }));
+    sessionStorage.setItem(
+        'userData',
+        JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }),
+    );
 }
 
 export const login = (email, password) => authenticate('login', { email, password });
@@ -37,11 +40,15 @@ export async function logout() {
 export const PAGE_SIZE = 5;
 const PREVIEW = 'select=_id%2Cname%2Cimg';
 
-export const getRecent = () => request(`/data/recipes?${PREVIEW}&sortBy=_createdOn%20desc&pageSize=3`);
-export const getRecipePage = (page) => request(`/data/recipes?${PREVIEW}&offset=${(page - 1) * PAGE_SIZE}&pageSize=${PAGE_SIZE}`);
+export const getRecent = () =>
+    request(`/data/recipes?${PREVIEW}&sortBy=_createdOn%20desc&pageSize=3`);
+export const getRecipePage = (page) =>
+    request(`/data/recipes?${PREVIEW}&offset=${(page - 1) * PAGE_SIZE}&pageSize=${PAGE_SIZE}`);
 export const getRecipeCount = () => request('/data/recipes?count');
-export const searchRecipes = (query) => request(`/data/recipes?where=${encodeURIComponent(`name LIKE "${query}"`)}`);
-export const getComments = (recipeId) => request(`/data/comments?where=${encodeURIComponent(`recipeId="${recipeId}"`)}`);
+export const searchRecipes = (query) =>
+    request(`/data/recipes?where=${encodeURIComponent(`name LIKE "${query}"`)}`);
+export const getComments = (recipeId) =>
+    request(`/data/comments?where=${encodeURIComponent(`recipeId="${recipeId}"`)}`);
 export const createComment = (comment) => request('/data/comments', 'POST', comment);
 export const updateComment = (id, comment) => request(`/data/comments/${id}`, 'PUT', comment);
 export const deleteComment = (id) => request(`/data/comments/${id}`, 'DELETE');

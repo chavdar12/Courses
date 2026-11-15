@@ -5,7 +5,8 @@ import { towns } from './towns.js';
 
 test('lists towns and highlights matches', async () => {
     const { document } = await loadPage(new URL('./index.html', import.meta.url));
-    const active = () => [...document.querySelectorAll('#towns li.active')].map((li) => li.textContent);
+    const active = () =>
+        [...document.querySelectorAll('#towns li.active')].map((li) => li.textContent);
 
     assert.equal(document.querySelectorAll('#towns li').length, towns.length);
 

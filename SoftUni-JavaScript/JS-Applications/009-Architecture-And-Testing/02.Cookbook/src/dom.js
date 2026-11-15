@@ -6,7 +6,8 @@ export function el(tag, properties = {}, ...children) {
     return element;
 }
 
-export const link = (text, onclick, className = '') => el('a', { href: 'javascript:void(0)', className, onclick }, text);
+export const link = (text, onclick, className = '') =>
+    el('a', { href: 'javascript:void(0)', className, onclick }, text);
 
 export function render(main, ...nodes) {
     main.replaceChildren(...nodes.flat());

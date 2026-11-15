@@ -18,8 +18,10 @@ async function json(url, method = 'GET', body, headers = {}) {
 
 // 1. REST Countries
 export const getCountry = (name) => json(`${COUNTRIES}/name/${name}`);
-export const getCountryFields = (name, fields) => json(`${COUNTRIES}/name/${name}?fields=${fields.join(',')}`);
-export const getCountriesByLanguage = (lang, fields) => json(`${COUNTRIES}/lang/${lang}?fields=${fields.join(',')}`);
+export const getCountryFields = (name, fields) =>
+    json(`${COUNTRIES}/name/${name}?fields=${fields.join(',')}`);
+export const getCountriesByLanguage = (lang, fields) =>
+    json(`${COUNTRIES}/lang/${lang}?fields=${fields.join(',')}`);
 
 // 2–4. Local practice server
 export const getBusStop = (stopId) => json(`${LOCAL}/bus/businfo/${stopId}`);
@@ -32,7 +34,7 @@ export const employees = {
     getOne: (id) => json(`${EMPLOYEES}/employee/${id}`),
     create: (employee) => json(`${EMPLOYEES}/create`, 'POST', employee),
     update: (id, employee) => json(`${EMPLOYEES}/update/${id}`, 'PUT', employee),
-    remove: (id) => json(`${EMPLOYEES}/delete/${id}`, 'DELETE')
+    remove: (id) => json(`${EMPLOYEES}/delete/${id}`, 'DELETE'),
 };
 
 // 6–8. Cloud databases: create, read and delete entries in one collection.
@@ -40,14 +42,16 @@ function collection(baseUrl, { suffix = '', headers = {} } = {}) {
     return {
         create: (record) => json(`${baseUrl}${suffix}`, 'POST', record, headers),
         getAll: () => json(`${baseUrl}${suffix}`, 'GET', undefined, headers),
-        remove: (id) => json(`${baseUrl}/${id}${suffix}`, 'DELETE', undefined, headers)
+        remove: (id) => json(`${baseUrl}/${id}${suffix}`, 'DELETE', undefined, headers),
     };
 }
 
 export const firebase = (databaseUrl) => collection(`${databaseUrl}/books`, { suffix: '.json' });
 
-export const backendless = (appId, restApiKey) => collection(`https://api.backendless.com/${appId}/${restApiKey}/data/Music`);
+export const backendless = (appId, restApiKey) =>
+    collection(`https://api.backendless.com/${appId}/${restApiKey}/data/Music`);
 
-export const back4app = (appId, restApiKey) => collection('https://parseapi.back4app.com/classes/Students', {
-    headers: { 'X-Parse-Application-Id': appId, 'X-Parse-REST-API-Key': restApiKey }
-});
+export const back4app = (appId, restApiKey) =>
+    collection('https://parseapi.back4app.com/classes/Students', {
+        headers: { 'X-Parse-Application-Id': appId, 'X-Parse-REST-API-Key': restApiKey },
+    });

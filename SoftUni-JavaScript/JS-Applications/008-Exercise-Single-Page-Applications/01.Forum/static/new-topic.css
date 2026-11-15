@@ -30,7 +30,8 @@
     border-radius: 0.3em;
 }
 
-.title, .new-topic-content {
+.title,
+.new-topic-content {
     display: flex;
     flex-direction: column;
 }
@@ -63,7 +64,7 @@
     padding: 0.35em;
 }
 
-button+button {
+button + button {
     margin-left: 1rem;
 }
 

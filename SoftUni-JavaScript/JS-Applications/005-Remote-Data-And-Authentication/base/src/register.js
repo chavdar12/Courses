@@ -7,12 +7,12 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
             throw new Error('All fields are required!');
         }
         if (password !== rePass) {
-            throw new Error('Passwords don\'t match!');
+            throw new Error("Passwords don't match!");
         }
         const res = await fetch('http://localhost:3030/users/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password }),
         });
         const data = await res.json();
         if (!res.ok) {

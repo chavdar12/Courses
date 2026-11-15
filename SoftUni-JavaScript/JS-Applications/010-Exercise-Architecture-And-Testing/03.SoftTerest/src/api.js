@@ -27,7 +27,10 @@ async function request(path, method = 'GET', body) {
 
 async function authenticate(action, credentials) {
     const data = await request(`/users/${action}`, 'POST', credentials);
-    localStorage.setItem('userData', JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }));
+    localStorage.setItem(
+        'userData',
+        JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }),
+    );
 }
 
 export const login = (email, password) => authenticate('login', { email, password });
@@ -38,7 +41,8 @@ export async function logout() {
     localStorage.removeItem('userData');
 }
 
-export const getIdeas = () => request('/data/ideas?select=_id%2Ctitle%2Cimg&sortBy=_createdOn%20desc');
+export const getIdeas = () =>
+    request('/data/ideas?select=_id%2Ctitle%2Cimg&sortBy=_createdOn%20desc');
 export const getIdea = (id) => request(`/data/ideas/${id}`);
 export const createIdea = (idea) => request('/data/ideas', 'POST', idea);
 export const deleteIdea = (id) => request(`/data/ideas/${id}`, 'DELETE');

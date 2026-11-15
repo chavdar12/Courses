@@ -14,7 +14,7 @@ const views = {
     create: createPage,
     edit: editPage,
     login: loginPage,
-    register: registerPage
+    register: registerPage,
 };
 
 document.querySelector('header').addEventListener('click', (e) => {
@@ -36,6 +36,8 @@ function goTo(name, arg) {
     const user = getUser();
     document.getElementById('user').style.display = user ? 'inline-block' : 'none';
     document.getElementById('guest').style.display = user ? 'none' : 'inline-block';
-    document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('active', a.dataset.view === name));
+    document
+        .querySelectorAll('nav a')
+        .forEach((a) => a.classList.toggle('active', a.dataset.view === name));
     return views[name]({ user, arg, goTo, render: (template) => render(template, main) });
 }

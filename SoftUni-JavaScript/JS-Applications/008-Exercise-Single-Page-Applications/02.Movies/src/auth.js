@@ -16,7 +16,7 @@ export function setupAuth(section, navigate, action) {
                     throw new Error('Password must be at least 6 characters long!');
                 }
                 if (password !== repeatPassword) {
-                    throw new Error('Passwords don\'t match!');
+                    throw new Error("Passwords don't match!");
                 }
             }
             await authenticate(action, { email, password });

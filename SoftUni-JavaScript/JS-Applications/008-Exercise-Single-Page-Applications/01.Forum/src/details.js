@@ -15,7 +15,12 @@ export function setupDetails(section) {
             alert('All fields are required!');
             return;
         }
-        const comment = await post('comments', { text: postText, username, postId, createdOn: new Date().toISOString() });
+        const comment = await post('comments', {
+            text: postText,
+            username,
+            postId,
+            createdOn: new Date().toISOString(),
+        });
         commentsDiv.appendChild(createComment(comment));
         form.reset();
     });
@@ -36,6 +41,10 @@ export function setupDetails(section) {
         section.querySelector('#creator-username').textContent = topic.username;
         section.querySelector('#created-on').textContent = topic.createdOn;
         section.querySelector('.comment .post-content').textContent = topic.content;
-        commentsDiv.replaceChildren(...Object.values(comments).filter((c) => c.postId === id).map(createComment));
+        commentsDiv.replaceChildren(
+            ...Object.values(comments)
+                .filter((c) => c.postId === id)
+                .map(createComment),
+        );
     };
 }

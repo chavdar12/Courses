@@ -2,7 +2,11 @@ import { request } from './api.js';
 
 export function setupCreate(section, navigate) {
     const form = section.querySelector('form');
-    const lines = (text) => text.split('\n').map((l) => l.trim()).filter(Boolean);
+    const lines = (text) =>
+        text
+            .split('\n')
+            .map((l) => l.trim())
+            .filter(Boolean);
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -12,7 +16,7 @@ export function setupCreate(section, navigate) {
                 name: data.name,
                 img: data.img,
                 ingredients: lines(data.ingredients),
-                steps: lines(data.steps)
+                steps: lines(data.steps),
             });
             form.reset();
             navigate('catalog');

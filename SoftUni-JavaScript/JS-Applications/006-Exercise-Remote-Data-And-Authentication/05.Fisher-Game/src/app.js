@@ -51,7 +51,8 @@ function createCatch(data, isOwner) {
     div.className = 'catch';
     for (const field of FIELDS) {
         const label = document.createElement('label');
-        label.textContent = field === 'captureTime' ? 'Capture Time' : field[0].toUpperCase() + field.slice(1);
+        label.textContent =
+            field === 'captureTime' ? 'Capture Time' : field[0].toUpperCase() + field.slice(1);
         const input = document.createElement('input');
         input.type = field === 'captureTime' ? 'number' : 'text';
         input.className = field;
@@ -73,7 +74,11 @@ function createCatch(data, isOwner) {
 async function onAdd(e) {
     e.preventDefault();
     try {
-        await request(`${BASE_URL}/data/catches`, 'POST', toCatch(Object.fromEntries(new FormData(addForm))));
+        await request(
+            `${BASE_URL}/data/catches`,
+            'POST',
+            toCatch(Object.fromEntries(new FormData(addForm))),
+        );
         addForm.reset();
         await loadCatches();
     } catch (err) {
@@ -92,7 +97,9 @@ async function onCatchAction(e) {
             await request(`${BASE_URL}/data/catches/${id}`, 'DELETE');
             div.remove();
         } else if (e.target.classList.contains('update')) {
-            const values = Object.fromEntries(FIELDS.map((f) => [f, div.querySelector(`.${f}`).value]));
+            const values = Object.fromEntries(
+                FIELDS.map((f) => [f, div.querySelector(`.${f}`).value]),
+            );
             await request(`${BASE_URL}/data/catches/${id}`, 'PUT', toCatch(values));
         }
     } catch (err) {

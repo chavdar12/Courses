@@ -6,8 +6,8 @@ const page = new URL('./index.html', import.meta.url);
 
 function booksServer() {
     const db = {
-        d953e5fb: { title: 'Harry Potter and the Philosopher\'s Stone', author: 'J.K.Rowling' },
-        d953e5fc: { title: 'C# Fundamentals', author: 'Svetlin Nakov' }
+        d953e5fb: { title: "Harry Potter and the Philosopher's Stone", author: 'J.K.Rowling' },
+        d953e5fc: { title: 'C# Fundamentals', author: 'Svetlin Nakov' },
     };
     return mockFetch({
         'GET /jsonstore/collections/books': () => db,
@@ -17,7 +17,7 @@ function booksServer() {
         'DELETE /jsonstore/collections/books/d953e5fc': () => {
             delete db.d953e5fc;
             return {};
-        }
+        },
     });
 }
 
@@ -28,12 +28,16 @@ async function loadBooks(fetch) {
     return ctx;
 }
 
-const titles = (document) => [...document.querySelectorAll('tbody tr td:first-child')].map((td) => td.textContent);
+const titles = (document) =>
+    [...document.querySelectorAll('tbody tr td:first-child')].map((td) => td.textContent);
 
 test('load all books', async () => {
     const { document } = await loadBooks(booksServer());
 
-    assert.deepEqual(titles(document), ['Harry Potter and the Philosopher\'s Stone', 'C# Fundamentals']);
+    assert.deepEqual(titles(document), [
+        "Harry Potter and the Philosopher's Stone",
+        'C# Fundamentals',
+    ]);
     assert.equal(document.querySelectorAll('tbody .editBtn').length, 2);
 });
 
@@ -46,7 +50,10 @@ test('add book sends correct data and ignores empty fields', async () => {
     submit(form, { title: 'Title', author: 'Author' });
     await settle();
 
-    assert.deepEqual(fetch.calls.filter((c) => c.method === 'POST').map((c) => c.body), [{ title: 'Title', author: 'Author' }]);
+    assert.deepEqual(
+        fetch.calls.filter((c) => c.method === 'POST').map((c) => c.body),
+        [{ title: 'Title', author: 'Author' }],
+    );
     assert.equal(titles(document).at(-1), 'Title');
 });
 
@@ -63,7 +70,10 @@ test('edit loads the book into the edit form and saves with PUT', async () => {
 
     submit(editForm, { title: 'HP' });
     await settle();
-    assert.deepEqual(fetch.calls.find((c) => c.method === 'PUT').body, { title: 'HP', author: 'J.K.Rowling' });
+    assert.deepEqual(fetch.calls.find((c) => c.method === 'PUT').body, {
+        title: 'HP',
+        author: 'J.K.Rowling',
+    });
     assert.equal(document.getElementById('createForm').style.display, 'block');
     assert.equal(titles(document)[0], 'HP');
 });
@@ -74,5 +84,5 @@ test('delete removes the book', async () => {
     document.querySelectorAll('tbody .deleteBtn')[1].click();
     await settle();
 
-    assert.deepEqual(titles(document), ['Harry Potter and the Philosopher\'s Stone']);
+    assert.deepEqual(titles(document), ["Harry Potter and the Philosopher's Stone"]);
 });

@@ -8,7 +8,7 @@ detailsSection.remove();
 
 const views = {
     home: { nodes: homeNodes, show: setupHome(homeNodes, navigate) },
-    details: { nodes: [detailsSection], show: setupDetails(detailsSection) }
+    details: { nodes: [detailsSection], show: setupDetails(detailsSection) },
 };
 
 document.getElementById('home').addEventListener('click', (e) => {

@@ -7,7 +7,9 @@ export function getUser() {
 export function initNav(onLogout = () => {}) {
     updateNav();
     document.getElementById('logout').addEventListener('click', async () => {
-        await fetch(`${BASE_URL}/users/logout`, { headers: { 'X-Authorization': getUser()?.token } });
+        await fetch(`${BASE_URL}/users/logout`, {
+            headers: { 'X-Authorization': getUser()?.token },
+        });
         localStorage.removeItem('userData');
         updateNav();
         onLogout();
@@ -26,11 +28,14 @@ export async function authenticate(action, credentials) {
     const res = await fetch(`${BASE_URL}/users/${action}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(credentials)
+        body: JSON.stringify(credentials),
     });
     const data = await res.json();
     if (!res.ok) {
         throw new Error(data.message);
     }
-    localStorage.setItem('userData', JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }));
+    localStorage.setItem(
+        'userData',
+        JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }),
+    );
 }

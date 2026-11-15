@@ -22,8 +22,10 @@ export async function request(path, method = 'GET', body) {
     return res.status === 204 ? null : res.json();
 }
 
-export const getRecent = () => request(`/data/recipes?${PREVIEW}&sortBy=_createdOn%20desc&pageSize=3`);
-export const getRecipePage = (page) => request(`/data/recipes?${PREVIEW}&offset=${(page - 1) * PAGE_SIZE}&pageSize=${PAGE_SIZE}`);
+export const getRecent = () =>
+    request(`/data/recipes?${PREVIEW}&sortBy=_createdOn%20desc&pageSize=3`);
+export const getRecipePage = (page) =>
+    request(`/data/recipes?${PREVIEW}&offset=${(page - 1) * PAGE_SIZE}&pageSize=${PAGE_SIZE}`);
 export const getRecipeCount = () => request('/data/recipes?count');
 export const getRecipe = (id) => request(`/data/recipes/${id}`);
 export const createRecipe = (recipe) => request('/data/recipes', 'POST', recipe);

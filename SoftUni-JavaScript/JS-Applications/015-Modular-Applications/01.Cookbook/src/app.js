@@ -29,7 +29,9 @@ function decorateContext(ctx, next) {
     const user = getUser();
     document.getElementById('user').style.display = user ? 'inline-block' : 'none';
     document.getElementById('guest').style.display = user ? 'none' : 'inline-block';
-    document.querySelectorAll('nav a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === ctx.pathname));
+    document
+        .querySelectorAll('nav a')
+        .forEach((a) => a.classList.toggle('active', a.getAttribute('href') === ctx.pathname));
     ctx.user = user;
     ctx.render = (template) => render(template, main);
     next();

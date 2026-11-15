@@ -7,7 +7,7 @@ const page = new URL('./index.html', import.meta.url);
 test('cycles depart/arrive along the schedule', async () => {
     const fetch = mockFetch({
         'GET /jsonstore/bus/schedule/depot': { name: 'Depot', next: '0361' },
-        'GET /jsonstore/bus/schedule/0361': { name: 'Rakovski str.', next: 'depot' }
+        'GET /jsonstore/bus/schedule/0361': { name: 'Rakovski str.', next: 'depot' },
     });
     const { document } = await loadPage(page, { fetch });
     const info = () => document.querySelector('#info span').textContent;

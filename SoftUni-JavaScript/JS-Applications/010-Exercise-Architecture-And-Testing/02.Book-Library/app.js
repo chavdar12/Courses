@@ -33,7 +33,8 @@ function solve() {
             tr.appendChild(td);
         }
         const actions = document.createElement('td');
-        actions.innerHTML = '<button class="editBtn">Edit</button><button class="deleteBtn">Delete</button>';
+        actions.innerHTML =
+            '<button class="editBtn">Edit</button><button class="deleteBtn">Delete</button>';
         tr.appendChild(actions);
         return tr;
     }

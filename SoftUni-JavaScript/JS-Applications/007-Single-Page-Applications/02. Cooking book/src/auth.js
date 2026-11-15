@@ -12,7 +12,7 @@ export function setupAuth(section, navigate, action) {
                 throw new Error('All fields are required!');
             }
             if (action === 'register' && password !== rePass) {
-                throw new Error('Passwords don\'t match!');
+                throw new Error("Passwords don't match!");
             }
             await authenticate(action, { email, password });
             form.reset();

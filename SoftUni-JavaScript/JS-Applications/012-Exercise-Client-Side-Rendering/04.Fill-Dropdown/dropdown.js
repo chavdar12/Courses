@@ -10,7 +10,10 @@ loadItems();
 async function loadItems() {
     const res = await fetch(URL);
     const items = Object.values(await res.json());
-    render(items.map((i) => html`<option value=${i._id}>${i.text}</option>`), menu);
+    render(
+        items.map((i) => html`<option value=${i._id}>${i.text}</option>`),
+        menu,
+    );
 }
 
 async function addItem(e) {
@@ -22,7 +25,7 @@ async function addItem(e) {
     await fetch(URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text })
+        body: JSON.stringify({ text }),
     });
     input.value = '';
     await loadItems();

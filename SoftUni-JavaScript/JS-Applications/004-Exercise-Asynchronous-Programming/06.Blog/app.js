@@ -21,19 +21,21 @@ function attachEvents() {
         }
         const [post, allComments] = await Promise.all([
             fetch(`${BASE_URL}/posts/${postId}`).then((r) => r.json()),
-            fetch(`${BASE_URL}/comments`).then((r) => r.json())
+            fetch(`${BASE_URL}/comments`).then((r) => r.json()),
         ]);
 
         title.textContent = post.title;
         body.textContent = post.body;
-        comments.replaceChildren(...Object.values(allComments)
-            .filter((c) => c.postId === postId)
-            .map((c) => {
-                const li = document.createElement('li');
-                li.id = c.id;
-                li.textContent = c.text;
-                return li;
-            }));
+        comments.replaceChildren(
+            ...Object.values(allComments)
+                .filter((c) => c.postId === postId)
+                .map((c) => {
+                    const li = document.createElement('li');
+                    li.id = c.id;
+                    li.textContent = c.text;
+                    return li;
+                }),
+        );
     }
 }
 

@@ -8,5 +8,10 @@ export async function homePage(ctx) {
         el('section', { className: 'hero' }, el('h2', {}, 'Welcome to My Cookbook')),
         el('header', { className: 'section-title' }, 'Recently added recipes'),
         previews(recipes, ctx.goTo),
-        el('footer', { className: 'section-title' }, link('Browse all recipes', () => ctx.goTo('catalog'), 'pager')));
+        el(
+            'footer',
+            { className: 'section-title' },
+            link('Browse all recipes', () => ctx.goTo('catalog'), 'pager'),
+        ),
+    );
 }

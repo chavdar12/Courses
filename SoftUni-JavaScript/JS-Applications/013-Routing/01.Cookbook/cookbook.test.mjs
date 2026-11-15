@@ -1,22 +1,46 @@
 import { before, test } from 'node:test';
 import assert from 'node:assert/strict';
-import { click as userClick, loadPage, mockFetch, reply, settle, submit } from '../test-utils/dom.mjs';
+import {
+    click as userClick,
+    loadPage,
+    mockFetch,
+    reply,
+    settle,
+    submit,
+} from '../test-utils/dom.mjs';
 
 // page.js is a singleton bound to one window, so the whole file walks through one session.
-const make = (n, name = `Recipe ${n}`, owner = 'u2') =>
-    ({ _id: `r${n}`, _ownerId: owner, name, img: `${n}.jpg`, ingredients: ['salt'], steps: ['cook'], _createdOn: n });
-let recipes = [make(1, 'Easy Lasagna', 'u1'), make(2, 'Roast Trout'), ...[3, 4, 5, 6, 7].map((n) => make(n))];
+const make = (n, name = `Recipe ${n}`, owner = 'u2') => ({
+    _id: `r${n}`,
+    _ownerId: owner,
+    name,
+    img: `${n}.jpg`,
+    ingredients: ['salt'],
+    steps: ['cook'],
+    _createdOn: n,
+});
+let recipes = [
+    make(1, 'Easy Lasagna', 'u1'),
+    make(2, 'Roast Trout'),
+    ...[3, 4, 5, 6, 7].map((n) => make(n)),
+];
 const comments = [{ _id: 'c1', recipeId: 'r2', content: 'Tasty!' }];
 
 const preview = ({ _id, name, img }) => ({ _id, name, img });
-const byId = (id) => () => recipes.find((r) => r._id === id) ?? reply(404, { message: 'Not found' });
+const byId = (id) => () =>
+    recipes.find((r) => r._id === id) ?? reply(404, { message: 'Not found' });
 const SELECT = '/data/recipes?select=_id%2Cname%2Cimg';
 const routes = {
-    [`GET ${SELECT}&sortBy=_createdOn%20desc&pageSize=3`]: () => recipes.toSorted((a, b) => b._createdOn - a._createdOn).slice(0, 3).map(preview),
+    [`GET ${SELECT}&sortBy=_createdOn%20desc&pageSize=3`]: () =>
+        recipes
+            .toSorted((a, b) => b._createdOn - a._createdOn)
+            .slice(0, 3)
+            .map(preview),
     [`GET ${SELECT}&offset=0&pageSize=5`]: () => recipes.slice(0, 5).map(preview),
     [`GET ${SELECT}&offset=5&pageSize=5`]: () => recipes.slice(5, 10).map(preview),
     'GET /data/recipes?count': () => recipes.length,
-    'GET /data/recipes?where=name%20LIKE%20%22lasagna%22': () => recipes.filter((r) => /lasagna/i.test(r.name)),
+    'GET /data/recipes?where=name%20LIKE%20%22lasagna%22': () =>
+        recipes.filter((r) => /lasagna/i.test(r.name)),
     'POST /data/recipes': (body) => {
         recipes = [...recipes, { ...body, _id: 'r8', _ownerId: 'u1', _createdOn: 8 }];
         return recipes.at(-1);
@@ -35,11 +59,12 @@ const routes = {
     },
     'POST /users/register': reply(409, { message: 'A user with the same email already exists' }),
     'POST /users/login': { email: 'peter@abv.bg', _id: 'u1', accessToken: 'tok' },
-    'GET /users/logout': reply(204)
+    'GET /users/logout': reply(204),
 };
 for (let n = 1; n <= 8; n++) {
     routes[`GET /data/recipes/r${n}`] = byId(`r${n}`);
-    routes[`GET /data/comments?where=recipeId%3D%22r${n}%22`] = () => comments.filter((c) => c.recipeId === `r${n}`);
+    routes[`GET /data/comments?where=recipeId%3D%22r${n}%22`] = () =>
+        comments.filter((c) => c.recipeId === `r${n}`);
 }
 const fetch = mockFetch(routes);
 let ctx;
@@ -88,7 +113,10 @@ test('guests see comments but no comment form', async () => {
     await go('a[href="/details/r2"]');
     assert.equal($('main h2').textContent, 'Roast Trout');
     assert.equal($('.controls'), null);
-    assert.deepEqual($$('.comments li').map((li) => li.textContent), ['Tasty!']);
+    assert.deepEqual(
+        $$('.comments li').map((li) => li.textContent),
+        ['Tasty!'],
+    );
     assert.equal($('.comments form'), null);
 });
 
@@ -97,7 +125,10 @@ test('register shows errors, login signs in and returns home', async () => {
     submit($('main form'), { email: 'peter@abv.bg', password: '1', rePass: '2' });
     submit($('main form'), { rePass: '1' });
     await settle();
-    assert.deepEqual(ctx.alerts, ['Passwords don\'t match!', 'A user with the same email already exists']);
+    assert.deepEqual(ctx.alerts, [
+        "Passwords don't match!",
+        'A user with the same email already exists',
+    ]);
 
     await go('a[href="/login"]');
     submit($('main form'), { email: 'peter@abv.bg', password: '1' });
@@ -114,16 +145,26 @@ test('logged-in users add comments', async () => {
     const post = fetch.calls.find((c) => c.method === 'POST' && c.path === '/data/comments');
     assert.equal(post.headers['x-authorization'], 'tok');
     assert.deepEqual(post.body, { recipeId: 'r7', content: 'Great recipe' });
-    assert.deepEqual($$('.comments li').map((li) => li.textContent), ['Great recipe']);
+    assert.deepEqual(
+        $$('.comments li').map((li) => li.textContent),
+        ['Great recipe'],
+    );
 });
 
 test('create route posts a recipe and redirects to its details', async () => {
     await go('a[href="/create"]');
     assert.ok($('a[href="/create"]').classList.contains('active'));
-    submit($('main form'), { name: 'Soup', img: 'soup.jpg', ingredients: 'water\nsalt', steps: 'boil' });
+    submit($('main form'), {
+        name: 'Soup',
+        img: 'soup.jpg',
+        ingredients: 'water\nsalt',
+        steps: 'boil',
+    });
     await settle();
-    assert.deepEqual(fetch.calls.find((c) => c.method === 'POST' && c.path === '/data/recipes').body,
-        { name: 'Soup', img: 'soup.jpg', ingredients: ['water', 'salt'], steps: ['boil'] });
+    assert.deepEqual(
+        fetch.calls.find((c) => c.method === 'POST' && c.path === '/data/recipes').body,
+        { name: 'Soup', img: 'soup.jpg', ingredients: ['water', 'salt'], steps: ['boil'] },
+    );
     assert.equal(path(), '/details/r8');
 });
 

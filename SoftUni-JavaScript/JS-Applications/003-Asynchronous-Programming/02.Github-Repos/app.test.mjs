@@ -8,8 +8,8 @@ test('lists the user repos as links', async () => {
     const fetch = mockFetch({
         'GET /users/k1r1L/repos': [
             { full_name: 'k1r1L/one', html_url: 'https://github.com/k1r1L/one' },
-            { full_name: 'k1r1L/two', html_url: 'https://github.com/k1r1L/two' }
-        ]
+            { full_name: 'k1r1L/two', html_url: 'https://github.com/k1r1L/two' },
+        ],
     });
     const { document } = await loadPage(page, { fetch });
 
@@ -17,7 +17,10 @@ test('lists the user repos as links', async () => {
     await settle();
 
     const links = [...document.querySelectorAll('#repos li a')];
-    assert.deepEqual(links.map((a) => a.textContent), ['k1r1L/one', 'k1r1L/two']);
+    assert.deepEqual(
+        links.map((a) => a.textContent),
+        ['k1r1L/one', 'k1r1L/two'],
+    );
     assert.equal(links[1].href, 'https://github.com/k1r1L/two');
 });
 

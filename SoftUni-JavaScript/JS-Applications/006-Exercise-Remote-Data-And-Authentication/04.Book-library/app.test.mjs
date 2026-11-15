@@ -13,7 +13,7 @@ function booksServer() {
         'DELETE /jsonstore/collections/books/b1': () => {
             delete db.b1;
             return {};
-        }
+        },
     });
 }
 
@@ -24,13 +24,17 @@ async function loadBooks(fetch) {
     return ctx;
 }
 
-const titles = (document) => [...document.querySelectorAll('tbody tr td:first-child')].map((td) => td.textContent);
+const titles = (document) =>
+    [...document.querySelectorAll('tbody tr td:first-child')].map((td) => td.textContent);
 
 test('load all books renders rows with actions', async () => {
     const { document } = await loadBooks(booksServer());
 
     assert.deepEqual(titles(document), ['Harry Potter']);
-    assert.deepEqual([...document.querySelectorAll('tbody button')].map((b) => b.textContent), ['Edit', 'Delete']);
+    assert.deepEqual(
+        [...document.querySelectorAll('tbody button')].map((b) => b.textContent),
+        ['Edit', 'Delete'],
+    );
 });
 
 test('create posts a book and ignores empty input', async () => {
@@ -42,7 +46,10 @@ test('create posts a book and ignores empty input', async () => {
     submit(form, { title: 'Dune', author: 'Herbert' });
     await settle();
 
-    assert.deepEqual(fetch.calls.filter((c) => c.method === 'POST').map((c) => c.body), [{ title: 'Dune', author: 'Herbert' }]);
+    assert.deepEqual(
+        fetch.calls.filter((c) => c.method === 'POST').map((c) => c.body),
+        [{ title: 'Dune', author: 'Herbert' }],
+    );
     assert.deepEqual(titles(document), ['Harry Potter', 'Dune']);
 });
 

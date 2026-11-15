@@ -3,7 +3,10 @@ import assert from 'node:assert/strict';
 import { loadPage, mockFetch, settle, submit } from '../test-utils/dom.mjs';
 
 test('renders the whole library with lit-html and supports CRUD', async () => {
-    const db = { b1: { title: 'Harry Potter', author: 'J. K. Rowling' }, b2: { title: 'Game of Thrones', author: 'George R. R. Martin' } };
+    const db = {
+        b1: { title: 'Harry Potter', author: 'J. K. Rowling' },
+        b2: { title: 'Game of Thrones', author: 'George R. R. Martin' },
+    };
     const fetch = mockFetch({
         'GET /jsonstore/collections/books': () => db,
         'POST /jsonstore/collections/books': (body) => (db.b3 = body),
@@ -11,11 +14,13 @@ test('renders the whole library with lit-html and supports CRUD', async () => {
         'DELETE /jsonstore/collections/books/b2': () => {
             delete db.b2;
             return {};
-        }
+        },
     });
     const { document } = await loadPage(new URL('./index.html', import.meta.url), { fetch });
-    const titles = () => [...document.querySelectorAll('tbody tr td:first-child')].map((td) => td.textContent);
-    const buttons = (text) => [...document.querySelectorAll('tbody button')].filter((b) => b.textContent === text);
+    const titles = () =>
+        [...document.querySelectorAll('tbody tr td:first-child')].map((td) => td.textContent);
+    const buttons = (text) =>
+        [...document.querySelectorAll('tbody button')].filter((b) => b.textContent === text);
 
     assert.ok(document.getElementById('add-form'));
     assert.equal(document.getElementById('edit-form'), null);

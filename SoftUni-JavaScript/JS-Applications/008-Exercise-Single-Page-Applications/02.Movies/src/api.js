@@ -23,7 +23,10 @@ export async function request(path, method = 'GET', body) {
 
 export async function authenticate(action, credentials) {
     const data = await request(`/users/${action}`, 'POST', credentials);
-    localStorage.setItem('user', JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }));
+    localStorage.setItem(
+        'user',
+        JSON.stringify({ email: data.email, id: data._id, token: data.accessToken }),
+    );
 }
 
 export async function logout() {

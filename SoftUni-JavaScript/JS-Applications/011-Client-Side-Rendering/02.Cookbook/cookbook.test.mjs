@@ -2,16 +2,31 @@ import { before, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { loadPage, mockFetch, reply, settle, submit } from '../test-utils/dom.mjs';
 
-const make = (n, name = `Recipe ${n}`, owner = 'u2') =>
-    ({ _id: `r${n}`, _ownerId: owner, name, img: `${n}.jpg`, ingredients: ['salt'], steps: ['cook'], _createdOn: n });
-let recipes = [make(1, 'Easy Lasagna', 'u1'), make(2, 'Roast Trout'), ...[3, 4, 5, 6, 7].map((n) => make(n))];
+const make = (n, name = `Recipe ${n}`, owner = 'u2') => ({
+    _id: `r${n}`,
+    _ownerId: owner,
+    name,
+    img: `${n}.jpg`,
+    ingredients: ['salt'],
+    steps: ['cook'],
+    _createdOn: n,
+});
+let recipes = [
+    make(1, 'Easy Lasagna', 'u1'),
+    make(2, 'Roast Trout'),
+    ...[3, 4, 5, 6, 7].map((n) => make(n)),
+];
 const comments = [{ _id: 'c1', recipeId: 'r2', content: 'Tasty!' }];
 
 const preview = ({ _id, name, img }) => ({ _id, name, img });
 const byId = (id) => () => recipes.find((r) => r._id === id);
 const SELECT = '/data/recipes?select=_id%2Cname%2Cimg';
 const routes = {
-    [`GET ${SELECT}&sortBy=_createdOn%20desc&pageSize=3`]: () => recipes.toSorted((a, b) => b._createdOn - a._createdOn).slice(0, 3).map(preview),
+    [`GET ${SELECT}&sortBy=_createdOn%20desc&pageSize=3`]: () =>
+        recipes
+            .toSorted((a, b) => b._createdOn - a._createdOn)
+            .slice(0, 3)
+            .map(preview),
     [`GET ${SELECT}&offset=0&pageSize=5`]: () => recipes.slice(0, 5).map(preview),
     [`GET ${SELECT}&offset=5&pageSize=5`]: () => recipes.slice(5, 10).map(preview),
     'GET /data/recipes?count': () => recipes.length,
@@ -29,11 +44,12 @@ const routes = {
     },
     'POST /data/comments': (body) => comments.push(body) && body,
     'POST /users/login': { email: 'peter@abv.bg', _id: 'u1', accessToken: 'tok' },
-    'GET /users/logout': reply(204)
+    'GET /users/logout': reply(204),
 };
 for (let n = 1; n <= 8; n++) {
     routes[`GET /data/recipes/r${n}`] = byId(`r${n}`);
-    routes[`GET /data/comments?where=recipeId%3D%22r${n}%22`] = () => comments.filter((c) => c.recipeId === `r${n}`);
+    routes[`GET /data/comments?where=recipeId%3D%22r${n}%22`] = () =>
+        comments.filter((c) => c.recipeId === `r${n}`);
 }
 const fetch = mockFetch(routes);
 let ctx;

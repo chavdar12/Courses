@@ -25,11 +25,20 @@ const where = (query) => `where=${encodeURIComponent(query)}`;
 
 async function authenticate(action, credentials) {
     const data = await request(`/users/${action}`, 'POST', credentials);
-    sessionStorage.setItem('userData', JSON.stringify({ id: data._id, email: data.email, username: data.username, token: data.accessToken }));
+    sessionStorage.setItem(
+        'userData',
+        JSON.stringify({
+            id: data._id,
+            email: data.email,
+            username: data.username,
+            token: data.accessToken,
+        }),
+    );
 }
 
 export const login = (email, password) => authenticate('login', { email, password });
-export const register = (email, username, password) => authenticate('register', { email, username, password });
+export const register = (email, username, password) =>
+    authenticate('register', { email, username, password });
 
 export async function logout() {
     await request('/users/logout');
@@ -47,19 +56,30 @@ export async function getMemberCounts(teamIds) {
         return {};
     }
     const ids = teamIds.map((id) => `"${id}"`).join(',');
-    const members = await request(`/data/members?${where(`teamId IN (${ids}) AND status="member"`)}`);
-    return members.reduce((counts, m) => ({ ...counts, [m.teamId]: (counts[m.teamId] ?? 0) + 1 }), {});
+    const members = await request(
+        `/data/members?${where(`teamId IN (${ids}) AND status="member"`)}`,
+    );
+    return members.reduce(
+        (counts, m) => ({ ...counts, [m.teamId]: (counts[m.teamId] ?? 0) + 1 }),
+        {},
+    );
 }
 
 export const getMemberships = (teamId) =>
-    request(`/data/members?${where(`teamId="${teamId}"`)}&load=${encodeURIComponent('user=_ownerId:users')}`);
+    request(
+        `/data/members?${where(`teamId="${teamId}"`)}&load=${encodeURIComponent('user=_ownerId:users')}`,
+    );
 
 export const getMyTeams = async (userId) =>
-    (await request(`/data/members?${where(`_ownerId="${userId}" AND status="member"`)}&load=${encodeURIComponent('team=teamId:teams')}`))
-        .map((m) => m.team);
+    (
+        await request(
+            `/data/members?${where(`_ownerId="${userId}" AND status="member"`)}&load=${encodeURIComponent('team=teamId:teams')}`,
+        )
+    ).map((m) => m.team);
 
 export const requestJoin = (teamId) => request('/data/members', 'POST', { teamId });
-export const approve = (member) => request(`/data/members/${member._id}`, 'PUT', { teamId: member.teamId, status: 'member' });
+export const approve = (member) =>
+    request(`/data/members/${member._id}`, 'PUT', { teamId: member.teamId, status: 'member' });
 export const removeMembership = (memberId) => request(`/data/members/${memberId}`, 'DELETE');
 
 /** The server doesn't add the owner as a member, so request and approve on their behalf. */

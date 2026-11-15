@@ -6,8 +6,8 @@ const page = new URL('./index.html', import.meta.url);
 const fetch = mockFetch({
     'GET /jsonstore/advanced/profiles': {
         a: { _id: 'a', username: 'John', email: 'john@users.bg', age: 31 },
-        b: { _id: 'b', username: '<b>Peter</b>', email: 'peter@users.bg', age: 56 }
-    }
+        b: { _id: 'b', username: '<b>Peter</b>', email: 'peter@users.bg', age: 56 },
+    },
 });
 
 test('renders one profile per user', async () => {

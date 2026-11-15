@@ -9,7 +9,8 @@ async function json(url, options) {
     return res.json();
 }
 
-export const getCountry = (name) => json(`https://restcountries.com/v2/name/${encodeURIComponent(name)}`);
+export const getCountry = (name) =>
+    json(`https://restcountries.com/v2/name/${encodeURIComponent(name)}`);
 
 export const getIssue = (id) => json(`${GITHUB_ISSUES}/${id}`);
 
@@ -18,8 +19,8 @@ export function createIssue({ username, token }, issue) {
         method: 'POST',
         headers: {
             Authorization: `Basic ${btoa(`${username}:${token}`)}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(issue)
+        body: JSON.stringify(issue),
     });
 }

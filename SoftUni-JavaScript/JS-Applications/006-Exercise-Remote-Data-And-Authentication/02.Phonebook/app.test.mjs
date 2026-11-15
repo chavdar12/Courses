@@ -13,7 +13,7 @@ function phonebookServer() {
             const removed = db.k1;
             delete db.k1;
             return removed;
-        }
+        },
     });
 }
 
@@ -38,7 +38,9 @@ test('delete removes the contact and reloads', async () => {
     document.querySelector('#phonebook li button').click();
     await settle();
 
-    assert.ok(fetch.calls.some((c) => c.method === 'DELETE' && c.path === '/jsonstore/phonebook/k1'));
+    assert.ok(
+        fetch.calls.some((c) => c.method === 'DELETE' && c.path === '/jsonstore/phonebook/k1'),
+    );
     assert.equal(document.querySelectorAll('#phonebook li').length, 0);
 });
 

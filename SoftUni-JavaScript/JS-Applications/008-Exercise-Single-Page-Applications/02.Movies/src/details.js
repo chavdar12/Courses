@@ -27,7 +27,7 @@ export function setupDetails(section, navigate) {
         [movie, likes, ownLikes] = await Promise.all([
             request(`/data/movies/${id}`),
             request(`${where(`movieId="${id}"`)}&distinct=_ownerId&count`),
-            user ? request(where(`movieId="${id}" and _ownerId="${user.id}"`)) : []
+            user ? request(where(`movieId="${id}" and _ownerId="${user.id}"`)) : [],
         ]);
         const isOwner = user?.id === movie._ownerId;
 

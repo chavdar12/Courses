@@ -14,7 +14,7 @@ test('local task: Generate adds rows from JSON, Buy summarises checked ones', as
 
     input.value = JSON.stringify([
         { img: 'a.jpg', name: 'Sofa', price: '259', decFactor: '0.4' },
-        { img: 'b.jpg', name: 'Wardrobe', price: '120', decFactor: '1.2' }
+        { img: 'b.jpg', name: 'Wardrobe', price: '120', decFactor: '1.2' },
     ]);
     generate.click();
     const rows = document.querySelectorAll('tbody tr');
@@ -23,7 +23,10 @@ test('local task: Generate adds rows from JSON, Buy summarises checked ones', as
     rows[2].querySelector('input').checked = true;
     buy.click();
 
-    assert.equal(output.value, 'Bought furniture: Sofa, Wardrobe\nTotal price: 379.00\nAverage decoration factor: 0.8');
+    assert.equal(
+        output.value,
+        'Bought furniture: Sofa, Wardrobe\nTotal price: 379.00\nAverage decoration factor: 0.8',
+    );
 });
 
 test('guest catalog lists furniture with disabled checkboxes', async () => {
@@ -45,7 +48,7 @@ test('logged in user buys checked furniture and sees all orders', async () => {
             orders.push({ ...body, _ownerId: 'u1' });
             return body;
         },
-        'GET /data/orders?where=_ownerId%3D%22u1%22': () => orders
+        'GET /data/orders?where=_ownerId%3D%22u1%22': () => orders,
     });
     const { document } = await loadPage(page('homeLogged.html'), { fetch, session });
     const checkboxes = document.querySelectorAll('tbody input');
@@ -55,7 +58,12 @@ test('logged in user buys checked furniture and sees all orders', async () => {
     checkboxes[1].checked = true;
     document.getElementById('buy-btn').click();
     await settle();
-    assert.equal(fetch.calls.filter((c) => c.method === 'POST').every((c) => c.headers['x-authorization'] === 'tok'), true);
+    assert.equal(
+        fetch.calls
+            .filter((c) => c.method === 'POST')
+            .every((c) => c.headers['x-authorization'] === 'tok'),
+        true,
+    );
 
     document.getElementById('show-orders-btn').click();
     await settle();
@@ -66,15 +74,19 @@ test('logged in user buys checked furniture and sees all orders', async () => {
 
 test('login and register store the session; errors alert', async () => {
     const fetch = mockFetch({
-        'POST /users/login': reply(403, { message: 'Login or password don\'t match' }),
-        'POST /users/register': (body) => ({ email: body.email, _id: 'u5', accessToken: 'new' })
+        'POST /users/login': reply(403, { message: "Login or password don't match" }),
+        'POST /users/register': (body) => ({ email: body.email, _id: 'u5', accessToken: 'new' }),
     });
     const { document, window, alerts } = await loadPage(page('login.html'), { fetch });
 
     submit(document.getElementById('login-form'), { email: 'a@a.bg', password: 'x' });
-    submit(document.getElementById('register-form'), { email: 'a@a.bg', password: '1', rePass: '2' });
+    submit(document.getElementById('register-form'), {
+        email: 'a@a.bg',
+        password: '1',
+        rePass: '2',
+    });
     await settle();
-    assert.deepEqual(alerts, ['Passwords don\'t match!', 'Login or password don\'t match']);
+    assert.deepEqual(alerts, ["Passwords don't match!", "Login or password don't match"]);
 
     submit(document.getElementById('register-form'), { rePass: '1' });
     await settle();
@@ -85,10 +97,20 @@ test('create posts the product with the auth token', async () => {
     const fetch = mockFetch({ 'POST /data/furniture': (body) => body });
     const { document, alerts } = await loadPage(page('create.html'), { fetch, session });
 
-    submit(document.getElementById('create-form'), { name: 'Table', price: '99', factor: '1', img: 't.png' });
+    submit(document.getElementById('create-form'), {
+        name: 'Table',
+        price: '99',
+        factor: '1',
+        img: 't.png',
+    });
     await settle();
 
     assert.deepEqual(alerts, []);
-    assert.deepEqual(fetch.calls[0].body, { name: 'Table', price: '99', factor: '1', img: 't.png' });
+    assert.deepEqual(fetch.calls[0].body, {
+        name: 'Table',
+        price: '99',
+        factor: '1',
+        img: 't.png',
+    });
     assert.equal(fetch.calls[0].headers['x-authorization'], 'tok');
 });
