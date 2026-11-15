@@ -5,14 +5,14 @@ public class Courses {
         Data database = new Data();
         Iterable<String> courses = database.courseNames();
 
-        //print courses
+        // print courses
     }
 
     public void printIds() {
         Data database = new Data();
         Iterable<Integer> coursesIds = database.courseIds();
 
-        //print course ids
+        // print course ids
     }
 
     public void printById(int id) {

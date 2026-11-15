@@ -1,6 +1,5 @@
 package ValidationData;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +17,12 @@ public class Main {
         for (int i = 0; i < n; i++) {
             String[] input = reader.readLine().split(" ");
             try {
-                people.add(new Person(input[0], input[1], Integer.parseInt(input[2]), Double.parseDouble(input[3])));
+                people.add(
+                        new Person(
+                                input[0],
+                                input[1],
+                                Integer.parseInt(input[2]),
+                                Double.parseDouble(input[3])));
             } catch (InvalidParameterException ex) {
                 System.out.println(ex.getMessage());
             }

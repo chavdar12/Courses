@@ -11,12 +11,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        List<String> phoneNumbers = Arrays.stream(bufferedReader.readLine()
-                        .split("\\s+"))
-                .collect(Collectors.toList());
-        List<String> urls = Arrays.stream(bufferedReader.readLine()
-                        .split("\\s+"))
-                .collect(Collectors.toList());
+        List<String> phoneNumbers =
+                Arrays.stream(bufferedReader.readLine().split("\\s+")).collect(Collectors.toList());
+        List<String> urls =
+                Arrays.stream(bufferedReader.readLine().split("\\s+")).collect(Collectors.toList());
 
         Smartphone smartphone = new Smartphone(phoneNumbers, urls);
 

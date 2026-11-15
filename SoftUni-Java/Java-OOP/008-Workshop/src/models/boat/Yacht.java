@@ -11,7 +11,6 @@ public class Yacht extends MotorBoats {
         this.cargo = cargo;
     }
 
-
     public double getCargo() {
         return cargo;
     }

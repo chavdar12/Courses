@@ -14,9 +14,11 @@ public class Main {
             String[] tokens = scanner.nextLine().split("\\s+");
             String name = tokens[0];
             int age = Integer.parseInt(tokens[1]);
-            buyers.put(name, tokens.length == 4
-                    ? new Citizen(name, age, tokens[2], tokens[3])
-                    : new Rebel(name, age, tokens[2]));
+            buyers.put(
+                    name,
+                    tokens.length == 4
+                            ? new Citizen(name, age, tokens[2], tokens[3])
+                            : new Rebel(name, age, tokens[2]));
         }
 
         String name = scanner.nextLine();

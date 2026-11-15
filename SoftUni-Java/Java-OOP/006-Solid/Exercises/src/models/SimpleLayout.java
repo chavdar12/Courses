@@ -1,6 +1,7 @@
 package models;
 
 import enums.ReportLevel;
+
 import interfaces.Layout;
 
 public class SimpleLayout implements Layout {

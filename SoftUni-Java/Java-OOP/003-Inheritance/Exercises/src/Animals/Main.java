@@ -12,23 +12,22 @@ public class Main {
 
         while (true) {
             String infoForAnimalType = reader.readLine();
-            if ("Beast!".equals(infoForAnimalType))
-                break;
+            if ("Beast!".equals(infoForAnimalType)) break;
 
             makeAnimals(reader, infoForAnimalType);
-
         }
-
-
     }
 
-    private static void makeAnimals(BufferedReader reader, String infoForAnimalType) throws IOException {
+    private static void makeAnimals(BufferedReader reader, String infoForAnimalType)
+            throws IOException {
         String[] animalInfo = reader.readLine().split(" ");
 
         switch (infoForAnimalType) {
             case "Animal":
                 try {
-                    Animal animal = new Animal(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
+                    Animal animal =
+                            new Animal(
+                                    animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
                     System.out.println(infoForAnimalType);
                     System.out.printf("%s %s %s\n", animalInfo[0], animalInfo[1], animalInfo[2]);
                     System.out.println(animal.produceSound());
@@ -38,7 +37,8 @@ public class Main {
                 break;
             case "Dog":
                 try {
-                    Dog dog = new Dog(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
+                    Dog dog =
+                            new Dog(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
                     System.out.println(infoForAnimalType);
                     System.out.printf("%s %s %s\n", animalInfo[0], animalInfo[1], animalInfo[2]);
                     System.out.println(dog.produceSound());
@@ -48,7 +48,8 @@ public class Main {
                 break;
             case "Cat":
                 try {
-                    Cat cat = new Cat(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
+                    Cat cat =
+                            new Cat(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
                     System.out.println(infoForAnimalType);
                     System.out.printf("%s %s %s\n", animalInfo[0], animalInfo[1], animalInfo[2]);
                     System.out.println(cat.produceSound());
@@ -58,7 +59,8 @@ public class Main {
                 break;
             case "Frog":
                 try {
-                    Frog frog = new Frog(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
+                    Frog frog =
+                            new Frog(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
                     System.out.println(infoForAnimalType);
                     System.out.printf("%s %s %s\n", animalInfo[0], animalInfo[1], animalInfo[2]);
                     System.out.println(frog.produceSound());
@@ -68,7 +70,9 @@ public class Main {
                 break;
             case "Kitten":
                 try {
-                    Kitten kitten = new Kitten(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
+                    Kitten kitten =
+                            new Kitten(
+                                    animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
                     System.out.println(infoForAnimalType);
                     System.out.printf("%s %s Female\n", animalInfo[0], animalInfo[1]);
                     System.out.println(kitten.produceSound());
@@ -78,7 +82,9 @@ public class Main {
                 break;
             case "Tomcat":
                 try {
-                    Tomcat tomcat = new Tomcat(animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
+                    Tomcat tomcat =
+                            new Tomcat(
+                                    animalInfo[0], Integer.parseInt(animalInfo[1]), animalInfo[2]);
                     System.out.println(infoForAnimalType);
                     System.out.printf("%s %s Male\n", animalInfo[0], animalInfo[1]);
                     System.out.println(tomcat.produceSound());
@@ -88,5 +94,4 @@ public class Main {
                 break;
         }
     }
-
 }

@@ -9,16 +9,16 @@ public class BubbleTests {
     public void sortsAscending() {
         int[] numbers = {5, -1, 3, 3, 0};
         Bubble.sort(numbers);
-        assertArrayEquals(new int[]{-1, 0, 3, 3, 5}, numbers);
+        assertArrayEquals(new int[] {-1, 0, 3, 3, 5}, numbers);
     }
 
     @Test
     public void handlesEmptyAndSingleElementArrays() {
         int[] empty = {};
         Bubble.sort(empty);
-        assertArrayEquals(new int[]{}, empty);
+        assertArrayEquals(new int[] {}, empty);
         int[] single = {7};
         Bubble.sort(single);
-        assertArrayEquals(new int[]{7}, single);
+        assertArrayEquals(new int[] {7}, single);
     }
 }

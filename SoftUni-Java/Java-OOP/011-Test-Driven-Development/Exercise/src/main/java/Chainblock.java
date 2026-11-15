@@ -26,12 +26,12 @@ public interface Chainblock extends Iterable<Transaction> {
 
     Iterable<Transaction> getByReceiverOrderedByAmountThenById(String receiver);
 
-    Iterable<Transaction> getByTransactionStatusAndMaximumAmount(TransactionStatus status, double amount);
+    Iterable<Transaction> getByTransactionStatusAndMaximumAmount(
+            TransactionStatus status, double amount);
 
     Iterable<Transaction> getBySenderAndMinimumAmountDescending(String sender, double amount);
 
     Iterable<Transaction> getByReceiverAndAmountRange(String receiver, double lo, double hi);
 
     Iterable<Transaction> getAllInAmountRange(double lo, double hi);
-
 }

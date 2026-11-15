@@ -16,7 +16,6 @@ public class Cart {
         return new ArrayList<OrderItem>(this.items);
     }
 
-
     public String getCustmerEmail() {
         return this.custmerEmail;
     }

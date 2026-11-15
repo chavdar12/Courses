@@ -1,6 +1,5 @@
 package FoodShortage;
 
-
 public class Citizen implements Buyer, Identifiable, Person {
     private final String name;
     private final int age;

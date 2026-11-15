@@ -6,7 +6,8 @@ public class TransactionImpl implements Comparable<TransactionImpl> {
     private final String to;
     private final double amount;
 
-    public TransactionImpl(int id, TransactionStatus status, String from, String to, double amount) {
+    public TransactionImpl(
+            int id, TransactionStatus status, String from, String to, double amount) {
         this.id = id;
         this.status = status;
         this.from = from;

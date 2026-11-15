@@ -12,6 +12,4 @@ public class Child extends Person {
         }
         super.setAge(age);
     }
-
-
 }

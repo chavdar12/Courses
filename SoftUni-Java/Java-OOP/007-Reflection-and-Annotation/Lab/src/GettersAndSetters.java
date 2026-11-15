@@ -9,9 +9,13 @@ public class GettersAndSetters {
 
         Arrays.stream(methods)
                 .filter(m -> m.getName().startsWith("get") && m.getParameterCount() == 0)
-                .forEach(m -> System.out.printf("%s will return %s%n", m.getName(), m.getReturnType()));
+                .forEach(m ->
+                        System.out.printf("%s will return %s%n", m.getName(), m.getReturnType()));
         Arrays.stream(methods)
                 .filter(m -> m.getName().startsWith("set") && m.getParameterCount() == 1)
-                .forEach(m -> System.out.printf("%s and will set field of %s%n", m.getName(), m.getParameterTypes()[0]));
+                .forEach(m ->
+                        System.out.printf(
+                                "%s and will set field of %s%n",
+                                m.getName(), m.getParameterTypes()[0]));
     }
 }

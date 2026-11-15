@@ -18,9 +18,12 @@ public class Tracker {
         for (Method method : cl.getDeclaredMethods()) {
             Author author = method.getAnnotation(Author.class);
             if (author != null) {
-                methodsByAuthor.computeIfAbsent(author.name(), k -> new TreeSet<>()).add(method.getName() + "()");
+                methodsByAuthor
+                        .computeIfAbsent(author.name(), k -> new TreeSet<>())
+                        .add(method.getName() + "()");
             }
         }
-        methodsByAuthor.forEach((author, methods) -> System.out.printf("%s: %s%n", author, String.join(", ", methods)));
+        methodsByAuthor.forEach((author, methods) ->
+                System.out.printf("%s: %s%n", author, String.join(", ", methods)));
     }
 }

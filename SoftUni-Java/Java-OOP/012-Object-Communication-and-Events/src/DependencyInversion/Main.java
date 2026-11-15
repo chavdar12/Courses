@@ -18,8 +18,9 @@ public class Main {
             if (tokens[0].equalsIgnoreCase("mode")) {
                 calculator.setOperation(operationFactory.produce(tokens[1]));
             } else {
-                System.out.println(calculator.calculate(Integer.parseInt(tokens[0]),
-                        Integer.parseInt(tokens[1])));
+                System.out.println(
+                        calculator.calculate(
+                                Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1])));
             }
 
             input = reader.readLine();

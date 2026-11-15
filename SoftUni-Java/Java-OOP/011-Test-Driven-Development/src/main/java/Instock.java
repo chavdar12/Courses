@@ -50,11 +50,7 @@ public class Instock implements ProductStock {
     public Iterable<Product> findFirstByAlphabeticalOrder(int count) {
         ArrayList<Product> result = new ArrayList<>();
         if (!(count <= 0 || count > this.getCount())) {
-            this.products
-                    .stream()
-                    .sorted(Product::compareTo)
-                    .limit(count)
-                    .forEach(result::add);
+            this.products.stream().sorted(Product::compareTo).limit(count).forEach(result::add);
         }
         return result;
     }

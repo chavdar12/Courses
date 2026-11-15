@@ -26,6 +26,5 @@ public class Main {
         }
         System.out.println("Songs added: " + songDatabase.getSongsCount());
         System.out.println(songDatabase.getTotalLengthSongs());
-
     }
 }

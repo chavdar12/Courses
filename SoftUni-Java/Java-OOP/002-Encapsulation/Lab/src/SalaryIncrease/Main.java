@@ -15,7 +15,12 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             String[] input = reader.readLine().split(" ");
-            people.add(new Person(input[0], input[1], Integer.parseInt(input[2]), Double.parseDouble(input[3])));
+            people.add(
+                    new Person(
+                            input[0],
+                            input[1],
+                            Integer.parseInt(input[2]),
+                            Double.parseDouble(input[3])));
         }
         double bonus = Double.parseDouble(reader.readLine());
         for (Person person : people) {
@@ -23,5 +28,4 @@ public class Main {
             System.out.println(person.toString());
         }
     }
-
 }

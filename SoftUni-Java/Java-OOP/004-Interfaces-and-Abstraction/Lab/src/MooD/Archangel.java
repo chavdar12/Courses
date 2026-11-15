@@ -5,7 +5,6 @@ public class Archangel extends Character<String> {
 
     public Archangel(String userName, int level, Integer specialPoints) {
         super(userName, CHARACTER_TYPE, level, specialPoints);
-
     }
 
     @Override

@@ -46,9 +46,7 @@ public class Pizza {
     }
 
     public double getOverallCalories() {
-        return this.dough.calculateCalories() +
-                this.toppings.stream()
-                        .mapToDouble(Topping::calculateCalories)
-                        .sum();
+        return this.dough.calculateCalories()
+                + this.toppings.stream().mapToDouble(Topping::calculateCalories).sum();
     }
 }

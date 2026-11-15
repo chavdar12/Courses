@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
 public class Engine implements Runnable {
 
     private final CommandInterpreter commandInterpreter;
@@ -19,8 +18,7 @@ public class Engine implements Runnable {
 
     @Override
     public void run() {
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             try {
                 String input = reader.readLine();
@@ -38,6 +36,4 @@ public class Engine implements Runnable {
             }
         }
     }
-
-
 }

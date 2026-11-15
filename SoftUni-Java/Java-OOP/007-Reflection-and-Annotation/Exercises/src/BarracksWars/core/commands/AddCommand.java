@@ -6,10 +6,8 @@ import BarracksWars.contracts.UnitFactory;
 
 public class AddCommand extends CommandImpl {
 
-    @Inject
-    private Repository repository;
-    @Inject
-    private UnitFactory unitFactory;
+    @Inject private Repository repository;
+    @Inject private UnitFactory unitFactory;
 
     public AddCommand(String[] data) {
         super(data);

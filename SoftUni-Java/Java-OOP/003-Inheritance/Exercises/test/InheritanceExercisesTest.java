@@ -1,11 +1,12 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
+
 import static support.Console.run;
 
-import java.math.BigDecimal;
-
 import org.junit.Test;
+
+import java.math.BigDecimal;
 
 public class InheritanceExercisesTest {
     private static final String[] NO_ARGS = new String[0];
@@ -36,7 +37,8 @@ public class InheritanceExercisesTest {
         assertTrue(hero instanceof PlayersAndMonsters.DarkWizard);
         assertTrue(new PlayersAndMonsters.BladeKnight("A", 1) instanceof PlayersAndMonsters.Knight);
         assertTrue(new PlayersAndMonsters.MuseElf("B", 2) instanceof PlayersAndMonsters.Elf);
-        assertEquals("Type: PlayersAndMonsters.SoulMaster Username: Gosho Level: 10", hero.toString());
+        assertEquals(
+                "Type: PlayersAndMonsters.SoulMaster Username: Gosho Level: 10", hero.toString());
     }
 
     @Test
@@ -62,15 +64,24 @@ public class InheritanceExercisesTest {
         assertEquals(250, cake.getGrams(), 1e-9);
         assertEquals(1000, cake.getCalories(), 1e-9);
         assertTrue(new Restaurant.Salmon("Salmon", BigDecimal.TEN) instanceof Restaurant.MainDish);
-        assertTrue(new Restaurant.Soup("Tarator", BigDecimal.ONE, 300) instanceof Restaurant.Starter);
+        assertTrue(
+                new Restaurant.Soup("Tarator", BigDecimal.ONE, 300) instanceof Restaurant.Starter);
     }
 
     @Test
     public void animals() throws Exception {
-        assertEquals("Cat\nTom 12 Male\nMeow meow\nDog\nRex 132 Male\nWoof!",
-                run(() -> Animals.Main.main(NO_ARGS), "Cat\nTom 12 Male\nDog\nRex 132 Male\nBeast!\n"));
-        assertEquals("Frog\nKermit 12 Male\nRibbit", run(() -> Animals.Main.main(NO_ARGS), "Frog\nKermit 12 Male\nBeast!\n"));
-        assertEquals("Invalid input!\nFrog\nFroakie 2 Male\nRibbit",
-                run(() -> Animals.Main.main(NO_ARGS), "Frog\nFroakie -2 Male\nFrog\nFroakie 2 Male\nBeast!\n"));
+        assertEquals(
+                "Cat\nTom 12 Male\nMeow meow\nDog\nRex 132 Male\nWoof!",
+                run(
+                        () -> Animals.Main.main(NO_ARGS),
+                        "Cat\nTom 12 Male\nDog\nRex 132 Male\nBeast!\n"));
+        assertEquals(
+                "Frog\nKermit 12 Male\nRibbit",
+                run(() -> Animals.Main.main(NO_ARGS), "Frog\nKermit 12 Male\nBeast!\n"));
+        assertEquals(
+                "Invalid input!\nFrog\nFroakie 2 Male\nRibbit",
+                run(
+                        () -> Animals.Main.main(NO_ARGS),
+                        "Frog\nFroakie -2 Male\nFrog\nFroakie 2 Male\nBeast!\n"));
     }
 }

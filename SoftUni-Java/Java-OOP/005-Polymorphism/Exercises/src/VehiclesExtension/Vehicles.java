@@ -8,13 +8,16 @@ public abstract class Vehicles implements Drivable {
     private double tankCapacity;
     private double CONSUMPTION_INCREASE_VALUE;
 
-    public Vehicles(double fuelQuantity, double fuelConsumption, double tankCapacity, double CONSUMPTION_INCREASE_VALUE) {
+    public Vehicles(
+            double fuelQuantity,
+            double fuelConsumption,
+            double tankCapacity,
+            double CONSUMPTION_INCREASE_VALUE) {
         this.setTankCapacity(tankCapacity);
         this.setFuelQuantity(fuelQuantity);
         this.setFuelConsumption(fuelConsumption);
         this.CONSUMPTION_INCREASE_VALUE = CONSUMPTION_INCREASE_VALUE;
     }
-
 
     @Override
     public String drive(double distance) {
@@ -26,7 +29,8 @@ public abstract class Vehicles implements Drivable {
 
         this.setFuelQuantity(this.getFuelQuantity() - totalFuelConsumption * distance);
         DecimalFormat df = new DecimalFormat("#.##");
-        return String.format("%s travelled %s km", this.getClass().getSimpleName(), df.format(distance));
+        return String.format(
+                "%s travelled %s km", this.getClass().getSimpleName(), df.format(distance));
     }
 
     @Override
@@ -39,11 +43,8 @@ public abstract class Vehicles implements Drivable {
 
     @Override
     public String toString() {
-        return String.format("%s: %.2f",
-                this.getClass().getSimpleName(),
-                this.getFuelQuantity());
+        return String.format("%s: %.2f", this.getClass().getSimpleName(), this.getFuelQuantity());
     }
-
 
     public double getFuelQuantity() {
         return fuelQuantity;

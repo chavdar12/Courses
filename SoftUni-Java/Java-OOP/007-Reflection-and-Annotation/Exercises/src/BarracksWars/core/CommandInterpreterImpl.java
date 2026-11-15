@@ -20,18 +20,17 @@ public class CommandInterpreterImpl implements CommandInterpreter {
     @SuppressWarnings("unchecked")
     @Override
     public Executable interpretCommand(String[] data) {
-        String commandName = Character.toUpperCase(data[0].charAt(0)) + data[0].substring(1) + "Command";
+        String commandName =
+                Character.toUpperCase(data[0].charAt(0)) + data[0].substring(1) + "Command";
         Executable executable = null;
 
         try {
             Class<? extends Executable> commandClass =
                     (Class<? extends Executable>)
                             Class.forName(CommandInterpreterImpl.COMMAND_PACKAGE + commandName);
-            Constructor constructor = commandClass
-                    .getDeclaredConstructor(String[].class);
+            Constructor constructor = commandClass.getDeclaredConstructor(String[].class);
             constructor.setAccessible(true);
-            executable = (Executable) constructor
-                    .newInstance(new Object[]{data});
+            executable = (Executable) constructor.newInstance(new Object[] {data});
             Field[] executableFields = executable.getClass().getDeclaredFields();
             Field[] thisCommandImpl = this.getClass().getDeclaredFields();
 
@@ -46,14 +45,13 @@ public class CommandInterpreterImpl implements CommandInterpreter {
                 }
             }
 
-        } catch (ClassNotFoundException |
-                 NoSuchMethodException |
-                 InstantiationException |
-                 IllegalAccessException |
-                 InvocationTargetException e) {
+        } catch (ClassNotFoundException
+                | NoSuchMethodException
+                | InstantiationException
+                | IllegalAccessException
+                | InvocationTargetException e) {
             e.printStackTrace();
         }
         return executable;
     }
 }
-

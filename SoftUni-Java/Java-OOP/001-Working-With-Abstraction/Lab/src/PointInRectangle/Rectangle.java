@@ -26,11 +26,11 @@ public class Rectangle {
     }
 
     public boolean contains(Point point) {
-        boolean isInHorizontal = this.topLeft.getX() <= point.getX()
-                && this.bottomRight.getX() >= point.getX();
+        boolean isInHorizontal =
+                this.topLeft.getX() <= point.getX() && this.bottomRight.getX() >= point.getX();
 
-        boolean isInVertical = this.topLeft.getY() <= point.getY()
-                && this.bottomRight.getY() >= point.getY();
+        boolean isInVertical =
+                this.topLeft.getY() <= point.getY() && this.bottomRight.getY() >= point.getY();
 
         return isInHorizontal && isInVertical;
     }

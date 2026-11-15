@@ -16,4 +16,3 @@ public class Bulgarian implements Person {
         return "Здравей";
     }
 }
-

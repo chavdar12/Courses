@@ -1,10 +1,10 @@
 package models;
 
 import enums.ReportLevel;
+
 import interfaces.Layout;
 
 public class ConsoleAppender extends AppenderImpl {
-
 
     public ConsoleAppender(Layout layout) {
         super(layout);

@@ -11,7 +11,9 @@ public class Main {
                 throw new IllegalArgumentException();
             }
             System.out.printf("%.2f%n", Math.sqrt(number));
-        } catch (IllegalArgumentException e) { // NumberFormatException is an IllegalArgumentException too
+        } catch (
+                IllegalArgumentException
+                        e) { // NumberFormatException is an IllegalArgumentException too
             System.out.println("Invalid number");
         } finally {
             System.out.println("Good bye");

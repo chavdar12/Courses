@@ -3,8 +3,7 @@ package MordorCrueltyPlan;
 public class Gandalf {
     private int foodPoints;
 
-    public Gandalf() {
-    }
+    public Gandalf() {}
 
     public void eatFood(String food) {
         switch (food.toLowerCase()) {

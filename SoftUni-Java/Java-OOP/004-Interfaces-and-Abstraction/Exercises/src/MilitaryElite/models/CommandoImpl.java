@@ -24,8 +24,10 @@ public class CommandoImpl extends SpecialisedSoldierImpl implements Commando {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString());
-        sb.append(System.lineSeparator()).append(this.getCorps())
-                .append(System.lineSeparator()).append("Missions:");
+        sb.append(System.lineSeparator())
+                .append(this.getCorps())
+                .append(System.lineSeparator())
+                .append("Missions:");
         for (Mission mission : this.missions) {
             sb.append(System.lineSeparator());
             sb.append("  ").append(mission.toString());

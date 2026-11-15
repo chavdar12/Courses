@@ -5,9 +5,7 @@ public class ChainblockImpl implements Chainblock {
         return 0;
     }
 
-    public void add(Transaction transaction) {
-
-    }
+    public void add(Transaction transaction) {}
 
     public boolean contains(Transaction transaction) {
         return false;
@@ -17,13 +15,9 @@ public class ChainblockImpl implements Chainblock {
         return false;
     }
 
-    public void changeTransactionStatus(int id, TransactionStatus newStatus) {
+    public void changeTransactionStatus(int id, TransactionStatus newStatus) {}
 
-    }
-
-    public void removeTransactionById(int id) {
-
-    }
+    public void removeTransactionById(int id) {}
 
     public Transaction getById(int id) {
         return null;
@@ -53,15 +47,18 @@ public class ChainblockImpl implements Chainblock {
         return null;
     }
 
-    public Iterable<Transaction> getByTransactionStatusAndMaximumAmount(TransactionStatus status, double amount) {
+    public Iterable<Transaction> getByTransactionStatusAndMaximumAmount(
+            TransactionStatus status, double amount) {
         return null;
     }
 
-    public Iterable<Transaction> getBySenderAndMinimumAmountDescending(String sender, double amount) {
+    public Iterable<Transaction> getBySenderAndMinimumAmountDescending(
+            String sender, double amount) {
         return null;
     }
 
-    public Iterable<Transaction> getByReceiverAndAmountRange(String receiver, double lo, double hi) {
+    public Iterable<Transaction> getByReceiverAndAmountRange(
+            String receiver, double lo, double hi) {
         return null;
     }
 

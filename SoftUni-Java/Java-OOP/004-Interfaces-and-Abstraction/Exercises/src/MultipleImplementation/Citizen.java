@@ -31,11 +31,18 @@ public class Citizen implements Person, Birthable, Identifiable {
 
     @Override
     public String toString() {
-        return "Citizen{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", id='" + id + '\'' +
-                ", birthDate='" + birthDate + '\'' +
-                '}';
+        return "Citizen{"
+                + "name='"
+                + name
+                + '\''
+                + ", age="
+                + age
+                + ", id='"
+                + id
+                + '\''
+                + ", birthDate='"
+                + birthDate
+                + '\''
+                + '}';
     }
 }

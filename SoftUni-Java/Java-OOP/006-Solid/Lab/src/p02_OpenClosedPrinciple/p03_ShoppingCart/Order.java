@@ -8,6 +8,6 @@ public abstract class Order {
     }
 
     void chekout() {
-        //log the order in the p03_Database
+        // log the order in the p03_Database
     }
 }

@@ -90,12 +90,13 @@ public abstract class Hardware {
         StringBuilder sb = new StringBuilder();
         String separator = java.lang.System.lineSeparator();
 
-        int expressCount = (int) this.softwareComponents.keySet()
-                .stream()
-                .filter(e -> this.softwareComponents.get(e).getType().equals("Express"))
-                .count();
+        int expressCount =
+                (int)
+                        this.softwareComponents.keySet().stream()
+                                .filter(e ->
+                                        this.softwareComponents.get(e).getType().equals("Express"))
+                                .count();
         int lightCount = this.softwareComponents.size() - expressCount;
-
 
         sb.append("Hardware Component - ")
                 .append(this.getName())
@@ -120,9 +121,10 @@ public abstract class Hardware {
                 .append(this.getType())
                 .append(separator)
                 .append("Software Components: ");
-        String[] values = this.softwareComponents.values()
-                .stream().map(Software::getName)
-                .toArray(String[]::new);
+        String[] values =
+                this.softwareComponents.values().stream()
+                        .map(Software::getName)
+                        .toArray(String[]::new);
         if (values.length == 0) {
             sb.append("None");
         } else {

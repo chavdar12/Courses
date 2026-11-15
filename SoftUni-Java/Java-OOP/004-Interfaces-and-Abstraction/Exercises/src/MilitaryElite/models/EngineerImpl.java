@@ -23,8 +23,10 @@ public class EngineerImpl extends SpecialisedSoldierImpl implements Engineer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString());
-        sb.append(System.lineSeparator()).append(this.getCorps())
-                .append(System.lineSeparator()).append("Repairs:");
+        sb.append(System.lineSeparator())
+                .append(this.getCorps())
+                .append(System.lineSeparator())
+                .append("Repairs:");
         for (Repair repair : this.repairs) {
             sb.append(System.lineSeparator());
             sb.append("  ").append(repair.toString());

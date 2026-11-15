@@ -1,7 +1,12 @@
 import java.lang.reflect.InvocationTargetException;
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static void main(String[] args)
+            throws ClassNotFoundException,
+                    NoSuchMethodException,
+                    IllegalAccessException,
+                    InvocationTargetException,
+                    InstantiationException {
         System.out.println("This class type: " + Reflection.class);
         System.out.println("Super class type: " + Reflection.class.getSuperclass());
         Class[] interfaces = Reflection.class.getInterfaces();
@@ -10,7 +15,9 @@ public class Main {
             System.out.println("Interface: " + interfaces[i]);
         }
 
-        Reflection reflection = (Reflection) Class.forName(Reflection.class.getName()).getConstructor().newInstance();
+        Reflection reflection =
+                (Reflection)
+                        Class.forName(Reflection.class.getName()).getConstructor().newInstance();
 
         System.out.println(reflection);
     }

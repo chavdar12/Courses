@@ -13,8 +13,7 @@ public class Main {
         System.out.println(reader.readLine() + ":");
 
         for (CardSuits card : cards) {
-            System.out.printf("Ordinal value: %d; Name value: %s%n",
-                    card.ordinal(), card.name());
+            System.out.printf("Ordinal value: %d; Name value: %s%n", card.ordinal(), card.name());
         }
     }
 }

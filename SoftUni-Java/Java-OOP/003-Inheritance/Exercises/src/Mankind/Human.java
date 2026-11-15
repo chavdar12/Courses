@@ -14,7 +14,8 @@ public class Human {
             throw new IllegalArgumentException("Expected upper case letter!Argument: firstName");
         }
         if (firstName.length() < 4) {
-            throw new IllegalArgumentException("Expected length at least 4 symbols!Argument: firstName");
+            throw new IllegalArgumentException(
+                    "Expected length at least 4 symbols!Argument: firstName");
         }
         this.firstName = firstName;
     }
@@ -24,7 +25,8 @@ public class Human {
             throw new IllegalArgumentException("Expected upper case letter!Argument: lastName");
         }
         if (lastName.length() < 3) {
-            throw new IllegalArgumentException("Expected length at least 3 symbols!Argument: lastName");
+            throw new IllegalArgumentException(
+                    "Expected length at least 3 symbols!Argument: lastName");
         }
         this.lastName = lastName;
     }

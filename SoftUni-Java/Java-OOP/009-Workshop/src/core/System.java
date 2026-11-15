@@ -1,6 +1,7 @@
 package core;
 
 import hardwareComponents.Hardware;
+
 import softwareComponents.Software;
 
 import java.util.LinkedHashMap;
@@ -42,19 +43,16 @@ public class System {
         int capacityTotal = 0;
 
         for (String name : hardwareComponents.keySet()) {
-            softwareComponentsCount += this.hardwareComponents.get(name).getSoftwareComponentsCount();
+            softwareComponentsCount +=
+                    this.hardwareComponents.get(name).getSoftwareComponentsCount();
             memoryInUse += this.hardwareComponents.get(name).getUsedMemory();
             memoryTotal += this.hardwareComponents.get(name).getMaxMemory();
             capacityInUSe += this.hardwareComponents.get(name).getUsedCapacity();
             capacityTotal += this.hardwareComponents.get(name).getMaxCapacity();
         }
 
-        sb.append("Hardware Components: ")
-                .append(this.hardwareComponents.size())
-                .append(separator);
-        sb.append("Software Components: ")
-                .append(softwareComponentsCount)
-                .append(separator);
+        sb.append("Hardware Components: ").append(this.hardwareComponents.size()).append(separator);
+        sb.append("Software Components: ").append(softwareComponentsCount).append(separator);
         sb.append("Total Operational Memory: ")
                 .append(memoryInUse)
                 .append(" / ")
@@ -65,7 +63,6 @@ public class System {
                 .append(" / ")
                 .append(capacityTotal);
 
-
         return sb.toString();
     }
 
@@ -75,19 +72,15 @@ public class System {
 
         String separator = java.lang.System.lineSeparator();
 
-        this.hardwareComponents.entrySet()
-                .stream()
+        this.hardwareComponents.entrySet().stream()
                 .filter(e -> e.getValue().getType().equals("Power"))
                 .forEach(e -> {
-                    sb.append(e.getValue().toString())
-                            .append(separator);
+                    sb.append(e.getValue().toString()).append(separator);
                 });
-        this.hardwareComponents.entrySet()
-                .stream()
+        this.hardwareComponents.entrySet().stream()
                 .filter(e -> e.getValue().getType().equals("Heavy"))
                 .forEach(e -> {
-                    sb.append(e.getValue().toString())
-                            .append(separator);
+                    sb.append(e.getValue().toString()).append(separator);
                 });
         return sb.toString();
     }

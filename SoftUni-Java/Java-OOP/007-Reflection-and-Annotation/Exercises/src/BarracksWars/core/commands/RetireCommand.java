@@ -1,14 +1,13 @@
 package BarracksWars.core.commands;
 
-import jdk.jshell.spi.ExecutionControl;
 import BarracksWars.contracts.Inject;
 import BarracksWars.contracts.Repository;
 
+import jdk.jshell.spi.ExecutionControl;
 
 public class RetireCommand extends CommandImpl {
 
-    @Inject
-    private Repository repository;
+    @Inject private Repository repository;
 
     protected RetireCommand(String[] data) {
         super(data);

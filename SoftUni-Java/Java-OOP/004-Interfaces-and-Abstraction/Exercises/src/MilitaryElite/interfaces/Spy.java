@@ -1,4 +1,3 @@
 package MilitaryElite.interfaces;
 
-public interface Spy {
-}
+public interface Spy {}

@@ -34,7 +34,6 @@ public class Bag {
             this.totalCahs += quantity;
             this.currentWeight += quantity;
         }
-
     }
 
     private boolean hasFreeCapacity(long quantity) {
@@ -70,35 +69,39 @@ public class Bag {
         }
         if (this.gems.size() > 0) {
             sb.append("<Gem> $").append(this.totalGems).append(System.lineSeparator());
-            this.gems.entrySet().stream().sorted((f, s) -> {
-                int result = s.getKey().compareTo(f.getKey());
-                if (result == 0) {
-                    result = f.getValue().compareTo(s.getValue());
-                }
-                return result;
-            }).forEach(entry -> {
-                sb.append("##")
-                        .append(entry.getKey())
-                        .append(" - ")
-                        .append(entry.getValue())
-                        .append(System.lineSeparator());
-            });
+            this.gems.entrySet().stream()
+                    .sorted((f, s) -> {
+                        int result = s.getKey().compareTo(f.getKey());
+                        if (result == 0) {
+                            result = f.getValue().compareTo(s.getValue());
+                        }
+                        return result;
+                    })
+                    .forEach(entry -> {
+                        sb.append("##")
+                                .append(entry.getKey())
+                                .append(" - ")
+                                .append(entry.getValue())
+                                .append(System.lineSeparator());
+                    });
         }
         if (this.cash.size() > 0) {
             sb.append("<Cash> $").append(this.totalCahs).append(System.lineSeparator());
-            this.cash.entrySet().stream().sorted((f, s) -> {
-                int result = s.getKey().compareTo(f.getKey());
-                if (result == 0) {
-                    result = f.getValue().compareTo(s.getValue());
-                }
-                return result;
-            }).forEach(entry -> {
-                sb.append("##")
-                        .append(entry.getKey())
-                        .append(" - ")
-                        .append(entry.getValue())
-                        .append(System.lineSeparator());
-            });
+            this.cash.entrySet().stream()
+                    .sorted((f, s) -> {
+                        int result = s.getKey().compareTo(f.getKey());
+                        if (result == 0) {
+                            result = f.getValue().compareTo(s.getValue());
+                        }
+                        return result;
+                    })
+                    .forEach(entry -> {
+                        sb.append("##")
+                                .append(entry.getKey())
+                                .append(" - ")
+                                .append(entry.getValue())
+                                .append(System.lineSeparator());
+                    });
         }
         return sb.toString();
     }

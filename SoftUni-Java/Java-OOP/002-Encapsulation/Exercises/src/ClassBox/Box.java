@@ -12,7 +12,9 @@ public class Box {
     }
 
     public double calculateSurfaceArea() {
-        return 2 * this.length * this.width + 2 * this.length * this.height + 2 * this.width * this.height;
+        return 2 * this.length * this.width
+                + 2 * this.length * this.height
+                + 2 * this.width * this.height;
     }
 
     public double calculateLateralSurfaceArea() {

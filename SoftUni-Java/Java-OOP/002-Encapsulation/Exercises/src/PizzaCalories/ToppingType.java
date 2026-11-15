@@ -5,5 +5,4 @@ public enum ToppingType {
     Veggies,
     Cheese,
     Sauce,
-
 }

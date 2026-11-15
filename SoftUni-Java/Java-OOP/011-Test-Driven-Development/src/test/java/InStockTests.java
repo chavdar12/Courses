@@ -14,10 +14,10 @@ public class InStockTests {
 
     @Before
     public void setUp() {
-        this.product = new Product(DEFAULT_PRODUCT_LABEL, DEFAULT_PRODUCT_PRICE, DEFAULT_PRODUCT_QUANTITY);
+        this.product =
+                new Product(DEFAULT_PRODUCT_LABEL, DEFAULT_PRODUCT_PRICE, DEFAULT_PRODUCT_QUANTITY);
         this.stock = new Instock();
     }
-
 
     @Test
     public void shouldAddProduct() {
@@ -238,7 +238,8 @@ public class InStockTests {
         this.stock.add(second);
         this.stock.add(third);
 
-        Iterable<Product> actual = this.stock.findAllInRange(DEFAULT_PRODUCT_PRICE - 1, DEFAULT_PRODUCT_PRICE + 1);
+        Iterable<Product> actual =
+                this.stock.findAllInRange(DEFAULT_PRODUCT_PRICE - 1, DEFAULT_PRODUCT_PRICE + 1);
 
         Iterator<Product> iterator = actual.iterator();
 
@@ -256,7 +257,8 @@ public class InStockTests {
         this.stock.add(second);
         this.stock.add(third);
 
-        Iterable<Product> actual = this.stock.findAllInRange(DEFAULT_PRODUCT_PRICE - 1, DEFAULT_PRODUCT_PRICE);
+        Iterable<Product> actual =
+                this.stock.findAllInRange(DEFAULT_PRODUCT_PRICE - 1, DEFAULT_PRODUCT_PRICE);
 
         Iterator<Product> iterator = actual.iterator();
 

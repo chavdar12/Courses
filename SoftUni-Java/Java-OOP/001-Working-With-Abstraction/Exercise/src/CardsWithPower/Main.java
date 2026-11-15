@@ -11,9 +11,10 @@ public class Main {
         String rank = reader.readLine();
         String suit = reader.readLine();
 
-        System.out.printf("Card name: %s of %s; Card power: %d%n",
-                RankPowers.valueOf(rank), SuitPowers.valueOf(suit),
-                RankPowers.valueOf(rank).getValue() + SuitPowers.valueOf(suit).getValue()
-        );
+        System.out.printf(
+                "Card name: %s of %s; Card power: %d%n",
+                RankPowers.valueOf(rank),
+                SuitPowers.valueOf(suit),
+                RankPowers.valueOf(rank).getValue() + SuitPowers.valueOf(suit).getValue());
     }
 }

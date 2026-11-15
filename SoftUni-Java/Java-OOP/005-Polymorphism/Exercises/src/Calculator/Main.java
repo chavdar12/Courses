@@ -7,9 +7,10 @@ import java.util.Scanner;
 import java.util.function.LongBinaryOperator;
 
 public class Main {
-    private static final Map<String, LongBinaryOperator> OPERATIONS = Map.of(
-            "*", (a, b) -> a * b,
-            "/", (a, b) -> a / b);
+    private static final Map<String, LongBinaryOperator> OPERATIONS =
+            Map.of(
+                    "*", (a, b) -> a * b,
+                    "/", (a, b) -> a / b);
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

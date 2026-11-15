@@ -11,5 +11,3 @@ public class European implements Person {
         return this.name;
     }
 }
-
-

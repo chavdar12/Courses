@@ -1,7 +1,9 @@
 import hardwareComponents.Hardware;
 import hardwareComponents.HeavyHardware;
+
 import org.junit.Assert;
 import org.junit.Test;
+
 import softwareComponents.LightSoftware;
 
 public class HardwareTests {

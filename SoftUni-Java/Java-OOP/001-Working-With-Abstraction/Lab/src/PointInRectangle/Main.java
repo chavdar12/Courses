@@ -28,8 +28,6 @@ public class Main {
     }
 
     private static int[] getCoords(BufferedReader reader) throws IOException {
-        return Arrays.stream(reader.readLine().split(" "))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        return Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
     }
 }

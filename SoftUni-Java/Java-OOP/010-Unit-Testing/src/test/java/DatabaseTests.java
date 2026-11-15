@@ -1,29 +1,38 @@
 import org.junit.Assert;
 import org.junit.Test;
+
 import p01_Database.Database;
 
-import javax.naming.OperationNotSupportedException;
 import java.lang.reflect.Field;
+
+import javax.naming.OperationNotSupportedException;
 
 public class DatabaseTests {
 
-    private static final Integer[] INITIAL_ELEMENTS = new Integer[]{1, 2, 3};
+    private static final Integer[] INITIAL_ELEMENTS = new Integer[] {1, 2, 3};
 
     @Test(expected = OperationNotSupportedException.class)
-    public void constructorShouldThrowExceptionWithLessThanOneElement() throws OperationNotSupportedException {
-        Database db = new Database(); //empty array to constructor and get exception
+    public void constructorShouldThrowExceptionWithLessThanOneElement()
+            throws OperationNotSupportedException {
+        Database db = new Database(); // empty array to constructor and get exception
     }
 
     @Test(expected = OperationNotSupportedException.class)
-    public void constructorShouldThrowExceptionWithMoreThanSixteenElements() throws OperationNotSupportedException {
-        Database db = new Database(new Integer[17]); //more than 16 elements in constructor and get exception
+    public void constructorShouldThrowExceptionWithMoreThanSixteenElements()
+            throws OperationNotSupportedException {
+        Database db =
+                new Database(
+                        new Integer[17]); // more than 16 elements in constructor and get exception
     }
 
     @Test
-    public void constructingDatabaseShouldIncreaseElementsCount() throws OperationNotSupportedException, NoSuchFieldException, IllegalAccessException {
+    public void constructingDatabaseShouldIncreaseElementsCount()
+            throws OperationNotSupportedException, NoSuchFieldException, IllegalAccessException {
         Database db = new Database(DatabaseTests.INITIAL_ELEMENTS);
 
-        Field elementsCount = Database.class.getDeclaredField("elementsCount"); // get private field with reflection
+        Field elementsCount =
+                Database.class.getDeclaredField(
+                        "elementsCount"); // get private field with reflection
         elementsCount.setAccessible(true);
         int fieldCurrentValue = elementsCount.getInt(db);
         Assert.assertEquals(DatabaseTests.INITIAL_ELEMENTS.length, fieldCurrentValue);
@@ -58,12 +67,14 @@ public class DatabaseTests {
 
     @Test(expected = OperationNotSupportedException.class)
     public void addToFullDatabaseShouldThrowException() throws OperationNotSupportedException {
-        Database db = new Database(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16});
+        Database db =
+                new Database(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16});
         db.add(17);
     }
 
     @Test
-    public void removeFromEmptyDatabaseShouldThrowAndKeepDatabaseUsable() throws OperationNotSupportedException {
+    public void removeFromEmptyDatabaseShouldThrowAndKeepDatabaseUsable()
+            throws OperationNotSupportedException {
         Database db = new Database(1);
         db.remove();
         try {
@@ -74,6 +85,6 @@ public class DatabaseTests {
         }
 
         db.add(5);
-        Assert.assertArrayEquals(new Integer[]{5}, db.getElements());
+        Assert.assertArrayEquals(new Integer[] {5}, db.getElements());
     }
 }

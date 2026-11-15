@@ -5,7 +5,8 @@ import java.text.DecimalFormat;
 public class Mammal extends Animal {
     private String livingRegion;
 
-    protected Mammal(String animalName, String animalType, Double animalWeight, String livingRegion) {
+    protected Mammal(
+            String animalName, String animalType, Double animalWeight, String livingRegion) {
         super(animalName, animalType, animalWeight);
         this.livingRegion = livingRegion;
     }
@@ -19,9 +20,7 @@ public class Mammal extends Animal {
     }
 
     @Override
-    public void makeSound() {
-
-    }
+    public void makeSound() {}
 
     @Override
     public void eat(Food food) {
@@ -40,7 +39,8 @@ public class Mammal extends Animal {
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
-        return String.format("%s[%s, %s, %s, %s]",
+        return String.format(
+                "%s[%s, %s, %s, %s]",
                 this.getAnimalType(),
                 this.getAnimalName(),
                 decimalFormat.format(this.getAnimalWeight()),

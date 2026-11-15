@@ -39,7 +39,6 @@ public class Student {
     public String toString() {
         String view = String.format("%s is %s years old.", this.getName(), this.getAge());
 
-
         return view + this.getGradeString();
     }
 

@@ -1,6 +1,5 @@
 package KingsGambit;
 
-
 import KingsGambit.interfaces.Defender;
 import KingsGambit.interfaces.Target;
 
@@ -14,7 +13,6 @@ public class King extends Unit implements Target {
         super(name);
         this.guards = guards;
     }
-
 
     @Override
     public void onAttacked() {

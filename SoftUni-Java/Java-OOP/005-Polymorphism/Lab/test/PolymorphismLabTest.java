@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+
 import static support.Console.run;
 
 import org.junit.Test;
@@ -23,7 +24,8 @@ public class PolymorphismLabTest {
 
     @Test
     public void animals() throws Exception {
-        assertEquals("I am Oscar and my favourite food is Whiskas\nMEEOW\nI am Rocky and my favourite food is Meat\nDJAAF",
+        assertEquals(
+                "I am Oscar and my favourite food is Whiskas\nMEEOW\nI am Rocky and my favourite food is Meat\nDJAAF",
                 run(() -> Animals.Main.main(NO_ARGS), ""));
     }
 }

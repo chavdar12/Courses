@@ -5,7 +5,12 @@ import java.text.DecimalFormat;
 public class Cat extends Felime {
     private String breed;
 
-    protected Cat(String animalName, String animalType, Double animalWeight, String livingRegion, String breed) {
+    protected Cat(
+            String animalName,
+            String animalType,
+            Double animalWeight,
+            String livingRegion,
+            String breed) {
         super(animalName, animalType, animalWeight, livingRegion);
         this.breed = breed;
     }
@@ -27,7 +32,8 @@ public class Cat extends Felime {
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
-        return String.format("%s[%s, %s, %s, %s, %s]",
+        return String.format(
+                "%s[%s, %s, %s, %s, %s]",
                 this.getAnimalType(),
                 this.getAnimalName(),
                 this.getBreed(),

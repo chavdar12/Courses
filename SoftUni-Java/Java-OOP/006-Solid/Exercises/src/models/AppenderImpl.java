@@ -1,6 +1,7 @@
 package models;
 
 import enums.ReportLevel;
+
 import interfaces.Appender;
 import interfaces.Layout;
 
@@ -11,7 +12,6 @@ public abstract class AppenderImpl implements Appender {
     private final Layout layout;
     private final int messagesCOunt;
     private ReportLevel reportLevel;
-
 
     public AppenderImpl(Layout layout) {
         this.layout = layout;
@@ -31,7 +31,6 @@ public abstract class AppenderImpl implements Appender {
     public Layout getLayout() {
         return layout;
     }
-
 
     @Override
     public abstract void append(String time, String message, ReportLevel reportLevel);

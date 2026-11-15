@@ -27,17 +27,15 @@ public class UnitRepository implements Repository {
     public String getStatistics() {
         StringBuilder statBuilder = new StringBuilder();
         for (Map.Entry<String, Integer> entry : amountOfUnits.entrySet()) {
-            String formatedEntry =
-                    String.format("%s -> %d%n", entry.getKey(), entry.getValue());
+            String formatedEntry = String.format("%s -> %d%n", entry.getKey(), entry.getValue());
             statBuilder.append(formatedEntry);
         }
-        statBuilder.setLength(
-                statBuilder.length() - System.lineSeparator().length());
+        statBuilder.setLength(statBuilder.length() - System.lineSeparator().length());
 
         return statBuilder.toString();
     }
 
-    //TODO solve for problem 4
+    // TODO solve for problem 4
     public void removeUnit(String unitType) {
         if (this.amountOfUnits.containsKey(unitType) && this.amountOfUnits.get(unitType) > 0) {
             this.amountOfUnits.put(unitType, this.amountOfUnits.get(unitType) - 1);

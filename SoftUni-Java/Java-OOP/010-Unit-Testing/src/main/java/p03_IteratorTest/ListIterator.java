@@ -1,8 +1,9 @@
 package p03_IteratorTest;
 
-import javax.naming.OperationNotSupportedException;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.naming.OperationNotSupportedException;
 
 public class ListIterator {
     private final List<String> elements;

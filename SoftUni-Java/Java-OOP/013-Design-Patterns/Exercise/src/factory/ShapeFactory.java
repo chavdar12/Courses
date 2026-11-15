@@ -1,8 +1,7 @@
 package factory;
 
 public final class ShapeFactory {
-    private ShapeFactory() {
-    }
+    private ShapeFactory() {}
 
     // Callers ask for a shape by name and never see the concrete classes.
     public static Shape create(String type, double size) {

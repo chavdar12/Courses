@@ -16,5 +16,4 @@ public class Command {
     public TextTransform getTextTransform() {
         return this.textTransform;
     }
-
 }

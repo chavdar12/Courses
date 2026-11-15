@@ -11,9 +11,8 @@ public class IncreaseProductPriceCommand implements Command {
 
     public String executeAction() {
         this.product.increasePrice(this.amount);
-        return String.format("The price for the %s has been increased by %d$.%n",
+        return String.format(
+                "The price for the %s has been increased by %d$.%n",
                 this.product.getName(), this.amount);
     }
 }
-
-

@@ -16,5 +16,3 @@ public class Main {
         System.out.println(instance1.getPopulation(capitals, "Varna"));
     }
 }
-
-

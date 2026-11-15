@@ -16,5 +16,3 @@ public abstract class BasePerson implements Person {
         this.name = name;
     }
 }
-
-

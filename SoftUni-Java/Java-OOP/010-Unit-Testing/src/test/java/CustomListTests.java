@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import p05_CustomLinkedList.CustomLinkedList;
 
 public class CustomListTests {
@@ -49,5 +50,4 @@ public class CustomListTests {
     public void indexOfReturnMinusOneIfElementIsNotPresentInList() {
         Assert.assertEquals(linkedList.indexOf(1), -1);
     }
-
 }

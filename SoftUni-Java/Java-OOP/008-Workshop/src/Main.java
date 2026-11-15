@@ -1,5 +1,6 @@
 import exceptions.ArgumentException;
 import exceptions.DuplicateModelException;
+
 import models.boat.Boat;
 import models.boat.PowerBoat;
 import models.boat.Yacht;

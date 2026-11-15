@@ -1,5 +1,3 @@
 package MilitaryElite.interfaces;
 
-public interface Private extends Soldier {
-
-}
+public interface Private extends Soldier {}

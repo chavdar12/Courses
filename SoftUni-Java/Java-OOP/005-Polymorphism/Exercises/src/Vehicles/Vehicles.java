@@ -31,8 +31,6 @@ public abstract class Vehicles {
 
     @Override
     public String toString() {
-        return String.format("%s: %.2f",
-                this.getClass().getSimpleName(),
-                this.getFuelQuantity());
+        return String.format("%s: %.2f", this.getClass().getSimpleName(), this.getFuelQuantity());
     }
 }

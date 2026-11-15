@@ -10,5 +10,4 @@ public class Star {
     public int getValue() {
         return value;
     }
-
 }

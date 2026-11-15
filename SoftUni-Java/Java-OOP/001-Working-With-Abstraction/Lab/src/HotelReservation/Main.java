@@ -15,8 +15,11 @@ public class Main {
         Season season = Season.valueOf(tokens[2]);
         Discount discountType = Discount.valueOf(tokens[3]);
 
-        PriceCalculator reservation = new PriceCalculator(pricePerDay, numberOfDays, season, discountType);
+        PriceCalculator reservation =
+                new PriceCalculator(pricePerDay, numberOfDays, season, discountType);
 
-        System.out.printf("%.2f%n", reservation.calculatePrice(pricePerDay, numberOfDays, season, discountType));
+        System.out.printf(
+                "%.2f%n",
+                reservation.calculatePrice(pricePerDay, numberOfDays, season, discountType));
     }
 }

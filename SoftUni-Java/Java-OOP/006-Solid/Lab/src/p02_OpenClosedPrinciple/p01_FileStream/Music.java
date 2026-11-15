@@ -2,11 +2,9 @@ package p02_OpenClosedPrinciple.p01_FileStream;
 
 public class Music extends Entity {
 
-
     private String Artist;
 
     private String Album;
-
 
     public String getArtist() {
         return this.Artist;

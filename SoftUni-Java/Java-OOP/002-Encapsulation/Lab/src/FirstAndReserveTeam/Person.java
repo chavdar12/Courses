@@ -15,7 +15,6 @@ public class Person {
         this.setSalary(salary);
     }
 
-
     public String getFirstName() {
         return firstName;
     }

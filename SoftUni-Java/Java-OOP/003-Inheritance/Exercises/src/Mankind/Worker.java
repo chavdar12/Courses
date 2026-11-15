@@ -13,7 +13,8 @@ public class Worker extends Human {
     @Override
     protected void setLastName(String lastName) {
         if (lastName.length() < 4) {
-            throw new IllegalArgumentException("Expected length more than 3 symbols!Argument: lastName");
+            throw new IllegalArgumentException(
+                    "Expected length more than 3 symbols!Argument: lastName");
         }
         this.lastName = lastName;
     }
@@ -34,9 +35,9 @@ public class Worker extends Human {
 
     @Override
     public String toString() {
-        return super.toString() +
-                String.format("Week Salary: %.2f\n" +
-                        "Hours per day: %.2f\n" +
-                        "Salary per hour: %.2f", weekSalary, workHoursPerDay, weekSalary / (workHoursPerDay * 7));
+        return super.toString()
+                + String.format(
+                        "Week Salary: %.2f\n" + "Hours per day: %.2f\n" + "Salary per hour: %.2f",
+                        weekSalary, workHoursPerDay, weekSalary / (workHoursPerDay * 7));
     }
 }

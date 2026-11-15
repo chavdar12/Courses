@@ -1,6 +1,7 @@
 package models;
 
 import enums.ReportLevel;
+
 import interfaces.Appender;
 import interfaces.Logger;
 

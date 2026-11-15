@@ -49,8 +49,8 @@ public class Car {
 
     @Override
     public String toString() {
-        return String.format("CarType: %s, Color: %s, Number of doors: %d, Manifactured in %s, at address %s",
+        return String.format(
+                "CarType: %s, Color: %s, Number of doors: %d, Manifactured in %s, at address %s",
                 this.type, this.color, this.numberOfDoors, this.city, this.address);
     }
-
 }

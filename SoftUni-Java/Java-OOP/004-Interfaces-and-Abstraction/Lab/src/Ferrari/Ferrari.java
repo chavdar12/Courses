@@ -19,7 +19,6 @@ public class Ferrari implements Car {
 
     @Override
     public String toString() {
-        return String.format("%s/%s/%s/%s",
-                this.model, this.brakes(), this.gas(), this.driverName);
+        return String.format("%s/%s/%s/%s", this.model, this.brakes(), this.gas(), this.driverName);
     }
 }

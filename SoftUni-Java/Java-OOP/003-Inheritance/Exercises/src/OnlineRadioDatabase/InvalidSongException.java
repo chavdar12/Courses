@@ -11,5 +11,4 @@ public class InvalidSongException extends Throwable {
     public String getMessage() {
         return this.message;
     }
-
 }

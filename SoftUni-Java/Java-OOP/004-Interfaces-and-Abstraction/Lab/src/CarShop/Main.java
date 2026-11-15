@@ -6,10 +6,7 @@ public class Main {
 
         System.out.printf(
                 "%s is %s color and have %s horse power%n",
-                seat.getModel(),
-                seat.getColor(),
-                seat.getHorsePower());
+                seat.getModel(), seat.getColor(), seat.getHorsePower());
         System.out.println(seat);
     }
-
 }

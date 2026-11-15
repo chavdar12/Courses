@@ -16,7 +16,8 @@ public class Car extends Vehicles {
         }
         this.setFuelQuantity(this.getFuelQuantity() - totalConsumption * distance);
         DecimalFormat df = new DecimalFormat("#.##");
-        return String.format("%s travelled %s km", this.getClass().getSimpleName(), df.format(distance));
+        return String.format(
+                "%s travelled %s km", this.getClass().getSimpleName(), df.format(distance));
     }
 
     @Override

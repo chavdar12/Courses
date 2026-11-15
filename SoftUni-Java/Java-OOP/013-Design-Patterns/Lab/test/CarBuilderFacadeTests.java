@@ -1,5 +1,6 @@
 import exercise_02.Car;
 import exercise_02.CarBuilderFacade;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,10 +8,16 @@ public class CarBuilderFacadeTests {
 
     @Test
     public void builderShouldSetAllFields() {
-        Car car = new CarBuilderFacade()
-                .info().withType("BMW").withColor("Black").withNumberOfDoors(5)
-                .address().withCity("Sofia").withAddress("Main 1")
-                .build();
+        Car car =
+                new CarBuilderFacade()
+                        .info()
+                        .withType("BMW")
+                        .withColor("Black")
+                        .withNumberOfDoors(5)
+                        .address()
+                        .withCity("Sofia")
+                        .withAddress("Main 1")
+                        .build();
 
         Assert.assertEquals("BMW", car.getType());
         Assert.assertEquals("Black", car.getColor());

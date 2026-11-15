@@ -16,4 +16,3 @@ public enum SuitPowers {
         return this.value;
     }
 }
-

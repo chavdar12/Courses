@@ -20,5 +20,3 @@ public class ModifyPrice {
         this.command.executeAction();
     }
 }
-
-

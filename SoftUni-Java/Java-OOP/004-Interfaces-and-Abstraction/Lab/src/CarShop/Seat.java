@@ -52,7 +52,8 @@ public class Seat implements Car, Serializable {
 
     @Override
     public String toString() {
-        return String.format("This is %s produced in %s and have %d tires",
+        return String.format(
+                "This is %s produced in %s and have %d tires",
                 getModel(), getCountryProduced(), Car.TIRES);
     }
 }

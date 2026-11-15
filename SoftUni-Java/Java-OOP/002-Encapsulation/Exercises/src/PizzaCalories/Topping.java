@@ -1,6 +1,5 @@
 package PizzaCalories;
 
-
 public class Topping {
     private String toppingType;
     private double weight;
@@ -14,7 +13,8 @@ public class Topping {
         try {
             ToppingType.valueOf(toppingType);
         } catch (IllegalArgumentException ex) {
-            throw new IllegalArgumentException("Cannot place " + toppingType + " on top of your pizza.");
+            throw new IllegalArgumentException(
+                    "Cannot place " + toppingType + " on top of your pizza.");
         }
 
         this.toppingType = toppingType;
@@ -22,7 +22,8 @@ public class Topping {
 
     private void setWeight(double weight) {
         if (weight < 1 || weight > 50) {
-            throw new IllegalArgumentException(this.toppingType + " weight should be in the range [1..50].");
+            throw new IllegalArgumentException(
+                    this.toppingType + " weight should be in the range [1..50].");
         }
         this.weight = weight;
     }

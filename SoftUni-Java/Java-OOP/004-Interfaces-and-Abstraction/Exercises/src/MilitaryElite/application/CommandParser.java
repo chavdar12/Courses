@@ -16,8 +16,9 @@ public class CommandParser {
     public Army parseCommands() {
         for (String commandLine : this.commandsWithTokens) {
             String[] commandTokens = commandLine.split("\\s+");
-            this.command.execute(commandTokens[0], Arrays.stream(commandTokens)
-                    .skip(1).collect(Collectors.toList()));
+            this.command.execute(
+                    commandTokens[0],
+                    Arrays.stream(commandTokens).skip(1).collect(Collectors.toList()));
         }
         return this.command.getARMY();
     }

@@ -2,6 +2,7 @@ package models.race;
 
 import exceptions.ArgumentException;
 import exceptions.DuplicateModelException;
+
 import models.boat.Boat;
 import models.boat.MotorBoats;
 
@@ -25,7 +26,8 @@ public class Race {
         this.participants = new HashSet<>();
     }
 
-    public void addParticipant(Boat newParticipant) throws DuplicateModelException, ArgumentException {
+    public void addParticipant(Boat newParticipant)
+            throws DuplicateModelException, ArgumentException {
         if (!this.areMotorBoatsAllowed() && newParticipant instanceof MotorBoats) {
             throw new ArgumentException();
         }

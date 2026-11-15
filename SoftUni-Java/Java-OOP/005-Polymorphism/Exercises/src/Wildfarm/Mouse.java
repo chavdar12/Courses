@@ -1,7 +1,8 @@
 package Wildfarm;
 
 public class Mouse extends Mammal {
-    protected Mouse(String animalName, String animalType, Double animalWeight, String livingRegion) {
+    protected Mouse(
+            String animalName, String animalType, Double animalWeight, String livingRegion) {
         super(animalName, animalType, animalWeight, livingRegion);
     }
 

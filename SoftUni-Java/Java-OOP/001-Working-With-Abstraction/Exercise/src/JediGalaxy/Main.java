@@ -9,10 +9,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] dimension = Arrays.stream(reader.readLine()
-                        .split(" "))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] dimension =
+                Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         Galaxy galaxy = new Galaxy(dimension[0], dimension[1]);
         StarsManipulator starsManipulator = new StarsManipulator(galaxy);
 
@@ -20,12 +18,12 @@ public class Main {
         long sum = 0;
 
         while (!input.equals("Let the Force be with you")) {
-            int[] playerPositions = Arrays.stream(input.split(" "))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
-            int[] enemyPositions = Arrays.stream(reader.readLine().split(" "))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] playerPositions =
+                    Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
+            int[] enemyPositions =
+                    Arrays.stream(reader.readLine().split(" "))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
 
             starsManipulator.destroyStars(enemyPositions);
             sum += starsManipulator.sumOfStars(playerPositions);

@@ -5,8 +5,13 @@ public class Audi extends BaseCar implements Rentable {
     private final Integer minRentDay;
     private final Double pricePerDay;
 
-    public Audi(String model, String color, Integer horsePower,
-                String countryProduces, Integer minRentDay, Double pricePerDay) {
+    public Audi(
+            String model,
+            String color,
+            Integer horsePower,
+            String countryProduces,
+            Integer minRentDay,
+            Double pricePerDay) {
 
         super(model, color, horsePower, countryProduces);
         this.minRentDay = minRentDay;
@@ -25,7 +30,9 @@ public class Audi extends BaseCar implements Rentable {
 
     @Override
     public String toString() {
-        return super.toString() + String.format("\nMinimum rental period of %d days. Price per day %f",
-                getMinRentDay(), getPricePerDay());
+        return super.toString()
+                + String.format(
+                        "\nMinimum rental period of %d days. Price per day %f",
+                        getMinRentDay(), getPricePerDay());
     }
 }

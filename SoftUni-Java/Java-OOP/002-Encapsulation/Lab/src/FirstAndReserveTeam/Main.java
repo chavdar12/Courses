@@ -14,7 +14,12 @@ public class Main {
         for (int i = 0; i < n; i++) {
             String[] input = reader.readLine().split("\\s+");
             try {
-                team.addPlayer(new Person(input[0], input[1], Integer.parseInt(input[2]), Double.parseDouble(input[3])));
+                team.addPlayer(
+                        new Person(
+                                input[0],
+                                input[1],
+                                Integer.parseInt(input[2]),
+                                Double.parseDouble(input[3])));
             } catch (InvalidParameterException ex) {
                 System.out.println(ex.getMessage());
             }

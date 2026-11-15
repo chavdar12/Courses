@@ -36,8 +36,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        people.values()
-                .forEach(System.out::println);
+        people.values().forEach(System.out::println);
     }
 
     private static void getProducts() throws IOException {
@@ -61,5 +60,4 @@ public class Main {
     private static String[] getArray() throws IOException {
         return reader.readLine().split("[=;]");
     }
-
 }

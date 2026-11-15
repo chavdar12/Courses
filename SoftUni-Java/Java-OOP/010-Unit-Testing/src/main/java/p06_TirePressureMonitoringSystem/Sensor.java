@@ -17,6 +17,8 @@ public class Sensor {
 
     private double readPressureSample() {
         // Simulate info read from a real sensor in a real tire
-        return 6 * randomPressureSampleSimulator.nextDouble() * randomPressureSampleSimulator.nextDouble();
+        return 6
+                * randomPressureSampleSimulator.nextDouble()
+                * randomPressureSampleSimulator.nextDouble();
     }
 }

@@ -22,7 +22,6 @@ public class Bus extends Vehicles implements Drivable {
         return result;
     }
 
-
     public void setEmpty(boolean empty) {
         this.isEmpty = empty;
     }

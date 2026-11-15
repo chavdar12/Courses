@@ -1,13 +1,14 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import p03_IteratorTest.ListIterator;
 
 import javax.naming.OperationNotSupportedException;
 
 public class ListIteratorTests {
 
-    private static final String[] INITIAL_DATA = new String[]{"ONE", "TWO", "THREE"};
+    private static final String[] INITIAL_DATA = new String[] {"ONE", "TWO", "THREE"};
 
     private ListIterator listIterator;
 
@@ -17,7 +18,8 @@ public class ListIteratorTests {
     }
 
     @Test(expected = OperationNotSupportedException.class)
-    public void constructorShouldThrowExceptionWithNullParam() throws OperationNotSupportedException {
+    public void constructorShouldThrowExceptionWithNullParam()
+            throws OperationNotSupportedException {
         ListIterator listIterator = new ListIterator(null);
     }
 

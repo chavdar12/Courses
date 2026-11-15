@@ -5,7 +5,6 @@ public class OperationFactory {
 
         Operation operation = null;
 
-
         if (operator.equalsIgnoreCase("+")) {
             operation = new Addition();
         } else if (operator.equalsIgnoreCase("-")) {

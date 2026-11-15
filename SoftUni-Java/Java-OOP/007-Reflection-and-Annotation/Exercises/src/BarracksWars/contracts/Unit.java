@@ -1,4 +1,3 @@
 package BarracksWars.contracts;
 
-public interface Unit extends Destroyable, Attacker {
-}
+public interface Unit extends Destroyable, Attacker {}

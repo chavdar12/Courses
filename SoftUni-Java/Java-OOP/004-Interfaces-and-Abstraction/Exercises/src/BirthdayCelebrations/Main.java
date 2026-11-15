@@ -16,7 +16,8 @@ public class Main {
         while (!input.equals("End")) {
             String[] tokens = input.split(" ");
             if (tokens[0].equals("Citizen")) {
-                Citizen citizen = new Citizen(tokens[1], Integer.parseInt(tokens[2]), tokens[3], tokens[4]);
+                Citizen citizen =
+                        new Citizen(tokens[1], Integer.parseInt(tokens[2]), tokens[3], tokens[4]);
                 allWithBirthDate.add(citizen);
             } else if (tokens[0].equals("Pet")) {
                 Pet pet = new Pet(tokens[1], tokens[2]);
@@ -34,5 +35,4 @@ public class Main {
             }
         }
     }
-
 }

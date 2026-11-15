@@ -42,12 +42,12 @@ public class Person {
             throw new IllegalArgumentException();
         }
         if (this.money - product.getCost() < 0) {
-            throw new IllegalArgumentException(String.format("%s can't afford %s", this.name, product.getName()));
+            throw new IllegalArgumentException(
+                    String.format("%s can't afford %s", this.name, product.getName()));
         }
         this.products.add(product);
         this.setMoney(this.money - product.getCost());
         System.out.printf("%s bought %s%n", this.name, product.getName());
-
     }
 
     @Override
@@ -55,11 +55,8 @@ public class Person {
         if (this.products.isEmpty()) {
             return this.name + " - Nothing bought";
         }
-        return this.name +
-                " - " +
-                this.products
-                        .stream()
-                        .map(Product::toString)
-                        .collect(Collectors.joining(", "));
+        return this.name
+                + " - "
+                + this.products.stream().map(Product::toString).collect(Collectors.joining(", "));
     }
 }

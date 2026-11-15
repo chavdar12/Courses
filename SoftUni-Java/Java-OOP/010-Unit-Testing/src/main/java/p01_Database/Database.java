@@ -8,7 +8,6 @@ public class Database {
     private int elementsCount = 0;
     private int index;
 
-
     public Database(Integer... elements) throws OperationNotSupportedException {
         this.elementsCount = elements.length;
         this.setElements(elements);
@@ -47,8 +46,7 @@ public class Database {
     }
 
     private void setElements(Integer... elements) throws OperationNotSupportedException {
-        if (elements.length > 16 ||
-                elements.length < 1) {
+        if (elements.length > 16 || elements.length < 1) {
             throw new OperationNotSupportedException();
         }
 

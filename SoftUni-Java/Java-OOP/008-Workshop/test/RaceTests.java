@@ -1,9 +1,11 @@
 import exceptions.ArgumentException;
 import exceptions.DuplicateModelException;
+
 import models.boat.PowerBoat;
 import models.boat.RowBoat;
 import models.engine.JetEngine;
 import models.race.Race;
+
 import org.junit.Assert;
 import org.junit.Test;
 

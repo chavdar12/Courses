@@ -10,6 +10,5 @@ public class Main {
 
         System.out.println(circle.getArea());
         System.out.println(circle.getPerimeter());
-
     }
 }

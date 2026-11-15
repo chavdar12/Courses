@@ -7,11 +7,9 @@ public abstract class CommandImpl implements Executable {
 
     protected CommandImpl(String[] data) {
         this.data = data;
-
     }
 
     protected String[] getData() {
         return data;
     }
-
 }

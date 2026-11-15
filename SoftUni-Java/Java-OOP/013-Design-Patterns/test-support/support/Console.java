@@ -14,13 +14,12 @@ public final class Console {
         void run() throws Exception;
     }
 
-    private Console() {
-    }
+    private Console() {}
 
     /**
-     * Runs a console program with the given stdin and returns its stdout.
-     * Line endings are normalised and trailing whitespace on every line is dropped,
-     * since the programs print "1 2 3 " style output.
+     * Runs a console program with the given stdin and returns its stdout. Line endings are
+     * normalised and trailing whitespace on every line is dropped, since the programs print "1 2 3
+     * " style output.
      */
     public static String run(Program program, String input) throws Exception {
         InputStream originalIn = System.in;
@@ -42,7 +41,8 @@ public final class Console {
     }
 
     public static String normalise(String text) {
-        return text.replace("\r\n", "\n").lines()
+        return text.replace("\r\n", "\n")
+                .lines()
                 .map(String::stripTrailing)
                 .collect(Collectors.joining("\n"))
                 .stripTrailing();

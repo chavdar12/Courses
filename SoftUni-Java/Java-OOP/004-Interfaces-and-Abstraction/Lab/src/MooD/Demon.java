@@ -5,7 +5,6 @@ public class Demon extends Character<Integer> {
 
     public Demon(String userName, int level, Double specialPoints) {
         super(userName, CHARACTER_TYPE, level, specialPoints);
-
     }
 
     public Integer getHashedPassword() {
@@ -21,6 +20,4 @@ public class Demon extends Character<Integer> {
     public String toString() {
         return super.toString();
     }
-
 }
-

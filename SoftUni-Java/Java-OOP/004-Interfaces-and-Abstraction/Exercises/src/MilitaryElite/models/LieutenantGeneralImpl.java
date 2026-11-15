@@ -12,12 +12,14 @@ public class LieutenantGeneralImpl extends PrivateImpl implements LieutenantGene
 
     public LieutenantGeneralImpl(int id, String firstName, String lastName, double salary) {
         super(id, firstName, lastName, salary);
-        this.privates = new TreeSet<>(new Comparator<Private>() {
-            @Override
-            public int compare(Private first, Private second) {
-                return second.getId() - first.getId();
-            }
-        });
+        this.privates =
+                new TreeSet<>(
+                        new Comparator<Private>() {
+                            @Override
+                            public int compare(Private first, Private second) {
+                                return second.getId() - first.getId();
+                            }
+                        });
     }
 
     @Override

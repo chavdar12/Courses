@@ -1,4 +1,3 @@
 package exceptions;
 
-public class ArgumentException extends Exception {
-}
+public class ArgumentException extends Exception {}

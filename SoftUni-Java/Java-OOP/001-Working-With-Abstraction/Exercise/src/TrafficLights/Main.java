@@ -9,10 +9,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        Light[] lights = Arrays.stream(reader.readLine()
-                        .split(" "))
-                .map(signal -> new Light(Signal.valueOf(signal)))
-                .toArray(Light[]::new);
+        Light[] lights =
+                Arrays.stream(reader.readLine().split(" "))
+                        .map(signal -> new Light(Signal.valueOf(signal)))
+                        .toArray(Light[]::new);
 
         int numberOfLightChanges = Integer.parseInt(reader.readLine());
 

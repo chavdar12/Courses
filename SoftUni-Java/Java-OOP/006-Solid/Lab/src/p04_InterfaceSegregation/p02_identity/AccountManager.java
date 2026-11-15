@@ -10,7 +10,6 @@ public class AccountManager implements Account {
 
     private int maxRequiredPasswordLength;
 
-
     @Override
     public boolean getRequireUniqueEmail() {
         return this.requireUniqueEmail;
@@ -38,7 +37,7 @@ public class AccountManager implements Account {
 
     @Override
     public void changePassword(String oldPass, String newPass) {
-        //change password
+        // change password
     }
 
     @Override

@@ -5,7 +5,6 @@ import p02_OpenClosedPrinciple.p02_DrawingShape.interfaces.Shape;
 
 public class DrawingManagerImpl implements DrawingManager {
 
-
     @Override
     public void draw(Shape shape) {
         if (shape instanceof Circle) {

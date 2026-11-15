@@ -1,8 +1,6 @@
 package p05_CustomLinkedList;
 
-/**
- * Dynamic (linked) list class definition
- */
+/** Dynamic (linked) list class definition */
 public class CustomLinkedList<T> {
     private ListNode head;
     private ListNode tail;
@@ -27,13 +25,12 @@ public class CustomLinkedList<T> {
      */
     public T get(int index) {
         return this.getListNode(index).getElement();
-
     }
 
     /**
      * Sets element at the specified position
      *
-     * @param index   The position of the element [0 � count-1]
+     * @param index The position of the element [0 � count-1]
      * @param element The element which should be set on the given position
      * @return The item at the specified index
      * @throws IllegalArgumentException When an invalid index is specified
@@ -137,7 +134,8 @@ public class CustomLinkedList<T> {
      * Searches for given element in the list
      *
      * @param item The item to be searched
-     * @return The index of the first occurrence of the element in the list or -1 when it is not found
+     * @return The index of the first occurrence of the element in the list or -1 when it is not
+     *     found
      */
     public int indexOf(T item) {
         int index = 0;
@@ -169,7 +167,7 @@ public class CustomLinkedList<T> {
     /**
      * Remove the specified node from the list of nodes
      *
-     * @param node     the node for removal
+     * @param node the node for removal
      * @param prevNode the predecessor of node
      */
     private void removeListNode(ListNode node, ListNode prevNode) {

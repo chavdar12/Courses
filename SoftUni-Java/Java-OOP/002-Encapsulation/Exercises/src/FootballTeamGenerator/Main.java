@@ -26,12 +26,15 @@ public class Main {
                     if (!teams.containsKey(teamName)) {
                         throw new IllegalArgumentException("Team " + teamName + " does not exist.");
                     }
-                    teams.get(teamName).addPlayer(new Player(tokens[2],
-                            Integer.parseInt(tokens[3]),
-                            Integer.parseInt(tokens[4]),
-                            Integer.parseInt(tokens[5]),
-                            Integer.parseInt(tokens[6]),
-                            Integer.parseInt(tokens[7])));
+                    teams.get(teamName)
+                            .addPlayer(
+                                    new Player(
+                                            tokens[2],
+                                            Integer.parseInt(tokens[3]),
+                                            Integer.parseInt(tokens[4]),
+                                            Integer.parseInt(tokens[5]),
+                                            Integer.parseInt(tokens[6]),
+                                            Integer.parseInt(tokens[7])));
                 } else if (command.equals("Remove")) {
                     teams.get(teamName).removePlayer(tokens[2]);
                 } else {

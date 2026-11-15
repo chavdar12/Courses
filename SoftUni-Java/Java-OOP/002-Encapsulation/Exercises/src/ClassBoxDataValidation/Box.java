@@ -35,7 +35,9 @@ public class Box {
     }
 
     public double calculateSurfaceArea() {
-        return 2 * this.length * this.width + 2 * this.length * this.height + 2 * this.width * this.height;
+        return 2 * this.length * this.width
+                + 2 * this.length * this.height
+                + 2 * this.width * this.height;
     }
 
     public double calculateLateralSurfaceArea() {
@@ -48,7 +50,8 @@ public class Box {
 
     @Override
     public String toString() {
-        return String.format("Surface Area - %.2f%nLateral Surface Area - %.2f%nVolume - %.2f",
+        return String.format(
+                "Surface Area - %.2f%nLateral Surface Area - %.2f%nVolume - %.2f",
                 this.calculateSurfaceArea(),
                 this.calculateLateralSurfaceArea(),
                 this.calculateVolume());

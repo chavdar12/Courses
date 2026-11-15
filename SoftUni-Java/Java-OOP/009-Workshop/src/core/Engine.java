@@ -2,6 +2,7 @@ package core;
 
 import hardwareComponents.HeavyHardware;
 import hardwareComponents.PowerHardware;
+
 import softwareComponents.ExpressSoftware;
 import softwareComponents.LightSoftware;
 
@@ -22,30 +23,37 @@ public class Engine {
 
         while (!input.equalsIgnoreCase("System Split")) {
             String command = input.substring(0, input.indexOf("("));
-            String[] cmdArgs = input
-                    .substring(input.indexOf("(") + 1, input.length() - 1)
-                    .split(", ");
+            String[] cmdArgs =
+                    input.substring(input.indexOf("(") + 1, input.length() - 1).split(", ");
 
             switch (command) {
                 case "RegisterPowerHardware":
-                    this.system.addHardware(new PowerHardware(cmdArgs[0],
-                            Integer.parseInt(cmdArgs[1]),
-                            Integer.parseInt(cmdArgs[2])));
+                    this.system.addHardware(
+                            new PowerHardware(
+                                    cmdArgs[0],
+                                    Integer.parseInt(cmdArgs[1]),
+                                    Integer.parseInt(cmdArgs[2])));
                     break;
                 case "RegisterHeavyHardware":
-                    this.system.addHardware(new HeavyHardware(cmdArgs[0],
-                            Integer.parseInt(cmdArgs[1]),
-                            Integer.parseInt(cmdArgs[2])));
+                    this.system.addHardware(
+                            new HeavyHardware(
+                                    cmdArgs[0],
+                                    Integer.parseInt(cmdArgs[1]),
+                                    Integer.parseInt(cmdArgs[2])));
                     break;
                 case "RegisterExpressSoftware":
-                    this.system.addSoftwareComponent(cmdArgs[0],
-                            new ExpressSoftware(cmdArgs[1],
+                    this.system.addSoftwareComponent(
+                            cmdArgs[0],
+                            new ExpressSoftware(
+                                    cmdArgs[1],
                                     Integer.parseInt(cmdArgs[2]),
                                     Integer.parseInt(cmdArgs[3])));
                     break;
                 case "RegisterLightSoftware":
-                    this.system.addSoftwareComponent(cmdArgs[0],
-                            new LightSoftware(cmdArgs[1],
+                    this.system.addSoftwareComponent(
+                            cmdArgs[0],
+                            new LightSoftware(
+                                    cmdArgs[1],
                                     Integer.parseInt(cmdArgs[2]),
                                     Integer.parseInt(cmdArgs[3])));
                     break;

@@ -30,7 +30,8 @@ public class InStockQueryTests {
 
     @Test
     public void findFirstMostExpensiveProductsShouldReturnDescendingByPrice() {
-        Assert.assertEquals(List.of("b", "c"), labels(this.stock.findFirstMostExpensiveProducts(2)));
+        Assert.assertEquals(
+                List.of("b", "c"), labels(this.stock.findFirstMostExpensiveProducts(2)));
     }
 
     @Test(expected = IllegalArgumentException.class)

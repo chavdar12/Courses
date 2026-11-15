@@ -31,15 +31,14 @@ public class Team {
             }
         }
         if (index == -1) {
-            throw new IllegalArgumentException("Player " + name + " is not in " + this.name + " team.");
+            throw new IllegalArgumentException(
+                    "Player " + name + " is not in " + this.name + " team.");
         }
         this.players.remove(index);
     }
 
     public double getRatting() {
-        return Math.round(this.players.stream()
-                .mapToDouble(Player::overallSkillLevel)
-                .average()
-                .orElse(0));
+        return Math.round(
+                this.players.stream().mapToDouble(Player::overallSkillLevel).average().orElse(0));
     }
 }

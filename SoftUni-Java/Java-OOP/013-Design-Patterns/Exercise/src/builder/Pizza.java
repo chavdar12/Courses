@@ -18,7 +18,9 @@ public final class Pizza {
 
     @Override
     public String toString() {
-        return size + " pizza with " + (toppings.isEmpty() ? "no toppings" : String.join(", ", toppings));
+        return size
+                + " pizza with "
+                + (toppings.isEmpty() ? "no toppings" : String.join(", ", toppings));
     }
 
     public static final class Builder {

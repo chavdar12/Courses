@@ -15,5 +15,4 @@ public class CutTransform implements TextTransform {
     public StringBuilder getLastCut() {
         return this.lastCut;
     }
-
 }

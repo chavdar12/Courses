@@ -27,16 +27,25 @@ public class Main {
                 switch (animalType) {
                     case "Cat":
                         String breed = lines[4];
-                        animal = new Cat(animalName, animalType, animalWeight, animalLivingRegion, breed);
+                        animal =
+                                new Cat(
+                                        animalName,
+                                        animalType,
+                                        animalWeight,
+                                        animalLivingRegion,
+                                        breed);
                         break;
                     case "Tiger":
-                        animal = new Tiger(animalName, animalType, animalWeight, animalLivingRegion);
+                        animal =
+                                new Tiger(animalName, animalType, animalWeight, animalLivingRegion);
                         break;
                     case "Zebra":
-                        animal = new Zebra(animalName, animalType, animalWeight, animalLivingRegion);
+                        animal =
+                                new Zebra(animalName, animalType, animalWeight, animalLivingRegion);
                         break;
                     case "Mouse":
-                        animal = new Mouse(animalName, animalType, animalWeight, animalLivingRegion);
+                        animal =
+                                new Mouse(animalName, animalType, animalWeight, animalLivingRegion);
                         break;
                 }
                 animals.add(animal);
@@ -53,7 +62,6 @@ public class Main {
                 animals.get(animals.size() - 1).makeSound();
                 animal.eat(food);
             }
-
 
             input = reader.readLine();
             counter++;

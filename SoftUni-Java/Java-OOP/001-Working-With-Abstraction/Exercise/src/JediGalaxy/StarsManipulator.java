@@ -24,8 +24,10 @@ public class StarsManipulator {
     }
 
     private boolean isInRange(int enemyRow, int enemyCol) {
-        return enemyRow >= 0 && enemyRow < this.galaxy.getRows()
-                && enemyCol >= 0 && enemyCol < this.galaxy.getColumns(enemyRow);
+        return enemyRow >= 0
+                && enemyRow < this.galaxy.getRows()
+                && enemyCol >= 0
+                && enemyCol < this.galaxy.getColumns(enemyRow);
     }
 
     public long sumOfStars(int[] playerPositions) {

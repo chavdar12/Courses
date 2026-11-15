@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import p02_ExtendedDatabase.Database;
 import p02_ExtendedDatabase.Person;
 
@@ -16,13 +17,15 @@ public class DatabaseExtTests {
     }
 
     @Test(expected = OperationNotSupportedException.class)
-    public void findByUsernameShouldThrowExceptionWithNullParam() throws OperationNotSupportedException {
+    public void findByUsernameShouldThrowExceptionWithNullParam()
+            throws OperationNotSupportedException {
 
         db.findByUsername(null);
     }
 
     @Test(expected = OperationNotSupportedException.class)
-    public void findByUsernameCantFindPersonWithGivenUsername() throws OperationNotSupportedException {
+    public void findByUsernameCantFindPersonWithGivenUsername()
+            throws OperationNotSupportedException {
         db.findByUsername("PEPI");
     }
 

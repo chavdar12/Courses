@@ -9,5 +9,4 @@ public class Main {
         System.out.println(math.add(3, 3, 3));
         System.out.println(math.add(4, 4, 4, 4));
     }
-
 }

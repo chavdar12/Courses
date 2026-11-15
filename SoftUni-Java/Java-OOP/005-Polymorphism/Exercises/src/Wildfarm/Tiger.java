@@ -2,7 +2,8 @@ package Wildfarm;
 
 public class Tiger extends Felime {
 
-    protected Tiger(String animalName, String animalType, Double animalWeight, String livingRegion) {
+    protected Tiger(
+            String animalName, String animalType, Double animalWeight, String livingRegion) {
         super(animalName, animalType, animalWeight, livingRegion);
     }
 

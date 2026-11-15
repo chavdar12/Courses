@@ -14,11 +14,19 @@ public class Main {
         String characterType = character[1];
         switch (characterType) {
             case "Demon":
-                unit = new Demon(username, Integer.parseInt(character[3]), Double.parseDouble(character[2]));
+                unit =
+                        new Demon(
+                                username,
+                                Integer.parseInt(character[3]),
+                                Double.parseDouble(character[2]));
                 System.out.println(unit);
                 break;
             case "Archangel":
-                unit = new Archangel(username, Integer.parseInt(character[3]), Integer.parseInt(character[2]));
+                unit =
+                        new Archangel(
+                                username,
+                                Integer.parseInt(character[3]),
+                                Integer.parseInt(character[2]));
                 System.out.println(unit);
                 break;
             default:

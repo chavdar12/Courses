@@ -12,7 +12,13 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) throws IOException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
+    public static void main(String[] args)
+            throws IOException,
+                    NoSuchMethodException,
+                    IllegalAccessException,
+                    InvocationTargetException,
+                    InstantiationException,
+                    NoSuchFieldException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         String input = reader.readLine();
@@ -34,9 +40,11 @@ public class Main {
             String command = tokens[0];
             int value = Integer.parseInt(tokens[1]);
 
-            Method method = Arrays.stream(methods)
-                    .filter(m -> m.getName().equalsIgnoreCase(command))
-                    .findFirst().orElse(null);
+            Method method =
+                    Arrays.stream(methods)
+                            .filter(m -> m.getName().equalsIgnoreCase(command))
+                            .findFirst()
+                            .orElse(null);
 
             method.setAccessible(true);
             method.invoke(blackBoxInt, value);

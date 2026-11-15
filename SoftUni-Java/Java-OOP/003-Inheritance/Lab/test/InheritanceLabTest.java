@@ -1,30 +1,54 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
 import static support.Console.run;
 
-import java.util.List;
-
 import org.junit.Test;
+
+import java.util.List;
 
 public class InheritanceLabTest {
     @Test
     public void singleInheritance() throws Exception {
         SingleInheritance.Dog dog = new SingleInheritance.Dog();
-        assertEquals("eating...\nbarking...", run(() -> { dog.eat(); dog.bark(); }, ""));
+        assertEquals(
+                "eating...\nbarking...",
+                run(
+                        () -> {
+                            dog.eat();
+                            dog.bark();
+                        },
+                        ""));
     }
 
     @Test
     public void multipleInheritance() throws Exception {
         MultipleInheritance.Puppy puppy = new MultipleInheritance.Puppy();
-        assertEquals("eating...\nbarking...\nweeping...", run(() -> { puppy.eat(); puppy.bark(); puppy.weep(); }, ""));
+        assertEquals(
+                "eating...\nbarking...\nweeping...",
+                run(
+                        () -> {
+                            puppy.eat();
+                            puppy.bark();
+                            puppy.weep();
+                        },
+                        ""));
     }
 
     @Test
     public void hierarchicalInheritance() throws Exception {
         HierarchicalInheritance.Cat cat = new HierarchicalInheritance.Cat();
         HierarchicalInheritance.Dog dog = new HierarchicalInheritance.Dog();
-        assertEquals("eating...\nmeowing...\nbarking...", run(() -> { cat.eat(); cat.meow(); dog.bark(); }, ""));
+        assertEquals(
+                "eating...\nmeowing...\nbarking...",
+                run(
+                        () -> {
+                            cat.eat();
+                            cat.meow();
+                            dog.bark();
+                        },
+                        ""));
     }
 
     @Test

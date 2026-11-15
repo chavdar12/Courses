@@ -19,19 +19,20 @@ public class Main {
             people.add(new Person(input[0], input[1], Integer.parseInt(input[2])));
         }
 
-        Collections.sort(people, (firstPerson, secondPerson) -> {
-            int sComp = firstPerson.getFirstName().compareTo(secondPerson.getFirstName());
+        Collections.sort(
+                people,
+                (firstPerson, secondPerson) -> {
+                    int sComp = firstPerson.getFirstName().compareTo(secondPerson.getFirstName());
 
-            if (sComp != 0) {
-                return sComp;
-            } else {
-                return Integer.compare(firstPerson.getAge(), secondPerson.getAge());
-            }
-        });
+                    if (sComp != 0) {
+                        return sComp;
+                    } else {
+                        return Integer.compare(firstPerson.getAge(), secondPerson.getAge());
+                    }
+                });
 
         for (Person person : people) {
             System.out.println(person.toString());
         }
     }
-
 }

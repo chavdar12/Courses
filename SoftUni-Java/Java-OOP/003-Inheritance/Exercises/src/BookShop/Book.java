@@ -46,16 +46,20 @@ public class Book {
 
     @Override
     public String toString() {
-        String sb = "Type: " + this.getClass().getSimpleName() +
-                System.lineSeparator() +
-                "Title: " + this.getTitle() +
-                System.lineSeparator() +
-                "Author: " + this.getAuthor() +
-                System.lineSeparator() +
-                "Price: " + this.getPrice() +
-                System.lineSeparator();
+        String sb =
+                "Type: "
+                        + this.getClass().getSimpleName()
+                        + System.lineSeparator()
+                        + "Title: "
+                        + this.getTitle()
+                        + System.lineSeparator()
+                        + "Author: "
+                        + this.getAuthor()
+                        + System.lineSeparator()
+                        + "Price: "
+                        + this.getPrice()
+                        + System.lineSeparator();
         return sb;
-
     }
 
     public final boolean containsDigit(String s) {

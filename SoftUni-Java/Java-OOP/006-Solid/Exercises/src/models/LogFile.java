@@ -31,7 +31,8 @@ public class LogFile implements File {
     @Override
     public boolean write() {
         try {
-            Files.write(Paths.get(this.filePathAndName),
+            Files.write(
+                    Paths.get(this.filePathAndName),
                     this.text.toString().getBytes(),
                     StandardOpenOption.CREATE,
                     StandardOpenOption.APPEND);
@@ -49,9 +50,7 @@ public class LogFile implements File {
     }
 
     private int calculateSize() {
-        return this.text.chars()
-                .filter(Character::isAlphabetic)
-                .sum();
+        return this.text.chars().filter(Character::isAlphabetic).sum();
     }
 
     @Override

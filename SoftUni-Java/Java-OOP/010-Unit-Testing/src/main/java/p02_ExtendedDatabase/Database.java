@@ -1,15 +1,15 @@
 package p02_ExtendedDatabase;
 
-import javax.naming.OperationNotSupportedException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.naming.OperationNotSupportedException;
 
 public class Database {
 
     private Person[] elements;
     private int elementsCount = 0;
     private int index;
-
 
     public Database(Person... people) throws OperationNotSupportedException {
         this.elementsCount = people.length;
@@ -49,8 +49,7 @@ public class Database {
     }
 
     private void setElements(Person... elements) throws OperationNotSupportedException {
-        if (elements.length > 16 ||
-                elements.length < 1) {
+        if (elements.length > 16 || elements.length < 1) {
             throw new OperationNotSupportedException();
         }
 

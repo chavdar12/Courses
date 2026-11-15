@@ -7,8 +7,7 @@ public abstract class Character<T> implements GameObject<T> {
     private int level;
     private T hashedPassword;
 
-    public Character() {
-    }
+    public Character() {}
 
     public Character(String userName, String characterType, int level, Number specialPoints) {
         this.setUserName(userName);
@@ -62,7 +61,8 @@ public abstract class Character<T> implements GameObject<T> {
 
     @Override
     public String toString() {
-        return String.format("\"%s\" | \"%s\" -> %s%n%s",
+        return String.format(
+                "\"%s\" | \"%s\" -> %s%n%s",
                 this.getUsername(),
                 this.getHashedPassword(),
                 this.getCharacterType(),

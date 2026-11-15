@@ -3,8 +3,8 @@ package CarShopExtended;
 public class Seat extends BaseCar implements Sellable {
     private final Double price;
 
-    public Seat(String model, String color, Integer horsePower,
-                String countryProduces, Double price) {
+    public Seat(
+            String model, String color, Integer horsePower, String countryProduces, Double price) {
 
         super(model, color, horsePower, countryProduces);
         this.price = price;

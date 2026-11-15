@@ -32,8 +32,7 @@ public class Galaxy {
     }
 
     private boolean isInRange(int row, int col) {
-        return row >= 0 && row < this.stars.length
-                && col >= 0 && col < this.stars[row].length;
+        return row >= 0 && row < this.stars.length && col >= 0 && col < this.stars[row].length;
     }
 
     public int getStarValue(int row, int col) {
