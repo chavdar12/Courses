@@ -45,12 +45,23 @@ public class SecurityTests
     {
         using var client = factory.CreateClient();
 
-        var weak = await client.PostAsJsonAsync("/api/account/register", new { email = "a@b.c", password = "123", fullName = "A" });
+        var weak = await client.PostAsJsonAsync(
+            "/api/account/register",
+            new
+            {
+                email = "a@b.c",
+                password = "123",
+                fullName = "A",
+            }
+        );
         Assert.That(weak.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
         Assert.That(await weak.Content.ReadAsStringAsync(), Does.Contain("PasswordTooShort"));
 
         await Register(client, "pesho@abv.bg");
-        Assert.That((await Login(client, "pesho@abv.bg", "Wrong123!")).StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
+        Assert.That(
+            (await Login(client, "pesho@abv.bg", "Wrong123!")).StatusCode,
+            Is.EqualTo(HttpStatusCode.Unauthorized)
+        );
     }
 
     [Test]
@@ -70,7 +81,10 @@ public class SecurityTests
     public async Task JwtAuthenticatesWithRoleClaims()
     {
         using var client = factory.CreateClient();
-        var response = await client.PostAsJsonAsync("/api/account/token", new { email = "admin@site.com", password = "Admin123!" });
+        var response = await client.PostAsJsonAsync(
+            "/api/account/token",
+            new { email = "admin@site.com", password = "Admin123!" }
+        );
         var token = (await response.Content.ReadFromJsonAsync<JsonElement>()).GetProperty("token").GetString();
 
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -82,7 +96,10 @@ public class SecurityTests
     public async Task TamperedJwtIsRejected()
     {
         using var client = factory.CreateClient();
-        var response = await client.PostAsJsonAsync("/api/account/token", new { email = "admin@site.com", password = "Admin123!" });
+        var response = await client.PostAsJsonAsync(
+            "/api/account/token",
+            new { email = "admin@site.com", password = "Admin123!" }
+        );
         var token = (await response.Content.ReadFromJsonAsync<JsonElement>()).GetProperty("token").GetString();
 
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token[..^2] + "xx");
@@ -117,7 +134,10 @@ public class SecurityTests
         await Login(pesho, "pesho@abv.bg", Password);
 
         Assert.That((await pesho.GetAsync($"/api/secure/profile/{peshoId}")).StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        Assert.That((await pesho.GetAsync($"/api/secure/profile/{goshoId}")).StatusCode, Is.EqualTo(HttpStatusCode.Forbidden));
+        Assert.That(
+            (await pesho.GetAsync($"/api/secure/profile/{goshoId}")).StatusCode,
+            Is.EqualTo(HttpStatusCode.Forbidden)
+        );
     }
 
     [Test]
@@ -125,15 +145,29 @@ public class SecurityTests
     {
         using var client = factory.CreateClient();
 
-        var noToken = await client.PostAsync("/", new FormUrlEncodedContent(new Dictionary<string, string> { ["text"] = "hi" }));
+        var noToken = await client.PostAsync(
+            "/",
+            new FormUrlEncodedContent(new Dictionary<string, string> { ["text"] = "hi" })
+        );
         Assert.That(noToken.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
 
-        var token = Regex.Match(await client.GetStringAsync("/"), "name=\"__RequestVerificationToken\" type=\"hidden\" value=\"([^\"]+)\"").Groups[1].Value;
-        await client.PostAsync("/", new FormUrlEncodedContent(new Dictionary<string, string>
-        {
-            ["text"] = "<script>alert(1)</script>",
-            ["__RequestVerificationToken"] = token,
-        }));
+        var token = Regex
+            .Match(
+                await client.GetStringAsync("/"),
+                "name=\"__RequestVerificationToken\" type=\"hidden\" value=\"([^\"]+)\""
+            )
+            .Groups[1]
+            .Value;
+        await client.PostAsync(
+            "/",
+            new FormUrlEncodedContent(
+                new Dictionary<string, string>
+                {
+                    ["text"] = "<script>alert(1)</script>",
+                    ["__RequestVerificationToken"] = token,
+                }
+            )
+        );
 
         var html = await client.GetStringAsync("/");
         Assert.That(html, Does.Contain("&lt;script&gt;alert(1)&lt;/script&gt;"));
@@ -142,7 +176,15 @@ public class SecurityTests
 
     private static async Task<string> Register(HttpClient client, string email)
     {
-        var response = await client.PostAsJsonAsync("/api/account/register", new { email, password = Password, fullName = email });
+        var response = await client.PostAsJsonAsync(
+            "/api/account/register",
+            new
+            {
+                email,
+                password = Password,
+                fullName = email,
+            }
+        );
         response.EnsureSuccessStatusCode();
         return (await response.Content.ReadFromJsonAsync<JsonElement>()).GetProperty("id").GetString();
     }

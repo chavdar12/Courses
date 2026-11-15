@@ -28,11 +28,13 @@ else
 app.UseStatusCodePagesWithReExecute("/Home/Status/{0}");
 
 // Inline middleware: runs before and after everything registered after it.
-app.Use(async (context, next) =>
-{
-    context.Response.Headers["X-Pipeline"] = "inline";
-    await next();
-});
+app.Use(
+    async (context, next) =>
+    {
+        context.Response.Headers["X-Pipeline"] = "inline";
+        await next();
+    }
+);
 
 app.UseRequestId();
 

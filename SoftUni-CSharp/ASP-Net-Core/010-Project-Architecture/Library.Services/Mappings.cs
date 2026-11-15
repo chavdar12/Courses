@@ -25,5 +25,10 @@ public static class Mappings
     };
 
     public static Book ToEntity(this CreateBookModel model) =>
-        new() { Title = model.Title, Year = model.Year, AuthorId = model.AuthorId };
+        new()
+        {
+            Title = model.Title,
+            Year = model.Year,
+            AuthorId = model.AuthorId,
+        };
 }

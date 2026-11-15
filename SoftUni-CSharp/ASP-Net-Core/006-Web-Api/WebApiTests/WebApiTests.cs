@@ -59,7 +59,10 @@ public class WebApiTests
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
         Assert.That(response.Content.Headers.ContentType!.MediaType, Is.EqualTo("application/problem+json"));
-        Assert.That(problem.GetProperty("errors").EnumerateObject().Select(e => e.Name), Is.EquivalentTo(new[] { "Name", "Price" }));
+        Assert.That(
+            problem.GetProperty("errors").EnumerateObject().Select(e => e.Name),
+            Is.EquivalentTo(new[] { "Name", "Price" })
+        );
     }
 
     [Test]

@@ -13,7 +13,9 @@ public class TodoServiceTests
     [SetUp]
     public void SetUp()
     {
-        db = new TodoDbContext(new DbContextOptionsBuilder<TodoDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+        db = new TodoDbContext(
+            new DbContextOptionsBuilder<TodoDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options
+        );
         service = new TodoService(db);
     }
 

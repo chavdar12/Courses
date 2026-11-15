@@ -14,9 +14,9 @@ public class DeployableTests
     public void OneTimeSetUp()
     {
         // Settings the pipeline would inject as App Service configuration.
-        factory = new WebApplicationFactory<Program>().WithWebHostBuilder(b => b
-            .UseEnvironment("Production")
-            .UseSetting("Build:Version", "abc123"));
+        factory = new WebApplicationFactory<Program>().WithWebHostBuilder(b =>
+            b.UseEnvironment("Production").UseSetting("Build:Version", "abc123")
+        );
         client = factory.CreateClient();
     }
 

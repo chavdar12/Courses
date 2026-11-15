@@ -10,10 +10,13 @@ builder.Services.AddDbContext<ShopDbContext>(o => o.UseInMemoryDatabase(dbName))
 builder.Services.AddRouting(o => o.LowercaseUrls = true);
 builder.Services.AddControllers().AddXmlSerializerFormatters();
 builder.Services.AddProblemDetails();
-builder.Services.AddCors(o => o.AddDefaultPolicy(p => p
-    .WithOrigins(builder.Configuration.GetSection("Cors:Origins").Get<string[]>())
-    .AllowAnyHeader()
-    .AllowAnyMethod()));
+builder.Services.AddCors(o =>
+    o.AddDefaultPolicy(p =>
+        p.WithOrigins(builder.Configuration.GetSection("Cors:Origins").Get<string[]>())
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+    )
+);
 
 var app = builder.Build();
 

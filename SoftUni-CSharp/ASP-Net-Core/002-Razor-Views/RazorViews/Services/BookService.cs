@@ -13,8 +13,20 @@ public class BookService : IBookService
 {
     private readonly List<Book> books =
     [
-        new() { Id = 1, Title = "Clean Code", Author = "Robert Martin", Pages = 464 },
-        new() { Id = 2, Title = "CLR via C#", Author = "Jeffrey Richter", Pages = 896 },
+        new()
+        {
+            Id = 1,
+            Title = "Clean Code",
+            Author = "Robert Martin",
+            Pages = 464,
+        },
+        new()
+        {
+            Id = 2,
+            Title = "CLR via C#",
+            Author = "Jeffrey Richter",
+            Pages = 896,
+        },
     ];
 
     public IReadOnlyList<Book> All() => books;

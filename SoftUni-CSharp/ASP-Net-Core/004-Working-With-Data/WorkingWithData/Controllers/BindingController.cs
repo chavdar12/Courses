@@ -12,12 +12,20 @@ public class BindingController : Controller
         [FromRoute] int id,
         [FromQuery] string sort,
         [FromHeader(Name = "X-Client")] string client,
-        [FromForm] string name) =>
-        Json(new { id, sort, client, name });
+        [FromForm] string name
+    ) =>
+        Json(
+            new
+            {
+                id,
+                sort,
+                client,
+                name,
+            }
+        );
 
     [HttpGet("student")]
-    public IActionResult Student(Student student) =>
-        ModelState.IsValid ? Json(student) : BadRequest(ModelState);
+    public IActionResult Student(Student student) => ModelState.IsValid ? Json(student) : BadRequest(ModelState);
 
     [HttpPost("register")]
     public IActionResult Register(RegisterUserModel model) =>

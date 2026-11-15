@@ -6,5 +6,6 @@ namespace Advanced.Areas.Admin.Controllers;
 [Area("Admin")]
 public class DashboardController : Controller
 {
-    public IActionResult Index() => Content($"Admin dashboard ({Url.Action("Index", "Home", new { area = "" })} is the public site)");
+    public IActionResult Index() =>
+        Content($"Admin dashboard ({Url.Action("Index", "Home", new { area = "" })} is the public site)");
 }

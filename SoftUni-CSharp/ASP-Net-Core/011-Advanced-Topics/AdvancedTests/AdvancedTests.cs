@@ -60,8 +60,17 @@ public class AdvancedTests
     [Test]
     public async Task TempDataShowsOnceAfterRedirect()
     {
-        var token = Regex.Match(await client.GetStringAsync("/"), "name=\"__RequestVerificationToken\" type=\"hidden\" value=\"([^\"]+)\"").Groups[1].Value;
-        var post = await client.PostAsync("/Home/Save", new FormUrlEncodedContent(new Dictionary<string, string> { ["__RequestVerificationToken"] = token }));
+        var token = Regex
+            .Match(
+                await client.GetStringAsync("/"),
+                "name=\"__RequestVerificationToken\" type=\"hidden\" value=\"([^\"]+)\""
+            )
+            .Groups[1]
+            .Value;
+        var post = await client.PostAsync(
+            "/Home/Save",
+            new FormUrlEncodedContent(new Dictionary<string, string> { ["__RequestVerificationToken"] = token })
+        );
         Assert.That(post.StatusCode, Is.EqualTo(HttpStatusCode.Redirect));
 
         Assert.That(await client.GetStringAsync("/"), Does.Contain("Saved!"));
@@ -71,7 +80,10 @@ public class AdvancedTests
     [Test]
     public async Task AreaRoutesToItsOwnController()
     {
-        Assert.That(await client.GetStringAsync("/Admin/Dashboard"), Is.EqualTo("Admin dashboard (/ is the public site)"));
+        Assert.That(
+            await client.GetStringAsync("/Admin/Dashboard"),
+            Is.EqualTo("Admin dashboard (/ is the public site)")
+        );
         Assert.That(await client.GetStringAsync("/Admin"), Does.StartWith("Admin dashboard"));
     }
 
@@ -107,6 +119,9 @@ public class AdvancedTests
     {
         var html = await client.GetStringAsync("/");
 
-        Assert.That(html, Does.Contain("<meta name=\"description\"").And.Contain("<link rel=\"canonical\" href=\"http://localhost/\""));
+        Assert.That(
+            html,
+            Does.Contain("<meta name=\"description\"").And.Contain("<link rel=\"canonical\" href=\"http://localhost/\"")
+        );
     }
 }

@@ -17,13 +17,17 @@ var app = builder.Build();
 app.UseForwardedHeaders();
 
 // The pipeline injects Build__Version, so a deployed app tells you which commit it runs.
-app.MapGet("/", (IConfiguration config, IWebHostEnvironment env, HttpContext ctx) => new
-{
-    app = env.ApplicationName,
-    environment = env.EnvironmentName,
-    version = config["Build:Version"],
-    scheme = ctx.Request.Scheme,
-});
+app.MapGet(
+    "/",
+    (IConfiguration config, IWebHostEnvironment env, HttpContext ctx) =>
+        new
+        {
+            app = env.ApplicationName,
+            environment = env.EnvironmentName,
+            version = config["Build:Version"],
+            scheme = ctx.Request.Scheme,
+        }
+);
 
 // App Service health check / container probe target.
 app.MapHealthChecks("/health");

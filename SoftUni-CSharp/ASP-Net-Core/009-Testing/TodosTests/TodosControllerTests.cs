@@ -25,7 +25,10 @@ public class TodosControllerTests
     [Test]
     public async Task IndexPassesTodosToTheView()
     {
-        var todos = new List<Todo> { new() { Id = 1, Title = "Write tests" } };
+        var todos = new List<Todo>
+        {
+            new() { Id = 1, Title = "Write tests" },
+        };
         service.Setup(s => s.GetAllAsync()).ReturnsAsync(todos);
 
         var result = await controller.Index() as ViewResult;

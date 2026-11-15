@@ -9,16 +9,31 @@ namespace Security.Controllers;
 
 [ApiController]
 [Route("api/account")]
-public class AccountController(UserManager<ApplicationUser> users, SignInManager<ApplicationUser> signIn, TokenService tokens) : ControllerBase
+public class AccountController(
+    UserManager<ApplicationUser> users,
+    SignInManager<ApplicationUser> signIn,
+    TokenService tokens
+) : ControllerBase
 {
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterModel model)
     {
-        var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FullName = model.FullName };
+        var user = new ApplicationUser
+        {
+            UserName = model.Email,
+            Email = model.Email,
+            FullName = model.FullName,
+        };
         var result = await users.CreateAsync(user, model.Password);
         if (!result.Succeeded)
         {
-            return ValidationProblem(new ValidationProblemDetails(result.Errors.GroupBy(e => e.Code).ToDictionary(g => g.Key, g => g.Select(e => e.Description).ToArray())));
+            return ValidationProblem(
+                new ValidationProblemDetails(
+                    result
+                        .Errors.GroupBy(e => e.Code)
+                        .ToDictionary(g => g.Key, g => g.Select(e => e.Description).ToArray())
+                )
+            );
         }
 
         return Ok(new { user.Id });
@@ -28,7 +43,12 @@ public class AccountController(UserManager<ApplicationUser> users, SignInManager
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginModel model)
     {
-        var result = await signIn.PasswordSignInAsync(model.Email, model.Password, isPersistent: false, lockoutOnFailure: true);
+        var result = await signIn.PasswordSignInAsync(
+            model.Email,
+            model.Password,
+            isPersistent: false,
+            lockoutOnFailure: true
+        );
         return result.Succeeded ? Ok() : Unauthorized();
     }
 
@@ -44,7 +64,10 @@ public class AccountController(UserManager<ApplicationUser> users, SignInManager
     public async Task<IActionResult> Token(LoginModel model)
     {
         var user = await users.FindByEmailAsync(model.Email);
-        if (user is null || !(await signIn.CheckPasswordSignInAsync(user, model.Password, lockoutOnFailure: true)).Succeeded)
+        if (
+            user is null
+            || !(await signIn.CheckPasswordSignInAsync(user, model.Password, lockoutOnFailure: true)).Succeeded
+        )
         {
             return Unauthorized();
         }

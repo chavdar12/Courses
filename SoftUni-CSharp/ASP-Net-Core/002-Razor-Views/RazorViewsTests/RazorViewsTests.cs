@@ -47,7 +47,14 @@ public class RazorViewsTests
     [Test]
     public async Task ValidPostAddsBookAndRedirects()
     {
-        var response = await Post(new() { ["Title"] = "Refactoring", ["Author"] = "Martin Fowler", ["Pages"] = "448" });
+        var response = await Post(
+            new()
+            {
+                ["Title"] = "Refactoring",
+                ["Author"] = "Martin Fowler",
+                ["Pages"] = "448",
+            }
+        );
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Redirect));
         Assert.That(await client.GetStringAsync("/"), Does.Contain("<td>Refactoring</td>").And.Contain("3 books"));
@@ -56,7 +63,14 @@ public class RazorViewsTests
     [Test]
     public async Task InvalidPostRedisplaysFormWithErrors()
     {
-        var response = await Post(new() { ["Title"] = "X", ["Author"] = "", ["Pages"] = "0" });
+        var response = await Post(
+            new()
+            {
+                ["Title"] = "X",
+                ["Author"] = "",
+                ["Pages"] = "0",
+            }
+        );
         var html = await response.Content.ReadAsStringAsync();
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
@@ -67,7 +81,10 @@ public class RazorViewsTests
     [Test]
     public async Task PostWithoutAntiForgeryTokenIsRejected()
     {
-        var response = await client.PostAsync("/Books/Create", new FormUrlEncodedContent(new Dictionary<string, string> { ["Title"] = "Hack" }));
+        var response = await client.PostAsync(
+            "/Books/Create",
+            new FormUrlEncodedContent(new Dictionary<string, string> { ["Title"] = "Hack" })
+        );
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
     }

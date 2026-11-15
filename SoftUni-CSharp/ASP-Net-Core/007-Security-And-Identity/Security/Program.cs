@@ -13,8 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 var dbName = $"Identity-{Guid.NewGuid()}";
 builder.Services.AddDbContext<ApplicationDbContext>(o => o.UseInMemoryDatabase(dbName));
 
-builder.Services
-    .AddIdentity<ApplicationUser, IdentityRole>(o =>
+builder
+    .Services.AddIdentity<ApplicationUser, IdentityRole>(o =>
     {
         o.User.RequireUniqueEmail = true;
         o.Lockout.MaxFailedAccessAttempts = 5;
@@ -24,31 +24,45 @@ builder.Services
 // APIs answer 401/403 instead of redirecting to a login page.
 builder.Services.ConfigureApplicationCookie(o =>
 {
-    o.Events.OnRedirectToLogin = ctx => { ctx.Response.StatusCode = 401; return Task.CompletedTask; };
-    o.Events.OnRedirectToAccessDenied = ctx => { ctx.Response.StatusCode = 403; return Task.CompletedTask; };
+    o.Events.OnRedirectToLogin = ctx =>
+    {
+        ctx.Response.StatusCode = 401;
+        return Task.CompletedTask;
+    };
+    o.Events.OnRedirectToAccessDenied = ctx =>
+    {
+        ctx.Response.StatusCode = 403;
+        return Task.CompletedTask;
+    };
 });
 
-builder.Services
-    .AddAuthentication(o =>
+builder
+    .Services.AddAuthentication(o =>
     {
         o.DefaultAuthenticateScheme = Smart;
         o.DefaultChallengeScheme = Smart;
         o.DefaultForbidScheme = Smart;
     })
     // A "Bearer ..." header means JWT, anything else falls back to the Identity cookie.
-    .AddPolicyScheme(Smart, Smart, o => o.ForwardDefaultSelector = ctx =>
-        ctx.Request.Headers.Authorization.ToString().StartsWith("Bearer ")
-            ? JwtBearerDefaults.AuthenticationScheme
-            : IdentityConstants.ApplicationScheme)
-    .AddJwtBearer(o => o.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = TokenService.SigningKey(builder.Configuration),
-    });
+    .AddPolicyScheme(
+        Smart,
+        Smart,
+        o =>
+            o.ForwardDefaultSelector = ctx =>
+                ctx.Request.Headers.Authorization.ToString().StartsWith("Bearer ")
+                    ? JwtBearerDefaults.AuthenticationScheme
+                    : IdentityConstants.ApplicationScheme
+    )
+    .AddJwtBearer(o =>
+        o.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = TokenService.SigningKey(builder.Configuration),
+        }
+    );
 
-builder.Services.AddAuthorizationBuilder()
-    .AddPolicy("EmployeesOnly", p => p.RequireClaim("EmployeeNumber"));
+builder.Services.AddAuthorizationBuilder().AddPolicy("EmployeesOnly", p => p.RequireClaim("EmployeeNumber"));
 
 builder.Services.AddSingleton<TokenService>();
 builder.Services.AddControllersWithViews();
@@ -76,7 +90,12 @@ static async Task SeedAdmin(IServiceProvider services, IConfiguration configurat
         return;
     }
 
-    var admin = new ApplicationUser { UserName = configuration["Admin:Email"], Email = configuration["Admin:Email"], FullName = "Admin" };
+    var admin = new ApplicationUser
+    {
+        UserName = configuration["Admin:Email"],
+        Email = configuration["Admin:Email"],
+        FullName = "Admin",
+    };
     await users.CreateAsync(admin, password);
     await users.AddToRoleAsync(admin, "Admin");
 }

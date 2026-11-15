@@ -16,7 +16,9 @@ public class BookServiceTests
     [SetUp]
     public void SetUp()
     {
-        db = new LibraryDbContext(new DbContextOptionsBuilder<LibraryDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+        db = new LibraryDbContext(
+            new DbContextOptionsBuilder<LibraryDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options
+        );
         author = new Author { FirstName = "Ursula", LastName = "Le Guin" };
         db.Authors.Add(author);
         db.SaveChanges();
@@ -30,7 +32,14 @@ public class BookServiceTests
     [Test]
     public async Task CreateThenReadBack()
     {
-        var id = await service.CreateAsync(new CreateBookModel { Title = "The Dispossessed", Year = 1974, AuthorId = author.Id });
+        var id = await service.CreateAsync(
+            new CreateBookModel
+            {
+                Title = "The Dispossessed",
+                Year = 1974,
+                AuthorId = author.Id,
+            }
+        );
 
         var details = await service.DetailsAsync(id);
         var all = await service.AllAsync();
@@ -42,13 +51,21 @@ public class BookServiceTests
     [Test]
     public void CreateWithUnknownAuthorFails()
     {
-        Assert.ThrowsAsync<ArgumentException>(() => service.CreateAsync(new CreateBookModel { Title = "X", AuthorId = 999 }));
+        Assert.ThrowsAsync<ArgumentException>(() =>
+            service.CreateAsync(new CreateBookModel { Title = "X", AuthorId = 999 })
+        );
     }
 
     [Test]
     public void MappingsFlattenAuthor()
     {
-        var book = new Book { Id = 1, Title = "Mort", Year = 1987, Author = new Author { FirstName = "Terry", LastName = "Pratchett" } };
+        var book = new Book
+        {
+            Id = 1,
+            Title = "Mort",
+            Year = 1987,
+            Author = new Author { FirstName = "Terry", LastName = "Pratchett" },
+        };
 
         Assert.That(Mappings.ToListItem.Compile()(book).AuthorName, Is.EqualTo("Terry Pratchett"));
         Assert.That(Mappings.ToDetails.Compile()(book).AuthorLastName, Is.EqualTo("Pratchett"));

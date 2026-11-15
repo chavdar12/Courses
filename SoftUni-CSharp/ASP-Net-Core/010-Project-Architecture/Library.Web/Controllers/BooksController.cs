@@ -9,7 +9,8 @@ public class BooksController(IBookService books) : Controller
 {
     public async Task<IActionResult> Index() => View(await books.AllAsync());
 
-    public async Task<IActionResult> Details(int id) => await books.DetailsAsync(id) is { } book ? View(book) : NotFound();
+    public async Task<IActionResult> Details(int id) =>
+        await books.DetailsAsync(id) is { } book ? View(book) : NotFound();
 
     [HttpPost, ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CreateBookModel model)

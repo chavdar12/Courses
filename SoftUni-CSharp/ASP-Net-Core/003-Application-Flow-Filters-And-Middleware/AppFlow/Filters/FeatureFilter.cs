@@ -16,7 +16,5 @@ public class FeatureFilter(IFeatureService features) : IActionFilter
         }
     }
 
-    public void OnActionExecuted(ActionExecutedContext context)
-    {
-    }
+    public void OnActionExecuted(ActionExecutedContext context) { }
 }

@@ -10,10 +10,12 @@ namespace WebApi.Controllers;
 public class ProductsController(ShopDbContext db) : ControllerBase
 {
     [HttpGet]
-    public async Task<IEnumerable<Product>> GetAll() => await db.Products.AsNoTracking().OrderBy(p => p.Id).ToListAsync();
+    public async Task<IEnumerable<Product>> GetAll() =>
+        await db.Products.AsNoTracking().OrderBy(p => p.Id).ToListAsync();
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<Product>> Get(int id) => await db.Products.FindAsync(id) is { } product ? product : NotFound();
+    public async Task<ActionResult<Product>> Get(int id) =>
+        await db.Products.FindAsync(id) is { } product ? product : NotFound();
 
     [HttpPost]
     public async Task<ActionResult<Product>> Create(Product product)

@@ -16,8 +16,9 @@ public class IntegrationTests
     public void SetUp()
     {
         // ConfigureTestServices runs after Program's registrations: the place to seed or swap services.
-        factory = new WebApplicationFactory<Program>().WithWebHostBuilder(b => b.ConfigureTestServices(services =>
-            services.AddHostedService<Seeder>()));
+        factory = new WebApplicationFactory<Program>().WithWebHostBuilder(b =>
+            b.ConfigureTestServices(services => services.AddHostedService<Seeder>())
+        );
         client = factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
     }
 
@@ -53,7 +54,10 @@ public class IntegrationTests
     [Test]
     public async Task PostWithoutTokenIsRejected()
     {
-        var response = await client.PostAsync("/Todos/Create", new FormUrlEncodedContent(new Dictionary<string, string> { ["title"] = "x" }));
+        var response = await client.PostAsync(
+            "/Todos/Create",
+            new FormUrlEncodedContent(new Dictionary<string, string> { ["title"] = "x" })
+        );
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
     }
@@ -61,7 +65,10 @@ public class IntegrationTests
     private async Task<HttpResponseMessage> Post(string url, Dictionary<string, string> form)
     {
         var html = await client.GetStringAsync("/");
-        form["__RequestVerificationToken"] = Regex.Match(html, "name=\"__RequestVerificationToken\" type=\"hidden\" value=\"([^\"]+)\"").Groups[1].Value;
+        form["__RequestVerificationToken"] = Regex
+            .Match(html, "name=\"__RequestVerificationToken\" type=\"hidden\" value=\"([^\"]+)\"")
+            .Groups[1]
+            .Value;
         return await client.PostAsync(url, new FormUrlEncodedContent(form));
     }
 

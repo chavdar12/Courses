@@ -15,6 +15,9 @@ public class WeatherService : IWeatherService
     {
         await Task.Delay(300); // simulate a slow backend so the loading state is visible
         var today = DateOnly.FromDateTime(DateTime.Today);
-        return Enumerable.Range(1, 5).Select(i => new Forecast(today.AddDays(i), Random.Shared.Next(-10, 35), Summaries[i - 1])).ToList();
+        return Enumerable
+            .Range(1, 5)
+            .Select(i => new Forecast(today.AddDays(i), Random.Shared.Next(-10, 35), Summaries[i - 1]))
+            .ToList();
     }
 }

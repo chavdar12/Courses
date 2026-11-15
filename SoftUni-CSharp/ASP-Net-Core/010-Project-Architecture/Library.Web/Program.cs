@@ -21,12 +21,14 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
-    db.Authors.Add(new Author
-    {
-        FirstName = "Terry",
-        LastName = "Pratchett",
-        Books = [new() { Title = "Mort", Year = 1987 }, new() { Title = "Guards! Guards!", Year = 1989 }],
-    });
+    db.Authors.Add(
+        new Author
+        {
+            FirstName = "Terry",
+            LastName = "Pratchett",
+            Books = [new() { Title = "Mort", Year = 1987 }, new() { Title = "Guards! Guards!", Year = 1989 }],
+        }
+    );
     db.SaveChanges();
 }
 

@@ -21,5 +21,6 @@ public class RequestIdMiddleware(RequestDelegate next)
 
 public static class RequestIdMiddlewareExtensions
 {
-    public static IApplicationBuilder UseRequestId(this IApplicationBuilder app) => app.UseMiddleware<RequestIdMiddleware>();
+    public static IApplicationBuilder UseRequestId(this IApplicationBuilder app) =>
+        app.UseMiddleware<RequestIdMiddleware>();
 }

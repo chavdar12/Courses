@@ -25,7 +25,8 @@ public class TokenService(IConfiguration configuration)
             configuration["Jwt:Audience"],
             claims,
             expires: DateTime.UtcNow.AddHours(1),
-            signingCredentials: new SigningCredentials(SigningKey(configuration), SecurityAlgorithms.HmacSha256));
+            signingCredentials: new SigningCredentials(SigningKey(configuration), SecurityAlgorithms.HmacSha256)
+        );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }

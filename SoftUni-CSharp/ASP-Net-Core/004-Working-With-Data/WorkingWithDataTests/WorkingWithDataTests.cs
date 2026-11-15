@@ -39,7 +39,10 @@ public class WorkingWithDataTests
 
         var json = await (await client.SendAsync(request)).Content.ReadFromJsonAsync<JsonElement>();
 
-        Assert.That(json.GetRawText(), Is.EqualTo("{\"id\":7,\"sort\":\"asc\",\"client\":\"tests\",\"name\":\"Pesho\"}"));
+        Assert.That(
+            json.GetRawText(),
+            Is.EqualTo("{\"id\":7,\"sort\":\"asc\",\"client\":\"tests\",\"name\":\"Pesho\"}")
+        );
     }
 
     [Test]
@@ -90,7 +93,10 @@ public class WorkingWithDataTests
     [Test]
     public async Task UploadedFileCanBeListedAndDownloaded()
     {
-        using var form = new MultipartFormDataContent { { new ByteArrayContent("hello"u8.ToArray()), "files", "hello.txt" } };
+        using var form = new MultipartFormDataContent
+        {
+            { new ByteArrayContent("hello"u8.ToArray()), "files", "hello.txt" },
+        };
 
         var upload = await client.PostAsync("/files", form);
 
@@ -105,7 +111,10 @@ public class WorkingWithDataTests
     [Test]
     public async Task UploadCannotEscapeTheUploadsFolder()
     {
-        using var form = new MultipartFormDataContent { { new StringContent("x", Encoding.UTF8), "files", "../../evil.txt" } };
+        using var form = new MultipartFormDataContent
+        {
+            { new StringContent("x", Encoding.UTF8), "files", "../../evil.txt" },
+        };
 
         await client.PostAsync("/files", form);
 
@@ -122,13 +131,24 @@ public class WorkingWithDataTests
         Assert.That((await client.GetAsync("/files/missing.txt")).StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
     }
 
-    private Task<HttpResponseMessage> Register(string username, string email, string password, string confirm, string birthDate) =>
-        client.PostAsync("/binding/register", new FormUrlEncodedContent(new Dictionary<string, string>
-        {
-            ["Username"] = username,
-            ["Email"] = email,
-            ["Password"] = password,
-            ["ConfirmPassword"] = confirm,
-            ["BirthDate"] = birthDate,
-        }));
+    private Task<HttpResponseMessage> Register(
+        string username,
+        string email,
+        string password,
+        string confirm,
+        string birthDate
+    ) =>
+        client.PostAsync(
+            "/binding/register",
+            new FormUrlEncodedContent(
+                new Dictionary<string, string>
+                {
+                    ["Username"] = username,
+                    ["Email"] = email,
+                    ["Password"] = password,
+                    ["ConfirmPassword"] = confirm,
+                    ["BirthDate"] = birthDate,
+                }
+            )
+        );
 }

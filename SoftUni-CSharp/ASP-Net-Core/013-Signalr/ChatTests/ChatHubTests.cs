@@ -80,11 +80,14 @@ public class ChatHubTests
     {
         var inbox = Channel.CreateUnbounded<string>();
         var connection = new HubConnectionBuilder()
-            .WithUrl(new Uri(factory.Server.BaseAddress, "chat"), o =>
-            {
-                o.Transports = HttpTransportType.LongPolling;
-                o.HttpMessageHandlerFactory = _ => factory.Server.CreateHandler();
-            })
+            .WithUrl(
+                new Uri(factory.Server.BaseAddress, "chat"),
+                o =>
+                {
+                    o.Transports = HttpTransportType.LongPolling;
+                    o.HttpMessageHandlerFactory = _ => factory.Server.CreateHandler();
+                }
+            )
             .Build();
         connection.On<string, string>("Receive", (user, message) => inbox.Writer.TryWrite($"{user}: {message}"));
         connection.On<string>("System", text => inbox.Writer.TryWrite(text));
