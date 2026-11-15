@@ -19,15 +19,20 @@ public class Ex002Tests
     [Test]
     public void ProgramSumsNestedGifts()
     {
-        Assert.That(ConsoleRunner.Run(typeof(GiftBase).Assembly), Is.EqualTo("""
-            Phone with the price 256
+        Assert.That(
+            ConsoleRunner.Run(typeof(GiftBase).Assembly),
+            Is.EqualTo(
+                """
+                Phone with the price 256
 
-            RootBox contains the following products with prices:
-            TruckToy with the price 289
-            PlainToy with the price 587
-            ChildBox contains the following products with prices:
-            SoldierToy with the price 200
-            Total price of this composite present is: 1076
-            """));
+                RootBox contains the following products with prices:
+                TruckToy with the price 289
+                PlainToy with the price 587
+                ChildBox contains the following products with prices:
+                SoldierToy with the price 200
+                Total price of this composite present is: 1076
+                """
+            )
+        );
     }
 }

@@ -20,7 +20,8 @@ public class LieutenantGeneral : Private, ILieutenantGeneral
         sb.AppendLine($"{base.ToString()}");
         sb.AppendLine("Privates:");
 
-        foreach (var @private in Privates) sb.AppendLine(@private.ToString());
+        foreach (var @private in Privates)
+            sb.AppendLine(@private.ToString());
 
         return sb.ToString().TrimEnd();
     }

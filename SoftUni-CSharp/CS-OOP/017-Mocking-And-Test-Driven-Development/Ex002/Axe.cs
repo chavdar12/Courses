@@ -14,7 +14,8 @@ public class Axe : IWeapon
 
     public void Attack(ITarget target)
     {
-        if (DurabilityPoints <= 0) throw new InvalidOperationException("Axe is broken.");
+        if (DurabilityPoints <= 0)
+            throw new InvalidOperationException("Axe is broken.");
 
         target.TakeAttack(AttackPoints);
         DurabilityPoints -= 1;

@@ -3,7 +3,5 @@
 public class Starter : Food
 {
     protected Starter(string name, decimal price, double grams)
-        : base(name, price, grams)
-    {
-    }
+        : base(name, price, grams) { }
 }

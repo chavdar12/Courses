@@ -5,7 +5,8 @@ namespace Ex007.Models;
 
 public class Spy : Soldier, ISpy
 {
-    public Spy(string id, string firstName, string lastName, int codeNumber) : base(id, firstName, lastName)
+    public Spy(string id, string firstName, string lastName, int codeNumber)
+        : base(id, firstName, lastName)
     {
         CodeNumber = codeNumber;
     }

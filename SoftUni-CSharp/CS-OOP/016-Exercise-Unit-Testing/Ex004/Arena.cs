@@ -30,10 +30,12 @@ public class Arena
         {
             var missingName = attackerName;
 
-            if (defender == null) missingName = defenderName;
+            if (defender == null)
+                missingName = defenderName;
 
             throw new InvalidOperationException(
-                $"There is no fighter with name {missingName} enrolled for the fights!");
+                $"There is no fighter with name {missingName} enrolled for the fights!"
+            );
         }
 
         attacker.Attack(defender);

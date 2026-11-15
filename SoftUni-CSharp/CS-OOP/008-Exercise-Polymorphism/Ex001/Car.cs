@@ -13,7 +13,8 @@ public class Car : Vehicle
 
     public override string Drive(double distance)
     {
-        if (!(FuelQuantity - (FuelConsumptionPerKm + 0.9) * distance >= 0)) return "Car needs refueling";
+        if (!(FuelQuantity - (FuelConsumptionPerKm + 0.9) * distance >= 0))
+            return "Car needs refueling";
         FuelQuantity -= (FuelConsumptionPerKm + 0.9) * distance;
         return $"Car travelled {distance} km";
     }

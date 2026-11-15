@@ -20,7 +20,9 @@ public class Ex001Tests
     [Test]
     public void ProgramRunsUntilEndOfInput()
     {
-        Assert.That(ConsoleRunner.Run(typeof(Engine).Assembly, "Hello Pesho\nBogus\n"),
-            Is.EqualTo("Hello, Pesho\nInvalid command type!"));
+        Assert.That(
+            ConsoleRunner.Run(typeof(Engine).Assembly, "Hello Pesho\nBogus\n"),
+            Is.EqualTo("Hello, Pesho\nInvalid command type!")
+        );
     }
 }

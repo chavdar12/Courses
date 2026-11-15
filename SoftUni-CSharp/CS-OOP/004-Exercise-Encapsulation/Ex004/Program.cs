@@ -13,7 +13,6 @@ try
     var dough = new Dough(doughType, bakingTechnique, doughWeight);
     var pizza = new Pizza(pizzaName, dough);
 
-
     var toppingType = Console.ReadLine();
 
     while (toppingType != "END")

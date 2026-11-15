@@ -20,7 +20,8 @@ public class Commando : SpecialisedSoldier, ICommando
         sb.AppendLine($"{base.ToString()}");
         sb.AppendLine("Missions:");
 
-        foreach (var mission in Missions) sb.AppendLine(mission.ToString());
+        foreach (var mission in Missions)
+            sb.AppendLine(mission.ToString());
 
         return sb.ToString().TrimEnd();
     }

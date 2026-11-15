@@ -2,7 +2,6 @@
 
 public class Elf : Hero
 {
-    protected Elf(string username, int level) : base(username, level)
-    {
-    }
+    protected Elf(string username, int level)
+        : base(username, level) { }
 }

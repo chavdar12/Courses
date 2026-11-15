@@ -10,9 +10,7 @@ public abstract class Vehicle
         return null;
     }
 
-    public virtual void Refuel(double amount)
-    {
-    }
+    public virtual void Refuel(double amount) { }
 
     public override string ToString()
     {

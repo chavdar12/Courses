@@ -23,6 +23,7 @@ public class Logger : ILogger
 
     public void Log(string dateTime, ReportLevel level, string message)
     {
-        foreach (var appender in appenders) appender.Append(dateTime, level, message);
+        foreach (var appender in appenders)
+            appender.Append(dateTime, level, message);
     }
 }

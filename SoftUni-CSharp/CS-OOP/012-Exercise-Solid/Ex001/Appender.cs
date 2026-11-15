@@ -15,7 +15,8 @@ public abstract class Appender : IAppender
 
     public void Append(string dateTime, ReportLevel level, string message)
     {
-        if (level < ReportLevel) return;
+        if (level < ReportLevel)
+            return;
 
         Write(layout.Format(dateTime, level, message));
         MessagesAppended++;
@@ -25,7 +26,7 @@ public abstract class Appender : IAppender
 
     public override string ToString()
     {
-        return $"Appender type: {GetType().Name}, Layout type: {layout.GetType().Name}, " +
-               $"Report level: {ReportLevel.ToString().ToUpper()}, Messages appended: {MessagesAppended}";
+        return $"Appender type: {GetType().Name}, Layout type: {layout.GetType().Name}, "
+            + $"Report level: {ReportLevel.ToString().ToUpper()}, Messages appended: {MessagesAppended}";
     }
 }

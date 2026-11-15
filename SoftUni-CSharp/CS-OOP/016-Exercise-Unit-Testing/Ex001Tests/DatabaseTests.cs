@@ -16,7 +16,8 @@ public class DatabaseTests
 
     private void FillCollection(int iterations)
     {
-        for (var i = 0; i < iterations; i++) dataBase.Add(i);
+        for (var i = 0; i < iterations; i++)
+            dataBase.Add(i);
     }
 
     [Test]

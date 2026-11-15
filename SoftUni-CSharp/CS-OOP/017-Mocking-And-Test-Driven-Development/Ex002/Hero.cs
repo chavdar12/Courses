@@ -18,6 +18,7 @@ public class Hero
     {
         Weapon.Attack(target);
 
-        if (target.IsDead()) Experience += target.GiveExperience();
+        if (target.IsDead())
+            Experience += target.GiveExperience();
     }
 }

@@ -8,6 +8,9 @@ internal class Person
         FullName = fullName;
     }
 
-    [MyRange(12, 90)] private int Age { get; set; }
-    [MyRequired] private string FullName { get; set; }
+    [MyRange(12, 90)]
+    private int Age { get; set; }
+
+    [MyRequired]
+    private string FullName { get; set; }
 }

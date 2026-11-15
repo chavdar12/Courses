@@ -14,7 +14,9 @@ public class Ex003Tests
     [Test]
     public void ProgramRunsBothAnimals()
     {
-        Assert.That(ConsoleRunner.Run(typeof(Cat).Assembly),
-            Is.EqualTo("eating...\nbarking...\neating...\nmeowing..."));
+        Assert.That(
+            ConsoleRunner.Run(typeof(Cat).Assembly),
+            Is.EqualTo("eating...\nbarking...\neating...\nmeowing...")
+        );
     }
 }

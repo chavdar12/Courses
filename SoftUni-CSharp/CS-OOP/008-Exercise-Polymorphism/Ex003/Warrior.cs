@@ -4,9 +4,8 @@ public class Warrior : BaseHero
 {
     private const int DefPower = 100;
 
-    public Warrior(string name) : base(name, DefPower)
-    {
-    }
+    public Warrior(string name)
+        : base(name, DefPower) { }
 
     public override void CastAbility()
     {

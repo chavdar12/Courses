@@ -8,7 +8,8 @@ public class Ex008Tests
     public void AddRemoveCollectionRemovesLastSlotEvenWithDuplicates()
     {
         var collection = new AddRemoveCollection();
-        foreach (var item in new[] { "a", "b", "a" }) collection.Add(item);
+        foreach (var item in new[] { "a", "b", "a" })
+            collection.Add(item);
 
         Assert.That(collection.Remove(), Is.EqualTo("a"));
         Assert.That(collection.Remove(), Is.EqualTo("b"));
@@ -28,7 +29,9 @@ public class Ex008Tests
     [Test]
     public void ProgramPrintsIndexesAndRemovals()
     {
-        Assert.That(ConsoleRunner.Run(typeof(MyList).Assembly, "a b a\n2\n"),
-            Is.EqualTo("0 1 2 \n0 0 0 \n0 0 0 \na b \na b"));
+        Assert.That(
+            ConsoleRunner.Run(typeof(MyList).Assembly, "a b a\n2\n"),
+            Is.EqualTo("0 1 2 \n0 0 0 \n0 0 0 \na b \na b")
+        );
     }
 }

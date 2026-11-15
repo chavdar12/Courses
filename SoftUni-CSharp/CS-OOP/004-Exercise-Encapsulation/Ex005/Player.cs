@@ -24,7 +24,8 @@ public class Player
         get => name;
         private init
         {
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("A name should not be empty.");
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("A name should not be empty.");
             name = value;
         }
     }
@@ -79,11 +80,11 @@ public class Player
         }
     }
 
-    public double Stats
-        => (Endurance + Sprint + Dribble + Passing + Shooting) / 5.0;
+    public double Stats => (Endurance + Sprint + Dribble + Passing + Shooting) / 5.0;
 
     private static void ValidateStat(string varName, int value)
     {
-        if (value is < 1 or > 100) throw new ArgumentException($"{varName} should be between 0 and 100.");
+        if (value is < 1 or > 100)
+            throw new ArgumentException($"{varName} should be between 0 and 100.");
     }
 }

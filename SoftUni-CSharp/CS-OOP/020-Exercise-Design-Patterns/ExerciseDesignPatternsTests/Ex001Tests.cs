@@ -17,10 +17,15 @@ public class Ex001Tests
     [Test]
     public void ProgramClonesThreeSandwiches()
     {
-        Assert.That(ConsoleRunner.Run(typeof(Sandwich).Assembly), Is.EqualTo("""
-            Cloning sandwich with ingredients: Wheat, Bacon, Lettuce, Tomato
-            Cloning sandwich with ingredients: Rye, Turkey, Ham, Salami, Provolone, Lettuce, Onion
-            Cloning sandwich with ingredients: Wheat, Lettuce, Onion, Tomato, Olives, Spinach
-            """));
+        Assert.That(
+            ConsoleRunner.Run(typeof(Sandwich).Assembly),
+            Is.EqualTo(
+                """
+                Cloning sandwich with ingredients: Wheat, Bacon, Lettuce, Tomato
+                Cloning sandwich with ingredients: Rye, Turkey, Ham, Salami, Provolone, Lettuce, Onion
+                Cloning sandwich with ingredients: Wheat, Lettuce, Onion, Tomato, Olives, Spinach
+                """
+            )
+        );
     }
 }

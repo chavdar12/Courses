@@ -9,6 +9,7 @@ public class StackOfStrings : Stack<string>
 
     public void AddRange(List<string> collection)
     {
-        foreach (var element in collection) Push(element);
+        foreach (var element in collection)
+            Push(element);
     }
 }

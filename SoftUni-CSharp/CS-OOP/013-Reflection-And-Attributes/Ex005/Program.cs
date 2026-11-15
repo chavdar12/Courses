@@ -4,7 +4,5 @@
 internal class Program
 {
     [Author("DartVaider")]
-    public static void Main(string[] args)
-    {
-    }
+    public static void Main(string[] args) { }
 }

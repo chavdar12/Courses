@@ -23,7 +23,8 @@ for (var i = 0; i < times; i++)
             break;
         case nameof(Car):
         {
-            if (action == "Refuel") car.Refuel(distOrAmount);
+            if (action == "Refuel")
+                car.Refuel(distOrAmount);
             break;
         }
         case nameof(Truck) when action == "Drive":
@@ -31,7 +32,8 @@ for (var i = 0; i < times; i++)
             break;
         case nameof(Truck):
         {
-            if (action == "Refuel") truck.Refuel(distOrAmount);
+            if (action == "Refuel")
+                truck.Refuel(distOrAmount);
             break;
         }
         case nameof(Bus) when action == "Drive":
@@ -42,7 +44,8 @@ for (var i = 0; i < times; i++)
             break;
         case nameof(Bus):
         {
-            if (action == "Refuel") bus.Refuel(distOrAmount);
+            if (action == "Refuel")
+                bus.Refuel(distOrAmount);
             break;
         }
     }

@@ -20,7 +20,8 @@ public class Animal
         get => age;
         set
         {
-            if (value < 0) throw new ArgumentException("Invalid input!");
+            if (value < 0)
+                throw new ArgumentException("Invalid input!");
             age = value;
         }
     }

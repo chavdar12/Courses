@@ -18,25 +18,35 @@ public class Ex003Tests
     [Test]
     public void NegativeMoneyThrows()
     {
-        Assert.That(Assert.Throws<ArgumentException>(() => new Person("Peter", -1)).Message,
-            Is.EqualTo("Money cannot be negative"));
+        Assert.That(
+            Assert.Throws<ArgumentException>(() => new Person("Peter", -1)).Message,
+            Is.EqualTo("Money cannot be negative")
+        );
     }
 
     [Test]
     public void ProgramRunsShoppingSpree()
     {
-        var output = ConsoleRunner.Run(typeof(Person).Assembly,
-            "Peter=11;George=4\nBread=10;Milk=2\nPeter Bread\nGeorge Milk\nGeorge Milk\nPeter Milk\nEND\n");
+        var output = ConsoleRunner.Run(
+            typeof(Person).Assembly,
+            "Peter=11;George=4\nBread=10;Milk=2\nPeter Bread\nGeorge Milk\nGeorge Milk\nPeter Milk\nEND\n"
+        );
 
-        Assert.That(output, Is.EqualTo(
-            "Peter bought Bread\nGeorge bought Milk\nGeorge bought Milk\nPeter can't afford Milk\n" +
-            "Peter - Bread\nGeorge - Milk, Milk"));
+        Assert.That(
+            output,
+            Is.EqualTo(
+                "Peter bought Bread\nGeorge bought Milk\nGeorge bought Milk\nPeter can't afford Milk\n"
+                    + "Peter - Bread\nGeorge - Milk, Milk"
+            )
+        );
     }
 
     [Test]
     public void ProgramPrintsNothingBought()
     {
-        Assert.That(ConsoleRunner.Run(typeof(Person).Assembly, "Mimi=0\nKafence=2\nEND\n"),
-            Is.EqualTo("Mimi - Nothing bought"));
+        Assert.That(
+            ConsoleRunner.Run(typeof(Person).Assembly, "Mimi=0\nKafence=2\nEND\n"),
+            Is.EqualTo("Mimi - Nothing bought")
+        );
     }
 }

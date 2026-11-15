@@ -13,7 +13,8 @@ public class Spy
         sb.AppendLine($"All Private Methods of Class: {className}")
             .AppendLine($"Base Class: {classType?.BaseType?.Name}");
 
-        classType?.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
+        classType
+            ?.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
             .ToList()
             .ForEach(m => sb.AppendLine($"{m.Name}"));
 

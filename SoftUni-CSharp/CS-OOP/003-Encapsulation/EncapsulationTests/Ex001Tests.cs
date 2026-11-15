@@ -13,10 +13,14 @@ public class Ex001Tests
     [Test]
     public void ProgramSortsByFirstNameThenAge()
     {
-        var output = ConsoleRunner.Run(typeof(Person).Assembly,
-            "3\nBoiko Borisov 57\nAsen Ivanov 65\nAsen Harizanoov 44\n");
+        var output = ConsoleRunner.Run(
+            typeof(Person).Assembly,
+            "3\nBoiko Borisov 57\nAsen Ivanov 65\nAsen Harizanoov 44\n"
+        );
 
-        Assert.That(output, Is.EqualTo(
-            "Asen Harizanoov is 44 years old.\nAsen Ivanov is 65 years old.\nBoiko Borisov is 57 years old."));
+        Assert.That(
+            output,
+            Is.EqualTo("Asen Harizanoov is 44 years old.\nAsen Ivanov is 65 years old.\nBoiko Borisov is 57 years old.")
+        );
     }
 }

@@ -20,7 +20,6 @@ public class Team
 
     private IReadOnlyCollection<Person> ReserveTeam => reserveTeam.AsReadOnly();
 
-
     public void AddPlayer(Person person)
     {
         if (person.Age < 40)

@@ -19,7 +19,8 @@ public class Person
         get => name;
         private init
         {
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Name cannot be empty");
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Name cannot be empty");
             name = value;
         }
     }
@@ -29,13 +30,13 @@ public class Person
         get => money;
         private set
         {
-            if (value < 0) throw new ArgumentException("Money cannot be negative");
+            if (value < 0)
+                throw new ArgumentException("Money cannot be negative");
             money = value;
         }
     }
 
-    public IReadOnlyCollection<Product> Products
-        => products;
+    public IReadOnlyCollection<Product> Products => products;
 
     public void AddProduct(Product product)
     {

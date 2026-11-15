@@ -16,7 +16,11 @@ public class Ex002Tests
     [Test]
     public void ProgramBuildsCar()
     {
-        Assert.That(ConsoleRunner.Run(typeof(Car).Assembly), Is.EqualTo(
-            "CarType: BMW, Color: Black, Number of doors: 5, Manufactured in Leipzig, at address: Some address 254"));
+        Assert.That(
+            ConsoleRunner.Run(typeof(Car).Assembly),
+            Is.EqualTo(
+                "CarType: BMW, Color: Black, Number of doors: 5, Manufactured in Leipzig, at address: Some address 254"
+            )
+        );
     }
 }

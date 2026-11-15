@@ -5,22 +5,21 @@ try
     var InputPeople = Console.ReadLine().Split(';', StringSplitOptions.RemoveEmptyEntries);
     var InputProducts = Console.ReadLine().Split(';', StringSplitOptions.RemoveEmptyEntries);
 
+    var people = (
+        from currentPerson in InputPeople
+        select currentPerson.Split('=') into values
+        let name = values[0]
+        let money = decimal.Parse(values[1])
+        select new Person(name, money)
+    ).ToDictionary(person => person.Name);
 
-    var people =
-        (from currentPerson in InputPeople
-            select currentPerson.Split('=')
-            into values
-            let name = values[0]
-            let money = decimal.Parse(values[1])
-            select new Person(name, money)).ToDictionary(person => person.Name);
-
-    var products =
-        (from currentProduct in InputProducts
-            select currentProduct.Split('=')
-            into values
-            let name = values[0]
-            let cost = decimal.Parse(values[1])
-            select new Product(name, cost)).ToDictionary(product => product.Name);
+    var products = (
+        from currentProduct in InputProducts
+        select currentProduct.Split('=') into values
+        let name = values[0]
+        let cost = decimal.Parse(values[1])
+        select new Product(name, cost)
+    ).ToDictionary(product => product.Name);
 
     var command = Console.ReadLine();
 
@@ -45,9 +44,10 @@ try
 
     foreach (var person in people)
     {
-        var productMessage = person.Value.Products.Count == 0
-            ? "Nothing bought"
-            : string.Join(", ", person.Value.Products.Select(x => x.Name));
+        var productMessage =
+            person.Value.Products.Count == 0
+                ? "Nothing bought"
+                : string.Join(", ", person.Value.Products.Select(x => x.Name));
         Console.WriteLine($"{person.Key} - {productMessage}");
     }
 }

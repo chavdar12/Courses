@@ -28,9 +28,6 @@ while (command != "End")
 
 var numbers = Console.ReadLine();
 
-var detained = allEntities
-    .Where(x => x.Id.EndsWith(numbers))
-    .Select(x => x.Id)
-    .ToList();
+var detained = allEntities.Where(x => x.Id.EndsWith(numbers)).Select(x => x.Id).ToList();
 
 Console.WriteLine(string.Join(Environment.NewLine, detained));

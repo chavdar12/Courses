@@ -4,9 +4,8 @@ namespace Ex004.Animals.Mammals;
 
 public class Mouse : Mammal
 {
-    public Mouse(string name, double weight, string livingRegion) : base(name, weight, livingRegion)
-    {
-    }
+    public Mouse(string name, double weight, string livingRegion)
+        : base(name, weight, livingRegion) { }
 
     public override string ProduceSound()
     {

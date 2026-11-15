@@ -20,16 +20,22 @@ public class Ex002Tests
     [Test]
     public void InvalidAgeOrNameThrows()
     {
-        Assert.That(Assert.Throws<ArgumentException>(() => new Chicken("Kokoshka", 16)).Message,
-            Is.EqualTo("Age should be between 0 and 15."));
-        Assert.That(Assert.Throws<ArgumentException>(() => new Chicken(" ", 1)).Message,
-            Is.EqualTo("Name cannot be empty."));
+        Assert.That(
+            Assert.Throws<ArgumentException>(() => new Chicken("Kokoshka", 16)).Message,
+            Is.EqualTo("Age should be between 0 and 15.")
+        );
+        Assert.That(
+            Assert.Throws<ArgumentException>(() => new Chicken(" ", 1)).Message,
+            Is.EqualTo("Name cannot be empty.")
+        );
     }
 
     [Test]
     public void ProgramPrintsEggs()
     {
-        Assert.That(ConsoleRunner.Run(typeof(Chicken).Assembly, "Kokoshka\n10\n"),
-            Is.EqualTo("Chicken Kokoshka (age 10) can produce 1 eggs per day."));
+        Assert.That(
+            ConsoleRunner.Run(typeof(Chicken).Assembly, "Kokoshka\n10\n"),
+            Is.EqualTo("Chicken Kokoshka (age 10) can produce 1 eggs per day.")
+        );
     }
 }

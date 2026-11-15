@@ -18,7 +18,8 @@ public class Box
         get => length;
         init
         {
-            if (value <= 0) throw new ArgumentException("Length cannot be zero or negative.");
+            if (value <= 0)
+                throw new ArgumentException("Length cannot be zero or negative.");
             length = value;
         }
     }
@@ -28,7 +29,8 @@ public class Box
         get => width;
         init
         {
-            if (value <= 0) throw new ArgumentException("Width cannot be zero or negative.");
+            if (value <= 0)
+                throw new ArgumentException("Width cannot be zero or negative.");
             width = value;
         }
     }
@@ -38,7 +40,8 @@ public class Box
         get => height;
         init
         {
-            if (value <= 0) throw new ArgumentException("Height cannot be zero or negative.");
+            if (value <= 0)
+                throw new ArgumentException("Height cannot be zero or negative.");
             height = value;
         }
     }

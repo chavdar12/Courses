@@ -18,7 +18,8 @@ public static class ConsoleRunner
             Console.SetIn(new StringReader(input));
             Console.SetOut(output);
 
-            var main = program.EntryPoint ?? throw new ArgumentException($"{program.GetName().Name} has no entry point.");
+            var main =
+                program.EntryPoint ?? throw new ArgumentException($"{program.GetName().Name} has no entry point.");
             main.Invoke(null, main.GetParameters().Length == 0 ? null : new object[] { Array.Empty<string>() });
         }
         catch (TargetInvocationException e) when (e.InnerException != null)

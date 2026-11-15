@@ -13,7 +13,8 @@ public class MyRangeAttribute : MyValidationAttribute
 
     public override bool IsValid(object obj)
     {
-        if (!int.TryParse(obj.ToString(), out var numberToValidate)) return true;
+        if (!int.TryParse(obj.ToString(), out var numberToValidate))
+            return true;
         return numberToValidate >= minValue && numberToValidate <= maxValue;
     }
 }

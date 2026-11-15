@@ -16,7 +16,8 @@ public class Product
         get => name;
         private init
         {
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Name cannot be empty");
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Name cannot be empty");
             name = value;
         }
     }
@@ -26,7 +27,8 @@ public class Product
         get => cost;
         private init
         {
-            if (value < 0) throw new ArgumentException("Money cannot be negative");
+            if (value < 0)
+                throw new ArgumentException("Money cannot be negative");
             cost = value;
         }
     }

@@ -23,7 +23,8 @@ public class ProductStock : IProductStock
 
     public Product Find(int index)
     {
-        if (index < 0 || index >= products.Count) throw new IndexOutOfRangeException();
+        if (index < 0 || index >= products.Count)
+            throw new IndexOutOfRangeException();
 
         return products[index];
     }
@@ -44,7 +45,8 @@ public class ProductStock : IProductStock
 
     public IEnumerable<Product> FindMostExpensiveProducts(int count)
     {
-        if (count > products.Count) throw new ArgumentException("Not enough products in stock.");
+        if (count > products.Count)
+            throw new ArgumentException("Not enough products in stock.");
 
         return products.OrderByDescending(p => p.Price).Take(count);
     }

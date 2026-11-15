@@ -6,5 +6,5 @@ public enum ReportLevel
     Warning,
     Error,
     Critical,
-    Fatal
+    Fatal,
 }

@@ -2,7 +2,6 @@
 
 public class Reptile : Animal
 {
-    protected Reptile(string name) : base(name)
-    {
-    }
+    protected Reptile(string name)
+        : base(name) { }
 }

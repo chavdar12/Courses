@@ -14,7 +14,8 @@ public class Rectangle : IDrawable
     public void Draw()
     {
         DrawLine('*', '*');
-        for (var i = 1; i < Height - 1; i++) DrawLine('*', ' ');
+        for (var i = 1; i < Height - 1; i++)
+            DrawLine('*', ' ');
         DrawLine('*', '*');
     }
 

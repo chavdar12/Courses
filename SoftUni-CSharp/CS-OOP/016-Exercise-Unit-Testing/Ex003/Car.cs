@@ -16,7 +16,8 @@ public class Car
         FuelAmount = 0;
     }
 
-    public Car(string make, string model, double fuelConsumption, double fuelCapacity) : this()
+    public Car(string make, string model, double fuelConsumption, double fuelCapacity)
+        : this()
     {
         Make = make;
         Model = model;
@@ -29,7 +30,8 @@ public class Car
         get => make;
         private set
         {
-            if (string.IsNullOrEmpty(value)) throw new ArgumentException("Make cannot be null or empty!");
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("Make cannot be null or empty!");
 
             make = value;
         }
@@ -40,7 +42,8 @@ public class Car
         get => model;
         private set
         {
-            if (string.IsNullOrEmpty(value)) throw new ArgumentException("Model cannot be null or empty!");
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("Model cannot be null or empty!");
 
             model = value;
         }
@@ -51,7 +54,8 @@ public class Car
         get => fuelConsumption;
         private set
         {
-            if (value <= 0) throw new ArgumentException("Fuel consumption cannot be zero or negative!");
+            if (value <= 0)
+                throw new ArgumentException("Fuel consumption cannot be zero or negative!");
 
             fuelConsumption = value;
         }
@@ -62,7 +66,8 @@ public class Car
         get => fuelAmount;
         private set
         {
-            if (value < 0) throw new ArgumentException("Fuel amount cannot be negative!");
+            if (value < 0)
+                throw new ArgumentException("Fuel amount cannot be negative!");
 
             fuelAmount = value;
         }
@@ -73,7 +78,8 @@ public class Car
         get => fuelCapacity;
         private set
         {
-            if (value <= 0) throw new ArgumentException("Fuel capacity cannot be zero or negative!");
+            if (value <= 0)
+                throw new ArgumentException("Fuel capacity cannot be zero or negative!");
 
             fuelCapacity = value;
         }
@@ -81,18 +87,21 @@ public class Car
 
     public void Refuel(double fuelToRefuel)
     {
-        if (fuelToRefuel <= 0) throw new ArgumentException("Fuel amount cannot be zero or negative!");
+        if (fuelToRefuel <= 0)
+            throw new ArgumentException("Fuel amount cannot be zero or negative!");
 
         FuelAmount += fuelToRefuel;
 
-        if (FuelAmount > FuelCapacity) FuelAmount = FuelCapacity;
+        if (FuelAmount > FuelCapacity)
+            FuelAmount = FuelCapacity;
     }
 
     public void Drive(double distance)
     {
         var fuelNeeded = distance / 100 * FuelConsumption;
 
-        if (fuelNeeded > FuelAmount) throw new InvalidOperationException("You don't have enough fuel to drive!");
+        if (fuelNeeded > FuelAmount)
+            throw new InvalidOperationException("You don't have enough fuel to drive!");
 
         FuelAmount -= fuelNeeded;
     }

@@ -6,9 +6,7 @@ public class Hacker
 
     private string password = "mySuperSecretPassw0rd";
 
-    public Hacker()
-    {
-    }
+    public Hacker() { }
 
     public Hacker(double bankAccountBalance)
     {

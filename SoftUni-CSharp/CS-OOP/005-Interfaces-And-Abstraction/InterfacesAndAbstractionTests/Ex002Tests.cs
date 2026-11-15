@@ -22,7 +22,9 @@ public class Ex002Tests
     [Test]
     public void ProgramDescribesBothCars()
     {
-        Assert.That(ConsoleRunner.Run(typeof(ICar).Assembly),
-            Is.EqualTo("Grey Seat Leon\nRed Tesla Model 3 with 2 Batteries"));
+        Assert.That(
+            ConsoleRunner.Run(typeof(ICar).Assembly),
+            Is.EqualTo("Grey Seat Leon\nRed Tesla Model 3 with 2 Batteries")
+        );
     }
 }

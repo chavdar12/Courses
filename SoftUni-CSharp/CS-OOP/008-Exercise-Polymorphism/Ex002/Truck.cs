@@ -3,9 +3,7 @@
 public class Truck : Vehicle
 {
     public Truck(double fuelQuantity, double fuelConsumptionPerKm, double tankCapacity)
-        : base(fuelQuantity, fuelConsumptionPerKm, tankCapacity)
-    {
-    }
+        : base(fuelQuantity, fuelConsumptionPerKm, tankCapacity) { }
 
     public override void Drive(double distance)
     {

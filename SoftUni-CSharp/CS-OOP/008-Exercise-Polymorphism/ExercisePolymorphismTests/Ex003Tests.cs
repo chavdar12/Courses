@@ -16,10 +16,17 @@ public class Ex003Tests
     [Test]
     public void ProgramWinsWhenPowerIsEnough()
     {
-        var output = ConsoleRunner.Run(typeof(BaseHero).Assembly, "3\nMike\nPaladin\nJosh\nDruid\nScott\nWarrior\n250\n");
+        var output = ConsoleRunner.Run(
+            typeof(BaseHero).Assembly,
+            "3\nMike\nPaladin\nJosh\nDruid\nScott\nWarrior\n250\n"
+        );
 
-        Assert.That(output, Is.EqualTo(
-            "Paladin - Mike healed for 100\nDruid - Josh healed for 80\nWarrior - Scott hit for 100 damage\nVictory!"));
+        Assert.That(
+            output,
+            Is.EqualTo(
+                "Paladin - Mike healed for 100\nDruid - Josh healed for 80\nWarrior - Scott hit for 100 damage\nVictory!"
+            )
+        );
     }
 
     [Test]

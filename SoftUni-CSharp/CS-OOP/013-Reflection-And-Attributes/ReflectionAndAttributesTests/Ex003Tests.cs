@@ -11,6 +11,9 @@ public class Ex003Tests
 
         Assert.That(lines[0], Is.EqualTo("All Private Methods of Class: Ex003.Hacker"));
         Assert.That(lines[1], Is.EqualTo("Base Class: Object"));
-        Assert.That(lines, Is.SupersetOf(new[] { "get_Id", "set_Id", "get_BankAccountBalance", "set_BankAccountBalance" }));
+        Assert.That(
+            lines,
+            Is.SupersetOf(new[] { "get_Id", "set_Id", "get_BankAccountBalance", "set_BankAccountBalance" })
+        );
     }
 }

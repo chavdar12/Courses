@@ -5,24 +5,18 @@ public class Dough
     private const string DoughExeptionMessage = "Invalid type of dough.";
     private const string WeightExeptionMessage = "Dough weight should be in the range [1..200].";
 
-    private readonly Dictionary<string, double> backingTechniqueCalories
-        = new()
-        {
-            { "crispy", 0.9 },
-            { "chewy", 1.1 },
-            { "homemade", 1.0 }
-        };
+    private readonly Dictionary<string, double> backingTechniqueCalories = new()
+    {
+        { "crispy", 0.9 },
+        { "chewy", 1.1 },
+        { "homemade", 1.0 },
+    };
 
     private readonly string bakingTechnique;
 
     private readonly string flourType;
 
-    private readonly Dictionary<string, double> flourTypeCalories
-        = new()
-        {
-            { "white", 1.5 },
-            { "wholegrain", 1.0 }
-        };
+    private readonly Dictionary<string, double> flourTypeCalories = new() { { "white", 1.5 }, { "wholegrain", 1.0 } };
 
     private readonly double weight;
 
@@ -38,7 +32,8 @@ public class Dough
         get => flourType;
         init
         {
-            if (!flourTypeCalories.ContainsKey(value.ToLower())) throw new ArgumentException(DoughExeptionMessage);
+            if (!flourTypeCalories.ContainsKey(value.ToLower()))
+                throw new ArgumentException(DoughExeptionMessage);
             flourType = value;
         }
     }
@@ -59,12 +54,12 @@ public class Dough
         get => weight;
         init
         {
-            if (value is < 1 or > 200) throw new ArgumentException(WeightExeptionMessage);
+            if (value is < 1 or > 200)
+                throw new ArgumentException(WeightExeptionMessage);
             weight = value;
         }
     }
 
-    public double Calories
-        => 2 * Weight * flourTypeCalories[FlourType.ToLower()]
-           * backingTechniqueCalories[BakingTechnique.ToLower()];
+    public double Calories =>
+        2 * Weight * flourTypeCalories[FlourType.ToLower()] * backingTechniqueCalories[BakingTechnique.ToLower()];
 }

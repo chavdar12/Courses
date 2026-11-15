@@ -20,8 +20,10 @@ public class Ex006Tests
     [Test]
     public void ProgramSumsFoodBought()
     {
-        var output = ConsoleRunner.Run(typeof(Rebel).Assembly,
-            "2\nPeter 25 8904041303 04/04/1989\nStan 27 WildMonkeys\nPeter\nGeorge\nPeter\nStan\nEnd\n");
+        var output = ConsoleRunner.Run(
+            typeof(Rebel).Assembly,
+            "2\nPeter 25 8904041303 04/04/1989\nStan 27 WildMonkeys\nPeter\nGeorge\nPeter\nStan\nEnd\n"
+        );
 
         Assert.That(output, Is.EqualTo("25"));
     }

@@ -29,9 +29,7 @@ public abstract class Vehicle
 
     public abstract void Drive(double distance);
 
-    public virtual void DriveEmpty(double distance)
-    {
-    }
+    public virtual void DriveEmpty(double distance) { }
 
     public abstract void Refuel(double amount);
 

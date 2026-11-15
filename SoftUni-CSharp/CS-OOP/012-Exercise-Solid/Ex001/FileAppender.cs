@@ -4,7 +4,8 @@ public class FileAppender : Appender
 {
     private readonly ILogFile file;
 
-    public FileAppender(ILayout layout, ILogFile file) : base(layout)
+    public FileAppender(ILayout layout, ILogFile file)
+        : base(layout)
     {
         this.file = file;
     }

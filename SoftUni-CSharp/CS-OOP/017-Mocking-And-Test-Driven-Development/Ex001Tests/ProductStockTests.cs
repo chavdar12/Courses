@@ -13,7 +13,8 @@ public class ProductStockTests
         bread = new Product("Bread", 1.20m, 0);
         cheese = new Product("Cheese", 8.90m, 10);
         butter = new Product("Butter", 2.50m, 3);
-        foreach (var product in new[] { milk, bread, cheese, butter }) stock.Add(product);
+        foreach (var product in new[] { milk, bread, cheese, butter })
+            stock.Add(product);
     }
 
     private ProductStock stock;

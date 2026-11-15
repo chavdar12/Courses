@@ -16,13 +16,13 @@ public class Team
         get => name;
         init
         {
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("A name should not be empty.");
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("A name should not be empty.");
             name = value;
         }
     }
 
-    public int Rating
-        => players.Count == 0 ? 0 : (int)Math.Round(players.Average(p => p.Stats));
+    public int Rating => players.Count == 0 ? 0 : (int)Math.Round(players.Average(p => p.Stats));
 
     public void AddPlayer(Player player)
     {
@@ -33,7 +33,8 @@ public class Team
     {
         var player = players.FirstOrDefault(p => p.Name == playerName);
 
-        if (player == null) throw new InvalidOperationException($"Player {playerName} is not in {Name} team.");
+        if (player == null)
+            throw new InvalidOperationException($"Player {playerName} is not in {Name} team.");
         players.Remove(player);
     }
 }

@@ -7,7 +7,8 @@ for (var i = 0; i < times; i++)
 {
     var operations = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
     var name = operations[0];
-    if (allEntities.Any(x => x.Name == name)) continue;
+    if (allEntities.Any(x => x.Name == name))
+        continue;
     switch (operations.Length)
     {
         case 3:

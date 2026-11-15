@@ -20,7 +20,8 @@ public class Person
         get => firstName;
         init
         {
-            if (value.Length < 3) throw new ArgumentException("First name cannot contain fewer than 3 symbols!");
+            if (value.Length < 3)
+                throw new ArgumentException("First name cannot contain fewer than 3 symbols!");
             firstName = value;
         }
     }
@@ -30,7 +31,8 @@ public class Person
         get => lastName;
         init
         {
-            if (value.Length < 3) throw new ArgumentException("Last name cannot contain fewer than 3 symbols!");
+            if (value.Length < 3)
+                throw new ArgumentException("Last name cannot contain fewer than 3 symbols!");
             lastName = value;
         }
     }
@@ -40,7 +42,8 @@ public class Person
         get => age;
         init
         {
-            if (value <= 0) throw new ArgumentException("Age cannot be zero or a negative integer!");
+            if (value <= 0)
+                throw new ArgumentException("Age cannot be zero or a negative integer!");
             age = value;
         }
     }
@@ -50,7 +53,8 @@ public class Person
         get => salary;
         set
         {
-            if (value < 650) throw new ArgumentException("Salary cannot be less than 650 leva!");
+            if (value < 650)
+                throw new ArgumentException("Salary cannot be less than 650 leva!");
             salary = value;
         }
     }

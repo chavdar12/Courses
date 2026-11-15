@@ -2,7 +2,6 @@
 
 public class Motorcycle : Vehicle
 {
-    protected Motorcycle(int horsePower, double fuel) : base(horsePower, fuel)
-    {
-    }
+    protected Motorcycle(int horsePower, double fuel)
+        : base(horsePower, fuel) { }
 }

@@ -18,12 +18,12 @@ public class Mission : IMission
     public string State
     {
         get => state.ToString();
-
         private init
         {
             MissionState state;
 
-            if (!Enum.TryParse(value, out state)) throw new ArgumentException();
+            if (!Enum.TryParse(value, out state))
+                throw new ArgumentException();
 
             this.state = state;
         }

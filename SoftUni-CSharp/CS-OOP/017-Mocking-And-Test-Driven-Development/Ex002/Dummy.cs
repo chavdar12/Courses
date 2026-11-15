@@ -14,14 +14,16 @@ public class Dummy : ITarget
 
     public void TakeAttack(int attackPoints)
     {
-        if (IsDead()) throw new InvalidOperationException("Dummy is dead.");
+        if (IsDead())
+            throw new InvalidOperationException("Dummy is dead.");
 
         Health -= attackPoints;
     }
 
     public int GiveExperience()
     {
-        if (!IsDead()) throw new InvalidOperationException("Target is not dead.");
+        if (!IsDead())
+            throw new InvalidOperationException("Target is not dead.");
 
         return experience;
     }

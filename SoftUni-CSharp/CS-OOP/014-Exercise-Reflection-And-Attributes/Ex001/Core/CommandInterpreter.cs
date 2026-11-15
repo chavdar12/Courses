@@ -10,8 +10,7 @@ public class CommandInterpreter : ICommandInterpreter
         var commandName = (input[0] + "Command").ToLower();
 
         var type = typeof(CommandInterpreter).Assembly.GetTypes().FirstOrDefault(n => n.Name.ToLower() == commandName);
-        var instance =
-            (ICommand)Activator.CreateInstance(type ?? throw new ArgumentException("Invalid command type!"));
+        var instance = (ICommand)Activator.CreateInstance(type ?? throw new ArgumentException("Invalid command type!"));
         var result = instance?.Execute(input.Skip(1).ToArray());
         return result;
     }

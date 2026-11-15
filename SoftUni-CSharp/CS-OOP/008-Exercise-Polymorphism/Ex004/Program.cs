@@ -59,7 +59,7 @@ while (command != "End")
         "Meat" => new Meat(quantity),
         "Seeds" => new Seeds(quantity),
         "Vegetable" => new Vegetable(quantity),
-        _ => food
+        _ => food,
     };
 
     try

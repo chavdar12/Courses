@@ -13,7 +13,8 @@ public class ChainblockTests
         second = new Transaction(2, TransactionStatus.Successful, "john", "anna", 6);
         third = new Transaction(3, TransactionStatus.Aborted, "john", "anna", 7);
         fourth = new Transaction(4, TransactionStatus.Successful, "michel", "anna", 6);
-        foreach (var transaction in new[] { first, second, third, fourth }) chainblock.Add(transaction);
+        foreach (var transaction in new[] { first, second, third, fourth })
+            chainblock.Add(transaction);
     }
 
     private Chainblock chainblock;
@@ -32,7 +33,8 @@ public class ChainblockTests
     public void AddThrowsForDuplicateId()
     {
         Assert.Throws<InvalidOperationException>(() =>
-            chainblock.Add(new Transaction(1, TransactionStatus.Failed, "a", "b", 1)));
+            chainblock.Add(new Transaction(1, TransactionStatus.Failed, "a", "b", 1))
+        );
     }
 
     [Test]
@@ -81,66 +83,82 @@ public class ChainblockTests
     [Test]
     public void GetByTransactionStatusOrdersByAmountDescending()
     {
-        Assert.That(chainblock.GetByTransactionStatus(TransactionStatus.Successful),
-            Is.EqualTo(new[] { second, fourth, first }));
+        Assert.That(
+            chainblock.GetByTransactionStatus(TransactionStatus.Successful),
+            Is.EqualTo(new[] { second, fourth, first })
+        );
         Assert.Throws<InvalidOperationException>(() =>
-            chainblock.GetByTransactionStatus(TransactionStatus.Unauthorized));
+            chainblock.GetByTransactionStatus(TransactionStatus.Unauthorized)
+        );
     }
 
     [Test]
     public void GetAllSendersWithTransactionStatusKeepsDuplicates()
     {
-        Assert.That(chainblock.GetAllSendersWithTransactionStatus(TransactionStatus.Successful),
-            Is.EqualTo(new[] { "john", "michel", "john" }));
+        Assert.That(
+            chainblock.GetAllSendersWithTransactionStatus(TransactionStatus.Successful),
+            Is.EqualTo(new[] { "john", "michel", "john" })
+        );
         Assert.Throws<InvalidOperationException>(() =>
-            chainblock.GetAllSendersWithTransactionStatus(TransactionStatus.Failed));
+            chainblock.GetAllSendersWithTransactionStatus(TransactionStatus.Failed)
+        );
     }
 
     [Test]
     public void GetAllReceiversWithTransactionStatusKeepsDuplicates()
     {
-        Assert.That(chainblock.GetAllReceiversWithTransactionStatus(TransactionStatus.Successful),
-            Is.EqualTo(new[] { "anna", "anna", "michel" }));
+        Assert.That(
+            chainblock.GetAllReceiversWithTransactionStatus(TransactionStatus.Successful),
+            Is.EqualTo(new[] { "anna", "anna", "michel" })
+        );
         Assert.Throws<InvalidOperationException>(() =>
-            chainblock.GetAllReceiversWithTransactionStatus(TransactionStatus.Failed));
+            chainblock.GetAllReceiversWithTransactionStatus(TransactionStatus.Failed)
+        );
     }
 
     [Test]
     public void GetAllOrderedByAmountDescendingThenById()
     {
-        Assert.That(chainblock.GetAllOrderedByAmountDescendingThenById(),
-            Is.EqualTo(new[] { third, second, fourth, first }));
+        Assert.That(
+            chainblock.GetAllOrderedByAmountDescendingThenById(),
+            Is.EqualTo(new[] { third, second, fourth, first })
+        );
     }
 
     [Test]
     public void GetBySenderOrderedByAmountDescending()
     {
-        Assert.That(chainblock.GetBySenderOrderedByAmountDescending("john"),
-            Is.EqualTo(new[] { third, second, first }));
+        Assert.That(
+            chainblock.GetBySenderOrderedByAmountDescending("john"),
+            Is.EqualTo(new[] { third, second, first })
+        );
         Assert.Throws<InvalidOperationException>(() => chainblock.GetBySenderOrderedByAmountDescending("anna"));
     }
 
     [Test]
     public void GetByReceiverOrderedByAmountThenById()
     {
-        Assert.That(chainblock.GetByReceiverOrderedByAmountThenById("anna"),
-            Is.EqualTo(new[] { third, second, fourth }));
+        Assert.That(
+            chainblock.GetByReceiverOrderedByAmountThenById("anna"),
+            Is.EqualTo(new[] { third, second, fourth })
+        );
         Assert.Throws<InvalidOperationException>(() => chainblock.GetByReceiverOrderedByAmountThenById("john"));
     }
 
     [Test]
     public void GetByTransactionStatusAndMaximumAmountIsInclusive()
     {
-        Assert.That(chainblock.GetByTransactionStatusAndMaximumAmount(TransactionStatus.Successful, 5),
-            Is.EqualTo(new[] { first }));
+        Assert.That(
+            chainblock.GetByTransactionStatusAndMaximumAmount(TransactionStatus.Successful, 5),
+            Is.EqualTo(new[] { first })
+        );
         Assert.That(chainblock.GetByTransactionStatusAndMaximumAmount(TransactionStatus.Failed, 100), Is.Empty);
     }
 
     [Test]
     public void GetBySenderAndMinimumAmountDescendingIsExclusive()
     {
-        Assert.That(chainblock.GetBySenderAndMinimumAmountDescending("john", 5),
-            Is.EqualTo(new[] { third, second }));
+        Assert.That(chainblock.GetBySenderAndMinimumAmountDescending("john", 5), Is.EqualTo(new[] { third, second }));
         Assert.Throws<InvalidOperationException>(() => chainblock.GetBySenderAndMinimumAmountDescending("john", 7));
     }
 

@@ -14,16 +14,19 @@ public class ExtendedDatabase
 
     private void AddRange(Person[] data)
     {
-        if (data.Length > 16) throw new ArgumentException("Provided data length should be in range [0..16]!");
+        if (data.Length > 16)
+            throw new ArgumentException("Provided data length should be in range [0..16]!");
 
-        for (var i = 0; i < data.Length; i++) Add(data[i]);
+        for (var i = 0; i < data.Length; i++)
+            Add(data[i]);
 
         Count = data.Length;
     }
 
     public void Add(Person person)
     {
-        if (Count >= 16) throw new InvalidOperationException("Array's capacity must be exactly 16 integers!");
+        if (Count >= 16)
+            throw new InvalidOperationException("Array's capacity must be exactly 16 integers!");
 
         if (persons.Any(p => p?.UserName == person.UserName))
             throw new InvalidOperationException("There is already user with this username!");
@@ -37,7 +40,8 @@ public class ExtendedDatabase
 
     public void Remove()
     {
-        if (Count == 0) throw new InvalidOperationException();
+        if (Count == 0)
+            throw new InvalidOperationException();
 
         Count--;
         persons[Count] = null;
@@ -45,7 +49,8 @@ public class ExtendedDatabase
 
     public Person FindByUsername(string name)
     {
-        if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name), "Username parameter is null!");
+        if (string.IsNullOrEmpty(name))
+            throw new ArgumentNullException(nameof(name), "Username parameter is null!");
 
         if (persons.Any(p => p?.UserName == name) == false)
             throw new InvalidOperationException("No user is present by this username!");
@@ -56,7 +61,8 @@ public class ExtendedDatabase
 
     public Person FindById(long id)
     {
-        if (id < 0) throw new ArgumentOutOfRangeException(nameof(id), "Id should be a positive number!");
+        if (id < 0)
+            throw new ArgumentOutOfRangeException(nameof(id), "Id should be a positive number!");
 
         if (persons.Any(p => p?.Id == id) == false)
             throw new InvalidOperationException("No user is present by this ID!");

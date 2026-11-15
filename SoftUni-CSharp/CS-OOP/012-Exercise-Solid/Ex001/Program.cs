@@ -10,17 +10,18 @@ for (var i = 0; i < appenders.Length; i++)
     {
         nameof(SimpleLayout) => new SimpleLayout(),
         nameof(XmlLayout) => new XmlLayout(),
-        _ => throw new ArgumentException($"Unknown layout {parts[1]}")
+        _ => throw new ArgumentException($"Unknown layout {parts[1]}"),
     };
 
     IAppender appender = parts[0] switch
     {
         nameof(ConsoleAppender) => new ConsoleAppender(layout),
         nameof(FileAppender) => new FileAppender(layout, new LogFile()),
-        _ => throw new ArgumentException($"Unknown appender {parts[0]}")
+        _ => throw new ArgumentException($"Unknown appender {parts[0]}"),
     };
 
-    if (parts.Length > 2) appender.ReportLevel = Enum.Parse<ReportLevel>(parts[2], true);
+    if (parts.Length > 2)
+        appender.ReportLevel = Enum.Parse<ReportLevel>(parts[2], true);
 
     appenders[i] = appender;
 }
@@ -35,4 +36,5 @@ while ((line = Console.ReadLine()) != "END")
 }
 
 Console.WriteLine("Logger info");
-foreach (var appender in appenders) Console.WriteLine(appender);
+foreach (var appender in appenders)
+    Console.WriteLine(appender);

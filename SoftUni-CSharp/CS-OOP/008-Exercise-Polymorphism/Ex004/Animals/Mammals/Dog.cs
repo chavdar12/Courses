@@ -4,9 +4,8 @@ namespace Ex004.Animals.Mammals;
 
 public class Dog : Mammal
 {
-    public Dog(string name, double weight, string livingRegion) : base(name, weight, livingRegion)
-    {
-    }
+    public Dog(string name, double weight, string livingRegion)
+        : base(name, weight, livingRegion) { }
 
     public override string ProduceSound()
     {

@@ -1,5 +1,4 @@
-﻿
-public class Axe
+﻿public class Axe
 {
     public Axe(int attack, int durability)
     {
@@ -13,7 +12,8 @@ public class Axe
 
     public void Attack(Dummy target)
     {
-        if (DurabilityPoints <= 0) throw new InvalidOperationException("Axe is broken.");
+        if (DurabilityPoints <= 0)
+            throw new InvalidOperationException("Axe is broken.");
 
         target.TakeAttack(AttackPoints);
         DurabilityPoints -= 1;

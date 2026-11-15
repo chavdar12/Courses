@@ -7,7 +7,7 @@ public class Topping
         { "meat", 1.2 },
         { "veggies", 0.8 },
         { "cheese", 1.1 },
-        { "sauce", 0.9 }
+        { "sauce", 0.9 },
     };
 
     private readonly string type;
@@ -35,11 +35,11 @@ public class Topping
         get => weight;
         init
         {
-            if (value is < 1 or > 50) throw new ArgumentException($"{Type} weight should be in the range [1..50].");
+            if (value is < 1 or > 50)
+                throw new ArgumentException($"{Type} weight should be in the range [1..50].");
             weight = value;
         }
     }
 
-    public double Calories
-        => 2 * Weight * toppingTypes[Type.ToLower()];
+    public double Calories => 2 * Weight * toppingTypes[Type.ToLower()];
 }

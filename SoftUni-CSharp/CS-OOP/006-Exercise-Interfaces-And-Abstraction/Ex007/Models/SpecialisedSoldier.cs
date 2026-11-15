@@ -17,12 +17,12 @@ public class SpecialisedSoldier : Private, ISpecialisedSoldier
     public string Corps
     {
         get => corps.ToString();
-
         private init
         {
             Corps corps;
 
-            if (!Enum.TryParse(value, out corps)) throw new ArgumentException();
+            if (!Enum.TryParse(value, out corps))
+                throw new ArgumentException();
 
             this.corps = corps;
         }

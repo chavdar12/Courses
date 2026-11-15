@@ -11,7 +11,8 @@ public class SingletonDataContainer : ISingletonContainer
         Console.WriteLine("Initializing singleton object");
 
         var lines = File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "capitals.txt"));
-        for (var i = 0; i + 1 < lines.Length; i += 2) capitals.Add(lines[i], int.Parse(lines[i + 1]));
+        for (var i = 0; i + 1 < lines.Length; i += 2)
+            capitals.Add(lines[i], int.Parse(lines[i + 1]));
     }
 
     public static SingletonDataContainer Instance => instance.Value;

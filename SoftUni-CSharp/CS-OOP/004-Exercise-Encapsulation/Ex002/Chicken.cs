@@ -17,10 +17,10 @@ public class Chicken
     public string Name
     {
         get => name;
-
         private set
         {
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Name cannot be empty.");
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Name cannot be empty.");
             name = value;
         }
     }
@@ -28,10 +28,10 @@ public class Chicken
     public int Age
     {
         get => age;
-
         private init
         {
-            if (value is < MinAge or > MaxAge) throw new ArgumentException("Age should be between 0 and 15.");
+            if (value is < MinAge or > MaxAge)
+                throw new ArgumentException("Age should be between 0 and 15.");
             age = value;
         }
     }
@@ -45,7 +45,7 @@ public class Chicken
             <= 3 => 1.5,
             > 3 and <= 7 => 2,
             > 7 and <= 11 => 1,
-            _ => 0.75
+            _ => 0.75,
         };
     }
 }

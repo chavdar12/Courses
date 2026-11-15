@@ -57,9 +57,7 @@ while (command != "End")
 
                 soldiers.Add(new Engineer(id, firstName, lastName, salary, corp, repairs));
             }
-            catch (ArgumentException)
-            {
-            }
+            catch (ArgumentException) { }
 
             break;
         case nameof(Commando):
@@ -77,17 +75,13 @@ while (command != "End")
                 {
                     missions.Add(new Mission(operations[i], operations[i + 1]));
                 }
-                catch (ArgumentException)
-                {
-                }
+                catch (ArgumentException) { }
 
             try
             {
                 soldiers.Add(new Commando(id, firstName, lastName, salary, corp, missions));
             }
-            catch (ArgumentException)
-            {
-            }
+            catch (ArgumentException) { }
 
             break;
         }
@@ -106,4 +100,5 @@ while (command != "End")
     command = Console.ReadLine();
 }
 
-foreach (var soldier in soldiers) Console.WriteLine(soldier);
+foreach (var soldier in soldiers)
+    Console.WriteLine(soldier);

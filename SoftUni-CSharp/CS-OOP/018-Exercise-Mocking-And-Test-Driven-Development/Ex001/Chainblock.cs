@@ -70,8 +70,7 @@ public class Chainblock : IChainblock
 
     public IEnumerable<Transaction> GetByReceiverOrderedByAmountThenById(string receiver)
     {
-        return NotEmpty(transactions.Where(t => t.To == receiver)
-            .OrderByDescending(t => t.Amount).ThenBy(t => t.Id));
+        return NotEmpty(transactions.Where(t => t.To == receiver).OrderByDescending(t => t.Amount).ThenBy(t => t.Id));
     }
 
     public IEnumerable<Transaction> GetByTransactionStatusAndMaximumAmount(TransactionStatus status, double amount)
@@ -81,14 +80,19 @@ public class Chainblock : IChainblock
 
     public IEnumerable<Transaction> GetBySenderAndMinimumAmountDescending(string sender, double amount)
     {
-        return NotEmpty(transactions.Where(t => t.From == sender && t.Amount > amount)
-            .OrderByDescending(t => t.Amount));
+        return NotEmpty(
+            transactions.Where(t => t.From == sender && t.Amount > amount).OrderByDescending(t => t.Amount)
+        );
     }
 
     public IEnumerable<Transaction> GetByReceiverAndAmountRange(string receiver, double lo, double hi)
     {
-        return NotEmpty(transactions.Where(t => t.To == receiver && t.Amount >= lo && t.Amount < hi)
-            .OrderByDescending(t => t.Amount).ThenBy(t => t.Id));
+        return NotEmpty(
+            transactions
+                .Where(t => t.To == receiver && t.Amount >= lo && t.Amount < hi)
+                .OrderByDescending(t => t.Amount)
+                .ThenBy(t => t.Id)
+        );
     }
 
     public IEnumerable<Transaction> GetAllInAmountRange(double lo, double hi)

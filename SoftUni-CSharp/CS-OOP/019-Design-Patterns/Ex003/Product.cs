@@ -20,7 +20,8 @@ public class Product
 
     public void DecreasePrice(int amount)
     {
-        if (amount >= Price) return;
+        if (amount >= Price)
+            return;
 
         Price -= amount;
         Console.WriteLine($"The price for the {Name} has been decreased by {amount}$.");

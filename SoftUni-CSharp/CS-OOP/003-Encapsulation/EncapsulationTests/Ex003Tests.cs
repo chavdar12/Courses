@@ -19,6 +19,9 @@ public class Ex003Tests
     {
         var output = ConsoleRunner.Run(typeof(Person).Assembly, "2\nAsen Ivanov -6 2200\nBoiko Borisov 57 3333\n20\n");
 
-        Assert.That(output, Is.EqualTo("Age cannot be zero or a negative integer!\nBoiko Borisov receives 3999.60 leva."));
+        Assert.That(
+            output,
+            Is.EqualTo("Age cannot be zero or a negative integer!\nBoiko Borisov receives 3999.60 leva.")
+        );
     }
 }

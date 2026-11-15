@@ -2,7 +2,6 @@
 
 public class Knight : Hero
 {
-    protected Knight(string username, int level) : base(username, level)
-    {
-    }
+    protected Knight(string username, int level)
+        : base(username, level) { }
 }

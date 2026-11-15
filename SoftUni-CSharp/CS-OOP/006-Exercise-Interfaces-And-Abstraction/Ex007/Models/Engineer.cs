@@ -20,7 +20,8 @@ public class Engineer : SpecialisedSoldier, IEngineer
         sb.AppendLine($"{base.ToString()}");
         sb.AppendLine("Repairs:");
 
-        foreach (var repair in Repairs) sb.AppendLine(repair.ToString());
+        foreach (var repair in Repairs)
+            sb.AppendLine(repair.ToString());
 
         return sb.ToString().TrimEnd();
     }

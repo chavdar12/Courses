@@ -5,5 +5,5 @@ public enum TransactionStatus
     Failed,
     Successful,
     Unauthorized,
-    Aborted
+    Aborted,
 }

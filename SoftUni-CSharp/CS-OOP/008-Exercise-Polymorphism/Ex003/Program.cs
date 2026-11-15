@@ -30,7 +30,8 @@ while (raid.Count != neededHeroes)
 
 var bossHp = int.Parse(Console.ReadLine());
 
-foreach (var hero in raid) hero.CastAbility();
+foreach (var hero in raid)
+    hero.CastAbility();
 
 var maxDmg = raid.Sum(x => x.Power);
 Console.WriteLine(maxDmg >= bossHp ? "Victory!" : "Defeat...");

@@ -9,7 +9,4 @@ for (var i = 0; i < lines; i++)
     persons.Add(person);
 }
 
-persons.OrderBy(p => p.FirstName)
-    .ThenBy(p => p.Age)
-    .ToList()
-    .ForEach(p => Console.WriteLine(p.ToString()));
+persons.OrderBy(p => p.FirstName).ThenBy(p => p.Age).ToList().ForEach(p => Console.WriteLine(p.ToString()));

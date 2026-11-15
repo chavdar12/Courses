@@ -2,7 +2,8 @@
 
 public class Tesla : Car, IElectricCar
 {
-    public Tesla(string model, string color, int battery) : base(model, color)
+    public Tesla(string model, string color, int battery)
+        : base(model, color)
     {
         Battery = battery;
     }

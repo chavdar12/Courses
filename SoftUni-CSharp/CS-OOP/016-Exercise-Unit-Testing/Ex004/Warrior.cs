@@ -32,7 +32,8 @@ public class Warrior
         get => damage;
         private set
         {
-            if (value <= 0) throw new ArgumentException("Damage value should be positive!");
+            if (value <= 0)
+                throw new ArgumentException("Damage value should be positive!");
 
             damage = value;
         }
@@ -43,7 +44,8 @@ public class Warrior
         get => hp;
         private set
         {
-            if (value < 0) throw new ArgumentException("HP should not be negative!");
+            if (value < 0)
+                throw new ArgumentException("HP should not be negative!");
 
             hp = value;
         }
@@ -56,9 +58,11 @@ public class Warrior
 
         if (warrior.HP <= MIN_ATTACK_HP)
             throw new InvalidOperationException(
-                $"Enemy HP must be greater than {MIN_ATTACK_HP} in order to attack him!");
+                $"Enemy HP must be greater than {MIN_ATTACK_HP} in order to attack him!"
+            );
 
-        if (HP < warrior.Damage) throw new InvalidOperationException("You are trying to attack too strong enemy");
+        if (HP < warrior.Damage)
+            throw new InvalidOperationException("You are trying to attack too strong enemy");
 
         HP -= warrior.Damage;
 

@@ -3,5 +3,5 @@
 public enum Corps
 {
     Airforces,
-    Marines
+    Marines,
 }

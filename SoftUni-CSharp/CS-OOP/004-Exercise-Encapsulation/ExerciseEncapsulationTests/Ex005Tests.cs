@@ -32,9 +32,11 @@ public class Ex005Tests
     [Test]
     public void ProgramHandlesTeamCommands()
     {
-        var output = ConsoleRunner.Run(typeof(Team).Assembly,
-            "Team;Arsenal\nAdd;Arsenal;Kieran_Gibbs;75;85;84;92;67\nAdd;Arsenal;Aaron_Ramsey;95;82;82;89;68\n" +
-            "Remove;Arsenal;Aaron_Ramsey\nAdd;Chelsea;X;1;1;1;1;1\nRating;Arsenal\nEND\n");
+        var output = ConsoleRunner.Run(
+            typeof(Team).Assembly,
+            "Team;Arsenal\nAdd;Arsenal;Kieran_Gibbs;75;85;84;92;67\nAdd;Arsenal;Aaron_Ramsey;95;82;82;89;68\n"
+                + "Remove;Arsenal;Aaron_Ramsey\nAdd;Chelsea;X;1;1;1;1;1\nRating;Arsenal\nEND\n"
+        );
 
         Assert.That(output, Is.EqualTo("Team Chelsea does not exist.\nArsenal - 81"));
     }

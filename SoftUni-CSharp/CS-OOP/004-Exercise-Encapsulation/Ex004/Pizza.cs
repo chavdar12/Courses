@@ -35,7 +35,8 @@ public class Pizza
 
     public void AddTopping(Topping topping)
     {
-        if (toppings.Count == 10) throw new InvalidOperationException("Number of toppings should be in range [0..10].");
+        if (toppings.Count == 10)
+            throw new InvalidOperationException("Number of toppings should be in range [0..10].");
         toppings.Add(topping);
     }
 }

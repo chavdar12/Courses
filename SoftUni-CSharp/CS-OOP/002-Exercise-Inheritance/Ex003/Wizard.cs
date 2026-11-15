@@ -2,7 +2,6 @@
 
 public class Wizard : Hero
 {
-    protected Wizard(string username, int level) : base(username, level)
-    {
-    }
+    protected Wizard(string username, int level)
+        : base(username, level) { }
 }

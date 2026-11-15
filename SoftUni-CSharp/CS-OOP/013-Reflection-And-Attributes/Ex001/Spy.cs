@@ -8,8 +8,9 @@ public class Spy
     public static string StealFieldInfo(string classForInvestigation, params string[] fieldsForInvestigation)
     {
         var typeClass = Type.GetType(classForInvestigation);
-        var fields = typeClass?.GetFields(BindingFlags.Static | BindingFlags.Instance |
-                                          BindingFlags.NonPublic | BindingFlags.Public);
+        var fields = typeClass?.GetFields(
+            BindingFlags.Static | BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public
+        );
         var classInstance = Activator.CreateInstance(typeClass ?? throw new ArgumentNullException(), new object[] { });
 
         var sb = new StringBuilder();

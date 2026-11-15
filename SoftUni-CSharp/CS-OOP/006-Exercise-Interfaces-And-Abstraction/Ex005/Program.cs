@@ -24,8 +24,7 @@ while (command != "End")
 
 var year = Console.ReadLine();
 
-var targets = allEntities
-    .Where(x => x.Birthdate.EndsWith(year))
-    .ToList();
+var targets = allEntities.Where(x => x.Birthdate.EndsWith(year)).ToList();
 
-foreach (var date in targets) Console.WriteLine(date.Birthdate);
+foreach (var date in targets)
+    Console.WriteLine(date.Birthdate);

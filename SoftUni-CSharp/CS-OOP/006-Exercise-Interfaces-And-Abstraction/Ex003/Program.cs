@@ -19,4 +19,5 @@ foreach (var number in phoneNumbers)
             break;
     }
 
-foreach (var sites in websites) Console.WriteLine(smartPhone.Browse(sites));
+foreach (var sites in websites)
+    Console.WriteLine(smartPhone.Browse(sites));

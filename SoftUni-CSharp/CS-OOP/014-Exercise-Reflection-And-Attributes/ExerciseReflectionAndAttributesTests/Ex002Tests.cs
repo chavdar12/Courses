@@ -6,8 +6,11 @@ public class Ex002Tests
 {
     private class Sample(string name, int age)
     {
-        [MyRequired] public string Name { get; } = name;
-        [MyRange(12, 90)] public int Age { get; } = age;
+        [MyRequired]
+        public string Name { get; } = name;
+
+        [MyRange(12, 90)]
+        public int Age { get; } = age;
     }
 
     [TestCase("Pesho", 12, true)]
