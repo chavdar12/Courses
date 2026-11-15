@@ -1,15 +1,18 @@
 body {
     display: grid;
     grid-template-areas:
-    "header header"
-    "aside main"
-    "footer footer";
+        'header header'
+        'aside main'
+        'footer footer';
     grid-template-columns: 100px auto;
     gap: 10px;
     height: 100vh;
 }
 
-header, aside, main, footer {
+header,
+aside,
+main,
+footer {
     border-radius: 3px;
     background-color: rgb(181 216 255);
     padding: 5px 10px;

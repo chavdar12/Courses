@@ -12,10 +12,10 @@
 body {
     display: grid;
     grid-template-areas:
-        "header header"
-        "nav nav"
-        "aside main"
-        "footer footer";
+        'header header'
+        'nav nav'
+        'aside main'
+        'footer footer';
     grid-template-columns: 1fr 3fr;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -65,11 +65,11 @@ footer {
 @media (width < 700px) {
     body {
         grid-template-areas:
-            "header"
-            "nav"
-            "aside"
-            "main"
-            "footer";
+            'header'
+            'nav'
+            'aside'
+            'main'
+            'footer';
         grid-template-columns: 1fr;
     }
 

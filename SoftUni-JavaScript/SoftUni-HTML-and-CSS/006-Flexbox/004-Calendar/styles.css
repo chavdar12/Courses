@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 
-div, section {
+div,
+section {
     display: flex;
     justify-content: center;
 }

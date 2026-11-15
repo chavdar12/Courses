@@ -1,5 +1,5 @@
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0 180px;
 }
 
@@ -23,8 +23,9 @@ nav ul a {
 }
 
 main section article:nth-child(1) {
-    background-image: linear-gradient(to bottom, rgb(166 166 166 / 52%), rgb(89 89 89 / 73%)),
-    url("../Requirements-and-Resources/Images/header-flower.png");
+    background-image:
+        linear-gradient(to bottom, rgb(166 166 166 / 52%), rgb(89 89 89 / 73%)),
+        url('../Requirements-and-Resources/Images/header-flower.png');
     background-size: 100% 100%;
     width: 450px;
     height: auto;

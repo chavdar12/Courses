@@ -3,8 +3,7 @@ body {
 }
 
 nav {
-    background: #D3D3D3;
-
+    background: #d3d3d3;
 }
 
 ul {
@@ -20,7 +19,7 @@ li {
 a {
     display: block;
     margin-left: 50px;
-    color: #42A451;
+    color: #42a451;
     padding: 15px;
     text-decoration: none;
     border-radius: 5px;

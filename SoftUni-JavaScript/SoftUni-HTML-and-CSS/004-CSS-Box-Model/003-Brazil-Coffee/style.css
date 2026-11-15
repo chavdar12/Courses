@@ -22,7 +22,7 @@ section div {
 
 body section button {
     width: 250px;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: 600;
     font-size: 18px;
     border-radius: 4px;
@@ -36,7 +36,7 @@ body section button {
 }
 
 section div p {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
     font-size: 18px;
     line-height: 30px;
 }

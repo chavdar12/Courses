@@ -6,7 +6,8 @@ section article {
     overflow: auto;
 }
 
-section article h2, h3 {
+section article h2,
+h3 {
     text-align: center;
 }
 

@@ -1,5 +1,5 @@
 body {
-    background: #FAEBC8;
+    background: #faebc8;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -10,7 +10,7 @@ body {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 20px 0 #000;
-    background: #FFF;
+    background: #fff;
 }
 
 #demoObject article {
@@ -32,8 +32,8 @@ p {
 div {
     text-shadow: 20px 20px 2px #333;
     font-style: italic;
-    color: #CE5937;
-    background: #FFF;
+    color: #ce5937;
+    background: #fff;
     position: absolute;
     bottom: 110px;
 }

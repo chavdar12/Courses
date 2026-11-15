@@ -1,9 +1,9 @@
 body {
     display: grid;
     grid-template-areas:
-        "header header"
-        "aside main"
-        "footer footer";
+        'header header'
+        'aside main'
+        'footer footer';
     grid-template-columns: 120px auto;
     gap: 10px;
     margin: 10px;
@@ -42,7 +42,7 @@ a {
 /* Header grid */
 header {
     display: grid;
-    grid-template-areas: "logo header-text";
+    grid-template-areas: 'logo header-text';
     grid-template-columns: 60px auto;
     align-items: center;
 }
@@ -171,10 +171,10 @@ form button {
 @media (width < 500px) {
     body {
         grid-template-areas:
-            "header"
-            "aside"
-            "main"
-            "footer";
+            'header'
+            'aside'
+            'main'
+            'footer';
         grid-template-columns: auto;
     }
 

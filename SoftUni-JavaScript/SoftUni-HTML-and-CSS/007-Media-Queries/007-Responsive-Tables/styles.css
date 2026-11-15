@@ -19,8 +19,8 @@ th {
     table tbody {
         display: grid;
         grid-template-areas:
-            "heading""info"
-            "heading""info2";
+            'heading' 'info'
+            'heading' 'info2';
         grid-template-columns: 100px 1fr;
     }
 

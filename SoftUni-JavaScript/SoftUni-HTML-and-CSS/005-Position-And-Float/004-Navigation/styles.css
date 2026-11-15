@@ -22,7 +22,8 @@ blockquote {
     font-family: Gerogia, serif;
 }
 
-h2, h3 {
+h2,
+h3 {
     font-family: Georgia, serif;
     font-size: 1em;
     line-height: 1.2;
@@ -72,7 +73,8 @@ p {
     font-weight: bold;
 }
 
-main, aside {
+main,
+aside {
     display: inline-block;
     vertical-align: top;
 }
@@ -99,7 +101,7 @@ aside {
 blockquote {
     font-style: italic;
     font-family: Georgia, serif;
-    color: #999EA8;
+    color: #999ea8;
     border-left: 3px solid lightgray;
     padding-left: 40px;
     width: 40%;
