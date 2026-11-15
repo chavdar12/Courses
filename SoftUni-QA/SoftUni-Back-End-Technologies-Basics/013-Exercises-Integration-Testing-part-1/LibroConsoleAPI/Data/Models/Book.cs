@@ -41,7 +41,9 @@ public class Book : IValidatableObject
         if (YearPublished < YearPublishedMin || YearPublished > DateTime.UtcNow.Year)
         {
             yield return new ValidationResult(
-                $"Year published must be between {YearPublishedMin} and the current year.", [nameof(YearPublished)]);
+                $"Year published must be between {YearPublishedMin} and the current year.",
+                [nameof(YearPublished)]
+            );
         }
     }
 }

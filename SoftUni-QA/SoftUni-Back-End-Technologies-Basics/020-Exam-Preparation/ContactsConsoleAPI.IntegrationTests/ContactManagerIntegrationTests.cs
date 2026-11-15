@@ -18,7 +18,9 @@ public class ContactManagerIntegrationTests
     {
         _connection = new SqliteConnection("Data Source=:memory:");
         _connection.Open();
-        _context = new ContactsDbContext(new DbContextOptionsBuilder<ContactsDbContext>().UseSqlite(_connection).Options);
+        _context = new ContactsDbContext(
+            new DbContextOptionsBuilder<ContactsDbContext>().UseSqlite(_connection).Options
+        );
         _context.Database.EnsureCreated();
         _manager = new ContactManager(new ContactRepository(_context));
     }
@@ -30,16 +32,21 @@ public class ContactManagerIntegrationTests
         _connection.Dispose();
     }
 
-    private static Contact NewContact(string ulid = "1ABC23456DEF", string firstName = "John", string lastName = "Doe") => new()
-    {
-        FirstName = firstName,
-        LastName = lastName,
-        Address = "123 Main St",
-        Phone = "+359888123456",
-        Email = "john.doe@example.com",
-        Gender = "Male",
-        ULID = ulid,
-    };
+    private static Contact NewContact(
+        string ulid = "1ABC23456DEF",
+        string firstName = "John",
+        string lastName = "Doe"
+    ) =>
+        new()
+        {
+            FirstName = firstName,
+            LastName = lastName,
+            Address = "123 Main St",
+            Phone = "+359888123456",
+            Email = "john.doe@example.com",
+            Gender = "Male",
+            ULID = ulid,
+        };
 
     [Test]
     public async Task AddAsync_ValidContact_IsStored()
@@ -95,7 +102,8 @@ public class ContactManagerIntegrationTests
     }
 
     [Test]
-    public void GetAllAsync_NoContacts_Throws() => Assert.ThrowsAsync<KeyNotFoundException>(() => _manager.GetAllAsync());
+    public void GetAllAsync_NoContacts_Throws() =>
+        Assert.ThrowsAsync<KeyNotFoundException>(() => _manager.GetAllAsync());
 
     [Test]
     public async Task SearchByFirstNameAsync_MatchesCaseInsensitively()
@@ -178,7 +186,8 @@ public class ContactManagerIntegrationTests
     }
 
     [Test]
-    public void UpdateAsync_MissingContact_Throws() => Assert.ThrowsAsync<KeyNotFoundException>(() => _manager.UpdateAsync(NewContact()));
+    public void UpdateAsync_MissingContact_Throws() =>
+        Assert.ThrowsAsync<KeyNotFoundException>(() => _manager.UpdateAsync(NewContact()));
 
     [Test]
     public async Task DeleteAsync_ExistingContact_RemovesIt()

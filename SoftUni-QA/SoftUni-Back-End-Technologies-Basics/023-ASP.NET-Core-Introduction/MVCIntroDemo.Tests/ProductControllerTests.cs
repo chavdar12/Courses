@@ -20,7 +20,10 @@ public class ProductControllerTests
         var result = (ViewResult)_controller.All(null);
 
         Assert.That(result.ViewName, Is.EqualTo("All"));
-        Assert.That(((IEnumerable<ProductViewModel>)result.Model!).Select(p => p.Name), Is.EqualTo(new[] { "Cheese", "Ham", "Bread" }));
+        Assert.That(
+            ((IEnumerable<ProductViewModel>)result.Model!).Select(p => p.Name),
+            Is.EqualTo(new[] { "Cheese", "Ham", "Bread" })
+        );
     }
 
     [TestCase("bREad", new[] { "Bread" })]
@@ -42,7 +45,8 @@ public class ProductControllerTests
     }
 
     [Test]
-    public void ById_MissingProduct_ReturnsNotFound() => Assert.That(_controller.ById(99), Is.InstanceOf<NotFoundResult>());
+    public void ById_MissingProduct_ReturnsNotFound() =>
+        Assert.That(_controller.ById(99), Is.InstanceOf<NotFoundResult>());
 
     [Test]
     public void AllAsJson_ReturnsAllProducts()
@@ -58,12 +62,12 @@ public class ProductControllerTests
         var result = (ContentResult)_controller.AllAsText();
 
         Assert.That(result.ContentType, Is.EqualTo("text/plain"));
-        Assert.That(result.Content!.Split(Environment.NewLine), Is.EqualTo(new[]
-        {
-            "Product 1: Cheese - 7.00 lv.",
-            "Product 2: Ham - 5.50 lv.",
-            "Product 3: Bread - 1.50 lv.",
-        }));
+        Assert.That(
+            result.Content!.Split(Environment.NewLine),
+            Is.EqualTo(
+                new[] { "Product 1: Cheese - 7.00 lv.", "Product 2: Ham - 5.50 lv.", "Product 3: Bread - 1.50 lv." }
+            )
+        );
     }
 
     [Test]

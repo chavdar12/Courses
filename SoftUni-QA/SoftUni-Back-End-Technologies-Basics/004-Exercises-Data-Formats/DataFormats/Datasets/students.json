@@ -10,8 +10,6 @@
   {
     "id": 2,
     "name": "Georgi Petrov",
-    "courses": [
-      { "name": "Back-End Technologies Basics", "grade": 4.5 }
-    ]
+    "courses": [{ "name": "Back-End Technologies Basics", "grade": 4.5 }]
   }
 ]

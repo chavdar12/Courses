@@ -10,9 +10,7 @@ export function everyNthElement(items, step) {
 }
 
 export function listOfNames(names) {
-    return [...names]
-        .sort((a, b) => a.localeCompare(b))
-        .map((name, i) => `${i + 1}.${name}`);
+    return [...names].sort((a, b) => a.localeCompare(b)).map((name, i) => `${i + 1}.${name}`);
 }
 
 export function sortingNumbers(numbers) {
@@ -29,7 +27,11 @@ export function revealWords(words, template) {
     const candidates = words.split(', ');
     return template
         .split(' ')
-        .map(token => (/^\*+$/.test(token) ? candidates.find(w => w.length === token.length) ?? token : token))
+        .map((token) =>
+            /^\*+$/.test(token)
+                ? (candidates.find((w) => w.length === token.length) ?? token)
+                : token,
+        )
         .join(' ');
 }
 
@@ -73,13 +75,17 @@ export function passwordValidator(password) {
 }
 
 export function employees(names) {
-    return names.map(name => `Name: ${name} -- Personal Number: ${name.length}`);
+    return names.map((name) => `Name: ${name} -- Personal Number: ${name.length}`);
 }
 
 export function towns(rows) {
-    return rows.map(row => {
+    return rows.map((row) => {
         const [town, latitude, longitude] = row.split(' | ');
-        return { town, latitude: Number(latitude).toFixed(2), longitude: Number(longitude).toFixed(2) };
+        return {
+            town,
+            latitude: Number(latitude).toFixed(2),
+            longitude: Number(longitude).toFixed(2),
+        };
     });
 }
 
@@ -95,7 +101,7 @@ export function storeProvision(stock, ordered) {
 
 export function movies(commands) {
     const list = [];
-    const find = name => list.find(m => m.name === name);
+    const find = (name) => list.find((m) => m.name === name);
     for (const command of commands) {
         if (command.startsWith('addMovie ')) {
             list.push({ name: command.slice('addMovie '.length) });
@@ -109,17 +115,21 @@ export function movies(commands) {
             if (movie) movie.date = date;
         }
     }
-    return list.filter(m => m.director && m.date).map(m => JSON.stringify(m));
+    return list.filter((m) => m.director && m.date).map((m) => JSON.stringify(m));
 }
 
 export function inventory(rows) {
     return rows
-        .map(row => {
+        .map((row) => {
             const [name, level, items] = row.split(' / ');
             return { name, level: Number(level), items };
         })
         .sort((a, b) => a.level - b.level)
-        .flatMap(hero => [`Hero: ${hero.name}`, `level => ${hero.level}`, `items => ${hero.items}`]);
+        .flatMap((hero) => [
+            `Hero: ${hero.name}`,
+            `level => ${hero.level}`,
+            `items => ${hero.items}`,
+        ]);
 }
 
 export function oddOccurrences(text) {
@@ -128,7 +138,10 @@ export function oddOccurrences(text) {
     for (const word of text.toLowerCase().split(' ')) {
         counts.set(word, (counts.get(word) ?? 0) + 1);
     }
-    return [...counts].filter(([, count]) => count % 2 !== 0).map(([word]) => word).join(' ');
+    return [...counts]
+        .filter(([, count]) => count % 2 !== 0)
+        .map(([word]) => word)
+        .join(' ');
 }
 
 export function piccolo(entries) {
@@ -138,5 +151,7 @@ export function piccolo(entries) {
         if (direction === 'IN') parking.add(car);
         else if (direction === 'OUT') parking.delete(car);
     }
-    return parking.size ? [...parking].sort((a, b) => a.localeCompare(b)) : ['Parking Lot is Empty'];
+    return parking.size
+        ? [...parking].sort((a, b) => a.localeCompare(b))
+        : ['Parking Lot is Empty'];
 }

@@ -21,13 +21,17 @@ public class MusiciansParserTests
     {
         var output = MusiciansParser.Format(MusiciansParser.Parse(Dataset()));
 
-        Assert.That(output, Does.StartWith("Musicians:\nMusician #1\nID: 101 Name: Emma Johnson, Date of Birth: 1988-03-21\n"));
+        Assert.That(
+            output,
+            Does.StartWith("Musicians:\nMusician #1\nID: 101 Name: Emma Johnson, Date of Birth: 1988-03-21\n")
+        );
         Assert.That(output, Does.Contain("Instrument #2: Piano, Skill level: 3.6\n"));
         Assert.That(output, Does.Contain("Musician #3\nID: 103 Name: Sofia Petrova, Date of Birth: 2001-11-05\n"));
     }
 
     [Test]
-    public void Format_EmptyList_PrintsHeaderOnly() => Assert.That(MusiciansParser.Format([]), Is.EqualTo("Musicians:\n"));
+    public void Format_EmptyList_PrintsHeaderOnly() =>
+        Assert.That(MusiciansParser.Format([]), Is.EqualTo("Musicians:\n"));
 
     [TestCase("{ broken")]
     [TestCase("null")]

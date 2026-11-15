@@ -48,7 +48,9 @@ public class DataFilesTests
         }
 
         var root = (YamlMappingNode)yaml.Documents[0].RootNode;
-        var countries = ((YamlSequenceNode)root.Children[new YamlScalarNode("countries")]).Cast<YamlMappingNode>().ToList();
+        var countries = ((YamlSequenceNode)root.Children[new YamlScalarNode("countries")])
+            .Cast<YamlMappingNode>()
+            .ToList();
 
         Assert.That(countries, Has.Count.EqualTo(3));
         var switzerland = countries.Single(c => c["name"].ToString() == "Switzerland");

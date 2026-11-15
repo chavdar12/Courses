@@ -30,16 +30,17 @@ public class BookManagerIntegrationTests
         _connection.Dispose();
     }
 
-    private static Book NewBook(string isbn = "1234567890123", string title = "Test Book") => new()
-    {
-        Title = title,
-        Author = "John Doe",
-        ISBN = isbn,
-        YearPublished = 2021,
-        Genre = "Fiction",
-        Pages = 100,
-        Price = 19.99,
-    };
+    private static Book NewBook(string isbn = "1234567890123", string title = "Test Book") =>
+        new()
+        {
+            Title = title,
+            Author = "John Doe",
+            ISBN = isbn,
+            YearPublished = 2021,
+            Genre = "Fiction",
+            Pages = 100,
+            Price = 19.99,
+        };
 
     [Test]
     public async Task AddAsync_ValidBook_IsStored()
@@ -66,12 +67,16 @@ public class BookManagerIntegrationTests
         Assert.Multiple(() =>
         {
             Assert.ThrowsAsync<ValidationException>(() => _manager.AddAsync(null!));
-            Assert.ThrowsAsync<ValidationException>(() => _manager.AddAsync(Modify(b => b.Title = new string('a', 256))));
+            Assert.ThrowsAsync<ValidationException>(() =>
+                _manager.AddAsync(Modify(b => b.Title = new string('a', 256)))
+            );
             Assert.ThrowsAsync<ValidationException>(() => _manager.AddAsync(Modify(b => b.Author = "")));
             Assert.ThrowsAsync<ValidationException>(() => _manager.AddAsync(Modify(b => b.Pages = 0)));
             Assert.ThrowsAsync<ValidationException>(() => _manager.AddAsync(Modify(b => b.Price = 0)));
             Assert.ThrowsAsync<ValidationException>(() => _manager.AddAsync(Modify(b => b.YearPublished = 1699)));
-            Assert.ThrowsAsync<ValidationException>(() => _manager.AddAsync(Modify(b => b.YearPublished = DateTime.UtcNow.Year + 1)));
+            Assert.ThrowsAsync<ValidationException>(() =>
+                _manager.AddAsync(Modify(b => b.YearPublished = DateTime.UtcNow.Year + 1))
+            );
         });
         Assert.That(_context.Books, Is.Empty);
 

@@ -12,14 +12,15 @@ public class EventFormModelTests
         return results;
     }
 
-    private static EventFormModel Valid() => new()
-    {
-        Name = "Board games",
-        Description = "Bring your favourite game",
-        Start = new DateTime(2026, 6, 1, 18, 0, 0),
-        End = new DateTime(2026, 6, 1, 20, 0, 0),
-        TypeId = 1,
-    };
+    private static EventFormModel Valid() =>
+        new()
+        {
+            Name = "Board games",
+            Description = "Bring your favourite game",
+            Start = new DateTime(2026, 6, 1, 18, 0, 0),
+            End = new DateTime(2026, 6, 1, 20, 0, 0),
+            TypeId = 1,
+        };
 
     [Test]
     public void ValidModel_HasNoErrors() => Assert.That(Validate(Valid()), Is.Empty);

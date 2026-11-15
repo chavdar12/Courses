@@ -14,27 +14,37 @@ public static class YamlToHtml
 
     public static List<T> Parse<T>(string yaml) => Deserializer.Deserialize<List<T>>(yaml) ?? [];
 
-    public static string OrdersToHtml(string yaml) => Table(
-        ["Order", "Customer", "Date", "Items", "Total"],
-        Parse<Order>(yaml).Select(o => new[]
-        {
-            o.OrderId.ToString(CultureInfo.InvariantCulture),
-            o.Customer,
-            o.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
-            string.Join(", ", o.Items.Select(i => $"{i.Product} x{i.Quantity}")),
-            o.Total.ToString("F2", CultureInfo.InvariantCulture),
-        }));
+    public static string OrdersToHtml(string yaml) =>
+        Table(
+            ["Order", "Customer", "Date", "Items", "Total"],
+            Parse<Order>(yaml)
+                .Select(o =>
+                    new[]
+                    {
+                        o.OrderId.ToString(CultureInfo.InvariantCulture),
+                        o.Customer,
+                        o.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+                        string.Join(", ", o.Items.Select(i => $"{i.Product} x{i.Quantity}")),
+                        o.Total.ToString("F2", CultureInfo.InvariantCulture),
+                    }
+                )
+        );
 
-    public static string ReservationsToHtml(string yaml) => Table(
-        ["Reservation", "Guest", "Room", "Check-in", "Nights"],
-        Parse<Reservation>(yaml).Select(r => new[]
-        {
-            r.ReservationId,
-            r.Guest,
-            r.Room.ToString(CultureInfo.InvariantCulture),
-            r.CheckIn.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
-            r.Nights.ToString(CultureInfo.InvariantCulture),
-        }));
+    public static string ReservationsToHtml(string yaml) =>
+        Table(
+            ["Reservation", "Guest", "Room", "Check-in", "Nights"],
+            Parse<Reservation>(yaml)
+                .Select(r =>
+                    new[]
+                    {
+                        r.ReservationId,
+                        r.Guest,
+                        r.Room.ToString(CultureInfo.InvariantCulture),
+                        r.CheckIn.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+                        r.Nights.ToString(CultureInfo.InvariantCulture),
+                    }
+                )
+        );
 
     private static string Table(string[] headers, IEnumerable<string[]> rows)
     {

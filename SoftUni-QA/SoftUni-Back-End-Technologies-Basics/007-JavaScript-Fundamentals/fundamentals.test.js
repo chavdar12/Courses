@@ -1,7 +1,18 @@
 import { expect } from 'chai';
 import {
-    sumFirstAndLast, reverseArray, evenOddSubtraction, substring, censoredWords, countOccurrences,
-    formatGrade, mathPower, repeatString, orders, personInfo, city, phoneBook,
+    sumFirstAndLast,
+    reverseArray,
+    evenOddSubtraction,
+    substring,
+    censoredWords,
+    countOccurrences,
+    formatGrade,
+    mathPower,
+    repeatString,
+    orders,
+    personInfo,
+    city,
+    phoneBook,
 } from './fundamentals.js';
 
 describe('007 JavaScript Fundamentals', () => {
@@ -27,13 +38,22 @@ describe('007 JavaScript Fundamentals', () => {
     });
 
     it('censoredWords replaces every occurrence', () => {
-        expect(censoredWords('A small sentence with some words', 'small')).to.equal('A ***** sentence with some words');
-        expect(censoredWords('Find the hidden word, the hidden one', 'hidden')).to.equal('Find the ****** word, the ****** one');
+        expect(censoredWords('A small sentence with some words', 'small')).to.equal(
+            'A ***** sentence with some words',
+        );
+        expect(censoredWords('Find the hidden word, the hidden one', 'hidden')).to.equal(
+            'Find the ****** word, the ****** one',
+        );
     });
 
     it('countOccurrences counts whole words only', () => {
         expect(countOccurrences('This is a word and it also is a sentence', 'is')).to.equal(2);
-        expect(countOccurrences('softuni is great place for learning new programming languages', 'softuni')).to.equal(1);
+        expect(
+            countOccurrences(
+                'softuni is great place for learning new programming languages',
+                'softuni',
+            ),
+        ).to.equal(1);
     });
 
     it('formatGrade labels each range', () => {
@@ -63,16 +83,24 @@ describe('007 JavaScript Fundamentals', () => {
     });
 
     it('personInfo builds an object', () => {
-        expect(personInfo('Peter', 'Pan', 20)).to.deep.equal({ firstName: 'Peter', lastName: 'Pan', age: 20 });
+        expect(personInfo('Peter', 'Pan', 20)).to.deep.equal({
+            firstName: 'Peter',
+            lastName: 'Pan',
+            age: 20,
+        });
     });
 
     it('city lists every property', () => {
-        expect(city({ name: 'Sofia', area: 492, postCode: '1000' }))
-            .to.deep.equal(['name -> Sofia', 'area -> 492', 'postCode -> 1000']);
+        expect(city({ name: 'Sofia', area: 492, postCode: '1000' })).to.deep.equal([
+            'name -> Sofia',
+            'area -> 492',
+            'postCode -> 1000',
+        ]);
     });
 
     it('phoneBook keeps the last number per name in first-seen order', () => {
-        expect(phoneBook(['Tim 0834212554', 'Peter 0877547887', 'Bill 0896543112', 'Tim 0876566344']))
-            .to.deep.equal(['Tim -> 0876566344', 'Peter -> 0877547887', 'Bill -> 0896543112']);
+        expect(
+            phoneBook(['Tim 0834212554', 'Peter 0877547887', 'Bill 0896543112', 'Tim 0876566344']),
+        ).to.deep.equal(['Tim -> 0876566344', 'Peter -> 0877547887', 'Bill -> 0896543112']);
     });
 });

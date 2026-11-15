@@ -1,7 +1,17 @@
 import { expect } from 'chai';
 import {
-    ages, vacation, leapYear, printAndSum, multiplicationTable, sumDigits, charsToString,
-    reversedChars, fruit, sameNumbers, roadRadar, cookingByNumbers,
+    ages,
+    vacation,
+    leapYear,
+    printAndSum,
+    multiplicationTable,
+    sumDigits,
+    charsToString,
+    reversedChars,
+    fruit,
+    sameNumbers,
+    roadRadar,
+    cookingByNumbers,
 } from './exercises.js';
 
 describe('006 Exercise: JavaScript Basics', () => {
@@ -58,7 +68,7 @@ describe('006 Exercise: JavaScript Basics', () => {
     });
 
     it('fruit calculates the money needed', () => {
-        expect(fruit('orange', 2500, 1.80)).to.equal('I need $4.50 to buy 2.50 kilograms orange.');
+        expect(fruit('orange', 2500, 1.8)).to.equal('I need $4.50 to buy 2.50 kilograms orange.');
         expect(fruit('apple', 1563, 2.35)).to.equal('I need $3.67 to buy 1.56 kilograms apple.');
     });
 
@@ -70,13 +80,21 @@ describe('006 Exercise: JavaScript Basics', () => {
 
     it('roadRadar reports the speeding status', () => {
         expect(roadRadar(40, 'city')).to.equal('Driving 40 km/h in a 50 zone');
-        expect(roadRadar(21, 'residential')).to.equal('The speed is 1 km/h faster than the allowed speed of 20 - speeding');
-        expect(roadRadar(120, 'interstate')).to.equal('The speed is 30 km/h faster than the allowed speed of 90 - excessive speeding');
-        expect(roadRadar(200, 'motorway')).to.equal('The speed is 70 km/h faster than the allowed speed of 130 - reckless driving');
+        expect(roadRadar(21, 'residential')).to.equal(
+            'The speed is 1 km/h faster than the allowed speed of 20 - speeding',
+        );
+        expect(roadRadar(120, 'interstate')).to.equal(
+            'The speed is 30 km/h faster than the allowed speed of 90 - excessive speeding',
+        );
+        expect(roadRadar(200, 'motorway')).to.equal(
+            'The speed is 70 km/h faster than the allowed speed of 130 - reckless driving',
+        );
     });
 
     it('cookingByNumbers applies each operation in order', () => {
-        expect(cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop')).to.deep.equal([16, 8, 4, 2, 1]);
+        expect(cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop')).to.deep.equal([
+            16, 8, 4, 2, 1,
+        ]);
         const result = cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet');
         expect(result.slice(0, 4)).to.deep.equal([3, 4, 2, 6]);
         expect(result[4]).to.be.closeTo(4.8, 1e-9);

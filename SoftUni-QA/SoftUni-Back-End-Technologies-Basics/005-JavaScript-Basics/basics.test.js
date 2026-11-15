@@ -1,7 +1,15 @@
 import { expect } from 'chai';
 import {
-    multiplyByTwo, studentInformation, excellentGrade, monthPrinter, mathOperations,
-    largestNumber, theatrePromotions, circleArea, numbersOneToFive, numbersFromMToN,
+    multiplyByTwo,
+    studentInformation,
+    excellentGrade,
+    monthPrinter,
+    mathOperations,
+    largestNumber,
+    theatrePromotions,
+    circleArea,
+    numbersOneToFive,
+    numbersFromMToN,
 } from './basics.js';
 
 describe('005 JavaScript Basics', () => {
@@ -11,7 +19,9 @@ describe('005 JavaScript Basics', () => {
     });
 
     it('studentInformation formats the grade to two decimals', () => {
-        expect(studentInformation('John', 15, 5.54678)).to.equal('Name: John, Age: 15, Grade: 5.55');
+        expect(studentInformation('John', 15, 5.54678)).to.equal(
+            'Name: John, Age: 15, Grade: 5.55',
+        );
     });
 
     it('excellentGrade uses 5.50 as the boundary', () => {
@@ -54,7 +64,9 @@ describe('005 JavaScript Basics', () => {
 
     it('circleArea computes area or reports the wrong type', () => {
         expect(circleArea(5)).to.equal('78.54');
-        expect(circleArea('name')).to.equal('We can not calculate the circle area, because we receive a string.');
+        expect(circleArea('name')).to.equal(
+            'We can not calculate the circle area, because we receive a string.',
+        );
     });
 
     it('numbersOneToFive returns 1..5', () => {

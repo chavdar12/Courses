@@ -13,10 +13,12 @@ public class BookRepository(LibroDbContext context) : IBookRepository
 
     public Task<List<Book>> GetAllBooksAsync() => context.Books.AsNoTracking().OrderBy(b => b.Title).ToListAsync();
 
-    public Task<Book?> GetBookByISBNAsync(string isbn) => context.Books.AsNoTracking().FirstOrDefaultAsync(b => b.ISBN == isbn);
+    public Task<Book?> GetBookByISBNAsync(string isbn) =>
+        context.Books.AsNoTracking().FirstOrDefaultAsync(b => b.ISBN == isbn);
 
     public Task<List<Book>> SearchBooksByTitleAsync(string titleFragment) =>
-        context.Books.AsNoTracking()
+        context
+            .Books.AsNoTracking()
             .Where(b => b.Title.ToLower().Contains(titleFragment.ToLower()))
             .OrderBy(b => b.Title)
             .ToListAsync();

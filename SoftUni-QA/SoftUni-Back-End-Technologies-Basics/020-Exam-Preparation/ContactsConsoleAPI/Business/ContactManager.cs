@@ -33,14 +33,18 @@ public class ContactManager(IContactRepository repository)
     {
         RequireText(firstName, "First name cannot be empty.");
         var contacts = await repository.SearchContactsByFirstNameAsync(firstName);
-        return contacts.Count > 0 ? contacts : throw new KeyNotFoundException("No contact found with the given first name.");
+        return contacts.Count > 0
+            ? contacts
+            : throw new KeyNotFoundException("No contact found with the given first name.");
     }
 
     public async Task<IEnumerable<Contact>> SearchByLastNameAsync(string lastName)
     {
         RequireText(lastName, "Last name cannot be empty.");
         var contacts = await repository.SearchContactsByLastNameAsync(lastName);
-        return contacts.Count > 0 ? contacts : throw new KeyNotFoundException("No contact found with the given last name.");
+        return contacts.Count > 0
+            ? contacts
+            : throw new KeyNotFoundException("No contact found with the given last name.");
     }
 
     public async Task UpdateAsync(Contact contact)

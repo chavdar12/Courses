@@ -21,9 +21,13 @@ public class AstronautsParserTests
     {
         var output = AstronautsParser.Format(AstronautsParser.Parse(Dataset()));
 
-        Assert.That(output, Does.StartWith(
-            "Astronauts:\nAstronaut #1\nID: 1001 Name: Rachel Nguyen, Age: 29, Profession: Biologist, Experience: 7 years\n" +
-            "Current mission: Europa Exploration\nPast missions: Lunar Research, Solar Flare Study\n"));
+        Assert.That(
+            output,
+            Does.StartWith(
+                "Astronauts:\nAstronaut #1\nID: 1001 Name: Rachel Nguyen, Age: 29, Profession: Biologist, Experience: 7 years\n"
+                    + "Current mission: Europa Exploration\nPast missions: Lunar Research, Solar Flare Study\n"
+            )
+        );
         Assert.That(output, Does.Contain("Astronaut #3\n"));
     }
 

@@ -10,11 +10,18 @@ await context.Database.EnsureCreatedAsync();
 var manager = new BookManager(new BookRepository(context));
 if (!context.Books.Any())
 {
-    await manager.AddAsync(new Book
-    {
-        Title = "Under the Yoke", Author = "Ivan Vazov", ISBN = "9789540901234",
-        YearPublished = 1894, Genre = "Historical novel", Pages = 400, Price = 19.90,
-    });
+    await manager.AddAsync(
+        new Book
+        {
+            Title = "Under the Yoke",
+            Author = "Ivan Vazov",
+            ISBN = "9789540901234",
+            YearPublished = 1894,
+            Genre = "Historical novel",
+            Pages = 400,
+            Price = 19.90,
+        }
+    );
 }
 
 foreach (var book in await manager.GetAllAsync())

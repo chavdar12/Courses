@@ -26,15 +26,25 @@ public class EventService(HomiesDbContext context, TimeProvider timeProvider) : 
     }
 
     public async Task<IEnumerable<EventSummary>> GetAllEventsAsync() =>
-        await context.Events
-            .OrderBy(e => e.Start)
+        await context
+            .Events.OrderBy(e => e.Start)
             .Select(e => new EventSummary(e.Id, e.Name, e.Start, e.Type.Name, e.OrganiserId))
             .ToListAsync();
 
     public Task<EventDetails?> GetEventDetailsAsync(int eventId) =>
-        context.Events
-            .Where(e => e.Id == eventId)
-            .Select(e => new EventDetails(e.Id, e.Name, e.Description, e.Start, e.End, e.CreatedOn, e.Type.Name, e.OrganiserId, e.Participants.Count))
+        context
+            .Events.Where(e => e.Id == eventId)
+            .Select(e => new EventDetails(
+                e.Id,
+                e.Name,
+                e.Description,
+                e.Start,
+                e.End,
+                e.CreatedOn,
+                e.Type.Name,
+                e.OrganiserId,
+                e.Participants.Count
+            ))
             .FirstOrDefaultAsync();
 
     public Task<string?> GetEventOrganiserIdAsync(int eventId) =>
@@ -60,8 +70,10 @@ public class EventService(HomiesDbContext context, TimeProvider timeProvider) : 
 
     public async Task<bool> JoinEventAsync(int eventId, string userId)
     {
-        if (!await context.Events.AnyAsync(e => e.Id == eventId) ||
-            await context.EventsParticipants.AnyAsync(ep => ep.EventId == eventId && ep.HelperId == userId))
+        if (
+            !await context.Events.AnyAsync(e => e.Id == eventId)
+            || await context.EventsParticipants.AnyAsync(ep => ep.EventId == eventId && ep.HelperId == userId)
+        )
         {
             return false;
         }
@@ -72,13 +84,21 @@ public class EventService(HomiesDbContext context, TimeProvider timeProvider) : 
     }
 
     public async Task<bool> LeaveEventAsync(int eventId, string userId) =>
-        await context.EventsParticipants.Where(ep => ep.EventId == eventId && ep.HelperId == userId).ExecuteDeleteAsync() > 0;
+        await context
+            .EventsParticipants.Where(ep => ep.EventId == eventId && ep.HelperId == userId)
+            .ExecuteDeleteAsync() > 0;
 
     public async Task<IEnumerable<EventSummary>> GetUserJoinedEventsAsync(string userId) =>
-        await context.EventsParticipants
-            .Where(ep => ep.HelperId == userId)
+        await context
+            .EventsParticipants.Where(ep => ep.HelperId == userId)
             .OrderBy(ep => ep.Event.Start)
-            .Select(ep => new EventSummary(ep.Event.Id, ep.Event.Name, ep.Event.Start, ep.Event.Type.Name, ep.Event.OrganiserId))
+            .Select(ep => new EventSummary(
+                ep.Event.Id,
+                ep.Event.Name,
+                ep.Event.Start,
+                ep.Event.Type.Name,
+                ep.Event.OrganiserId
+            ))
             .ToListAsync();
 
     public async Task<IEnumerable<TypeViewModel>> GetAllTypesAsync() =>

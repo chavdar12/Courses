@@ -11,11 +11,17 @@ await context.Database.EnsureCreatedAsync();
 var controller = new MoviesLibraryController(new MoviesRepository(context));
 if (await controller.GetByTitleAsync("Inception") == null)
 {
-    await controller.AddAsync(new Movie
-    {
-        Title = "Inception", Director = "Christopher Nolan", YearReleased = 2010,
-        Genre = "Sci-Fi", Duration = 148, Rating = 8.8,
-    });
+    await controller.AddAsync(
+        new Movie
+        {
+            Title = "Inception",
+            Director = "Christopher Nolan",
+            YearReleased = 2010,
+            Genre = "Sci-Fi",
+            Duration = 148,
+            Rating = 8.8,
+        }
+    );
 }
 
 foreach (var movie in await controller.GetAllAsync())

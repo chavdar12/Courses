@@ -29,6 +29,16 @@ public class EventFormModel : IValidatableObject
 
 public record EventSummary(int Id, string Name, DateTime Start, string Type, string OrganiserId);
 
-public record EventDetails(int Id, string Name, string Description, DateTime Start, DateTime End, DateTime CreatedOn, string Type, string OrganiserId, int ParticipantsCount);
+public record EventDetails(
+    int Id,
+    string Name,
+    string Description,
+    DateTime Start,
+    DateTime End,
+    DateTime CreatedOn,
+    string Type,
+    string OrganiserId,
+    int ParticipantsCount
+);
 
 public record TypeViewModel(int Id, string Name);

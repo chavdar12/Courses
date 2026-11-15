@@ -26,7 +26,9 @@ public class BookManager(IBookRepository repository) : IBookManager
     {
         RequireText(titleFragment, "Title fragment cannot be empty.");
         var books = await repository.SearchBooksByTitleAsync(titleFragment);
-        return books.Count > 0 ? books : throw new KeyNotFoundException("No books found with the given title fragment.");
+        return books.Count > 0
+            ? books
+            : throw new KeyNotFoundException("No books found with the given title fragment.");
     }
 
     public async Task<Book> GetSpecificAsync(string isbn)

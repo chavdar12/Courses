@@ -18,7 +18,8 @@ public class MoviesRepository(MoviesLibraryDbContext context) : IMoviesRepositor
         context.Movies.AsNoTracking().FirstOrDefaultAsync(m => m.Title == title);
 
     public Task<List<Movie>> SearchMoviesByTitleAsync(string titleFragment) =>
-        context.Movies.AsNoTracking()
+        context
+            .Movies.AsNoTracking()
             .Where(m => m.Title.ToLower().Contains(titleFragment.ToLower()))
             .OrderBy(m => m.Title)
             .ToListAsync();

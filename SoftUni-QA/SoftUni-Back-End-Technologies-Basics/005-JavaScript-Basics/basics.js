@@ -12,8 +12,20 @@ export function excellentGrade(grade) {
     return grade >= 5.5 ? 'Excellent' : 'Not excellent';
 }
 
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'];
+const MONTHS = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+];
 
 export function monthPrinter(month) {
     return MONTHS[month - 1] ?? 'Error!';
@@ -21,13 +33,20 @@ export function monthPrinter(month) {
 
 export function mathOperations(a, b, operator) {
     switch (operator) {
-        case '+': return a + b;
-        case '-': return a - b;
-        case '*': return a * b;
-        case '/': return a / b;
-        case '%': return a % b;
-        case '**': return a ** b;
-        default: throw new Error(`Unknown operator: ${operator}`);
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            return a / b;
+        case '%':
+            return a % b;
+        case '**':
+            return a ** b;
+        default:
+            throw new Error(`Unknown operator: ${operator}`);
     }
 }
 

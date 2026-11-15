@@ -10,9 +10,6 @@ public class PersonRegisterDbContext(DbContextOptions<PersonRegisterDbContext> o
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Town>().HasIndex(t => t.Name).IsUnique();
-        modelBuilder.Entity<Person>()
-            .HasOne(p => p.Town)
-            .WithMany(t => t.People)
-            .OnDelete(DeleteBehavior.Restrict);
+        modelBuilder.Entity<Person>().HasOne(p => p.Town).WithMany(t => t.People).OnDelete(DeleteBehavior.Restrict);
     }
 }

@@ -31,10 +31,13 @@ public class ProductController : Controller
     public IActionResult AllAsText() => Content(ProductsText(), "text/plain");
 
     // The course version added the Content-Disposition header by hand; File(..., fileDownloadName) sets it correctly.
-    public IActionResult AllAsTextFile() =>
-        File(Encoding.UTF8.GetBytes(ProductsText()), "text/plain", "products.txt");
+    public IActionResult AllAsTextFile() => File(Encoding.UTF8.GetBytes(ProductsText()), "text/plain", "products.txt");
 
     private static string ProductsText() =>
-        string.Join(Environment.NewLine, Products.Select(p =>
-            string.Create(CultureInfo.InvariantCulture, $"Product {p.Id}: {p.Name} - {p.Price:F2} lv.")));
+        string.Join(
+            Environment.NewLine,
+            Products.Select(p =>
+                string.Create(CultureInfo.InvariantCulture, $"Product {p.Id}: {p.Name} - {p.Price:F2} lv.")
+            )
+        );
 }

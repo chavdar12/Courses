@@ -13,9 +13,7 @@
     "participantId": 102,
     "participantName": "Liam Brown",
     "dateOfBirth": "1992-07-12",
-    "instrumentSkills": [
-      { "instrumentName": "Guitar", "experienceLevel": 4.8 }
-    ],
+    "instrumentSkills": [{ "instrumentName": "Guitar", "experienceLevel": 4.8 }],
     "preferredGenres": ["Rock"]
   },
   {

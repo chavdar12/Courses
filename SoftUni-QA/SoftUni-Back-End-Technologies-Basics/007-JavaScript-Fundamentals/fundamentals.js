@@ -21,12 +21,13 @@ export function censoredWords(text, word) {
 }
 
 export function countOccurrences(text, word) {
-    return text.split(' ').filter(w => w === word).length;
+    return text.split(' ').filter((w) => w === word).length;
 }
 
 export function formatGrade(grade) {
     if (grade < 3) return 'Fail (2)';
-    const label = grade < 3.5 ? 'Poor' : grade < 4.5 ? 'Good' : grade < 5.5 ? 'Very good' : 'Excellent';
+    const label =
+        grade < 3.5 ? 'Poor' : grade < 4.5 ? 'Good' : grade < 5.5 ? 'Very good' : 'Excellent';
     return `${label} (${grade.toFixed(2)})`;
 }
 

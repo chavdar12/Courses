@@ -19,7 +19,9 @@ public class MoviesLibraryControllerTests
     {
         _connection = new SqliteConnection("Data Source=:memory:");
         _connection.Open();
-        _context = new MoviesLibraryDbContext(new DbContextOptionsBuilder<MoviesLibraryDbContext>().UseSqlite(_connection).Options);
+        _context = new MoviesLibraryDbContext(
+            new DbContextOptionsBuilder<MoviesLibraryDbContext>().UseSqlite(_connection).Options
+        );
         _context.Database.EnsureCreated();
         _controller = new MoviesLibraryController(new MoviesRepository(_context));
     }
@@ -31,15 +33,16 @@ public class MoviesLibraryControllerTests
         _connection.Dispose();
     }
 
-    private static Movie NewMovie(string title = "Test Movie") => new()
-    {
-        Title = title,
-        Director = "Test Director",
-        YearReleased = 2022,
-        Genre = "Action",
-        Duration = 120,
-        Rating = 7.5,
-    };
+    private static Movie NewMovie(string title = "Test Movie") =>
+        new()
+        {
+            Title = title,
+            Director = "Test Director",
+            YearReleased = 2022,
+            Genre = "Action",
+            Duration = 120,
+            Rating = 7.5,
+        };
 
     [Test]
     public async Task AddAsync_ValidMovie_IsStored()
@@ -58,7 +61,9 @@ public class MoviesLibraryControllerTests
         {
             Assert.ThrowsAsync<ValidationException>(() => _controller.AddAsync(null!));
             Assert.ThrowsAsync<ValidationException>(() => _controller.AddAsync(With(m => m.Title = "")));
-            Assert.ThrowsAsync<ValidationException>(() => _controller.AddAsync(With(m => m.Director = new string('d', 101))));
+            Assert.ThrowsAsync<ValidationException>(() =>
+                _controller.AddAsync(With(m => m.Director = new string('d', 101)))
+            );
             Assert.ThrowsAsync<ValidationException>(() => _controller.AddAsync(With(m => m.YearReleased = 1899)));
             Assert.ThrowsAsync<ValidationException>(() => _controller.AddAsync(With(m => m.Duration = 0)));
             Assert.ThrowsAsync<ValidationException>(() => _controller.AddAsync(With(m => m.Duration = 501)));

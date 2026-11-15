@@ -10,9 +10,9 @@ export function ages(age) {
 }
 
 const VACATION_PRICES = {
-    Students: { Friday: 8.45, Saturday: 9.80, Sunday: 10.46 },
-    Business: { Friday: 10.90, Saturday: 15.60, Sunday: 16 },
-    Regular: { Friday: 15, Saturday: 20, Sunday: 22.50 },
+    Students: { Friday: 8.45, Saturday: 9.8, Sunday: 10.46 },
+    Business: { Friday: 10.9, Saturday: 15.6, Sunday: 16 },
+    Regular: { Friday: 15, Saturday: 20, Sunday: 22.5 },
 };
 
 export function vacation(people, groupType, day) {
@@ -67,7 +67,7 @@ export function fruit(name, grams, pricePerKg) {
 
 export function sameNumbers(number) {
     const digits = [...String(number)];
-    return [digits.every(d => d === digits[0]), digits.reduce((acc, d) => acc + Number(d), 0)];
+    return [digits.every((d) => d === digits[0]), digits.reduce((acc, d) => acc + Number(d), 0)];
 }
 
 const SPEED_LIMITS = { motorway: 130, interstate: 90, city: 50, residential: 20 };
@@ -83,14 +83,14 @@ export function roadRadar(speed, area) {
 }
 
 const COOKING_OPERATIONS = {
-    chop: n => n / 2,
-    dice: n => Math.sqrt(n),
-    spice: n => n + 1,
-    bake: n => n * 3,
-    fillet: n => n * 0.8,
+    chop: (n) => n / 2,
+    dice: (n) => Math.sqrt(n),
+    spice: (n) => n + 1,
+    bake: (n) => n * 3,
+    fillet: (n) => n * 0.8,
 };
 
 export function cookingByNumbers(start, ...operations) {
     let number = Number(start);
-    return operations.map(op => (number = COOKING_OPERATIONS[op](number)));
+    return operations.map((op) => (number = COOKING_OPERATIONS[op](number)));
 }

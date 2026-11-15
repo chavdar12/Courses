@@ -17,7 +17,14 @@ export function cinema(input) {
             if (title) movies.push(title);
         } else if (command === 'Swap') {
             const [i, j] = args.map(Number);
-            if (Number.isInteger(i) && Number.isInteger(j) && i >= 0 && j >= 0 && i < movies.length && j < movies.length) {
+            if (
+                Number.isInteger(i) &&
+                Number.isInteger(j) &&
+                i >= 0 &&
+                j >= 0 &&
+                i < movies.length &&
+                j < movies.length
+            ) {
                 [movies[i], movies[j]] = [movies[j], movies[i]];
                 output.push('Swapped!');
             }

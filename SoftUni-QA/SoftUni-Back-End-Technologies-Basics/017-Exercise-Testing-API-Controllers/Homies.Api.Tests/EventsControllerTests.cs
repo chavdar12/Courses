@@ -21,8 +21,9 @@ public class EventsControllerTests
         _keepAlive = new SqliteConnection(connectionString);
         _keepAlive.Open();
 
-        _factory = new WebApplicationFactory<Program>()
-            .WithWebHostBuilder(builder => builder.UseSetting("ConnectionStrings:Homies", connectionString));
+        _factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
+            builder.UseSetting("ConnectionStrings:Homies", connectionString)
+        );
         _client = _factory.CreateClient();
     }
 
@@ -34,14 +35,15 @@ public class EventsControllerTests
         _keepAlive.Dispose();
     }
 
-    private static object Form(string name = "Board games", int typeId = 2) => new
-    {
-        name,
-        description = "Bring your favourite game",
-        start = new DateTime(2026, 6, 10, 18, 0, 0),
-        end = new DateTime(2026, 6, 10, 22, 0, 0),
-        typeId,
-    };
+    private static object Form(string name = "Board games", int typeId = 2) =>
+        new
+        {
+            name,
+            description = "Bring your favourite game",
+            start = new DateTime(2026, 6, 10, 18, 0, 0),
+            end = new DateTime(2026, 6, 10, 22, 0, 0),
+            typeId,
+        };
 
     private Task<HttpResponseMessage> Send(HttpMethod method, string url, string? userId = null, object? body = null)
     {

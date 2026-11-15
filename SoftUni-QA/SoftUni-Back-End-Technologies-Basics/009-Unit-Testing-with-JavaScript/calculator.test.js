@@ -3,7 +3,9 @@ import { createCalculator } from './calculator.js';
 
 describe('createCalculator', () => {
     let calc;
-    beforeEach(() => { calc = createCalculator(); });
+    beforeEach(() => {
+        calc = createCalculator();
+    });
 
     it('starts at 0', () => expect(calc.get()).to.equal(0));
     it('adds and subtracts', () => {

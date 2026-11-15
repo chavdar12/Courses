@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Resolve the connection string lazily so tests can override it through configuration.
-builder.Services.AddDbContext<HomiesDbContext>((services, options) =>
-    options.UseSqlite(services.GetRequiredService<IConfiguration>().GetConnectionString("Homies")));
+builder.Services.AddDbContext<HomiesDbContext>(
+    (services, options) =>
+        options.UseSqlite(services.GetRequiredService<IConfiguration>().GetConnectionString("Homies"))
+);
 builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddControllers();

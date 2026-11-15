@@ -8,13 +8,27 @@ public class LibraryTests
     public void SetUp()
     {
         _library = new Library();
-        _library.AddBook(new Book { Id = 1, Title = "1984", Author = "George Orwell" });
+        _library.AddBook(
+            new Book
+            {
+                Id = 1,
+                Title = "1984",
+                Author = "George Orwell",
+            }
+        );
     }
 
     [Test]
     public void AddBook_AddsToCollection()
     {
-        _library.AddBook(new Book { Id = 2, Title = "Dune", Author = "Frank Herbert" });
+        _library.AddBook(
+            new Book
+            {
+                Id = 2,
+                Title = "Dune",
+                Author = "Frank Herbert",
+            }
+        );
 
         Assert.That(_library.GetAllBooks().Select(b => b.Title), Is.EqualTo(new[] { "1984", "Dune" }));
     }

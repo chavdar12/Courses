@@ -34,7 +34,11 @@ public class ItemServiceTests
     [Test]
     public void GetAllItems_ReturnsRepositoryItems()
     {
-        var items = new List<Item> { new() { Id = 1, Name = "A" }, new() { Id = 2, Name = "B" } };
+        var items = new List<Item>
+        {
+            new() { Id = 1, Name = "A" },
+            new() { Id = 2, Name = "B" },
+        };
         _repository.Setup(r => r.GetAllItems()).Returns(items);
 
         Assert.That(_service.GetAllItems(), Is.EqualTo(items));

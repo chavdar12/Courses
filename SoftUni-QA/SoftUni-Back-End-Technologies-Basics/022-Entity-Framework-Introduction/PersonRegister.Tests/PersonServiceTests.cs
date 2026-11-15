@@ -16,7 +16,9 @@ public class PersonServiceTests
     {
         _connection = new SqliteConnection("Data Source=:memory:");
         _connection.Open();
-        _context = new PersonRegisterDbContext(new DbContextOptionsBuilder<PersonRegisterDbContext>().UseSqlite(_connection).Options);
+        _context = new PersonRegisterDbContext(
+            new DbContextOptionsBuilder<PersonRegisterDbContext>().UseSqlite(_connection).Options
+        );
         _context.Database.EnsureCreated();
         _service = new PersonService(_context);
     }
@@ -41,7 +43,10 @@ public class PersonServiceTests
         await SeedAsync();
 
         Assert.That(await _context.People.CountAsync(), Is.EqualTo(3));
-        Assert.That(await _context.Towns.Select(t => t.Name).OrderBy(n => n).ToListAsync(), Is.EqualTo(new[] { "Plovdiv", "Sofia" }));
+        Assert.That(
+            await _context.Towns.Select(t => t.Name).OrderBy(n => n).ToListAsync(),
+            Is.EqualTo(new[] { "Plovdiv", "Sofia" })
+        );
     }
 
     [Test]
@@ -49,7 +54,9 @@ public class PersonServiceTests
     {
         Assert.ThrowsAsync<ValidationException>(() => _service.AddPersonAsync("", "Petrov", 30, "Sofia"));
         Assert.ThrowsAsync<ValidationException>(() => _service.AddPersonAsync("Ivan", "Petrov", -1, "Sofia"));
-        Assert.ThrowsAsync<ValidationException>(() => _service.AddPersonAsync("Ivan", "Petrov", 30, "Sofia", "not-an-email"));
+        Assert.ThrowsAsync<ValidationException>(() =>
+            _service.AddPersonAsync("Ivan", "Petrov", 30, "Sofia", "not-an-email")
+        );
         Assert.That(_context.People, Is.Empty);
     }
 
@@ -92,11 +99,7 @@ public class PersonServiceTests
 
         var stats = await _service.GetTownStatsAsync();
 
-        Assert.That(stats, Is.EqualTo(new[]
-        {
-            new TownStats("Sofia", 2, 37),
-            new TownStats("Plovdiv", 1, 28),
-        }));
+        Assert.That(stats, Is.EqualTo(new[] { new TownStats("Sofia", 2, 37), new TownStats("Plovdiv", 1, 28) }));
     }
 
     [Test]

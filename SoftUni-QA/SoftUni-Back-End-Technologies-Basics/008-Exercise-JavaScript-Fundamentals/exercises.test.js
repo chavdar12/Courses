@@ -1,8 +1,22 @@
 import { expect } from 'chai';
 import {
-    arrayRotation, everyNthElement, listOfNames, sortingNumbers, revealWords, stringSubstring,
-    smallestOfThree, addAndSubtract, oddAndEvenSum, passwordValidator, employees, towns,
-    storeProvision, movies, inventory, oddOccurrences, piccolo,
+    arrayRotation,
+    everyNthElement,
+    listOfNames,
+    sortingNumbers,
+    revealWords,
+    stringSubstring,
+    smallestOfThree,
+    addAndSubtract,
+    oddAndEvenSum,
+    passwordValidator,
+    employees,
+    towns,
+    storeProvision,
+    movies,
+    inventory,
+    oddOccurrences,
+    piccolo,
 } from './exercises.js';
 
 describe('008 Exercise: JavaScript Fundamentals', () => {
@@ -25,20 +39,29 @@ describe('008 Exercise: JavaScript Fundamentals', () => {
     });
 
     it('sortingNumbers alternates smallest and largest', () => {
-        expect(sortingNumbers([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]))
-            .to.deep.equal([-3, 65, 1, 63, 3, 56, 18, 52, 31, 48]);
+        expect(sortingNumbers([1, 65, 3, 52, 48, 63, 31, -3, 18, 56])).to.deep.equal([
+            -3, 65, 1, 63, 3, 56, 18, 52, 31, 48,
+        ]);
         expect(sortingNumbers([2, 1, 3])).to.deep.equal([1, 3, 2]);
     });
 
     it('revealWords fills in the star placeholders', () => {
-        expect(revealWords('great, learning', 'softuni is ***** place for ******** new programming languages'))
-            .to.equal('softuni is great place for learning new programming languages');
+        expect(
+            revealWords(
+                'great, learning',
+                'softuni is ***** place for ******** new programming languages',
+            ),
+        ).to.equal('softuni is great place for learning new programming languages');
     });
 
     it('stringSubstring searches case-insensitively', () => {
-        expect(stringSubstring('javascript', 'JavaScript is the best programming language')).to.equal('javascript');
+        expect(
+            stringSubstring('javascript', 'JavaScript is the best programming language'),
+        ).to.equal('javascript');
         expect(stringSubstring('Python', 'python is fine')).to.equal('Python');
-        expect(stringSubstring('python', 'JavaScript is the best programming language')).to.equal('python not found!');
+        expect(stringSubstring('python', 'JavaScript is the best programming language')).to.equal(
+            'python not found!',
+        );
     });
 
     it('smallestOfThree and addAndSubtract', () => {
@@ -65,33 +88,48 @@ describe('008 Exercise: JavaScript Fundamentals', () => {
     });
 
     it('employees uses name length as personal number', () => {
-        expect(employees(['Silas Butler'])).to.deep.equal(['Name: Silas Butler -- Personal Number: 12']);
+        expect(employees(['Silas Butler'])).to.deep.equal([
+            'Name: Silas Butler -- Personal Number: 12',
+        ]);
     });
 
     it('towns parses and rounds coordinates', () => {
-        expect(towns(['Sofia | 42.696552 | 23.32601'])).to.deep.equal([{ town: 'Sofia', latitude: '42.70', longitude: '23.33' }]);
+        expect(towns(['Sofia | 42.696552 | 23.32601'])).to.deep.equal([
+            { town: 'Sofia', latitude: '42.70', longitude: '23.33' },
+        ]);
     });
 
     it('storeProvision merges stock and orders', () => {
-        expect(storeProvision(['Chips', '5', 'Pasta', '4'], ['Flour', '44', 'Pasta', '7']))
-            .to.deep.equal(['Chips -> 5', 'Pasta -> 11', 'Flour -> 44']);
+        expect(
+            storeProvision(['Chips', '5', 'Pasta', '4'], ['Flour', '44', 'Pasta', '7']),
+        ).to.deep.equal(['Chips -> 5', 'Pasta -> 11', 'Flour -> 44']);
     });
 
     it('movies prints only movies with name, director and date', () => {
-        expect(movies([
-            'addMovie Fast and Furious',
-            'addMovie Godfather',
-            'Inception directedBy Christopher Nolan',
-            'Godfather directedBy Francis Ford Coppola',
-            'Godfather onDate 29.07.2018',
-            'Fast and Furious onDate 30.07.2018',
-        ])).to.deep.equal(['{"name":"Godfather","director":"Francis Ford Coppola","date":"29.07.2018"}']);
+        expect(
+            movies([
+                'addMovie Fast and Furious',
+                'addMovie Godfather',
+                'Inception directedBy Christopher Nolan',
+                'Godfather directedBy Francis Ford Coppola',
+                'Godfather onDate 29.07.2018',
+                'Fast and Furious onDate 30.07.2018',
+            ]),
+        ).to.deep.equal([
+            '{"name":"Godfather","director":"Francis Ford Coppola","date":"29.07.2018"}',
+        ]);
     });
 
     it('inventory sorts heroes by level', () => {
-        expect(inventory(['Isacc / 25 / Apple, GravityGun', 'Hes / 1 / Desolator, Sentinel, Antara'])).to.deep.equal([
-            'Hero: Hes', 'level => 1', 'items => Desolator, Sentinel, Antara',
-            'Hero: Isacc', 'level => 25', 'items => Apple, GravityGun',
+        expect(
+            inventory(['Isacc / 25 / Apple, GravityGun', 'Hes / 1 / Desolator, Sentinel, Antara']),
+        ).to.deep.equal([
+            'Hero: Hes',
+            'level => 1',
+            'items => Desolator, Sentinel, Antara',
+            'Hero: Isacc',
+            'level => 25',
+            'items => Apple, GravityGun',
         ]);
     });
 
@@ -101,7 +139,9 @@ describe('008 Exercise: JavaScript Fundamentals', () => {
     });
 
     it('piccolo lists parked cars or reports empty', () => {
-        expect(piccolo(['IN, CA2844AA', 'IN, CA1234TA', 'OUT, CA2844AA', 'IN, CA9999TT'])).to.deep.equal(['CA1234TA', 'CA9999TT']);
+        expect(
+            piccolo(['IN, CA2844AA', 'IN, CA1234TA', 'OUT, CA2844AA', 'IN, CA9999TT']),
+        ).to.deep.equal(['CA1234TA', 'CA9999TT']);
         expect(piccolo(['IN, CA2844AA', 'OUT, CA2844AA'])).to.deep.equal(['Parking Lot is Empty']);
     });
 });

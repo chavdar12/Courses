@@ -4,7 +4,8 @@ namespace DataFormats.Tests;
 
 public class ConverterTests
 {
-    private static string Dataset(string file) => File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Datasets", file));
+    private static string Dataset(string file) =>
+        File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Datasets", file));
 
     [Test]
     public void ParseBooks_ReadsAllFields()
@@ -12,7 +13,10 @@ public class ConverterTests
         var books = JsonParser.ParseBooks(Dataset("books.json"));
 
         Assert.That(books, Has.Count.EqualTo(2));
-        Assert.That(books[0], Is.EqualTo(books[0] with { Title = "Clean Code", PublishedYear = 2008, Available = true }));
+        Assert.That(
+            books[0],
+            Is.EqualTo(books[0] with { Title = "Clean Code", PublishedYear = 2008, Available = true })
+        );
         Assert.That(books[1].Genres, Is.EqualTo(new[] { "Programming" }));
     }
 
@@ -66,8 +70,10 @@ public class ConverterTests
     {
         using var json = JsonDocument.Parse(XmlToJson.VehiclesToJson(Dataset("vehicles.xml")));
 
-        Assert.That(json.RootElement.EnumerateArray().Select(v => v.GetProperty("make").GetString()),
-            Is.EqualTo(new[] { "Toyota", "Skoda" }));
+        Assert.That(
+            json.RootElement.EnumerateArray().Select(v => v.GetProperty("make").GetString()),
+            Is.EqualTo(new[] { "Toyota", "Skoda" })
+        );
         Assert.That(json.RootElement[1].GetProperty("year").GetInt32(), Is.EqualTo(2019));
     }
 
@@ -84,7 +90,12 @@ public class ConverterTests
 
         Assert.That(html, Does.StartWith("<table>"));
         Assert.That(html, Does.Contain("<th>Total</th>"));
-        Assert.That(html, Does.Contain("<td>1001</td><td>Ivan Georgiev</td><td>2026-03-14</td><td>Laptop x1, Mouse x2</td><td>1538.99</td>"));
+        Assert.That(
+            html,
+            Does.Contain(
+                "<td>1001</td><td>Ivan Georgiev</td><td>2026-03-14</td><td>Laptop x1, Mouse x2</td><td>1538.99</td>"
+            )
+        );
         Assert.That(html, Does.Contain("<td>329.00</td>"));
     }
 
@@ -93,14 +104,18 @@ public class ConverterTests
     {
         var html = YamlToHtml.ReservationsToHtml(Dataset("reservations.yaml"));
 
-        Assert.That(html, Does.Contain("<td>R-001</td><td>Petar Stoyanov</td><td>204</td><td>2026-07-01</td><td>4</td>"));
+        Assert.That(
+            html,
+            Does.Contain("<td>R-001</td><td>Petar Stoyanov</td><td>204</td><td>2026-07-01</td><td>4</td>")
+        );
         Assert.That(html, Does.Contain("<td>R-002</td>"));
     }
 
     [Test]
     public void ReservationsToHtml_EncodesHtml()
     {
-        const string yaml = "- reservationId: X\n  guest: \"<script>\"\n  room: 1\n  checkIn: 2026-01-01\n  checkOut: 2026-01-02\n";
+        const string yaml =
+            "- reservationId: X\n  guest: \"<script>\"\n  room: 1\n  checkIn: 2026-01-01\n  checkOut: 2026-01-02\n";
 
         Assert.That(YamlToHtml.ReservationsToHtml(yaml), Does.Contain("<td>&lt;script&gt;</td>"));
     }

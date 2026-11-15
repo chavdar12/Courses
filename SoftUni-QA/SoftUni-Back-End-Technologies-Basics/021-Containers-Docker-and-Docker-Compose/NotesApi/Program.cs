@@ -11,19 +11,23 @@ app.MapHealthChecks("/health");
 
 var notes = app.MapGroup("/api/notes");
 notes.MapGet("/", (NoteStore store) => store.All());
-notes.MapGet("/{id:int}", (int id, NoteStore store) =>
-    store.Get(id) is { } note ? Results.Ok(note) : Results.NotFound());
-notes.MapPost("/", (CreateNoteRequest request, NoteStore store) =>
-{
-    if (NoteStore.Validate(request.Text) is { } error)
+notes.MapGet(
+    "/{id:int}",
+    (int id, NoteStore store) => store.Get(id) is { } note ? Results.Ok(note) : Results.NotFound()
+);
+notes.MapPost(
+    "/",
+    (CreateNoteRequest request, NoteStore store) =>
     {
-        return Results.ValidationProblem(new Dictionary<string, string[]> { ["text"] = [error] });
+        if (NoteStore.Validate(request.Text) is { } error)
+        {
+            return Results.ValidationProblem(new Dictionary<string, string[]> { ["text"] = [error] });
+        }
+        var note = store.Add(request.Text!);
+        return Results.Created($"/api/notes/{note.Id}", note);
     }
-    var note = store.Add(request.Text!);
-    return Results.Created($"/api/notes/{note.Id}", note);
-});
-notes.MapDelete("/{id:int}", (int id, NoteStore store) =>
-    store.Delete(id) ? Results.NoContent() : Results.NotFound());
+);
+notes.MapDelete("/{id:int}", (int id, NoteStore store) => store.Delete(id) ? Results.NoContent() : Results.NotFound());
 
 app.Run();
 

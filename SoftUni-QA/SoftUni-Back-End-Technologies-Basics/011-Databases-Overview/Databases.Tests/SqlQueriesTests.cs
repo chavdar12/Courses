@@ -24,7 +24,10 @@ public class SqlQueriesTests
     {
         var rows = Query(Script("02-all-departments.sql"));
 
-        Assert.That(rows.Select(r => r[0]), Is.EqualTo(new object[] { "Engineering", "Marketing", "Quality Assurance", "Sales" }));
+        Assert.That(
+            rows.Select(r => r[0]),
+            Is.EqualTo(new object[] { "Engineering", "Marketing", "Quality Assurance", "Sales" })
+        );
     }
 
     [Test]
@@ -32,7 +35,10 @@ public class SqlQueriesTests
     {
         var rows = Query(Script("03-employees-with-salary-over-5000.sql"));
 
-        Assert.That(rows.Select(r => r[0]), Is.EqualTo(new object[] { "Ivan Petrov", "Maria Georgieva", "Elena Dimitrova" }));
+        Assert.That(
+            rows.Select(r => r[0]),
+            Is.EqualTo(new object[] { "Ivan Petrov", "Maria Georgieva", "Elena Dimitrova" })
+        );
         Assert.That(rows.Select(r => Convert.ToDecimal(r[1])), Is.Ordered.Descending);
     }
 
@@ -62,11 +68,10 @@ public class SqlQueriesTests
     {
         var rows = Query(Script("06-active-projects.sql"));
 
-        Assert.That(rows, Is.EqualTo(new[]
-        {
-            new object[] { "Test Automation", 3L },
-            new object[] { "Mobile App", 2L },
-        }));
+        Assert.That(
+            rows,
+            Is.EqualTo(new[] { new object[] { "Test Automation", 3L }, new object[] { "Mobile App", 2L } })
+        );
     }
 
     [Test]
@@ -82,9 +87,12 @@ public class SqlQueriesTests
     [Test]
     public void Schema_RejectsNonPositiveSalary()
     {
-        Assert.Throws<SqliteException>(() => Execute(
-            "INSERT INTO Employees (FirstName, LastName, JobTitle, DepartmentId, HireDate, Salary) " +
-            "VALUES ('Bad', 'Data', 'Intern', 1, '2026-01-01', 0)"));
+        Assert.Throws<SqliteException>(() =>
+            Execute(
+                "INSERT INTO Employees (FirstName, LastName, JobTitle, DepartmentId, HireDate, Salary) "
+                    + "VALUES ('Bad', 'Data', 'Intern', 1, '2026-01-01', 0)"
+            )
+        );
     }
 
     private static string Script(string name) =>

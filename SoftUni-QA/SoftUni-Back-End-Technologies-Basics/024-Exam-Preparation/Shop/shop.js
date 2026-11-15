@@ -17,7 +17,14 @@ export function shop(input) {
             if (product) products.push(product);
         } else if (command === 'Swap') {
             const [i, j] = args.map(Number);
-            if (Number.isInteger(i) && Number.isInteger(j) && i >= 0 && j >= 0 && i < products.length && j < products.length) {
+            if (
+                Number.isInteger(i) &&
+                Number.isInteger(j) &&
+                i >= 0 &&
+                j >= 0 &&
+                i < products.length &&
+                j < products.length
+            ) {
                 [products[i], products[j]] = [products[j], products[i]];
                 output.push('Swapped!');
             }
