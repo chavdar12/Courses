@@ -4,7 +4,6 @@ namespace Ex003;
 
 public class Tests
 {
-    // TODO: finish the test
     [Test]
     public void Test_Filter_WhenNoBannedWords_ShouldReturnOriginalText()
     {

@@ -4,7 +4,6 @@ namespace Ex002;
 
 public class Tests
 {
-    // TODO: finish the test
     [Test]
     public void Test_RemoveOccurrences_RemovesSubstringFromMiddle()
     {

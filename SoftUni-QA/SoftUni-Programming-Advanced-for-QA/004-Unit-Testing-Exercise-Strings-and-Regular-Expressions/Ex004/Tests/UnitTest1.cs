@@ -4,7 +4,6 @@ namespace Ex004;
 
 public class Tests
 {
-    // TODO: finish the test
     [Test]
     public void Test_ReverseAndConcatenateStrings_EmptyInput_ReturnsEmptyString()
     {
@@ -18,7 +17,6 @@ public class Tests
         Assert.AreEqual(string.Empty, result);
     }
 
-    // TODO: finish the test
     [Test]
     public void Test_ReverseAndConcatenateStrings_SingleString_ReturnsSameString()
     {

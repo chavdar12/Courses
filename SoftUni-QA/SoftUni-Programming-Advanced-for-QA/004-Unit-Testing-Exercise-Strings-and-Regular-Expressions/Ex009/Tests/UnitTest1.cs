@@ -17,7 +17,6 @@ public class Tests
         Assert.That(result, Is.Empty);
     }
 
-    // TODO: finish the test
     [Test]
     public void Test_ExtractUrls_NoUrlsInText_ReturnsEmptyList()
     {
