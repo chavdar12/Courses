@@ -12,7 +12,7 @@ function tennisRanklist(input) {
     }
     console.log(`Final points: ${start + earned}`);
     console.log(`Average points: ${Math.floor(earned / tournaments)}`);
-    console.log(`${(wins / tournaments * 100).toFixed(2)}%`);
+    console.log(`${((wins / tournaments) * 100).toFixed(2)}%`);
 }
 
 module.exports = tennisRanklist;

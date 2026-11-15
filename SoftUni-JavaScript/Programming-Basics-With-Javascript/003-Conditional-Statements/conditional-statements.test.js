@@ -53,8 +53,12 @@ describe('Conditional Statements - Lab', () => {
 
     it('07. Area of Figures', () => {
         expect(captureLog(() => areaOfFigures(['square', '5']))).to.deep.equal(['25.000']);
-        expect(captureLog(() => areaOfFigures(['rectangle', '7', '2.5']))).to.deep.equal(['17.500']);
+        expect(captureLog(() => areaOfFigures(['rectangle', '7', '2.5']))).to.deep.equal([
+            '17.500',
+        ]);
         expect(captureLog(() => areaOfFigures(['circle', '6']))).to.deep.equal(['113.097']);
-        expect(captureLog(() => areaOfFigures(['triangle', '4.5', '20']))).to.deep.equal(['45.000']);
+        expect(captureLog(() => areaOfFigures(['triangle', '4.5', '20']))).to.deep.equal([
+            '45.000',
+        ]);
     });
 });

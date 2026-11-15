@@ -8,7 +8,7 @@ function areaOfFigures(input) {
     } else if (figure === 'circle') {
         area = Math.PI * a * a;
     } else if (figure === 'triangle') {
-        area = a * b / 2;
+        area = (a * b) / 2;
     }
     console.log(area.toFixed(3));
 }

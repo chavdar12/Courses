@@ -10,7 +10,7 @@ function gymnastics(input) {
     const [difficulty, performance] = SCORES[country][apparatus];
     const score = difficulty + performance;
     console.log(`The team of ${country} get ${score.toFixed(3)} on ${apparatus}.`);
-    console.log(`${((20 - score) / 20 * 100).toFixed(2)}%`);
+    console.log(`${(((20 - score) / 20) * 100).toFixed(2)}%`);
 }
 
 module.exports = gymnastics;

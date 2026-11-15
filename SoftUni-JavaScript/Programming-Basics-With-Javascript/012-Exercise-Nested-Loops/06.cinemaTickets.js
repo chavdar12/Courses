@@ -15,9 +15,9 @@ function cinemaTickets(input) {
             i++;
         }
         total += sold;
-        console.log(`${movie} - ${(sold / seats * 100).toFixed(2)}% full.`);
+        console.log(`${movie} - ${((sold / seats) * 100).toFixed(2)}% full.`);
     }
-    const percent = (count) => (count / total * 100).toFixed(2);
+    const percent = (count) => ((count / total) * 100).toFixed(2);
     console.log(`Total tickets: ${total}`);
     console.log(`${percent(tickets.student)}% student tickets.`);
     console.log(`${percent(tickets.standard)}% standard tickets.`);

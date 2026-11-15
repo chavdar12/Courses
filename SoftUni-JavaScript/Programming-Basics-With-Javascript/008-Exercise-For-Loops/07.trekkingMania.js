@@ -18,7 +18,7 @@ function trekkingMania(input) {
             climbers[4] += size;
         }
     }
-    climbers.forEach((count) => console.log(`${(count / total * 100).toFixed(2)}%`));
+    climbers.forEach((count) => console.log(`${((count / total) * 100).toFixed(2)}%`));
 }
 
 module.exports = trekkingMania;

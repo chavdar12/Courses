@@ -21,7 +21,9 @@ function newHouse(input) {
             break;
     }
     if (budget >= price) {
-        console.log(`Hey, you have a great garden with ${count} ${flower} and ${(budget - price).toFixed(2)} leva left.`);
+        console.log(
+            `Hey, you have a great garden with ${count} ${flower} and ${(budget - price).toFixed(2)} leva left.`,
+        );
     } else {
         console.log(`Not enough money, you need ${(price - budget).toFixed(2)} leva more.`);
     }

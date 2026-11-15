@@ -17,7 +17,18 @@ describe('First Steps in Coding - Lab', () => {
     });
 
     it('02. Nums 1 to 10', () => {
-        expect(captureLog(() => nums1To10())).to.deep.equal(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
+        expect(captureLog(() => nums1To10())).to.deep.equal([
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10',
+        ]);
     });
 
     it('03. Square Area', () => {
@@ -34,15 +45,18 @@ describe('First Steps in Coding - Lab', () => {
     });
 
     it('06. Concatenate Data', () => {
-        expect(captureLog(() => concatenateData(['Maria', 'Ivanova', '20', 'Sofia'])))
-            .to.deep.equal(['You are Maria Ivanova, a 20-years old person from Sofia.']);
+        expect(
+            captureLog(() => concatenateData(['Maria', 'Ivanova', '20', 'Sofia'])),
+        ).to.deep.equal(['You are Maria Ivanova, a 20-years old person from Sofia.']);
     });
 
     it('07. Projects Creation', () => {
-        expect(captureLog(() => projectsCreation(['George ', '4 '])))
-            .to.deep.equal(['The architect George will need 12 hours to complete 4 project/s.']);
-        expect(captureLog(() => projectsCreation(['Sanya ', '9 '])))
-            .to.deep.equal(['The architect Sanya will need 27 hours to complete 9 project/s.']);
+        expect(captureLog(() => projectsCreation(['George ', '4 ']))).to.deep.equal([
+            'The architect George will need 12 hours to complete 4 project/s.',
+        ]);
+        expect(captureLog(() => projectsCreation(['Sanya ', '9 ']))).to.deep.equal([
+            'The architect Sanya will need 27 hours to complete 9 project/s.',
+        ]);
     });
 
     it('08. Pet Shop', () => {
@@ -51,9 +65,13 @@ describe('First Steps in Coding - Lab', () => {
     });
 
     it('09. Yard Greening', () => {
-        expect(captureLog(() => yardGreening(['550'])))
-            .to.deep.equal(['The final price is: 3432.11 lv.', 'The discount is: 753.39 lv.']);
-        expect(captureLog(() => yardGreening(['150'])))
-            .to.deep.equal(['The final price is: 936.03 lv.', 'The discount is: 205.47 lv.']);
+        expect(captureLog(() => yardGreening(['550']))).to.deep.equal([
+            'The final price is: 3432.11 lv.',
+            'The discount is: 753.39 lv.',
+        ]);
+        expect(captureLog(() => yardGreening(['150']))).to.deep.equal([
+            'The final price is: 936.03 lv.',
+            'The discount is: 205.47 lv.',
+        ]);
     });
 });

@@ -17,7 +17,9 @@ const tradeCommissions = require('./12.tradeCommissions');
 describe('Conditional Statements Advanced - Lab', () => {
     it('01. Day of Week', () => {
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        days.forEach((day, i) => expect(captureLog(() => dayOfWeek([String(i + 1)]))).to.deep.equal([day]));
+        days.forEach((day, i) =>
+            expect(captureLog(() => dayOfWeek([String(i + 1)]))).to.deep.equal([day]),
+        );
         expect(captureLog(() => dayOfWeek(['-1']))).to.deep.equal(['Error']);
     });
 
@@ -76,8 +78,12 @@ describe('Conditional Statements Advanced - Lab', () => {
     });
 
     it('10. Invalid Number', () => {
-        ['75', '220', '-1'].forEach((n) => expect(captureLog(() => invalidNumber([n]))).to.deep.equal(['invalid']));
-        ['150', '199', '100', '200', '0'].forEach((n) => expect(captureLog(() => invalidNumber([n]))).to.deep.equal([]));
+        ['75', '220', '-1'].forEach((n) =>
+            expect(captureLog(() => invalidNumber([n]))).to.deep.equal(['invalid']),
+        );
+        ['150', '199', '100', '200', '0'].forEach((n) =>
+            expect(captureLog(() => invalidNumber([n]))).to.deep.equal([]),
+        );
     });
 
     it('11. Fruit Shop', () => {

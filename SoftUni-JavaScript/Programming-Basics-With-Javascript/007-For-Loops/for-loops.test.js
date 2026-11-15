@@ -14,7 +14,9 @@ const lines = (...values) => values.map(String);
 
 describe('For Loops - Lab', () => {
     it('01. Numbers 1 to 100', () => {
-        expect(captureLog(() => numbers1To100())).to.deep.equal(Array.from({ length: 100 }, (_, i) => String(i + 1)));
+        expect(captureLog(() => numbers1To100())).to.deep.equal(
+            Array.from({ length: 100 }, (_, i) => String(i + 1)),
+        );
     });
 
     it('02. Numbers N to 1', () => {
@@ -25,7 +27,9 @@ describe('For Loops - Lab', () => {
     it('03. Numbers 1 to N with Step 3', () => {
         expect(captureLog(() => numbers1ToNWithStep3(['10']))).to.deep.equal(lines(1, 4, 7, 10));
         expect(captureLog(() => numbers1ToNWithStep3(['7']))).to.deep.equal(lines(1, 4, 7));
-        expect(captureLog(() => numbers1ToNWithStep3(['15']))).to.deep.equal(lines(1, 4, 7, 10, 13));
+        expect(captureLog(() => numbers1ToNWithStep3(['15']))).to.deep.equal(
+            lines(1, 4, 7, 10, 13),
+        );
     });
 
     it('04. Even Powers of 2', () => {
@@ -47,12 +51,18 @@ describe('For Loops - Lab', () => {
     });
 
     it('07. Sum of Digits', () => {
-        expect(captureLog(() => sumOfDigits(['1234']))).to.deep.equal(['The sum of the digits is:10']);
-        expect(captureLog(() => sumOfDigits(['564891']))).to.deep.equal(['The sum of the digits is:33']);
+        expect(captureLog(() => sumOfDigits(['1234']))).to.deep.equal([
+            'The sum of the digits is:10',
+        ]);
+        expect(captureLog(() => sumOfDigits(['564891']))).to.deep.equal([
+            'The sum of the digits is:33',
+        ]);
     });
 
     it('08. Numbers Divisible by 9', () => {
-        expect(captureLog(() => numbersDivisibleBy9(['100', '200'])))
-            .to.deep.equal(['The sum: 1683', ...lines(108, 117, 126, 135, 144, 153, 162, 171, 180, 189, 198)]);
+        expect(captureLog(() => numbersDivisibleBy9(['100', '200']))).to.deep.equal([
+            'The sum: 1683',
+            ...lines(108, 117, 126, 135, 144, 153, 162, 171, 180, 189, 198),
+        ]);
     });
 });
