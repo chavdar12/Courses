@@ -54,7 +54,7 @@ $people = [];
 $input = readline();
 while ($input !== "END") {
     list($name, $age, $occupation) = explode(" ", $input);
-    $age = (int)$age;
+    $age = (int) $age;
     $person = new Person($name, $age, $occupation);
     $people[] = $person;
 

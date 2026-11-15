@@ -1,4 +1,5 @@
 <?php
+
 require_once 'db/db_connection.php';
 require_once 'db/user_queries.php';
 

@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Core;
-
 
 use Routing\RouterInterface;
 
 class Application
 {
-
     /** @var RouterInterface */
     private $router;
 
@@ -46,7 +43,7 @@ class Application
     {
         $fullControllerName = 'Controller\\' . ucfirst($this->mvcContext->getControllerName()) . 'Controller';
 
-        $action = (string)$this->mvcContext->getActionName();
+        $action = (string) $this->mvcContext->getActionName();
         // magic methods like __construct are not actions
         if (!class_exists($fullControllerName) || str_starts_with($action, '_') || !method_exists($fullControllerName, $action)) {
             if (!$this->router->invoke($this->uri, $_SERVER['REQUEST_METHOD'])) {
@@ -93,7 +90,7 @@ class Application
         $ctor = $classInfo->getConstructor();
 
         if (null === $ctor) {
-            $obj = new $className;
+            $obj = new $className();
             $this->resolvedDependencies[$className] = $obj;
 
             return $obj;

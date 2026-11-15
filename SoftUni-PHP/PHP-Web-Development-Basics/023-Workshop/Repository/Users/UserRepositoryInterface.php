@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Repository\Users;
-
 
 use DTO\RequestModels\UserRegisterBindingModel;
 use DTO\UserDTO;

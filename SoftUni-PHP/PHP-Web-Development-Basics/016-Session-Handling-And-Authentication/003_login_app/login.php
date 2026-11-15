@@ -1,4 +1,5 @@
 <?php
+
 require_once 'common.php';
 
 $error = '';
@@ -9,7 +10,7 @@ if (isset($_POST['login'])) {
 
     $userService = new \Services\Users\UserService(
         new \Repositories\Users\UserRepository($db),
-        new \Services\Encryption\ArgonEncryptionService()
+        new \Services\Encryption\ArgonEncryptionService(),
     );
 
     if ($userService->verifyCredentials($username, $password)) {

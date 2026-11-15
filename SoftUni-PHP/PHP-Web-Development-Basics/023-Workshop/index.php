@@ -1,4 +1,5 @@
 <?php
+
 // Front controller: /{controller}/{action}/{params...} runs {Controller}Controller::{action}(params...).
 // Run: php -S localhost:8000 index.php   then open http://localhost:8000/users/register
 session_start();

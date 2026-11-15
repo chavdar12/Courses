@@ -2,8 +2,4 @@
 
 namespace Exception\User;
 
-
-class UploadException extends \Exception
-{
-
-}
+class UploadException extends \Exception {}

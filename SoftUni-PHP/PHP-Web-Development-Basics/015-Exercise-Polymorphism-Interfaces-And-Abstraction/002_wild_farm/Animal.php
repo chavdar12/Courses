@@ -102,8 +102,8 @@ abstract class Animal
         $this->foodEaten += $quantity;
     }
 
-    public abstract function makeSound(): void;
+    abstract public function makeSound(): void;
 
-    public abstract function eat(Food $food): void;
+    abstract public function eat(Food $food): void;
 
 }

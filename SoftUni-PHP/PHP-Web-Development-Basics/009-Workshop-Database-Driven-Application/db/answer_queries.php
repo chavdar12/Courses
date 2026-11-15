@@ -1,4 +1,5 @@
 <?php
+
 function answer(PDO $db, int $questionId, int $userId, string $body)
 {
     $query = "INSERT INTO answers (

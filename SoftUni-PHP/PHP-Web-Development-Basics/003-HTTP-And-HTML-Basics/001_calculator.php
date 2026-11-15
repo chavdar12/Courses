@@ -1,8 +1,8 @@
 <?php
 if (isset($_GET['calculate'])) {
     $operation = $_GET['operation'];
-    $numberOne = (float)$_GET['number_one'];
-    $numberTwo = (float)$_GET['number_two'];
+    $numberOne = (float) $_GET['number_one'];
+    $numberTwo = (float) $_GET['number_two'];
     $output = "";
 
     if ($operation == "sum") {

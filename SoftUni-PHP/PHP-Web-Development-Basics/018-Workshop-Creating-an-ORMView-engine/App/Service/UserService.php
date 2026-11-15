@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-
 use App\Data\UserDTO;
 use App\Repository\UserRepositoryInterface;
 use App\Service\Encryption\EncryptionServiceInterface;
@@ -19,9 +18,10 @@ class UserService implements UserServiceInterface
      */
     private $encryptionService;
 
-    public function __construct(UserRepositoryInterface    $userRepository,
-                                EncryptionServiceInterface $encryptionService)
-    {
+    public function __construct(
+        UserRepositoryInterface    $userRepository,
+        EncryptionServiceInterface $encryptionService,
+    ) {
         $this->userRepository = $userRepository;
         $this->encryptionService = $encryptionService;
     }
@@ -98,7 +98,7 @@ class UserService implements UserServiceInterface
         }
 
         // an empty password field keeps the current password
-        if ((string)$userDTO->getPassword() === '') {
+        if ((string) $userDTO->getPassword() === '') {
             $userDTO->setPassword($currentUser->getPassword());
         } else {
             $this->encryptPassword($userDTO);

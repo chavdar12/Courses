@@ -1,4 +1,5 @@
 <?php
+
 $arr1 = explode(" ", readline());
 $arr2 = explode(" ", readline());
 $maxLength = max(count($arr1), count($arr2));

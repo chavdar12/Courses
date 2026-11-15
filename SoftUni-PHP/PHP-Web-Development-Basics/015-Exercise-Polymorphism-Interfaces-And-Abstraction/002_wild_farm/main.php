@@ -10,7 +10,7 @@ spl_autoload_register(function (string $class) {
 
 class Main
 {
-    const INPUT_END_COMMAND = "End";
+    public const INPUT_END_COMMAND = "End";
 
     public function run()
     {

@@ -1,4 +1,5 @@
 <?php
+
 /** @var \Routing\RouterInterface $router */
 
 $router->registerRoute('users\/register', 'GET', function () {

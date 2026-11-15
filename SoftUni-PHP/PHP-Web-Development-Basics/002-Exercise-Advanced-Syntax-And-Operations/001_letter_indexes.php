@@ -1,4 +1,5 @@
 <?php
+
 $input = strtolower(readline());
 $alphabet = "abcdefghijklmnopqrstuvwxyz";
 

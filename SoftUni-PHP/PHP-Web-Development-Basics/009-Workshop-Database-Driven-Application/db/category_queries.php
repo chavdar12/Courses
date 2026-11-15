@@ -1,4 +1,5 @@
 <?php
+
 function createCategory(PDO $db, string $name)
 {
     $query = "INSERT INTO categories (name) VALUES (?)";

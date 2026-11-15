@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Mihail
@@ -7,7 +8,6 @@
  */
 
 namespace Database;
-
 
 class PDOPreparedStatement implements StatementInterface
 {

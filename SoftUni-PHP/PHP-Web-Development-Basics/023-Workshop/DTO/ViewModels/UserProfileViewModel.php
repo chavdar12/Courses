@@ -1,8 +1,6 @@
 <?php
 
-
 namespace DTO\ViewModels;
-
 
 class UserProfileViewModel
 {

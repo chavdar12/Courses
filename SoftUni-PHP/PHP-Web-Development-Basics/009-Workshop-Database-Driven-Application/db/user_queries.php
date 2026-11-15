@@ -64,7 +64,7 @@ function getUserByAuthId(PDO $db, string $authId): int
     $stmt->execute([$authId]);
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($data && $data['user_id']) {
-        return (int)$data['user_id'];
+        return (int) $data['user_id'];
     }
 
     return -1;
@@ -104,8 +104,8 @@ function issueAuthenticationString(PDO $db, int $userId): string
     $stmt->execute(
         [
             $authString,
-            $userId
-        ]
+            $userId,
+        ],
     );
 
     return $authString;
@@ -131,7 +131,7 @@ function verifyCredentials(PDO $db, string $username, string $password): int
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
-        return (int)$user['id'];
+        return (int) $user['id'];
     }
 
     return -1;
@@ -158,7 +158,7 @@ function register(PDO $db, string $username, string $password): bool
         return false; // username taken
     }
 
-    $userId = (int)$db->lastInsertId();
+    $userId = (int) $db->lastInsertId();
 
     $roles = ['USER'];
 

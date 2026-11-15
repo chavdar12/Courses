@@ -1,4 +1,5 @@
 <?php
+
 require_once 'common.php';
 
 if (!hasRole($db, $userId, 'ADMIN')) {

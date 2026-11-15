@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: User
@@ -7,7 +8,6 @@
  */
 
 namespace App\Service\Encryption;
-
 
 class BcryptEncryptionService implements EncryptionServiceInterface
 {

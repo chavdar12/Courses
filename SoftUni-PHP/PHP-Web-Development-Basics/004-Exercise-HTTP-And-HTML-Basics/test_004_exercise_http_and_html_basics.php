@@ -1,4 +1,5 @@
 <?php
+
 // Runs every script in this lesson with the example input from the course and checks its output.
 // Usage: php test_004_exercise_http_and_html_basics.php
 
@@ -63,7 +64,7 @@ foreach ($cases as [$script, $stdin, $expected]) {
 // a lesson script is NNN_name.php, or NNN_name/main.php for a multi-file project
 $scripts = array_map(fn($path) => substr($path, strlen(__DIR__) + 1), array_merge(
     glob(__DIR__ . '/[0-9][0-9][0-9]_*.php'),
-    glob(__DIR__ . '/[0-9][0-9][0-9]_*/main.php')
+    glob(__DIR__ . '/[0-9][0-9][0-9]_*/main.php'),
 ));
 foreach (array_diff($scripts, array_column($cases, 0)) as $untested) {
     $failed++;

@@ -1,4 +1,5 @@
 <?php
+
 // REST API for users:
 //   GET  api.php/users        all users
 //   GET  api.php/users/{id}   one user
@@ -46,7 +47,7 @@ if ($path === 'users' && $method === 'POST') {
     } catch (PDOException $e) {
         respond(409, ['error' => 'This username is taken']);
     }
-    respond(201, ['id' => (int)$db->lastInsertId(), 'username' => $username]);
+    respond(201, ['id' => (int) $db->lastInsertId(), 'username' => $username]);
 }
 
 respond(404, ['error' => 'Not found']);

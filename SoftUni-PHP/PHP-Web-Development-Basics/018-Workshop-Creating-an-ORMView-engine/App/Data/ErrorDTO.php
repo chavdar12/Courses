@@ -2,7 +2,6 @@
 
 namespace App\Data;
 
-
 class ErrorDTO
 {
     private $message;

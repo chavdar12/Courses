@@ -1,4 +1,5 @@
 <?php
+
 // load ClassName from ClassName.php next to this file
 spl_autoload_register(function (string $class) {
     $file = __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';

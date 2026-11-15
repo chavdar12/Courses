@@ -1,4 +1,5 @@
 <?php
+
 $matrix = [];
 $rows = intval(readline());
 

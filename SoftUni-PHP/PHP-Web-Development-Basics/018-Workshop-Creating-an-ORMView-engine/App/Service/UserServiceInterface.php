@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-
 use App\Data\UserDTO;
 
 interface UserServiceInterface

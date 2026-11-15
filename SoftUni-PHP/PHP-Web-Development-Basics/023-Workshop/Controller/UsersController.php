@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Controller;
-
 
 use DTO\RequestModels\UserRegisterBindingModel;
 use Exception\User\RegistrationException;

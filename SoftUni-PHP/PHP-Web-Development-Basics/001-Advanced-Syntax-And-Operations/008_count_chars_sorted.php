@@ -1,4 +1,5 @@
 <?php
+
 $str = readline();
 if (empty($str)) {
     return;

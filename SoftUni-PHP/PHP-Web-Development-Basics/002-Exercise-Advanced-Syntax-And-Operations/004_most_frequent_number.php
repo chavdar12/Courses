@@ -1,4 +1,5 @@
 <?php
+
 $numbers = explode(" ", readline());
 $maxCount = 0;
 $number = 0;

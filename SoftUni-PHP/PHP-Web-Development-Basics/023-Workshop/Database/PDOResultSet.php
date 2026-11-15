@@ -2,7 +2,6 @@
 
 namespace Database;
 
-
 class PDOResultSet implements ResultSetInterface
 {
     /**

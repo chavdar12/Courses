@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Database;
-
 
 class PDOStatement implements StatementInterface
 {
-
     private $pdoStatement;
 
     /**

@@ -1,15 +1,13 @@
 <?php
 
-
 namespace ViewEngine;
-
 
 use Core\MvcContextInterface;
 
 class View implements ViewInterface
 {
-    const VIEW_FOLDER = __DIR__ . '/../views/';
-    const VIEW_EXTENSION = '.php';
+    public const VIEW_FOLDER = __DIR__ . '/../views/';
+    public const VIEW_EXTENSION = '.php';
 
     /** @var MvcContextInterface $mvcContext */
     private $mvcContext;

@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 session_regenerate_id(true);//regenerates the session on every request, so the old value is invalidated
 if (!isset($_SESSION['logged_in_user'])) {

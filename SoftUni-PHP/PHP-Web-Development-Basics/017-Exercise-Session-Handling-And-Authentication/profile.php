@@ -1,4 +1,5 @@
 <?php
+
 require_once 'common.php';
 
 $user = isset($_SESSION['id']) ? $userService->findById($_SESSION['id']) : null;

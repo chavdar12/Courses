@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Database;
-
 
 class PDODatabase implements DatabaseInterface
 {
-
     private $pdo;
 
     /**

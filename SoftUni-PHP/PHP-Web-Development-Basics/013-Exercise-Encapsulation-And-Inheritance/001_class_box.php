@@ -36,9 +36,9 @@ class Box
      */
     public function __toString(): string
     {
-        return "Surface Area - " . number_format($this->getSurfaceArea(), 2, '.', '') . PHP_EOL .
-            "Lateral Surface Area - " . number_format($this->getLateralSurfaceArea(), 2, '.', '') . PHP_EOL .
-            "Volume - " . number_format($this->getVolume(), 2, '.', '') . PHP_EOL;
+        return "Surface Area - " . number_format($this->getSurfaceArea(), 2, '.', '') . PHP_EOL
+            . "Lateral Surface Area - " . number_format($this->getLateralSurfaceArea(), 2, '.', '') . PHP_EOL
+            . "Volume - " . number_format($this->getVolume(), 2, '.', '') . PHP_EOL;
     }
 
     /**

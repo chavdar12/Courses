@@ -1,4 +1,5 @@
 <?php
+
 // Starts PHP's built-in server in this folder and uses the app like a browser would.
 // Usage: php test_016_session_handling_and_authentication.php
 
@@ -6,7 +7,7 @@
 $tmp = sys_get_temp_dir() . '/' . basename(__DIR__) . '-' . bin2hex(random_bytes(4));
 mkdir($tmp);
 $probe = stream_socket_server('tcp://127.0.0.1:0');
-$port = (int)substr(strrchr(stream_socket_get_name($probe, false), ':'), 1);
+$port = (int) substr(strrchr(stream_socket_get_name($probe, false), ':'), 1);
 fclose($probe);
 
 $command = [PHP_BINARY, '-S', "127.0.0.1:$port", '-d', 'display_errors=1', '-d', 'html_errors=0',
@@ -14,8 +15,13 @@ $command = [PHP_BINARY, '-S', "127.0.0.1:$port", '-d', 'display_errors=1', '-d',
 if (defined('ROUTER')) {
     $command[] = ROUTER;
 }
-$server = proc_open($command, [['pipe', 'r'], ['file', "$tmp/server.log", 'w'], ['file', "$tmp/server.log", 'a']],
-    $pipes, __DIR__, ['DB_FILE' => "$tmp/database.sqlite"] + getenv());
+$server = proc_open(
+    $command,
+    [['pipe', 'r'], ['file', "$tmp/server.log", 'w'], ['file', "$tmp/server.log", 'a']],
+    $pipes,
+    __DIR__,
+    ['DB_FILE' => "$tmp/database.sqlite"] + getenv(),
+);
 register_shutdown_function(function () use ($server, $tmp) {
     proc_terminate($server);
     proc_close($server);
@@ -51,7 +57,7 @@ function http(string $method, string $path, array|string $form = []): array
     [$status, $location] = [0, null];
     foreach (http_get_last_response_headers() ?? [] as $line) {
         if (preg_match('~^HTTP/\S+ (\d+)~', $line, $m)) {
-            $status = (int)$m[1];
+            $status = (int) $m[1];
         } elseif (preg_match('~^Location:\s*(.+)$~i', $line, $m)) {
             $location = trim($m[1]);
         } elseif (preg_match('~^Set-Cookie:\s*([^=]+)=([^;]*)~i', $line, $m)) {

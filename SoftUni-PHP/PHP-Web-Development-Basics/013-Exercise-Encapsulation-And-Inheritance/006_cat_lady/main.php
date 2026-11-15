@@ -10,8 +10,8 @@ spl_autoload_register(function (string $class) {
 
 class Main
 {
-    const INPUT_END = "End";
-    const PATTERN = "/\\s+/";
+    public const INPUT_END = "End";
+    public const PATTERN = "/\\s+/";
 
     /**
      * @var Array

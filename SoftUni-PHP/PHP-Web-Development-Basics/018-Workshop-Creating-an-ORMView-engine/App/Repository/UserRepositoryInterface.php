@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-
 use App\Data\UserDTO;
 
 interface UserRepositoryInterface

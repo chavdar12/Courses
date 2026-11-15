@@ -4,7 +4,7 @@ namespace Vehicles;
 
 class Truck extends VehicleAbstract
 {
-    const FUEL_MODIFIER = 1.6;
+    public const FUEL_MODIFIER = 1.6;
     protected const REFUEL_RATIO = 0.95;
 
     public function __construct(float $fuelQuantity, float $fuelConsumption, float $tankCap)

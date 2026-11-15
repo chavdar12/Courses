@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Factories;
-
 
 use Vehicles\VehicleInterface;
 

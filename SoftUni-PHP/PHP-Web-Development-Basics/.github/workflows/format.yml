@@ -1,0 +1,21 @@
+name: Format
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  php:
+    name: PHP (php-cs-fixer, PER-CS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Check formatting
+        run: |
+          curl -sSL -o "$RUNNER_TEMP/php-cs-fixer.phar" \
+            https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v3.95.27/php-cs-fixer.phar
+          php "$RUNNER_TEMP/php-cs-fixer.phar" check --diff

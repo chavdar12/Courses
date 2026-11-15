@@ -2,7 +2,6 @@
 
 namespace Database;
 
-
 class PDODatabase implements DatabaseInterface
 {
     /**

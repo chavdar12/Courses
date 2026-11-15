@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 spl_autoload_register(function (string $class) {
     require_once __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
@@ -11,5 +12,5 @@ $pdo->exec(file_get_contents(__DIR__ . '/schema.sql'));
 
 $template = new \Core\Template();
 $userService = new \App\Services\UserService(
-    new \App\Repository\UserRepository(new \Database\PDODatabase($pdo))
+    new \App\Repository\UserRepository(new \Database\PDODatabase($pdo)),
 );

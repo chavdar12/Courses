@@ -67,8 +67,11 @@ class UserHttpHandler extends UserHttpHandlerAbstract
             $this->redirect("profile.php");
         }
 
-        $this->render("users/login", $this->dataBinder->bind($formData, UserDTO::class),
-            new ErrorDTO("Username does not exist or password mismatch."));
+        $this->render(
+            "users/login",
+            $this->dataBinder->bind($formData, UserDTO::class),
+            new ErrorDTO("Username does not exist or password mismatch."),
+        );
     }
 
     public function register(UserServiceInterface $userService, array $formData = [])

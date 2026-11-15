@@ -1,4 +1,5 @@
 <?php
+
 $str = readline();
 $occurrences = array_count_values(str_split($str));
 

@@ -2,7 +2,6 @@
 
 namespace Services\Users;
 
-
 use Data\Users\UserDTO;
 use Data\Users\UserEditDTO;
 use Exception\User\EditProfileException;

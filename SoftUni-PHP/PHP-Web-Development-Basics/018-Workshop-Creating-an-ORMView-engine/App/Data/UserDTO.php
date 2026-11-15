@@ -2,7 +2,6 @@
 
 namespace App\Data;
 
-
 class UserDTO
 {
     private $id;
@@ -13,9 +12,13 @@ class UserDTO
     private $bornOn;
 
     public static function create(
-        $username, $password, $firstName, $lastName, $bornOn, $id = null
-    )
-    {
+        $username,
+        $password,
+        $firstName,
+        $lastName,
+        $bornOn,
+        $id = null,
+    ) {
         return (new UserDTO())
             ->setUsername($username)
             ->setPassword($password)

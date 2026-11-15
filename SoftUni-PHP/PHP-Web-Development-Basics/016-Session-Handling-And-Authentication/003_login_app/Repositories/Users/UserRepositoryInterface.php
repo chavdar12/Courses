@@ -2,7 +2,6 @@
 
 namespace Repositories\Users;
 
-
 use Data\Users\UserDTO;
 use Data\Users\UserEditDTO;
 

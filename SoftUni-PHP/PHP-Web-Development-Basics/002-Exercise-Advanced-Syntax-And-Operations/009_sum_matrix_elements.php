@@ -1,4 +1,5 @@
 <?php
+
 $matrixSize = array_map("intval", explode(", ", readline()));
 
 $rowSize = $matrixSize[0];

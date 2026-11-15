@@ -2,11 +2,10 @@
 
 namespace Core;
 
-
 class Template implements TemplateInterface
 {
-    const TEMPLATE_FOLDER = __DIR__ . "/../App/Template/";
-    const TEMPLATE_EXTENSION = ".php";
+    public const TEMPLATE_FOLDER = __DIR__ . "/../App/Template/";
+    public const TEMPLATE_EXTENSION = ".php";
 
     public function render(string $templateName, $data = null, $error = null): void
     {

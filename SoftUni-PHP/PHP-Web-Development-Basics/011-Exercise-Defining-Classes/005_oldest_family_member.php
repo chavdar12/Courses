@@ -51,7 +51,7 @@ $n = intval(readline());
 $family = new Family();
 while ($n--) {
     list($name, $age) = explode(" ", readline());
-    $person = new Person($name, (int)$age);
+    $person = new Person($name, (int) $age);
     $family->addMember($person);
 }
 

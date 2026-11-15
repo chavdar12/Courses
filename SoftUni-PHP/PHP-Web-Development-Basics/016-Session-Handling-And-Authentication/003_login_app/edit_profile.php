@@ -1,4 +1,5 @@
 <?php
+
 require_once 'secure_common.php';
 
 $errors = [];
@@ -14,7 +15,7 @@ if (isset($_POST['edit'])) {
                 $id,
                 $_FILES['profile_picture']['tmp_name'],
                 $_FILES['profile_picture']['type'],
-                $_FILES['profile_picture']['size']
+                $_FILES['profile_picture']['size'],
             );
         } catch (\Exception\User\UploadException $e) {
             $errors[] = $e->getMessage();

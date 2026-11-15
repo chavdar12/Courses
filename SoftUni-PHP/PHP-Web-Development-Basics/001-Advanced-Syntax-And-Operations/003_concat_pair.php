@@ -1,4 +1,5 @@
 <?php
+
 $arr = explode(' ', readline());
 $found = false;
 

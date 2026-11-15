@@ -2,7 +2,6 @@
 
 namespace Services\Encryption;
 
-
 interface EncryptionServiceInterface
 {
     public function hash(string $password): string;

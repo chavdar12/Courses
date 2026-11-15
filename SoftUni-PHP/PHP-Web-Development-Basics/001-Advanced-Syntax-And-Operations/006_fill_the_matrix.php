@@ -1,4 +1,5 @@
 <?php
+
 $n = explode(", ", trim(readline()));
 
 if ($n[1] == 'A') {

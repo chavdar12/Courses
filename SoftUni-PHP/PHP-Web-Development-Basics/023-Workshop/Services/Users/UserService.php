@@ -2,19 +2,17 @@
 
 namespace Services\Users;
 
-
 use DTO\RequestModels\UserRegisterBindingModel;
 use DTO\UserDTO;
 use Exception\User\RegistrationException;
 use Repository\Users\UserRepositoryInterface;
 use Services\Encryption\EncryptionServiceInterface;
 
-
 class UserService implements UserServiceInterface
 {
-    const MIN_USER_LENGTH = 5;
-    const MAX_ALLOWED_SIZE = 30000;
-    const ALLOWED_IMAGE_PREFIX = 'image/';
+    public const MIN_USER_LENGTH = 5;
+    public const MAX_ALLOWED_SIZE = 30000;
+    public const ALLOWED_IMAGE_PREFIX = 'image/';
 
     /**
      * @var UserRepositoryInterface

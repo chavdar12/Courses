@@ -99,7 +99,7 @@ while ($line !== "Tournament") {
     if (!isset($trainers[$trainerName])) {
         $trainers[$trainerName] = new Trainer($trainerName);
     }
-    $trainers[$trainerName]->catchPokemon(new Pokemon($pokemonName, (int)$health, $element));
+    $trainers[$trainerName]->catchPokemon(new Pokemon($pokemonName, (int) $health, $element));
     $line = readline();
 }
 

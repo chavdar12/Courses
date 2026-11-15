@@ -3,7 +3,6 @@
 
 class AnimalFactory implements AnimalFactoryInterface
 {
-
     public static function create(array $data): ?Animal
     {
         $type = $data[0];

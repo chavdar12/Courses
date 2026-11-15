@@ -2,8 +2,4 @@
 
 namespace Exception\User;
 
-
-class RegistrationException extends \Exception
-{
-
-}
+class RegistrationException extends \Exception {}

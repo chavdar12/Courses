@@ -9,7 +9,7 @@ function DoF(string $day): string
         "Thursday",
         "Friday",
         "Saturday",
-        "Sunday"
+        "Sunday",
     ];
     $dayIndex = array_search($day, $week);
     return $dayIndex !== false ? $dayIndex + 1 : "Invalid day!";

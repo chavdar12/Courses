@@ -28,7 +28,7 @@ class Number
             6 => 'six',
             7 => 'seven',
             8 => 'eight',
-            9 => 'nine'
+            9 => 'nine',
         ];
 
         $this->lastDigitName = $digitNames[$lastDigit] ?? 'none';

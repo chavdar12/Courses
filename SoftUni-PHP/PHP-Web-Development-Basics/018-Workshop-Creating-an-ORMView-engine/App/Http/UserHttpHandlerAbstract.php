@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-
 use Core\DataBinderInterface;
 use Core\TemplateInterface;
 
@@ -17,9 +16,10 @@ abstract class UserHttpHandlerAbstract
      */
     private $template;
 
-    public function __construct(TemplateInterface   $template,
-                                DataBinderInterface $dataBinder)
-    {
+    public function __construct(
+        TemplateInterface   $template,
+        DataBinderInterface $dataBinder,
+    ) {
         $this->template = $template;
         $this->dataBinder = $dataBinder;
     }

@@ -1,4 +1,5 @@
 <?php
+
 require_once 'tag_queries.php';
 
 
@@ -9,8 +10,8 @@ function createQuestion(
     string $body,
     int    $category,
     array  $existingTags,
-    array  $newTags): int
-{
+    array  $newTags,
+): int {
     foreach (array_filter(array_map('trim', $newTags)) as $newTag) {
         $tagId = findTag($db, $newTag);
         $existingTags[] = $tagId;
@@ -38,8 +39,8 @@ function createQuestion(
             $title,
             $body,
             $category,
-            $userId
-        ]
+            $userId,
+        ],
     );
 
     $questionId = $db->lastInsertId();
@@ -50,7 +51,7 @@ function createQuestion(
         $stmt->execute([$questionId, $tagId]);
     }
 
-    return (int)$questionId;
+    return (int) $questionId;
 }
 
 function getQuestionById(PDO $db, int $id): array|false

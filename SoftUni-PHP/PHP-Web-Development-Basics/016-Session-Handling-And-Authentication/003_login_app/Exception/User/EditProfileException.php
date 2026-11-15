@@ -2,8 +2,4 @@
 
 namespace Exception\User;
 
-
-class EditProfileException extends \Exception
-{
-
-}
+class EditProfileException extends \Exception {}

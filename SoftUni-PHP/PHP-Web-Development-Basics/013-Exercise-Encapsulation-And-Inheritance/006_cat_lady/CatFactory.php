@@ -3,7 +3,6 @@
 
 class CatFactory implements CatFactoryInterface
 {
-
     /**
      * @param string $breed
      * @param string $name

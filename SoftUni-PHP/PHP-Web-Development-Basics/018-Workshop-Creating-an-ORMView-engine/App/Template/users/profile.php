@@ -9,7 +9,7 @@
 
 <form method="post">
     <label>
-        Username: <input type="text" name="username" value="<?= htmlspecialchars((string)($data->getUsername())) ?>"/> <br/>
+        Username: <input type="text" name="username" value="<?= htmlspecialchars((string) ($data->getUsername())) ?>"/> <br/>
     </label>
     <label>
         Password: <input type="password" name="password" placeholder="leave empty to keep it"/> <br/>
@@ -18,13 +18,13 @@
         Confirm Password: <input type="password" name="confirm_password"/> <br/>
     </label>
     <label>
-        First Name: <input type="text" name="first_name" value="<?= htmlspecialchars((string)($data->getFirstName())) ?>"/><br/>
+        First Name: <input type="text" name="first_name" value="<?= htmlspecialchars((string) ($data->getFirstName())) ?>"/><br/>
     </label>
     <label>
-        Last Name: <input type="text" name="last_name" value="<?= htmlspecialchars((string)($data->getLastName())) ?>"/><br/>
+        Last Name: <input type="text" name="last_name" value="<?= htmlspecialchars((string) ($data->getLastName())) ?>"/><br/>
     </label>
     <label>
-        Birthday: <input type="text" name="born_on" value="<?= htmlspecialchars((string)($data->getBornOn())) ?>"/><br/>
+        Birthday: <input type="text" name="born_on" value="<?= htmlspecialchars((string) ($data->getBornOn())) ?>"/><br/>
     </label>
     <input type="submit" name="edit" value="Edit"/> <br/>
 

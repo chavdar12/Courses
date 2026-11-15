@@ -3,7 +3,6 @@
 
 class Cymric extends Cat
 {
-
     /**
      * @var int
      */

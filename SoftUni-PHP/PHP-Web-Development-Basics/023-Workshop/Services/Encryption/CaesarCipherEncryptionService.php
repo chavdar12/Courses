@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by IntelliJ IDEA.
  * User: RoYaL
@@ -8,10 +9,8 @@
 
 namespace Services\Encryption;
 
-
 class CaesarCipherEncryptionService implements EncryptionServiceInterface
 {
-
     public function hash(string $password): string
     {
         $newPassword = '';

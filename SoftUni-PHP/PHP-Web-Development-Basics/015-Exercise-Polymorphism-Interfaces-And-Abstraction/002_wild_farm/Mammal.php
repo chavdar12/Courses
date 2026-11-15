@@ -3,7 +3,6 @@
 
 abstract class Mammal extends Animal
 {
-
     /**
      * @var string
      */

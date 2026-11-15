@@ -2,7 +2,6 @@
 
 namespace Services\Users;
 
-
 use Data\Users\UserDTO;
 use Data\Users\UserEditDTO;
 use Exception\User\EditProfileException;
@@ -13,9 +12,9 @@ use Services\Encryption\EncryptionServiceInterface;
 
 class UserService implements UserServiceInterface
 {
-    const MIN_USER_LENGTH = 5;
-    const MAX_ALLOWED_SIZE = 30000;
-    const ALLOWED_IMAGE_PREFIX = 'image/';
+    public const MIN_USER_LENGTH = 5;
+    public const MAX_ALLOWED_SIZE = 30000;
+    public const ALLOWED_IMAGE_PREFIX = 'image/';
 
     /**
      * @var UserRepositoryInterface
@@ -63,7 +62,7 @@ class UserService implements UserServiceInterface
 
         if ($changePassword) {
             $userDTO->setNewPassword(
-                $this->encryptionService->hash($userDTO->getNewPassword())
+                $this->encryptionService->hash($userDTO->getNewPassword()),
             );
         }
 
@@ -106,7 +105,7 @@ class UserService implements UserServiceInterface
 
         if (!move_uploaded_file(
             $tempName,
-            "$appRoot/$filePath"
+            "$appRoot/$filePath",
         )) {
             throw new UploadException("Error uploading file");
         }

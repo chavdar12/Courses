@@ -55,7 +55,7 @@
                     echo "<tr><td>" . htmlspecialchars($names[$i]) . "</td><td>" . htmlspecialchars($ages[$i]) . "</td></tr>";
                 }
             }
-            ?>
+        ?>
             </tbody>
         </table>
         <?php

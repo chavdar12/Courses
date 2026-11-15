@@ -1,4 +1,5 @@
 <?php
+
 // Front controller: every request goes through the router.
 // Run: php -S localhost:8000 index.php   then open http://localhost:8000/users/login
 spl_autoload_register(function (string $class) {

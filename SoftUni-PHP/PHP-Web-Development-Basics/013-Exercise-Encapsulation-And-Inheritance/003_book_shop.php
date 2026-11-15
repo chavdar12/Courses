@@ -145,7 +145,7 @@ if ($bookType === "STANDARD") {
     } catch (Exception $e) {
         echo $e->getMessage();
     }
-} else if ($bookType === "GOLD") {
+} elseif ($bookType === "GOLD") {
     try {
         $goldBook = new GoldenEditionBook($bookTitle, $bookAuthor, $bookPrice);
         echo $goldBook;
