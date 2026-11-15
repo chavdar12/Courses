@@ -1,4 +1,5 @@
 <?php
+
 $arr = array_map('intval', explode(' ', trim(fgets(STDIN))));
 
 while (($command = trim(fgets(STDIN))) !== "end") {
@@ -26,4 +27,3 @@ while (($command = trim(fgets(STDIN))) !== "end") {
 }
 
 echo implode(' ', $arr);
-?>

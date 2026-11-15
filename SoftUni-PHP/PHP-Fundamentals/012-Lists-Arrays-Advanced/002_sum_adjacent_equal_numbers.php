@@ -1,4 +1,5 @@
 <?php
+
 $arr = array_map('floatval', explode(' ', trim(fgets(STDIN))));
 
 for ($i = 0; $i < count($arr) - 1; $i++) {
@@ -10,4 +11,3 @@ for ($i = 0; $i < count($arr) - 1; $i++) {
 }
 
 echo implode(' ', $arr);
-?>

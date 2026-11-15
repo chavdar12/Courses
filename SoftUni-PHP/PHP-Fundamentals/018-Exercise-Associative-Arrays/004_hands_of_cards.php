@@ -25,11 +25,11 @@ while (true) {
 
 $cardValues = [
     "2" => 2, "3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
-    "8" => 8, "9" => 9, "10" => 10, "J" => 11, "Q" => 12, "K" => 13, "A" => 14
+    "8" => 8, "9" => 9, "10" => 10, "J" => 11, "Q" => 12, "K" => 13, "A" => 14,
 ];
 
 $cardTypes = [
-    "S" => 4, "H" => 3, "D" => 2, "C" => 1
+    "S" => 4, "H" => 3, "D" => 2, "C" => 1,
 ];
 
 foreach ($cards as $name => $cardsList) {
@@ -41,5 +41,3 @@ foreach ($cards as $name => $cardsList) {
     }
     echo "$name: $totalValue\n";
 }
-
-?>

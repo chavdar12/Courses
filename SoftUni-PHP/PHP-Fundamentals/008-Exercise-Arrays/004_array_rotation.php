@@ -1,4 +1,5 @@
 <?php
+
 $array = explode(" ", readline());
 $rotations = intval(readline());
 $rotations = $rotations % count($array);

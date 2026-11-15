@@ -1,4 +1,5 @@
 <?php
+
 // Generates many boards and checks each is a valid fourdoku, then checks the page renders one.
 // Usage: php test_011_problem_solving.php
 require_once __DIR__ . '/fourdoku.php';

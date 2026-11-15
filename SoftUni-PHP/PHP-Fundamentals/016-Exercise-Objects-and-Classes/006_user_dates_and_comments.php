@@ -41,4 +41,3 @@ foreach ($dates as $user => $userDates) {
         echo "-- {$date}\n";
     }
 }
-?>

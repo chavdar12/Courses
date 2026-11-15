@@ -13,7 +13,7 @@ for ($i = 0; $i < $n * 2; $i += 2) {
     $synonyms[$word][] = $synonym;
 }
 
-uksort($synonyms, function($a, $b) use ($synonyms) {
+uksort($synonyms, function ($a, $b) use ($synonyms) {
     $countA = count($synonyms[$a]);
     $countB = count($synonyms[$b]);
 
@@ -27,5 +27,3 @@ uksort($synonyms, function($a, $b) use ($synonyms) {
 foreach ($synonyms as $word => $synonymList) {
     echo "$word - " . implode(", ", $synonymList) . "\n";
 }
-
-?>

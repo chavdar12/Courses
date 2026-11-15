@@ -1,4 +1,5 @@
 <?php
+
 $array = array_map('intval', explode(" ", trim(fgets(STDIN))));
 $middle = floor(count($array) / 2);
 
@@ -24,4 +25,3 @@ if ($leftTime < $rightTime) {
 } else {
     echo "The winner is right with total time: " . number_format($rightTime, 1) . "\n";
 }
-?>

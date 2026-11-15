@@ -31,4 +31,3 @@ while (true) {
 foreach ($bottles as $juice => $bottleCount) {
     echo "{$juice} => {$bottleCount}\n";
 }
-?>

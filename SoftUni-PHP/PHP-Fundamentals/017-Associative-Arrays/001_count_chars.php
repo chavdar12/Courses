@@ -14,5 +14,3 @@ foreach (str_split(str_replace(' ', '', $text)) as $char) {
 foreach ($charCount as $char => $count) {
     echo "$char -> $count\n";
 }
-
-?>

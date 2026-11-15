@@ -1,17 +1,22 @@
 <?php
-function add($a, $b) {
+
+function add($a, $b)
+{
     return $a + $b;
 }
 
-function subtract($a, $b) {
+function subtract($a, $b)
+{
     return $a - $b;
 }
 
-function multiply($a, $b) {
+function multiply($a, $b)
+{
     return $a * $b;
 }
 
-function divide($a, $b) {
+function divide($a, $b)
+{
     return $a / $b;
 }
 
@@ -33,4 +38,3 @@ switch ($operation) {
         echo divide($num1, $num2) . "\n";
         break;
 }
-?>

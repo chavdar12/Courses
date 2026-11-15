@@ -1,4 +1,5 @@
 <?php
+
 $input = trim(fgets(STDIN));
 $pattern = '/(\D+)(\d+)/';
 
@@ -20,4 +21,3 @@ foreach ($matches[1] as $index => $str) {
 
 echo "Unique symbols used: " . count($uniqueSymbols) . PHP_EOL;
 echo $rageMessage;
-?>

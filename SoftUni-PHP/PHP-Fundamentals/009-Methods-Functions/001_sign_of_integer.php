@@ -1,5 +1,7 @@
 <?php
-function signOfInteger($num) {
+
+function signOfInteger($num)
+{
     if ($num > 0) {
         echo "The number $num is positive.\n";
     } elseif ($num < 0) {
@@ -11,4 +13,3 @@ function signOfInteger($num) {
 
 $number = intval(fgets(STDIN));
 signOfInteger($number);
-?>

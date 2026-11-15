@@ -1,4 +1,5 @@
 <?php
+
 // Runs every script in this lesson with the example input from the course and checks its output.
 // Usage: php test_020_exercise_text_processing.php
 

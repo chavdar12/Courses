@@ -1,24 +1,29 @@
 <?php
 
-class Person {
+class Person
+{
     public $name;
     public $age;
 
-    public function __construct($name, $age) {
+    public function __construct($name, $age)
+    {
         $this->name = $name;
         $this->age = $age;
     }
 }
 
-class Family {
+class Family
+{
     private $members = [];
 
-    public function addMember($member) {
+    public function addMember($member)
+    {
         $this->members[] = $member;
     }
 
-    public function getOldestMember() {
-        usort($this->members, function($a, $b) {
+    public function getOldestMember()
+    {
+        usort($this->members, function ($a, $b) {
             return $b->age - $a->age;
         });
         return $this->members[0];
@@ -37,5 +42,3 @@ for ($i = 0; $i < $n; $i++) {
 
 $oldest = $family->getOldestMember();
 echo $oldest->name . " " . $oldest->age . "\n";
-
-?>

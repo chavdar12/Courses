@@ -31,4 +31,3 @@ foreach ($grouped as $initial => $group) {
         echo "  {$product['name']}: {$product['price']}\n";
     }
 }
-?>

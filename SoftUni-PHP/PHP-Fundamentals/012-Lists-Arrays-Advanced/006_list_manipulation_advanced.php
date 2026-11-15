@@ -1,4 +1,5 @@
 <?php
+
 $arr = array_map('intval', explode(' ', trim(fgets(STDIN))));
 
 while (($command = trim(fgets(STDIN))) !== "end") {
@@ -11,9 +12,13 @@ while (($command = trim(fgets(STDIN))) !== "end") {
             break;
         case "Print":
             if ($tokens[1] == "even") {
-                echo implode(' ', array_filter($arr, function($x) { return $x % 2 == 0; })) . "\n";
+                echo implode(' ', array_filter($arr, function ($x) {
+                    return $x % 2 == 0;
+                })) . "\n";
             } elseif ($tokens[1] == "odd") {
-                echo implode(' ', array_filter($arr, function($x) { return $x % 2 != 0; })) . "\n";
+                echo implode(' ', array_filter($arr, function ($x) {
+                    return $x % 2 != 0;
+                })) . "\n";
             }
             break;
         case "Get":
@@ -25,10 +30,10 @@ while (($command = trim(fgets(STDIN))) !== "end") {
             $filtered = [];
             foreach ($arr as $num) {
                 if (
-                    ($condition == '<' && $num < $number) ||
-                    ($condition == '>' && $num > $number) ||
-                    ($condition == '>=' && $num >= $number) ||
-                    ($condition == '<=' && $num <= $number)
+                    ($condition == '<' && $num < $number)
+                    || ($condition == '>' && $num > $number)
+                    || ($condition == '>=' && $num >= $number)
+                    || ($condition == '<=' && $num <= $number)
                 ) {
                     $filtered[] = $num;
                 }
@@ -37,4 +42,3 @@ while (($command = trim(fgets(STDIN))) !== "end") {
             break;
     }
 }
-?>

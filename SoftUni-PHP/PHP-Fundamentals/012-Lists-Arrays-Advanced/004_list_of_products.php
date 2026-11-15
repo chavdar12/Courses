@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(fgets(STDIN));
 $products = [];
 
@@ -11,4 +12,3 @@ sort($products);
 foreach ($products as $index => $product) {
     echo ($index + 1) . '.' . $product . "\n";
 }
-?>

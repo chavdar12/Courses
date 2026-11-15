@@ -1,4 +1,5 @@
 <?php
+
 $numbers = [];
 for ($i = 0; $i < 3; $i++) {
     $numbers[] = floatval(readline());

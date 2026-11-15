@@ -1,4 +1,5 @@
 <?php
+
 $groups = array_reverse(explode('|', trim(fgets(STDIN))));
 $result = [];
 foreach ($groups as $group) {

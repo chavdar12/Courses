@@ -1,4 +1,5 @@
 <?php
+
 $income = 0;
 while (true) {
     $input = trim(fgets(STDIN));
@@ -20,4 +21,3 @@ while (true) {
 }
 
 echo "Total income: " . number_format($income, 2, '.', '') . PHP_EOL;
-?>

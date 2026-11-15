@@ -1,4 +1,5 @@
 <?php
+
 $a = floatval(readline());
 $b = floatval(readline());
 $eps = 0.000001;

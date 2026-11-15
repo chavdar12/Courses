@@ -1,4 +1,5 @@
 <?php
+
 function exchange(array $array, int $index): array
 {
     if ($index < 0 || $index >= count($array)) {

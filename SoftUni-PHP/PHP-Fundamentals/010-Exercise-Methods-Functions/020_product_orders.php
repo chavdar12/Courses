@@ -1,10 +1,13 @@
 <?php
+
 $products = explode(" ", trim(fgets(STDIN)));
 $quantities = explode(" ", trim(fgets(STDIN)));
 $prices = explode(" ", trim(fgets(STDIN)));
 
 while ($order = trim(fgets(STDIN))) {
-    if ($order == "done") break;
+    if ($order == "done") {
+        break;
+    }
 
     list($productName, $orderQuantity) = explode(" ", $order);
     $index = array_search($productName, $products);
@@ -22,4 +25,3 @@ while ($order = trim(fgets(STDIN))) {
         }
     }
 }
-?>

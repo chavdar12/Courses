@@ -1,28 +1,34 @@
 <?php
 
-class Employee {
+class Employee
+{
     public $name;
     public $salary;
 
-    public function __construct($name, $salary) {
+    public function __construct($name, $salary)
+    {
         $this->name = $name;
         $this->salary = $salary;
     }
 }
 
-class Department {
+class Department
+{
     public $name;
     public $employees = [];
 
-    public function __construct($name) {
+    public function __construct($name)
+    {
         $this->name = $name;
     }
 
-    public function addEmployee($employee) {
+    public function addEmployee($employee)
+    {
         $this->employees[] = $employee;
     }
 
-    public function averageSalary() {
+    public function averageSalary()
+    {
         $totalSalary = 0;
         foreach ($this->employees as $employee) {
             $totalSalary += $employee->salary;
@@ -59,12 +65,10 @@ foreach ($departments as $dept) {
 
 echo "Highest Average Salary: {$highestAvgSalaryDept->name}\n";
 
-usort($highestAvgSalaryDept->employees, function($a, $b) {
+usort($highestAvgSalaryDept->employees, function ($a, $b) {
     return $b->salary <=> $a->salary;
 });
 
 foreach ($highestAvgSalaryDept->employees as $employee) {
     echo "{$employee->name} " . number_format($employee->salary, 2, ".", "") . "\n";
 }
-
-?>

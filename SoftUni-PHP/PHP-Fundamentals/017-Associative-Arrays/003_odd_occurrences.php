@@ -19,5 +19,3 @@ foreach ($wordCount as $word => $count) {
 }
 
 echo implode(" ", $result) . "\n";
-
-?>

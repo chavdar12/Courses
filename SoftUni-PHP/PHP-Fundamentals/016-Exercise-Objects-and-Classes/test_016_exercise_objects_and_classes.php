@@ -1,4 +1,5 @@
 <?php
+
 // Runs every script in this lesson with the example input from the course and checks its output.
 // Usage: php test_016_exercise_objects_and_classes.php
 

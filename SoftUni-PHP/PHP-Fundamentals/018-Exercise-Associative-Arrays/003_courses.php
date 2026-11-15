@@ -1,9 +1,12 @@
 <?php
+
 $courses = [];
 
 while (true) {
     $input = trim(fgets(STDIN));
-    if ($input == "end") break;
+    if ($input == "end") {
+        break;
+    }
 
     [$courseName, $studentName] = explode(' : ', $input);
 
@@ -23,4 +26,3 @@ foreach ($courses as $courseName => $students) {
         echo "-- $student\n";
     }
 }
-?>

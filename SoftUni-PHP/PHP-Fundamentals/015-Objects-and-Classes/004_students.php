@@ -1,30 +1,37 @@
 <?php
-class Student {
+
+class Student
+{
     private $firstName;
     private $lastName;
     private $age;
     private $city;
 
-    public function __construct($firstName, $lastName, $age, $city) {
+    public function __construct($firstName, $lastName, $age, $city)
+    {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->age = $age;
         $this->city = $city;
     }
 
-    public function getCity() {
+    public function getCity()
+    {
         return $this->city;
     }
 
-    public function getFirstName() {
+    public function getFirstName()
+    {
         return $this->firstName;
     }
 
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->lastName;
     }
 
-    public function getAge() {
+    public function getAge()
+    {
         return $this->age;
     }
 }
@@ -46,4 +53,3 @@ foreach ($students as $student) {
         echo $student->getFirstName() . " " . $student->getLastName() . " is " . $student->getAge() . " years old." . PHP_EOL;
     }
 }
-?>

@@ -1,4 +1,5 @@
 <?php
+
 $first = array_map('intval', explode(' ', trim(fgets(STDIN))));
 $second = array_map('intval', explode(' ', trim(fgets(STDIN))));
 

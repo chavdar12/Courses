@@ -1,4 +1,5 @@
 <?php
+
 $array = array_map('intval', explode(' ', fgets(STDIN)));
 $sum = 0;
 $i = 0;

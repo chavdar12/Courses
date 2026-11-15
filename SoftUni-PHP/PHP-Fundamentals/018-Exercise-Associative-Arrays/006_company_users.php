@@ -4,7 +4,9 @@ $companies = [];
 
 while (true) {
     $input = trim(fgets(STDIN));
-    if ($input === "End") break;
+    if ($input === "End") {
+        break;
+    }
 
     $parts = explode(" -> ", $input);
     $companyName = $parts[0];
@@ -25,4 +27,3 @@ foreach ($companies as $companyName => $employees) {
         echo "-- $id\n";
     }
 }
-?>

@@ -1,4 +1,5 @@
 <?php
+
 $num = intval(trim(fgets(STDIN)));
 
 $a = 1;
@@ -12,4 +13,3 @@ for ($i = 1; $i <= $num; $i++) {
     $b = $c;
     $c = $temp;
 }
-?>

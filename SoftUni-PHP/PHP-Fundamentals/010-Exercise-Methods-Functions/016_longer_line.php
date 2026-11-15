@@ -1,10 +1,13 @@
 <?php
-function distance($x1, $y1, $x2, $y2) {
+
+function distance($x1, $y1, $x2, $y2)
+{
     return sqrt(($x1 - $x2) ** 2 + ($y1 - $y2) ** 2);
 }
 
 // prints the line's points starting with the one closer to the center (0, 0)
-function printLine($x1, $y1, $x2, $y2) {
+function printLine($x1, $y1, $x2, $y2)
+{
     if (distance($x1, $y1, 0, 0) <= distance($x2, $y2, 0, 0)) {
         echo "($x1, $y1)($x2, $y2)";
     } else {

@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(readline());
 for ($i = 2; $i <= $n; $i++) {
     $isPrime = true;

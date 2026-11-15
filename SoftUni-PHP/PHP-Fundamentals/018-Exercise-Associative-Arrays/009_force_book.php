@@ -1,4 +1,5 @@
 <?php
+
 $forceUsers = [];
 while (($input = trim(fgets(STDIN))) !== "Lumpawaroo") {
     if (strpos($input, " | ") !== false) {

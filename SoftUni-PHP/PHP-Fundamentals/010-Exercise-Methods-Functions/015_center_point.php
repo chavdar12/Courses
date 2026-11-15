@@ -1,4 +1,5 @@
 <?php
+
 $x1 = intval(trim(fgets(STDIN)));
 $y1 = intval(trim(fgets(STDIN)));
 $x2 = intval(trim(fgets(STDIN)));
@@ -12,4 +13,3 @@ if ($distance1 <= $distance2) {
 } else {
     echo "($x2, $y2)";
 }
-?>

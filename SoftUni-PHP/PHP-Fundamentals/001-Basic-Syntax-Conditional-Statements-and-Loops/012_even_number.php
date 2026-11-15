@@ -1,4 +1,5 @@
 <?php
+
 while (true) {
     $number = intval(readline());
     if ($number % 2 === 0) {

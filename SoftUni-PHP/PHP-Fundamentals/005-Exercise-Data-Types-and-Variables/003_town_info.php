@@ -1,4 +1,5 @@
 <?php
+
 $town = readline();
 $population = intval(readline());
 $area = floatval(readline());

@@ -1,4 +1,5 @@
 <?php
+
 $key = intval(fgets(STDIN));
 
 while (true) {
@@ -20,4 +21,3 @@ while (true) {
         }
     }
 }
-?>

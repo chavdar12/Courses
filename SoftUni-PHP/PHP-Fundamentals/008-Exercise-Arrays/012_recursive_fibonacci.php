@@ -1,5 +1,7 @@
 <?php
-function fibonacci($n) {
+
+function fibonacci($n)
+{
     if ($n <= 2) {
         return 1;
     }

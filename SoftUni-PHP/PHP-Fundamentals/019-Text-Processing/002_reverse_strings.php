@@ -1,4 +1,5 @@
 <?php
+
 while (true) {
     $input = trim(fgets(STDIN));
     if ($input === 'end') {
@@ -6,4 +7,3 @@ while (true) {
     }
     echo $input . ' = ' . strrev($input) . PHP_EOL;
 }
-?>

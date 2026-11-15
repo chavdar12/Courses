@@ -1,4 +1,5 @@
 <?php
+
 // Checks every page in this lesson: it parses as HTML5, has a title, and every local src/href exists.
 // Usage: php test_006_basic_css.php (needs PHP 8.4+ for Dom\HTMLDocument)
 

@@ -1,4 +1,5 @@
 <?php
+
 $key = array_map('intval', explode(' ', trim(fgets(STDIN))));
 
 while (true) {
@@ -23,4 +24,3 @@ while (true) {
         echo "Found {$typeMatches[1]} at {$coordinatesMatches[1]}\n";
     }
 }
-?>

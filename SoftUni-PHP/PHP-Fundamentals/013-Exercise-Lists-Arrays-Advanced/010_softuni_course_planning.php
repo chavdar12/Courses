@@ -1,4 +1,5 @@
 <?php
+
 $courses = explode(", ", trim(fgets(STDIN)));
 
 while (true) {
@@ -64,4 +65,3 @@ while (true) {
 foreach ($courses as $index => $lesson) {
     echo ($index + 1) . "." . $lesson . "\n";
 }
-?>

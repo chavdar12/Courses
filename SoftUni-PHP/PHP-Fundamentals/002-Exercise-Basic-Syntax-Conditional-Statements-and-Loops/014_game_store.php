@@ -1,4 +1,5 @@
 <?php
+
 $games = [
     "OutFall 4" => 39.99,
     "CS: OG" => 15.99,
@@ -14,7 +15,9 @@ $totalSpent = 0;
 while (true) {
     $game = readline();
 
-    if ($game === "Game Time") break;
+    if ($game === "Game Time") {
+        break;
+    }
 
     if (array_key_exists($game, $games)) {
         if ($balance >= $games[$game]) {

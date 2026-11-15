@@ -1,23 +1,28 @@
 <?php
 
-class Student {
+class Student
+{
     private $name;
     private $grades;
 
-    public function __construct($name, $grades) {
+    public function __construct($name, $grades)
+    {
         $this->name = $name;
         $this->grades = $grades;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
-    public function getGrades() {
+    public function getGrades()
+    {
         return $this->grades;
     }
 
-    public function getAverageGrade() {
+    public function getAverageGrade()
+    {
         return array_sum($this->grades) / count($this->grades);
     }
 }
@@ -47,4 +52,3 @@ usort($filteredStudents, function ($a, $b) {
 foreach ($filteredStudents as $student) {
     echo "{$student->getName()} -> " . number_format($student->getAverageGrade(), 2) . "\n";
 }
-?>

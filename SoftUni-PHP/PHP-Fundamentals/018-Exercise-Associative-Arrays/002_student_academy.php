@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(fgets(STDIN));
 $students = [];
 
@@ -27,4 +28,3 @@ arsort($students);
 foreach ($students as $name => $averageGrade) {
     echo "$name -> $averageGrade\n";
 }
-?>

@@ -1,11 +1,12 @@
 <?php
+
 $string = trim(fgets(STDIN));
 $strength = 0;
 $explodedString = '';
 
 for ($i = 0; $i < strlen($string); $i++) {
     if ($string[$i] === '>') {
-        $strength += (int)$string[$i + 1];
+        $strength += (int) $string[$i + 1];
         $explodedString .= '>';
     } elseif ($strength > 0) {
         $strength--;
@@ -15,4 +16,3 @@ for ($i = 0; $i < strlen($string); $i++) {
 }
 
 echo $explodedString;
-?>

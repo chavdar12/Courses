@@ -1,4 +1,5 @@
 <?php
+
 $substring = trim(fgets(STDIN));
 $string = trim(fgets(STDIN));
 
@@ -7,4 +8,3 @@ while (str_contains($string, $substring)) {
 }
 
 echo $string;
-?>

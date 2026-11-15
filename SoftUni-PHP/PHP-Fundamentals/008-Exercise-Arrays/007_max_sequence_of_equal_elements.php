@@ -1,4 +1,5 @@
 <?php
+
 $array = explode(" ", readline());
 $maxSequence = [];
 $tempSequence = [];

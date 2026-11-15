@@ -1,4 +1,5 @@
 <?php
+
 $usernames = explode(", ", trim(fgets(STDIN)));
 
 foreach ($usernames as $username) {
@@ -6,4 +7,3 @@ foreach ($usernames as $username) {
         echo $username . PHP_EOL;
     }
 }
-?>

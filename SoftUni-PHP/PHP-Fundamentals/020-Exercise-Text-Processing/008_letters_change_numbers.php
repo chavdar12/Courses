@@ -1,5 +1,7 @@
 <?php
-function calculateResult($str) {
+
+function calculateResult($str)
+{
     $letterBefore = $str[0];
     $num = intval(substr($str, 1, -1));
     $letterAfter = $str[strlen($str) - 1];
@@ -32,4 +34,3 @@ foreach ($strings as $str) {
 }
 
 echo number_format($total, 2, '.', '');
-?>

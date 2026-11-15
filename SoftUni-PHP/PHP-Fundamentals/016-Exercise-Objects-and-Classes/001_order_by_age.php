@@ -11,7 +11,7 @@ while (true) {
     $data = explode(" ", trim($input));
     $name = $data[0];
     $id = $data[1];
-    $age = (int)$data[2];
+    $age = (int) $data[2];
 
     $people[] = ['name' => $name, 'id' => $id, 'age' => $age];
 }
@@ -23,4 +23,3 @@ usort($people, function ($a, $b) {
 foreach ($people as $person) {
     echo "{$person['name']} with ID: {$person['id']} is {$person['age']} years old.\n";
 }
-?>

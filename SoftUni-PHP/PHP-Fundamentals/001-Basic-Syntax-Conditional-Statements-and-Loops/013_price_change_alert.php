@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(readline());
 $threshold = floatval(readline());
 

@@ -1,4 +1,5 @@
 <?php
+
 $array = explode(" ", trim(fgets(STDIN)));
 
 while (true) {
@@ -38,4 +39,3 @@ while (true) {
 }
 
 echo implode(", ", $array) . "\n";
-?>

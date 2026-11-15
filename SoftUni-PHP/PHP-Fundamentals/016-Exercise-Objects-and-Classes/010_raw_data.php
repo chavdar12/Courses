@@ -1,31 +1,37 @@
 <?php
 
-class Engine {
+class Engine
+{
     public $speed;
     public $power;
 
-    public function __construct($speed, $power) {
+    public function __construct($speed, $power)
+    {
         $this->speed = $speed;
         $this->power = $power;
     }
 }
 
-class Cargo {
+class Cargo
+{
     public $weight;
     public $type;
 
-    public function __construct($weight, $type) {
+    public function __construct($weight, $type)
+    {
         $this->weight = $weight;
         $this->type = $type;
     }
 }
 
-class Car {
+class Car
+{
     public $model;
     public $engine;
     public $cargo;
 
-    public function __construct($model, $engine, $cargo) {
+    public function __construct($model, $engine, $cargo)
+    {
         $this->model = $model;
         $this->engine = $engine;
         $this->cargo = $cargo;
@@ -58,5 +64,3 @@ if ($command === "fragile") {
         }
     }
 }
-
-?>

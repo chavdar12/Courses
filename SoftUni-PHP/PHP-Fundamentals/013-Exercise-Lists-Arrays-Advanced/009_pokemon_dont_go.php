@@ -1,4 +1,5 @@
 <?php
+
 $distances = array_map('intval', explode(" ", trim(fgets(STDIN))));
 $removedSum = 0;
 
@@ -30,4 +31,3 @@ while (count($distances) > 0) {
 }
 
 echo $removedSum . "\n";
-?>

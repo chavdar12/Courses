@@ -1,29 +1,35 @@
 <?php
 
-class Article {
+class Article
+{
     private $title;
     private $content;
     private $author;
 
-    public function __construct($title, $content, $author) {
+    public function __construct($title, $content, $author)
+    {
         $this->title = $title;
         $this->content = $content;
         $this->author = $author;
     }
 
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
-    public function getContent() {
+    public function getContent()
+    {
         return $this->content;
     }
 
-    public function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return "{$this->title} - {$this->content}: {$this->author}";
     }
 }
@@ -38,7 +44,7 @@ for ($i = 0; $i < $n; $i++) {
 
 $sortCriteria = trim(fgets(STDIN));
 
-usort($articles, function($a, $b) use ($sortCriteria) {
+usort($articles, function ($a, $b) use ($sortCriteria) {
     if ($sortCriteria === 'title') {
         return strcmp($a->getTitle(), $b->getTitle());
     } elseif ($sortCriteria === 'content') {
@@ -51,4 +57,3 @@ usort($articles, function($a, $b) use ($sortCriteria) {
 foreach ($articles as $article) {
     echo $article . "\n";
 }
-?>

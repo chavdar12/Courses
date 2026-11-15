@@ -1,4 +1,5 @@
 <?php
+
 $username = readline();
 $password = strrev($username);
 $attempts = 0;

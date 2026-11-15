@@ -1,38 +1,46 @@
 <?php
 
-class Book {
+class Book
+{
     private $title;
     private $author;
     private $price;
 
-    public function __construct($title, $author, $price) {
+    public function __construct($title, $author, $price)
+    {
         $this->title = $title;
         $this->author = $author;
         $this->price = $price;
     }
 
-    public function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
 
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->price;
     }
 }
 
-class Library {
+class Library
+{
     private $name;
     private $books = [];
 
-    public function __construct($name) {
+    public function __construct($name)
+    {
         $this->name = $name;
     }
 
-    public function addBook($book) {
+    public function addBook($book)
+    {
         $this->books[] = $book;
     }
 
-    public function getBooks() {
+    public function getBooks()
+    {
         return $this->books;
     }
 }
@@ -66,4 +74,3 @@ uksort($authors, fn($a, $b) => [$authors[$b], $a] <=> [$authors[$a], $b]);
 foreach ($authors as $author => $totalPrice) {
     echo "{$author} -> " . number_format($totalPrice, 2) . "\n";
 }
-?>

@@ -1,4 +1,5 @@
 <?php
+
 $fieldSize = intval(fgets(STDIN));
 $field = array_fill(0, $fieldSize, 0);
 $ladybugs = preg_split('/\s+/', trim(fgets(STDIN)), -1, PREG_SPLIT_NO_EMPTY);

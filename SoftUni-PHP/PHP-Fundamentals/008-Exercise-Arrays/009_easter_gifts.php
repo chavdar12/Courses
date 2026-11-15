@@ -1,8 +1,11 @@
 <?php
+
 $gifts = explode(" ", readline());
 while (true) {
     $command = readline();
-    if ($command == "No Money") break;
+    if ($command == "No Money") {
+        break;
+    }
 
     $parts = explode(" ", $command);
     $action = $parts[0];

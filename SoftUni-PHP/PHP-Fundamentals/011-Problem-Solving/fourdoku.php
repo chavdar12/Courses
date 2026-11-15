@@ -1,4 +1,5 @@
 <?php
+
 // A filled 4x4 sudoku: every row, column and 2x2 box holds 1-4 exactly once.
 class Fourdoku
 {

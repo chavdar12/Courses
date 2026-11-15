@@ -1,4 +1,5 @@
 <?php
+
 $money = floatval(readline());
 $students = intval(readline());
 $lightsaberPrice = floatval(readline());

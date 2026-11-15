@@ -1,4 +1,5 @@
 <?php
+
 $arr = array_map('intval', explode(' ', trim(fgets(STDIN))));
 $result = [];
 $count = count($arr);

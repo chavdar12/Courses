@@ -1,5 +1,7 @@
 <?php
-function printGrade($grade) {
+
+function printGrade($grade)
+{
     if ($grade >= 2.00 && $grade <= 2.99) {
         echo "Fail\n";
     } elseif ($grade >= 3.00 && $grade <= 3.49) {
@@ -15,4 +17,3 @@ function printGrade($grade) {
 
 $grade = floatval(fgets(STDIN));
 printGrade($grade);
-?>

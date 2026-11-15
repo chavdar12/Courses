@@ -1,4 +1,5 @@
 <?php
+
 $char1 = ord(trim(fgets(STDIN)));
 $char2 = ord(trim(fgets(STDIN)));
 $string = trim(fgets(STDIN));
@@ -15,4 +16,3 @@ foreach (str_split($string) as $char) {
 }
 
 echo $sum . "\n";
-?>

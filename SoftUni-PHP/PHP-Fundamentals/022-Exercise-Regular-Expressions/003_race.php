@@ -1,4 +1,5 @@
 <?php
+
 $participants = explode(', ', trim(fgets(STDIN)));
 $distances = [];
 
@@ -24,4 +25,3 @@ $places = ['1st', '2nd', '3rd'];
 foreach (array_slice(array_keys($distances), 0, 3) as $rank => $name) {
     echo "{$places[$rank]} place: {$name}\n";
 }
-?>

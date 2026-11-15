@@ -1,4 +1,5 @@
 <?php
+
 $savings = floatval(fgets(STDIN));
 $initial = array_map('intval', explode(" ", trim(fgets(STDIN))));
 $drums = $initial;

@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(readline());
 $sum = 0;
 

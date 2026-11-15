@@ -1,5 +1,7 @@
 <?php
-function charactersInRange($start, $end) {
+
+function charactersInRange($start, $end)
+{
     $startAscii = ord($start);
     $endAscii = ord($end);
     for ($i = $startAscii + 1; $i < $endAscii; $i++) {
@@ -8,4 +10,3 @@ function charactersInRange($start, $end) {
 }
 
 charactersInRange('a', 'd');
-?>

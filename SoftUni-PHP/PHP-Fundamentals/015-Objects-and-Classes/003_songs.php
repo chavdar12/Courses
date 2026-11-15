@@ -1,20 +1,25 @@
 <?php
-class Song {
+
+class Song
+{
     private $typeList;
     private $name;
     private $time;
 
-    public function __construct($typeList, $name, $time) {
+    public function __construct($typeList, $name, $time)
+    {
         $this->typeList = $typeList;
         $this->name = $name;
         $this->time = $time;
     }
 
-    public function getTypeList() {
+    public function getTypeList()
+    {
         return $this->typeList;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 }
@@ -34,4 +39,3 @@ foreach ($songs as $song) {
         echo $song->getName() . PHP_EOL;
     }
 }
-?>

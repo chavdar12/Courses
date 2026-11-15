@@ -1,4 +1,5 @@
 <?php
+
 $numbers = explode(" ", readline());
 $evenSum = 0;
 $oddSum = 0;

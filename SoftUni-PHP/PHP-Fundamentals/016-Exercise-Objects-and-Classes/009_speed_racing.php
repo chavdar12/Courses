@@ -1,18 +1,21 @@
 <?php
 
-class Car {
+class Car
+{
     public $model;
     public $fuelAmount;
     public $fuelConsumption;
     public $distanceTraveled = 0;
 
-    public function __construct($model, $fuelAmount, $fuelConsumption) {
+    public function __construct($model, $fuelAmount, $fuelConsumption)
+    {
         $this->model = $model;
         $this->fuelAmount = $fuelAmount;
         $this->fuelConsumption = $fuelConsumption;
     }
 
-    public function drive($km) {
+    public function drive($km)
+    {
         $neededFuel = $km * $this->fuelConsumption;
         if ($neededFuel <= $this->fuelAmount) {
             $this->fuelAmount -= $neededFuel;
@@ -36,7 +39,9 @@ for ($i = 0; $i < $n; $i++) {
 
 while (true) {
     $input = trim(fgets(STDIN));
-    if ($input === "End") break;
+    if ($input === "End") {
+        break;
+    }
 
     $data = explode(" ", $input);
     $command = $data[0];
@@ -51,5 +56,3 @@ while (true) {
 foreach ($cars as $car) {
     echo "{$car->model} " . number_format($car->fuelAmount, 2) . " {$car->distanceTraveled}\n";
 }
-
-?>

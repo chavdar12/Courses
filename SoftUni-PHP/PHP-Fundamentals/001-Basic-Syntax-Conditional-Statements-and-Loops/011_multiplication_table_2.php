@@ -1,4 +1,5 @@
 <?php
+
 $number = intval(readline());
 $startMultiplier = intval(readline());
 

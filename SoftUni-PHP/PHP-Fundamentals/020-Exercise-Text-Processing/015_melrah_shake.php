@@ -1,4 +1,5 @@
 <?php
+
 $string = trim(fgets(STDIN));
 $pattern = trim(fgets(STDIN));
 
@@ -20,4 +21,3 @@ while (strlen($pattern) > 0) {
         break;
     }
 }
-?>

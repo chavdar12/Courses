@@ -5,7 +5,9 @@ $submissions = [];
 
 while (true) {
     $input = trim(fgets(STDIN));
-    if ($input === "exam finished") break;
+    if ($input === "exam finished") {
+        break;
+    }
 
     if (strpos($input, "-banned") !== false) {
         list($username) = explode("-", $input);

@@ -1,4 +1,5 @@
 <?php
+
 $array = explode(" ", readline());
 $topIntegers = [];
 for ($i = 0; $i < count($array); $i++) {

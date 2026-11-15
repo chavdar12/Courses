@@ -1,4 +1,5 @@
 <?php
+
 $arr1 = array_map('intval', explode(' ', trim(fgets(STDIN))));
 $arr2 = array_map('intval', explode(' ', trim(fgets(STDIN))));
 
@@ -18,4 +19,3 @@ if (count($arr1) > $min_length) {
 }
 
 echo implode(' ', $result);
-?>

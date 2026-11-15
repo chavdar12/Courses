@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(fgets(STDIN));
 $strings = [];
 for ($i = 0; $i < $n; $i++) {

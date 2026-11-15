@@ -1,16 +1,19 @@
 <?php
 
-class Person {
+class Person
+{
     public $name;
     public $money;
     public $products = [];
 
-    public function __construct($name, $money) {
+    public function __construct($name, $money)
+    {
         $this->name = $name;
         $this->money = $money;
     }
 
-    public function buyProduct($product) {
+    public function buyProduct($product)
+    {
         if ($this->money >= $product->cost) {
             $this->money -= $product->cost;
             $this->products[] = $product;
@@ -21,11 +24,13 @@ class Person {
     }
 }
 
-class Product {
+class Product
+{
     public $name;
     public $cost;
 
-    public function __construct($name, $cost) {
+    public function __construct($name, $cost)
+    {
         $this->name = $name;
         $this->cost = $cost;
     }
@@ -48,7 +53,9 @@ foreach ($productsData as $data) {
 
 while (true) {
     $input = trim(fgets(STDIN));
-    if ($input === "END") break;
+    if ($input === "END") {
+        break;
+    }
 
     list($personName, $productName) = explode(" ", $input);
     $people[$personName]->buyProduct($products[$productName]);
@@ -58,8 +65,8 @@ foreach ($people as $person) {
     if (empty($person->products)) {
         echo "{$person->name} - Nothing bought\n";
     } else {
-        echo "{$person->name} - " . implode(", ", array_map(function($p) { return $p->name; }, $person->products)) . "\n";
+        echo "{$person->name} - " . implode(", ", array_map(function ($p) {
+            return $p->name;
+        }, $person->products)) . "\n";
     }
 }
-
-?>

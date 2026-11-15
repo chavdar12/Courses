@@ -1,4 +1,5 @@
 <?php
+
 $hours = intval(readline());
 $minutes = intval(readline());
 

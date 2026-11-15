@@ -1,8 +1,11 @@
 <?php
+
 $resources = [];
 while (true) {
     $type = trim(fgets(STDIN));
-    if ($type == "stop") break;
+    if ($type == "stop") {
+        break;
+    }
 
     $karats = intval(fgets(STDIN));
 
@@ -16,4 +19,3 @@ while (true) {
 foreach ($resources as $type => $karats) {
     echo "$type -> $karats K\n";
 }
-?>

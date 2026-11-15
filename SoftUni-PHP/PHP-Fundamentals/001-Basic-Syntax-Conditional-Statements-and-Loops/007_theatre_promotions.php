@@ -1,4 +1,5 @@
 <?php
+
 $typeOfDay = trim(readline());
 $age = intval(readline());
 

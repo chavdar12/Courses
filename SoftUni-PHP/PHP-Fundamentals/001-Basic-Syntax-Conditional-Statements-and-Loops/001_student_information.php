@@ -1,4 +1,5 @@
 <?php
+
 $name = trim(readline());
 $age = intval(readline());
 $grade = number_format(floatval(readline()), 2);

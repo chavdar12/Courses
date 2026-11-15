@@ -1,4 +1,5 @@
 <?php
+
 $length = intval(fgets(STDIN));
 $bestSeq = [];
 $bestLength = 0;

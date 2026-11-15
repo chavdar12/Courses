@@ -1,4 +1,5 @@
 <?php
+
 $input = trim(fgets(STDIN));
 
 $numbers = [];
@@ -34,4 +35,3 @@ for ($i = 0; $i < count($takeList); $i++) {
 }
 
 echo $result . "\n";
-?>

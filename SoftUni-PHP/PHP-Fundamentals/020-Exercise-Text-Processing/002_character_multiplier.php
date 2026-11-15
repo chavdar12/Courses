@@ -1,5 +1,7 @@
 <?php
-function characterMultiplier($str1, $str2) {
+
+function characterMultiplier($str1, $str2)
+{
     $sum = 0;
     $length = min(strlen($str1), strlen($str2));
 
@@ -19,4 +21,3 @@ function characterMultiplier($str1, $str2) {
 list($str1, $str2) = explode(' ', trim(fgets(STDIN)));
 
 echo characterMultiplier($str1, $str2);
-?>

@@ -1,4 +1,5 @@
 <?php
+
 $string = [];
 while (true) {
     $line = trim(fgets(STDIN));
@@ -17,4 +18,3 @@ while (true) {
 
 ksort($string);
 echo implode("", $string) . "\n";
-?>

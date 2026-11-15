@@ -1,4 +1,5 @@
 <?php
+
 $tickets = preg_split('/\s*,\s*/', trim(fgets(STDIN)), -1, PREG_SPLIT_NO_EMPTY);
 foreach ($tickets as $ticket) {
     if (strlen($ticket) != 20) {

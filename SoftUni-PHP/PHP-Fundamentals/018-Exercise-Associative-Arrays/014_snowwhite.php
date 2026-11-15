@@ -1,4 +1,5 @@
 <?php
+
 // a dwarf is identified by name and hat colour together
 $dwarfs = [];
 while (($input = trim(fgets(STDIN))) !== "Once upon a time") {

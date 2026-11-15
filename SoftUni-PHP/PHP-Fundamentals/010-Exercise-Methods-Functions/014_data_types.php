@@ -1,4 +1,5 @@
 <?php
+
 $type = trim(fgets(STDIN));
 
 if ($type == 'int') {
@@ -11,4 +12,3 @@ if ($type == 'int') {
     $string = trim(fgets(STDIN));
     echo "$" . $string . "$";
 }
-?>

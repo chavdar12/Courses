@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(readline());
 
 for ($i = 1; $i <= $n; $i++) {

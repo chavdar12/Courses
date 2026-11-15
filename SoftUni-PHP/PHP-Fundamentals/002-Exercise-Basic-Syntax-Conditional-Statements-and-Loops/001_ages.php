@@ -1,4 +1,5 @@
 <?php
+
 $age = intval(readline());
 
 if ($age >= 0 && $age <= 2) {

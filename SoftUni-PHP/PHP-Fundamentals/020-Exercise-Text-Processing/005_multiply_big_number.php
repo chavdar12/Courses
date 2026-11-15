@@ -1,4 +1,5 @@
 <?php
+
 $bigNumber = trim(fgets(STDIN));
 $digit = intval(trim(fgets(STDIN)));
 
@@ -16,4 +17,3 @@ if ($carry > 0) {
 }
 
 echo ltrim($result, '0') ?: '0';
-?>

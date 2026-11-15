@@ -1,4 +1,5 @@
 <?php
+
 $groupSize = intval(readline());
 $type = readline();
 $day = readline();
@@ -6,7 +7,7 @@ $day = readline();
 $prices = [
     "Students" => ["Friday" => 8.45, "Saturday" => 9.80, "Sunday" => 10.46],
     "Business" => ["Friday" => 10.90, "Saturday" => 15.60, "Sunday" => 16.00],
-    "Regular" => ["Friday" => 15.00, "Saturday" => 20.00, "Sunday" => 22.50]
+    "Regular" => ["Friday" => 15.00, "Saturday" => 20.00, "Sunday" => 22.50],
 ];
 
 $totalPrice = $groupSize * $prices[$type][$day];

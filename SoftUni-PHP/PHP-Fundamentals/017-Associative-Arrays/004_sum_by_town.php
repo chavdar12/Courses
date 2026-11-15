@@ -17,5 +17,3 @@ for ($i = 0; $i < count($data); $i += 2) {
 foreach ($townIncome as $town => $income) {
     echo "$town => $income\n";
 }
-
-?>

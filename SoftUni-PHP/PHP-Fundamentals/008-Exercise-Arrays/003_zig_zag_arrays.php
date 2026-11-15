@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(readline());
 $array1 = [];
 $array2 = [];

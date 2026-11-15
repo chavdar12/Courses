@@ -33,5 +33,3 @@ for ($i = 0; $i < $n; $i++) {
 foreach ($parking as $username => $licensePlate) {
     echo "$username => $licensePlate\n";
 }
-
-?>

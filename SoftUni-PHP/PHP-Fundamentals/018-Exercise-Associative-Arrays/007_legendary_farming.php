@@ -1,4 +1,5 @@
 <?php
+
 $legendary = ['shards' => 'Shadowmourne', 'fragments' => 'Valanyr', 'motes' => 'Dragonwrath'];
 $materials = ['shards' => 0, 'fragments' => 0, 'motes' => 0];
 $junk = [];

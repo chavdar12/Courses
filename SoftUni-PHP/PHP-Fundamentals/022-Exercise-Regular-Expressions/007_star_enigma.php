@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(trim(fgets(STDIN)));
 $attackedPlanets = [];
 $destroyedPlanets = [];
@@ -48,4 +49,3 @@ echo "Destroyed planets: " . count($destroyedPlanets) . "\n";
 foreach ($destroyedPlanets as $planet) {
     echo "-> " . $planet . "\n";
 }
-?>

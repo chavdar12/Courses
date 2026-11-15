@@ -1,4 +1,5 @@
 <?php
+
 $data = explode(" ", trim(fgets(STDIN)));
 
 while (true) {
@@ -40,4 +41,3 @@ while (true) {
 }
 
 echo implode(" ", $data) . "\n";
-?>

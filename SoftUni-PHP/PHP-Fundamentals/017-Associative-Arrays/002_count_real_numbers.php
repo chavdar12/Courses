@@ -17,5 +17,3 @@ ksort($numberCount, SORT_NUMERIC);
 foreach ($numberCount as $number => $count) {
     echo "$number -> $count\n";
 }
-
-?>

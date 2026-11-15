@@ -1,5 +1,7 @@
 <?php
-function getLastDigitName($number) {
+
+function getLastDigitName($number)
+{
     $lastDigit = abs($number) % 10;
     $names = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     return $names[$lastDigit];

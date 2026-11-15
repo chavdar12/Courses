@@ -1,29 +1,35 @@
 <?php
 
-class Article {
+class Article
+{
     private $title;
     private $content;
     private $author;
 
-    public function __construct($title, $content, $author) {
+    public function __construct($title, $content, $author)
+    {
         $this->title = $title;
         $this->content = $content;
         $this->author = $author;
     }
 
-    public function edit($newContent) {
+    public function edit($newContent)
+    {
         $this->content = $newContent;
     }
 
-    public function changeAuthor($newAuthor) {
+    public function changeAuthor($newAuthor)
+    {
         $this->author = $newAuthor;
     }
 
-    public function rename($newTitle) {
+    public function rename($newTitle)
+    {
         $this->title = $newTitle;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return "{$this->title} - {$this->content}: {$this->author}";
     }
 }
@@ -44,4 +50,3 @@ for ($i = 0; $i < $n; $i++) {
 }
 
 echo $article . "\n";
-?>

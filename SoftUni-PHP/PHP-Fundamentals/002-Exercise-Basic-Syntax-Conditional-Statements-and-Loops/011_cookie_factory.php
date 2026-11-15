@@ -1,4 +1,5 @@
 <?php
+
 $batches = intval(readline());
 $totalBoxes = 0;
 

@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(readline());
 $m = intval(readline());
 $y = intval(readline());

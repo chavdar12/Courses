@@ -1,4 +1,5 @@
 <?php
+
 $number = intval(readline());
 $result = "Not divisible";
 

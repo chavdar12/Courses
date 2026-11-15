@@ -1,4 +1,5 @@
 <?php
+
 // Drives index.php like a browser: adds contacts with POST, then reads the page with GET in the same session.
 // Usage: php test_023_basic_web_project.php
 

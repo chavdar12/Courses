@@ -1,5 +1,7 @@
 <?php
-function countVowels($string) {
+
+function countVowels($string)
+{
     $vowels = ['a', 'e', 'i', 'o', 'u'];
     $count = 0;
     foreach (str_split($string) as $char) {
@@ -11,4 +13,3 @@ function countVowels($string) {
 }
 
 echo countVowels('SoftUni');
-?>

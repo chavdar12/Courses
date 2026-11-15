@@ -1,4 +1,5 @@
 <?php
+
 $demons = preg_split('/\s*,\s*/', trim(fgets(STDIN)), -1, PREG_SPLIT_NO_EMPTY);
 
 // health: sum of every char that is not a digit or one of + - * / .

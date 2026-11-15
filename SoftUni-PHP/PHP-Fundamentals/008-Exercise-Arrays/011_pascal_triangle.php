@@ -1,4 +1,5 @@
 <?php
+
 $n = intval(fgets(STDIN));
 $triangle = [[1]];
 for ($i = 1; $i < $n; $i++) {

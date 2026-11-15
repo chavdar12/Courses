@@ -8,9 +8,15 @@ for ($i = 0; $i < $n; $i++) {
     $input = trim(fgets(STDIN));
     list($type, $name, $damage, $health, $armor) = explode(" ", $input);
 
-    if ($damage === "null") $damage = 45;
-    if ($health === "null") $health = 250;
-    if ($armor === "null") $armor = 10;
+    if ($damage === "null") {
+        $damage = 45;
+    }
+    if ($health === "null") {
+        $health = 250;
+    }
+    if ($armor === "null") {
+        $armor = 10;
+    }
 
     $dragons[$type][$name] = [
         'damage' => intval($damage),
@@ -40,4 +46,3 @@ foreach ($dragons as $type => $dragonsByType) {
         echo "-{$name} -> damage: {$stats['damage']}, health: {$stats['health']}, armor: {$stats['armor']}\n";
     }
 }
-?>

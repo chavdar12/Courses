@@ -4,7 +4,9 @@ $products = [];
 
 while (true) {
     $input = trim(fgets(STDIN));
-    if ($input === "buy") break;
+    if ($input === "buy") {
+        break;
+    }
 
     $parts = explode(" ", $input);
     $productName = $parts[0];
@@ -14,7 +16,7 @@ while (true) {
     if (!isset($products[$productName])) {
         $products[$productName] = [
             'price' => $price,
-            'quantity' => 0
+            'quantity' => 0,
         ];
     }
 
@@ -26,4 +28,3 @@ foreach ($products as $name => $info) {
     $totalPrice = $info['price'] * $info['quantity'];
     echo "$name -> " . number_format($totalPrice, 2) . "\n";
 }
-?>

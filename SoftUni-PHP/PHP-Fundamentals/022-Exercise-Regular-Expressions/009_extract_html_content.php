@@ -1,4 +1,5 @@
 <?php
+
 $html = trim(fgets(STDIN));
 
 preg_match('/<title>(.*?)<\/title>/', $html, $titleMatches);
@@ -9,4 +10,3 @@ $body = isset($bodyMatches[1]) ? strip_tags($bodyMatches[1][0]) : '';
 
 echo "Title: " . $title . "\n";
 echo "Content: " . $body . "\n";
-?>

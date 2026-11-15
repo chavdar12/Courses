@@ -1,4 +1,5 @@
 <?php
+
 $string = trim(fgets(STDIN));
 $charIndexes = [];
 
@@ -14,4 +15,3 @@ foreach ($charIndexes as $char => $indexes) {
     echo "$char:" . implode("/", $indexes) . " ";
 }
 echo "\n";
-?>

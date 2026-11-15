@@ -1,5 +1,7 @@
 <?php
-function isPalindrome($n) {
+
+function isPalindrome($n)
+{
     return strval($n) == strrev($n);
 }
 
@@ -8,4 +10,3 @@ foreach ($input as $number) {
     echo isPalindrome($number) ? 'true' : 'false';
     echo "\n";
 }
-?>

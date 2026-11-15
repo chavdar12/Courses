@@ -1,70 +1,85 @@
 <?php
 
-class Truck {
+class Truck
+{
     private $brand;
     private $model;
     private $weight;
 
-    public function __construct($brand, $model, $weight) {
+    public function __construct($brand, $model, $weight)
+    {
         $this->brand = $brand;
         $this->model = $model;
         $this->weight = $weight;
     }
 
-    public function getBrand() {
+    public function getBrand()
+    {
         return $this->brand;
     }
 
-    public function getModel() {
+    public function getModel()
+    {
         return $this->model;
     }
 
-    public function getWeight() {
+    public function getWeight()
+    {
         return $this->weight;
     }
 }
 
-class Car {
+class Car
+{
     private $brand;
     private $model;
     private $horsePower;
 
-    public function __construct($brand, $model, $horsePower) {
+    public function __construct($brand, $model, $horsePower)
+    {
         $this->brand = $brand;
         $this->model = $model;
         $this->horsePower = $horsePower;
     }
 
-    public function getBrand() {
+    public function getBrand()
+    {
         return $this->brand;
     }
 
-    public function getModel() {
+    public function getModel()
+    {
         return $this->model;
     }
 
-    public function getHorsePower() {
+    public function getHorsePower()
+    {
         return $this->horsePower;
     }
 }
 
-class Catalog {
+class Catalog
+{
     private $cars = [];
     private $trucks = [];
 
-    public function addCar($car) {
+    public function addCar($car)
+    {
         $this->cars[] = $car;
     }
 
-    public function addTruck($truck) {
+    public function addTruck($truck)
+    {
         $this->trucks[] = $truck;
     }
 
-    public function getCars() {
+    public function getCars()
+    {
         return $this->cars;
     }
 
-    public function getTrucks() {
+    public function getTrucks()
+    {
         return $this->trucks;
     }
 }
@@ -92,11 +107,11 @@ while (true) {
 $cars = $catalog->getCars();
 $trucks = $catalog->getTrucks();
 
-usort($cars, function($a, $b) {
+usort($cars, function ($a, $b) {
     return strcmp($a->getBrand(), $b->getBrand());
 });
 
-usort($trucks, function($a, $b) {
+usort($trucks, function ($a, $b) {
     return strcmp($a->getBrand(), $b->getBrand());
 });
 
@@ -109,4 +124,3 @@ echo "Trucks:\n";
 foreach ($trucks as $truck) {
     echo $truck->getBrand() . ": " . $truck->getModel() . " - " . $truck->getWeight() . "kg\n";
 }
-?>

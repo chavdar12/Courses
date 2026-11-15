@@ -1,4 +1,5 @@
 <?php
+
 $string = trim(fgets(STDIN));
 $type = trim(fgets(STDIN));
 
@@ -19,4 +20,3 @@ if ($type === "UPPERCASE") {
 }
 
 echo "The total sum is: $sum\n";
-?>

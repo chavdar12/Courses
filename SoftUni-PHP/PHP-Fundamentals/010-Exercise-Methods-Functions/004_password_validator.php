@@ -1,5 +1,7 @@
 <?php
-function isValidPassword($password) {
+
+function isValidPassword($password)
+{
     $valid = true;
 
     if (strlen($password) < 6 || strlen($password) > 10) {
@@ -23,4 +25,3 @@ function isValidPassword($password) {
 }
 
 isValidPassword('logIn');
-?>

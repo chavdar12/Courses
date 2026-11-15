@@ -1,4 +1,5 @@
 <?php
+
 $numbers = explode(" ", readline());
 
 while (count($numbers) > 1) {

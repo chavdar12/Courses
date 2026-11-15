@@ -1,4 +1,5 @@
 <?php
+
 // Runs every script in this lesson with the example input from the course and checks its output.
 // Usage: php test_005_exercise_data_types_and_variables.php
 

@@ -1,4 +1,5 @@
 <?php
+
 $totalMoney = 0;
 $items = [];
 
@@ -23,4 +24,3 @@ foreach ($items as $item) {
     echo $item . PHP_EOL;
 }
 echo "Total money spend: " . number_format($totalMoney, 2, '.', '') . PHP_EOL;
-?>

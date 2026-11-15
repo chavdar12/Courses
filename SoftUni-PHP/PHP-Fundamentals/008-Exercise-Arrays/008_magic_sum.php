@@ -1,4 +1,5 @@
 <?php
+
 $array = explode(" ", readline());
 $sum = intval(readline());
 $pairs = [];

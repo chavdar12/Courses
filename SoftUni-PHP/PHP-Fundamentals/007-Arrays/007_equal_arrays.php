@@ -1,4 +1,5 @@
 <?php
+
 $array1 = explode(" ", readline());
 $array2 = explode(" ", readline());
 $identical = true;

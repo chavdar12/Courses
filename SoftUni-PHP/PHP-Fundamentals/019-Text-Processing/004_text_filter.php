@@ -1,4 +1,5 @@
 <?php
+
 $banList = explode(', ', trim(fgets(STDIN)));
 $text = trim(fgets(STDIN));
 
@@ -7,4 +8,3 @@ foreach ($banList as $word) {
 }
 
 echo $text;
-?>

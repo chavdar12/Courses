@@ -1,4 +1,5 @@
 <?php
+
 while (($input = readline()) !== "END") {
     if (filter_var($input, FILTER_VALIDATE_INT) !== false) {
         echo "$input is integer type" . PHP_EOL;

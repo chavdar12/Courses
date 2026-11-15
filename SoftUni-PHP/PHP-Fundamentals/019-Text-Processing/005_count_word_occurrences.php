@@ -1,4 +1,5 @@
 <?php
+
 $text = trim(fgets(STDIN));
 $word = trim(fgets(STDIN));
 
@@ -12,4 +13,3 @@ foreach ($words as $w) {
 }
 
 echo $count;
-?>

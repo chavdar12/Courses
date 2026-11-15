@@ -1,50 +1,62 @@
 <?php
-class Item {
+
+class Item
+{
     private $name;
     private $price;
 
-    public function __construct($name, $price) {
+    public function __construct($name, $price)
+    {
         $this->name = $name;
         $this->price = $price;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->price;
     }
 }
 
-class Box {
+class Box
+{
     private $serialNumber;
     private $item;
     private $itemQuantity;
 
-    public function __construct($serialNumber, $item, $itemQuantity) {
+    public function __construct($serialNumber, $item, $itemQuantity)
+    {
         $this->serialNumber = $serialNumber;
         $this->item = $item;
         $this->itemQuantity = $itemQuantity;
     }
 
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->item->getPrice() * $this->itemQuantity;
     }
 
-    public function getSerialNumber() {
+    public function getSerialNumber()
+    {
         return $this->serialNumber;
     }
 
-    public function getItemPrice() {
+    public function getItemPrice()
+    {
         return $this->item->getPrice();
     }
 
-    public function getItemName() {
+    public function getItemName()
+    {
         return $this->item->getName();
     }
 
-    public function getItemQuantity() {
+    public function getItemQuantity()
+    {
         return $this->itemQuantity;
     }
 }
@@ -61,7 +73,7 @@ while (true) {
     $boxes[] = $box;
 }
 
-usort($boxes, function($a, $b) {
+usort($boxes, function ($a, $b) {
     return $b->getPrice() <=> $a->getPrice();
 });
 
@@ -70,4 +82,3 @@ foreach ($boxes as $box) {
     echo "-- " . $box->getItemName() . " - $" . number_format($box->getItemPrice(), 2) . ": " . $box->getItemQuantity() . PHP_EOL;
     echo "-- $" . number_format($box->getPrice(), 2) . PHP_EOL;
 }
-?>

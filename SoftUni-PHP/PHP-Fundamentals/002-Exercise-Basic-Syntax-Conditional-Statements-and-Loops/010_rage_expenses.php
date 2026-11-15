@@ -1,4 +1,5 @@
 <?php
+
 $lostGames = intval(readline());
 $headsetPrice = floatval(readline());
 $mousePrice = floatval(readline());
