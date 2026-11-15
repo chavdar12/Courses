@@ -61,6 +61,7 @@ public class Reflection implements Serializable {
         this.zip = zip;
     }
 
+    @Override
     public String toString() {
         String result = "Name: " + getName() + "\n";
         result += "WebAddress: " + getWebAddress() + "\n";

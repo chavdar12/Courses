@@ -9,6 +9,7 @@ public class Robot implements Identifiable {
         this.model = model;
     }
 
+    @Override
     public String getId() {
         return id;
     }

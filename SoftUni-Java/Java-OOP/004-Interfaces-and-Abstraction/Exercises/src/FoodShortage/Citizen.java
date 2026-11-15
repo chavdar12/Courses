@@ -14,22 +14,27 @@ public class Citizen implements Buyer, Identifiable, Person {
         this.birthDate = birthDate;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public int getAge() {
         return age;
     }
 
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public int getFood() {
         return food;
     }
 
+    @Override
     public void buyFood() {
         this.food += 10;
     }

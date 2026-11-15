@@ -15,6 +15,7 @@ public class TransactionImpl implements Comparable<TransactionImpl> {
         this.amount = amount;
     }
 
+    @Override
     public int compareTo(TransactionImpl o) {
         return 0;
     }

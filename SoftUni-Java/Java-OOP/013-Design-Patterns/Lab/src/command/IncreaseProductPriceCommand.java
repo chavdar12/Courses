@@ -9,6 +9,7 @@ public class IncreaseProductPriceCommand implements Command {
         this.amount = amount;
     }
 
+    @Override
     public String executeAction() {
         this.product.increasePrice(this.amount);
         return String.format(

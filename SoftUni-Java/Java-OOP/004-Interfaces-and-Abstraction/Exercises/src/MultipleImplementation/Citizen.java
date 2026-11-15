@@ -13,18 +13,22 @@ public class Citizen implements Person, Birthable, Identifiable {
         this.birthDate = birthDate;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public int getAge() {
         return age;
     }
 
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public String getBirthDate() {
         return birthDate;
     }

@@ -7,6 +7,7 @@ public class Bulgarian implements Person {
         this.name = name;
     }
 
+    @Override
     public String getName() {
         return this.name;
     }

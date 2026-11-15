@@ -7,6 +7,7 @@ public class European implements Person {
         this.name = name;
     }
 
+    @Override
     public String getName() {
         return this.name;
     }

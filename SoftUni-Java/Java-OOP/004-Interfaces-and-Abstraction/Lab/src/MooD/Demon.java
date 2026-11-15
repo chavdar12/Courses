@@ -7,6 +7,7 @@ public class Demon extends Character<Integer> {
         super(userName, CHARACTER_TYPE, level, specialPoints);
     }
 
+    @Override
     public Integer getHashedPassword() {
         return this.getUsername().length() * 217;
     }

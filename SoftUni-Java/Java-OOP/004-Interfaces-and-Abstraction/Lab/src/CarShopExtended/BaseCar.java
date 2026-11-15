@@ -14,18 +14,22 @@ public class BaseCar implements Car {
         this.countryProduces = countryProduces;
     }
 
+    @Override
     public String getModel() {
         return this.model;
     }
 
+    @Override
     public String getColor() {
         return this.color;
     }
 
+    @Override
     public Integer getHorsePower() {
         return this.horsePower;
     }
 
+    @Override
     public String getCountyProduced() {
         return this.countryProduces;
     }

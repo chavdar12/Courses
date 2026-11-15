@@ -9,10 +9,12 @@ public class Citizen implements Person {
         this.age = age;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public int getAge() {
         return age;
     }

@@ -21,6 +21,7 @@ public class Citizen implements Birthable, Identifiable {
         return age;
     }
 
+    @Override
     public String getId() {
         return id;
     }

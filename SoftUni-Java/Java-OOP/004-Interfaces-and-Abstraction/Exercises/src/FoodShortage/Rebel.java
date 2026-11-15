@@ -12,10 +12,12 @@ public class Rebel implements Buyer, Person {
         this.group = group;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public int getAge() {
         return age;
     }
@@ -24,10 +26,12 @@ public class Rebel implements Buyer, Person {
         return group;
     }
 
+    @Override
     public int getFood() {
         return food;
     }
 
+    @Override
     public void buyFood() {
         this.food += 5;
     }

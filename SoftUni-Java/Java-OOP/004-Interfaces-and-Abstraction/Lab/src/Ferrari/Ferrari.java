@@ -9,10 +9,12 @@ public class Ferrari implements Car {
         this.model = "488-Spider";
     }
 
+    @Override
     public String brakes() {
         return "Brakes!";
     }
 
+    @Override
     public String gas() {
         return "brum-brum-brum-brrrrr";
     }

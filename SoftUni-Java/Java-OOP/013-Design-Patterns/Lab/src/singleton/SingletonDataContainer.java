@@ -20,6 +20,7 @@ public class SingletonDataContainer implements SingletonContainer {
         return instance;
     }
 
+    @Override
     public int getPopulation(Map<String, Integer> capitals, String name) {
         return capitals.get(name);
     }

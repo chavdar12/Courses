@@ -14,6 +14,7 @@ public class UnitRepository implements Repository {
         this.amountOfUnits = new TreeMap<>();
     }
 
+    @Override
     public void addUnit(Unit unit) {
         String unitType = unit.getClass().getSimpleName();
         if (!this.amountOfUnits.containsKey(unitType)) {
@@ -24,6 +25,7 @@ public class UnitRepository implements Repository {
         this.amountOfUnits.put(unitType, newAmount);
     }
 
+    @Override
     public String getStatistics() {
         StringBuilder statBuilder = new StringBuilder();
         for (Map.Entry<String, Integer> entry : amountOfUnits.entrySet()) {
@@ -36,6 +38,7 @@ public class UnitRepository implements Repository {
     }
 
     // TODO solve for problem 4
+    @Override
     public void removeUnit(String unitType) {
         if (this.amountOfUnits.containsKey(unitType) && this.amountOfUnits.get(unitType) > 0) {
             this.amountOfUnits.put(unitType, this.amountOfUnits.get(unitType) - 1);
