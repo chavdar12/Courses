@@ -6,8 +6,10 @@ import java.util.stream.Collectors;
 public class BombNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Integer> numbers = Arrays.stream(scanner.nextLine().split(" ")).map(Integer::parseInt)
-                .collect(Collectors.toList());
+        List<Integer> numbers =
+                Arrays.stream(scanner.nextLine().split(" "))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
         String[] tokens = scanner.nextLine().split(" ");
         int specialNumber = Integer.parseInt(tokens[0]);
         int power = Integer.parseInt(tokens[1]);
@@ -27,6 +29,5 @@ public class BombNumbers {
         }
 
         System.out.println(sum);
-
     }
 }

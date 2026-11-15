@@ -4,8 +4,14 @@ import java.util.Scanner;
 public class EqualArrays {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] firstArray = Arrays.stream(scanner.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
-        int[] secondArray = Arrays.stream(scanner.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+        int[] firstArray =
+                Arrays.stream(scanner.nextLine().split("\\s+"))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
+        int[] secondArray =
+                Arrays.stream(scanner.nextLine().split("\\s+"))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
         int sum = 0;
         boolean areEqual = true;
         for (int i = 0; i < firstArray.length; i++) {

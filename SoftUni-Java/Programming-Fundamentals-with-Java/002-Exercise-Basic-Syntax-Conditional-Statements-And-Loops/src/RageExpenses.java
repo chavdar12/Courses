@@ -35,8 +35,11 @@ public class RageExpenses {
                 displayCount = 0;
             }
         }
-        rageExpenses = (trashedHeadSet * headSetPrice) + (trashedMouse * mousePrice) + (trashedKeyboard * keyboardPrice)
-                       + (trashedDisplay * displayPrice);
+        rageExpenses =
+                (trashedHeadSet * headSetPrice)
+                        + (trashedMouse * mousePrice)
+                        + (trashedKeyboard * keyboardPrice)
+                        + (trashedDisplay * displayPrice);
 
         System.out.printf("Rage expenses: %.2f lv.", rageExpenses);
     }

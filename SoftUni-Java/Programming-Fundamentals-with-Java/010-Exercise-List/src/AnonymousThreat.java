@@ -8,7 +8,8 @@ public class AnonymousThreat {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<String> input = Arrays.stream(scanner.nextLine().split(" ")).collect(Collectors.toList());
+        List<String> input =
+                Arrays.stream(scanner.nextLine().split(" ")).collect(Collectors.toList());
 
         String command = scanner.nextLine();
 

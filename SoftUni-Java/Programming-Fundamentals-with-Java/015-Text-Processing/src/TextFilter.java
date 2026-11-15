@@ -11,7 +11,6 @@ public class TextFilter {
             }
         }
         System.out.println(input);
-
     }
 
     private static CharSequence repeat(int length) {

@@ -20,7 +20,8 @@ public class StudentsTwo {
             Student student = new Student(firstName, lastName, age, hometown);
             int index = -1;
             for (int i = 0; i < students.size(); i++) {
-                if (students.get(i).getFirstName().equals(firstName) && students.get(i).getLastName().equals(lastName)) {
+                if (students.get(i).getFirstName().equals(firstName)
+                        && students.get(i).getLastName().equals(lastName)) {
                     index = i;
                 }
             }
@@ -34,7 +35,9 @@ public class StudentsTwo {
         String city = scanner.nextLine();
         for (Student student : students) {
             if (student.getHometown().equals(city)) {
-                System.out.printf("%s %s is %d years old%n", student.getFirstName(), student.getLastName(), student.getAge());
+                System.out.printf(
+                        "%s %s is %d years old%n",
+                        student.getFirstName(), student.getLastName(), student.getAge());
             }
         }
     }

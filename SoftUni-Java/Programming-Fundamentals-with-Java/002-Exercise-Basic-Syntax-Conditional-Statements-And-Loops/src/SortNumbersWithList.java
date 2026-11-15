@@ -13,6 +13,5 @@ public class SortNumbersWithList {
 
         Arrays.sort(arr, Collections.reverseOrder());
         System.out.println(Arrays.toString(arr));
-
     }
 }

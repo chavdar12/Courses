@@ -1,8 +1,9 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 class BasicSyntaxTest {
 
@@ -22,7 +23,8 @@ class BasicSyntaxTest {
 
     @Test
     void evenNumberRepeatsUntilEven() {
-        assertEquals("Please write an even number.\nPlease write an even number.\nThe number is: 4",
+        assertEquals(
+                "Please write an even number.\nPlease write an even number.\nThe number is: 4",
                 run(EvenNumber::main, "1", "3", "-4"));
     }
 
@@ -60,7 +62,9 @@ class BasicSyntaxTest {
 
     @Test
     void studentInformation() {
-        assertEquals("Name: John, Age: 15, Grade: 5.40", run(StudentInformation::main, "John", "15", "5.40"));
+        assertEquals(
+                "Name: John, Age: 15, Grade: 5.40",
+                run(StudentInformation::main, "John", "15", "5.40"));
     }
 
     @Test

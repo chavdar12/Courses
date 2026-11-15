@@ -56,9 +56,12 @@ public class Engine {
 
     @Override
     public String toString() {
-        return "  " + this.model + ":" + "\n"
-               + String.format("    Power: %s%n" + "    Displacement: %s%n" + "    Efficiency: %s%n", this.power,
-                               this.displacement, this.efficiency);
+        return "  "
+                + this.model
+                + ":"
+                + "\n"
+                + String.format(
+                        "    Power: %s%n" + "    Displacement: %s%n" + "    Efficiency: %s%n",
+                        this.power, this.displacement, this.efficiency);
     }
-
 }

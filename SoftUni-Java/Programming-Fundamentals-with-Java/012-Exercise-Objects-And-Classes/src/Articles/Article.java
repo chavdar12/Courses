@@ -39,5 +39,4 @@ public class Article {
     public String toString() {
         return String.format("%s - %s: %s", this.title, this.content, this.author);
     }
-
 }

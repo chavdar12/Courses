@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class MaxSequenceOfEqualElements {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] numbers = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        int[] numbers =
+                Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         int bestStart = 0;
         int bestLength = 1;
         int currentStart = 0;

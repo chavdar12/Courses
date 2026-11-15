@@ -25,9 +25,7 @@ public class Messages {
                 letter = (char) (mainDigit + 32);
             }
             message.append(letter);
-
         }
         System.out.println(message);
-
     }
 }

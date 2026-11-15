@@ -6,6 +6,11 @@ public class CommonElements {
         Scanner scanner = new Scanner(System.in);
         String[] firstArray = scanner.nextLine().split(" ");
         String[] secondArray = scanner.nextLine().split(" ");
-        Arrays.stream(secondArray).forEachOrdered(value -> Arrays.stream(firstArray).filter(value::equals).map(s -> value + " ").forEachOrdered(System.out::print));
+        Arrays.stream(secondArray)
+                .forEachOrdered(value ->
+                        Arrays.stream(firstArray)
+                                .filter(value::equals)
+                                .map(s -> value + " ")
+                                .forEachOrdered(System.out::print));
     }
 }

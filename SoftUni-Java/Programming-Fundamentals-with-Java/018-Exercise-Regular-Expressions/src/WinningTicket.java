@@ -24,7 +24,9 @@ public class WinningTicket {
             }
 
             int length = Math.min(left.group().length(), right.group().length());
-            System.out.printf("ticket \"%s\" - %d%s%s%n", ticket, length, left.group(1), length == 10 ? " Jackpot!" : "");
+            System.out.printf(
+                    "ticket \"%s\" - %d%s%s%n",
+                    ticket, length, left.group(1), length == 10 ? " Jackpot!" : "");
         }
     }
 }

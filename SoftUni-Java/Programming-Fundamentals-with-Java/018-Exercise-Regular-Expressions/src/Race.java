@@ -19,11 +19,12 @@ public class Race {
         }
 
         String[] places = {"1st", "2nd", "3rd"};
-        String[] winners = distances.entrySet().stream()
-                .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
-                .limit(3)
-                .map(Map.Entry::getKey)
-                .toArray(String[]::new);
+        String[] winners =
+                distances.entrySet().stream()
+                        .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
+                        .limit(3)
+                        .map(Map.Entry::getKey)
+                        .toArray(String[]::new);
         for (int i = 0; i < winners.length; i++) {
             System.out.printf("%s place: %s%n", places[i], winners[i]);
         }

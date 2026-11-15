@@ -15,7 +15,11 @@ public class KaminoFactory {
 
         while (!input.equals("Clone them!")) {
             sequenceIndex++;
-            int[] dna = Arrays.stream(input.split("!+")).filter(s -> !s.isEmpty()).mapToInt(Integer::parseInt).toArray();
+            int[] dna =
+                    Arrays.stream(input.split("!+"))
+                            .filter(s -> !s.isEmpty())
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
             int sum = Arrays.stream(dna).sum();
 
             int longestLength = 0;
@@ -29,9 +33,13 @@ public class KaminoFactory {
                 }
             }
 
-            boolean isBetter = longestLength > bestSequenceLength
-                    || (longestLength == bestSequenceLength && longestStart < bestSequenceStartIndex)
-                    || (longestLength == bestSequenceLength && longestStart == bestSequenceStartIndex && sum > bestSequenceSum);
+            boolean isBetter =
+                    longestLength > bestSequenceLength
+                            || (longestLength == bestSequenceLength
+                                    && longestStart < bestSequenceStartIndex)
+                            || (longestLength == bestSequenceLength
+                                    && longestStart == bestSequenceStartIndex
+                                    && sum > bestSequenceSum);
             if (isBetter) {
                 bestSequence = dna;
                 bestSequenceIndex = sequenceIndex;
@@ -42,7 +50,9 @@ public class KaminoFactory {
             input = scanner.nextLine();
         }
 
-        System.out.printf("Best DNA sample %d with sum: %d.%n", bestSequenceIndex, Math.max(bestSequenceSum, 0));
+        System.out.printf(
+                "Best DNA sample %d with sum: %d.%n",
+                bestSequenceIndex, Math.max(bestSequenceSum, 0));
         for (int gene : bestSequence) {
             System.out.print(gene + " ");
         }

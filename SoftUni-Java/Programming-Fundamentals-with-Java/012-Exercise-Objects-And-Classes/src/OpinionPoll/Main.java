@@ -15,6 +15,9 @@ public class Main {
             Person person = new Person(tokens[0], Integer.parseInt(tokens[1]));
             people.add(person);
         }
-        people.stream().filter(p -> p.getAge() > 30).sorted(Comparator.comparing(Person::getName)).forEach(System.out::println);
+        people.stream()
+                .filter(p -> p.getAge() > 30)
+                .sorted(Comparator.comparing(Person::getName))
+                .forEach(System.out::println);
     }
 }

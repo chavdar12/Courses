@@ -20,7 +20,8 @@ public class Main {
             line = scanner.nextLine();
         }
 
-        people.stream().sorted(Comparator.comparingDouble(Person::getAge))
+        people.stream()
+                .sorted(Comparator.comparingDouble(Person::getAge))
                 .forEach(System.out::println);
     }
 }

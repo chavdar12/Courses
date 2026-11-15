@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class TextProcessingTest {
 
@@ -17,7 +18,9 @@ class TextProcessingTest {
 
     @Test
     void reverseStrings() {
-        assertEquals("helLo = oLleh\nSoftuni = inutfoS", run(ReverseStrings::main, "helLo", "Softuni", "end"));
+        assertEquals(
+                "helLo = oLleh\nSoftuni = inutfoS",
+                run(ReverseStrings::main, "helLo", "Softuni", "end"));
     }
 
     @Test
@@ -27,7 +30,11 @@ class TextProcessingTest {
 
     @Test
     void textFilter() {
-        assertEquals("It is not *****, it is GNU/*****. ******* client",
-                run(TextFilter::main, "Linux, Windows", "It is not Linux, it is GNU/Linux. Windows client"));
+        assertEquals(
+                "It is not *****, it is GNU/*****. ******* client",
+                run(
+                        TextFilter::main,
+                        "Linux, Windows",
+                        "It is not Linux, it is GNU/Linux. Windows client"));
     }
 }

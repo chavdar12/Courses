@@ -44,5 +44,4 @@ public class Dragon {
     public void setArmor(int armor) {
         this.armor = armor;
     }
-
 }

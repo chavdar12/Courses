@@ -41,7 +41,10 @@ public class Ranking {
                         if (!users.get(userName).containsKey(contest)) {
                             users.get(userName).put(contest, userPoints);
                         } else {
-                            users.get(userName).put(contest, Math.max(userPoints, users.get(userName).get(contest)));
+                            users.get(userName)
+                                    .put(
+                                            contest,
+                                            Math.max(userPoints, users.get(userName).get(contest)));
                         }
                     }
                 }
@@ -61,7 +64,8 @@ public class Ranking {
         for (Map.Entry<String, LinkedHashMap<String, Integer>> user : users.entrySet()) {
             int sum = user.getValue().values().stream().mapToInt(i -> i).sum();
             if (sum == totalSum) {
-                System.out.printf("Best candidate is %s with total %d points.%n", user.getKey(), sum);
+                System.out.printf(
+                        "Best candidate is %s with total %d points.%n", user.getKey(), sum);
                 System.out.println("Ranking:");
                 break;
             }
@@ -69,7 +73,8 @@ public class Ranking {
 
         for (Map.Entry<String, LinkedHashMap<String, Integer>> user : users.entrySet()) {
             System.out.println(user.getKey());
-            user.getValue().entrySet().stream().sorted((a, b) -> b.getValue().compareTo(a.getValue()))
+            user.getValue().entrySet().stream()
+                    .sorted((a, b) -> b.getValue().compareTo(a.getValue()))
                     .forEach(e -> System.out.printf("#  %s -> %d%n", e.getKey(), e.getValue()));
         }
     }

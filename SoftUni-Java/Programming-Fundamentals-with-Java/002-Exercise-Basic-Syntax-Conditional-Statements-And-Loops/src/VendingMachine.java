@@ -9,7 +9,8 @@ public class VendingMachine {
 
         while (!"Start".equals(coin)) {
             switch (coin) {
-                case "0.1", "0.2", "0.5", "1", "2" -> sumCoins = sumCoins + Double.parseDouble(coin);
+                case "0.1", "0.2", "0.5", "1", "2" ->
+                        sumCoins = sumCoins + Double.parseDouble(coin);
                 default -> System.out.printf("Cannot accept %s%n", coin);
             }
             coin = scanner.nextLine();

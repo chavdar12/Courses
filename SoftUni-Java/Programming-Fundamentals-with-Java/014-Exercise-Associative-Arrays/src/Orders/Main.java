@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +14,11 @@ public class Main {
             String name = tokens[0];
             double price = Double.parseDouble(tokens[1]);
             int quantity = Integer.parseInt(tokens[2]);
-            Product existingProduct = products.stream().filter(p -> p.getName().equals(name)).findFirst().orElse(null);
+            Product existingProduct =
+                    products.stream()
+                            .filter(p -> p.getName().equals(name))
+                            .findFirst()
+                            .orElse(null);
             if (existingProduct == null) {
                 products.add(new Product(name, price, quantity));
             } else {
@@ -25,7 +28,8 @@ public class Main {
             input = scanner.nextLine();
         }
         for (Product product : products) {
-            System.out.printf("%s -> %.2f%n", product.getName(), product.getPrice() * product.getQuantity());
+            System.out.printf(
+                    "%s -> %.2f%n", product.getName(), product.getPrice() * product.getQuantity());
         }
     }
 }

@@ -25,7 +25,7 @@ public class Main {
             if (!tokens[4].equals("null")) {
                 armor = Integer.parseInt(tokens[4]);
             }
-            int[] stats = new int[]{damage, health, armor};
+            int[] stats = new int[] {damage, health, armor};
             if (!dragons.containsKey(type)) {
                 dragons.put(type, new TreeMap<>());
             }
@@ -36,7 +36,9 @@ public class Main {
             double health = value.values().stream().mapToInt(x -> x[1]).average().getAsDouble();
             double armor = value.values().stream().mapToInt(x -> x[2]).average().getAsDouble();
             System.out.printf("%s::(%.2f/%.2f/%.2f)%n", key, damage, health, armor);
-            value.forEach((k, v) -> System.out.printf("-%s -> damage: %d, health: %d, armor: %d%n", k, v[0], v[1], v[2]));
+            value.forEach((k, v) ->
+                    System.out.printf(
+                            "-%s -> damage: %d, health: %d, armor: %d%n", k, v[0], v[1], v[2]));
         });
     }
 }

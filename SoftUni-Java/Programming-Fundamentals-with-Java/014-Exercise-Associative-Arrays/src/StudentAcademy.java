@@ -15,11 +15,32 @@ public class StudentAcademy {
             students.get(name).add(grade);
         }
         students.entrySet().stream()
-                .filter(s -> s.getValue().stream().mapToDouble(Double::doubleValue).average().getAsDouble() >= 4.50)
+                .filter(s ->
+                        s.getValue().stream()
+                                        .mapToDouble(Double::doubleValue)
+                                        .average()
+                                        .getAsDouble()
+                                >= 4.50)
                 .sorted((s1, s2) -> {
-                    double first = s1.getValue().stream().mapToDouble(Double::doubleValue).average().getAsDouble();
-                    double second = s2.getValue().stream().mapToDouble(Double::doubleValue).average().getAsDouble();
+                    double first =
+                            s1.getValue().stream()
+                                    .mapToDouble(Double::doubleValue)
+                                    .average()
+                                    .getAsDouble();
+                    double second =
+                            s2.getValue().stream()
+                                    .mapToDouble(Double::doubleValue)
+                                    .average()
+                                    .getAsDouble();
                     return Double.compare(second, first);
-                }).forEach(s -> System.out.printf("%s -> %.2f\n", s.getKey(), s.getValue().stream().mapToDouble(Double::doubleValue).average().getAsDouble()));
+                })
+                .forEach(s ->
+                        System.out.printf(
+                                "%s -> %.2f\n",
+                                s.getKey(),
+                                s.getValue().stream()
+                                        .mapToDouble(Double::doubleValue)
+                                        .average()
+                                        .getAsDouble()));
     }
 }

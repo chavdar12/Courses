@@ -15,7 +15,9 @@ public class NetherRealms {
             demonsInfo.get(name).add(health);
             demonsInfo.get(name).add(damage);
         }
-        demonsInfo.forEach((key, value) -> System.out.printf("%s - %.0f health, %.2f damage%n", key, value.get(0), value.get(1)));
+        demonsInfo.forEach((key, value) ->
+                System.out.printf(
+                        "%s - %.0f health, %.2f damage%n", key, value.get(0), value.get(1)));
     }
 
     private static double calculateDamage(String demon) {
@@ -38,7 +40,12 @@ public class NetherRealms {
         double health = 0;
         for (int i = 0; i < demon.length(); i++) {
             char symbol = demon.charAt(i);
-            if (!Character.isDigit(symbol) && symbol != '+' && symbol != '-' && symbol != '*' && symbol != '/' && symbol != '.') {
+            if (!Character.isDigit(symbol)
+                    && symbol != '+'
+                    && symbol != '-'
+                    && symbol != '*'
+                    && symbol != '/'
+                    && symbol != '.') {
                 health += symbol;
             }
         }

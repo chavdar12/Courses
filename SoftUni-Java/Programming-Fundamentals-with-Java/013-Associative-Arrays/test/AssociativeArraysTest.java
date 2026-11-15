@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class AssociativeArraysTest {
 
@@ -23,7 +24,16 @@ class AssociativeArraysTest {
 
     @Test
     void wordSynonyms() {
-        assertEquals("cute - adorable, charming\nsmart - clever",
-                run(WordSynonyms::main, "3", "cute", "adorable", "cute", "charming", "smart", "clever"));
+        assertEquals(
+                "cute - adorable, charming\nsmart - clever",
+                run(
+                        WordSynonyms::main,
+                        "3",
+                        "cute",
+                        "adorable",
+                        "cute",
+                        "charming",
+                        "smart",
+                        "clever"));
     }
 }

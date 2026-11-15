@@ -20,6 +20,7 @@ public class Snowballs {
                 snowballValue = value;
             }
         }
-        System.out.printf("%d : %d = %.0f (%d)", snowballSnow, snowballTime, snowballValue, snowballQuality);
+        System.out.printf(
+                "%d : %d = %.0f (%d)", snowballSnow, snowballTime, snowballValue, snowballQuality);
     }
 }

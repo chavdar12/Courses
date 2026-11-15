@@ -16,7 +16,8 @@ public class SoftUniParking {
                     map.put(name, licensePlate);
                     System.out.printf("%s registered %s successfully%n", name, licensePlate);
                 } else {
-                    System.out.printf("ERROR: already registered with plate number %s%n", licensePlate);
+                    System.out.printf(
+                            "ERROR: already registered with plate number %s%n", licensePlate);
                 }
             } else {
                 if (!map.containsKey(name)) {

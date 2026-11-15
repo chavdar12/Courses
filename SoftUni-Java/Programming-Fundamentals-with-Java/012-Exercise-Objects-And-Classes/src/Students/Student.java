@@ -40,5 +40,4 @@ public class Student {
     public String toString() {
         return String.format("%s %s: %.2f", firstName, lastName, grade);
     }
-
 }

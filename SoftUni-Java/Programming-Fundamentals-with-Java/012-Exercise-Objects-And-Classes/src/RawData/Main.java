@@ -18,7 +18,10 @@ public class Main {
             String cargoType = carInfo[4];
             List<Tire> tires = new ArrayList<>();
             for (int i = 0; i < 8; i += 2) {
-                Tire tire = new Tire(Double.parseDouble(carInfo[5 + i]), Integer.parseInt(carInfo[6 + i]));
+                Tire tire =
+                        new Tire(
+                                Double.parseDouble(carInfo[5 + i]),
+                                Integer.parseInt(carInfo[6 + i]));
                 tires.add(tire);
             }
 

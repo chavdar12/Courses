@@ -7,9 +7,10 @@ public class Train {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<Integer> wagons = Arrays.stream(scanner.nextLine().split(" "))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+        List<Integer> wagons =
+                Arrays.stream(scanner.nextLine().split(" "))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
 
         int maxCapacity = Integer.parseInt(scanner.nextLine());
 

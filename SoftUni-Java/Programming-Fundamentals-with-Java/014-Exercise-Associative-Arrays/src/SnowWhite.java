@@ -26,21 +26,23 @@ public class SnowWhite {
             }
         }
 
-        dwarfs.entrySet().stream().sorted((pair1, pair2) -> {
-            int sort = Integer.compare(pair2.getValue(), pair1.getValue());
-            if (sort == 0) {
+        dwarfs.entrySet().stream()
+                .sorted((pair1, pair2) -> {
+                    int sort = Integer.compare(pair2.getValue(), pair1.getValue());
+                    if (sort == 0) {
 
-                String[] color1 = pair1.getKey().split(" ");
-                String[] color2 = pair2.getKey().split(" ");
+                        String[] color1 = pair1.getKey().split(" ");
+                        String[] color2 = pair2.getKey().split(" ");
 
-                int size1 = dwarfCountByColor.get(color1[0]);
-                int size2 = dwarfCountByColor.get(color2[0]);
-                sort = Integer.compare(size2, size1);
-            }
-            return sort;
-        }).forEach(pair -> {
-            String[] print = pair.getKey().split(" ");
-            System.out.printf("(%s) %s <-> %d%n", print[0], print[1], pair.getValue());
-        });
+                        int size1 = dwarfCountByColor.get(color1[0]);
+                        int size2 = dwarfCountByColor.get(color2[0]);
+                        sort = Integer.compare(size2, size1);
+                    }
+                    return sort;
+                })
+                .forEach(pair -> {
+                    String[] print = pair.getKey().split(" ");
+                    System.out.printf("(%s) %s <-> %d%n", print[0], print[1], pair.getValue());
+                });
     }
 }

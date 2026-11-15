@@ -25,23 +25,25 @@ public class Vacation {
                 if (people >= 100) {
                     people -= 10;
                 }
-                pricePerPerson = switch (day) {
-                    case "Friday" -> 10.90;
-                    case "Saturday" -> 15.60;
-                    case "Sunday" -> 16.00;
-                    default -> pricePerPerson;
-                };
+                pricePerPerson =
+                        switch (day) {
+                            case "Friday" -> 10.90;
+                            case "Saturday" -> 15.60;
+                            case "Sunday" -> 16.00;
+                            default -> pricePerPerson;
+                        };
             }
             case "Regular" -> {
                 if (people >= 10 && people <= 20) {
                     totalPrice = totalPrice * 0.95;
                 }
-                pricePerPerson = switch (day) {
-                    case "Friday" -> 15;
-                    case "Saturday" -> 20;
-                    case "Sunday" -> 22.50;
-                    default -> pricePerPerson;
-                };
+                pricePerPerson =
+                        switch (day) {
+                            case "Friday" -> 15;
+                            case "Saturday" -> 20;
+                            case "Sunday" -> 22.50;
+                            default -> pricePerPerson;
+                        };
             }
         }
 

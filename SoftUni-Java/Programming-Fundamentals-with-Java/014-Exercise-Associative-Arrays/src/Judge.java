@@ -25,7 +25,13 @@ public class Judge {
         contests.forEach((key, value) -> {
             System.out.printf("%s: %d participants%n", key, value.size());
             int counter = 1;
-            for (Map.Entry<String, Integer> entry : value.entrySet().stream().sorted((a, b) -> b.getValue().equals(a.getValue()) ? a.getKey().compareTo(b.getKey()) : b.getValue().compareTo(a.getValue())).collect(Collectors.toList())) {
+            for (Map.Entry<String, Integer> entry :
+                    value.entrySet().stream()
+                            .sorted((a, b) ->
+                                    b.getValue().equals(a.getValue())
+                                            ? a.getKey().compareTo(b.getKey())
+                                            : b.getValue().compareTo(a.getValue()))
+                            .collect(Collectors.toList())) {
                 System.out.printf("%d. %s <::> %d%n", counter, entry.getKey(), entry.getValue());
                 counter++;
             }
@@ -33,17 +39,22 @@ public class Judge {
 
         System.out.println("Individual standings:");
         int counter = 1;
-        for (Map.Entry<String, Map<String, Integer>> entry : users.entrySet().stream().sorted((a, b) -> {
-            int sumA = 0;
-            int sumB = 0;
-            for (Map.Entry<String, Integer> entry1 : a.getValue().entrySet()) {
-                sumA += entry1.getValue();
-            }
-            for (Map.Entry<String, Integer> entry1 : b.getValue().entrySet()) {
-                sumB += entry1.getValue();
-            }
-            return sumA == sumB ? a.getKey().compareTo(b.getKey()) : Integer.compare(sumB, sumA);
-        }).toList()) {
+        for (Map.Entry<String, Map<String, Integer>> entry :
+                users.entrySet().stream()
+                        .sorted((a, b) -> {
+                            int sumA = 0;
+                            int sumB = 0;
+                            for (Map.Entry<String, Integer> entry1 : a.getValue().entrySet()) {
+                                sumA += entry1.getValue();
+                            }
+                            for (Map.Entry<String, Integer> entry1 : b.getValue().entrySet()) {
+                                sumB += entry1.getValue();
+                            }
+                            return sumA == sumB
+                                    ? a.getKey().compareTo(b.getKey())
+                                    : Integer.compare(sumB, sumA);
+                        })
+                        .toList()) {
             int sum = 0;
             for (Map.Entry<String, Integer> entry1 : entry.getValue().entrySet()) {
                 sum += entry1.getValue();
@@ -53,7 +64,8 @@ public class Judge {
         }
     }
 
-    private static void contains(Map<String, Map<String, Integer>> contests, String user, String contest, int points) {
+    private static void contains(
+            Map<String, Map<String, Integer>> contests, String user, String contest, int points) {
         if (!contests.containsKey(contest)) {
             contests.put(contest, new LinkedHashMap<>());
         }

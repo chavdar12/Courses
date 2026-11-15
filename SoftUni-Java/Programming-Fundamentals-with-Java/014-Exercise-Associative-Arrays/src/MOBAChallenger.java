@@ -33,8 +33,10 @@ public class MOBAChallenger {
                         }
                     }
                     if (isFound) {
-                        int firstPlayerSkill = players.get(firstPlayer).values().stream().mapToInt(i -> i).sum();
-                        int secondPlayerSkill = players.get(secondPlayer).values().stream().mapToInt(i -> i).sum();
+                        int firstPlayerSkill =
+                                players.get(firstPlayer).values().stream().mapToInt(i -> i).sum();
+                        int secondPlayerSkill =
+                                players.get(secondPlayer).values().stream().mapToInt(i -> i).sum();
                         if (firstPlayerSkill > secondPlayerSkill) {
                             players.remove(secondPlayer);
                         } else if (firstPlayerSkill < secondPlayerSkill) {
@@ -45,20 +47,27 @@ public class MOBAChallenger {
             }
             input = scanner.nextLine();
         }
-        players.entrySet().stream().sorted((f, s) -> {
-            int firstPlayerSkill = f.getValue().values().stream().mapToInt(i -> i).sum();
-            int secondPlayerSkill = s.getValue().values().stream().mapToInt(i -> i).sum();
-            return Integer.compare(secondPlayerSkill, firstPlayerSkill);
-        }).forEach(player -> {
-            int totalSkill = player.getValue().values().stream().mapToInt(i -> i).sum();
-            System.out.printf("%s: %d skill%n", player.getKey(), totalSkill);
-            player.getValue().entrySet().stream().sorted((f, s) -> {
-                int result = Integer.compare(s.getValue(), f.getValue());
-                if (result == 0) {
-                    result = f.getKey().compareTo(s.getKey());
-                }
-                return result;
-            }).forEach(position -> System.out.printf("- %s <::> %d%n", position.getKey(), position.getValue()));
-        });
+        players.entrySet().stream()
+                .sorted((f, s) -> {
+                    int firstPlayerSkill = f.getValue().values().stream().mapToInt(i -> i).sum();
+                    int secondPlayerSkill = s.getValue().values().stream().mapToInt(i -> i).sum();
+                    return Integer.compare(secondPlayerSkill, firstPlayerSkill);
+                })
+                .forEach(player -> {
+                    int totalSkill = player.getValue().values().stream().mapToInt(i -> i).sum();
+                    System.out.printf("%s: %d skill%n", player.getKey(), totalSkill);
+                    player.getValue().entrySet().stream()
+                            .sorted((f, s) -> {
+                                int result = Integer.compare(s.getValue(), f.getValue());
+                                if (result == 0) {
+                                    result = f.getKey().compareTo(s.getKey());
+                                }
+                                return result;
+                            })
+                            .forEach(position ->
+                                    System.out.printf(
+                                            "- %s <::> %d%n",
+                                            position.getKey(), position.getValue()));
+                });
     }
 }

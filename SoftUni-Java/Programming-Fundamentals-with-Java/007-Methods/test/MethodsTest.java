@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class MethodsTest {
 

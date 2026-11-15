@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class ExerciseTextProcessingTest {
 
@@ -25,23 +26,33 @@ class ExerciseTextProcessingTest {
 
     @Test
     void extractFile() {
-        assertEquals("File name: Template\nFile extension: pptx", run(ExtractFile::main, "C:\\Internal\\training-internal\\Template.pptx"));
+        assertEquals(
+                "File name: Template\nFile extension: pptx",
+                run(ExtractFile::main, "C:\\Internal\\training-internal\\Template.pptx"));
     }
 
     @Test
     void extractFileWithSeveralDots() {
-        assertEquals("File name: template.bak\nFile extension: pptx", run(ExtractFile::main, "C:\\a\\template.bak.pptx"));
+        assertEquals(
+                "File name: template.bak\nFile extension: pptx",
+                run(ExtractFile::main, "C:\\a\\template.bak.pptx"));
     }
 
     @Test
     void extractPersonInformation() {
-        assertEquals("George is 18 years old.\nBilly is 35 years old.", run(ExtractPersonInformation::main,
-                "2", "Here is a name @George| and an age #18*", "Another name @Billy| #35* is his age"));
+        assertEquals(
+                "George is 18 years old.\nBilly is 35 years old.",
+                run(
+                        ExtractPersonInformation::main,
+                        "2",
+                        "Here is a name @George| and an age #18*",
+                        "Another name @Billy| #35* is his age"));
     }
 
     @Test
     void html() {
-        assertEquals("""
+        assertEquals(
+                """
                 <h1>
                     Title
                 </h1>
@@ -53,7 +64,9 @@ class ExerciseTextProcessingTest {
                 </div>
                 <div>
                     second
-                </div>""", run(HTML::main, "Title", "Content", "first", "second", "end of comments"));
+                </div>\
+                """,
+                run(HTML::main, "Title", "Content", "first", "second", "end of comments"));
     }
 
     @Test
@@ -64,8 +77,11 @@ class ExerciseTextProcessingTest {
 
     @Test
     void morseCodeTranslator() {
-        assertEquals("I MADE YOU WRITE A LONG CODE", run(MorseCodeTranslator::main,
-                ".. | -- .- -.. . | -.-- --- ..- | .-- .-. .. - . | .- | .-.. --- -. --. | -.-. --- -.. ."));
+        assertEquals(
+                "I MADE YOU WRITE A LONG CODE",
+                run(
+                        MorseCodeTranslator::main,
+                        ".. | -- .- -.. . | -.-- --- ..- | .-- .-. .. - . | .- | .-.. --- -. --. | -.-. --- -.. ."));
     }
 
     @Test
@@ -75,7 +91,9 @@ class ExerciseTextProcessingTest {
 
     @Test
     void multiplyBigNumber() {
-        assertEquals("3695388955727932769851328408", run(MultiplyBigNumber::main, "923847238931983192462832102", "4"));
+        assertEquals(
+                "3695388955727932769851328408",
+                run(MultiplyBigNumber::main, "923847238931983192462832102", "4"));
         assertEquals("89991", run(MultiplyBigNumber::main, "9999", "9"));
     }
 
@@ -92,16 +110,22 @@ class ExerciseTextProcessingTest {
     @Test
     void stringExplosion() {
         assertEquals("abv>>>>dasd", run(StringExplosion::main, "abv>1>1>2>2asdasd"));
-        assertEquals("pesho>is>a>karate>master", run(StringExplosion::main, "pesho>2sis>1a>2akarate>4hexmaster"));
+        assertEquals(
+                "pesho>is>a>karate>master",
+                run(StringExplosion::main, "pesho>2sis>1a>2akarate>4hexmaster"));
     }
 
     @Test
     void treasureFinder() {
-        assertEquals("Found gold at 10N70W", run(TreasureFinder::main, "1 2 1 3", "ikegfp'jpne)bv=41P83X@", "find"));
+        assertEquals(
+                "Found gold at 10N70W",
+                run(TreasureFinder::main, "1 2 1 3", "ikegfp'jpne)bv=41P83X@", "find"));
     }
 
     @Test
     void validUsernames() {
-        assertEquals("Jeff\njohn45\npeter-ivanov", run(ValidUsernames::main, "Jeff, john45, ab, cd, peter-ivanov, @smith"));
+        assertEquals(
+                "Jeff\njohn45\npeter-ivanov",
+                run(ValidUsernames::main, "Jeff, john45, ab, cd, peter-ivanov, @smith"));
     }
 }

@@ -7,9 +7,10 @@ public class PokemonDontGo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<Integer> pokemons = Arrays.stream(scanner.nextLine().split(" "))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+        List<Integer> pokemons =
+                Arrays.stream(scanner.nextLine().split(" "))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
 
         int sum = 0;
 

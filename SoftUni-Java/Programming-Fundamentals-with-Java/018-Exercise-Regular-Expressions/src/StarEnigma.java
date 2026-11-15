@@ -8,8 +8,9 @@ public class StarEnigma {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
-        Pattern pattern = Pattern.compile(
-                "@(?<planet>[A-Za-z]+)[^@\\-!:>]*:(?<population>\\d+)[^@\\-!:>]*!(?<attackType>[AD])![^@\\-!:>]*->(?<soldiers>\\d+)");
+        Pattern pattern =
+                Pattern.compile(
+                        "@(?<planet>[A-Za-z]+)[^@\\-!:>]*:(?<population>\\d+)[^@\\-!:>]*!(?<attackType>[AD])![^@\\-!:>]*->(?<soldiers>\\d+)");
         List<String> attacked = new ArrayList<>();
         List<String> destroyed = new ArrayList<>();
 
@@ -23,7 +24,8 @@ public class StarEnigma {
 
             Matcher matcher = pattern.matcher(decryptedMessage);
             if (matcher.find()) {
-                (matcher.group("attackType").equals("A") ? attacked : destroyed).add(matcher.group("planet"));
+                (matcher.group("attackType").equals("A") ? attacked : destroyed)
+                        .add(matcher.group("planet"));
             }
         }
 

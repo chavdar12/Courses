@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class ListTest {
 
@@ -13,26 +14,47 @@ class ListTest {
 
     @Test
     void listManipulationAdvanced() {
-        assertEquals("""
+        assertEquals(
+                """
                 No such number
                 Yes
                 2 876 342
                 13 43 23 543
                 1842
                 43 876 342 543
-                2 13 43 23""", run(ListManipulationAdvanced::main, "2 13 43 876 342 23 543",
-                "Contains 100", "Contains 543", "Print even", "Print odd", "Get sum", "Filter >= 43", "Filter < 100", "end"));
+                2 13 43 23\
+                """,
+                run(
+                        ListManipulationAdvanced::main,
+                        "2 13 43 876 342 23 543",
+                        "Contains 100",
+                        "Contains 543",
+                        "Print even",
+                        "Print odd",
+                        "Get sum",
+                        "Filter >= 43",
+                        "Filter < 100",
+                        "end"));
     }
 
     @Test
     void listManipulationBasics() {
-        assertEquals("4 53 6 8 43 3", run(ListManipulationBasics::main, "4 19 2 53 6 43",
-                "Add 3", "Remove 2", "RemoveAt 1", "Insert 8 3", "end"));
+        assertEquals(
+                "4 53 6 8 43 3",
+                run(
+                        ListManipulationBasics::main,
+                        "4 19 2 53 6 43",
+                        "Add 3",
+                        "Remove 2",
+                        "RemoveAt 1",
+                        "Insert 8 3",
+                        "end"));
     }
 
     @Test
     void mergingLists() {
-        assertEquals("3 76 5 5 2 34 43 2 12 4 3 12 54 10 23",
+        assertEquals(
+                "3 76 5 5 2 34 43 2 12 4 3 12 54 10 23",
                 run(MergingLists::main, "3 5 2 43 12 3 54 10 23", "76 5 34 2 4 12"));
     }
 

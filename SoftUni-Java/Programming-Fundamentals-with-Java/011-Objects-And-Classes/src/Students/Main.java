@@ -23,7 +23,9 @@ public class Main {
         String city = scanner.nextLine();
         for (Student student : students) {
             if (student.getHometown().equals(city)) {
-                System.out.printf("%s %s is %d years old%n", student.getFirstName(), student.getLastName(), student.getAge());
+                System.out.printf(
+                        "%s %s is %d years old%n",
+                        student.getFirstName(), student.getLastName(), student.getAge());
             }
         }
     }

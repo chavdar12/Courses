@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class ExerciseArraysTest {
 
@@ -17,7 +18,9 @@ class ExerciseArraysTest {
 
     @Test
     void encryptSortAndPrintArray() {
-        assertEquals("1032\n1071\n1168\n1532", run(EncryptSortAndPrintArray::main, "4", "Peter", "Maria", "Katya", "Todor"));
+        assertEquals(
+                "1032\n1071\n1168\n1532",
+                run(EncryptSortAndPrintArray::main, "4", "Peter", "Maria", "Katya", "Todor"));
     }
 
     @Test
@@ -29,20 +32,24 @@ class ExerciseArraysTest {
 
     @Test
     void kaminoFactoryPrefersLeftmostLongestSequence() {
-        assertEquals("Best DNA sample 2 with sum: 2.\n0 1 1 0 0",
+        assertEquals(
+                "Best DNA sample 2 with sum: 2.\n0 1 1 0 0",
                 run(KaminoFactory::main, "5", "1!0!1!1!0", "0!1!1!0!0", "Clone them!"));
     }
 
     @Test
     void kaminoFactoryUsesWholeSampleSum() {
-        assertEquals("Best DNA sample 1 with sum: 3.\n1 1 0 1",
+        assertEquals(
+                "Best DNA sample 1 with sum: 3.\n1 1 0 1",
                 run(KaminoFactory::main, "4", "1!1!0!1", "1!0!0!1", "1!1!0!0", "Clone them!"));
     }
 
     @Test
     void ladyBugs() {
         assertEquals("0 1 0", run(LadyBugs::main, "3", "0 1", "0 right 1", "2 right 1", "end"));
-        assertEquals("0 0 0", run(LadyBugs::main, "3", "0 1 2", "0 right 1", "1 right 1", "2 right 1", "end"));
+        assertEquals(
+                "0 0 0",
+                run(LadyBugs::main, "3", "0 1 2", "0 right 1", "1 right 1", "2 right 1", "end"));
         assertEquals("1 0 0", run(LadyBugs::main, "3", "2", "2 left 2", "end"));
     }
 
@@ -53,7 +60,9 @@ class ExerciseArraysTest {
 
     @Test
     void longestIncreasingSubsequence() {
-        assertEquals("3 5 7 8 9 11", run(LongestIncreasingSubsequence::main, "3 14 5 12 15 7 8 9 11 10 1"));
+        assertEquals(
+                "3 5 7 8 9 11",
+                run(LongestIncreasingSubsequence::main, "3 14 5 12 15 7 8 9 11 10 1"));
     }
 
     @Test
@@ -91,6 +100,8 @@ class ExerciseArraysTest {
 
     @Test
     void zigZagArrays() {
-        assertEquals("1 10 31 20\n5 9 81 41", run(ZigZagArrays::main, "4", "1 5", "9 10", "31 81", "41 20"));
+        assertEquals(
+                "1 10 31 20\n5 9 81 41",
+                run(ZigZagArrays::main, "4", "1 5", "9 10", "31 81", "41 20"));
     }
 }

@@ -6,7 +6,6 @@ public class EnglishNameOfLastDigit {
         int num = Integer.parseInt(scanner.nextLine());
 
         System.out.println(findLastDigits(num));
-
     }
 
     private static String findLastDigits(int num) {

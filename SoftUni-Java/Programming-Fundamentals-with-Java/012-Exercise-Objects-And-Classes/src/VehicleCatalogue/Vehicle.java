@@ -27,11 +27,13 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return String.format("""
-                        Type: %s
-                        Model: %s
-                        Color: %s
-                        Horsepower: %d""",
+        return String.format(
+                """
+                Type: %s
+                Model: %s
+                Color: %s
+                Horsepower: %d\
+                """,
                 type, model, color, horsepower);
     }
 }

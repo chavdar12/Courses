@@ -59,8 +59,11 @@ public class Car {
 
     @Override
     public String toString() {
-        return this.model + ":" + "\n" + String.format("%s" + "  Weight: %s%n" + "  Color: %s", this.engine,
-                                                       (weight == 0 ? "n/a" : weight), this.color);
+        return this.model
+                + ":"
+                + "\n"
+                + String.format(
+                        "%s" + "  Weight: %s%n" + "  Color: %s",
+                        this.engine, (weight == 0 ? "n/a" : weight), this.color);
     }
-
 }

@@ -1,14 +1,29 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class ExerciseDataTypesTest {
 
     @Test
     void balancedBrackets() {
-        assertEquals("BALANCED", run(BalancedBrackets::main, "8", "(", "5 + 10", ")", "* 2 +", "(", "5", ")", "-12"));
-        assertEquals("UNBALANCED", run(BalancedBrackets::main, "6", "12 *", ")", "10 + 2 -", "(", "5 + 10", ")"));
+        assertEquals(
+                "BALANCED",
+                run(
+                        BalancedBrackets::main,
+                        "8",
+                        "(",
+                        "5 + 10",
+                        ")",
+                        "* 2 +",
+                        "(",
+                        "5",
+                        ")",
+                        "-12"));
+        assertEquals(
+                "UNBALANCED",
+                run(BalancedBrackets::main, "6", "12 *", ")", "10 + 2 -", "(", "5 + 10", ")"));
     }
 
     @Test
@@ -19,22 +34,40 @@ class ExerciseDataTypesTest {
 
     @Test
     void beerKegs() {
-        assertEquals("Keg 2", run(BeerKegs::main, "3", "Keg 1", "10", "10", "Keg 2", "20", "20", "Keg 3", "10", "30"));
+        assertEquals(
+                "Keg 2",
+                run(
+                        BeerKegs::main,
+                        "3",
+                        "Keg 1",
+                        "10",
+                        "10",
+                        "Keg 2",
+                        "20",
+                        "20",
+                        "Keg 3",
+                        "10",
+                        "30"));
     }
 
     @Test
     void dataTypeFinder() {
-        assertEquals("""
+        assertEquals(
+                """
                 5 is integer type
                 2.5 is floating point type
                 true is boolean type
                 a is character type
-                hello is string type""", run(DataTypeFinder::main, "5", "2.5", "true", "a", "hello", "END"));
+                hello is string type\
+                """,
+                run(DataTypeFinder::main, "5", "2.5", "true", "a", "hello", "END"));
     }
 
     @Test
     void decryptingMessages() {
-        assertEquals("SoftUni", run(DecryptingMessages::main, "3", "7", "P", "l", "c", "q", "R", "k", "f"));
+        assertEquals(
+                "SoftUni",
+                run(DecryptingMessages::main, "3", "7", "P", "l", "c", "q", "R", "k", "f"));
     }
 
     @Test
@@ -83,7 +116,9 @@ class ExerciseDataTypesTest {
 
     @Test
     void primeChecker() {
-        assertEquals("2 -> true\n3 -> true\n4 -> false\n5 -> true", run(RefactoringPrimeChecker::main, "5"));
+        assertEquals(
+                "2 -> true\n3 -> true\n4 -> false\n5 -> true",
+                run(RefactoringPrimeChecker::main, "5"));
     }
 
     @Test
@@ -111,11 +146,14 @@ class ExerciseDataTypesTest {
 
     @Test
     void triplesOfLatinLetters() {
-        assertEquals("aaa\naab\naba\nabb\nbaa\nbab\nbba\nbbb", run(TriplesOfLatinLetters::main, "2"));
+        assertEquals(
+                "aaa\naab\naba\nabb\nbaa\nbab\nbba\nbbb", run(TriplesOfLatinLetters::main, "2"));
     }
 
     @Test
     void waterOverflow() {
-        assertEquals("Insufficient capacity!\n240", run(WaterOverflow::main, "5", "20", "100", "100", "100", "20"));
+        assertEquals(
+                "Insufficient capacity!\n240",
+                run(WaterOverflow::main, "5", "20", "100", "100", "100", "20"));
     }
 }

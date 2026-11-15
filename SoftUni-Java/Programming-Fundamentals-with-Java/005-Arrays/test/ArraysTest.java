@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.Test;
-
 import static console.Console.run;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class ArraysTest {
 
@@ -20,8 +21,11 @@ class ArraysTest {
 
     @Test
     void equalArrays() {
-        assertEquals("Arrays are identical. Sum: 60", run(EqualArrays::main, "10 20 30", "10 20 30"));
-        assertEquals("Arrays are not identical. Found difference at 2 index.", run(EqualArrays::main, "1 2 3 4 5", "1 2 4 3 5"));
+        assertEquals(
+                "Arrays are identical. Sum: 60", run(EqualArrays::main, "10 20 30", "10 20 30"));
+        assertEquals(
+                "Arrays are not identical. Found difference at 2 index.",
+                run(EqualArrays::main, "1 2 3 4 5", "1 2 4 3 5"));
     }
 
     @Test

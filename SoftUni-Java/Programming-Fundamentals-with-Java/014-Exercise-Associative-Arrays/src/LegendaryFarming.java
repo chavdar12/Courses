@@ -16,7 +16,9 @@ public class LegendaryFarming {
             for (int i = 0; i < input.length; i += 2) {
                 int quantity = Integer.parseInt(input[i]);
                 String material = input[i + 1].toLowerCase();
-                if (material.equals("shards") || material.equals("fragments") || material.equals("motes")) {
+                if (material.equals("shards")
+                        || material.equals("fragments")
+                        || material.equals("motes")) {
                     keyMaterials.put(material, keyMaterials.get(material) + quantity);
                     if (keyMaterials.get(material) >= 250) {
                         keyMaterials.put(material, keyMaterials.get(material) - 250);
@@ -37,13 +39,15 @@ public class LegendaryFarming {
                 }
             }
         }
-        keyMaterials.entrySet().stream().sorted((a, b) -> {
-            int result = b.getValue().compareTo(a.getValue());
-            if (result == 0) {
-                result = a.getKey().compareTo(b.getKey());
-            }
-            return result;
-        }).forEach(entry -> System.out.printf("%s: %d%n", entry.getKey(), entry.getValue()));
+        keyMaterials.entrySet().stream()
+                .sorted((a, b) -> {
+                    int result = b.getValue().compareTo(a.getValue());
+                    if (result == 0) {
+                        result = a.getKey().compareTo(b.getKey());
+                    }
+                    return result;
+                })
+                .forEach(entry -> System.out.printf("%s: %d%n", entry.getKey(), entry.getValue()));
 
         junkMaterials.forEach((key, value) -> System.out.printf("%s: %d%n", key, value));
     }

@@ -7,7 +7,8 @@ public class SoftUniCoursePlanning {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<String> lessons = Arrays.stream(scanner.nextLine().split(", ")).collect(Collectors.toList());
+        List<String> lessons =
+                Arrays.stream(scanner.nextLine().split(", ")).collect(Collectors.toList());
 
         String input = scanner.nextLine();
 
@@ -50,7 +51,8 @@ public class SoftUniCoursePlanning {
                     }
                 }
                 case "Exercise" -> {
-                    if (lessons.contains(lessonTitle) && !lessons.contains(lessonTitle + "-Exercise")) {
+                    if (lessons.contains(lessonTitle)
+                            && !lessons.contains(lessonTitle + "-Exercise")) {
                         int lessonIndex = lessons.indexOf(lessonTitle);
                         lessons.add(lessonIndex + 1, lessonTitle + "-Exercise");
                     } else if (!lessons.contains(lessonTitle)) {

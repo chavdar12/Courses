@@ -17,6 +17,8 @@ public class Main {
             students.add(student);
         }
 
-        students.stream().sorted((s1, s2) -> Double.compare(s2.getGrade(), s1.getGrade())).forEach(System.out::println);
+        students.stream()
+                .sorted((s1, s2) -> Double.compare(s2.getGrade(), s1.getGrade()))
+                .forEach(System.out::println);
     }
 }

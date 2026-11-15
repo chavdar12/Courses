@@ -6,9 +6,10 @@ import java.util.stream.Collectors;
 public class GaussTrick {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Integer> numbers = Arrays.stream(scanner.nextLine().split(" "))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+        List<Integer> numbers =
+                Arrays.stream(scanner.nextLine().split(" "))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
         int half = numbers.size() / 2;
         for (int i = 0; i < half; i++) {
             numbers.set(i, numbers.get(i) + numbers.remove(numbers.size() - 1));

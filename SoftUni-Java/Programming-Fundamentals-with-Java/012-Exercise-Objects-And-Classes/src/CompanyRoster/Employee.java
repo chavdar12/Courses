@@ -8,7 +8,8 @@ public class Employee {
     private String email;
     private int age;
 
-    public Employee(String name, double salary, String position, String department, String email, int age) {
+    public Employee(
+            String name, double salary, String position, String department, String email, int age) {
         this.name = name;
         this.salary = salary;
         this.position = position;
@@ -57,5 +58,4 @@ public class Employee {
     public String toString() {
         return String.format("%s %.2f %s %d", this.name, this.salary, this.email, this.age);
     }
-
 }

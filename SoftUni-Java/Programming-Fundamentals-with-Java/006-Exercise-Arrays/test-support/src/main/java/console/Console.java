@@ -16,8 +16,7 @@ public final class Console {
         void main(String[] args) throws Exception;
     }
 
-    private Console() {
-    }
+    private Console() {}
 
     /**
      * Output is normalised: line endings become {@code \n}, trailing spaces on each line and
@@ -31,7 +30,10 @@ public final class Console {
         try {
             // Judge output uses '.' as the decimal separator
             Locale.setDefault(Locale.US);
-            System.setIn(new ByteArrayInputStream((String.join("\n", inputLines) + "\n").getBytes(StandardCharsets.UTF_8)));
+            System.setIn(
+                    new ByteArrayInputStream(
+                            (String.join("\n", inputLines) + "\n")
+                                    .getBytes(StandardCharsets.UTF_8)));
             System.setOut(new PrintStream(out, true, StandardCharsets.UTF_8));
             program.main(new String[0]);
         } catch (Exception e) {
@@ -41,7 +43,8 @@ public final class Console {
             System.setOut(originalOut);
             Locale.setDefault(originalLocale);
         }
-        return out.toString(StandardCharsets.UTF_8).lines()
+        return out.toString(StandardCharsets.UTF_8)
+                .lines()
                 .map(String::stripTrailing)
                 .collect(Collectors.joining("\n"))
                 .stripTrailing();

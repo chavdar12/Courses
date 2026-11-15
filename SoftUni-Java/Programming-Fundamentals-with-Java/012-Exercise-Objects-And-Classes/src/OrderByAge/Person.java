@@ -40,5 +40,4 @@ public class Person {
     public String toString() {
         return String.format("%s with ID: %d is %d years old.", name, id, age);
     }
-
 }

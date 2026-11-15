@@ -11,8 +11,13 @@ public class Car {
     private String cargoType;
     private List<Tire> tires;
 
-    public Car(String model, int engineSpeed, int enginePower, int cargoWeight, String cargoType,
-               List<Tire> tires) {
+    public Car(
+            String model,
+            int engineSpeed,
+            int enginePower,
+            int cargoWeight,
+            String cargoType,
+            List<Tire> tires) {
         this.model = model;
         this.engineSpeed = engineSpeed;
         this.enginePower = enginePower;
@@ -68,5 +73,4 @@ public class Car {
     public void setTires(List<Tire> tires) {
         this.tires = tires;
     }
-
 }

@@ -8,10 +8,14 @@ public class Game {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<Integer> playerOne = Arrays.stream(scanner.nextLine().split(" ")).map(Integer::parseInt)
-                .collect(Collectors.toList());
-        List<Integer> playerTwo = Arrays.stream(scanner.nextLine().split(" ")).map(Integer::parseInt)
-                .collect(Collectors.toList());
+        List<Integer> playerOne =
+                Arrays.stream(scanner.nextLine().split(" "))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
+        List<Integer> playerTwo =
+                Arrays.stream(scanner.nextLine().split(" "))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
 
         while (playerOne.size() > 0 && playerTwo.size() > 0) {
             int firstCardPlayerOne = playerOne.get(0);
@@ -30,9 +34,13 @@ public class Game {
         }
 
         if (playerOne.size() > playerTwo.size()) {
-            System.out.println("First player wins! Sum: " + playerOne.stream().mapToInt(Integer::intValue).sum());
+            System.out.println(
+                    "First player wins! Sum: "
+                            + playerOne.stream().mapToInt(Integer::intValue).sum());
         } else {
-            System.out.println("Second player wins! Sum: " + playerTwo.stream().mapToInt(Integer::intValue).sum());
+            System.out.println(
+                    "Second player wins! Sum: "
+                            + playerTwo.stream().mapToInt(Integer::intValue).sum());
         }
     }
 }

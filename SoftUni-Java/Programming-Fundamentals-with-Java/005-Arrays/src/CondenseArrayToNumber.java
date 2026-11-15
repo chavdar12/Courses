@@ -4,7 +4,10 @@ import java.util.Scanner;
 public class CondenseArrayToNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] input = Arrays.stream(scanner.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+        int[] input =
+                Arrays.stream(scanner.nextLine().split("\\s+"))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
         while (input.length > 1) {
             int[] condensed = new int[input.length - 1];
             for (int i = 0; i < condensed.length; i++) {

@@ -7,6 +7,5 @@ public class FloatingEquality {
         double b = Double.parseDouble(scanner.nextLine());
         double eps = 0.000001;
         System.out.println(Math.abs(a - b) < eps);
-
     }
 }
