@@ -15,20 +15,24 @@ describe('Advanced Functions - Exercise', () => {
     });
 
     it('02. Argument Info', () => {
-        expect(captureLog(() => argumentInfo('cat', 42, () => 'hello world', 'dog'))).to.deep.equal([
-            'string: cat',
-            'number: 42',
-            "function: () => 'hello world'",
-            'string: dog',
-            'string = 2',
-            'number = 1',
-            'function = 1',
-        ]);
+        expect(captureLog(() => argumentInfo('cat', 42, () => 'hello world', 'dog'))).to.deep.equal(
+            [
+                'string: cat',
+                'number: 42',
+                "function: () => 'hello world'",
+                'string: dog',
+                'string = 2',
+                'number = 1',
+                'function = 1',
+            ],
+        );
     });
 
     it('03. Fibonacci', () => {
         const fib = getFibonator();
-        expect([fib(), fib(), fib(), fib(), fib(), fib(), fib()]).to.deep.equal([1, 1, 2, 3, 5, 8, 13]);
+        expect([fib(), fib(), fib(), fib(), fib(), fib(), fib()]).to.deep.equal([
+            1, 1, 2, 3, 5, 8, 13,
+        ]);
     });
 
     it('04. Breakfast Robot', () => {

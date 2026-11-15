@@ -13,7 +13,8 @@ main {
     border-radius: 4px;
 }
 
-main label, main input {
+main label,
+main input {
     display: block;
 }
 
@@ -23,7 +24,10 @@ main input {
     margin: 1rem auto;
 }
 
-#daysBtn, #hoursBtn, #minutesBtn, #secondsBtn {
+#daysBtn,
+#hoursBtn,
+#minutesBtn,
+#secondsBtn {
     background: gray;
     width: 18%;
     border: 2px solid gray;

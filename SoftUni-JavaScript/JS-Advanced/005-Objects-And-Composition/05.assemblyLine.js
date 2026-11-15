@@ -12,7 +12,9 @@ function createAssemblyLine() {
             car.currentTrack = { name: null, artist: null };
             car.nowPlaying = function () {
                 if (this.currentTrack !== null) {
-                    console.log(`Now playing '${this.currentTrack.name}' by ${this.currentTrack.artist}`);
+                    console.log(
+                        `Now playing '${this.currentTrack.name}' by ${this.currentTrack.artist}`,
+                    );
                 }
             };
         },

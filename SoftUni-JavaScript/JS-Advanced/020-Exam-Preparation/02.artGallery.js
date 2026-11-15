@@ -14,7 +14,9 @@ class ArtGallery {
         if (!(model in this.possibleArticles)) {
             throw new Error('This article model is not included in this gallery!');
         }
-        const existing = this.listOfArticles.find((a) => a.articleName === articleName && a.articleModel === model);
+        const existing = this.listOfArticles.find(
+            (a) => a.articleName === articleName && a.articleModel === model,
+        );
         if (existing) {
             existing.quantity += quantity;
         } else {
@@ -33,7 +35,9 @@ class ArtGallery {
     }
 
     buyArticle(articleModel, articleName, guestName) {
-        const article = this.listOfArticles.find((a) => a.articleName === articleName && a.articleModel === articleModel);
+        const article = this.listOfArticles.find(
+            (a) => a.articleName === articleName && a.articleModel === articleModel,
+        );
         if (!article) {
             throw new Error('This article is not found.');
         }
@@ -56,11 +60,17 @@ class ArtGallery {
 
     showGalleryInfo(criteria) {
         if (criteria === 'article') {
-            return ['Articles information:',
-                ...this.listOfArticles.map((a) => `${a.articleModel} - ${a.articleName} - ${a.quantity}`)].join('\n');
+            return [
+                'Articles information:',
+                ...this.listOfArticles.map(
+                    (a) => `${a.articleModel} - ${a.articleName} - ${a.quantity}`,
+                ),
+            ].join('\n');
         }
-        return ['Guests information:',
-            ...this.guests.map((g) => `${g.guestName} - ${g.purchaseArticle}`)].join('\n');
+        return [
+            'Guests information:',
+            ...this.guests.map((g) => `${g.guestName} - ${g.purchaseArticle}`),
+        ].join('\n');
     }
 }
 

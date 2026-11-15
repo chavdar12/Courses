@@ -7,7 +7,7 @@ body {
 }
 
 article {
-    background: #34469c;;
+    background: #34469c;
     border-radius: 20px;
     margin-top: 20px;
     padding: 20px;
@@ -42,15 +42,14 @@ button {
     font-weight: bold;
     cursor: pointer;
     outline: none;
-    color: #34469c;;
+    color: #34469c;
     text-transform: uppercase;
     border: 2px solid white;
-
 }
 
 button:hover {
     color: white;
-    background: #34469c;;
+    background: #34469c;
     border: 2px solid white;
 }
 

@@ -6,7 +6,8 @@ function solve() {
     generateBtn.addEventListener('click', () => {
         for (const item of JSON.parse(input.value)) {
             const row = document.createElement('tr');
-            row.innerHTML = '<td><img></td><td><p></p></td><td><p></p></td><td><p></p></td><td><input type="checkbox"></td>';
+            row.innerHTML =
+                '<td><img></td><td><p></p></td><td><p></p></td><td><p></p></td><td><input type="checkbox"></td>';
             row.querySelector('img').src = item.img;
             const [name, price, decFactor] = row.querySelectorAll('p');
             name.textContent = item.name;
@@ -23,9 +24,11 @@ function solve() {
         if (bought.length === 0) return;
 
         const total = bought.reduce((sum, [, price]) => sum + Number(price), 0);
-        const avgFactor = bought.reduce((sum, [, , factor]) => sum + Number(factor), 0) / bought.length;
-        output.value = `Bought furniture: ${bought.map(([name]) => name).join(', ')}\n`
-            + `Total price: ${total.toFixed(2)}\n`
-            + `Average decoration factor: ${avgFactor}`;
+        const avgFactor =
+            bought.reduce((sum, [, , factor]) => sum + Number(factor), 0) / bought.length;
+        output.value =
+            `Bought furniture: ${bought.map(([name]) => name).join(', ')}\n` +
+            `Total price: ${total.toFixed(2)}\n` +
+            `Average decoration factor: ${avgFactor}`;
     });
 }

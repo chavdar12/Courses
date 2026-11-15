@@ -7,9 +7,10 @@ function tickets(descriptions, criteria) {
         }
     }
 
-    const compare = criteria === 'price'
-        ? (a, b) => a.price - b.price
-        : (a, b) => a[criteria].localeCompare(b[criteria]);
+    const compare =
+        criteria === 'price'
+            ? (a, b) => a.price - b.price
+            : (a, b) => a[criteria].localeCompare(b[criteria]);
 
     return descriptions
         .map((line) => {

@@ -27,16 +27,22 @@ describe('Prototypes and Inheritance - Lab', () => {
 
     it('03. Inheriting and Replacing toString', () => {
         const { Person: P, Teacher, Student } = toStringExtension();
-        expect(String(new P('Ivan', 'ivan@mail.bg'))).to.equal('Person (name: Ivan, email: ivan@mail.bg)');
-        expect(String(new Teacher('Maria', 'm@mail.bg', 'Math')))
-            .to.equal('Teacher (name: Maria, email: m@mail.bg, subject: Math)');
-        expect(String(new Student('Gosho', 'g@mail.bg', 'JS Advanced')))
-            .to.equal('Student (name: Gosho, email: g@mail.bg, course: JS Advanced)');
+        expect(String(new P('Ivan', 'ivan@mail.bg'))).to.equal(
+            'Person (name: Ivan, email: ivan@mail.bg)',
+        );
+        expect(String(new Teacher('Maria', 'm@mail.bg', 'Math'))).to.equal(
+            'Teacher (name: Maria, email: m@mail.bg, subject: Math)',
+        );
+        expect(String(new Student('Gosho', 'g@mail.bg', 'JS Advanced'))).to.equal(
+            'Student (name: Gosho, email: g@mail.bg, course: JS Advanced)',
+        );
     });
 
     it('04. Extend Prototype', () => {
         class Human {
-            toString() { return 'Hello!'; }
+            toString() {
+                return 'Hello!';
+            }
         }
         extendPrototype(Human);
         const h = new Human();

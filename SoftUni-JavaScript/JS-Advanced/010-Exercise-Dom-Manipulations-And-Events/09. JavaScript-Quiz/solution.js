@@ -14,9 +14,10 @@ function solve() {
                     sections[current].classList.remove('hidden');
                 } else {
                     document.getElementById('results').style.display = 'block';
-                    document.querySelector('#results h1').textContent = rightAnswers === correct.length
-                        ? 'You are recognized as top JavaScript fan!'
-                        : `You have ${rightAnswers} right answers`;
+                    document.querySelector('#results h1').textContent =
+                        rightAnswers === correct.length
+                            ? 'You are recognized as top JavaScript fan!'
+                            : `You have ${rightAnswers} right answers`;
                 }
             });
         });

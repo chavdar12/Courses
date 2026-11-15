@@ -40,7 +40,12 @@ describe('Prototypes and Inheritance - Exercise', () => {
 
     it('03. Extensible Object', () => {
         const obj = extensibleObject();
-        obj.extend({ extensionMethod() { return 'hi'; }, extensionProperty: 'someString' });
+        obj.extend({
+            extensionMethod() {
+                return 'hi';
+            },
+            extensionProperty: 'someString',
+        });
         expect(obj.extensionProperty).to.equal('someString');
         expect(Object.prototype.hasOwnProperty.call(obj, 'extensionMethod')).to.equal(false);
         expect(obj.extensionMethod()).to.equal('hi');
@@ -60,9 +65,11 @@ describe('Prototypes and Inheritance - Exercise', () => {
         expect(() => new Employee('x', 1)).to.throw('Cannot instantiate directly.');
 
         const senior = new Senior('Ivan', 40);
-        expect(captureLog(() => {
-            for (let i = 0; i < 4; i++) senior.work();
-        })).to.deep.equal([
+        expect(
+            captureLog(() => {
+                for (let i = 0; i < 4; i++) senior.work();
+            }),
+        ).to.deep.equal([
             'Ivan is working on a complicated task.',
             'Ivan is taking time off work.',
             'Ivan is supervising junior workers.',
@@ -70,12 +77,16 @@ describe('Prototypes and Inheritance - Exercise', () => {
         ]);
 
         const junior = new Junior('Pesho', 20);
-        expect(captureLog(() => junior.work())).to.deep.equal(['Pesho is working on a simple task.']);
+        expect(captureLog(() => junior.work())).to.deep.equal([
+            'Pesho is working on a simple task.',
+        ]);
 
         const manager = new Manager('Maria', 35);
         manager.salary = 1000;
         manager.dividend = 500;
-        expect(captureLog(() => manager.collectSalary())).to.deep.equal(['Maria received 1500 this month.']);
+        expect(captureLog(() => manager.collectSalary())).to.deep.equal([
+            'Maria received 1500 this month.',
+        ]);
         expect(manager).to.be.instanceOf(Employee);
     });
 
@@ -102,17 +113,33 @@ describe('Prototypes and Inheritance - Exercise', () => {
 
         const laptop = new Laptop('Hewlett Packard', 2.4, 4, 0.5, 3.12, 'Silver', battery);
         expect(laptop).to.deep.include({
-            manufacturer: 'Hewlett Packard', processorSpeed: 2.4, ram: 4, hardDiskSpace: 0.5, weight: 3.12, color: 'Silver',
+            manufacturer: 'Hewlett Packard',
+            processorSpeed: 2.4,
+            ram: 4,
+            hardDiskSpace: 0.5,
+            weight: 3.12,
+            color: 'Silver',
         });
         expect(laptop.battery).to.equal(battery);
         expect(laptop).to.be.instanceOf(Computer);
 
-        const desktop = new Desktop('Dell', 3.3, 8, 1, new Keyboard('Logitech', 1.5), new Monitor('Benq', 1920, 1080));
+        const desktop = new Desktop(
+            'Dell',
+            3.3,
+            8,
+            1,
+            new Keyboard('Logitech', 1.5),
+            new Monitor('Benq', 1920, 1080),
+        );
         expect(desktop.monitor.width).to.equal(1920);
 
         expect(() => new Computer('X', 1, 1, 1)).to.throw(Error);
         expect(() => new Laptop('X', 1, 1, 1, 1, 'Red', {})).to.throw(TypeError);
-        expect(() => { desktop.keyboard = battery; }).to.throw(TypeError);
-        expect(() => { desktop.monitor = null; }).to.throw(TypeError);
+        expect(() => {
+            desktop.keyboard = battery;
+        }).to.throw(TypeError);
+        expect(() => {
+            desktop.monitor = null;
+        }).to.throw(TypeError);
     });
 });

@@ -17,11 +17,15 @@ function solution() {
             const needed = Object.entries(recipes[recipe]);
             const missing = needed.find(([element, amount]) => stock[element] < amount * quantity);
             if (missing) return `Error: not enough ${missing[0]} in stock`;
-            needed.forEach(([element, amount]) => { stock[element] -= amount * quantity; });
+            needed.forEach(([element, amount]) => {
+                stock[element] -= amount * quantity;
+            });
             return 'Success';
         },
         report() {
-            return Object.entries(stock).map(([element, qty]) => `${element}=${qty}`).join(' ');
+            return Object.entries(stock)
+                .map(([element, qty]) => `${element}=${qty}`)
+                .join(' ');
         },
     };
 

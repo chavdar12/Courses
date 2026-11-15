@@ -6,7 +6,9 @@ function create(words) {
         p.textContent = word;
         p.style.display = 'none';
         div.appendChild(p);
-        div.addEventListener('click', () => { p.style.display = ''; });
+        div.addEventListener('click', () => {
+            p.style.display = '';
+        });
         content.appendChild(div);
     }
 }

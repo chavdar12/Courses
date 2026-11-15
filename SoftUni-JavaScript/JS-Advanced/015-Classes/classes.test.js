@@ -7,8 +7,9 @@ const Point = require('./04.pointDistance');
 
 describe('Classes - Lab', () => {
     it('01. Person', () => {
-        expect(String(new Person('Anna', 'Simpson', 22, 'anna@yahoo.com')))
-            .to.equal('Anna Simpson (age: 22, email: anna@yahoo.com)');
+        expect(String(new Person('Anna', 'Simpson', 22, 'anna@yahoo.com'))).to.equal(
+            'Anna Simpson (age: 22, email: anna@yahoo.com)',
+        );
     });
 
     it('02. Get Persons', () => {

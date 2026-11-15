@@ -10,7 +10,8 @@ function validate() {
     field('submit').addEventListener('click', (e) => {
         e.preventDefault();
         const password = field('password').value;
-        const passwordsOk = /^\w{5,15}$/.test(password) && password === field('confirm-password').value;
+        const passwordsOk =
+            /^\w{5,15}$/.test(password) && password === field('confirm-password').value;
         const number = Number(field('companyNumber').value);
 
         const checks = [

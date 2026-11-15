@@ -24,7 +24,8 @@ function solve() {
 
         toString() {
             const lines = [super.toString(), `Rating: ${this.likes - this.dislikes}`];
-            if (this.comments.length) lines.push('Comments:', ...this.comments.map((c) => ` * ${c}`));
+            if (this.comments.length)
+                lines.push('Comments:', ...this.comments.map((c) => ` * ${c}`));
             return lines.join('\n');
         }
     }

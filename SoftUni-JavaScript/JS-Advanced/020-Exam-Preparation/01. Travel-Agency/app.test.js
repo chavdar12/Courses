@@ -4,7 +4,10 @@ const { loadPage } = require('../test-helpers/dom');
 
 describe('Travel Agency', () => {
     let doc;
-    const fill = (values) => Object.entries(values).forEach(([id, v]) => { doc.getElementById(id).value = v; });
+    const fill = (values) =>
+        Object.entries(values).forEach(([id, v]) => {
+            doc.getElementById(id).value = v;
+        });
 
     beforeEach(async () => {
         doc = (await loadPage(path.join(__dirname, 'index.html'))).document;
@@ -17,12 +20,22 @@ describe('Travel Agency', () => {
     });
 
     it('submits, edits and continues', () => {
-        fill({ fname: 'Ivan Ivanov', email: 'ivan@abv.bg', phone: '0888', address: 'Sofia', code: '1000' });
+        fill({
+            fname: 'Ivan Ivanov',
+            email: 'ivan@abv.bg',
+            phone: '0888',
+            address: 'Sofia',
+            code: '1000',
+        });
         doc.getElementById('submitBTN').click();
 
         const items = [...doc.querySelectorAll('#infoPreview li')].map((li) => li.textContent);
         expect(items).to.deep.equal([
-            'Full Name: Ivan Ivanov', 'Email: ivan@abv.bg', 'Phone Number: 0888', 'Address: Sofia', 'Postal Code: 1000',
+            'Full Name: Ivan Ivanov',
+            'Email: ivan@abv.bg',
+            'Phone Number: 0888',
+            'Address: Sofia',
+            'Postal Code: 1000',
         ]);
         expect(doc.getElementById('fname').value).to.equal('');
         expect(doc.getElementById('submitBTN').disabled).to.equal(true);

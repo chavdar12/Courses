@@ -12,9 +12,11 @@ describe("Hell's Kitchen", () => {
             'PizzaHut - Ann 2000',
         ]);
         doc.getElementById('btnSend').click();
-        expect(doc.querySelector('#bestRestaurant p').textContent)
-            .to.equal('Name: TheLake Average Salary: 913.33 Best Salary: 1300.00');
-        expect(doc.querySelector('#workers p').textContent)
-            .to.equal('Name: Bob With Salary: 1300 Name: Joe With Salary: 780 Name: Jane With Salary: 660');
+        expect(doc.querySelector('#bestRestaurant p').textContent).to.equal(
+            'Name: TheLake Average Salary: 913.33 Best Salary: 1300.00',
+        );
+        expect(doc.querySelector('#workers p').textContent).to.equal(
+            'Name: Bob With Salary: 1300 Name: Joe With Salary: 780 Name: Jane With Salary: 660',
+        );
     });
 });

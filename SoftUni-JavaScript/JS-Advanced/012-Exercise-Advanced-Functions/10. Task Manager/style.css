@@ -5,18 +5,35 @@
 
 html {
     box-sizing: border-box;
-    font: 18px/1.5 Verdana, sans-serif;
+    font:
+        18px/1.5 Verdana,
+        sans-serif;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
-body, form, input, textarea, option, select, button, section, article {
+body,
+form,
+input,
+textarea,
+option,
+select,
+button,
+section,
+article {
     font: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: Georgia, serif;
 }
 
@@ -80,7 +97,8 @@ form {
     font-size: 0.75em;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 2px;
     border-radius: 5px;

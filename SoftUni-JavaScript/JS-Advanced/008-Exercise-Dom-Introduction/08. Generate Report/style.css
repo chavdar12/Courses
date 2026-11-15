@@ -1,15 +1,21 @@
 table {
     margin: auto;
-    font-style: ;
+    font-style:;
 }
 
-table, tbody, thead, tr, th, td {
+table,
+tbody,
+thead,
+tr,
+th,
+td {
     border-collapse: collapse;
     border: 1px solid black;
     text-align: center;
 }
 
-th, td {
+th,
+td {
     padding: 4px 8px;
 }
 

@@ -10,8 +10,10 @@ describe('Table - Search Engine', () => {
             doc.getElementById('searchField').value = text;
             doc.getElementById('searchBtn').click();
         };
-        const selected = () => Array.from(doc.querySelectorAll('tbody tr.select'))
-            .map((r) => r.children[0].textContent);
+        const selected = () =>
+            Array.from(doc.querySelectorAll('tbody tr.select')).map(
+                (r) => r.children[0].textContent,
+            );
 
         search('SoftUni');
         expect(selected()).to.deep.equal(['Max Peterson', 'Philip Anderson']);

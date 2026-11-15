@@ -11,8 +11,10 @@ describe('10. Contacts Builder', () => {
         const [title, info] = articles[0].children;
         expect(title.className).to.equal('title');
         expect(title.firstChild.textContent).to.equal('Ivan Ivanov');
-        expect(Array.from(info.children, (s) => s.textContent))
-            .to.deep.equal(['☎ 0888 123 456', '✉ i.ivanov@gmail.com']);
+        expect(Array.from(info.children, (s) => s.textContent)).to.deep.equal([
+            '☎ 0888 123 456',
+            '✉ i.ivanov@gmail.com',
+        ]);
         expect(info.style.display).to.equal('none');
 
         title.querySelector('button').click();

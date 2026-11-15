@@ -15,6 +15,8 @@ function solve() {
 
     document.querySelector('.checkout').addEventListener('click', () => {
         output.value += `You bought ${products.join(', ')} for ${total.toFixed(2)}.`;
-        document.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+        document.querySelectorAll('button').forEach((b) => {
+            b.disabled = true;
+        });
     });
 }

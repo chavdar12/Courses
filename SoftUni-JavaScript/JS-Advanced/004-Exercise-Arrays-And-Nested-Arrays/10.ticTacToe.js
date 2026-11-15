@@ -1,5 +1,9 @@
 function ticTacToe(moves) {
-    const board = [[false, false, false], [false, false, false], [false, false, false]];
+    const board = [
+        [false, false, false],
+        [false, false, false],
+        [false, false, false],
+    ];
     const printBoard = () => board.forEach((row) => console.log(row.join('\t')));
     const wins = (p) => {
         const lines = [

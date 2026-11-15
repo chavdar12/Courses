@@ -14,21 +14,30 @@ const aggregateElements = require('./10.aggregateElements');
 
 describe('Syntax, Functions and Statements - Lab', () => {
     it('01. Echo Function', () => {
-        expect(captureLog(() => echo('Hello, JavaScript!'))).to.deep.equal(['18', 'Hello, JavaScript!']);
+        expect(captureLog(() => echo('Hello, JavaScript!'))).to.deep.equal([
+            '18',
+            'Hello, JavaScript!',
+        ]);
     });
 
     it('02. String Length', () => {
-        expect(captureLog(() => stringLength('chocolate', 'ice cream', 'cake'))).to.deep.equal(['22', '7']);
+        expect(captureLog(() => stringLength('chocolate', 'ice cream', 'cake'))).to.deep.equal([
+            '22',
+            '7',
+        ]);
     });
 
     it('03. Largest Number', () => {
-        expect(captureLog(() => largestNumber(-3, -5, -22.5))).to.deep.equal(['The largest number is -3.']);
+        expect(captureLog(() => largestNumber(-3, -5, -22.5))).to.deep.equal([
+            'The largest number is -3.',
+        ]);
     });
 
     it('04. Circle Area', () => {
         expect(captureLog(() => circleArea(5))).to.deep.equal(['78.54']);
-        expect(captureLog(() => circleArea('name')))
-            .to.deep.equal(['We can not calculate the circle area, because we receive a string.']);
+        expect(captureLog(() => circleArea('name'))).to.deep.equal([
+            'We can not calculate the circle area, because we receive a string.',
+        ]);
     });
 
     it('05. Math Operations', () => {
@@ -60,6 +69,10 @@ describe('Syntax, Functions and Statements - Lab', () => {
     });
 
     it('10. Aggregate Elements', () => {
-        expect(captureLog(() => aggregateElements([1, 2, 3]))).to.deep.equal(['6', '1.8333333333333333', '123']);
+        expect(captureLog(() => aggregateElements([1, 2, 3]))).to.deep.equal([
+            '6',
+            '1.8333333333333333',
+            '123',
+        ]);
     });
 });

@@ -14,12 +14,22 @@ const autoEngineeringCompany = require('./09.autoEngineeringCompany');
 describe('Classes - Exercise', () => {
     it('01. Rectangle', () => {
         const rect = new Rectangle(4, 5, 'Red');
-        expect([rect.width, rect.height, rect.color, rect.calcArea()]).to.deep.equal([4, 5, 'Red', 20]);
+        expect([rect.width, rect.height, rect.color, rect.calcArea()]).to.deep.equal([
+            4,
+            5,
+            'Red',
+            20,
+        ]);
     });
 
     it('02. Data Class', () => {
         expect({ ...new Request('GET', 'http://google.com', 'HTTP/1.1', '') }).to.deep.equal({
-            method: 'GET', uri: 'http://google.com', version: 'HTTP/1.1', message: '', response: undefined, fulfilled: false,
+            method: 'GET',
+            uri: 'http://google.com',
+            version: 'HTTP/1.1',
+            message: '',
+            response: undefined,
+            fulfilled: false,
         });
     });
 
@@ -30,11 +40,22 @@ describe('Classes - Exercise', () => {
             'New York City|95.99|sold',
             'Boston|126.20|departed',
         ];
-        expect(tickets(input, 'destination').map((t) => t.destination))
-            .to.deep.equal(['Boston', 'New York City', 'New York City', 'Philadelphia']);
-        expect(tickets(input, 'status').map((t) => t.status))
-            .to.deep.equal(['available', 'available', 'departed', 'sold']);
-        expect(tickets(input, 'price')[0]).to.deep.include({ destination: 'Philadelphia', price: 94.2 });
+        expect(tickets(input, 'destination').map((t) => t.destination)).to.deep.equal([
+            'Boston',
+            'New York City',
+            'New York City',
+            'Philadelphia',
+        ]);
+        expect(tickets(input, 'status').map((t) => t.status)).to.deep.equal([
+            'available',
+            'available',
+            'departed',
+            'sold',
+        ]);
+        expect(tickets(input, 'price')[0]).to.deep.include({
+            destination: 'Philadelphia',
+            price: 94.2,
+        });
     });
 
     it('04. Sorted List', () => {
@@ -64,22 +85,25 @@ describe('Classes - Exercise', () => {
 
     it('06. Company', () => {
         const c = new Company();
-        expect(c.addEmployee('Stanimir', 2000, 'engineer', 'Construction'))
-            .to.equal('New employee is hired. Name: Stanimir. Position: engineer');
+        expect(c.addEmployee('Stanimir', 2000, 'engineer', 'Construction')).to.equal(
+            'New employee is hired. Name: Stanimir. Position: engineer',
+        );
         c.addEmployee('Pesho', 1500, 'electrical engineer', 'Construction');
         c.addEmployee('Slavi', 500, 'dyer', 'Construction');
         c.addEmployee('Stan', 2000, 'architect', 'Construction');
         c.addEmployee('Stanimir', 1200, 'digital marketing manager', 'Marketing');
         c.addEmployee('Pesho', 1000, 'graphical designer', 'Marketing');
         c.addEmployee('Gosho', 1350, 'HR', 'Human resources');
-        expect(c.bestDepartment()).to.equal([
-            'Best Department is: Construction',
-            'Average salary: 1500.00',
-            'Stan 2000 architect',
-            'Stanimir 2000 engineer',
-            'Pesho 1500 electrical engineer',
-            'Slavi 500 dyer',
-        ].join('\n'));
+        expect(c.bestDepartment()).to.equal(
+            [
+                'Best Department is: Construction',
+                'Average salary: 1500.00',
+                'Stan 2000 architect',
+                'Stanimir 2000 engineer',
+                'Pesho 1500 electrical engineer',
+                'Slavi 500 dyer',
+            ].join('\n'),
+        );
         expect(() => c.addEmployee('', 1, 'x', 'y')).to.throw('Invalid input!');
         expect(() => c.addEmployee('a', -1, 'x', 'y')).to.throw('Invalid input!');
     });
@@ -97,41 +121,62 @@ describe('Classes - Exercise', () => {
     });
 
     it('08. Juice Flavors', () => {
-        expect(captureLog(() => juiceFlavors([
-            'Orange => 2000',
-            'Peach => 1432',
-            'Banana => 450',
-            'Peach => 600',
-            'Strawberry => 549',
-        ]))).to.deep.equal(['Orange => 2', 'Peach => 2']);
-        expect(captureLog(() => juiceFlavors([
-            'Kiwi => 234',
-            'Pear => 2345',
-            'Watermelon => 3456',
-            'Kiwi => 4567',
-            'Pear => 5678',
-            'Watermelon => 6789',
-        ]))).to.deep.equal(['Pear => 8', 'Watermelon => 10', 'Kiwi => 4']);
+        expect(
+            captureLog(() =>
+                juiceFlavors([
+                    'Orange => 2000',
+                    'Peach => 1432',
+                    'Banana => 450',
+                    'Peach => 600',
+                    'Strawberry => 549',
+                ]),
+            ),
+        ).to.deep.equal(['Orange => 2', 'Peach => 2']);
+        expect(
+            captureLog(() =>
+                juiceFlavors([
+                    'Kiwi => 234',
+                    'Pear => 2345',
+                    'Watermelon => 3456',
+                    'Kiwi => 4567',
+                    'Pear => 5678',
+                    'Watermelon => 6789',
+                ]),
+            ),
+        ).to.deep.equal(['Pear => 8', 'Watermelon => 10', 'Kiwi => 4']);
     });
 
     it('09. Auto-Engineering Company', () => {
-        expect(captureLog(() => autoEngineeringCompany([
-            'Audi | Q7 | 1000',
-            'Audi | Q6 | 100',
-            'BMW | X5 | 1000',
-            'BMW | X6 | 100',
-            'Citroen | C4 | 123',
-            'Volga | GAZ-24 | 1000000',
-            'Lada | Niva | 1000000',
-            'Lada | Jigula | 1000000',
-            'Citroen | C4 | 22',
-            'Citroen | C5 | 10',
-        ]))).to.deep.equal([
-            'Audi', '###Q7 -> 1000', '###Q6 -> 100',
-            'BMW', '###X5 -> 1000', '###X6 -> 100',
-            'Citroen', '###C4 -> 145', '###C5 -> 10',
-            'Volga', '###GAZ-24 -> 1000000',
-            'Lada', '###Niva -> 1000000', '###Jigula -> 1000000',
+        expect(
+            captureLog(() =>
+                autoEngineeringCompany([
+                    'Audi | Q7 | 1000',
+                    'Audi | Q6 | 100',
+                    'BMW | X5 | 1000',
+                    'BMW | X6 | 100',
+                    'Citroen | C4 | 123',
+                    'Volga | GAZ-24 | 1000000',
+                    'Lada | Niva | 1000000',
+                    'Lada | Jigula | 1000000',
+                    'Citroen | C4 | 22',
+                    'Citroen | C5 | 10',
+                ]),
+            ),
+        ).to.deep.equal([
+            'Audi',
+            '###Q7 -> 1000',
+            '###Q6 -> 100',
+            'BMW',
+            '###X5 -> 1000',
+            '###X6 -> 100',
+            'Citroen',
+            '###C4 -> 145',
+            '###C5 -> 10',
+            'Volga',
+            '###GAZ-24 -> 1000000',
+            'Lada',
+            '###Niva -> 1000000',
+            '###Jigula -> 1000000',
         ]);
     });
 });

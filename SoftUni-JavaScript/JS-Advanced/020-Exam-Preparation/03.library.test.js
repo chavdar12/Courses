@@ -25,11 +25,15 @@ describe('library', () => {
         });
 
         it('finds a present book', () => {
-            expect(library.findBook(['Troy', 'Life Style'], 'Troy')).to.equal('We found the book you want.');
+            expect(library.findBook(['Troy', 'Life Style'], 'Troy')).to.equal(
+                'We found the book you want.',
+            );
         });
 
         it('reports a missing book', () => {
-            expect(library.findBook(['Troy'], 'Torronto')).to.equal('The book you are looking for is not here!');
+            expect(library.findBook(['Troy'], 'Torronto')).to.equal(
+                'The book you are looking for is not here!',
+            );
         });
     });
 
@@ -40,7 +44,9 @@ describe('library', () => {
         });
 
         it('asks for more shelves above 40', () => {
-            expect(library.arrangeTheBooks(41)).to.equal('Insufficient space, more shelves need to be purchased.');
+            expect(library.arrangeTheBooks(41)).to.equal(
+                'Insufficient space, more shelves need to be purchased.',
+            );
         });
 
         it('validates the input', () => {

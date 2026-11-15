@@ -12,10 +12,10 @@ describe('Shopping Cart', () => {
         add[0].click();
         doc.querySelector('.checkout').click();
         expect(doc.querySelector('textarea').value).to.equal(
-            'Added Bread for 0.80 to the cart.\n'
-            + 'Added Milk for 1.09 to the cart.\n'
-            + 'Added Bread for 0.80 to the cart.\n'
-            + 'You bought Bread, Milk for 2.69.',
+            'Added Bread for 0.80 to the cart.\n' +
+                'Added Milk for 1.09 to the cart.\n' +
+                'Added Bread for 0.80 to the cart.\n' +
+                'You bought Bread, Milk for 2.69.',
         );
         expect(Array.from(doc.querySelectorAll('button')).every((b) => b.disabled)).to.equal(true);
     });

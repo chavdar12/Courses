@@ -14,7 +14,7 @@ h1 {
 }
 
 article {
-    background-color: #DDDDDD;
+    background-color: #dddddd;
     padding: 10px 20px;
 }
 
@@ -23,7 +23,8 @@ article {
     border-radius: 15px;
 }
 
-input, select {
+input,
+select {
     outline: none;
     padding: 5px;
 }
@@ -32,12 +33,12 @@ select {
     margin-bottom: 12px;
 }
 
-input[type="text"] {
+input[type='text'] {
     border: 1px solid darkgray;
     border-radius: 15px;
 }
 
-input[type="button"] {
+input[type='button'] {
     background: white;
     margin-left: 20px;
     padding: 5px 15px;
@@ -45,6 +46,6 @@ input[type="button"] {
     border-radius: 15px;
     font-weight: bold;
     cursor: pointer;
-    color: #8198A2;
+    color: #8198a2;
     text-transform: uppercase;
 }

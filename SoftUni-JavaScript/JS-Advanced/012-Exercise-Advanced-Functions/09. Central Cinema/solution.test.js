@@ -8,7 +8,9 @@ describe('Central Cinema', () => {
         const doc = window.document;
         const add = (name, hall, price) => {
             const inputs = doc.querySelectorAll('#container input');
-            [name, hall, price].forEach((v, i) => { inputs[i].value = v; });
+            [name, hall, price].forEach((v, i) => {
+                inputs[i].value = v;
+            });
             doc.querySelector('#container button').click();
         };
         return { doc, add };

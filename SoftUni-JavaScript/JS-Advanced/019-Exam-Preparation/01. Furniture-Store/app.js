@@ -16,15 +16,24 @@ function solve() {
             return;
         }
 
-        const info = el('tr', { className: 'info' },
+        const info = el(
+            'tr',
+            { className: 'info' },
             el('td', {}, model.value),
             el('td', {}, priceValue.toFixed(2)),
-            el('td', {},
+            el(
+                'td',
+                {},
                 el('button', { className: 'moreBtn' }, 'More Info'),
-                el('button', { className: 'buyBtn' }, 'Buy it')));
-        const details = el('tr', { className: 'hide' },
+                el('button', { className: 'buyBtn' }, 'Buy it'),
+            ),
+        );
+        const details = el(
+            'tr',
+            { className: 'hide' },
             el('td', {}, `Year: ${yearValue}`),
-            el('td', { colSpan: 3 }, `Description: ${description.value}`));
+            el('td', { colSpan: 3 }, `Description: ${description.value}`),
+        );
         details.style.display = 'none';
 
         const [moreBtn, buyBtn] = info.querySelectorAll('button');
@@ -41,13 +50,16 @@ function solve() {
 
         list.appendChild(info);
         list.appendChild(details);
-        [model, year, description, price].forEach((input) => { input.value = ''; });
+        [model, year, description, price].forEach((input) => {
+            input.value = '';
+        });
     });
 }
 
 function el(tag, props, ...children) {
     const element = Object.assign(document.createElement(tag), props);
-    children.forEach((child) => element.appendChild(
-        typeof child === 'string' ? document.createTextNode(child) : child));
+    children.forEach((child) =>
+        element.appendChild(typeof child === 'string' ? document.createTextNode(child) : child),
+    );
     return element;
 }

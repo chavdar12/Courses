@@ -11,10 +11,18 @@ const cars = require('./07.cars');
 
 describe('Advanced Functions - Lab', () => {
     it('01. Area and Volume Calculator', () => {
-        function area() { return Math.abs(this.x * this.y); }
-        function vol() { return Math.abs(this.x * this.y * this.z); }
-        expect(areaAndVolume(area, vol, '[{"x":"1","y":"2","z":"10"},{"x":"-2","y":"3","z":"5"}]'))
-            .to.deep.equal([{ area: 2, volume: 20 }, { area: 6, volume: 30 }]);
+        function area() {
+            return Math.abs(this.x * this.y);
+        }
+        function vol() {
+            return Math.abs(this.x * this.y * this.z);
+        }
+        expect(
+            areaAndVolume(area, vol, '[{"x":"1","y":"2","z":"10"},{"x":"-2","y":"3","z":"5"}]'),
+        ).to.deep.equal([
+            { area: 2, volume: 20 },
+            { area: 6, volume: 30 },
+        ]);
     });
 
     it('02. Add', () => {
@@ -33,9 +41,27 @@ describe('Advanced Functions - Lab', () => {
 
     it('04. Filter Employees', () => {
         const data = JSON.stringify([
-            { id: '1', first_name: 'Ardine', last_name: 'Bassam', email: 'abassam0@cnn.com', gender: 'Female' },
-            { id: '2', first_name: 'Kizzee', last_name: 'Jost', email: 'kjost1@forbes.com', gender: 'Female' },
-            { id: '3', first_name: 'Evanne', last_name: 'Maldin', email: 'emaldin2@hostgator.com', gender: 'Male' },
+            {
+                id: '1',
+                first_name: 'Ardine',
+                last_name: 'Bassam',
+                email: 'abassam0@cnn.com',
+                gender: 'Female',
+            },
+            {
+                id: '2',
+                first_name: 'Kizzee',
+                last_name: 'Jost',
+                email: 'kjost1@forbes.com',
+                gender: 'Female',
+            },
+            {
+                id: '3',
+                first_name: 'Evanne',
+                last_name: 'Maldin',
+                email: 'emaldin2@hostgator.com',
+                gender: 'Male',
+            },
         ]);
         expect(captureLog(() => filterEmployees(data, 'gender-Female'))).to.deep.equal([
             '0. Ardine Bassam - abassam0@cnn.com',
@@ -56,20 +82,30 @@ describe('Advanced Functions - Lab', () => {
     });
 
     it('06. List Processor', () => {
-        expect(captureLog(() => listProcessor(['add hello', 'add again', 'remove hello', 'add again', 'print'])))
-            .to.deep.equal(['again,again']);
-        expect(captureLog(() => listProcessor(['add pesho', 'add george', 'add peter', 'remove peter', 'print'])))
-            .to.deep.equal(['pesho,george']);
+        expect(
+            captureLog(() =>
+                listProcessor(['add hello', 'add again', 'remove hello', 'add again', 'print']),
+            ),
+        ).to.deep.equal(['again,again']);
+        expect(
+            captureLog(() =>
+                listProcessor(['add pesho', 'add george', 'add peter', 'remove peter', 'print']),
+            ),
+        ).to.deep.equal(['pesho,george']);
     });
 
     it('07. Cars (inheritance)', () => {
-        expect(captureLog(() => cars([
-            'create c1',
-            'create c2 inherit c1',
-            'set c1 color red',
-            'set c2 model new',
-            'print c1',
-            'print c2',
-        ]))).to.deep.equal(['color:red', 'model:new,color:red']);
+        expect(
+            captureLog(() =>
+                cars([
+                    'create c1',
+                    'create c2 inherit c1',
+                    'set c1 color red',
+                    'set c2 model new',
+                    'print c1',
+                    'print c2',
+                ]),
+            ),
+        ).to.deep.equal(['color:red', 'model:new,color:red']);
     });
 });

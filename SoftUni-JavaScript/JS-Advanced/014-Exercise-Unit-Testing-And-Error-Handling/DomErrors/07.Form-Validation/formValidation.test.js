@@ -13,7 +13,10 @@ describe('Form Validation', () => {
         return { window, doc, fill };
     }
     const valid = {
-        username: 'Peter123', email: 'peter@abv.bg', password: 'secret_1', 'confirm-password': 'secret_1',
+        username: 'Peter123',
+        email: 'peter@abv.bg',
+        password: 'secret_1',
+        'confirm-password': 'secret_1',
     };
 
     it('shows Valid when all fields are valid', async () => {
@@ -24,7 +27,12 @@ describe('Form Validation', () => {
 
     it('marks every invalid field red', async () => {
         const { doc, fill } = await setup();
-        fill({ username: 'ab', email: 'no-at.bg', password: 'secret_1', 'confirm-password': 'other_11' });
+        fill({
+            username: 'ab',
+            email: 'no-at.bg',
+            password: 'secret_1',
+            'confirm-password': 'other_11',
+        });
         expect(doc.getElementById('valid').style.display).to.equal('none');
         for (const id of ['username', 'email', 'password', 'confirm-password']) {
             expect(doc.getElementById(id).style.borderColor, id).to.equal('red');

@@ -19,6 +19,8 @@
         return head.length + 3 > n ? `${head.slice(0, n - 3)}...` : `${head}...`;
     };
     String.format = function (string, ...params) {
-        return string.replace(/{(\d+)}/g, (match, i) => (params[i] !== undefined ? params[i] : match));
+        return string.replace(/{(\d+)}/g, (match, i) =>
+            params[i] !== undefined ? params[i] : match,
+        );
     };
-}());
+})();

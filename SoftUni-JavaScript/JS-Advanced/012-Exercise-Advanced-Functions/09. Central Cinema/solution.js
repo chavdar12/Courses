@@ -11,8 +11,9 @@ function solve() {
         if (!name || !hall || priceInput.value.trim() === '' || Number.isNaN(price)) return;
 
         const li = document.createElement('li');
-        li.innerHTML = '<span></span><strong></strong><div><strong></strong>'
-            + '<input placeholder="Tickets Sold"><button>Archive</button></div>';
+        li.innerHTML =
+            '<span></span><strong></strong><div><strong></strong>' +
+            '<input placeholder="Tickets Sold"><button>Archive</button></div>';
         li.querySelector('span').textContent = name;
         li.querySelector('strong').textContent = `Hall: ${hall}`;
         li.querySelector('div strong').textContent = price.toFixed(2);
@@ -32,7 +33,8 @@ function solve() {
         const archived = document.createElement('li');
         archived.innerHTML = '<span></span><strong></strong><button>Delete</button>';
         archived.querySelector('span').textContent = name;
-        archived.querySelector('strong').textContent = `Total amount: ${(price * tickets).toFixed(2)}`;
+        archived.querySelector('strong').textContent =
+            `Total amount: ${(price * tickets).toFixed(2)}`;
         archived.querySelector('button').addEventListener('click', () => archived.remove());
         archiveList.appendChild(archived);
         li.remove();

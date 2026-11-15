@@ -13,8 +13,9 @@ const wordsUppercase = require('./09.wordsUppercase');
 
 describe('Syntax, Functions and Statements - Exercise', () => {
     it('01. Fruit', () => {
-        expect(captureLog(() => fruit('orange', 2500, 1.80)))
-            .to.deep.equal(['I need $4.50 to buy 2.50 kilograms orange.']);
+        expect(captureLog(() => fruit('orange', 2500, 1.8))).to.deep.equal([
+            'I need $4.50 to buy 2.50 kilograms orange.',
+        ]);
     });
 
     it('02. Greatest Common Divisor', () => {
@@ -34,25 +35,32 @@ describe('Syntax, Functions and Statements - Exercise', () => {
     });
 
     it('05. Time to Walk', () => {
-        expect(captureLog(() => timeToWalk(4000, 0.60, 5))).to.deep.equal(['00:32:48']);
-        expect(captureLog(() => timeToWalk(2564, 0.70, 5.5))).to.deep.equal(['00:22:35']);
+        expect(captureLog(() => timeToWalk(4000, 0.6, 5))).to.deep.equal(['00:32:48']);
+        expect(captureLog(() => timeToWalk(2564, 0.7, 5.5))).to.deep.equal(['00:22:35']);
     });
 
     it('06. Road Radar', () => {
-        expect(captureLog(() => roadRadar(40, 'city'))).to.deep.equal(['Driving 40 km/h in a 50 zone']);
-        expect(captureLog(() => roadRadar(21, 'residential')))
-            .to.deep.equal(['The speed is 1 km/h faster than the allowed speed of 20 - speeding']);
-        expect(captureLog(() => roadRadar(120, 'interstate')))
-            .to.deep.equal(['The speed is 30 km/h faster than the allowed speed of 90 - excessive speeding']);
-        expect(captureLog(() => roadRadar(200, 'motorway')))
-            .to.deep.equal(['The speed is 70 km/h faster than the allowed speed of 130 - reckless driving']);
+        expect(captureLog(() => roadRadar(40, 'city'))).to.deep.equal([
+            'Driving 40 km/h in a 50 zone',
+        ]);
+        expect(captureLog(() => roadRadar(21, 'residential'))).to.deep.equal([
+            'The speed is 1 km/h faster than the allowed speed of 20 - speeding',
+        ]);
+        expect(captureLog(() => roadRadar(120, 'interstate'))).to.deep.equal([
+            'The speed is 30 km/h faster than the allowed speed of 90 - excessive speeding',
+        ]);
+        expect(captureLog(() => roadRadar(200, 'motorway'))).to.deep.equal([
+            'The speed is 70 km/h faster than the allowed speed of 130 - reckless driving',
+        ]);
     });
 
     it('07. Cooking by Numbers', () => {
-        expect(captureLog(() => cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop')))
-            .to.deep.equal(['16', '8', '4', '2', '1']);
-        expect(captureLog(() => cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet')))
-            .to.deep.equal(['3', '4', '2', '6', '4.800000000000001']);
+        expect(
+            captureLog(() => cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop')),
+        ).to.deep.equal(['16', '8', '4', '2', '1']);
+        expect(
+            captureLog(() => cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet')),
+        ).to.deep.equal(['3', '4', '2', '6', '4.800000000000001']);
     });
 
     it('08. Validity Checker', () => {
@@ -69,7 +77,9 @@ describe('Syntax, Functions and Statements - Exercise', () => {
     });
 
     it('09. Words Uppercase', () => {
-        expect(captureLog(() => wordsUppercase('Hi, how are you?'))).to.deep.equal(['HI, HOW, ARE, YOU']);
+        expect(captureLog(() => wordsUppercase('Hi, how are you?'))).to.deep.equal([
+            'HI, HOW, ARE, YOU',
+        ]);
         expect(captureLog(() => wordsUppercase('hello'))).to.deep.equal(['HELLO']);
     });
 });

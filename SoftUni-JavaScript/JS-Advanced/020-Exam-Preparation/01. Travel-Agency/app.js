@@ -28,12 +28,16 @@ function solve() {
             li.textContent = `${label}: ${saved[i]}`;
             preview.appendChild(li);
         });
-        inputs.forEach((input) => { input.value = ''; });
+        inputs.forEach((input) => {
+            input.value = '';
+        });
         setButtons(true);
     });
 
     editBtn.addEventListener('click', () => {
-        inputs.forEach((input, i) => { input.value = saved[i]; });
+        inputs.forEach((input, i) => {
+            input.value = saved[i];
+        });
         while (preview.firstChild) {
             preview.removeChild(preview.firstChild);
         }

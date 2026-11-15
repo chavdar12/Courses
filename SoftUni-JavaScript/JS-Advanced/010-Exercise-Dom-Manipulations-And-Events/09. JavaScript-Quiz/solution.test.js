@@ -14,7 +14,9 @@ describe('JavaScript Quiz', () => {
     it('recognizes a perfect score', async () => {
         const doc = await play([0, 1, 0]);
         expect(doc.getElementById('results').style.display).to.equal('block');
-        expect(doc.querySelector('#results h1').textContent).to.equal('You are recognized as top JavaScript fan!');
+        expect(doc.querySelector('#results h1').textContent).to.equal(
+            'You are recognized as top JavaScript fan!',
+        );
     });
 
     it('counts right answers and moves through sections', async () => {

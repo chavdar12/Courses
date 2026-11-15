@@ -8,7 +8,9 @@ describe('Time Converter', () => {
         const doc = window.document;
         doc.getElementById('hours').value = '48';
         doc.getElementById('hoursBtn').click();
-        const values = ['days', 'hours', 'minutes', 'seconds'].map((id) => doc.getElementById(id).value);
+        const values = ['days', 'hours', 'minutes', 'seconds'].map(
+            (id) => doc.getElementById(id).value,
+        );
         expect(values).to.deep.equal(['2', '48', '2880', '172800']);
     });
 });

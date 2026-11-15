@@ -10,12 +10,19 @@ const fromJSONToHTMLTable = require('./06.fromJSONToHTMLTable');
 
 describe('Objects and Composition - Lab', () => {
     it('01. City Record', () => {
-        expect(cityRecord('Tortuga', 7000, 15000)).to.deep.equal({ name: 'Tortuga', population: 7000, treasury: 15000 });
+        expect(cityRecord('Tortuga', 7000, 15000)).to.deep.equal({
+            name: 'Tortuga',
+            population: 7000,
+            treasury: 15000,
+        });
     });
 
     it('02. Town Population', () => {
-        expect(captureLog(() => townPopulation(['Sofia <-> 1200000', 'Montana <-> 20000', 'Sofia <-> 20'])))
-            .to.deep.equal(['Sofia : 1200020', 'Montana : 20000']);
+        expect(
+            captureLog(() =>
+                townPopulation(['Sofia <-> 1200000', 'Montana <-> 20000', 'Sofia <-> 20']),
+            ),
+        ).to.deep.equal(['Sofia : 1200020', 'Montana : 20000']);
     });
 
     it('03. City Taxes', () => {
@@ -30,10 +37,16 @@ describe('Objects and Composition - Lab', () => {
 
     it('04. Object Factory', () => {
         const library = {
-            print() { return `${this.name} is printing a page`; },
-            scan() { return `${this.name} is scanning a document`; },
+            print() {
+                return `${this.name} is printing a page`;
+            },
+            scan() {
+                return `${this.name} is scanning a document`;
+            },
         };
-        const [product] = factory(library, [{ template: { name: 'ACME Printer' }, parts: ['print'] }]);
+        const [product] = factory(library, [
+            { template: { name: 'ACME Printer' }, parts: ['print'] },
+        ]);
         expect(product.name).to.equal('ACME Printer');
         expect(product.print()).to.equal('ACME Printer is printing a page');
         expect(product).to.not.have.property('scan');
@@ -51,22 +64,30 @@ describe('Objects and Composition - Lab', () => {
         expect(car.temp).to.equal(20);
 
         car.currentTrack = { name: 'Never Gonna Give You Up', artist: 'Rick Astley' };
-        expect(captureLog(() => car.nowPlaying())).to.deep.equal(["Now playing 'Never Gonna Give You Up' by Rick Astley"]);
-        expect(captureLog(() => {
-            car.checkDistance(0.4);
-            car.checkDistance(0.2);
-            car.checkDistance(0.05);
-            car.checkDistance(1);
-        })).to.deep.equal(['Beep!', 'Beep! Beep!', 'Beep! Beep! Beep!', '']);
+        expect(captureLog(() => car.nowPlaying())).to.deep.equal([
+            "Now playing 'Never Gonna Give You Up' by Rick Astley",
+        ]);
+        expect(
+            captureLog(() => {
+                car.checkDistance(0.4);
+                car.checkDistance(0.2);
+                car.checkDistance(0.05);
+                car.checkDistance(1);
+            }),
+        ).to.deep.equal(['Beep!', 'Beep! Beep!', 'Beep! Beep! Beep!', '']);
     });
 
     it('06. From JSON to HTML Table (escapes values)', () => {
-        const [html] = captureLog(() => fromJSONToHTMLTable('[{"Name":"Pesho <div>-a","Score":4}]'));
-        expect(html).to.equal([
-            '<table>',
-            '   <tr><th>Name</th><th>Score</th></tr>',
-            '   <tr><td>Pesho &lt;div&gt;-a</td><td>4</td></tr>',
-            '</table>',
-        ].join('\n'));
+        const [html] = captureLog(() =>
+            fromJSONToHTMLTable('[{"Name":"Pesho <div>-a","Score":4}]'),
+        );
+        expect(html).to.equal(
+            [
+                '<table>',
+                '   <tr><th>Name</th><th>Score</th></tr>',
+                '   <tr><td>Pesho &lt;div&gt;-a</td><td>4</td></tr>',
+                '</table>',
+            ].join('\n'),
+        );
     });
 });

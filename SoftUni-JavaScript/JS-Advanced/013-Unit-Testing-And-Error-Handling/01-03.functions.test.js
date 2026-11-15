@@ -22,8 +22,11 @@ describe('Unit Testing and Error Handling - Lab (01-03)', () => {
     });
 
     it('03. Deck of Cards', () => {
-        expect(captureLog(() => printDeckOfCards(['AS', '10D', 'KH', '2C'])))
-            .to.deep.equal(['A♠ 10♦ K♥ 2♣']);
-        expect(captureLog(() => printDeckOfCards(['5S', '3D', 'QD', '1C']))).to.deep.equal(['Invalid card: 1C']);
+        expect(captureLog(() => printDeckOfCards(['AS', '10D', 'KH', '2C']))).to.deep.equal([
+            'A♠ 10♦ K♥ 2♣',
+        ]);
+        expect(captureLog(() => printDeckOfCards(['5S', '3D', 'QD', '1C']))).to.deep.equal([
+            'Invalid card: 1C',
+        ]);
     });
 });

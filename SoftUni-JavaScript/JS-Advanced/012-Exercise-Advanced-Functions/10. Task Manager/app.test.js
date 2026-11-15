@@ -18,12 +18,17 @@ describe('Task Manager', () => {
         doc.getElementById('add').click();
         const article = column(1).querySelector('article');
         expect(article.querySelector('h3').textContent).to.equal('Exam');
-        expect(Array.from(article.querySelectorAll('p'), (p) => p.textContent))
-            .to.deep.equal(['Description: Pass it', 'Due Date: 2020.04.14']);
+        expect(Array.from(article.querySelectorAll('p'), (p) => p.textContent)).to.deep.equal([
+            'Description: Pass it',
+            'Due Date: 2020.04.14',
+        ]);
 
         article.querySelector('button.green').click();
         expect(article.parentElement.id).to.equal('in-progress');
-        expect(Array.from(article.querySelectorAll('button'), (b) => b.textContent)).to.deep.equal(['Delete', 'Finish']);
+        expect(Array.from(article.querySelectorAll('button'), (b) => b.textContent)).to.deep.equal([
+            'Delete',
+            'Finish',
+        ]);
 
         article.querySelector('button.orange').click();
         expect(article.parentElement).to.equal(column(3));

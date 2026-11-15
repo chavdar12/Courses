@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Satisfy|Pathway+Gothic+One);
 /* Defaults */
-html, body, #quizzie {
+html,
+body,
+#quizzie {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -25,12 +27,15 @@ h1 {
     font-size: 2.5em;
 }
 
-h2, p {
+h2,
+p {
     font-family: 'Pathway Gothic One', 'sans-serif';
     font-size: 2em;
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
     text-align: center;
     display: block;
     width: auto;
@@ -71,7 +76,8 @@ h1, h2, p {
     cursor: pointer;
 }
 
-#quizzie ul li.question, #quizzie ul li.results-inner {
+#quizzie ul li.question,
+#quizzie ul li.results-inner {
     display: block;
     float: none;
     width: 100%;
@@ -92,7 +98,8 @@ h1, h2, p {
     margin-right: 0;
 }
 
-#quizzie .question-wrap, #quizzie .answer-wrap {
+#quizzie .question-wrap,
+#quizzie .answer-wrap {
     display: block;
     padding: 1%;
     margin: 1em 10%;

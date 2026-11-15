@@ -8,7 +8,7 @@
 }
 
 html {
-    font-family: "PT sans", sans-serif;
+    font-family: 'PT sans', sans-serif;
     font-size: 24px;
     color: #234465;
 }
@@ -33,7 +33,8 @@ main:after {
     clear: both;
 }
 
-input[type="button"], button {
+input[type='button'],
+button {
     padding: 0.3rem 0.5rem;
     font-size: 0.7em;
     margin: 1rem 0 1rem 0;
@@ -58,16 +59,21 @@ input[type="button"], button {
     margin: 0 auto;
 }
 
-input[name="user3Username"], input[name="user2Username"], input[name="user1Username"] {
+input[name='user3Username'],
+input[name='user2Username'],
+input[name='user1Username'] {
     display: inline-block;
     width: 100%;
 }
 
-#user1HiddenFields input, #user2HiddenFields input, #user3HiddenFields input {
+#user1HiddenFields input,
+#user2HiddenFields input,
+#user3HiddenFields input {
     width: 100%;
 }
 
-#user1HiddenFields, #user2HiddenFields, #user3HiddenFields {
+#user1HiddenFields,
+#user2HiddenFields,
+#user3HiddenFields {
     display: none;
 }
-

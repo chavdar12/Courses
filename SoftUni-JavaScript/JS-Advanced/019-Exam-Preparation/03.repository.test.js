@@ -27,11 +27,17 @@ describe('Repository', () => {
         });
 
         it('throws for a missing property', () => {
-            expect(() => repo.add({ name: 'Pesho', age: 22 })).to.throw(Error, 'Property birthday is missing from the entity!');
+            expect(() => repo.add({ name: 'Pesho', age: 22 })).to.throw(
+                Error,
+                'Property birthday is missing from the entity!',
+            );
         });
 
         it('throws a TypeError for a wrong type', () => {
-            expect(() => repo.add({ name: 'Pesho', age: '22', birthday: new Date() })).to.throw(TypeError, 'Property age is of incorrect type!');
+            expect(() => repo.add({ name: 'Pesho', age: '22', birthday: new Date() })).to.throw(
+                TypeError,
+                'Property age is of incorrect type!',
+            );
         });
     });
 
@@ -55,7 +61,9 @@ describe('Repository', () => {
 
         it('validates the new entity', () => {
             repo.add(pesho());
-            expect(() => repo.update(0, { name: 'Gosho' })).to.throw('Property age is missing from the entity!');
+            expect(() => repo.update(0, { name: 'Gosho' })).to.throw(
+                'Property age is missing from the entity!',
+            );
             expect(() => repo.update(0, { ...pesho(), birthday: 'x' })).to.throw(TypeError);
         });
     });

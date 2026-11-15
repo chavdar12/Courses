@@ -15,7 +15,9 @@ const equalNeighbors = require('./11.equalNeighbors');
 
 describe('Arrays and Nested Arrays - Lab', () => {
     it('01. Even Position Element', () => {
-        expect(captureLog(() => evenPositionElement(['20', '30', '40', '50', '60']))).to.deep.equal(['20 40 60']);
+        expect(captureLog(() => evenPositionElement(['20', '30', '40', '50', '60']))).to.deep.equal(
+            ['20 40 60'],
+        );
     });
 
     it('02. Last K Numbers Sequence', () => {
@@ -29,8 +31,18 @@ describe('Arrays and Nested Arrays - Lab', () => {
     });
 
     it('04. Negative / Positive Numbers', () => {
-        expect(captureLog(() => negativePositiveNumbers([7, -2, 8, 9]))).to.deep.equal(['-2', '7', '8', '9']);
-        expect(captureLog(() => negativePositiveNumbers([3, -2, 0, -1]))).to.deep.equal(['-1', '-2', '3', '0']);
+        expect(captureLog(() => negativePositiveNumbers([7, -2, 8, 9]))).to.deep.equal([
+            '-2',
+            '7',
+            '8',
+            '9',
+        ]);
+        expect(captureLog(() => negativePositiveNumbers([3, -2, 0, -1]))).to.deep.equal([
+            '-1',
+            '-2',
+            '3',
+            '0',
+        ]);
     });
 
     it('05. Smallest Two Numbers', () => {
@@ -43,9 +55,18 @@ describe('Arrays and Nested Arrays - Lab', () => {
     });
 
     it('07. Piece of Pie', () => {
-        const pies = ['Pumpkin Pie', 'Key Lime Pie', 'Cherry Pie', 'Lemon Meringue Pie', 'Sugar Cream Pie'];
-        expect(pieceOfPie(pies, 'Key Lime Pie', 'Lemon Meringue Pie'))
-            .to.deep.equal(['Key Lime Pie', 'Cherry Pie', 'Lemon Meringue Pie']);
+        const pies = [
+            'Pumpkin Pie',
+            'Key Lime Pie',
+            'Cherry Pie',
+            'Lemon Meringue Pie',
+            'Sugar Cream Pie',
+        ];
+        expect(pieceOfPie(pies, 'Key Lime Pie', 'Lemon Meringue Pie')).to.deep.equal([
+            'Key Lime Pie',
+            'Cherry Pie',
+            'Lemon Meringue Pie',
+        ]);
     });
 
     it('08. Process Odd Positions', () => {
@@ -54,23 +75,55 @@ describe('Arrays and Nested Arrays - Lab', () => {
     });
 
     it('09. Biggest Element', () => {
-        expect(biggestElement([[20, 50, 10], [8, 33, 145]])).to.equal(145);
-        expect(biggestElement([[-3, -5], [-7, -1]])).to.equal(-1);
+        expect(
+            biggestElement([
+                [20, 50, 10],
+                [8, 33, 145],
+            ]),
+        ).to.equal(145);
+        expect(
+            biggestElement([
+                [-3, -5],
+                [-7, -1],
+            ]),
+        ).to.equal(-1);
     });
 
     it('10. Diagonal Sums', () => {
-        expect(captureLog(() => diagonalSums([[20, 40], [10, 60]]))).to.deep.equal(['80 50']);
-        expect(captureLog(() => diagonalSums([[3, 5, 17], [-1, 7, 14], [1, -8, 89]]))).to.deep.equal(['99 25']);
+        expect(
+            captureLog(() =>
+                diagonalSums([
+                    [20, 40],
+                    [10, 60],
+                ]),
+            ),
+        ).to.deep.equal(['80 50']);
+        expect(
+            captureLog(() =>
+                diagonalSums([
+                    [3, 5, 17],
+                    [-1, 7, 14],
+                    [1, -8, 89],
+                ]),
+            ),
+        ).to.deep.equal(['99 25']);
     });
 
     it('11. Equal Neighbors', () => {
-        expect(equalNeighbors([
-            ['2', '3', '4', '7', '0'],
-            ['4', '0', '5', '3', '4'],
-            ['2', '3', '5', '4', '2'],
-            ['9', '8', '7', '5', '4'],
-        ])).to.equal(1);
-        expect(equalNeighbors([['test', 'yes', 'yo', 'ho'], ['well', 'done', 'yo', '6'], ['not', 'done', 'yet', '5']]))
-            .to.equal(2);
+        expect(
+            equalNeighbors([
+                ['2', '3', '4', '7', '0'],
+                ['4', '0', '5', '3', '4'],
+                ['2', '3', '5', '4', '2'],
+                ['9', '8', '7', '5', '4'],
+            ]),
+        ).to.equal(1);
+        expect(
+            equalNeighbors([
+                ['test', 'yes', 'yo', 'ho'],
+                ['well', 'done', 'yo', '6'],
+                ['not', 'done', 'yet', '5'],
+            ]),
+        ).to.equal(2);
     });
 });

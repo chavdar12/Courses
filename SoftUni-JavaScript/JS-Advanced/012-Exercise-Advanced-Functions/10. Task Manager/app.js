@@ -22,12 +22,17 @@ function solve() {
         const start = button('green', 'Start', () => {
             inProgress.appendChild(article);
             start.remove();
-            buttons.appendChild(button('orange', 'Finish', () => {
-                buttons.remove();
-                complete.appendChild(article);
-            }));
+            buttons.appendChild(
+                button('orange', 'Finish', () => {
+                    buttons.remove();
+                    complete.appendChild(article);
+                }),
+            );
         });
-        buttons.append(start, button('red', 'Delete', () => article.remove()));
+        buttons.append(
+            start,
+            button('red', 'Delete', () => article.remove()),
+        );
         open.appendChild(article);
 
         task.value = '';

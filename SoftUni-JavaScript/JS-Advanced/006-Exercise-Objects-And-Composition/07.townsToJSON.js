@@ -1,5 +1,9 @@
 function townsToJSON(input) {
-    const parse = (line) => line.split('|').map((x) => x.trim()).filter(Boolean);
+    const parse = (line) =>
+        line
+            .split('|')
+            .map((x) => x.trim())
+            .filter(Boolean);
     const [townKey, latKey, lngKey] = parse(input[0]);
     const towns = input.slice(1).map((line) => {
         const [town, lat, lng] = parse(line);
