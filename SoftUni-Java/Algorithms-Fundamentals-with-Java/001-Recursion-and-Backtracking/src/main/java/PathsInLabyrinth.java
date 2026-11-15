@@ -18,7 +18,6 @@ public class PathsInLabyrinth {
         }
 
         findPath(matrix, 0, 0, '-');
-
     }
 
     public static void findPath(char[][] matrix, int r, int c, char d) {
@@ -26,7 +25,6 @@ public class PathsInLabyrinth {
         if (isFree(matrix, r, c)) return;
         path += d;
         if (onTarget(matrix, r, c, d)) return;
-
 
         matrix[r][c] = 'x';
 

@@ -17,7 +17,6 @@ public class VariationsWithoutRepetition {
         used = new boolean[elements.length];
 
         variate(0);
-
     }
 
     private static void variate(int index) {

@@ -18,8 +18,11 @@ public class ConnectedComponents {
             if (nextLine.trim().equals("")) {
                 graph.add(new ArrayList<>());
             } else {
-                graph.add(Arrays.stream(nextLine.split("\\s+"))
-                        .mapToInt(Integer::parseInt).boxed().collect(Collectors.toList()));
+                graph.add(
+                        Arrays.stream(nextLine.split("\\s+"))
+                                .mapToInt(Integer::parseInt)
+                                .boxed()
+                                .collect(Collectors.toList()));
             }
         }
         rd.close();
@@ -51,7 +54,11 @@ public class ConnectedComponents {
         return components;
     }
 
-    private static void bfs(int start, List<List<Integer>> graph, boolean[] visited, List<Deque<Integer>> components) {
+    private static void bfs(
+            int start,
+            List<List<Integer>> graph,
+            boolean[] visited,
+            List<Deque<Integer>> components) {
         Deque<Integer> queue = new ArrayDeque<>();
         visited[start] = true;
         queue.offer(start);
@@ -70,7 +77,11 @@ public class ConnectedComponents {
         }
     }
 
-    private static void dfs(int node, List<List<Integer>> graph, boolean[] visited, List<Deque<Integer>> components) {
+    private static void dfs(
+            int node,
+            List<List<Integer>> graph,
+            boolean[] visited,
+            List<Deque<Integer>> components) {
         if (!visited[node]) {
             visited[node] = true;
             for (int child : graph.get(node)) {

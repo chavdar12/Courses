@@ -72,5 +72,4 @@ public class Cinema {
         out.deleteCharAt(out.length() - 1);
         out.append(System.lineSeparator());
     }
-
 }

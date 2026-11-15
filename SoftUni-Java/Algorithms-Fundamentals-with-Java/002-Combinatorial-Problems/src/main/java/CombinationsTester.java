@@ -7,7 +7,8 @@ public class CombinationsTester {
         char[] variations = new char[chars.length];
 
         variate(0, chars, chars2, variations);
-        }
+    }
+
     private static void variate(int index, char[] chars, char[] chars2, char[] variations) {
 
         if (index >= variations.length) {
@@ -23,6 +24,7 @@ public class CombinationsTester {
         variations[index] = chars2[index];
         variate(index + 1, chars, chars2, variations);
     }
+
     private static void consolePrint(char[] variations) {
 
         StringBuilder out = new StringBuilder();
@@ -36,6 +38,4 @@ public class CombinationsTester {
 
         System.out.print(out);
     }
-
 }
-

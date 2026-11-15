@@ -15,7 +15,6 @@ public class VariationsWithRepetition {
         variations = new String[k];
 
         variate(0);
-
     }
 
     private static void variate(int index) {

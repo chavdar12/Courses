@@ -5,11 +5,11 @@ import java.util.Arrays;
 
 public class BinarySearch {
 
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-        int[] arr = Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+        int[] arr =
+                Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
         int key = Integer.parseInt(rd.readLine());
         rd.close();
 

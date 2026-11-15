@@ -22,9 +22,10 @@ public class ShortestPath {
         }
 
         for (int i = 0; i < e; i++) {
-            int[] paths = Arrays.stream(rd.readLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int[] paths =
+                    Arrays.stream(rd.readLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
 
             graph.get(paths[0]).add(paths[1]);
         }
@@ -51,7 +52,9 @@ public class ShortestPath {
             prevNode = prevNodes[prevNode];
         }
 
-        out.append("Shortest path length is: ").append(path.size() - 1).append(System.lineSeparator());
+        out.append("Shortest path length is: ")
+                .append(path.size() - 1)
+                .append(System.lineSeparator());
         for (int i = path.size() - 1; i >= 0; i--) {
             out.append(path.get(i)).append(" ");
         }

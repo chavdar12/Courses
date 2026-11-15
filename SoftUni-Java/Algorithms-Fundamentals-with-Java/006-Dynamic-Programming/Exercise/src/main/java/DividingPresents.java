@@ -1,11 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class DividingPresents {
@@ -14,7 +10,8 @@ public class DividingPresents {
 
         // read input from console
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-        int[] gifts = Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+        int[] gifts =
+                Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
         rd.close();
 
         // declare variables
@@ -32,7 +29,8 @@ public class DividingPresents {
             int giftValue = gifts[i];
             for (int prevGiftIndex = totalSum - gifts[i]; prevGiftIndex >= 0; prevGiftIndex--) {
                 // check for unset value in memo
-                if (sumIndexer[prevGiftIndex] != -1 && sumIndexer[prevGiftIndex + giftValue] == -1) {
+                if (sumIndexer[prevGiftIndex] != -1
+                        && sumIndexer[prevGiftIndex + giftValue] == -1) {
                     // set the index in memo
                     sumIndexer[prevGiftIndex + giftValue] = i;
                 }
@@ -46,14 +44,20 @@ public class DividingPresents {
         // build result string
         StringBuilder out = new StringBuilder();
         out.append("Difference: ").append(totalSum - fiftyFifty * 2).append(System.lineSeparator());
-        out.append("Alan:").append(fiftyFifty).append(" Bob:").append(totalSum - fiftyFifty).append(System.lineSeparator());
+        out.append("Alan:")
+                .append(fiftyFifty)
+                .append(" Bob:")
+                .append(totalSum - fiftyFifty)
+                .append(System.lineSeparator());
         out.append("Alan takes:");
         // iterate through memo by following previous index and append gift value to output string
         while (fiftyFifty > 0) {
             out.append(" ").append(gifts[sumIndexer[fiftyFifty]]);
             fiftyFifty -= gifts[sumIndexer[fiftyFifty]];
         }
-        out.append(System.lineSeparator()).append("Bob takes the rest.").append(System.lineSeparator());
+        out.append(System.lineSeparator())
+                .append("Bob takes the rest.")
+                .append(System.lineSeparator());
         // print to console
         System.out.print(out);
     }

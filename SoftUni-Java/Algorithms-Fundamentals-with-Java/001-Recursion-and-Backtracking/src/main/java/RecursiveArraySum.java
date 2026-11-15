@@ -5,9 +5,8 @@ public class RecursiveArraySum {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] arr = Arrays.stream(sc.nextLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] arr =
+                Arrays.stream(sc.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
 
         System.out.println(summarize(arr, arr.length - 1));
     }

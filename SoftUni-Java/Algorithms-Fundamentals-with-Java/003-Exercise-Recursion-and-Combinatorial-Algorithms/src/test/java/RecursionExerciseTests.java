@@ -1,7 +1,7 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 // Each program keeps output in static fields, so each main runs once per JVM.
 public class RecursionExerciseTests {
@@ -18,7 +18,8 @@ public class RecursionExerciseTests {
 
     @Test
     void combinationsWithoutRepetition() throws Exception {
-        assertEquals("1 2 \n1 3 \n2 3 \n", Console.run(CombinationsWithoutRepetition::main, "3", "2"));
+        assertEquals(
+                "1 2 \n1 3 \n2 3 \n", Console.run(CombinationsWithoutRepetition::main, "3", "2"));
     }
 
     @Test
@@ -28,18 +29,27 @@ public class RecursionExerciseTests {
 
     @Test
     void cinemaKeepsReservedSeats() throws Exception {
-        assertEquals("Amy Peter George Rick\nAmy George Peter Rick\n",
-                Console.run(Cinema::main, "Peter, Amy, George, Rick", "Amy - 1", "Rick - 4", "generate"));
+        assertEquals(
+                "Amy Peter George Rick\nAmy George Peter Rick\n",
+                Console.run(
+                        Cinema::main,
+                        "Peter, Amy, George, Rick",
+                        "Amy - 1",
+                        "Rick - 4",
+                        "generate"));
     }
 
     @Test
     void schoolTeams() throws Exception {
-        assertEquals("Linda, Amy, Katty, John, Bill\n", Console.run(SchoolTeams::main, "Linda, Amy, Katty", "John, Bill"));
+        assertEquals(
+                "Linda, Amy, Katty, John, Bill\n",
+                Console.run(SchoolTeams::main, "Linda, Amy, Katty", "John, Bill"));
     }
 
     @Test
     void connectedAreas() throws Exception {
-        assertEquals("Total areas found: 2\nArea #1 at (0, 0), size: 2\nArea #2 at (0, 2), size: 2\n",
+        assertEquals(
+                "Total areas found: 2\nArea #1 at (0, 0), size: 2\nArea #2 at (0, 2), size: 2\n",
                 Console.run(ConnectedAreasInMatrix::main, "2", "3", "-*-", "-*-"));
     }
 

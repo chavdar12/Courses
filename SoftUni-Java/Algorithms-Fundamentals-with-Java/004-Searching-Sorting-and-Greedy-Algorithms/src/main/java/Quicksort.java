@@ -11,12 +11,15 @@ public class Quicksort {
     public static void main(String[] args) throws IOException {
 
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-        int[] arr = Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+        int[] arr =
+                Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
         rd.close();
 
         sort(arr);
 
-        out.append(String.join(" ", IntStream.of(arr).mapToObj(String::valueOf).toArray(String[]::new)));
+        out.append(
+                String.join(
+                        " ", IntStream.of(arr).mapToObj(String::valueOf).toArray(String[]::new)));
         System.out.println(out);
     }
 

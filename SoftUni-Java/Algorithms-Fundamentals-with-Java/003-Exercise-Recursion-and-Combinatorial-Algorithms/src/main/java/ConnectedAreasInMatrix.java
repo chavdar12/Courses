@@ -43,9 +43,15 @@ public class ConnectedAreasInMatrix {
         areas.stream()
                 .sorted((f, s) -> Integer.compare(s[2], f[2]))
                 .forEach(a -> {
-                    out.append("Area #").append(counter.getAndIncrement())
-                            .append(" at (").append(a[0]).append(", ").append(a[1]).append("), size: ")
-                            .append(a[2]).append(System.lineSeparator());
+                    out.append("Area #")
+                            .append(counter.getAndIncrement())
+                            .append(" at (")
+                            .append(a[0])
+                            .append(", ")
+                            .append(a[1])
+                            .append("), size: ")
+                            .append(a[2])
+                            .append(System.lineSeparator());
                 });
 
         System.out.print(out);
@@ -73,5 +79,4 @@ public class ConnectedAreasInMatrix {
     private static boolean isOutOfBounds(int row, int col) {
         return row < 0 || row >= matrix.length || col < 0 || col >= matrix[row].length;
     }
-
 }

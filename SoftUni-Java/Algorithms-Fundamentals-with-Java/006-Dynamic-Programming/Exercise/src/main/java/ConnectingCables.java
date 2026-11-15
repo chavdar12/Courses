@@ -10,9 +10,8 @@ public class ConnectingCables {
         // open reader and build array from console input
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] cables = Arrays.stream(rd.readLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] cables =
+                Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
 
         // close reader
         rd.close();

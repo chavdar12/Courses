@@ -12,7 +12,6 @@ public class RoadReconstruction {
     private static int[] low;
     private static int[] parent;
 
-
     public static void main(String[] args) throws IOException {
 
         var rd = new BufferedReader(new InputStreamReader(System.in));
@@ -61,7 +60,8 @@ public class RoadReconstruction {
 
                     if (low[v] > disc[start]) {
 
-                        output.append(String.format("%d %d", start, v)).append(System.lineSeparator());
+                        output.append(String.format("%d %d", start, v))
+                                .append(System.lineSeparator());
                     }
                 } else if (v != parent[start]) {
 

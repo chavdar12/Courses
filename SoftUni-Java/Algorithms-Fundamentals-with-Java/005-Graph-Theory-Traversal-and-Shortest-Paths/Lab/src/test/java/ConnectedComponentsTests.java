@@ -20,7 +20,6 @@ public class ConnectedComponentsTests {
         graph.add(new ArrayList<>());
         graph.add(new ArrayList<>(Arrays.asList(2)));
 
-
         // Act
         List<Deque<Integer>> expected = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
@@ -55,7 +54,6 @@ public class ConnectedComponentsTests {
         List<List<Integer>> graph = new ArrayList<>();
 
         graph.add(new ArrayList<>());
-
 
         // Act
         List<Deque<Integer>> expected = new ArrayList<>();
@@ -116,7 +114,6 @@ public class ConnectedComponentsTests {
         graph.add(new ArrayList<>());
         graph.add(new ArrayList<>(Arrays.asList(1)));
 
-
         // Act
         List<Deque<Integer>> expected = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
@@ -157,7 +154,6 @@ public class ConnectedComponentsTests {
         graph.add(new ArrayList<>(Arrays.asList(0, 1, 2, 3)));
         graph.add(new ArrayList<>(Arrays.asList(0, 1, 3)));
         graph.add(new ArrayList<>(Arrays.asList(1, 2)));
-
 
         // Act
         List<Deque<Integer>> expected = new ArrayList<>();

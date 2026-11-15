@@ -37,7 +37,8 @@ public class TopologicalSortTests {
         Collection<String> topSorter = TopologicalSorting.topSort(graph);
 
         // Assert
-        Assertions.assertEquals("[IDEs, variables, conditionals, loops, bits]", topSorter.toString());
+        Assertions.assertEquals(
+                "[IDEs, variables, conditionals, loops, bits]", topSorter.toString());
     }
 
     @Test
@@ -57,7 +58,6 @@ public class TopologicalSortTests {
     public void TestTopSortEmptyGraph() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
-
 
         // Act
         Collection<String> topSorted = TopologicalSorting.topSort(graph);
@@ -84,7 +84,9 @@ public class TopologicalSortTests {
 
         // Assert
         String actual = topSorted.toString();
-        boolean isCorrectOrder = "[H, G, F, E, C, D, B, A]".equals(actual) || "[D, F, E, C, B, A, H, G]".equals(actual);
+        boolean isCorrectOrder =
+                "[H, G, F, E, C, D, B, A]".equals(actual)
+                        || "[D, F, E, C, B, A, H, G]".equals(actual);
         Assertions.assertTrue(isCorrectOrder);
     }
 
@@ -111,7 +113,8 @@ public class TopologicalSortTests {
 
         // Act
         // Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TopologicalSorting.topSort(graph));
+        Assertions.assertThrows(
+                IllegalArgumentException.class, () -> TopologicalSorting.topSort(graph));
     }
 
     @Test
@@ -128,7 +131,8 @@ public class TopologicalSortTests {
 
         // Act
         // Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TopologicalSorting.topSort(graph));
+        Assertions.assertThrows(
+                IllegalArgumentException.class, () -> TopologicalSorting.topSort(graph));
     }
 
     @Test
@@ -164,12 +168,14 @@ public class TopologicalSortTests {
         Collection<String> topSorted = TopologicalSorting.topSortSourceRemoval(graph);
 
         // Assert
-        Assertions.assertEquals("[IDEs, variables, conditionals, loops, bits]", topSorted.toString());
+        Assertions.assertEquals(
+                "[IDEs, variables, conditionals, loops, bits]", topSorted.toString());
     }
 
     @Test
     public void TestSourceRemovalEmptyGraph() {
-        Assertions.assertEquals("[]", TopologicalSorting.topSortSourceRemoval(new LinkedHashMap<>()).toString());
+        Assertions.assertEquals(
+                "[]", TopologicalSorting.topSortSourceRemoval(new LinkedHashMap<>()).toString());
     }
 
     @Test
@@ -186,6 +192,8 @@ public class TopologicalSortTests {
 
         // Act
         // Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TopologicalSorting.topSortSourceRemoval(graph));
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> TopologicalSorting.topSortSourceRemoval(graph));
     }
 }

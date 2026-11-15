@@ -10,9 +10,8 @@ public class SumWithUnlimitedCoins {
         // open reader, declare variables and read input from console, close reader
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] coins = Arrays.stream(rd.readLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] coins =
+                Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
 
         int targetSum = Integer.parseInt(rd.readLine());
 

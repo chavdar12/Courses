@@ -66,5 +66,4 @@ public class WordCruncher {
             out.add(String.join(" ", combined));
         }
     }
-
 }

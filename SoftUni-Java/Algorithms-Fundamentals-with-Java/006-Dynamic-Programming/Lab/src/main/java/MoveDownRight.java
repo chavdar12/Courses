@@ -17,7 +17,10 @@ public class MoveDownRight {
         int cols = Integer.parseInt(rd.readLine());
         int[][] matrix = new int[rows][cols];
         for (int row = 0; row < rows; row++) {
-            matrix[row] = Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+            matrix[row] =
+                    Arrays.stream(rd.readLine().split("\\s+"))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
         }
         rd.close();
         int[][] dp = new int[rows][cols];
@@ -43,7 +46,8 @@ public class MoveDownRight {
         }
 
         List<String> path = new ArrayList<>();
-        rows--; cols--;
+        rows--;
+        cols--;
 
         while (rows >= 0 && cols >= 0) {
             path.add("[" + rows + ", " + cols + "]");

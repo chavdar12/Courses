@@ -12,7 +12,6 @@ public class SumOfCoins {
 
         int targetSum = Integer.parseInt(in.nextLine().substring(5));
 
-
         Map<Integer, Integer> usedCoins = chooseCoins(coins, targetSum);
 
         for (Map.Entry<Integer, Integer> usedCoin : usedCoins.entrySet()) {
@@ -22,7 +21,8 @@ public class SumOfCoins {
 
     public static Map<Integer, Integer> chooseCoins(int[] coins, int targetSum) {
         Map<Integer, Integer> change = new LinkedHashMap<>();
-        List<Integer> sortedCoins = Arrays.stream(coins).boxed().sorted(Collections.reverseOrder()).toList();
+        List<Integer> sortedCoins =
+                Arrays.stream(coins).boxed().sorted(Collections.reverseOrder()).toList();
 
         int currentSum = 0;
         int index = 0;

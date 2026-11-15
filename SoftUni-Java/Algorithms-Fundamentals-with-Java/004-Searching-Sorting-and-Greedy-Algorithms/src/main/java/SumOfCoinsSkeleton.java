@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class SumOfCoinsSkeleton {
     public static void main(String[] args) {
@@ -13,7 +12,6 @@ public class SumOfCoinsSkeleton {
 
         int targetSum = Integer.parseInt(in.nextLine().substring(5));
 
-
         Map<Integer, Integer> usedCoins = chooseCoins(coins, targetSum);
 
         for (Map.Entry<Integer, Integer> usedCoin : usedCoins.entrySet()) {
@@ -22,7 +20,7 @@ public class SumOfCoinsSkeleton {
     }
 
     public static Map<Integer, Integer> chooseCoins(int[] coins, int targetSum) {
-       // TODO
+        // TODO
         return new HashMap<>();
     }
 }

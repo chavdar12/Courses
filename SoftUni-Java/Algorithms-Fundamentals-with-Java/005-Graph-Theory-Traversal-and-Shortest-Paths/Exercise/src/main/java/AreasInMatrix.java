@@ -42,7 +42,11 @@ public class AreasInMatrix {
 
         out.append("Areas: ").append(areas).append(System.lineSeparator());
         for (Map.Entry<Character, Integer> entry : charAreas.entrySet()) {
-            out.append("Letter '").append(entry.getKey()).append("' -> ").append(entry.getValue()).append(System.lineSeparator());
+            out.append("Letter '")
+                    .append(entry.getKey())
+                    .append("' -> ")
+                    .append(entry.getValue())
+                    .append(System.lineSeparator());
         }
         System.out.print(out);
     }
@@ -74,12 +78,19 @@ public class AreasInMatrix {
     }
 
     private static boolean outOfBounds(int row, int col, char areaSymbol) {
-        return row < 0 || row >= matrix.length || col < 0 || col >= matrix[row].length || v[row][col] || matrix[row][col] != areaSymbol;
+        return row < 0
+                || row >= matrix.length
+                || col < 0
+                || col >= matrix[row].length
+                || v[row][col]
+                || matrix[row][col] != areaSymbol;
     }
 
     private static boolean indexCheck(int row, int col, char areaSymbol) {
 
-        return !(row < 0 || row >= matrix.length || col < 0 || col >= matrix[row].length) && !v[row][col] && matrix[row][col] == areaSymbol;
+        return !(row < 0 || row >= matrix.length || col < 0 || col >= matrix[row].length)
+                && !v[row][col]
+                && matrix[row][col] == areaSymbol;
     }
 
     private static class Edge {
@@ -87,13 +98,11 @@ public class AreasInMatrix {
         private int[] src;
         private int[] dest;
 
-
         public Edge(int sRow, int sCol, int dRow, int dCol) {
 
             this.src = new int[] {sRow, sCol};
             this.dest = new int[] {dRow, dCol};
         }
-
 
         public int[] getSrc() {
             return src;
@@ -113,5 +122,4 @@ public class AreasInMatrix {
             return this;
         }
     }
-
 }

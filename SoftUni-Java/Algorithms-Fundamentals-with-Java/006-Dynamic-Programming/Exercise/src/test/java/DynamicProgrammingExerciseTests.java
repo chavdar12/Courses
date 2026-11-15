@@ -1,6 +1,6 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 public class DynamicProgrammingExerciseTests {
 
@@ -21,7 +21,8 @@ public class DynamicProgrammingExerciseTests {
 
     @Test
     void dividingPresents() throws Exception {
-        assertEquals("Difference: 0\nAlan:3 Bob:3\nAlan takes: 2 1\nBob takes the rest.\n",
+        assertEquals(
+                "Difference: 0\nAlan:3 Bob:3\nAlan takes: 2 1\nBob takes the rest.\n",
                 Console.run(DividingPresents::main, "1 2 3"));
     }
 
@@ -32,7 +33,9 @@ public class DynamicProgrammingExerciseTests {
 
     @Test
     void minimumEditDistance() throws Exception {
-        assertEquals("Minimum edit distance: 1\n", Console.run(MinimumEditDistance::main, "1", "1", "1", "abc", "abd"));
+        assertEquals(
+                "Minimum edit distance: 1\n",
+                Console.run(MinimumEditDistance::main, "1", "1", "1", "abc", "abd"));
     }
 
     @Test
@@ -47,6 +50,7 @@ public class DynamicProgrammingExerciseTests {
 
     @Test
     void wordDifferences() throws Exception {
-        assertEquals("Deletions and Insertions: 2\n", Console.run(WordDifferences::main, "abc", "abd"));
+        assertEquals(
+                "Deletions and Insertions: 2\n", Console.run(WordDifferences::main, "abc", "abd"));
     }
 }

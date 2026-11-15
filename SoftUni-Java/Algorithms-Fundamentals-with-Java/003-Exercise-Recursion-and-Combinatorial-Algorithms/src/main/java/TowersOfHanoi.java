@@ -22,7 +22,7 @@ public class TowersOfHanoi {
 
         int n = Integer.parseInt(rd.readLine());
 
-        for (int i = n; i >= 1 ; i--) {
+        for (int i = n; i >= 1; i--) {
 
             source.push(i);
         }
@@ -32,12 +32,16 @@ public class TowersOfHanoi {
         System.out.println(out.toString());
     }
 
-    private static void solve(int n, Deque<Integer> source, Deque<Integer> destination, Deque<Integer> spare) {
+    private static void solve(
+            int n, Deque<Integer> source, Deque<Integer> destination, Deque<Integer> spare) {
 
         if (n == 1) {
 
             destination.push(source.pop());
-            out.append("Step #").append(steps++).append(": Moved disk").append(System.lineSeparator());
+            out.append("Step #")
+                    .append(steps++)
+                    .append(": Moved disk")
+                    .append(System.lineSeparator());
             printRods();
         } else {
 
@@ -49,9 +53,15 @@ public class TowersOfHanoi {
 
     public static void printRods() {
 
-        out.append("Source: ").append(formatRod(source)).append(System.lineSeparator())
-                .append("Destination: ").append(formatRod(destination)).append(System.lineSeparator())
-                .append("Spare: ").append(formatRod(spare)).append(System.lineSeparator())
+        out.append("Source: ")
+                .append(formatRod(source))
+                .append(System.lineSeparator())
+                .append("Destination: ")
+                .append(formatRod(destination))
+                .append(System.lineSeparator())
+                .append("Spare: ")
+                .append(formatRod(spare))
+                .append(System.lineSeparator())
                 .append(System.lineSeparator());
     }
 

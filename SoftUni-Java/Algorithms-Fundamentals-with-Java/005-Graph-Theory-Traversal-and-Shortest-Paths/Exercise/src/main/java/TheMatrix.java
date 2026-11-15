@@ -8,9 +8,8 @@ public class TheMatrix {
 
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] dimensions = Arrays.stream(rd.readLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] dimensions =
+                Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
 
         int row = dimensions[0];
         int col = dimensions[1];
@@ -29,9 +28,8 @@ public class TheMatrix {
 
         char fillChar = rd.readLine().charAt(0);
 
-        int[] coordinates = Arrays.stream(rd.readLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] coordinates =
+                Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
 
         rd.close();
 
@@ -52,7 +50,8 @@ public class TheMatrix {
         }
     }
 
-    private static void replaceCharacters(char[][] matrix, char fillChar, char toBeReplaced, int row, int col) {
+    private static void replaceCharacters(
+            char[][] matrix, char fillChar, char toBeReplaced, int row, int col) {
 
         if (isOutOfBounds(matrix, row, col) || matrix[row][col] != toBeReplaced) {
 
@@ -65,7 +64,6 @@ public class TheMatrix {
         replaceCharacters(matrix, fillChar, toBeReplaced, row - 1, col);
         replaceCharacters(matrix, fillChar, toBeReplaced, row, col + 1);
         replaceCharacters(matrix, fillChar, toBeReplaced, row, col - 1);
-
     }
 
     private static boolean isOutOfBounds(char[][] matrix, int row, int col) {

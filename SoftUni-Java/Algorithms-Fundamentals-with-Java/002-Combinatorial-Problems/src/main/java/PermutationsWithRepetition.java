@@ -12,7 +12,6 @@ public class PermutationsWithRepetition {
         elements = sc.nextLine().split("\\s+");
 
         permute(0);
-
     }
 
     private static void permute(int index) {

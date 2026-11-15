@@ -16,8 +16,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        words = Arrays.stream(scanner.nextLine().split(", "))
-                .collect(Collectors.toList());
+        words = Arrays.stream(scanner.nextLine().split(", ")).collect(Collectors.toList());
         target = scanner.nextLine();
 
         words.removeIf(next -> !target.contains(next));

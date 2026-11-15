@@ -38,7 +38,7 @@ public class Salaries {
         System.out.println(Arrays.stream(salaries).sum());
     }
 
-    private static void dfs (int node, boolean[] visited, long[] salaries){
+    private static void dfs(int node, boolean[] visited, long[] salaries) {
 
         if (visited[node]) {
             return;
@@ -51,6 +51,9 @@ public class Salaries {
             dfs(child, visited, salaries);
         }
 
-        salaries[node] = graph.get(node).isEmpty() ? 1 : graph.get(node).stream().mapToLong(c -> salaries[c]).sum();
+        salaries[node] =
+                graph.get(node).isEmpty()
+                        ? 1
+                        : graph.get(node).stream().mapToLong(c -> salaries[c]).sum();
     }
 }

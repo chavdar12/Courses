@@ -32,7 +32,7 @@ public class SalariesWithNodeclass {
         boolean[] visited = new boolean[v];
         for (Node node : graph.values()) {
             if (node.getParents().isEmpty())
-                //node.updateSalary();
+                // node.updateSalary();
                 dfs(node, visited, salaries);
         }
 
@@ -42,7 +42,6 @@ public class SalariesWithNodeclass {
         }
 
         System.out.print(sumSalary);
-
     }
 
     private static void dfs(Node node, boolean[] visited, int[] salaries) {
@@ -65,9 +64,8 @@ public class SalariesWithNodeclass {
 
         private List<Node> parents;
         private List<Node> children;
-        private  int value;
+        private int value;
         private long salary;
-
 
         public Node(int value) {
             this.value = value;
@@ -75,7 +73,6 @@ public class SalariesWithNodeclass {
             this.children = new ArrayList<>();
             this.salary = 1;
         }
-
 
         public int getValue() {
             return value;
@@ -123,8 +120,7 @@ public class SalariesWithNodeclass {
         }
 
         public long updateSalary() {
-            if (this.children.isEmpty())
-                this.setSalary(1);
+            if (this.children.isEmpty()) this.setSalary(1);
             else {
                 int childSalary = 0;
                 for (Node child : this.children) {

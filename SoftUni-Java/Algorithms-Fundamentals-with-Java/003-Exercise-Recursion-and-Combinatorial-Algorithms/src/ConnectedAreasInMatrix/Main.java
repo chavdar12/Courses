@@ -25,7 +25,7 @@ public class Main {
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[row].length; col++) {
                 if (matrix[row][col] == '-') {
-                    areas.add(new int[]{row, col, 0});
+                    areas.add(new int[] {row, col, 0});
                     findAreas(row, col);
                 }
             }
@@ -38,8 +38,15 @@ public class Main {
         areas.stream()
                 .sorted((f, s) -> Integer.compare(s[2], f[2]))
                 .forEach(a -> {
-                    System.out.println("Area #" + counter.getAndIncrement()
-                            + " at (" + a[0] + ", " + a[1] + "), size: " + a[2]);
+                    System.out.println(
+                            "Area #"
+                                    + counter.getAndIncrement()
+                                    + " at ("
+                                    + a[0]
+                                    + ", "
+                                    + a[1]
+                                    + "), size: "
+                                    + a[2]);
                 });
     }
 

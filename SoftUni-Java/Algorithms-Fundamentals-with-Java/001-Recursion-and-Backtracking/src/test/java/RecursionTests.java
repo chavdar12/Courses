@@ -1,6 +1,6 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 public class RecursionTests {
 
@@ -36,7 +36,8 @@ public class RecursionTests {
 
     @Test
     void pathsInLabyrinth() throws Exception {
-        assertEquals("RRDD\nDDRR\n", Console.run(PathsInLabyrinth::main, "3", "3", "---", "-*-", "--e"));
+        assertEquals(
+                "RRDD\nDDRR\n", Console.run(PathsInLabyrinth::main, "3", "3", "---", "-*-", "--e"));
     }
 
     @Test

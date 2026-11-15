@@ -16,7 +16,10 @@ public final class Console {
         PrintStream out = System.out;
         ByteArrayOutputStream captured = new ByteArrayOutputStream();
         try {
-            System.setIn(new ByteArrayInputStream((String.join("\n", inputLines) + "\n").getBytes(StandardCharsets.UTF_8)));
+            System.setIn(
+                    new ByteArrayInputStream(
+                            (String.join("\n", inputLines) + "\n")
+                                    .getBytes(StandardCharsets.UTF_8)));
             System.setOut(new PrintStream(captured, true, StandardCharsets.UTF_8));
             main.run(new String[0]);
         } finally {
@@ -26,6 +29,5 @@ public final class Console {
         return captured.toString(StandardCharsets.UTF_8).replace("\r\n", "\n");
     }
 
-    private Console() {
-    }
+    private Console() {}
 }

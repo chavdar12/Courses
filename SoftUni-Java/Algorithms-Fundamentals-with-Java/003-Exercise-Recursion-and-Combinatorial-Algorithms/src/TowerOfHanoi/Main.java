@@ -30,7 +30,8 @@ public class Main {
         System.out.println(out.toString());
     }
 
-    private static void solve(int disk, Deque<Integer> source, Deque<Integer> destination, Deque<Integer> spare) {
+    private static void solve(
+            int disk, Deque<Integer> source, Deque<Integer> destination, Deque<Integer> spare) {
         if (disk == 1) {
             destination.push(source.pop());
             out.append("Step #")
@@ -46,8 +47,10 @@ public class Main {
     }
 
     public static void printRods() {
-        out.append(String.format("Source: %s%nDestination: %s%nSpare: %s%n",
-                        formatRod(source), formatRod(destination), formatRod(spare)))
+        out.append(
+                        String.format(
+                                "Source: %s%nDestination: %s%nSpare: %s%n",
+                                formatRod(source), formatRod(destination), formatRod(spare)))
                 .append(System.lineSeparator());
     }
 

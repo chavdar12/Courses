@@ -61,7 +61,6 @@ public class BreakCycles {
             }
         }
 
-
         System.out.println("Edges to remove: " + removedEdges.size());
         removedEdges = removedEdges.stream().sorted().collect(Collectors.toList());
         for (String edge : removedEdges) {
@@ -119,7 +118,8 @@ public class BreakCycles {
         }
     }
 
-    private static boolean searchForCycles(String node, Set<String> visited, SortedSet<String> cycle, String parent) {
+    private static boolean searchForCycles(
+            String node, Set<String> visited, SortedSet<String> cycle, String parent) {
 
         boolean output = false;
 

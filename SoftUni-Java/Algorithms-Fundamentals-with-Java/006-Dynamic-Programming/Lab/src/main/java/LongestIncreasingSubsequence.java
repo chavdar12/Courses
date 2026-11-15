@@ -13,7 +13,7 @@ public class LongestIncreasingSubsequence {
 
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
         int[] s = Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
-        //int[] s = { 3, 14, 5, 12, 15, 7, 8, 9, 11, 10, 1 };
+        // int[] s = { 3, 14, 5, 12, 15, 7, 8, 9, 11, 10, 1 };
         rd.close();
 
         int[] length = new int[s.length];

@@ -29,5 +29,4 @@ public class Generating_0_1_Vectors {
         }
         System.out.println();
     }
-
 }

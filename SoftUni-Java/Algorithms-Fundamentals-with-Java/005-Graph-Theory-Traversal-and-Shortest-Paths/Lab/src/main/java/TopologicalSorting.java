@@ -18,8 +18,11 @@ public class TopologicalSorting {
             if (nextLine.trim().equals("")) {
                 graph.add(new ArrayList<>());
             } else {
-                graph.add(Arrays.stream(nextLine.split("\\s+"))
-                        .mapToInt(Integer::parseInt).boxed().collect(Collectors.toList()));
+                graph.add(
+                        Arrays.stream(nextLine.split("\\s+"))
+                                .mapToInt(Integer::parseInt)
+                                .boxed()
+                                .collect(Collectors.toList()));
             }
         }
         rd.close();
@@ -51,7 +54,11 @@ public class TopologicalSorting {
         return components;
     }
 
-    private static void bfs(int start, List<List<Integer>> graph, boolean[] visited, List<Deque<Integer>> components) {
+    private static void bfs(
+            int start,
+            List<List<Integer>> graph,
+            boolean[] visited,
+            List<Deque<Integer>> components) {
         Deque<Integer> queue = new ArrayDeque<>();
         visited[start] = true;
         queue.offer(start);
@@ -70,7 +77,11 @@ public class TopologicalSorting {
         }
     }
 
-    private static void dfs(int node, List<List<Integer>> graph, boolean[] visited, List<Deque<Integer>> components) {
+    private static void dfs(
+            int node,
+            List<List<Integer>> graph,
+            boolean[] visited,
+            List<Deque<Integer>> components) {
         if (!visited[node]) {
             visited[node] = true;
             for (int child : graph.get(node)) {
@@ -89,11 +100,11 @@ public class TopologicalSorting {
         List<String> sorted = new ArrayList<>();
 
         while (!graph.isEmpty()) {
-            String key = graph.keySet()
-                    .stream()
-                    .filter(k -> dependenciesCount.get(k) == 0)
-                    .findFirst()
-                    .orElse(null);
+            String key =
+                    graph.keySet().stream()
+                            .filter(k -> dependenciesCount.get(k) == 0)
+                            .findFirst()
+                            .orElse(null);
 
             if (key == null) {
                 break;
@@ -143,7 +154,12 @@ public class TopologicalSorting {
         return sorted;
     }
 
-    private static void topSortDfs(List<String> sorted, Set<String> visited, Set<String> cycles, String node, Map<String, List<String>> graph) {
+    private static void topSortDfs(
+            List<String> sorted,
+            Set<String> visited,
+            Set<String> cycles,
+            String node,
+            Map<String, List<String>> graph) {
 
         if (cycles.contains(node)) {
             throw new IllegalArgumentException();
@@ -162,4 +178,3 @@ public class TopologicalSorting {
         }
     }
 }
-

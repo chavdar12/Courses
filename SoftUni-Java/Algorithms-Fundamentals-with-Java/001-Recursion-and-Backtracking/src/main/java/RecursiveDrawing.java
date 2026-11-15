@@ -10,7 +10,7 @@ public class RecursiveDrawing {
         draw(n);
     }
 
-    public static void draw(int n){
+    public static void draw(int n) {
         if (n > 0) {
             drawLine(n, '*');
             draw(n - 1);
@@ -24,5 +24,4 @@ public class RecursiveDrawing {
         }
         System.out.println();
     }
-
 }

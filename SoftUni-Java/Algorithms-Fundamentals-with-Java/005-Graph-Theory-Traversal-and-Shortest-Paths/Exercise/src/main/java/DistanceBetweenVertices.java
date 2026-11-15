@@ -18,9 +18,12 @@ public class DistanceBetweenVertices {
         for (int i = 0; i < n; i++) {
             String[] tokens = rd.readLine().split(":");
             int value = Integer.parseInt(tokens[0]);
-            int[] children = (tokens.length < 2)?
-                    new int[0]:
-                    Arrays.stream(tokens[1].split("\\s+")).mapToInt(Integer::parseInt).toArray();
+            int[] children =
+                    (tokens.length < 2)
+                            ? new int[0]
+                            : Arrays.stream(tokens[1].split("\\s+"))
+                                    .mapToInt(Integer::parseInt)
+                                    .toArray();
             graph.add(new Node(value, children));
         }
 
@@ -45,10 +48,15 @@ public class DistanceBetweenVertices {
                 length = dist[transIn(graph, dest)];
             }
 
-            out.append("{").append(src).append(", ").append(dest).append("} -> ").append(length).append(System.lineSeparator());
+            out.append("{")
+                    .append(src)
+                    .append(", ")
+                    .append(dest)
+                    .append("} -> ")
+                    .append(length)
+                    .append(System.lineSeparator());
         }
         System.out.println(out);
-
     }
 
     private static boolean pathLengthBfs(List<Node> graph, int src, int dest, int[] dist) {
@@ -74,7 +82,7 @@ public class DistanceBetweenVertices {
         while (!queue.isEmpty()) {
 
             int u = queue.poll();
-            for (int child : graph.get(u).children){
+            for (int child : graph.get(u).children) {
                 indexOfNode = transIn(graph, child);
                 if (!visited[indexOfNode]) {
                     visited[indexOfNode] = true;

@@ -15,7 +15,6 @@ public class CombinationsWithoutRepetition {
         combinations = new String[k];
 
         combine(0, 0);
-
     }
 
     private static void combine(int index, int start) {

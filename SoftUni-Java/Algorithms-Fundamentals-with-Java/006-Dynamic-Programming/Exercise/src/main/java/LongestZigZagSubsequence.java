@@ -9,7 +9,8 @@ public class LongestZigZagSubsequence {
 
         Scanner sc = new Scanner(System.in);
 
-        int[] numbers = Arrays.stream(sc.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+        int[] numbers =
+                Arrays.stream(sc.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
 
         int[][] dp = new int[numbers.length + 1][2];
         int[][] prev = new int[numbers.length + 1][2];
@@ -27,7 +28,7 @@ public class LongestZigZagSubsequence {
         for (int currentIndex = 0; currentIndex < numbers.length; currentIndex++) {
 
             int currentNumber = numbers[currentIndex];
-            for (int prevIndex = currentIndex - 1; prevIndex >= 0 ; prevIndex--) {
+            for (int prevIndex = currentIndex - 1; prevIndex >= 0; prevIndex--) {
 
                 int prevNumber = numbers[prevIndex];
                 if (currentNumber > prevNumber && dp[currentIndex][0] <= dp[prevIndex][1] + 1) {

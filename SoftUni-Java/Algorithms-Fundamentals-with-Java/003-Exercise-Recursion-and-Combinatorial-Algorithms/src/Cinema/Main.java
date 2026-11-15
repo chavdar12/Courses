@@ -13,8 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        people = Arrays.stream(scanner.nextLine().split(", "))
-                .collect(Collectors.toList());
+        people = Arrays.stream(scanner.nextLine().split(", ")).collect(Collectors.toList());
 
         seats = new String[people.size()];
 

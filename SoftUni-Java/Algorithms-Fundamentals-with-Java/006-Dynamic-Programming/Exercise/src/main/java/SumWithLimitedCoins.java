@@ -13,7 +13,8 @@ public class SumWithLimitedCoins {
         // open reader, get input values from console, close reader
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] array = Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+        int[] array =
+                Arrays.stream(rd.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
         int target = Integer.parseInt(rd.readLine());
 
         rd.close();
@@ -38,7 +39,6 @@ public class SumWithLimitedCoins {
                 }
 
                 dp.putIfAbsent(newSum, number);
-
             }
         }
 

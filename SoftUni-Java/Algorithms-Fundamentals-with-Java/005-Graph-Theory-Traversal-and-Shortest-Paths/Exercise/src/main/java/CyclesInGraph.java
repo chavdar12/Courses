@@ -34,7 +34,6 @@ public class CyclesInGraph {
         }
 
         System.out.println(out);
-
     }
 
     private static boolean isCyclic() {
