@@ -3,22 +3,18 @@ import { login, register } from '../api.js';
 
 const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-const authTemplate = (isRegister, error, onSubmit) =>
-    html` <section id="${isRegister ? 'register' : 'login'}" class="pad-large">
-        <h1>${isRegister ? 'Register' : 'Login'}</h1>
-        <form @submit=${onSubmit}>
-            ${error ? html`<div class="error">${error}</div>` : nothing}
-            <label>E-mail: <input type="text" name="email" /></label>
-            ${isRegister ? html`<label>Username: <input type="text" name="username" /></label>` : nothing}
-            <label>Password: <input type="password" name="password" /></label>
-            ${isRegister ? html`<label>Repeat: <input type="password" name="repass" /></label>` : nothing}
-            <input
-                class="action"
-                type="submit"
-                value=${isRegister ? 'Create Account' : 'Sign In'}
-            />
-        </form>
-    </section>`;
+const authTemplate = (isRegister, error, onSubmit) => html`
+<section id="${isRegister ? 'register' : 'login'}" class="pad-large">
+    <h1>${isRegister ? 'Register' : 'Login'}</h1>
+    <form @submit=${onSubmit}>
+        ${error ? html`<div class="error">${error}</div>` : nothing}
+        <label>E-mail: <input type="text" name="email"></label>
+        ${isRegister ? html`<label>Username: <input type="text" name="username"></label>` : nothing}
+        <label>Password: <input type="password" name="password"></label>
+        ${isRegister ? html`<label>Repeat: <input type="password" name="repass"></label>` : nothing}
+        <input class="action" type="submit" value=${isRegister ? 'Create Account' : 'Sign In'}>
+    </form>
+</section>`;
 
 function validateRegister({ email, username, password, repass }) {
     if (!EMAIL.test(email)) {

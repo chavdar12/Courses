@@ -8,79 +8,80 @@ import {
     updateComment,
 } from '../api.js';
 
-const detailsTemplate = (recipe, isOwner, onDelete) =>
-    html` <article>
-        <h2>${recipe.name}</h2>
-        <div class="band">
-            <div class="thumb"><img src=${recipe.img} /></div>
-            <div class="ingredients">
-                <h3>Ingredients:</h3>
-                <ul>
-                    ${recipe.ingredients.map((i) => html`<li>${i}</li>`)}
-                </ul>
-            </div>
+const detailsTemplate = (recipe, isOwner, onDelete) => html`
+<article>
+    <h2>${recipe.name}</h2>
+    <div class="band">
+        <div class="thumb"><img src=${recipe.img}></div>
+        <div class="ingredients">
+            <h3>Ingredients:</h3>
+            <ul>${recipe.ingredients.map((i) => html`<li>${i}</li>`)}</ul>
         </div>
-        <div class="description">
-            <h3>Preparation:</h3>
-            ${recipe.steps.map((s) => html`<p>${s}</p>`)}
-        </div>
-        ${
-            isOwner
-                ? html` <div class="controls">
-                      <a class="actionLink" href="/edit/${recipe._id}">&#x270e; Edit</a>
-                      <a class="actionLink" href="javascript:void(0)" @click=${onDelete}
-                          >&#x2716; Delete</a
-                      >
-                  </div>`
-                : nothing
-        }
-    </article>`;
+    </div>
+    <div class="description">
+        <h3>Preparation:</h3>
+        ${recipe.steps.map((s) => html`<p>${s}</p>`)}
+    </div>
+    ${
+        isOwner
+            ? html`
+    <div class="controls">
+        <a class="actionLink" href="/edit/${recipe._id}">&#x270e; Edit</a>
+        <a class="actionLink" href="javascript:void(0)" @click=${onDelete}>&#x2716; Delete</a>
+    </div>`
+            : nothing
+    }
+</article>`;
 
 const commentTemplate = (comment, user, editingId, actions) => {
     if (comment._id === editingId) {
-        return html` <li class="comment">
+        return html`
+        <li class="comment">
             <form @submit=${(e) => actions.onSave(e, comment)}>
                 <textarea name="content" .value=${comment.content}></textarea>
-                <input type="submit" value="Save" />
+                <input type="submit" value="Save">
                 <button type="button" @click=${actions.onCancel}>Cancel</button>
             </form>
         </li>`;
     }
-    return html` <li class="comment">
-        ${comment.content}
-        ${
-            user && user.id === comment._ownerId
-                ? html` <span class="controls">
-                      <button @click=${() => actions.onEdit(comment)}>Edit</button>
-                      <button @click=${() => actions.onDeleteComment(comment)}>Delete</button>
-                  </span>`
-                : nothing
-        }
-    </li>`;
-};
-
-const commentsTemplate = (comments, user, editingId, actions) =>
-    html` <div class="section-title">Comments</div>
-        <div class="comments">
-            <ul>
-                ${
-                    comments.length
-                        ? comments.map((c) => commentTemplate(c, user, editingId, actions))
-                        : html`<li>No comments yet.</li>`
-                }
-            </ul>
+    return html`
+        <li class="comment">
+            ${comment.content}
             ${
-                user
-                    ? html` <details>
-                          <summary>Add comment</summary>
-                          <form @submit=${actions.onComment}>
-                              <textarea name="content" placeholder="Type comment"></textarea>
-                              <input type="submit" value="Add comment" />
-                          </form>
-                      </details>`
+                user && user.id === comment._ownerId
+                    ? html`
+            <span class="controls">
+                <button @click=${() => actions.onEdit(comment)}>Edit</button>
+                <button @click=${() => actions.onDeleteComment(comment)}>Delete</button>
+            </span>`
                     : nothing
             }
-        </div>`;
+        </li>`;
+};
+
+const commentsTemplate = (comments, user, editingId, actions) => html`
+<div class="section-title">Comments</div>
+<div class="comments">
+    <ul>
+        ${
+            comments.length
+                ? comments.map((c) => commentTemplate(c, user, editingId, actions))
+                : html`<li>No comments yet.</li>`
+        }
+    </ul>
+    ${
+        user
+            ? html`
+    <details>
+        <summary>Add comment</summary>
+        <form @submit=${actions.onComment}>
+            <textarea name="content" placeholder="Type comment"></textarea>
+            <input type="submit" value="Add comment">
+        </form>
+    </details>`
+            : nothing
+    }
+</div>`;
 
 export async function detailsPage(ctx) {
     const id = ctx.params.id;

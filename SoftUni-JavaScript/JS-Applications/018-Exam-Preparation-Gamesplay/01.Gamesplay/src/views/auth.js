@@ -1,27 +1,24 @@
 import { html, nothing } from 'lit-html';
 import { login, register } from '../api.js';
 
-const authTemplate = (isRegister, onSubmit) =>
-    html` <section id="${isRegister ? 'register' : 'login'}-page" class="auth">
-        <form id="${isRegister ? 'register' : 'login'}" @submit=${onSubmit}>
-            <h1>${isRegister ? 'Register' : 'Login'}</h1>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="maria@email.com" />
-            <label for="pass">Password:</label>
-            <input
-                type="password"
-                id="${isRegister ? 'register' : 'login'}-password"
-                name="password"
-            />
-            ${
-                isRegister
-                    ? html` <label for="con-pass">Confirm Password:</label>
-                          <input type="password" name="confirm-password" id="confirm-password" />`
-                    : nothing
-            }
-            <input type="submit" class="btn submit" value=${isRegister ? 'Register' : 'Login'} />
-        </form>
-    </section>`;
+const authTemplate = (isRegister, onSubmit) => html`
+<section id="${isRegister ? 'register' : 'login'}-page" class="auth">
+    <form id="${isRegister ? 'register' : 'login'}" @submit=${onSubmit}>
+        <h1>${isRegister ? 'Register' : 'Login'}</h1>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="maria@email.com">
+        <label for="pass">Password:</label>
+        <input type="password" id="${isRegister ? 'register' : 'login'}-password" name="password">
+        ${
+            isRegister
+                ? html`
+        <label for="con-pass">Confirm Password:</label>
+        <input type="password" name="confirm-password" id="confirm-password">`
+                : nothing
+        }
+        <input type="submit" class="btn submit" value=${isRegister ? 'Register' : 'Login'}>
+    </form>
+</section>`;
 
 function authPage(isRegister) {
     return (ctx) => {

@@ -4,52 +4,52 @@ const URL = 'http://localhost:3030/jsonstore/collections/books';
 let books = [];
 let editing = null;
 
-const pageTemplate = () =>
-    html` <button id="loadBooks" @click=${loadBooks}>LOAD ALL BOOKS</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${books.map(
-                    (book) =>
-                        html` <tr>
-                            <td>${book.title}</td>
-                            <td>${book.author}</td>
-                            <td>
-                                <button @click=${() => startEdit(book)}>Edit</button>
-                                <button @click=${() => onDelete(book._id)}>Delete</button>
-                            </td>
-                        </tr>`,
-                )}
-            </tbody>
-        </table>
-        ${editing ? editForm(editing) : addForm()}`;
+const pageTemplate = () => html`
+<button id="loadBooks" @click=${loadBooks}>LOAD ALL BOOKS</button>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        ${books.map(
+            (book) => html`
+        <tr>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>
+                <button @click=${() => startEdit(book)}>Edit</button>
+                <button @click=${() => onDelete(book._id)}>Delete</button>
+            </td>
+        </tr>`,
+        )}
+    </tbody>
+</table>
+${editing ? editForm(editing) : addForm()}`;
 
-const addForm = () =>
-    html` <form id="add-form" @submit=${onAdd}>
-        <h3>Add book</h3>
-        <label>TITLE</label>
-        <input type="text" name="title" placeholder="Title..." />
-        <label>AUTHOR</label>
-        <input type="text" name="author" placeholder="Author..." />
-        <input type="submit" value="Submit" />
-    </form>`;
+const addForm = () => html`
+<form id="add-form" @submit=${onAdd}>
+    <h3>Add book</h3>
+    <label>TITLE</label>
+    <input type="text" name="title" placeholder="Title...">
+    <label>AUTHOR</label>
+    <input type="text" name="author" placeholder="Author...">
+    <input type="submit" value="Submit">
+</form>`;
 
-const editForm = (book) =>
-    html` <form id="edit-form" @submit=${onSave}>
-        <input type="hidden" name="id" .value=${book._id} />
-        <h3>Edit book</h3>
-        <label>TITLE</label>
-        <input type="text" name="title" placeholder="Title..." .value=${book.title} />
-        <label>AUTHOR</label>
-        <input type="text" name="author" placeholder="Author..." .value=${book.author} />
-        <input type="submit" value="Save" />
-    </form>`;
+const editForm = (book) => html`
+<form id="edit-form" @submit=${onSave}>
+    <input type="hidden" name="id" .value=${book._id}>
+    <h3>Edit book</h3>
+    <label>TITLE</label>
+    <input type="text" name="title" placeholder="Title..." .value=${book.title}>
+    <label>AUTHOR</label>
+    <input type="text" name="author" placeholder="Author..." .value=${book.author}>
+    <input type="submit" value="Save">
+</form>`;
 
 update();
 

@@ -1,22 +1,17 @@
 import { html, nothing } from 'lit-html';
 import { createTeamWithOwner, getTeam, updateTeam } from '../api.js';
 
-const formTemplate = (title, team, error, onSubmit) =>
-    html` <section id="team-form" class="pad-large">
-        <h1>${title}</h1>
-        <form @submit=${onSubmit}>
-            ${error ? html`<div class="error">${error}</div>` : nothing}
-            <label>Team name: <input type="text" name="name" .value=${team.name ?? ''} /></label>
-            <label
-                >Logo URL: <input type="text" name="logoUrl" .value=${team.logoUrl ?? ''}
-            /></label>
-            <label
-                >Description:
-                <textarea name="description" .value=${team.description ?? ''}></textarea>
-            </label>
-            <input class="action" type="submit" value=${title} />
-        </form>
-    </section>`;
+const formTemplate = (title, team, error, onSubmit) => html`
+<section id="team-form" class="pad-large">
+    <h1>${title}</h1>
+    <form @submit=${onSubmit}>
+        ${error ? html`<div class="error">${error}</div>` : nothing}
+        <label>Team name: <input type="text" name="name" .value=${team.name ?? ''}></label>
+        <label>Logo URL: <input type="text" name="logoUrl" .value=${team.logoUrl ?? ''}></label>
+        <label>Description: <textarea name="description" .value=${team.description ?? ''}></textarea></label>
+        <input class="action" type="submit" value=${title}>
+    </form>
+</section>`;
 
 function validate({ name, logoUrl, description }) {
     if (name.length < 4) {

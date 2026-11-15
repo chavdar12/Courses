@@ -19,75 +19,58 @@ const actionsTemplate = (team, role, own, on) => {
         case 'none':
             return html`<button class="action" @click=${on.join}>Join team</button>`;
         case 'member':
-            return html`<button class="action invert" @click=${() => on.remove(own, 'Leave team?')}>
-                Leave team
-            </button>`;
+            return html`<button class="action invert" @click=${() => on.remove(own, 'Leave team?')}>Leave team</button>`;
         case 'pending':
-            return html`Membership pending.
-                <button class="action invert" @click=${() => on.remove(own, 'Cancel request?')}>
-                    Cancel request
-                </button>`;
+            return html`Membership pending. <button class="action invert" @click=${() => on.remove(own, 'Cancel request?')}>Cancel request</button>`;
         default:
             return nothing;
     }
 };
 
-const detailsTemplate = (team, members, pending, role, own, on) =>
-    html` <section id="team-home" class="tm-preview">
-        <article class="team-info">
-            <img src=${team.logoUrl} alt="" />
-            <h1>${team.name}</h1>
-            <p>${team.description}</p>
-            <span class="member-count"
-                >${members.length} Member${members.length === 1 ? '' : 's'}</span
-            >
-            <div class="actions">${actionsTemplate(team, role, own, on)}</div>
-        </article>
-        <div class="member-list">
-            <h3>Members</h3>
-            <ul>
-                ${members.map(
-                    (m) =>
-                        html` <li>
-                            <span class="name">${m.user.username}</span>
-                            ${
-                                role === 'owner' && m._ownerId !== team._ownerId
-                                    ? html`<button
-                                          class="tm-control"
-                                          @click=${() => on.remove(m, `Remove ${m.user.username}?`)}
-                                      >
-                                          Remove from team
-                                      </button>`
-                                    : nothing
-                            }
-                        </li>`,
-                )}
-            </ul>
-        </div>
-        ${
-            role === 'owner'
-                ? html` <div class="pending-list">
-                      <h3>Membership Requests</h3>
-                      <ul>
-                          ${pending.map(
-                              (m) =>
-                                  html` <li>
-                                      <span class="name">${m.user.username}</span>
-                                      <span>
-                                          <button class="tm-control" @click=${() => on.approve(m)}>
-                                              Approve
-                                          </button>
-                                          <button class="tm-control" @click=${() => on.remove(m)}>
-                                              Decline
-                                          </button>
-                                      </span>
-                                  </li>`,
-                          )}
-                      </ul>
-                  </div>`
-                : nothing
-        }
-    </section>`;
+const detailsTemplate = (team, members, pending, role, own, on) => html`
+<section id="team-home" class="tm-preview">
+    <article class="team-info">
+        <img src=${team.logoUrl} alt="">
+        <h1>${team.name}</h1>
+        <p>${team.description}</p>
+        <span class="member-count">${members.length} Member${members.length === 1 ? '' : 's'}</span>
+        <div class="actions">${actionsTemplate(team, role, own, on)}</div>
+    </article>
+    <div class="member-list">
+        <h3>Members</h3>
+        <ul>
+            ${members.map(
+                (m) => html`
+            <li><span class="name">${m.user.username}</span>
+                ${
+                    role === 'owner' && m._ownerId !== team._ownerId
+                        ? html`<button class="tm-control" @click=${() => on.remove(m, `Remove ${m.user.username}?`)}>Remove from team</button>`
+                        : nothing
+                }
+            </li>`,
+            )}
+        </ul>
+    </div>
+    ${
+        role === 'owner'
+            ? html`
+    <div class="pending-list">
+        <h3>Membership Requests</h3>
+        <ul>
+            ${pending.map(
+                (m) => html`
+            <li><span class="name">${m.user.username}</span>
+                <span>
+                    <button class="tm-control" @click=${() => on.approve(m)}>Approve</button>
+                    <button class="tm-control" @click=${() => on.remove(m)}>Decline</button>
+                </span>
+            </li>`,
+            )}
+        </ul>
+    </div>`
+            : nothing
+    }
+</section>`;
 
 export async function detailsPage(ctx) {
     const id = ctx.params.id;

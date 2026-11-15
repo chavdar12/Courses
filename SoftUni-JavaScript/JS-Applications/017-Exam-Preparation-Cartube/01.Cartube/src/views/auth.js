@@ -1,33 +1,26 @@
 import { html, nothing } from 'lit-html';
 import { login, register } from '../api.js';
 
-const authTemplate = (isRegister, onSubmit) =>
-    html` <section id="${isRegister ? 'register' : 'login'}">
-        <div class="container">
-            <form id="${isRegister ? 'register' : 'login'}-form" @submit=${onSubmit}>
-                <h1>${isRegister ? 'Register' : 'Login'}</h1>
-                <p>Username</p>
-                <input type="text" placeholder="Enter Username" name="username" />
-                <p>Password</p>
-                <input type="password" placeholder="Enter Password" name="password" />
-                ${
-                    isRegister
-                        ? html` <p>Repeat Password</p>
-                              <input
-                                  type="password"
-                                  placeholder="Repeat Password"
-                                  name="repeatPass"
-                              />`
-                        : nothing
-                }
-                <input
-                    type="submit"
-                    class="registerbtn"
-                    value=${isRegister ? 'Register' : 'Login'}
-                />
-            </form>
-        </div>
-    </section>`;
+const authTemplate = (isRegister, onSubmit) => html`
+<section id="${isRegister ? 'register' : 'login'}">
+    <div class="container">
+        <form id="${isRegister ? 'register' : 'login'}-form" @submit=${onSubmit}>
+            <h1>${isRegister ? 'Register' : 'Login'}</h1>
+            <p>Username</p>
+            <input type="text" placeholder="Enter Username" name="username">
+            <p>Password</p>
+            <input type="password" placeholder="Enter Password" name="password">
+            ${
+                isRegister
+                    ? html`
+            <p>Repeat Password</p>
+            <input type="password" placeholder="Repeat Password" name="repeatPass">`
+                    : nothing
+            }
+            <input type="submit" class="registerbtn" value=${isRegister ? 'Register' : 'Login'}>
+        </form>
+    </div>
+</section>`;
 
 function authPage(isRegister) {
     return (ctx) => {

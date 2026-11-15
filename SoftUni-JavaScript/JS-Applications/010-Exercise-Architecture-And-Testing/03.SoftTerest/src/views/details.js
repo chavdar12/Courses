@@ -1,22 +1,20 @@
 import { html, nothing } from 'lit-html';
 import { deleteIdea, getIdea, getUser } from '../api.js';
 
-const detailsTemplate = (idea, isOwner, onDelete) =>
-    html` <div class="container home some">
-        <img class="det-img" src=${idea.img} />
-        <div class="desc">
-            <h2 class="display-5">${idea.title}</h2>
-            <p class="infoType">Description:</p>
-            <p class="idea-description">${idea.description}</p>
-        </div>
-        ${
-            isOwner
-                ? html`<div class="text-center">
-                      <a class="btn detb" href="javascript:void(0)" @click=${onDelete}>Delete</a>
-                  </div>`
-                : nothing
-        }
-    </div>`;
+const detailsTemplate = (idea, isOwner, onDelete) => html`
+<div class="container home some">
+    <img class="det-img" src=${idea.img} />
+    <div class="desc">
+        <h2 class="display-5">${idea.title}</h2>
+        <p class="infoType">Description:</p>
+        <p class="idea-description">${idea.description}</p>
+    </div>
+    ${
+        isOwner
+            ? html`<div class="text-center"><a class="btn detb" href="javascript:void(0)" @click=${onDelete}>Delete</a></div>`
+            : nothing
+    }
+</div>`;
 
 export async function detailsPage(ctx) {
     const idea = await getIdea(ctx.params.id);

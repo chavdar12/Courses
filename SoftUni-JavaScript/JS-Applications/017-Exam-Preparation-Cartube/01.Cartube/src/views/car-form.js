@@ -3,25 +3,21 @@ import { createCar, getCar, updateCar } from '../api.js';
 
 const FIELDS = ['brand', 'model', 'description', 'year', 'imageUrl', 'price'];
 
-const formTemplate = (title, car, onSubmit) =>
-    html` <section id="${title.toLowerCase()}-listing">
-        <div class="container">
-            <form @submit=${onSubmit}>
-                <h1>${title} Car Listing</h1>
-                ${FIELDS.map(
-                    (f) =>
-                        html` <p>${f[0].toUpperCase() + f.slice(1)}</p>
-                            <input
-                                type="${f === 'year' || f === 'price' ? 'number' : 'text'}"
-                                name=${f}
-                                .value=${car[f] ?? ''}
-                            />`,
-                )}
-                <hr />
-                <input type="submit" class="registerbtn" value="${title} Listing" />
-            </form>
-        </div>
-    </section>`;
+const formTemplate = (title, car, onSubmit) => html`
+<section id="${title.toLowerCase()}-listing">
+    <div class="container">
+        <form @submit=${onSubmit}>
+            <h1>${title} Car Listing</h1>
+            ${FIELDS.map(
+                (f) => html`
+            <p>${f[0].toUpperCase() + f.slice(1)}</p>
+            <input type="${f === 'year' || f === 'price' ? 'number' : 'text'}" name=${f} .value=${car[f] ?? ''}>`,
+            )}
+            <hr>
+            <input type="submit" class="registerbtn" value="${title} Listing">
+        </form>
+    </div>
+</section>`;
 
 /** Returns the car with year and price as numbers, or throws a message for the alert. */
 export function readCar(form) {

@@ -1,45 +1,37 @@
 import { html, nothing } from 'lit-html';
 import { login, register } from '../api.js';
 
-const authTemplate = (isRegister, onSubmit) =>
-    html` <div class="row space-top">
-            <div class="col-md-12">
-                <h1>${isRegister ? 'Register New User' : 'Login User'}</h1>
-                <p>Please fill all fields.</p>
+const authTemplate = (isRegister, onSubmit) => html`
+<div class="row space-top">
+    <div class="col-md-12">
+        <h1>${isRegister ? 'Register New User' : 'Login User'}</h1>
+        <p>Please fill all fields.</p>
+    </div>
+</div>
+<form @submit=${onSubmit}>
+    <div class="row space-top">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="form-control-label" for="email">Email</label>
+                <input class="form-control" id="email" type="text" name="email">
             </div>
+            <div class="form-group">
+                <label class="form-control-label" for="password">Password</label>
+                <input class="form-control" id="password" type="password" name="password">
+            </div>
+            ${
+                isRegister
+                    ? html`
+            <div class="form-group">
+                <label class="form-control-label" for="rePass">Repeat</label>
+                <input class="form-control" id="rePass" type="password" name="rePass">
+            </div>`
+                    : nothing
+            }
+            <input type="submit" class="btn btn-primary" value=${isRegister ? 'Register' : 'Login'} />
         </div>
-        <form @submit=${onSubmit}>
-            <div class="row space-top">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label" for="email">Email</label>
-                        <input class="form-control" id="email" type="text" name="email" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label" for="password">Password</label>
-                        <input class="form-control" id="password" type="password" name="password" />
-                    </div>
-                    ${
-                        isRegister
-                            ? html` <div class="form-group">
-                                  <label class="form-control-label" for="rePass">Repeat</label>
-                                  <input
-                                      class="form-control"
-                                      id="rePass"
-                                      type="password"
-                                      name="rePass"
-                                  />
-                              </div>`
-                            : nothing
-                    }
-                    <input
-                        type="submit"
-                        class="btn btn-primary"
-                        value=${isRegister ? 'Register' : 'Login'}
-                    />
-                </div>
-            </div>
-        </form>`;
+    </div>
+</form>`;
 
 function authPage(isRegister) {
     return (ctx) => {
