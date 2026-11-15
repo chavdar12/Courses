@@ -6,7 +6,8 @@ internal class Program
     {
         var days = int.Parse(Console.ReadLine());
 
-        for (var i = days; i > 0; i--) Console.WriteLine($"{i} days before the exam");
+        for (var i = days; i > 0; i--)
+            Console.WriteLine($"{i} days before the exam");
         Console.WriteLine("The exam has come");
     }
 }

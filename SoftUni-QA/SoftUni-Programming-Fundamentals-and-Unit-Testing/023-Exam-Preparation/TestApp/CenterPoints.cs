@@ -20,7 +20,8 @@ public class CenterPoint
         }
         else
         {
-            if (x2 < 0 || y2 < 0) return secondPointReport;
+            if (x2 < 0 || y2 < 0)
+                return secondPointReport;
 
             return firstPointReport;
         }

@@ -7,6 +7,7 @@ internal class Program
         var one = char.Parse(Console.ReadLine());
         var two = char.Parse(Console.ReadLine());
 
-        for (var i = one; i <= two; i++) Console.Write(i + " ");
+        for (var i = one; i <= two; i++)
+            Console.Write(i + " ");
     }
 }

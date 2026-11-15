@@ -10,14 +10,16 @@ public class Triangle
 
         for (var row = 1; row <= size; row++)
         {
-            for (var col = 1; col <= row; col++) triangle += col == row ? col.ToString() : col + " ";
+            for (var col = 1; col <= row; col++)
+                triangle += col == row ? col.ToString() : col + " ";
 
             triangle += Environment.NewLine;
         }
 
         for (var row = size - 1; row >= 1; row--)
         {
-            for (var col = 1; col <= row; col++) triangle += col == row ? col.ToString() : col + " ";
+            for (var col = 1; col <= row; col++)
+                triangle += col == row ? col.ToString() : col + " ";
 
             triangle += Environment.NewLine;
         }

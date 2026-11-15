@@ -13,7 +13,8 @@ internal class Program
         {
             currentNumber = int.Parse(Console.ReadLine());
 
-            if (currentNumber == stopNumber) break;
+            if (currentNumber == stopNumber)
+                break;
 
             previousNumber = currentNumber;
         }

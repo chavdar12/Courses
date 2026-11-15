@@ -10,7 +10,6 @@ public class CalculateTests
         // Arrange
         Calculate calculator = new();
 
-
         // Act
         var actual = calculator.Addition(5, 2);
 

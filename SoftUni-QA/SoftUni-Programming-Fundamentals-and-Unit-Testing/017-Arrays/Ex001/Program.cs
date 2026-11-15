@@ -13,7 +13,7 @@ internal class Program
             "Thursday",
             "Friday",
             "Saturday",
-            "Sunday"
+            "Sunday",
         ];
 
         var currentDay = int.Parse(Console.ReadLine());

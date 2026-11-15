@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace TestApp.UnitTests;
 
@@ -11,7 +11,6 @@ public class PalindromeTests
     {
         // Arrange
         List<string> validPalindrome = new() { "Tenet" };
-
 
         // Act
         var actualResult = Palindrome.IsPalindrome(validPalindrome);
@@ -27,7 +26,6 @@ public class PalindromeTests
         // Arrange
         List<string> emptyList = new();
 
-
         // Act
         var actualResult = Palindrome.IsPalindrome(emptyList);
 
@@ -41,7 +39,6 @@ public class PalindromeTests
         // Arrange
         List<string> randomWord = new() { "zaraz" };
 
-
         // Act
         var actualResult = Palindrome.IsPalindrome(randomWord);
 
@@ -54,7 +51,6 @@ public class PalindromeTests
     {
         List<string> notPalindrome = new() { "Something" };
 
-
         // Act
         var actualResult = Palindrome.IsPalindrome(notPalindrome);
 
@@ -66,7 +62,6 @@ public class PalindromeTests
     public void Test_IsPalindrome_MixedCasePalindrome_ReturnsTrue()
     {
         List<string> notPalindrome = new() { "TeNeT" };
-
 
         // Act
         var actualResult = Palindrome.IsPalindrome(notPalindrome);

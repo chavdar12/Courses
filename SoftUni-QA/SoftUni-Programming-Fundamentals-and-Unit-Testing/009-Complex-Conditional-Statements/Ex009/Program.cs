@@ -11,7 +11,6 @@ internal class Program
         var totalAmount = 0.00;
         double ticketPrice = 0;
 
-
         switch (movieType)
         {
             case "Normal":

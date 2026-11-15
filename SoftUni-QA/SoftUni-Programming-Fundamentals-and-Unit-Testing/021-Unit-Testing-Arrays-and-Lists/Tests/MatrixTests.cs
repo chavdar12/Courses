@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace TestApp.UnitTests;
 
@@ -13,23 +13,22 @@ public class MatrixTests
         List<List<int>> matrixA = new()
         {
             new List<int> { 1, 2 },
-            new List<int> { 3, 4 }
+            new List<int> { 3, 4 },
         };
         List<List<int>> matrixB = new()
         {
             new List<int> { 1, 1 },
-            new List<int> { 1, 1 }
+            new List<int> { 1, 1 },
         };
 
         List<List<int>> expectedResult = new()
         {
             new List<int> { 2, 3 },
-            new List<int> { 4, 5 }
+            new List<int> { 4, 5 },
         };
 
         // Act
         var actualMatrix = Matrix.MatrixAddition(matrixA, matrixB);
-
 
         // Assert
         Assert.That(actualMatrix, Is.EqualTo(expectedResult));
@@ -56,52 +55,61 @@ public class MatrixTests
     [Test]
     public void Test_MatrixAddition_DifferentDimensions_DifferentLength_ThrowsArgumentException()
     {
-        //assert 
+        //assert
         //2 rows matrix with 3 columns
         List<List<int>> matrixA = new()
         {
             new List<int> { 1, 2, 3 },
-            new List<int> { 4, 5, 6 }
+            new List<int> { 4, 5, 6 },
         };
         //3 rows matrix with 3 columns
         List<List<int>> matrixB = new()
         {
             new List<int> { 1, 2, 3 },
             new List<int> { 4, 5, 6 },
-            new List<int> { 7, 8, 9 }
+            new List<int> { 7, 8, 9 },
         };
 
         //act + assert
 
-        Assert.Throws<ArgumentException>(() => { Matrix.MatrixAddition(matrixA, matrixB); },
-            "Matrices must have the same dimensions for addition.");
+        Assert.Throws<ArgumentException>(
+            () =>
+            {
+                Matrix.MatrixAddition(matrixA, matrixB);
+            },
+            "Matrices must have the same dimensions for addition."
+        );
     }
 
     [Test]
     public void Test_MatrixAddition_DifferentDimensions_DifferentWidth_ThrowsArgumentException()
     {
-        //assert 
+        //assert
         //2 rows matrix with 3 columns
         List<List<int>> matrixA = new()
         {
             new List<int> { 1, 2 },
             new List<int> { 3, 4 },
-            new List<int> { 5, 6 }
+            new List<int> { 5, 6 },
         };
         //3 rows matrix with 3 columns
         List<List<int>> matrixB = new()
         {
             new List<int> { 1, 2, 3 },
             new List<int> { 4, 5, 6 },
-            new List<int> { 7, 8, 9 }
+            new List<int> { 7, 8, 9 },
         };
 
         //act + assert
 
-        Assert.Throws<ArgumentException>(() => { Matrix.MatrixAddition(matrixA, matrixB); },
-            "Matrices must have the same dimensions for addition.");
+        Assert.Throws<ArgumentException>(
+            () =>
+            {
+                Matrix.MatrixAddition(matrixA, matrixB);
+            },
+            "Matrices must have the same dimensions for addition."
+        );
     }
-
 
     [Test]
     public void Test_MatrixAddition_NegativeNumbers_ReturnsCorrectResult()
@@ -109,23 +117,22 @@ public class MatrixTests
         List<List<int>> matrixA = new()
         {
             new List<int> { 1, 2 },
-            new List<int> { 3, 4 }
+            new List<int> { 3, 4 },
         };
         List<List<int>> matrixB = new()
         {
             new List<int> { 0, -1 },
-            new List<int> { -3, -3 }
+            new List<int> { -3, -3 },
         };
 
         List<List<int>> expectedResult = new()
         {
             new List<int> { 1, 1 },
-            new List<int> { 0, 1 }
+            new List<int> { 0, 1 },
         };
 
         // Act
         var actualMatrix = Matrix.MatrixAddition(matrixA, matrixB);
-
 
         // Assert
         Assert.That(actualMatrix, Is.EqualTo(expectedResult));
@@ -138,18 +145,16 @@ public class MatrixTests
         List<List<int>> matrixA = new()
         {
             new List<int> { 1, 2 },
-            new List<int> { 3, 4 }
+            new List<int> { 3, 4 },
         };
         List<List<int>> matrixZero = new()
         {
             new List<int> { 0, 0 },
-            new List<int> { 0, 0 }
+            new List<int> { 0, 0 },
         };
-
 
         // Act
         var actualMatrix = Matrix.MatrixAddition(matrixA, matrixZero);
-
 
         // Assert
         Assert.That(actualMatrix, Is.EqualTo(matrixA));

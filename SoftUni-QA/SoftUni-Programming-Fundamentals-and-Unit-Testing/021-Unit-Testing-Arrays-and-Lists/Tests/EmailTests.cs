@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System.Net.Mail;
+﻿using System.Net.Mail;
+using NUnit.Framework;
 
 namespace TestApp.UnitTests;
 
@@ -12,10 +12,8 @@ public class EmailTests
     {
         // Arrange
 
-
         // Act
         var actualResult = Email.IsValidEmail(email);
-
 
         // Assert
         Assert.IsTrue(actualResult);

@@ -6,7 +6,6 @@ internal class Program
     {
         var n = int.Parse(Console.ReadLine());
 
-
         for (var digit1 = 1; digit1 <= 9; digit1++)
         for (var digit2 = 0; digit2 <= 9; digit2++)
         for (var digit3 = 0; digit3 <= 9; digit3++)

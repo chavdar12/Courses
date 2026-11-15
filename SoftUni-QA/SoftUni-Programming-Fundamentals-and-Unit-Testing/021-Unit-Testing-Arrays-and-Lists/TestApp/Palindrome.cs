@@ -7,8 +7,6 @@ public class Palindrome
 {
     public static bool IsPalindrome(List<string> words)
     {
-        return words
-            .Select(s => s.ToLower())
-            .All(word => word.SequenceEqual(word.Reverse()));
+        return words.Select(s => s.ToLower()).All(word => word.SequenceEqual(word.Reverse()));
     }
 }

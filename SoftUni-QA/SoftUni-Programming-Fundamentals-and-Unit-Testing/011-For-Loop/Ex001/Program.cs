@@ -7,6 +7,7 @@ internal class Program
         var numberOne = int.Parse(Console.ReadLine());
         var numberTwo = int.Parse(Console.ReadLine());
 
-        for (var i = numberOne; i <= numberTwo; i++) Console.WriteLine(i);
+        for (var i = numberOne; i <= numberTwo; i++)
+            Console.WriteLine(i);
     }
 }

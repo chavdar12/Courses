@@ -8,9 +8,11 @@ public class GaussTrick
     {
         List<int> result = new();
 
-        for (var i = 0; i < numbers.Count / 2; i++) result.Add(numbers[i] + numbers[numbers.Count - 1 - i]);
+        for (var i = 0; i < numbers.Count / 2; i++)
+            result.Add(numbers[i] + numbers[numbers.Count - 1 - i]);
 
-        if (numbers.Count % 2 != 0) result.Add(numbers[numbers.Count / 2]);
+        if (numbers.Count % 2 != 0)
+            result.Add(numbers[numbers.Count / 2]);
 
         return result;
     }

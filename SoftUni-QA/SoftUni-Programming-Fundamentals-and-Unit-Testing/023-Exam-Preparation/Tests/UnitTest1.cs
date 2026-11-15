@@ -14,7 +14,6 @@ public class CenterPointTests
 
         var epectedResult = "(1, 1)";
 
-
         var actualResult = CenterPoint.GetClosest(x1, y1, x2, y2);
 
         Assert.AreEqual(epectedResult, actualResult);
@@ -29,7 +28,6 @@ public class CenterPointTests
         double y2 = 2;
 
         var epectedResult = "(2, 2)";
-
 
         var actualResult = CenterPoint.GetClosest(x1, y1, x2, y2);
 
@@ -46,7 +44,6 @@ public class CenterPointTests
 
         var epectedResult = "(1, 2)";
 
-
         var actualResult = CenterPoint.GetClosest(x1, y1, x2, y2);
 
         Assert.AreEqual(epectedResult, actualResult);
@@ -62,7 +59,6 @@ public class CenterPointTests
 
         var epectedResult = "(-1, -1)";
 
-
         var actualResult = CenterPoint.GetClosest(x1, y1, x2, y2);
 
         Assert.AreEqual(epectedResult, actualResult);
@@ -77,7 +73,6 @@ public class CenterPointTests
         double y2 = -1;
 
         var epectedResult = "(-1, -1)";
-
 
         var actualResult = CenterPoint.GetClosest(x1, y1, x2, y2);
 

@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 
 namespace TestApp.UnitTests;
 
@@ -18,7 +18,6 @@ public class EvenOddSubtractionTests
         // Assert
         Assert.That(actualResult, Is.EqualTo(expectedResult));
     }
-
 
     [Test]
     public void Test_FindDifference_InputHasOnlyEvenNumbers_ShouldReturnEvenSum()

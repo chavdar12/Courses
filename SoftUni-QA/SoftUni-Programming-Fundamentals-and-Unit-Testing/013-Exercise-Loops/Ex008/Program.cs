@@ -11,7 +11,8 @@ internal class Program
         {
             var input = Console.ReadLine();
 
-            if (input == "End") break;
+            if (input == "End")
+                break;
 
             double amount;
             if (double.TryParse(input, out amount))

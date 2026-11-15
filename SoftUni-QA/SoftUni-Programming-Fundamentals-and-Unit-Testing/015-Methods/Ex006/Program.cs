@@ -14,7 +14,8 @@ internal class Program
     {
         double output = 1;
 
-        for (var i = 1; i <= powerNumber; i++) output *= number;
+        for (var i = 1; i <= powerNumber; i++)
+            output *= number;
 
         return output;
     }

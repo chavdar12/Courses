@@ -11,9 +11,11 @@ internal class Program
 
         var timeNeeded = totalProjects * projectTime;
 
-        Console.WriteLine($"The architect {architectName} " +
-                          $"will need {timeNeeded} hours to complete" +
-                          $" {totalProjects} " +
-                          $"project/s.");
+        Console.WriteLine(
+            $"The architect {architectName} "
+                + $"will need {timeNeeded} hours to complete"
+                + $" {totalProjects} "
+                + $"project/s."
+        );
     }
 }

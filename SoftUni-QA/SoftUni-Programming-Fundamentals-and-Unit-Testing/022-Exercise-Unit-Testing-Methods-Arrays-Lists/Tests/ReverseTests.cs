@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 
 namespace TestApp.UnitTests;
 
@@ -19,7 +19,6 @@ public class ReverseTests
 
         //  throw new NotImplementedException();
     }
-
 
     [Test]
     public void Test_ReverseArray_InputHasOneElement_ShouldReturnTheSameElement()
@@ -51,7 +50,6 @@ public class ReverseTests
         //arrange
 
         Assert.That(actualResult, Is.EqualTo(expectedResult));
-
 
         //throw new NotImplementedException();
     }

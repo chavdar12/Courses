@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace TestApp.UnitTests;
 
@@ -29,7 +29,6 @@ public class GaussTrickTests
         var actualResult = GaussTrick.SumPairs(singleElementList);
         List<int> expectedResult = new() { 25 };
 
-
         // Assert
         CollectionAssert.AreEqual(expectedResult, actualResult);
     }
@@ -45,7 +44,6 @@ public class GaussTrickTests
 
         List<int> expectedResult = new() { 30, 30 };
 
-
         // Assert
         CollectionAssert.AreEqual(expectedResult, actualResult);
     }
@@ -60,7 +58,6 @@ public class GaussTrickTests
 
         List<int> expectedResult = new() { 30, 15, 10 };
 
-
         // Assert
         CollectionAssert.AreEqual(expectedResult, actualResult);
     }
@@ -74,7 +71,6 @@ public class GaussTrickTests
         var actualResult = GaussTrick.SumPairs(evenCountElementList);
 
         List<int> expectedResult = new() { 35, 35, 35, 35 };
-
 
         // Assert
         CollectionAssert.AreEqual(expectedResult, actualResult);

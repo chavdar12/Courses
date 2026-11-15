@@ -8,7 +8,8 @@ public class Average
     {
         var sum = 0;
 
-        foreach (var number in numbers) sum += number;
+        foreach (var number in numbers)
+            sum += number;
 
         return (double)sum / numbers.Length;
     }

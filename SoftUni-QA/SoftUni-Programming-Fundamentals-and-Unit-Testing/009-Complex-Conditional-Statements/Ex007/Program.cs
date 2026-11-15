@@ -21,7 +21,6 @@ internal class Program
                 Console.WriteLine("Vowel");
                 break;
 
-
             default:
                 Console.WriteLine("Consonant");
                 break;

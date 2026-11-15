@@ -9,7 +9,8 @@ internal class Program
 
         var sum = 1;
 
-        for (var i = 0; i < power; i++) sum *= number;
+        for (var i = 0; i < power; i++)
+            sum *= number;
         Console.WriteLine(sum);
     }
 }

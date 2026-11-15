@@ -16,6 +16,6 @@
     </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../TestApp2/023-TestApp2.csproj"/>
+    <ProjectReference Include="../TestApp2/023-TestApp2.csproj" />
   </ItemGroup>
 </Project>

@@ -8,16 +8,17 @@ internal class Program
 
         var sum = 0;
 
-
         while (number > 0)
         {
             var digit = number % 10;
             number /= 10;
 
-            if (digit % 2 != 0) continue;
+            if (digit % 2 != 0)
+                continue;
             var factorial = 1;
 
-            for (var i = 1; i <= digit; i++) factorial *= i;
+            for (var i = 1; i <= digit; i++)
+                factorial *= i;
             sum += factorial;
         }
 

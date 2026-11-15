@@ -17,7 +17,8 @@ internal class Program
         {
             var digit = number % 10;
             number /= 10;
-            if (digit % 2 == 0) evenSum += digit;
+            if (digit % 2 == 0)
+                evenSum += digit;
         }
 
         return evenSum;
@@ -31,7 +32,8 @@ internal class Program
         {
             var digit = number % 10;
             number /= 10;
-            if (digit % 2 != 0) oddSum += digit;
+            if (digit % 2 != 0)
+                oddSum += digit;
         }
 
         return oddSum;

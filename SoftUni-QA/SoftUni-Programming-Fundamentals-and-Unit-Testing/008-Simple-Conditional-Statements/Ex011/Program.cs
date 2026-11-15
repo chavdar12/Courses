@@ -17,7 +17,7 @@ internal class Program
             "coffee" when extra == "no" => coffeePrice,
             "tea" when extra == "sugar" => teaPrice + sugarPrice,
             "tea" when extra == "no" => teaPrice,
-            _ => 0.00
+            _ => 0.00,
         };
 
         Console.WriteLine($"Final price: ${finalPrice:F2}");

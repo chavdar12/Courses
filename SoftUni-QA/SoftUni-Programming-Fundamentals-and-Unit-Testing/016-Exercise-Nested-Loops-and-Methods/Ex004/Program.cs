@@ -8,9 +8,7 @@ internal class Program
         var endLetter = char.Parse(Console.ReadLine());
         var excludedLetter = char.Parse(Console.ReadLine());
 
-
         var count = 0;
-
 
         for (var letter1 = startLetter; letter1 <= endLetter; letter1++)
         for (var letter2 = startLetter; letter2 <= endLetter; letter2++)

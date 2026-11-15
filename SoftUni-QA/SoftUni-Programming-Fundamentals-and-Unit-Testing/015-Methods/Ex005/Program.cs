@@ -14,8 +14,8 @@ internal class Program
     {
         var output = "";
 
-        for (var i = 1; i <= count; i++) output += input;
-
+        for (var i = 1; i <= count; i++)
+            output += input;
 
         return output;
     }

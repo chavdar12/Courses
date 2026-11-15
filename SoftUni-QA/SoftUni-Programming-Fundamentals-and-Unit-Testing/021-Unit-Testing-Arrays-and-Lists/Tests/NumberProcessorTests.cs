@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace TestApp.UnitTests;
 
@@ -46,7 +46,6 @@ public class NumberProcessorTests
         // Act
         var actualResult = NumberProcessor.ProcessNumbers(input);
 
-
         // Assert
         CollectionAssert.AreEqual(expected, actualResult);
     }
@@ -59,7 +58,6 @@ public class NumberProcessorTests
 
         // Act
         var actualResult = NumberProcessor.ProcessNumbers(input);
-
 
         // Assert
         CollectionAssert.AreEqual(expected, actualResult);

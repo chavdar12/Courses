@@ -9,7 +9,6 @@ internal class Program
         var oddSum = 0;
         var evenSum = 0;
 
-
         foreach (var number in numbers)
             if (number % 2 == 0)
                 evenSum += number;

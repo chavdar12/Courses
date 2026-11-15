@@ -12,7 +12,6 @@ public class StringReverseTests
         var reversedString = string.Empty;
         var expectedResult = string.Empty;
 
-
         // Act
         var actualResult = StringReverse.Reverse(reversedString);
 

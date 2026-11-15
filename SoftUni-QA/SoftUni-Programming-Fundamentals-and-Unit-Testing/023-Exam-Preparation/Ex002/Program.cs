@@ -13,7 +13,6 @@ internal class Program
 
         var average = (firstNumber + secondNumber) / 2.0;
 
-
         Console.WriteLine($"{average:F2}");
     }
 }

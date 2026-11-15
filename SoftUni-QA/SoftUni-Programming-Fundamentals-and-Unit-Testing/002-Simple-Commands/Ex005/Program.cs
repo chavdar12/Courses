@@ -7,7 +7,8 @@ internal class Program
         var n = int.Parse(Console.ReadLine()!);
         for (var i = 1; i <= n; i++)
         {
-            for (var a = 1; a <= n; a++) Console.Write("* ");
+            for (var a = 1; a <= n; a++)
+                Console.Write("* ");
 
             Console.WriteLine();
         }

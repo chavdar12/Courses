@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 
 namespace TestApp.UnitTests;
 
@@ -22,14 +22,14 @@ public class TriangleTests
     {
         var input = 3;
 
-        var expectedOutput = $"1{Environment.NewLine}" +
-                             $"1 2{Environment.NewLine}" +
-                             $"1 2 3{Environment.NewLine}" +
-                             $"1 2{Environment.NewLine}" +
-                             $"1";
+        var expectedOutput =
+            $"1{Environment.NewLine}"
+            + $"1 2{Environment.NewLine}"
+            + $"1 2 3{Environment.NewLine}"
+            + $"1 2{Environment.NewLine}"
+            + $"1";
 
         var result = Triangle.PrintTriangle(input);
-
 
         Assert.AreEqual(expectedOutput, result);
     }
@@ -39,15 +39,16 @@ public class TriangleTests
     {
         var input = 5;
 
-        var expectedOutput = $"1{Environment.NewLine}" +
-                             $"1 2{Environment.NewLine}" +
-                             $"1 2 3{Environment.NewLine}" +
-                             $"1 2 3 4{Environment.NewLine}" +
-                             $"1 2 3 4 5{Environment.NewLine}" +
-                             $"1 2 3 4{Environment.NewLine}" +
-                             $"1 2 3{Environment.NewLine}" +
-                             $"1 2{Environment.NewLine}" +
-                             $"1";
+        var expectedOutput =
+            $"1{Environment.NewLine}"
+            + $"1 2{Environment.NewLine}"
+            + $"1 2 3{Environment.NewLine}"
+            + $"1 2 3 4{Environment.NewLine}"
+            + $"1 2 3 4 5{Environment.NewLine}"
+            + $"1 2 3 4{Environment.NewLine}"
+            + $"1 2 3{Environment.NewLine}"
+            + $"1 2{Environment.NewLine}"
+            + $"1";
 
         var result = Triangle.PrintTriangle(input);
 

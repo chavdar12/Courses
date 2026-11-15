@@ -10,14 +10,16 @@ internal class Program
         var numbersDividedByModule3 = 0;
         var numbersDividedByModule4 = 0;
 
-
         for (var i = 0; i < n; i++)
         {
             var newNumber = int.Parse(Console.ReadLine());
 
-            if (newNumber % 2 == 0) numbersDividedByModule2++;
-            if (newNumber % 3 == 0) numbersDividedByModule3++;
-            if (newNumber % 4 == 0) numbersDividedByModule4++;
+            if (newNumber % 2 == 0)
+                numbersDividedByModule2++;
+            if (newNumber % 3 == 0)
+                numbersDividedByModule3++;
+            if (newNumber % 4 == 0)
+                numbersDividedByModule4++;
         }
 
         var numbersDividedByMod2 = (double)numbersDividedByModule2 / n * 100;

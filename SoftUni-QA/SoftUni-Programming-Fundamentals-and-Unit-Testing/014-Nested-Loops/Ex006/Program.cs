@@ -22,7 +22,6 @@ internal class Program
                 count++;
         }
 
-
         return count;
     }
 }

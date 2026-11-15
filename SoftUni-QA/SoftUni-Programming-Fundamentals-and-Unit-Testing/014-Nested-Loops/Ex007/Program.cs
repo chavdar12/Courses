@@ -7,20 +7,17 @@ internal class Program
         var firstNumber = int.Parse(Console.ReadLine());
         var secondNumber = int.Parse(Console.ReadLine());
 
-
         var factFirstNumber = CalculateFactorial(firstNumber);
-
 
         var factSecondNumber = CalculateFactorial(secondNumber);
 
-
         Console.WriteLine($"{factFirstNumber / factSecondNumber:F2}");
-
 
         static double CalculateFactorial(int number)
         {
             double fact = 1;
-            for (var i = 1; i <= number; i++) fact = fact * i;
+            for (var i = 1; i <= number; i++)
+                fact = fact * i;
 
             return fact;
         }

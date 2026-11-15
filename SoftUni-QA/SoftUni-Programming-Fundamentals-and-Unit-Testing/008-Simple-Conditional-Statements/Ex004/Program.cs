@@ -7,8 +7,8 @@ internal class Program
         var firstNumber = int.Parse(Console.ReadLine());
         var secondNumber = int.Parse(Console.ReadLine());
 
-        Console.WriteLine(firstNumber > secondNumber
-            ? $"Greater number: {firstNumber}"
-            : $"Greater number: {secondNumber}");
+        Console.WriteLine(
+            firstNumber > secondNumber ? $"Greater number: {firstNumber}" : $"Greater number: {secondNumber}"
+        );
     }
 }

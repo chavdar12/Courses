@@ -37,7 +37,6 @@ internal class Program
         return number1 > number2 ? number1 : number2;
     }
 
-
     private static char GetGreaterChar(char char1, char char2)
     {
         return char1 > char2 ? char1 : char2;

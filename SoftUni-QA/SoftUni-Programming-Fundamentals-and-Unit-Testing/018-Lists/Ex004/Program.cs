@@ -4,10 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var numbers = Console.ReadLine()
-            .Split()
-            .Select(int.Parse)
-            .ToList();
+        var numbers = Console.ReadLine().Split().Select(int.Parse).ToList();
 
         var command = Console.ReadLine();
 

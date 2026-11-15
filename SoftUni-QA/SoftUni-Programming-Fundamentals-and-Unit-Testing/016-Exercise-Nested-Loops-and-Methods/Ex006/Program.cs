@@ -18,14 +18,20 @@ internal class Program
         {
             var symbol = text[position];
 
-            if (symbol == 'A' || symbol == 'a'
-                              || symbol == 'E' || symbol == 'e'
-                              || symbol == 'I' || symbol == 'i'
-                              || symbol == 'O' || symbol == 'o'
-                              || symbol == 'U' || symbol == 'u')
+            if (
+                symbol == 'A'
+                || symbol == 'a'
+                || symbol == 'E'
+                || symbol == 'e'
+                || symbol == 'I'
+                || symbol == 'i'
+                || symbol == 'O'
+                || symbol == 'o'
+                || symbol == 'U'
+                || symbol == 'u'
+            )
                 count++;
         }
-
 
         return count;
     }

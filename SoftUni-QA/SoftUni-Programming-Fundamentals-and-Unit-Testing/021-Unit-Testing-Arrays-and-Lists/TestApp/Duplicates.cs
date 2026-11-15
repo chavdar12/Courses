@@ -9,7 +9,8 @@ public class Duplicates
     {
         HashSet<int> uniqueNumbers = new();
 
-        foreach (var number in numbers) uniqueNumbers.Add(number);
+        foreach (var number in numbers)
+            uniqueNumbers.Add(number);
 
         return uniqueNumbers.ToArray();
     }
