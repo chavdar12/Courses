@@ -3,30 +3,45 @@ bin/
 obj/
 [Dd]ebug/
 [Rr]elease/
+[Aa]rtifacts/
 *.nupkg
 *.snupkg
+project.lock.json
+*.binlog
 
 # Test results & coverage
 TestResults/
+[Tt]est[Rr]esult*/
 *.trx
 coverage*.json
 coverage*.xml
+coverage*.info
 *.coverage
+*.coveragexml
+
+# Logs
+*.log
 
 # IDEs
 .idea/
 .vs/
 .vscode/
+.fleet/
 *.user
 *.suo
 *.userprefs
 *.DotSettings.user
 *.sln.iml
+*.swp
+*~
 
-# macOS
+# OS
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
 .Spotlight-V100
 .Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
