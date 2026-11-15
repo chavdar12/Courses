@@ -1,4 +1,4 @@
-export type Post = {_id: string; description: string; author: {username: string}};
+export type Post = { _id: string; description: string; author: { username: string } };
 
 export const API_URL = 'http://localhost:9999/api/origami/';
 

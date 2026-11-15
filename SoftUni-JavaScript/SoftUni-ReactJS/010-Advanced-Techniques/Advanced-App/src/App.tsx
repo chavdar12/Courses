@@ -1,4 +1,4 @@
-import {AuthProvider} from './AuthContext';
+import { AuthProvider } from './AuthContext';
 import BuggyCounter from './components/BuggyCounter';
 import ErrorBoundary from './components/ErrorBoundary';
 import LoginBar from './components/LoginBar';
@@ -9,11 +9,11 @@ export default function App() {
         <AuthProvider>
             <main>
                 <h2>Context + HOC + useReducer</h2>
-                <LoginBar/>
-                <TodoList/>
+                <LoginBar />
+                <TodoList />
                 <h2>Error boundary</h2>
                 <ErrorBoundary>
-                    <BuggyCounter/>
+                    <BuggyCounter />
                 </ErrorBoundary>
             </main>
         </AuthProvider>

@@ -4,11 +4,13 @@ body {
     background: #f4f1ea;
 }
 
-.Navigation, .Footer {
+.Navigation,
+.Footer {
     background: #234465;
 }
 
-.Navigation nav, .Footer nav {
+.Navigation nav,
+.Footer nav {
     display: flex;
     align-items: center;
     gap: 1rem;

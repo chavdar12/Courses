@@ -1,4 +1,4 @@
-import {Component, createRef, type FormEvent} from 'react';
+import { Component, createRef, type FormEvent } from 'react';
 
 /** Uncontrolled form: the DOM keeps the value, a ref reads it on submit. */
 export default class NameForm extends Component {
@@ -15,9 +15,9 @@ export default class NameForm extends Component {
                 <h2>Name (uncontrolled)</h2>
                 <label>
                     Name:
-                    <input type="text" ref={this.input} defaultValue="Pesho"/>
+                    <input type="text" ref={this.input} defaultValue="Pesho" />
                 </label>
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Submit" />
             </form>
         );
     }

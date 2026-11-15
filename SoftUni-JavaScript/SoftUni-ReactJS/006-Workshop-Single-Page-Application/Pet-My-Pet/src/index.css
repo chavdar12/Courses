@@ -12,7 +12,9 @@ header nav {
     background: #e07a3f;
 }
 
-header a, header span, button.link {
+header a,
+header span,
+button.link {
     color: #fff;
     text-decoration: none;
     font: inherit;
@@ -36,14 +38,17 @@ main {
     list-style: none;
 }
 
-.pet-card, form, .details {
+.pet-card,
+form,
+.details {
     padding: 1rem;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 4px #0002;
 }
 
-.pet-card img, .details img {
+.pet-card img,
+.details img {
     width: 100%;
     max-width: 20rem;
     border-radius: 6px;

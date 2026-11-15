@@ -8,15 +8,15 @@ export default function App() {
     return (
         <main>
             <h2>Props</h2>
-            <BookList/>
+            <BookList />
             <h2>State</h2>
-            <ClassCounter/>
-            <Input/>
+            <ClassCounter />
+            <Input />
             <h2>Events</h2>
-            <ClickCounter/>
+            <ClickCounter />
             <h2>Conditional rendering</h2>
-            <Greeting isLoggedIn={false}/>
-            <Greeting isLoggedIn/>
+            <Greeting isLoggedIn={false} />
+            <Greeting isLoggedIn />
         </main>
     );
 }

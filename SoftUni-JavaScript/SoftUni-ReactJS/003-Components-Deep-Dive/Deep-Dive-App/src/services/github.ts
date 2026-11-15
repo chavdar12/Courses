@@ -1,4 +1,4 @@
-export type GithubProfile = {login: string; name: string | null; public_repos: number};
+export type GithubProfile = { login: string; name: string | null; public_repos: number };
 
 export async function getUser(username: string): Promise<GithubProfile> {
     const res = await fetch(`https://api.github.com/users/${encodeURIComponent(username)}`);

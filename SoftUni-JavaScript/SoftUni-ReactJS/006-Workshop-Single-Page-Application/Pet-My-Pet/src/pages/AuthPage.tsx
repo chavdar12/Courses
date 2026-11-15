@@ -1,10 +1,10 @@
-import type {FormEvent} from 'react';
-import {Link, useNavigate} from 'react-router';
-import {login, register} from '../api';
-import {useAuth} from '../auth';
+import type { FormEvent } from 'react';
+import { Link, useNavigate } from 'react-router';
+import { login, register } from '../api';
+import { useAuth } from '../auth';
 
-export default function AuthPage({mode}: {mode: 'login' | 'register'}) {
-    const {setUser} = useAuth();
+export default function AuthPage({ mode }: { mode: 'login' | 'register' }) {
+    const { setUser } = useAuth();
     const navigate = useNavigate();
     const isLogin = mode === 'login';
 
@@ -25,12 +25,24 @@ export default function AuthPage({mode}: {mode: 'login' | 'register'}) {
     return (
         <form onSubmit={onSubmit}>
             <h1>{isLogin ? 'Login' : 'Register'}</h1>
-            <label>Email<input name="email" type="email"/></label>
-            <label>Password<input name="password" type="password"/></label>
+            <label>
+                Email
+                <input name="email" type="email" />
+            </label>
+            <label>
+                Password
+                <input name="password" type="password" />
+            </label>
             <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
-            {isLogin
-                ? <p>No account? <Link to="/register">Register</Link></p>
-                : <p>Have an account? <Link to="/login">Login</Link></p>}
+            {isLogin ? (
+                <p>
+                    No account? <Link to="/register">Register</Link>
+                </p>
+            ) : (
+                <p>
+                    Have an account? <Link to="/login">Login</Link>
+                </p>
+            )}
         </form>
     );
 }

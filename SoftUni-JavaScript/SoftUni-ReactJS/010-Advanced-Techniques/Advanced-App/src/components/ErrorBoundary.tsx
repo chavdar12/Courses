@@ -1,13 +1,13 @@
-import {Component, type ErrorInfo, type ReactNode} from 'react';
+import { Component, type ErrorInfo, type ReactNode } from 'react';
 
-type State = {error: Error | null};
+type State = { error: Error | null };
 
 /** Catches render errors below it and shows a fallback instead of a blank page. Must be a class. */
-export default class ErrorBoundary extends Component<{children: ReactNode}, State> {
-    state: State = {error: null};
+export default class ErrorBoundary extends Component<{ children: ReactNode }, State> {
+    state: State = { error: null };
 
     static getDerivedStateFromError(error: Error): State {
-        return {error};
+        return { error };
     }
 
     componentDidCatch(error: Error, info: ErrorInfo) {
@@ -19,7 +19,7 @@ export default class ErrorBoundary extends Component<{children: ReactNode}, Stat
         return (
             <div role="alert">
                 <p>Something went wrong: {this.state.error.message}</p>
-                <button onClick={() => this.setState({error: null})}>Try again</button>
+                <button onClick={() => this.setState({ error: null })}>Try again</button>
             </div>
         );
     }

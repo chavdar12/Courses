@@ -10,8 +10,8 @@ function Cya() {
 export default function ComponentBlender() {
     return (
         <div>
-            <Welcome/>
-            <Cya/>
+            <Welcome />
+            <Cya />
         </div>
     );
 }

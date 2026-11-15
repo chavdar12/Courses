@@ -1,9 +1,9 @@
-import {Link, useNavigate} from 'react-router';
-import {logout} from '../api';
-import {useAuth} from '../auth';
+import { Link, useNavigate } from 'react-router';
+import { logout } from '../api';
+import { useAuth } from '../auth';
 
 export default function Header() {
-    const {user, setUser} = useAuth();
+    const { user, setUser } = useAuth();
     const navigate = useNavigate();
 
     const onLogout = async () => {
@@ -25,7 +25,9 @@ export default function Header() {
                         <Link to="/my-pets">My Pets</Link>
                         <Link to="/create">Add Pet</Link>
                         <span>Welcome, {user.email}</span>
-                        <button className="link" onClick={onLogout}>Logout</button>
+                        <button className="link" onClick={onLogout}>
+                            Logout
+                        </button>
                     </>
                 ) : (
                     <>

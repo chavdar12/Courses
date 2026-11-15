@@ -1,8 +1,8 @@
-import {Component, type ReactNode} from 'react';
+import { Component, type ReactNode } from 'react';
 
-type BookProps = {title: string; author: string; price: number; children?: ReactNode};
+type BookProps = { title: string; author: string; price: number; children?: ReactNode };
 
-export function Book({title, author, price, children}: BookProps) {
+export function Book({ title, author, price, children }: BookProps) {
     return (
         <li className="book">
             <div>{title}</div>
@@ -16,7 +16,7 @@ export function Book({title, author, price, children}: BookProps) {
 /** The same component written as a class. */
 export class ClassBook extends Component<BookProps> {
     render() {
-        const {title, author, price, children} = this.props;
+        const { title, author, price, children } = this.props;
         return (
             <li className="book">
                 <div>{title}</div>

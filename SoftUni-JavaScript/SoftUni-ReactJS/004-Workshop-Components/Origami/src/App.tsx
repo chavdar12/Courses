@@ -6,12 +6,12 @@ import Footer from './components/Footer';
 export default function App() {
     return (
         <div className="App">
-            <Navigation/>
+            <Navigation />
             <div className="Container">
-                <Aside/>
-                <Main/>
+                <Aside />
+                <Main />
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

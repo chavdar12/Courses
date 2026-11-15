@@ -1,4 +1,4 @@
-export default function PostAuthor({username}: {username: string}) {
+export default function PostAuthor({ username }: { username: string }) {
     return (
         <div className="author">
             <span>

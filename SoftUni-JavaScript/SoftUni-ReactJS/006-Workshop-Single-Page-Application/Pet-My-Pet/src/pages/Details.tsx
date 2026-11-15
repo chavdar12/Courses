@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react';
-import {Link, useNavigate, useParams} from 'react-router';
-import {deletePet, getLikes, getMyLike, getPet, likePet, type Pet} from '../api';
-import {useAuth} from '../auth';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router';
+import { deletePet, getLikes, getMyLike, getPet, likePet, type Pet } from '../api';
+import { useAuth } from '../auth';
 
 export default function Details() {
     const id = useParams().id!;
-    const {user} = useAuth();
+    const { user } = useAuth();
     const navigate = useNavigate();
     const [pet, setPet] = useState<Pet | null>(null);
     const [likes, setLikes] = useState(0);
@@ -37,7 +37,7 @@ export default function Details() {
     const onLike = async () => {
         try {
             await likePet(id);
-            setLikes(l => l + 1);
+            setLikes((l) => l + 1);
             setLiked(true);
         } catch (e) {
             alert((e as Error).message);
@@ -46,7 +46,7 @@ export default function Details() {
 
     return (
         <section className="details">
-            <img src={pet.imageUrl} alt={pet.name}/>
+            <img src={pet.imageUrl} alt={pet.name} />
             <h1>{pet.name}</h1>
             <p className="type">Type: {pet.type}</p>
             <p>{pet.description}</p>
