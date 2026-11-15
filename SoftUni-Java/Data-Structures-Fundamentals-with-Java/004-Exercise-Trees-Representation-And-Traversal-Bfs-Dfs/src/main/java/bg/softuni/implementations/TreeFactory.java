@@ -13,8 +13,7 @@ public class TreeFactory {
 
     public Tree<Integer> createTreeFromStrings(String[] input) {
         for (String line : input) {
-            int[] nodeVal = Arrays.stream(line.split("\\s+"))
-                    .mapToInt(Integer::parseInt).toArray();
+            int[] nodeVal = Arrays.stream(line.split("\\s+")).mapToInt(Integer::parseInt).toArray();
 
             addEdge(nodeVal[0], nodeVal[1]);
         }

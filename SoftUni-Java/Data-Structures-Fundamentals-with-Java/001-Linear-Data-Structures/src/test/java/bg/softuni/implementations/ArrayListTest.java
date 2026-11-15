@@ -1,12 +1,10 @@
 package bg.softuni.implementations;
 
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 import java.util.Iterator;
-
-import static org.junit.Assert.*;
-
 
 public class ArrayListTest {
 
@@ -238,7 +236,6 @@ public class ArrayListTest {
     @Test
     public void testInsertShouldSetCorrectlyAndShiftRestToTheRight() {
         ArrayList<String> strings = new ArrayList<>();
-
 
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < 100; i++) {

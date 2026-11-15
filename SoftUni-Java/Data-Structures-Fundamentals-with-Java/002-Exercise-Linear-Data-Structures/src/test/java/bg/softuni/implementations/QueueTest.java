@@ -1,9 +1,9 @@
 package bg.softuni.implementations;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class QueueTest {
     private Queue<String> queue;
@@ -49,7 +49,6 @@ public class QueueTest {
         assertEquals(100, queue.size());
         assertEquals(0, new Queue<>().size());
     }
-
 
     @Test
     public void testIsEmpty() {

@@ -3,7 +3,7 @@ package bg.softuni.implementations;
 import java.util.Iterator;
 
 public class ReversedList<E> {
-    private final static int INITIAL_CAPACITY = 2;
+    private static final int INITIAL_CAPACITY = 2;
 
     private Object[] items;
     private int size;
@@ -44,7 +44,6 @@ public class ReversedList<E> {
 
         items[--size] = null;
     }
-
 
     public int size() {
         return size;

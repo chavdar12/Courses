@@ -1,12 +1,12 @@
 package bg.softuni.implementations;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class TreeTest {
 
@@ -14,16 +14,12 @@ public class TreeTest {
 
     @Before
     public void setUp() {
-        this.tree = new Tree<>(7,
-                new Tree<>(19,
-                        new Tree<>(1),
-                        new Tree<>(12),
-                        new Tree<>(31)),
-                new Tree<>(21),
-                new Tree<>(14,
-                        new Tree<>(23),
-                        new Tree<>(6))
-        );
+        this.tree =
+                new Tree<>(
+                        7,
+                        new Tree<>(19, new Tree<>(1), new Tree<>(12), new Tree<>(31)),
+                        new Tree<>(21),
+                        new Tree<>(14, new Tree<>(23), new Tree<>(6)));
     }
 
     @Test

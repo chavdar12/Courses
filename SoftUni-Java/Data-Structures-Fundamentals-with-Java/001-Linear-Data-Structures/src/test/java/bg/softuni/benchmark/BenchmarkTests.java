@@ -4,6 +4,7 @@ import bg.softuni.implementations.ArrayList;
 import bg.softuni.implementations.Queue;
 import bg.softuni.implementations.SinglyLinkedList;
 import bg.softuni.implementations.Stack;
+
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -20,11 +21,13 @@ import java.util.concurrent.TimeUnit;
 // Xms -> starting memory pool 2GB and Xmx - the maximum memory pool 4GB
 // NOTE: When running those tests you may want to adjust those values as well
 // as the param value, otherwise -> java.lang.OutOfMemoryError may occur
-@Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx4G"})
+@Fork(
+        value = 2,
+        jvmArgs = {"-Xms2G", "-Xmx4G"})
 @State(Scope.Benchmark)
 public class BenchmarkTests {
 
-    @Param({"1000", "10000"/*, "100000000"*/})
+    @Param({"1000", "10000" /*, "100000000"*/})
     private long n;
 
     private ArrayList<Integer> arrayList = new ArrayList<>();
@@ -33,43 +36,29 @@ public class BenchmarkTests {
     private SinglyLinkedList<Integer> singlyLinkedList = new SinglyLinkedList<>();
 
     public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(BenchmarkTests.class.getSimpleName())
-                .forks(1)
-                .build();
+        Options opt =
+                new OptionsBuilder().include(BenchmarkTests.class.getSimpleName()).forks(1).build();
 
         new Runner(opt).run();
     }
 
     private void fillArrayListWithRandomValues(ArrayList<Integer> list) {
-        new Random()
-                .ints()
-                .limit(n)
-                .forEach(list::add);
+        new Random().ints().limit(n).forEach(list::add);
     }
 
     private void fillStackWithRandomValues(Stack<Integer> stack) {
-        new Random()
-                .ints()
-                .limit(n)
-                .forEach(stack::push);
+        new Random().ints().limit(n).forEach(stack::push);
     }
 
     private void fillQueueWithRandomValues(Queue<Integer> queue) {
-        new Random()
-                .ints()
-                .limit(n)
-                .forEach(queue::offer);
+        new Random().ints().limit(n).forEach(queue::offer);
     }
 
     private void fillSinglyLinkedListWithRandomValues(SinglyLinkedList<Integer> singlyLinkedList) {
         // In the SinglyLinkedList we can use a pointer to the end of the structure
         // then it wont matter if we call addLast() or addFirst()
         // but that we will implement later so for now we will call addFirst()
-        new Random()
-                .ints()
-                .limit(n)
-                .forEach(singlyLinkedList::addFirst);
+        new Random().ints().limit(n).forEach(singlyLinkedList::addFirst);
     }
 
     @Benchmark

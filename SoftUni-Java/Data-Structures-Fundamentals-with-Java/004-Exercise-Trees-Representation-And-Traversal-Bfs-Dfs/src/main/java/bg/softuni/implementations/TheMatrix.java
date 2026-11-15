@@ -20,7 +20,8 @@ public class TheMatrix {
     }
 
     private void fillMatrix(int startRow, int startCol) {
-        if (outOfRange(startRow, startCol) || this.matrix[startRow][startCol] != this.toBeReplaced) {
+        if (outOfRange(startRow, startCol)
+                || this.matrix[startRow][startCol] != this.toBeReplaced) {
             return;
         }
 
@@ -33,8 +34,10 @@ public class TheMatrix {
     }
 
     private boolean outOfRange(int startRow, int startCol) {
-        return startRow < 0 || startRow >= this.matrix.length
-                || startCol < 0 || startCol >= this.matrix[startRow].length;
+        return startRow < 0
+                || startRow >= this.matrix.length
+                || startCol < 0
+                || startCol >= this.matrix[startRow].length;
     }
 
     public String toOutputString() {

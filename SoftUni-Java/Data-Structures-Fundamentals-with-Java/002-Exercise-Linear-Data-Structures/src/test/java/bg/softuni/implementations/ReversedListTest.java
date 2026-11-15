@@ -1,12 +1,12 @@
 package bg.softuni.implementations;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 public class ReversedListTest {
 

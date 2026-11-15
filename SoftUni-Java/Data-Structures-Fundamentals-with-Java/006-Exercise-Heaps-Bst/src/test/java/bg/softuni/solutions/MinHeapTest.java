@@ -1,14 +1,15 @@
 package bg.softuni.solutions;
 
+import static org.junit.Assert.assertEquals;
+
 import bg.softuni.interfaces.Heap;
 import bg.softuni.model.Product;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 public class MinHeapTest {
     private MinHeap<Product> minHeap;

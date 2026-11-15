@@ -1,12 +1,12 @@
 package bg.softuni;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class BinarySearchTreeTest {
     private BinarySearchTree<Integer> bst;
@@ -14,7 +14,7 @@ public class BinarySearchTreeTest {
     @Before
     public void setUp() {
         this.bst = new BinarySearchTree<>();
-        for (int value : new int[]{12, 21, 5, 1, 8, 18, 23}) {
+        for (int value : new int[] {12, 21, 5, 1, 8, 18, 23}) {
             this.bst.insert(value);
         }
     }

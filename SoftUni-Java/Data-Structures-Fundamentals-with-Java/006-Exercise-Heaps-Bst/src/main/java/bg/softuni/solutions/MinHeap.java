@@ -73,7 +73,9 @@ public class MinHeap<E extends Comparable<E> & Decrease<E>> implements Heap<E> {
         }
 
         int minIndex = leftChildIndex;
-        if (rightChildIndex < this.size() && this.elements.get(rightChildIndex).compareTo(this.elements.get(leftChildIndex)) < 0) {
+        if (rightChildIndex < this.size()
+                && this.elements.get(rightChildIndex).compareTo(this.elements.get(leftChildIndex))
+                        < 0) {
             minIndex = rightChildIndex;
         }
 

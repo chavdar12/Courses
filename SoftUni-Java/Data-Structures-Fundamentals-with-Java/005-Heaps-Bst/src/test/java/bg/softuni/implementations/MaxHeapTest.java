@@ -1,13 +1,14 @@
 package bg.softuni.implementations;
 
+import static org.junit.Assert.assertEquals;
+
 import bg.softuni.interfaces.Heap;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 public class MaxHeapTest {
     private Heap<Integer> maxHeap;
@@ -37,5 +38,4 @@ public class MaxHeapTest {
     public void testSizeShouldBeCorrect() {
         assertEquals(8, this.maxHeap.size());
     }
-
 }

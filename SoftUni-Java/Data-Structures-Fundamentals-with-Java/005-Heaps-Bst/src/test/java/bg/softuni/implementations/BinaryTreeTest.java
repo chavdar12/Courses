@@ -1,13 +1,14 @@
 package bg.softuni.implementations;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import bg.softuni.interfaces.AbstractBinaryTree;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class BinaryTreeTest {
 
@@ -15,25 +16,37 @@ public class BinaryTreeTest {
 
     @Before
     public void setUp() {
-        this.tree = new BinaryTree<>(17,
-                new BinaryTree<>(9, new BinaryTree<>(3, null, null),
-                        new BinaryTree<>(11, null, null)),
-                new BinaryTree<>(25, new BinaryTree<>(20, null, null),
-                        new BinaryTree<>(31, null, null))
-        );
+        this.tree =
+                new BinaryTree<>(
+                        17,
+                        new BinaryTree<>(
+                                9,
+                                new BinaryTree<>(3, null, null),
+                                new BinaryTree<>(11, null, null)),
+                        new BinaryTree<>(
+                                25,
+                                new BinaryTree<>(20, null, null),
+                                new BinaryTree<>(31, null, null)));
     }
 
     @Test
     public void testAsIndentedPreOrder() {
         String indentedPreOrder = this.tree.asIndentedPreOrder(0);
         assertEquals(
-                "17" + System.lineSeparator() +
-                        "  9" + System.lineSeparator() +
-                        "    3" + System.lineSeparator() +
-                        "    11" + System.lineSeparator() +
-                        "  25" + System.lineSeparator() +
-                        "    20" + System.lineSeparator() +
-                        "    31", indentedPreOrder);
+                "17"
+                        + System.lineSeparator()
+                        + "  9"
+                        + System.lineSeparator()
+                        + "    3"
+                        + System.lineSeparator()
+                        + "    11"
+                        + System.lineSeparator()
+                        + "  25"
+                        + System.lineSeparator()
+                        + "    20"
+                        + System.lineSeparator()
+                        + "    31",
+                indentedPreOrder);
     }
 
     @Test

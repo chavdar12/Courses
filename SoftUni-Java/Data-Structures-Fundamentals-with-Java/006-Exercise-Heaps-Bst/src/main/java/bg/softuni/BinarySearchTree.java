@@ -8,8 +8,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     private Node<E> root;
 
-    public BinarySearchTree() {
-    }
+    public BinarySearchTree() {}
 
     private BinarySearchTree(Node<E> root) {
         this.root = root;

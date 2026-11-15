@@ -51,7 +51,8 @@ public class ArrayDeque<E> implements Deque<E> {
     }
 
     private void grow() {
-        E[] newElements = (E[]) new Object[Math.max(INITIAL_CAPACITY, this.elements.length * GROWTH_FACTOR)];
+        E[] newElements =
+                (E[]) new Object[Math.max(INITIAL_CAPACITY, this.elements.length * GROWTH_FACTOR)];
         this.copyAllElements(newElements);
         this.elements = newElements;
         this.head = 0;
@@ -107,14 +108,16 @@ public class ArrayDeque<E> implements Deque<E> {
 
     private int physicalIndex(int index) {
         if (index < 0 || index >= this.size) {
-            throw new IndexOutOfBoundsException("Index " + index + " out of bounds for size " + this.size);
+            throw new IndexOutOfBoundsException(
+                    "Index " + index + " out of bounds for size " + this.size);
         }
         return (this.head + index) % this.elements.length;
     }
 
     private void ensureIndex(int index) {
         if (index < 0 || index > this.size) {
-            throw new IndexOutOfBoundsException("Index " + index + " out of bounds for size " + this.size);
+            throw new IndexOutOfBoundsException(
+                    "Index " + index + " out of bounds for size " + this.size);
         }
     }
 

@@ -2,6 +2,7 @@ package bg.softuni.benchmark;
 
 import bg.softuni.implementations.BinarySearchTree;
 import bg.softuni.implementations.PriorityQueue;
+
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -18,11 +19,13 @@ import java.util.concurrent.TimeUnit;
 // Xms -> starting memory pool 2GB and Xmx - the maximum memory pool 4GB
 // NOTE: When running those tests you may want to adjust those values as well
 // as the param value, otherwise -> java.lang.OutOfMemoryError may occur
-@Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx4G"})
+@Fork(
+        value = 2,
+        jvmArgs = {"-Xms2G", "-Xmx4G"})
 @State(Scope.Benchmark)
 public class BenchmarkTests {
 
-    @Param({"1000", "10000"/*, "100000000"*/})
+    @Param({"1000", "10000" /*, "100000000"*/})
     private long n;
 
     private ArrayList<Long> arrayList = new ArrayList<>();
@@ -30,10 +33,8 @@ public class BenchmarkTests {
     private BinarySearchTree<Long> binarySearchTree = new BinarySearchTree<>();
 
     public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(BenchmarkTests.class.getSimpleName())
-                .forks(1)
-                .build();
+        Options opt =
+                new OptionsBuilder().include(BenchmarkTests.class.getSimpleName()).forks(1).build();
 
         new Runner(opt).run();
     }

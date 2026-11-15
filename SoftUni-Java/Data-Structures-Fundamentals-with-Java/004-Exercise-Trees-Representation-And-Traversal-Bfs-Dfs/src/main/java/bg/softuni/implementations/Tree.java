@@ -125,7 +125,8 @@ public class Tree<E> implements AbstractTree<E> {
         return pathsWithGivenSum;
     }
 
-    private void pathsWithGivenSum(Tree<E> eTree, List<List<E>> pathsWithGivenSum, List<E> path, int sum) {
+    private void pathsWithGivenSum(
+            Tree<E> eTree, List<List<E>> pathsWithGivenSum, List<E> path, int sum) {
         path.add(eTree.getKey());
         int remaining = sum - (int) eTree.getKey();
         if (eTree.children.isEmpty()) {

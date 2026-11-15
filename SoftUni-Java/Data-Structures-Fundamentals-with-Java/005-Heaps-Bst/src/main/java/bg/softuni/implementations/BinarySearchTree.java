@@ -6,8 +6,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements AbstractBinary
 
     private Node<E> root;
 
-    public BinarySearchTree() {
-    }
+    public BinarySearchTree() {}
 
     public BinarySearchTree(Node<E> current) {
         this.copy(current);
@@ -76,7 +75,6 @@ public class BinarySearchTree<E extends Comparable<E>> implements AbstractBinary
 
         return binarySearchTree;
     }
-
 
     @Override
     public Node<E> getRoot() {
