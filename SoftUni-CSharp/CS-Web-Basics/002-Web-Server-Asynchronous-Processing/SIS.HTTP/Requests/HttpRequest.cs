@@ -9,7 +9,8 @@ public class HttpRequest : IHttpRequest
 {
     public HttpRequest(string requestString)
     {
-        if (string.IsNullOrWhiteSpace(requestString)) throw new BadRequestException();
+        if (string.IsNullOrWhiteSpace(requestString))
+            throw new BadRequestException();
 
         var parts = requestString.Split(HttpProtocol.NewLine + HttpProtocol.NewLine, 2);
         var lines = parts[0].Split(HttpProtocol.NewLine);
@@ -36,9 +37,11 @@ public class HttpRequest : IHttpRequest
     private void ParseRequestLine(string requestLine)
     {
         var tokens = requestLine.Split(' ');
-        if (tokens.Length != 3 || tokens[2] != HttpProtocol.Version) throw new BadRequestException();
+        if (tokens.Length != 3 || tokens[2] != HttpProtocol.Version)
+            throw new BadRequestException();
 
-        if (!Enum.TryParse(tokens[0], true, out HttpRequestMethod method) || !Enum.IsDefined(method)) throw new BadRequestException();
+        if (!Enum.TryParse(tokens[0], true, out HttpRequestMethod method) || !Enum.IsDefined(method))
+            throw new BadRequestException();
 
         RequestMethod = method;
         Url = tokens[1];
@@ -50,18 +53,21 @@ public class HttpRequest : IHttpRequest
         foreach (var line in lines.Where(line => line.Length > 0))
         {
             var header = line.Split(':', 2);
-            if (header.Length != 2) throw new BadRequestException();
+            if (header.Length != 2)
+                throw new BadRequestException();
 
             Headers.AddHeader(new HttpHeader(header[0].Trim(), header[1].Trim()));
         }
 
-        if (!Headers.ContainsHeader(HttpHeader.Host)) throw new BadRequestException();
+        if (!Headers.ContainsHeader(HttpHeader.Host))
+            throw new BadRequestException();
     }
 
     // "key=value&key2=value2", URL encoded (query string and form body share the format).
     private static void ParseData(Dictionary<string, string> data, string encoded)
     {
-        if (string.IsNullOrEmpty(encoded)) return;
+        if (string.IsNullOrEmpty(encoded))
+            return;
 
         foreach (var pair in encoded.Split('&', StringSplitOptions.RemoveEmptyEntries))
         {

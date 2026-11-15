@@ -13,14 +13,16 @@ public static class MergeSort
     // Sorts items[from..to). The halves never overlap, so they can run in parallel on the shared arrays.
     private static void Sort(int[] items, int[] buffer, int from, int to, int depth)
     {
-        if (to - from < 2) return;
+        if (to - from < 2)
+            return;
 
         var middle = from + (to - from) / 2;
         if (depth > 0 && to - from >= ParallelThreshold)
         {
             Parallel.Invoke(
                 () => Sort(items, buffer, from, middle, depth - 1),
-                () => Sort(items, buffer, middle, to, depth - 1));
+                () => Sort(items, buffer, middle, to, depth - 1)
+            );
         }
         else
         {
@@ -35,10 +37,12 @@ public static class MergeSort
     {
         Array.Copy(items, from, buffer, from, to - from);
 
-        int left = from, right = middle;
+        int left = from,
+            right = middle;
         for (var i = from; i < to; i++)
         {
-            items[i] = right >= to || (left < middle && buffer[left] <= buffer[right]) ? buffer[left++] : buffer[right++];
+            items[i] =
+                right >= to || (left < middle && buffer[left] <= buffer[right]) ? buffer[left++] : buffer[right++];
         }
     }
 }

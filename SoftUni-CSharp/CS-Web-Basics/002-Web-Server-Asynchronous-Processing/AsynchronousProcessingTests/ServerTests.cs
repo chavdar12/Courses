@@ -49,7 +49,10 @@ public class ServerTests
         var response = await client.GetAsync("/missing");
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
-        Assert.That(await response.Content.ReadAsStringAsync(), Is.EqualTo("Route with method Get and path \"/missing\" not found."));
+        Assert.That(
+            await response.Content.ReadAsStringAsync(),
+            Is.EqualTo("Route with method Get and path \"/missing\" not found.")
+        );
     }
 
     [Test]

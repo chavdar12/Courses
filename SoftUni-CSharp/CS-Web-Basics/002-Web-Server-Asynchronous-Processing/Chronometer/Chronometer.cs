@@ -7,7 +7,8 @@ public class Chronometer : IChronometer
 {
     private readonly Stopwatch stopwatch = new();
 
-    public string GetTime => $"{stopwatch.Elapsed.Minutes:D2}:{stopwatch.Elapsed.Seconds:D2}:{stopwatch.Elapsed.Milliseconds:D3}";
+    public string GetTime =>
+        $"{stopwatch.Elapsed.Minutes:D2}:{stopwatch.Elapsed.Seconds:D2}:{stopwatch.Elapsed.Milliseconds:D3}";
 
     public List<string> Laps { get; } = new();
 

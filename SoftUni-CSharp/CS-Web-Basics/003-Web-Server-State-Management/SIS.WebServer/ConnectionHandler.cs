@@ -63,7 +63,8 @@ public class ConnectionHandler
         {
             var read = await client.ReceiveAsync(buffer, SocketFlags.None);
             data.Write(buffer, 0, read);
-            if (read < BufferSize) break;
+            if (read < BufferSize)
+                break;
         }
 
         // Decode once at the end, so multi-byte characters split between reads stay intact.
@@ -74,7 +75,10 @@ public class ConnectionHandler
     {
         if (!routingTable.Contains(request.RequestMethod, request.Path))
         {
-            return new TextResult($"Route with method {request.RequestMethod} and path \"{request.Path}\" not found.", HttpStatusCode.NotFound);
+            return new TextResult(
+                $"Route with method {request.RequestMethod} and path \"{request.Path}\" not found.",
+                HttpStatusCode.NotFound
+            );
         }
 
         return routingTable.Get(request.RequestMethod, request.Path).Invoke(request);
@@ -84,7 +88,8 @@ public class ConnectionHandler
     private static string SetRequestSession(IHttpRequest request)
     {
         var sessionId = request.Cookies.GetCookie(HttpSessionStorage.SessionCookieKey)?.Value;
-        if (sessionId == null || !HttpSessionStorage.ContainsSession(sessionId)) sessionId = Guid.NewGuid().ToString();
+        if (sessionId == null || !HttpSessionStorage.ContainsSession(sessionId))
+            sessionId = Guid.NewGuid().ToString();
 
         request.Session = HttpSessionStorage.GetSession(sessionId);
         return sessionId;
@@ -93,5 +98,6 @@ public class ConnectionHandler
     private static void SetResponseSession(IHttpResponse response, string sessionId) =>
         response.AddCookie(new HttpCookie(HttpSessionStorage.SessionCookieKey, sessionId));
 
-    private async Task PrepareResponse(IHttpResponse response) => await client.SendAsync(response.GetBytes(), SocketFlags.None);
+    private async Task PrepareResponse(IHttpResponse response) =>
+        await client.SendAsync(response.GetBytes(), SocketFlags.None);
 }

@@ -58,7 +58,11 @@ public class ServerTests
         var (client, _) = Browser();
         await client.GetStringAsync("/");
 
-        Assert.That(await client.GetStringAsync("/logout"), Does.Contain("Visits in this session: 1"), "Logout should redirect home with a fresh count.");
+        Assert.That(
+            await client.GetStringAsync("/logout"),
+            Does.Contain("Visits in this session: 1"),
+            "Logout should redirect home with a fresh count."
+        );
     }
 
     [Test]
@@ -69,7 +73,10 @@ public class ServerTests
 
         await client.GetStringAsync("/");
 
-        Assert.That(cookies.GetCookies(baseAddress)[HttpSessionStorage.SessionCookieKey]!.Value, Is.Not.EqualTo("chosen-by-attacker"));
+        Assert.That(
+            cookies.GetCookies(baseAddress)[HttpSessionStorage.SessionCookieKey]!.Value,
+            Is.Not.EqualTo("chosen-by-attacker")
+        );
         Assert.That(HttpSessionStorage.ContainsSession("chosen-by-attacker"), Is.False);
     }
 

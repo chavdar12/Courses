@@ -30,11 +30,13 @@ public class HttpResponse : IHttpResponse
     // Status line, headers and the empty line that ends them. The server closes every connection, so it says so.
     public override string ToString()
     {
-        var result = new StringBuilder()
-            .Append($"{HttpProtocol.Version} {(int)StatusCode} {ReasonPhrase(StatusCode)}{HttpProtocol.NewLine}");
+        var result = new StringBuilder().Append(
+            $"{HttpProtocol.Version} {(int)StatusCode} {ReasonPhrase(StatusCode)}{HttpProtocol.NewLine}"
+        );
 
         var headers = Headers.ToString();
-        if (headers.Length > 0) result.Append(headers + HttpProtocol.NewLine);
+        if (headers.Length > 0)
+            result.Append(headers + HttpProtocol.NewLine);
 
         // One Set-Cookie per cookie: browsers read only the first cookie of a joined header.
         foreach (var cookie in Cookies)
@@ -50,5 +52,6 @@ public class HttpResponse : IHttpResponse
     }
 
     // NotFound -> "Not Found", OK stays "OK".
-    private static string ReasonPhrase(HttpStatusCode code) => Regex.Replace(code.ToString(), "(?<=[a-z])(?=[A-Z])", " ");
+    private static string ReasonPhrase(HttpStatusCode code) =>
+        Regex.Replace(code.ToString(), "(?<=[a-z])(?=[A-Z])", " ");
 }

@@ -25,11 +25,13 @@ public class HttpResponse : IHttpResponse
     // Status line, headers and the empty line that ends them. The server closes every connection, so it says so.
     public override string ToString()
     {
-        var result = new StringBuilder()
-            .Append($"{HttpProtocol.Version} {(int)StatusCode} {ReasonPhrase(StatusCode)}{HttpProtocol.NewLine}");
+        var result = new StringBuilder().Append(
+            $"{HttpProtocol.Version} {(int)StatusCode} {ReasonPhrase(StatusCode)}{HttpProtocol.NewLine}"
+        );
 
         var headers = Headers.ToString();
-        if (headers.Length > 0) result.Append(headers + HttpProtocol.NewLine);
+        if (headers.Length > 0)
+            result.Append(headers + HttpProtocol.NewLine);
 
         return result
             .Append($"Content-Length: {Content.Length}{HttpProtocol.NewLine}")
@@ -39,5 +41,6 @@ public class HttpResponse : IHttpResponse
     }
 
     // NotFound -> "Not Found", OK stays "OK".
-    private static string ReasonPhrase(HttpStatusCode code) => Regex.Replace(code.ToString(), "(?<=[a-z])(?=[A-Z])", " ");
+    private static string ReasonPhrase(HttpStatusCode code) =>
+        Regex.Replace(code.ToString(), "(?<=[a-z])(?=[A-Z])", " ");
 }

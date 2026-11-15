@@ -38,6 +38,9 @@ public class ChronometerTests
     {
         var output = ConsoleRunner.Run(typeof(Chronometer.Chronometer).Assembly, "laps\nlap\nlap\nlaps\ntime\nexit");
 
-        Assert.That(output, Is.EqualTo("Laps: no laps\n00:00:000\n00:00:000\nLaps:\n0. 00:00:000\n1. 00:00:000\n00:00:000"));
+        Assert.That(
+            output,
+            Is.EqualTo("Laps: no laps\n00:00:000\n00:00:000\nLaps:\n0. 00:00:000\n1. 00:00:000\n00:00:000")
+        );
     }
 }

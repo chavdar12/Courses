@@ -27,7 +27,8 @@ public class ConnectionHandler
         try
         {
             var request = await ReadRequest();
-            if (request != null) await PrepareResponse(HandleRequest(request));
+            if (request != null)
+                await PrepareResponse(HandleRequest(request));
         }
         catch (BadRequestException e)
         {
@@ -55,7 +56,8 @@ public class ConnectionHandler
         {
             var read = await client.ReceiveAsync(buffer, SocketFlags.None);
             data.Write(buffer, 0, read);
-            if (read < BufferSize) break;
+            if (read < BufferSize)
+                break;
         }
 
         // Decode once at the end, so multi-byte characters split between reads stay intact.
@@ -66,11 +68,15 @@ public class ConnectionHandler
     {
         if (!routingTable.Contains(request.RequestMethod, request.Path))
         {
-            return new TextResult($"Route with method {request.RequestMethod} and path \"{request.Path}\" not found.", HttpStatusCode.NotFound);
+            return new TextResult(
+                $"Route with method {request.RequestMethod} and path \"{request.Path}\" not found.",
+                HttpStatusCode.NotFound
+            );
         }
 
         return routingTable.Get(request.RequestMethod, request.Path).Invoke(request);
     }
 
-    private async Task PrepareResponse(IHttpResponse response) => await client.SendAsync(response.GetBytes(), SocketFlags.None);
+    private async Task PrepareResponse(IHttpResponse response) =>
+        await client.SendAsync(response.GetBytes(), SocketFlags.None);
 }

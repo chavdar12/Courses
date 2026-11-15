@@ -16,7 +16,13 @@ public class HttpCookie
     }
 
     // isNew: false for cookies the client sent back.
-    public HttpCookie(string key, string value, bool isNew, int expires = DefaultExpirationDays, string path = DefaultPath)
+    public HttpCookie(
+        string key,
+        string value,
+        bool isNew,
+        int expires = DefaultExpirationDays,
+        string path = DefaultPath
+    )
         : this(key, value, expires, path)
     {
         IsNew = isNew;
@@ -37,5 +43,6 @@ public class HttpCookie
     // An expiry in the past tells the browser to drop the cookie.
     public void Delete() => Expires = DateTime.UtcNow.AddDays(-1);
 
-    public override string ToString() => $"{Key}={Value}; Expires={Expires:R}; Path={Path}" + (HttpOnly ? "; HttpOnly" : "");
+    public override string ToString() =>
+        $"{Key}={Value}; Expires={Expires:R}; Path={Path}" + (HttpOnly ? "; HttpOnly" : "");
 }
