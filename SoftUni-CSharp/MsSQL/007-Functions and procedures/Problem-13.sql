@@ -9,10 +9,11 @@ FROM (
         ug.Cash,
         ROW_NUMBER() OVER (ORDER BY Cash DESC) AS RowNumber
     FROM UsersGames AS ug
-    JOIN Games AS g ON ug.GameId = g.Id
+    INNER JOIN Games AS g ON ug.GameId = g.Id
     WHERE g.Name = @GameName
 ) AS AllGames
 WHERE
     RowNumber % 2 = 1
-    - -SELECT *
-    FROM dbo.ufn_CashInUsersGames('Love in a mist')
+GO
+
+-- SELECT * FROM dbo.ufn_CashInUsersGames('Love in a mist')

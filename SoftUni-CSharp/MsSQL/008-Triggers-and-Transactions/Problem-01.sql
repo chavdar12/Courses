@@ -18,5 +18,5 @@ SELECT
     d.Balance,
     i.Balance
 FROM inserted AS i
-JOIN deleted AS d ON d.Id = i.Id
+INNER JOIN deleted AS d ON i.Id = d.Id
 WHERE i.Balance <> d.Balance

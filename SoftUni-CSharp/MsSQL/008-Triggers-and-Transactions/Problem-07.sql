@@ -3,8 +3,8 @@ DECLARE
     @UserGameId INT = (
         SELECT ug.Id
         FROM UsersGames AS ug
-        JOIN Users AS u ON u.Id = ug.UserId
-        JOIN Games AS g ON g.Id = ug.GameId
+        INNER JOIN Users AS u ON ug.UserId = u.Id
+        INNER JOIN Games AS g ON ug.GameId = g.Id
         WHERE
             u.Username = 'Stamat'
             AND g.Name = 'Safflower'
@@ -70,6 +70,6 @@ END CATCH
 
 SELECT it.Name AS [Item Name]
 FROM UserGameItems AS ugi
-JOIN Items AS it ON it.Id = ugi.ItemId
+INNER JOIN Items AS it ON ugi.ItemId = it.Id
 WHERE ugi.UserGameId = @UserGameId
 ORDER BY [Item Name]

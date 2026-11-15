@@ -4,6 +4,6 @@ SELECT
     r.RiverName,
     LOWER(PeakName + SUBSTRING(RiverName, 2, LEN(RiverName) - 1)) AS Mix
 FROM Peaks AS p
-JOIN Rivers AS r
+INNER JOIN Rivers AS r
     ON RIGHT(PeakName, 1) = LEFT(RiverName, 1)
 ORDER BY Mix

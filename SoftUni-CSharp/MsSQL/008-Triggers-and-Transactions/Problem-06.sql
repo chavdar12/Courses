@@ -9,8 +9,8 @@ SELECT
     i.ItemId,
     i.UserGameId
 FROM inserted AS i
-JOIN Items AS it ON it.Id = i.ItemId
-JOIN UsersGames AS ug ON ug.Id = i.UserGameId
+INNER JOIN Items AS it ON i.ItemId = it.Id
+INNER JOIN UsersGames AS ug ON i.UserGameId = ug.Id
 WHERE it.MinLevel <= ug.[Level]
 GO
 
@@ -18,8 +18,8 @@ GO
 UPDATE ug
 SET Cash += 50000
 FROM UsersGames AS ug
-JOIN Users AS u ON u.Id = ug.UserId
-JOIN Games AS g ON g.Id = ug.GameId
+INNER JOIN Users AS u ON ug.UserId = u.Id
+INNER JOIN Games AS g ON ug.GameId = g.Id
 WHERE
     g.Name = 'Bali'
     AND u.Username IN ('baleremuda', 'loosenoise', 'inguinalself', 'buildingdeltoid', 'monoxidecos')
@@ -33,9 +33,9 @@ SELECT
     it.Id,
     it.Price
 FROM UsersGames AS ug
-JOIN Users AS u ON u.Id = ug.UserId
-JOIN Games AS g ON g.Id = ug.GameId
-JOIN Items AS it ON it.Id BETWEEN 251 AND 299 OR it.Id BETWEEN 501 AND 539
+INNER JOIN Users AS u ON ug.UserId = u.Id
+INNER JOIN Games AS g ON ug.GameId = g.Id
+INNER JOIN Items AS it ON it.Id BETWEEN 251 AND 299 OR it.Id BETWEEN 501 AND 539
 WHERE
     g.Name = 'Bali'
     AND u.Username IN ('baleremuda', 'loosenoise', 'inguinalself', 'buildingdeltoid', 'monoxidecos')
@@ -54,12 +54,12 @@ FROM @Purchases
 UPDATE ug
 SET Cash -= p.Total
 FROM UsersGames AS ug
-JOIN (SELECT
+INNER JOIN (SELECT
     UserGameId,
     SUM(Price) AS Total
 FROM @Purchases
 GROUP BY UserGameId) AS p
-    ON p.UserGameId = ug.Id
+    ON ug.Id = p.UserGameId
 
 -- 4. Users in "Bali" with their items
 SELECT
@@ -68,9 +68,9 @@ SELECT
     ug.Cash,
     it.Name AS [Item Name]
 FROM Users AS u
-JOIN UsersGames AS ug ON ug.UserId = u.Id
-JOIN Games AS g ON g.Id = ug.GameId
-JOIN UserGameItems AS ugi ON ugi.UserGameId = ug.Id
-JOIN Items AS it ON it.Id = ugi.ItemId
+INNER JOIN UsersGames AS ug ON u.Id = ug.UserId
+INNER JOIN Games AS g ON ug.GameId = g.Id
+INNER JOIN UserGameItems AS ugi ON ug.Id = ugi.UserGameId
+INNER JOIN Items AS it ON ugi.ItemId = it.Id
 WHERE g.Name = 'Bali'
 ORDER BY u.Username, [Item Name]

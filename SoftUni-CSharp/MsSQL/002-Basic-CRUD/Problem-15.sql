@@ -2,5 +2,5 @@
 SELECT *
 FROM Employees
 ORDER BY
-    Salary DESC, FirstName, LastName DESC,
-    MiddleName
+    Salary DESC, FirstName ASC, LastName DESC,
+    MiddleName ASC

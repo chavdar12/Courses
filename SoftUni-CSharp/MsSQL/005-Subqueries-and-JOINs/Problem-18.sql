@@ -13,9 +13,9 @@ FROM (
         -- ties on elevation share rank 1, so all highest peaks are shown
         DENSE_RANK() OVER (PARTITION BY c.CountryName ORDER BY p.Elevation DESC) AS PeakRank
     FROM Countries AS c
-    LEFT JOIN MountainsCountries AS mc ON mc.CountryCode = c.CountryCode
-    LEFT JOIN Mountains AS m ON m.Id = mc.MountainId
-    LEFT JOIN Peaks AS p ON p.MountainId = m.Id
+    LEFT JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
+    LEFT JOIN Mountains AS m ON mc.MountainId = m.Id
+    LEFT JOIN Peaks AS p ON m.Id = p.MountainId
 ) AS RankedPeaks
 WHERE PeakRank = 1
 ORDER BY Country, [Highest Peak Name]

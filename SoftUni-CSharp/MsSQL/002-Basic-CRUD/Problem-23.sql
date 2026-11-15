@@ -6,4 +6,4 @@ FROM Countries
 WHERE ContinentCode = 'EU'
 ORDER BY
     [Population]
-    DESC, CountryName
+    DESC, CountryName ASC

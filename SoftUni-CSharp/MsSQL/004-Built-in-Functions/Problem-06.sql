@@ -1,5 +1,4 @@
--- Problem 6 - Find Towns Starting
-With
+-- Problem 6 - Find Towns Starting With
 SELECT *
 FROM Towns
 WHERE [Name] LIKE '[MKBE]%'

@@ -1,4 +1,4 @@
--- Problem 12 - Countries Holding �A� 3 or More Times
+-- Problem 12 - Countries Holding 'A' 3 or More Times
 SELECT
     CountryName,
     IsoCode

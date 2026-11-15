@@ -1,8 +1,12 @@
--- Problem 2.	Addresses
-with Towns
-SELECT TOP(50) e.FirstName, e.LastName, t.Name AS Town, a.AddressText
-FROM Employees as e
-         JOIN Addresses AS a ON a.AddressID = e.AddressID
-         JOIN Towns AS t ON t.TownID = a.TownID
-ORDER BY FirstName,
-         LastName
+-- Problem 2.	Addresses with Towns
+SELECT TOP (50)
+    e.FirstName,
+    e.LastName,
+    t.Name AS Town,
+    a.AddressText
+FROM Employees AS e
+INNER JOIN Addresses AS a ON e.AddressID = a.AddressID
+INNER JOIN Towns AS t ON a.TownID = t.TownID
+ORDER BY
+    FirstName,
+    LastName

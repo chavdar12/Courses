@@ -5,9 +5,9 @@ SELECT
     p.PeakName,
     p.Elevation
 FROM Countries AS c
-JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
-JOIN Mountains AS m ON m.Id = mc.MountainId
-JOIN Peaks AS p ON m.Id = p.MountainId
+INNER JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
+INNER JOIN Mountains AS m ON mc.MountainId = m.Id
+INNER JOIN Peaks AS p ON m.Id = p.MountainId
 WHERE
     p.Elevation > 2835
     AND c.CountryCode = 'BG'

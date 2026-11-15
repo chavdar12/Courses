@@ -5267,13 +5267,12 @@ FROM Employees --PROBLEM 8
 SELECT *
 FROM Employees
 WHERE JobTitle = 'Sales Representative'
-    - -PROBLEM 9
+-- PROBLEM 9
 SELECT FirstName, LastName, JobTitle
 FROM Employees
 WHERE Salary >= 20000
   AND Salary <= 30000
-    - -PROBLEM
-    10
+-- PROBLEM 10
 SELECT FirstName + ' ' + MiddleName + ' ' + LastName AS [Full Name]
 FROM Employees
 WHERE Salary IN (25000
@@ -5285,7 +5284,7 @@ WHERE Salary IN (25000
 SELECT FirstName, LastName
 FROM Employees
 WHERE ManagerId IS NULL
-          - -PROBLEM 12
+-- PROBLEM 12
 SELECT FirstName, LastName, Salary
 FROM Employees
 WHERE Salary > 50000
@@ -5296,12 +5295,12 @@ ORDER BY Salary DESC --PROBLEM 14
 SELECT FirstName, LastName
 FROM Employees
 WHERE ManagerId != 4
-    - -PROBLEM 15
+-- PROBLEM 15
 SELECT *
 FROM Employees
 ORDER BY Salary DESC, FirstName, LastName DESC,
          MiddleName
-             - -PROBLEM 16
+-- PROBLEM 16
 CREATE VIEW V_EmployeesSalaries AS
 SELECT FirstName, LastName, Salary
 FROM Employees --PROBLEM 17

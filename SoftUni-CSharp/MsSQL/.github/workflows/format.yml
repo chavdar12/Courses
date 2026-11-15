@@ -19,4 +19,4 @@ jobs:
           python-version: "3.14"
       - run: pip install sqlfluff==4.5.0
       - name: Check formatting (layout and capitalisation rules)
-        run: sqlfluff lint --config .github/linters/.sqlfluff --rules layout,capitalisation --ignore parsing,lexing .
+        run: sqlfluff lint --config .sqlfluff --rules layout,capitalisation --ignore parsing,lexing .

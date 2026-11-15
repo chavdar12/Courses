@@ -9,8 +9,8 @@ SELECT
     a.Balance AS [Current Balance],
     dbo.ufn_CalculateFutureValue(a.Balance, @InterestRate, 5) AS [Balance in 5 years]
 FROM AccountHolders AS ah
-JOIN Accounts AS a
-    ON a.AccountHolderId = ah.Id AND a.Id = @AccID
+INNER JOIN Accounts AS a
+    ON ah.Id = a.AccountHolderId AND a.Id = @AccID
 
     --EXEC usp_CalculateFutureValueForAccount 1, 0.1
 

@@ -1,5 +1,4 @@
--- Problem 1.	Records� Count
-\
+-- Problem 1.	Records� Count \
 --
 USE Gringotts
 SELECT COUNT(*) AS Count

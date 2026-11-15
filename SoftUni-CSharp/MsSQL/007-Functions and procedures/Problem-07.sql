@@ -15,9 +15,9 @@ END
 
 			RETURN 1
 END
+GO
 
---
-Do not paste this in Judge. It's for testing purpose only.
+-- Do not paste this in Judge. It's for testing purpose only.
 SELECT dbo.ufn_IsWordComprised('oistmiahf', 'Sofia')
 SELECT dbo.ufn_IsWordComprised('oistmiahf', 'halves')
 SELECT dbo.ufn_IsWordComprised('bobr', 'Rob')
