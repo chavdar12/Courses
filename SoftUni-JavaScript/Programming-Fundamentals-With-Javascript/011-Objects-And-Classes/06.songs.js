@@ -9,7 +9,9 @@ class Song {
 function songs([count, ...rest]) {
     const list = rest.slice(0, count).map((line) => new Song(...line.split('_')));
     const wanted = rest[count];
-    list.filter((song) => wanted === 'all' || song.typeList === wanted).forEach((song) => console.log(song.name));
+    list.filter((song) => wanted === 'all' || song.typeList === wanted).forEach((song) =>
+        console.log(song.name),
+    );
 }
 
 module.exports = songs;

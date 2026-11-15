@@ -25,8 +25,9 @@ describe('Data Types and Variables - Exercise', () => {
     });
 
     it('03. Town Info', () => {
-        expect(captureLog(() => townInfo('Sofia', 1286383, 492)))
-            .to.deep.equal(['Town Sofia has population of 1286383 and area 492 square km.']);
+        expect(captureLog(() => townInfo('Sofia', 1286383, 492))).to.deep.equal([
+            'Town Sofia has population of 1286383 and area 492 square km.',
+        ]);
     });
 
     it('04. Convert Meters to Kilometres', () => {
@@ -55,8 +56,12 @@ describe('Data Types and Variables - Exercise', () => {
     });
 
     it('09. Gladiator Expenses', () => {
-        expect(captureLog(() => gladiatorExpenses(7, 2, 3, 4, 5))).to.deep.equal(['Gladiator expenses: 16.00 aureus']);
-        expect(captureLog(() => gladiatorExpenses(23, 12.5, 21.5, 40, 200))).to.deep.equal(['Gladiator expenses: 608.00 aureus']);
+        expect(captureLog(() => gladiatorExpenses(7, 2, 3, 4, 5))).to.deep.equal([
+            'Gladiator expenses: 16.00 aureus',
+        ]);
+        expect(captureLog(() => gladiatorExpenses(23, 12.5, 21.5, 40, 200))).to.deep.equal([
+            'Gladiator expenses: 608.00 aureus',
+        ]);
     });
 
     it('10. Spice Must Flow', () => {

@@ -4,7 +4,8 @@ function travelTime(entries) {
         const [country, town, cost] = entry.split(' > ');
         countries[country] ??= {};
         const current = countries[country][town];
-        countries[country][town] = current === undefined ? Number(cost) : Math.min(current, Number(cost));
+        countries[country][town] =
+            current === undefined ? Number(cost) : Math.min(current, Number(cost));
     }
     Object.keys(countries)
         .sort((a, b) => a.localeCompare(b))

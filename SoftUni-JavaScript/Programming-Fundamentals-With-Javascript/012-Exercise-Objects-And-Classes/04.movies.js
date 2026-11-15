@@ -18,7 +18,9 @@ function movies(commands) {
             }
         }
     }
-    list.filter((movie) => movie.name && movie.director && movie.date).forEach((movie) => console.log(JSON.stringify(movie)));
+    list.filter((movie) => movie.name && movie.director && movie.date).forEach((movie) =>
+        console.log(JSON.stringify(movie)),
+    );
 }
 
 module.exports = movies;

@@ -17,16 +17,31 @@ describe('Text Processing - Lab', () => {
     });
 
     it('03. Censored Words', () => {
-        expect(captureLog(() => censoredWords('A small sentence with some words', 'small')))
-            .to.deep.equal(['A ***** sentence with some words']);
+        expect(
+            captureLog(() => censoredWords('A small sentence with some words', 'small')),
+        ).to.deep.equal(['A ***** sentence with some words']);
     });
 
     it('04. Count String Occurrences', () => {
-        expect(captureLog(() => countStringOccurrences('This is a word and it also is a sentence', 'is'))).to.deep.equal(['2']);
+        expect(
+            captureLog(() =>
+                countStringOccurrences('This is a word and it also is a sentence', 'is'),
+            ),
+        ).to.deep.equal(['2']);
     });
 
     it('05. String Iterator', () => {
-        expect(captureLog(() => stringIterator('Et cillum do voluptate cillum ut cupidatat aliqua.')))
-            .to.deep.equal(['Et', 'cillum', 'do', 'voluptate', 'cillum', 'ut', 'cupidatat', 'aliqua.']);
+        expect(
+            captureLog(() => stringIterator('Et cillum do voluptate cillum ut cupidatat aliqua.')),
+        ).to.deep.equal([
+            'Et',
+            'cillum',
+            'do',
+            'voluptate',
+            'cillum',
+            'ut',
+            'cupidatat',
+            'aliqua.',
+        ]);
     });
 });

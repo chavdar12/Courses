@@ -13,13 +13,18 @@ function systemsRegister(lines) {
         components.get(component).push(subcomponent);
     }
     [...systems]
-        .sort(([nameA, a], [nameB, b]) => b.size - a.size || nameA.toLowerCase().localeCompare(nameB.toLowerCase()))
+        .sort(
+            ([nameA, a], [nameB, b]) =>
+                b.size - a.size || nameA.toLowerCase().localeCompare(nameB.toLowerCase()),
+        )
         .forEach(([system, components]) => {
             console.log(system);
-            [...components].sort(([, a], [, b]) => b.length - a.length).forEach(([component, subs]) => {
-                console.log(`|||${component}`);
-                subs.forEach((sub) => console.log(`||||||${sub}`));
-            });
+            [...components]
+                .sort(([, a], [, b]) => b.length - a.length)
+                .forEach(([component, subs]) => {
+                    console.log(`|||${component}`);
+                    subs.forEach((sub) => console.log(`||||||${sub}`));
+                });
         });
 }
 

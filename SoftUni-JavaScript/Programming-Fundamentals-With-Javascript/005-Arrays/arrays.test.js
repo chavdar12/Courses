@@ -23,18 +23,30 @@ describe('Arrays - Lab', () => {
     });
 
     it('03. Reverse an Array of Numbers', () => {
-        expect(captureLog(() => reverseArrayOfNumbers(3, [10, 20, 30, 40, 50]))).to.deep.equal(['30 20 10']);
-        expect(captureLog(() => reverseArrayOfNumbers(4, [-1, 20, 99, 5]))).to.deep.equal(['5 99 20 -1']);
-        expect(captureLog(() => reverseArrayOfNumbers(2, [66, 43, 75, 89, 47]))).to.deep.equal(['43 66']);
+        expect(captureLog(() => reverseArrayOfNumbers(3, [10, 20, 30, 40, 50]))).to.deep.equal([
+            '30 20 10',
+        ]);
+        expect(captureLog(() => reverseArrayOfNumbers(4, [-1, 20, 99, 5]))).to.deep.equal([
+            '5 99 20 -1',
+        ]);
+        expect(captureLog(() => reverseArrayOfNumbers(2, [66, 43, 75, 89, 47]))).to.deep.equal([
+            '43 66',
+        ]);
     });
 
     it('04. Reverse an Array of Strings', () => {
-        expect(captureLog(() => reverseArrayOfStrings(['a', 'b', 'c', 'd', 'e']))).to.deep.equal(['e d c b a']);
-        expect(captureLog(() => reverseArrayOfStrings(['33', '123', '0', 'dd']))).to.deep.equal(['dd 0 123 33']);
+        expect(captureLog(() => reverseArrayOfStrings(['a', 'b', 'c', 'd', 'e']))).to.deep.equal([
+            'e d c b a',
+        ]);
+        expect(captureLog(() => reverseArrayOfStrings(['33', '123', '0', 'dd']))).to.deep.equal([
+            'dd 0 123 33',
+        ]);
     });
 
     it('05. Sum Even Numbers', () => {
-        expect(captureLog(() => sumEvenNumbers(['1', '2', '3', '4', '5', '6']))).to.deep.equal(['12']);
+        expect(captureLog(() => sumEvenNumbers(['1', '2', '3', '4', '5', '6']))).to.deep.equal([
+            '12',
+        ]);
         expect(captureLog(() => sumEvenNumbers(['3', '5', '7', '9']))).to.deep.equal(['0']);
         expect(captureLog(() => sumEvenNumbers(['2', '4', '6', '8', '10']))).to.deep.equal(['30']);
     });
@@ -46,10 +58,15 @@ describe('Arrays - Lab', () => {
     });
 
     it('07. Equal Arrays', () => {
-        expect(captureLog(() => equalArrays(['10', '20', '30'], ['10', '20', '30']))).to.deep.equal(['Arrays are identical. Sum: 60']);
-        expect(captureLog(() => equalArrays(['1', '2', '3', '4', '5'], ['1', '2', '4', '4', '5'])))
-            .to.deep.equal(['Arrays are not identical. Found difference at 2 index']);
-        expect(captureLog(() => equalArrays(['1'], ['10']))).to.deep.equal(['Arrays are not identical. Found difference at 0 index']);
+        expect(captureLog(() => equalArrays(['10', '20', '30'], ['10', '20', '30']))).to.deep.equal(
+            ['Arrays are identical. Sum: 60'],
+        );
+        expect(
+            captureLog(() => equalArrays(['1', '2', '3', '4', '5'], ['1', '2', '4', '4', '5'])),
+        ).to.deep.equal(['Arrays are not identical. Found difference at 2 index']);
+        expect(captureLog(() => equalArrays(['1'], ['10']))).to.deep.equal([
+            'Arrays are not identical. Found difference at 0 index',
+        ]);
     });
 
     it('08. Condense Array to Number', () => {

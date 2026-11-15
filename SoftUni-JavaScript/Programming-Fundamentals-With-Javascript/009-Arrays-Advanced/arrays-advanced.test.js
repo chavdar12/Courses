@@ -17,13 +17,26 @@ describe('Arrays Advanced - Lab', () => {
     });
 
     it('02. Negative or Positive Numbers', () => {
-        expect(captureLog(() => negativeOrPositiveNumbers([7, -2, 8, 9]))).to.deep.equal(['-2', '7', '8', '9']);
-        expect(captureLog(() => negativeOrPositiveNumbers([3, -2, 0, -1]))).to.deep.equal(['-1', '-2', '3', '0']);
+        expect(captureLog(() => negativeOrPositiveNumbers([7, -2, 8, 9]))).to.deep.equal([
+            '-2',
+            '7',
+            '8',
+            '9',
+        ]);
+        expect(captureLog(() => negativeOrPositiveNumbers([3, -2, 0, -1]))).to.deep.equal([
+            '-1',
+            '-2',
+            '3',
+            '0',
+        ]);
     });
 
     it('03. First and Last K Numbers', () => {
         expect(captureLog(() => firstAndLastKNumbers([2, 7, 8, 9]))).to.deep.equal(['7 8', '8 9']);
-        expect(captureLog(() => firstAndLastKNumbers([3, 6, 7, 8, 9]))).to.deep.equal(['6 7 8', '7 8 9']);
+        expect(captureLog(() => firstAndLastKNumbers([3, 6, 7, 8, 9]))).to.deep.equal([
+            '6 7 8',
+            '7 8 9',
+        ]);
     });
 
     it('04. Last K Numbers Sequence', () => {
@@ -42,12 +55,22 @@ describe('Arrays Advanced - Lab', () => {
     });
 
     it('07. List of Products', () => {
-        expect(captureLog(() => listOfProducts(['Potatoes', 'Tomatoes', 'Onions', 'Apples'])))
-            .to.deep.equal(['1.Apples', '2.Onions', '3.Potatoes', '4.Tomatoes']);
+        expect(
+            captureLog(() => listOfProducts(['Potatoes', 'Tomatoes', 'Onions', 'Apples'])),
+        ).to.deep.equal(['1.Apples', '2.Onions', '3.Potatoes', '4.Tomatoes']);
     });
 
     it('08. Array Manipulations', () => {
-        expect(captureLog(() => arrayManipulations(['4 19 2 53 6 43', 'Add 3', 'Remove 2', 'RemoveAt 1', 'Insert 8 3'])))
-            .to.deep.equal(['4 53 6 8 43 3']);
+        expect(
+            captureLog(() =>
+                arrayManipulations([
+                    '4 19 2 53 6 43',
+                    'Add 3',
+                    'Remove 2',
+                    'RemoveAt 1',
+                    'Insert 8 3',
+                ]),
+            ),
+        ).to.deep.equal(['4 53 6 8 43 3']);
     });
 });

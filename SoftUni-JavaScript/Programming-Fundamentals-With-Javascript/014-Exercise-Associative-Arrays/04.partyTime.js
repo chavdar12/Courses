@@ -9,7 +9,9 @@ function partyTime(input) {
     }
     const isVip = (guest) => /^\d/.test(guest);
     console.log(missing.length);
-    [...missing.filter(isVip), ...missing.filter((guest) => !isVip(guest))].forEach((guest) => console.log(guest));
+    [...missing.filter(isVip), ...missing.filter((guest) => !isVip(guest))].forEach((guest) =>
+        console.log(guest),
+    );
 }
 
 module.exports = partyTime;

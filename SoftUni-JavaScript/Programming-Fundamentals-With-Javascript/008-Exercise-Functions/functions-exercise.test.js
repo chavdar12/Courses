@@ -27,27 +27,50 @@ describe('Functions - Exercise', () => {
 
     it('03. Characters in Range', () => {
         expect(captureLog(() => charactersInRange('a', 'd'))).to.deep.equal(['b c']);
-        expect(captureLog(() => charactersInRange('#', ':'))).to.deep.equal(["$ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9"]);
-        expect(captureLog(() => charactersInRange('C', '#')))
-            .to.deep.equal(["$ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A B"]);
+        expect(captureLog(() => charactersInRange('#', ':'))).to.deep.equal([
+            "$ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9",
+        ]);
+        expect(captureLog(() => charactersInRange('C', '#'))).to.deep.equal([
+            "$ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A B",
+        ]);
     });
 
     it('04. Odd and Even Sum', () => {
-        expect(captureLog(() => oddAndEvenSum(1000435))).to.deep.equal(['Odd sum = 9, Even sum = 4']);
-        expect(captureLog(() => oddAndEvenSum('3495892137259234'))).to.deep.equal(['Odd sum = 54, Even sum = 22']);
+        expect(captureLog(() => oddAndEvenSum(1000435))).to.deep.equal([
+            'Odd sum = 9, Even sum = 4',
+        ]);
+        expect(captureLog(() => oddAndEvenSum('3495892137259234'))).to.deep.equal([
+            'Odd sum = 54, Even sum = 22',
+        ]);
     });
 
     it('05. Palindrome Integers', () => {
-        expect(captureLog(() => palindromeIntegers([123, 323, 421, 121]))).to.deep.equal(['false', 'true', 'false', 'true']);
-        expect(captureLog(() => palindromeIntegers([32, 2, 232, 1010]))).to.deep.equal(['false', 'true', 'true', 'false']);
+        expect(captureLog(() => palindromeIntegers([123, 323, 421, 121]))).to.deep.equal([
+            'false',
+            'true',
+            'false',
+            'true',
+        ]);
+        expect(captureLog(() => palindromeIntegers([32, 2, 232, 1010]))).to.deep.equal([
+            'false',
+            'true',
+            'true',
+            'false',
+        ]);
     });
 
     it('06. Password Validator', () => {
-        expect(captureLog(() => passwordValidator('logIn')))
-            .to.deep.equal(['Password must be between 6 and 10 characters', 'Password must have at least 2 digits']);
-        expect(captureLog(() => passwordValidator('MyPass123'))).to.deep.equal(['Password is valid']);
-        expect(captureLog(() => passwordValidator('Pa$s$s')))
-            .to.deep.equal(['Password must consist only of letters and digits', 'Password must have at least 2 digits']);
+        expect(captureLog(() => passwordValidator('logIn'))).to.deep.equal([
+            'Password must be between 6 and 10 characters',
+            'Password must have at least 2 digits',
+        ]);
+        expect(captureLog(() => passwordValidator('MyPass123'))).to.deep.equal([
+            'Password is valid',
+        ]);
+        expect(captureLog(() => passwordValidator('Pa$s$s'))).to.deep.equal([
+            'Password must consist only of letters and digits',
+            'Password must have at least 2 digits',
+        ]);
     });
 
     it('07. NxN Matrix', () => {
@@ -62,8 +85,14 @@ describe('Functions - Exercise', () => {
     });
 
     it('09. Loading Bar', () => {
-        expect(captureLog(() => loadingBar(30))).to.deep.equal(['30% [%%%.......]', 'Still loading...']);
-        expect(captureLog(() => loadingBar(50))).to.deep.equal(['50% [%%%%%.....]', 'Still loading...']);
+        expect(captureLog(() => loadingBar(30))).to.deep.equal([
+            '30% [%%%.......]',
+            'Still loading...',
+        ]);
+        expect(captureLog(() => loadingBar(50))).to.deep.equal([
+            '50% [%%%%%.....]',
+            'Still loading...',
+        ]);
         expect(captureLog(() => loadingBar(100))).to.deep.equal(['100% Complete!', '[%%%%%%%%%%]']);
     });
 

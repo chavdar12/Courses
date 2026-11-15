@@ -1,7 +1,13 @@
 function ladybugs([size, positions, ...commands]) {
     const field = new Array(Number(size)).fill(0);
     const inField = (i) => i >= 0 && i < field.length;
-    positions.split(' ').map(Number).filter(inField).forEach((i) => { field[i] = 1; });
+    positions
+        .split(' ')
+        .map(Number)
+        .filter(inField)
+        .forEach((i) => {
+            field[i] = 1;
+        });
 
     for (const command of commands) {
         const [start, direction, length] = command.split(' ');

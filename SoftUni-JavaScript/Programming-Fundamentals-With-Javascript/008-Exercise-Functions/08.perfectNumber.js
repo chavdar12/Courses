@@ -5,7 +5,9 @@ function perfectNumber(number) {
             sum += d;
         }
     }
-    console.log(number > 0 && sum === number ? 'We have a perfect number!' : "It's not so perfect.");
+    console.log(
+        number > 0 && sum === number ? 'We have a perfect number!' : "It's not so perfect.",
+    );
 }
 
 module.exports = perfectNumber;
