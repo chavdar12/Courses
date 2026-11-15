@@ -1,6 +1,5 @@
 package bg.softuni.pathfinder.model.binding;
 
-
 public class UserRegisterBindingModel {
 
     private String username;

@@ -17,11 +17,9 @@ public class CommentEntity extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String textContent;
 
-    @ManyToOne
-    private UserEntity author;
+    @ManyToOne private UserEntity author;
 
-    @ManyToOne
-    private RouteEntity route;
+    @ManyToOne private RouteEntity route;
 
     public boolean isApproved() {
         return approved;

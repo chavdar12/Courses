@@ -19,8 +19,7 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    protected User() {
-    }
+    protected User() {}
 
     public User(String username, String password, String email) {
         this.username = username;

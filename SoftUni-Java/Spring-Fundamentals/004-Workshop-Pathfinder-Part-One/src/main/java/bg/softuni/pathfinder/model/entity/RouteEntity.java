@@ -25,8 +25,7 @@ public class RouteEntity extends BaseEntity {
 
     private String videoUrl;
 
-    @ManyToOne
-    private UserEntity author;
+    @ManyToOne private UserEntity author;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<CategoryEntity> categories = new HashSet<>();

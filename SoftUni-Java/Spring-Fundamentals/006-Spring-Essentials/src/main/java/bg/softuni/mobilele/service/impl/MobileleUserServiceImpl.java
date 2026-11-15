@@ -2,6 +2,7 @@ package bg.softuni.mobilele.service.impl;
 
 import bg.softuni.mobilele.model.entity.UserEntity;
 import bg.softuni.mobilele.repository.UserRepository;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,10 +25,9 @@ public class MobileleUserServiceImpl implements UserDetailsService {
     private static UserDetails mapToUserDetails(UserEntity userEntity) {
 
         List<GrantedAuthority> authorities =
-                userEntity
-                        .getRoles()
-                        .stream()
-                        .map(r -> new SimpleGrantedAuthority("ROLE_" + r.getRole().name())).collect(Collectors.toList());
+                userEntity.getRoles().stream()
+                        .map(r -> new SimpleGrantedAuthority("ROLE_" + r.getRole().name()))
+                        .collect(Collectors.toList());
 
         return new MobileleUser(userEntity.getUsername(), userEntity.getPassword(), authorities);
     }
@@ -35,9 +35,12 @@ public class MobileleUserServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserEntity userEntity = userRepository
-                .findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " not found!"));
+        UserEntity userEntity =
+                userRepository
+                        .findByUsername(username)
+                        .orElseThrow(() ->
+                                new UsernameNotFoundException(
+                                        "User with name " + username + " not found!"));
 
         return mapToUserDetails(userEntity);
     }

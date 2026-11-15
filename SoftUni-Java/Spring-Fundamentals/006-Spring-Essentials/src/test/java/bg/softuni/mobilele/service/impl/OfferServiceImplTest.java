@@ -1,5 +1,8 @@
 package bg.softuni.mobilele.service.impl;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 import bg.softuni.mobilele.model.entity.OfferEntity;
 import bg.softuni.mobilele.model.entity.UserEntity;
 import bg.softuni.mobilele.model.entity.UserRoleEntity;
@@ -11,15 +14,13 @@ import bg.softuni.mobilele.repository.ModelRepository;
 import bg.softuni.mobilele.repository.OfferRepository;
 import bg.softuni.mobilele.repository.UserRepository;
 import bg.softuni.mobilele.web.exception.ObjectNotFoundException;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 
 import java.util.Optional;
 import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 class OfferServiceImplTest {
 
@@ -35,9 +36,14 @@ class OfferServiceImplTest {
     void setUp() {
         offerRepository = mock(OfferRepository.class);
         userRepository = mock(UserRepository.class);
-        service = new OfferServiceImpl(offerRepository, new ModelMapper(), mock(ModelRepository.class), userRepository);
+        service =
+                new OfferServiceImpl(
+                        offerRepository,
+                        new ModelMapper(),
+                        mock(ModelRepository.class),
+                        userRepository);
 
-        for (UserEntity u : new UserEntity[]{pesho, gosho, admin}) {
+        for (UserEntity u : new UserEntity[] {pesho, gosho, admin}) {
             when(userRepository.findByUsername(u.getUsername())).thenReturn(Optional.of(u));
         }
     }
@@ -51,7 +57,8 @@ class OfferServiceImplTest {
 
     @Test
     void sellerAndAdminAreOwnersOthersAreNot() {
-        when(offerRepository.findById(1L)).thenReturn(Optional.of(new OfferEntity().setSeller(pesho)));
+        when(offerRepository.findById(1L))
+                .thenReturn(Optional.of(new OfferEntity().setSeller(pesho)));
 
         assertTrue(service.isOwner("pesho", 1L));
         assertTrue(service.isOwner("admin", 1L));
@@ -79,9 +86,16 @@ class OfferServiceImplTest {
         OfferEntity offer = new OfferEntity().setPrice(100).setSeller(pesho);
         when(offerRepository.findById(1L)).thenReturn(Optional.of(offer));
 
-        service.updateOffer(new OfferUpdateServiceModel()
-                .setId(1L).setPrice(9999).setDescription("new").setEngine(EngineEnum.HYBRID)
-                .setImageUrl("img").setMileage(10).setTransmission(TransmissionEnum.AUTOMATIC).setYear(2020));
+        service.updateOffer(
+                new OfferUpdateServiceModel()
+                        .setId(1L)
+                        .setPrice(9999)
+                        .setDescription("new")
+                        .setEngine(EngineEnum.HYBRID)
+                        .setImageUrl("img")
+                        .setMileage(10)
+                        .setTransmission(TransmissionEnum.AUTOMATIC)
+                        .setYear(2020));
 
         assertEquals(9999, offer.getPrice());
         assertEquals("new", offer.getDescription());
@@ -94,12 +108,15 @@ class OfferServiceImplTest {
     void updateOfferThrowsNotFoundForMissingOffer() {
         when(offerRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(ObjectNotFoundException.class,
+        assertThrows(
+                ObjectNotFoundException.class,
                 () -> service.updateOffer(new OfferUpdateServiceModel().setId(1L)));
         verify(offerRepository, never()).save(any());
     }
 
     private static UserEntity user(String username, UserRoleEnum role) {
-        return new UserEntity().setUsername(username).setRoles(Set.of(new UserRoleEntity().setRole(role)));
+        return new UserEntity()
+                .setUsername(username)
+                .setRoles(Set.of(new UserRoleEntity().setRole(role)));
     }
 }

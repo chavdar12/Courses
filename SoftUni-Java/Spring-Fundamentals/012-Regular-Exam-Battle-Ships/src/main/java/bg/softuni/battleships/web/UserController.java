@@ -3,7 +3,9 @@ package bg.softuni.battleships.web;
 import bg.softuni.battleships.model.UserLoginBindingModel;
 import bg.softuni.battleships.model.UserRegisterBindingModel;
 import bg.softuni.battleships.service.UserService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,7 +27,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("user") UserRegisterBindingModel user, BindingResult result) {
+    public String register(
+            @Valid @ModelAttribute("user") UserRegisterBindingModel user, BindingResult result) {
         if (result.hasErrors() || !userService.register(user)) {
             return "register";
         }
@@ -38,7 +41,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute("user") UserLoginBindingModel user, BindingResult result, Model model) {
+    public String login(
+            @Valid @ModelAttribute("user") UserLoginBindingModel user,
+            BindingResult result,
+            Model model) {
         if (result.hasErrors()) {
             return "login";
         }

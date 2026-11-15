@@ -11,21 +11,24 @@ public class OfferEntity extends BaseEntity {
 
     @Column(nullable = false)
     private String description;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EngineEnum engine;
+
     @Column(nullable = false, columnDefinition = "TEXT")
     private String imageUrl;
+
     private int mileage;
     private int price;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TransmissionEnum transmission;
+
     private int year;
-    @ManyToOne
-    private ModelEntity model;
-    @ManyToOne
-    private UserEntity seller;
+    @ManyToOne private ModelEntity model;
+    @ManyToOne private UserEntity seller;
 
     public String getDescription() {
         return description;
@@ -76,8 +79,7 @@ public class OfferEntity extends BaseEntity {
         return transmission;
     }
 
-    public OfferEntity setTransmission(
-            TransmissionEnum transmissionEnum) {
+    public OfferEntity setTransmission(TransmissionEnum transmissionEnum) {
         this.transmission = transmissionEnum;
         return this;
     }

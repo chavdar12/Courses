@@ -2,10 +2,12 @@ package bg.softuni.pathfinder.model.binding;
 
 import bg.softuni.pathfinder.model.entity.CategoryName;
 import bg.softuni.pathfinder.model.entity.Level;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
@@ -22,14 +24,12 @@ public class RouteAddBindingModel {
 
     private MultipartFile gpxCoordinates;
 
-    @NotNull
-    private Level level;
+    @NotNull private Level level;
 
     @Size(max = 11)
     private String videoUrl;
 
-    @NotEmpty
-    private Set<CategoryName> categories;
+    @NotEmpty private Set<CategoryName> categories;
 
     public String getName() {
         return name;

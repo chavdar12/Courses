@@ -2,6 +2,7 @@ package bg.softuni.mobilele.service.impl;
 
 import bg.softuni.mobilele.model.view.StatsView;
 import bg.softuni.mobilele.service.StatsService;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

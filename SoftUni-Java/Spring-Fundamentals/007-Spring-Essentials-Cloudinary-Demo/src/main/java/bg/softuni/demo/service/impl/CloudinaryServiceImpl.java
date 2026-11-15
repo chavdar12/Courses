@@ -2,7 +2,9 @@ package bg.softuni.demo.service.impl;
 
 import bg.softuni.demo.service.CloudinaryImage;
 import bg.softuni.demo.service.CloudinaryService;
+
 import com.cloudinary.Cloudinary;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,13 +34,13 @@ public class CloudinaryServiceImpl implements CloudinaryService {
 
             Map<String, String> uploadResult = cloudinary.uploader().upload(tempFile, Map.of());
 
-            String url = uploadResult.getOrDefault(URL,
-                    "https://i.pinimg.com/originals/c5/21/64/c52164749f7460c1ededf8992cd9a6ec.jpg");
+            String url =
+                    uploadResult.getOrDefault(
+                            URL,
+                            "https://i.pinimg.com/originals/c5/21/64/c52164749f7460c1ededf8992cd9a6ec.jpg");
             String publicId = uploadResult.getOrDefault(PUBLIC_ID, "");
 
-            return new CloudinaryImage().
-                    setPublicId(publicId).
-                    setUrl(url);
+            return new CloudinaryImage().setPublicId(publicId).setUrl(url);
 
         } finally {
             tempFile.delete();

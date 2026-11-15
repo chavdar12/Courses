@@ -2,6 +2,7 @@ package bg.softuni.mobilele.web;
 
 import bg.softuni.mobilele.model.view.BrandViewModel;
 import bg.softuni.mobilele.service.BrandService;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,11 +26,11 @@ public class BrandsController {
     @GetMapping("/all")
     public String getAllBrandsPage(Model model) {
 
-        List<BrandViewModel> brandViewModels = brandService
-                .getAllBrands()
-                .stream()
-                .map(brandServiceModel -> modelMapper.map(brandServiceModel, BrandViewModel.class))
-                .collect(Collectors.toList());
+        List<BrandViewModel> brandViewModels =
+                brandService.getAllBrands().stream()
+                        .map(brandServiceModel ->
+                                modelMapper.map(brandServiceModel, BrandViewModel.class))
+                        .collect(Collectors.toList());
 
         model.addAttribute("allBrands", brandViewModels);
 

@@ -1,8 +1,10 @@
 package bg.softuni.pathfinder.web;
 
 import bg.softuni.pathfinder.service.CurrentUser;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -29,7 +31,8 @@ public class AccessInterceptor implements WebMvcConfigurer {
     private HandlerInterceptor redirectWhen(boolean loggedIn, String target) {
         return new HandlerInterceptor() {
             @Override
-            public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            public boolean preHandle(
+                    HttpServletRequest request, HttpServletResponse response, Object handler)
                     throws Exception {
                 if (currentUser.isLoggedIn() == loggedIn) {
                     response.sendRedirect(target);

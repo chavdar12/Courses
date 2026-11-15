@@ -17,6 +17,7 @@ import bg.softuni.mobilele.repository.OfferRepository;
 import bg.softuni.mobilele.repository.UserRepository;
 import bg.softuni.mobilele.service.OfferService;
 import bg.softuni.mobilele.web.exception.ObjectNotFoundException;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +34,11 @@ public class OfferServiceImpl implements OfferService {
     private final ModelRepository modelRepository;
     private final UserRepository userRepository;
 
-    public OfferServiceImpl(OfferRepository offerRepository, ModelMapper modelMapper,
-                            ModelRepository modelRepository, UserRepository userRepository) {
+    public OfferServiceImpl(
+            OfferRepository offerRepository,
+            ModelMapper modelMapper,
+            ModelRepository modelRepository,
+            UserRepository userRepository) {
         this.offerRepository = offerRepository;
         this.modelMapper = modelMapper;
         this.modelRepository = modelRepository;
@@ -46,30 +50,31 @@ public class OfferServiceImpl implements OfferService {
 
         if (offerRepository.count() == 0) {
             OfferEntity offer1 = new OfferEntity();
-            offer1
-                    .setModel(modelRepository.findById(1L).orElse(null))
+            offer1.setModel(modelRepository.findById(1L).orElse(null))
                     .setEngine(EngineEnum.GASOLINE)
                     .setTransmission(TransmissionEnum.MANUAL)
                     .setMileage(22500)
                     .setPrice(14300)
                     .setYear(2019)
                     .setDescription("Used, but well services and in good condition.")
-                    .setSeller(userRepository.findByUsername("pesho")
-                            .orElse(null)) // or currentUser.getUserName()
-                    .setImageUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcXp1KBpDKgYs6VqndkBpX8twjPOZbHV86yg&usqp=CAU");
+                    .setSeller(
+                            userRepository
+                                    .findByUsername("pesho")
+                                    .orElse(null)) // or currentUser.getUserName()
+                    .setImageUrl(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcXp1KBpDKgYs6VqndkBpX8twjPOZbHV86yg&usqp=CAU");
 
             OfferEntity offer2 = new OfferEntity();
-            offer2
-                    .setModel(modelRepository.findById(1L).orElse(null))
+            offer2.setModel(modelRepository.findById(1L).orElse(null))
                     .setEngine(EngineEnum.DIESEL)
                     .setTransmission(TransmissionEnum.AUTOMATIC)
                     .setMileage(209000)
                     .setPrice(5500)
                     .setYear(2000)
                     .setDescription("After full maintenance, insurance, new tires...")
-                    .setSeller(userRepository.findByUsername("admin")
-                            .orElse(null))
-                    .setImageUrl("https://www.picclickimg.com/d/l400/pict/283362908243_/FORD-ESCORT-MK5-16L-DOHC-16v-ZETEC.jpg");
+                    .setSeller(userRepository.findByUsername("admin").orElse(null))
+                    .setImageUrl(
+                            "https://www.picclickimg.com/d/l400/pict/283362908243_/FORD-ESCORT-MK5-16L-DOHC-16v-ZETEC.jpg");
 
             offerRepository.saveAll(List.of(offer1, offer2));
         }
@@ -77,11 +82,7 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public List<OfferSummaryView> getAllOffers() {
-        return this.offerRepository
-                .findAll()
-                .stream()
-                .map(this::map)
-                .collect(Collectors.toList());
+        return this.offerRepository.findAll().stream().map(this::map).collect(Collectors.toList());
     }
 
     @Override
@@ -89,7 +90,8 @@ public class OfferServiceImpl implements OfferService {
         return this.offerRepository
                 .findById(id)
                 .map(o -> mapDetailsView(currentUser, o))
-                .orElseThrow(() -> new ObjectNotFoundException("Offer with id " + id + " not found!"));
+                .orElseThrow(
+                        () -> new ObjectNotFoundException("Offer with id " + id + " not found!"));
     }
 
     @Override
@@ -107,27 +109,29 @@ public class OfferServiceImpl implements OfferService {
 
         OfferEntity offerEntity = offer.get();
 
-        return isAdmin(user.get()) ||
-                (offerEntity.getSeller() != null && offerEntity.getSeller().getUsername().equals(userName));
+        return isAdmin(user.get())
+                || (offerEntity.getSeller() != null
+                        && offerEntity.getSeller().getUsername().equals(userName));
     }
 
     private boolean isAdmin(UserEntity user) {
-        return user
-                .getRoles()
-                .stream()
+        return user.getRoles().stream()
                 .map(UserRoleEntity::getRole)
                 .anyMatch(r -> r == UserRoleEnum.ADMIN);
     }
 
-
     @Override
     public void updateOffer(OfferUpdateServiceModel offerModel) {
 
-        OfferEntity offerEntity = this.offerRepository
-                .findById(offerModel.getId())
-                .orElseThrow(() -> new ObjectNotFoundException("Offer with id " + offerModel.getId() + " not found!"));
+        OfferEntity offerEntity =
+                this.offerRepository
+                        .findById(offerModel.getId())
+                        .orElseThrow(() ->
+                                new ObjectNotFoundException(
+                                        "Offer with id " + offerModel.getId() + " not found!"));
 
-        offerEntity.setPrice(offerModel.getPrice())
+        offerEntity
+                .setPrice(offerModel.getPrice())
                 .setDescription(offerModel.getDescription())
                 .setEngine(offerModel.getEngine())
                 .setImageUrl(offerModel.getImageUrl())
@@ -142,7 +146,8 @@ public class OfferServiceImpl implements OfferService {
     public OfferAddServiceModel addOffer(OfferAddBindModel offerAddBindModel, String ownerId) {
         UserEntity userEntity = userRepository.findByUsername(ownerId).orElseThrow();
 
-        OfferAddServiceModel offerAddServiceModel = modelMapper.map(offerAddBindModel, OfferAddServiceModel.class);
+        OfferAddServiceModel offerAddServiceModel =
+                modelMapper.map(offerAddBindModel, OfferAddServiceModel.class);
 
         OfferEntity newOffer = modelMapper.map(offerAddServiceModel, OfferEntity.class);
 
@@ -173,7 +178,8 @@ public class OfferServiceImpl implements OfferService {
         offerDetailsView.setCanDelete(isOwner(currentUser, offer.getId()));
         offerDetailsView.setModel(offer.getModel().getName());
         offerDetailsView.setBrand(offer.getModel().getBrand().getName());
-        offerDetailsView.setSellerFullName(offer.getSeller().getFirstName() + " " + offer.getSeller().getLastName());
+        offerDetailsView.setSellerFullName(
+                offer.getSeller().getFirstName() + " " + offer.getSeller().getLastName());
 
         return offerDetailsView;
     }

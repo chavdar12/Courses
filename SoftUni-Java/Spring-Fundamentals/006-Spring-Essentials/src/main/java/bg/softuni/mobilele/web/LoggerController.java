@@ -23,5 +23,4 @@ public class LoggerController {
         LOGGER.warn("I'm logging an warning.");
         return "OK";
     }
-
 }

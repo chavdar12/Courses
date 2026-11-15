@@ -1,6 +1,7 @@
 package bg.softuni.battleships.model;
 
 import jakarta.validation.constraints.*;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -11,21 +12,16 @@ public class ShipAddBindingModel {
     @Size(min = 2, max = 10)
     private String name;
 
-    @NotNull
-    @Positive
-    private Long power;
+    @NotNull @Positive private Long power;
 
-    @NotNull
-    @Positive
-    private Long health;
+    @NotNull @Positive private Long health;
 
     @NotNull
     @PastOrPresent
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate created;
 
-    @NotNull
-    private CategoryName category;
+    @NotNull private CategoryName category;
 
     public String getName() {
         return name;

@@ -1,8 +1,10 @@
 package bg.softuni.coffeeshop.web;
 
 import bg.softuni.coffeeshop.service.CurrentUser;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -28,7 +30,9 @@ public class AccessInterceptor implements HandlerInterceptor, WebMvcConfigurer {
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(
+            HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
         boolean guestPage = GUEST_PAGES.contains(request.getRequestURI());
         if (guestPage && currentUser.isLoggedIn()) {
             response.sendRedirect("/home");

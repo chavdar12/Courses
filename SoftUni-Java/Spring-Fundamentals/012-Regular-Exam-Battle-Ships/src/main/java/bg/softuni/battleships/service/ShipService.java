@@ -8,6 +8,7 @@ import bg.softuni.battleships.model.ShipAddBindingModel;
 import bg.softuni.battleships.repository.CategoryRepository;
 import bg.softuni.battleships.repository.ShipRepository;
 import bg.softuni.battleships.repository.UserRepository;
+
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,11 @@ public class ShipService {
     private final UserRepository userRepository;
     private final CurrentUser currentUser;
 
-    public ShipService(ShipRepository shipRepository, CategoryRepository categoryRepository,
-                       UserRepository userRepository, CurrentUser currentUser) {
+    public ShipService(
+            ShipRepository shipRepository,
+            CategoryRepository categoryRepository,
+            UserRepository userRepository,
+            CurrentUser currentUser) {
         this.shipRepository = shipRepository;
         this.categoryRepository = categoryRepository;
         this.userRepository = userRepository;
@@ -36,7 +40,8 @@ public class ShipService {
     ApplicationRunner initCategories() {
         return args -> {
             if (categoryRepository.count() == 0) {
-                categoryRepository.saveAll(Arrays.stream(CategoryName.values()).map(Category::new).toList());
+                categoryRepository.saveAll(
+                        Arrays.stream(CategoryName.values()).map(Category::new).toList());
             }
         };
     }
@@ -46,9 +51,14 @@ public class ShipService {
         if (shipRepository.existsByName(model.getName())) {
             return false;
         }
-        shipRepository.save(new Ship(model.getName(), model.getHealth(), model.getPower(), model.getCreated(),
-                categoryRepository.findByName(model.getCategory()).orElseThrow(),
-                userRepository.getReferenceById(currentUser.getId())));
+        shipRepository.save(
+                new Ship(
+                        model.getName(),
+                        model.getHealth(),
+                        model.getPower(),
+                        model.getCreated(),
+                        categoryRepository.findByName(model.getCategory()).orElseThrow(),
+                        userRepository.getReferenceById(currentUser.getId())));
         return true;
     }
 
@@ -69,7 +79,8 @@ public class ShipService {
     public void fire(BattleBindingModel battle) {
         Ship attacker = shipRepository.findById(battle.getAttackerId()).orElse(null);
         Ship defender = shipRepository.findById(battle.getDefenderId()).orElse(null);
-        if (attacker == null || defender == null
+        if (attacker == null
+                || defender == null
                 || !attacker.getUser().getId().equals(currentUser.getId())
                 || defender.getUser().getId().equals(currentUser.getId())) {
             return;

@@ -5,6 +5,7 @@ import bg.softuni.mobilele.model.entity.UserEntity;
 import bg.softuni.mobilele.model.entity.enums.UserRoleEnum;
 import bg.softuni.mobilele.repository.UserRepository;
 import bg.softuni.mobilele.repository.UserRoleRepository;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +30,14 @@ public class UserService {
         if (users.findByUsernameIgnoreCase(model.getUsername()).isPresent()) {
             return false;
         }
-        users.save(new UserEntity().setUsername(model.getUsername()).setFirstName(model.getFirstName())
-                .setLastName(model.getLastName()).setPassword(encoder.encode(model.getPassword()))
-                .setActive(true).setRoles(Set.of(roles.findByRole(UserRoleEnum.USER))));
+        users.save(
+                new UserEntity()
+                        .setUsername(model.getUsername())
+                        .setFirstName(model.getFirstName())
+                        .setLastName(model.getLastName())
+                        .setPassword(encoder.encode(model.getPassword()))
+                        .setActive(true)
+                        .setRoles(Set.of(roles.findByRole(UserRoleEnum.USER))));
         return true;
     }
 
@@ -39,8 +45,11 @@ public class UserService {
         return users.findByUsername(username)
                 .filter(user -> user.isActive() && encoder.matches(password, user.getPassword()))
                 .map(user -> {
-                    currentUser.login(user.getUsername(), user.getFirstName(),
-                            user.getRoles().stream().anyMatch(r -> r.getRole() == UserRoleEnum.ADMIN));
+                    currentUser.login(
+                            user.getUsername(),
+                            user.getFirstName(),
+                            user.getRoles().stream()
+                                    .anyMatch(r -> r.getRole() == UserRoleEnum.ADMIN));
                     return true;
                 })
                 .orElse(false);

@@ -16,21 +16,15 @@ public class OfferUpdateBindingModel {
 
     private Long id;
 
-    @NotBlank
-    private String description;
+    @NotBlank private String description;
 
-    @NotNull
-    private EngineEnum engine;
+    @NotNull private EngineEnum engine;
 
-    @NotBlank
-    private String imageUrl;
+    @NotBlank private String imageUrl;
 
-    @NotNull
-    @PositiveOrZero
-    private Integer mileage;
+    @NotNull @PositiveOrZero private Integer mileage;
 
-    @NotNull
-    private TransmissionEnum transmission;
+    @NotNull private TransmissionEnum transmission;
 
     @NotNull
     @Min(1930)
@@ -58,8 +52,7 @@ public class OfferUpdateBindingModel {
         return engine;
     }
 
-    public OfferUpdateBindingModel setEngine(
-            EngineEnum engine) {
+    public OfferUpdateBindingModel setEngine(EngineEnum engine) {
         this.engine = engine;
         return this;
     }
@@ -95,8 +88,7 @@ public class OfferUpdateBindingModel {
         return transmission;
     }
 
-    public OfferUpdateBindingModel setTransmission(
-            TransmissionEnum transmission) {
+    public OfferUpdateBindingModel setTransmission(TransmissionEnum transmission) {
         this.transmission = transmission;
         return this;
     }

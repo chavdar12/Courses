@@ -1,6 +1,7 @@
 package bg.softuni.mobilele.model.entity;
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -69,8 +70,7 @@ public class UserEntity extends BaseEntity {
         return roles;
     }
 
-    public UserEntity setRoles(
-            Set<UserRoleEntity> roles) {
+    public UserEntity setRoles(Set<UserRoleEntity> roles) {
         this.roles = roles;
         return this;
     }

@@ -1,6 +1,7 @@
 package bg.softuni.demo.config;
 
 import com.cloudinary.Cloudinary;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,8 +22,6 @@ public class AppConfig {
                 Map.of(
                         "cloud_name", config.getCloudName(),
                         "api_key", config.getApiKey(),
-                        "api_secret", config.getApiSecret()
-                )
-        );
+                        "api_secret", config.getApiSecret()));
     }
 }

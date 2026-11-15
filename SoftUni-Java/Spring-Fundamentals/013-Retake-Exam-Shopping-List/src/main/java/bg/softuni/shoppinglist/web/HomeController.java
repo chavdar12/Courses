@@ -2,6 +2,7 @@ package bg.softuni.shoppinglist.web;
 
 import bg.softuni.shoppinglist.model.CategoryName;
 import bg.softuni.shoppinglist.service.ProductService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

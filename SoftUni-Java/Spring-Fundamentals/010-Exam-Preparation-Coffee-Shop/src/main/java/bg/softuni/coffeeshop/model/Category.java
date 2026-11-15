@@ -17,8 +17,7 @@ public class Category {
     @Column(nullable = false)
     private int neededTime;
 
-    protected Category() {
-    }
+    protected Category() {}
 
     public Category(CategoryName name) {
         this.name = name;

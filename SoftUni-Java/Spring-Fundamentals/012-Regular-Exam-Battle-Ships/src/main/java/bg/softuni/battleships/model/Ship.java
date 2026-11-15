@@ -30,10 +30,10 @@ public class Ship {
     @ManyToOne(optional = false)
     private User user;
 
-    protected Ship() {
-    }
+    protected Ship() {}
 
-    public Ship(String name, long health, long power, LocalDate created, Category category, User user) {
+    public Ship(
+            String name, long health, long power, LocalDate created, Category category, User user) {
         this.name = name;
         this.health = health;
         this.power = power;

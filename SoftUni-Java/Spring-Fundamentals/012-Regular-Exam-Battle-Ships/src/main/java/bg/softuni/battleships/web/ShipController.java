@@ -3,7 +3,9 @@ package bg.softuni.battleships.web;
 import bg.softuni.battleships.model.CategoryName;
 import bg.softuni.battleships.model.ShipAddBindingModel;
 import bg.softuni.battleships.service.ShipService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +34,8 @@ public class ShipController {
     }
 
     @PostMapping("/add")
-    public String add(@Valid @ModelAttribute("ship") ShipAddBindingModel ship, BindingResult result) {
+    public String add(
+            @Valid @ModelAttribute("ship") ShipAddBindingModel ship, BindingResult result) {
         if (result.hasErrors()) {
             return "ship-add";
         }

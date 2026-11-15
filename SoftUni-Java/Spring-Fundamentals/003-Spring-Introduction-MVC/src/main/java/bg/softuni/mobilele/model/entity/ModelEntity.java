@@ -1,11 +1,11 @@
 package bg.softuni.mobilele.model.entity;
 
+import static jakarta.persistence.EnumType.STRING;
+
 import bg.softuni.mobilele.model.entity.enums.CategoryEnum;
 
-import jakarta.validation.constraints.Size;
 import jakarta.persistence.*;
-
-import static jakarta.persistence.EnumType.STRING;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "models")
@@ -13,17 +13,20 @@ public class ModelEntity extends BaseEntity {
 
     @Column(nullable = false)
     private String name;
+
     @Enumerated(STRING)
     @Column(nullable = false)
     private CategoryEnum category;
+
     @Size(min = 8, max = 512)
     @Column(nullable = false, length = 512)
     private String imageUrl;
+
     @Column(nullable = false)
     private Integer startYear;
+
     private Integer endYear;
-    @ManyToOne
-    private BrandEntity brand;
+    @ManyToOne private BrandEntity brand;
 
     public String getName() {
         return name;

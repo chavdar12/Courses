@@ -28,10 +28,14 @@ public class Product {
     @ManyToOne(optional = false)
     private Category category;
 
-    protected Product() {
-    }
+    protected Product() {}
 
-    public Product(String name, String description, BigDecimal price, LocalDateTime neededBefore, Category category) {
+    public Product(
+            String name,
+            String description,
+            BigDecimal price,
+            LocalDateTime neededBefore,
+            Category category) {
         this.name = name;
         this.description = description;
         this.price = price;

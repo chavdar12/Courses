@@ -6,6 +6,7 @@ import bg.softuni.shoppinglist.model.Product;
 import bg.softuni.shoppinglist.model.ProductAddBindingModel;
 import bg.softuni.shoppinglist.repository.CategoryRepository;
 import bg.softuni.shoppinglist.repository.ProductRepository;
+
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
-    public ProductService(ProductRepository productRepository, CategoryRepository categoryRepository) {
+    public ProductService(
+            ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
     }
@@ -29,7 +31,8 @@ public class ProductService {
     ApplicationRunner initCategories() {
         return args -> {
             if (categoryRepository.count() == 0) {
-                categoryRepository.saveAll(Arrays.stream(CategoryName.values()).map(Category::new).toList());
+                categoryRepository.saveAll(
+                        Arrays.stream(CategoryName.values()).map(Category::new).toList());
             }
         };
     }
@@ -39,8 +42,13 @@ public class ProductService {
         if (productRepository.existsByName(model.getName())) {
             return false;
         }
-        productRepository.save(new Product(model.getName(), model.getDescription(), model.getPrice(),
-                model.getNeededBefore(), categoryRepository.findByName(model.getCategory()).orElseThrow()));
+        productRepository.save(
+                new Product(
+                        model.getName(),
+                        model.getDescription(),
+                        model.getPrice(),
+                        model.getNeededBefore(),
+                        categoryRepository.findByName(model.getCategory()).orElseThrow()));
         return true;
     }
 
@@ -49,7 +57,9 @@ public class ProductService {
     }
 
     public BigDecimal totalPrice() {
-        return productRepository.findAll().stream().map(Product::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+        return productRepository.findAll().stream()
+                .map(Product::getPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public void buy(Long id) {

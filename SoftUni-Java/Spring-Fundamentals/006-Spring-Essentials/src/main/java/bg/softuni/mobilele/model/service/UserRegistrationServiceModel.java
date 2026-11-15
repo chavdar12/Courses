@@ -2,16 +2,13 @@ package bg.softuni.mobilele.model.service;
 
 public class UserRegistrationServiceModel {
 
-
     private String firstName;
     private String lastName;
     private String password;
     private String username;
 
     public String getUsername() {
-        return username != null
-                ? username.trim()
-                : null;
+        return username != null ? username.trim() : null;
     }
 
     public UserRegistrationServiceModel setUsername(String username) {

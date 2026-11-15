@@ -4,11 +4,9 @@ import jakarta.validation.constraints.NotNull;
 
 public class BattleBindingModel {
 
-    @NotNull
-    private Long attackerId;
+    @NotNull private Long attackerId;
 
-    @NotNull
-    private Long defenderId;
+    @NotNull private Long defenderId;
 
     public Long getAttackerId() {
         return attackerId;

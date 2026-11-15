@@ -34,8 +34,7 @@ public class OfferDetailsView {
 
     private boolean canDelete;
 
-    public OfferDetailsView() {
-    }
+    public OfferDetailsView() {}
 
     public boolean isCanDelete() {
         return canDelete;

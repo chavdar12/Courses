@@ -6,6 +6,7 @@ import bg.softuni.pathfinder.model.entity.RouteEntity;
 import bg.softuni.pathfinder.repository.CategoryRepository;
 import bg.softuni.pathfinder.repository.RouteRepository;
 import bg.softuni.pathfinder.repository.UserRepository;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,8 +23,11 @@ public class RouteService {
     private final UserRepository users;
     private final CurrentUser currentUser;
 
-    public RouteService(RouteRepository routes, CategoryRepository categories, UserRepository users,
-                        CurrentUser currentUser) {
+    public RouteService(
+            RouteRepository routes,
+            CategoryRepository categories,
+            UserRepository users,
+            CurrentUser currentUser) {
         this.routes = routes;
         this.categories = categories;
         this.users = users;
@@ -51,10 +55,17 @@ public class RouteService {
     }
 
     public RouteEntity add(RouteAddBindingModel model) throws IOException {
-        RouteEntity route = new RouteEntity().setName(model.getName()).setDescription(model.getDescription())
-                .setLevel(model.getLevel()).setVideoUrl(model.getVideoUrl())
-                .setGpxCoordinates(new String(model.getGpxCoordinates().getBytes(), StandardCharsets.UTF_8))
-                .setAuthor(users.getReferenceById(currentUser.getId()));
+        RouteEntity route =
+                new RouteEntity()
+                        .setName(model.getName())
+                        .setDescription(model.getDescription())
+                        .setLevel(model.getLevel())
+                        .setVideoUrl(model.getVideoUrl())
+                        .setGpxCoordinates(
+                                new String(
+                                        model.getGpxCoordinates().getBytes(),
+                                        StandardCharsets.UTF_8))
+                        .setAuthor(users.getReferenceById(currentUser.getId()));
         route.getCategories().addAll(categories.findAllByNameIn(model.getCategories()));
         return routes.save(route);
     }

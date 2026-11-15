@@ -1,6 +1,13 @@
 package bg.softuni.coffeeshop;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 import bg.softuni.coffeeshop.repository.OrderRepository;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,31 +15,29 @@ import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 @SpringBootTest
 @AutoConfigureMockMvc
 class CoffeeShopFlowTests {
 
-    @Autowired
-    private MockMvc mvc;
+    @Autowired private MockMvc mvc;
 
-    @Autowired
-    private OrderRepository orders;
+    @Autowired private OrderRepository orders;
 
     private MockHttpSession registerAndLogin(String username) throws Exception {
-        mvc.perform(post("/users/register")
-                        .param("username", username).param("lastName", "Peshev")
-                        .param("email", username + "@mail.bg")
-                        .param("password", "123").param("confirmPassword", "123"))
+        mvc.perform(
+                        post("/users/register")
+                                .param("username", username)
+                                .param("lastName", "Peshev")
+                                .param("email", username + "@mail.bg")
+                                .param("password", "123")
+                                .param("confirmPassword", "123"))
                 .andExpect(redirectedUrl("/users/login"));
         MockHttpSession session = new MockHttpSession();
-        mvc.perform(post("/users/login").session(session)
-                        .param("username", username).param("password", "123"))
+        mvc.perform(
+                        post("/users/login")
+                                .session(session)
+                                .param("username", username)
+                                .param("password", "123"))
                 .andExpect(redirectedUrl("/home"));
         return session;
     }
@@ -46,11 +51,17 @@ class CoffeeShopFlowTests {
 
     @Test
     void invalidRegistrationShowsErrors() throws Exception {
-        mvc.perform(post("/users/register")
-                        .param("username", "ab").param("lastName", "x")
-                        .param("email", "nope").param("password", "1").param("confirmPassword", "1"))
+        mvc.perform(
+                        post("/users/register")
+                                .param("username", "ab")
+                                .param("lastName", "x")
+                                .param("email", "nope")
+                                .param("password", "1")
+                                .param("confirmPassword", "1"))
                 .andExpect(view().name("register"))
-                .andExpect(model().attributeHasFieldErrors("user", "username", "lastName", "email", "password"));
+                .andExpect(
+                        model().attributeHasFieldErrors(
+                                        "user", "username", "lastName", "email", "password"));
     }
 
     @Test
@@ -58,7 +69,11 @@ class CoffeeShopFlowTests {
         registerAndLogin("georgi");
         mvc.perform(post("/users/login").param("username", "georgi").param("password", "999"))
                 .andExpect(view().name("login"))
-                .andExpect(content().string(containsString("Wrong username and password combination.")));
+                .andExpect(
+                        content()
+                                .string(
+                                        containsString(
+                                                "Wrong username and password combination.")));
     }
 
     @Test
@@ -67,18 +82,34 @@ class CoffeeShopFlowTests {
 
         mvc.perform(get("/users/login").session(session)).andExpect(redirectedUrl("/home"));
 
-        mvc.perform(post("/orders/add").session(session)
-                        .param("name", "Cake").param("price", "-1").param("orderTime", "2999-01-01T10:00")
-                        .param("description", "abc"))
-                .andExpect(model().attributeHasFieldErrors("order", "price", "orderTime", "category", "description"));
+        mvc.perform(
+                        post("/orders/add")
+                                .session(session)
+                                .param("name", "Cake")
+                                .param("price", "-1")
+                                .param("orderTime", "2999-01-01T10:00")
+                                .param("description", "abc"))
+                .andExpect(
+                        model().attributeHasFieldErrors(
+                                        "order", "price", "orderTime", "category", "description"));
 
-        mvc.perform(post("/orders/add").session(session)
-                        .param("name", "Espresso").param("price", "2.50").param("orderTime", "2021-10-15T10:00")
-                        .param("category", "COFFEE").param("description", "Double shot"))
+        mvc.perform(
+                        post("/orders/add")
+                                .session(session)
+                                .param("name", "Espresso")
+                                .param("price", "2.50")
+                                .param("orderTime", "2021-10-15T10:00")
+                                .param("category", "COFFEE")
+                                .param("description", "Double shot"))
                 .andExpect(redirectedUrl("/home"));
-        mvc.perform(post("/orders/add").session(session)
-                        .param("name", "Rainbow").param("price", "6").param("orderTime", "2021-10-15T10:00")
-                        .param("category", "CAKE").param("description", "Big slice"))
+        mvc.perform(
+                        post("/orders/add")
+                                .session(session)
+                                .param("name", "Rainbow")
+                                .param("price", "6")
+                                .param("orderTime", "2021-10-15T10:00")
+                                .param("category", "CAKE")
+                                .param("description", "Big slice"))
                 .andExpect(redirectedUrl("/home"));
 
         mvc.perform(get("/home").session(session))

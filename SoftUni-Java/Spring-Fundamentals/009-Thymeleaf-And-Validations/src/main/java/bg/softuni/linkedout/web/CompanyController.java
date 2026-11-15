@@ -2,7 +2,9 @@ package bg.softuni.linkedout.web;
 
 import bg.softuni.linkedout.model.Company;
 import bg.softuni.linkedout.repository.CompanyRepository;
+
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,8 +48,11 @@ public class CompanyController {
 
     @GetMapping("/{id}")
     public String details(@PathVariable Long id, Model model) {
-        model.addAttribute("company", companies.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
+        model.addAttribute(
+                "company",
+                companies
+                        .findById(id)
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
         return "company-details";
     }
 

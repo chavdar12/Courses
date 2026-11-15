@@ -1,6 +1,7 @@
 package bg.softuni.mobilele.config;
 
 import bg.softuni.mobilele.web.interceptor.StatsInterceptor;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

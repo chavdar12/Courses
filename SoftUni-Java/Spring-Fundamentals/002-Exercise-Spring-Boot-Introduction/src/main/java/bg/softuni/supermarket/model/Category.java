@@ -3,11 +3,6 @@ package bg.softuni.supermarket.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -21,8 +16,7 @@ public class Category {
     @Column(nullable = false, unique = true)
     private String name;
 
-    protected Category() {
-    }
+    protected Category() {}
 
     public Category(String name) {
         this.name = name;

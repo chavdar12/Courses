@@ -37,8 +37,7 @@ public class Product {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Shop> shops = new HashSet<>();
 
-    protected Product() {
-    }
+    protected Product() {}
 
     public Product(String name, BigDecimal price, LocalDate bestBefore, Category category) {
         this.name = name;

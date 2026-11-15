@@ -17,8 +17,7 @@ public class Category {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    protected Category() {
-    }
+    protected Category() {}
 
     public Category(CategoryName name) {
         this.name = name;

@@ -10,6 +10,9 @@ import bg.softuni.mobilele.model.view.OfferDetailsView;
 import bg.softuni.mobilele.service.BrandService;
 import bg.softuni.mobilele.service.OfferService;
 import bg.softuni.mobilele.service.impl.MobileleUser;
+
+import jakarta.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,7 +22,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import jakarta.validation.Valid;
 import java.security.Principal;
 
 @Controller
@@ -30,7 +32,8 @@ public class OffersController {
     private final ModelMapper modelMapper;
     private final BrandService brandService;
 
-    public OffersController(OfferService offerService, ModelMapper modelMapper, BrandService brandService) {
+    public OffersController(
+            OfferService offerService, ModelMapper modelMapper, BrandService brandService) {
         this.offerService = offerService;
         this.modelMapper = modelMapper;
         this.brandService = brandService;
@@ -64,13 +67,14 @@ public class OffersController {
 
     @PreAuthorize(IS_OWNER)
     @GetMapping("/offers/{id}/edit")
-    public String editOffer(@PathVariable Long id,
-                            Model model,
-                            @AuthenticationPrincipal MobileleUser currentUser) {
+    public String editOffer(
+            @PathVariable Long id, Model model, @AuthenticationPrincipal MobileleUser currentUser) {
 
-        OfferDetailsView offerDetailsView = offerService.findById(id, currentUser.getUserIdentifier());
+        OfferDetailsView offerDetailsView =
+                offerService.findById(id, currentUser.getUserIdentifier());
 
-        OfferUpdateBindingModel offerModel = modelMapper.map(offerDetailsView, OfferUpdateBindingModel.class);
+        OfferUpdateBindingModel offerModel =
+                modelMapper.map(offerDetailsView, OfferUpdateBindingModel.class);
 
         model.addAttribute("engines", EngineEnum.values());
         model.addAttribute("transmissions", TransmissionEnum.values());
@@ -80,8 +84,7 @@ public class OffersController {
     }
 
     @GetMapping("/offers/{id}/edit/errors")
-    public String editOfferErrors(@PathVariable Long id,
-                                  Model model) {
+    public String editOfferErrors(@PathVariable Long id, Model model) {
 
         model.addAttribute("engines", EngineEnum.values());
         model.addAttribute("transmissions", TransmissionEnum.values());
@@ -91,20 +94,23 @@ public class OffersController {
 
     @PreAuthorize(IS_OWNER)
     @PatchMapping("/offers/{id}/edit")
-    public String editOffer(@PathVariable Long id,
-                            @Valid OfferUpdateBindingModel offerModel,
-                            BindingResult bindingResult,
-                            RedirectAttributes redirectAttributes) {
+    public String editOffer(
+            @PathVariable Long id,
+            @Valid OfferUpdateBindingModel offerModel,
+            BindingResult bindingResult,
+            RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
 
             redirectAttributes.addFlashAttribute("offerModel", offerModel);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.offerModel", bindingResult);
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.offerModel", bindingResult);
 
             return "redirect:/offers/" + id + "/edit/errors";
         }
 
-        OfferUpdateServiceModel serviceModel = modelMapper.map(offerModel, OfferUpdateServiceModel.class);
+        OfferUpdateServiceModel serviceModel =
+                modelMapper.map(offerModel, OfferUpdateServiceModel.class);
 
         serviceModel.setId(id);
         offerService.updateOffer(serviceModel);
@@ -116,8 +122,7 @@ public class OffersController {
     public String getAddOfferPage(Model model) {
 
         if (!model.containsAttribute("offerAddBindModel")) {
-            model
-                    .addAttribute("offerAddBindModel", new OfferAddBindModel())
+            model.addAttribute("offerAddBindModel", new OfferAddBindModel())
                     .addAttribute("brandsModels", brandService.getAllBrands());
         }
 
@@ -125,17 +130,22 @@ public class OffersController {
     }
 
     @PostMapping("/offers/add")
-    public String addOffer(@Valid OfferAddBindModel offerAddBindModel,
-                           BindingResult bindingResult,
-                           RedirectAttributes redirectAttributes,
-                           @AuthenticationPrincipal MobileleUser user) {
+    public String addOffer(
+            @Valid OfferAddBindModel offerAddBindModel,
+            BindingResult bindingResult,
+            RedirectAttributes redirectAttributes,
+            @AuthenticationPrincipal MobileleUser user) {
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("offerAddBindModel", offerAddBindModel)
-                    .addFlashAttribute("org.springframework.validation.BindingResult.offerAddBindModel", bindingResult)
+            redirectAttributes
+                    .addFlashAttribute("offerAddBindModel", offerAddBindModel)
+                    .addFlashAttribute(
+                            "org.springframework.validation.BindingResult.offerAddBindModel",
+                            bindingResult)
                     .addFlashAttribute("brandsModels", brandService.getAllBrands());
             return "redirect:/offers/add";
         }
-        OfferAddServiceModel savedOfferAddServiceModel = offerService.addOffer(offerAddBindModel, user.getUserIdentifier());
+        OfferAddServiceModel savedOfferAddServiceModel =
+                offerService.addOffer(offerAddBindModel, user.getUserIdentifier());
         return "redirect:/offers/" + savedOfferAddServiceModel.getId() + "/details";
     }
 }

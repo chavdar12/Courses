@@ -1,6 +1,7 @@
 package bg.softuni.coffeeshop.model;
 
 import jakarta.validation.constraints.*;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
@@ -11,17 +12,14 @@ public class OrderAddBindingModel {
     @Size(min = 3, max = 20)
     private String name;
 
-    @NotNull
-    @Positive
-    private BigDecimal price;
+    @NotNull @Positive private BigDecimal price;
 
     @NotNull
     @PastOrPresent
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime orderTime;
 
-    @NotNull
-    private CategoryName category;
+    @NotNull private CategoryName category;
 
     @NotNull
     @Size(min = 5)

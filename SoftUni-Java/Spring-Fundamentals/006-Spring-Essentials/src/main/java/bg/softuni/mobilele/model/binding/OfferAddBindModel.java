@@ -4,29 +4,27 @@ import bg.softuni.mobilele.model.entity.enums.EngineEnum;
 import bg.softuni.mobilele.model.entity.enums.TransmissionEnum;
 
 import jakarta.validation.constraints.*;
+
 import java.math.BigDecimal;
 
 public class OfferAddBindModel {
     private Long id;
-    @NotNull
-    private Long modelId;
+    @NotNull private Long modelId;
+
     @NotNull
     @DecimalMin("100")
     private BigDecimal price;
-    @NotNull
-    private EngineEnum engine;
-    @NotNull
-    private TransmissionEnum transmission;
+
+    @NotNull private EngineEnum engine;
+    @NotNull private TransmissionEnum transmission;
+
     @NotNull
     @Min(1930)
     private Integer year;
-    @NotNull
-    @PositiveOrZero
-    private Integer mileage;
-    @NotEmpty
-    private String description;
-    @NotEmpty
-    private String imageUrl;
+
+    @NotNull @PositiveOrZero private Integer mileage;
+    @NotEmpty private String description;
+    @NotEmpty private String imageUrl;
 
     public Long getModelId() {
         return modelId;

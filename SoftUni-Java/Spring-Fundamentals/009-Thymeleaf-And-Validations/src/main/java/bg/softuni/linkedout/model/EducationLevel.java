@@ -1,5 +1,7 @@
 package bg.softuni.linkedout.model;
 
 public enum EducationLevel {
-    MASTER, BACHELOR, SECONDARY
+    MASTER,
+    BACHELOR,
+    SECONDARY
 }

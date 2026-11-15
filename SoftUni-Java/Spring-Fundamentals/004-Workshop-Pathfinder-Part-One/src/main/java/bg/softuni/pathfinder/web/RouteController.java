@@ -4,7 +4,9 @@ import bg.softuni.pathfinder.model.binding.RouteAddBindingModel;
 import bg.softuni.pathfinder.model.entity.CategoryName;
 import bg.softuni.pathfinder.model.entity.Level;
 import bg.softuni.pathfinder.service.RouteService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,8 +37,11 @@ public class RouteController {
 
     @GetMapping("/details/{id}")
     public String details(@PathVariable Long id, Model model) {
-        model.addAttribute("route", routeService.details(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
+        model.addAttribute(
+                "route",
+                routeService
+                        .details(id)
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
         return "route-details";
     }
 
@@ -51,7 +56,10 @@ public class RouteController {
     }
 
     @PostMapping("/add")
-    public String add(@Valid RouteAddBindingModel routeModel, BindingResult result, RedirectAttributes redirect)
+    public String add(
+            @Valid RouteAddBindingModel routeModel,
+            BindingResult result,
+            RedirectAttributes redirect)
             throws IOException {
         if (routeModel.getGpxCoordinates() == null || routeModel.getGpxCoordinates().isEmpty()) {
             result.rejectValue("gpxCoordinates", "required", "Must be valid GPX Coordinates");

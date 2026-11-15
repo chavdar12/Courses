@@ -3,7 +3,9 @@ package bg.softuni.shoppinglist.web;
 import bg.softuni.shoppinglist.model.UserLoginBindingModel;
 import bg.softuni.shoppinglist.model.UserRegisterBindingModel;
 import bg.softuni.shoppinglist.service.UserService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,8 +27,10 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("user") UserRegisterBindingModel user, BindingResult result,
-                           Model model) {
+    public String register(
+            @Valid @ModelAttribute("user") UserRegisterBindingModel user,
+            BindingResult result,
+            Model model) {
         if (result.hasErrors()) {
             return "register";
         }
@@ -43,7 +47,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute("user") UserLoginBindingModel user, BindingResult result, Model model) {
+    public String login(
+            @Valid @ModelAttribute("user") UserLoginBindingModel user,
+            BindingResult result,
+            Model model) {
         if (result.hasErrors()) {
             return "login";
         }

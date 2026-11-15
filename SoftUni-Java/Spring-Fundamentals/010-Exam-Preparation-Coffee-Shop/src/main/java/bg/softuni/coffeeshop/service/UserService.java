@@ -4,6 +4,7 @@ import bg.softuni.coffeeshop.model.User;
 import bg.softuni.coffeeshop.model.UserLoginBindingModel;
 import bg.softuni.coffeeshop.model.UserRegisterBindingModel;
 import bg.softuni.coffeeshop.repository.UserRepository;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,13 +26,19 @@ public class UserService {
                 || userRepository.existsByUsernameOrEmail(model.getUsername(), model.getEmail())) {
             return false;
         }
-        userRepository.save(new User(model.getUsername(), model.getFirstName(), model.getLastName(),
-                encoder.encode(model.getPassword()), model.getEmail()));
+        userRepository.save(
+                new User(
+                        model.getUsername(),
+                        model.getFirstName(),
+                        model.getLastName(),
+                        encoder.encode(model.getPassword()),
+                        model.getEmail()));
         return true;
     }
 
     public boolean login(UserLoginBindingModel model) {
-        return userRepository.findByUsername(model.getUsername())
+        return userRepository
+                .findByUsername(model.getUsername())
                 .filter(user -> encoder.matches(model.getPassword(), user.getPassword()))
                 .map(user -> {
                     currentUser.login(user.getId(), user.getUsername());

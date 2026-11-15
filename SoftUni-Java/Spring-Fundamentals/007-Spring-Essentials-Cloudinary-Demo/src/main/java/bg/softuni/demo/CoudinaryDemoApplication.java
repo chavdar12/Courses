@@ -9,5 +9,4 @@ public class CoudinaryDemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(CoudinaryDemoApplication.class, args);
     }
-
 }

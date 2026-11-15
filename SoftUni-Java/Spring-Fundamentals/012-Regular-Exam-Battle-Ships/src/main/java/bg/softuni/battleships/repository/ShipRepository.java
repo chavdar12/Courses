@@ -1,6 +1,7 @@
 package bg.softuni.battleships.repository;
 
 import bg.softuni.battleships.model.Ship;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

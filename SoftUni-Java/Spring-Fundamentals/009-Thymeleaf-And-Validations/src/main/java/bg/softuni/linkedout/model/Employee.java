@@ -2,6 +2,7 @@ package bg.softuni.linkedout.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;

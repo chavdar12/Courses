@@ -34,8 +34,7 @@ public class OfferUpdateServiceModel {
         return engine;
     }
 
-    public OfferUpdateServiceModel setEngine(
-            EngineEnum engine) {
+    public OfferUpdateServiceModel setEngine(EngineEnum engine) {
         this.engine = engine;
         return this;
     }
@@ -71,8 +70,7 @@ public class OfferUpdateServiceModel {
         return transmission;
     }
 
-    public OfferUpdateServiceModel setTransmission(
-            TransmissionEnum transmission) {
+    public OfferUpdateServiceModel setTransmission(TransmissionEnum transmission) {
         this.transmission = transmission;
         return this;
     }

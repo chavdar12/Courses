@@ -1,30 +1,26 @@
 package bg.softuni.mobilele;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import bg.softuni.mobilele.init.DataInitializer;
 import bg.softuni.mobilele.repository.*;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @SpringBootTest
 class DataInitializerTests {
 
-    @Autowired
-    private DataInitializer initializer;
+    @Autowired private DataInitializer initializer;
 
-    @Autowired
-    private BrandRepository brands;
+    @Autowired private BrandRepository brands;
 
-    @Autowired
-    private ModelRepository models;
+    @Autowired private ModelRepository models;
 
-    @Autowired
-    private UserRepository users;
+    @Autowired private UserRepository users;
 
-    @Autowired
-    private OfferRepository offers;
+    @Autowired private OfferRepository offers;
 
     @Test
     void populatesTheDatabaseOnce() {

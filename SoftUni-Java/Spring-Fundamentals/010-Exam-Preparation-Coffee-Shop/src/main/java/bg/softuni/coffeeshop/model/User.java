@@ -24,8 +24,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    protected User() {
-    }
+    protected User() {}
 
     public User(String username, String firstName, String lastName, String password, String email) {
         this.username = username;

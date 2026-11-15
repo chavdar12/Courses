@@ -4,9 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "sellers")
@@ -39,11 +36,9 @@ public class Seller {
     @ManyToOne(optional = false)
     private Shop shop;
 
-    @ManyToOne
-    private Seller manager;
+    @ManyToOne private Seller manager;
 
-    protected Seller() {
-    }
+    protected Seller() {}
 
     public Seller(String firstName, String lastName, Integer age, BigDecimal salary, Shop shop) {
         this.firstName = firstName;

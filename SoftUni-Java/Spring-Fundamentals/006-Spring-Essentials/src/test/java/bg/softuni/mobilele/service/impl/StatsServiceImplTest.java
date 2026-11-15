@@ -1,6 +1,9 @@
 package bg.softuni.mobilele.service.impl;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import bg.softuni.mobilele.model.view.StatsView;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -9,8 +12,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StatsServiceImplTest {
 
@@ -25,13 +26,18 @@ class StatsServiceImplTest {
     void countsAuthenticatedAndAnonymousRequestsSeparately() {
         service.onRequest(); // no authentication at all
 
-        SecurityContextHolder.getContext().setAuthentication(new AnonymousAuthenticationToken(
-                "key", "anonymousUser", AuthorityUtils.createAuthorityList("ROLE_ANONYMOUS")));
+        SecurityContextHolder.getContext()
+                .setAuthentication(
+                        new AnonymousAuthenticationToken(
+                                "key",
+                                "anonymousUser",
+                                AuthorityUtils.createAuthorityList("ROLE_ANONYMOUS")));
         service.onRequest();
 
         MobileleUser user = new MobileleUser("pesho", "pass", List.of());
-        SecurityContextHolder.getContext().setAuthentication(
-                new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities()));
+        SecurityContextHolder.getContext()
+                .setAuthentication(
+                        new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities()));
         service.onRequest();
         service.onRequest();
 

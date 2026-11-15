@@ -7,6 +7,7 @@ import bg.softuni.mobilele.model.service.UserRegistrationServiceModel;
 import bg.softuni.mobilele.repository.UserRepository;
 import bg.softuni.mobilele.repository.UserRoleRepository;
 import bg.softuni.mobilele.service.UserService;
+
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,10 +26,11 @@ public class UserServiceImpl implements UserService {
     private final UserRoleRepository userRoleRepository;
     private final MobileleUserServiceImpl mobileleUserService;
 
-    public UserServiceImpl(PasswordEncoder passwordEncoder,
-                           UserRepository userRepository,
-                           UserRoleRepository userRoleRepository,
-                           MobileleUserServiceImpl mobileleUserService) {
+    public UserServiceImpl(
+            PasswordEncoder passwordEncoder,
+            UserRepository userRepository,
+            UserRoleRepository userRoleRepository,
+            MobileleUserServiceImpl mobileleUserService) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
@@ -48,8 +50,7 @@ public class UserServiceImpl implements UserService {
             UserRoleEntity userRole = userRoleRepository.findByRole(UserRoleEnum.USER);
 
             UserEntity admin = new UserEntity();
-            admin
-                    .setUsername("admin")
+            admin.setUsername("admin")
                     .setPassword(passwordEncoder.encode("test"))
                     .setFirstName("Admin")
                     .setLastName("Adminov")
@@ -91,8 +92,7 @@ public class UserServiceImpl implements UserService {
 
         UserEntity newUser = new UserEntity();
 
-        newUser
-                .setUsername(userRegistrationServiceModel.getUsername())
+        newUser.setUsername(userRegistrationServiceModel.getUsername())
                 .setFirstName(userRegistrationServiceModel.getFirstName())
                 .setLastName(userRegistrationServiceModel.getLastName())
                 .setActive(true)
@@ -104,7 +104,8 @@ public class UserServiceImpl implements UserService {
         UserDetails principal = mobileleUserService.loadUserByUsername(newUser.getUsername());
 
         Authentication authentication =
-                new UsernamePasswordAuthenticationToken(principal, newUser.getPassword(), principal.getAuthorities());
+                new UsernamePasswordAuthenticationToken(
+                        principal, newUser.getPassword(), principal.getAuthorities());
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }

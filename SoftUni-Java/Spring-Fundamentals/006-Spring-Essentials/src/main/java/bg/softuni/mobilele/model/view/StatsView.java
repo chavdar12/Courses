@@ -18,9 +18,7 @@ public class StatsView {
         return authRequests;
     }
 
-
     public int getAnonRequests() {
         return anonRequests;
     }
-
 }

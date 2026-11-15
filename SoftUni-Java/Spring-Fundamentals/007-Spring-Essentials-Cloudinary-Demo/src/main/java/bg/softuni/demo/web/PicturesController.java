@@ -6,7 +6,9 @@ import bg.softuni.demo.model.view.PictureViewModel;
 import bg.softuni.demo.repository.PictureRepository;
 import bg.softuni.demo.service.CloudinaryImage;
 import bg.softuni.demo.service.CloudinaryService;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import org.springframework.transaction.annotation.Transactional;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +26,8 @@ public class PicturesController {
     private final CloudinaryService cloudinaryService;
     private final PictureRepository pictureRepository;
 
-    public PicturesController(CloudinaryService cloudinaryService, PictureRepository pictureRepository) {
+    public PicturesController(
+            CloudinaryService cloudinaryService, PictureRepository pictureRepository) {
         this.cloudinaryService = cloudinaryService;
         this.pictureRepository = pictureRepository;
     }
@@ -38,8 +40,8 @@ public class PicturesController {
     @PostMapping("/pictures/add")
     public String addPicture(PictureBindingModel bindingModel) throws IOException {
 
-        PictureEntity picture = createPictureEntity(bindingModel.getPicture(),
-                bindingModel.getTitle());
+        PictureEntity picture =
+                createPictureEntity(bindingModel.getPicture(), bindingModel.getTitle());
 
         pictureRepository.save(picture);
 
@@ -66,11 +68,10 @@ public class PicturesController {
 
     @GetMapping("/pictures/all")
     public String all(Model model) {
-        List<PictureViewModel> pictures = pictureRepository
-                .findAll()
-                .stream()
-                .map(this::asViewModel)
-                .collect(Collectors.toList());
+        List<PictureViewModel> pictures =
+                pictureRepository.findAll().stream()
+                        .map(this::asViewModel)
+                        .collect(Collectors.toList());
 
         model.addAttribute("pictures", pictures);
 

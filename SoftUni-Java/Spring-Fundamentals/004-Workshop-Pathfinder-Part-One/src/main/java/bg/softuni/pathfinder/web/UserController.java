@@ -3,6 +3,7 @@ package bg.softuni.pathfinder.web;
 import bg.softuni.pathfinder.model.binding.UserRegisterBindingModel;
 import bg.softuni.pathfinder.service.CurrentUser;
 import bg.softuni.pathfinder.service.UserService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +26,10 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute("userModel") UserRegisterBindingModel userModel, Model model) {
-        if (userModel.getPassword() == null || !userModel.getPassword().equals(userModel.getConfirmPassword())
+    public String register(
+            @ModelAttribute("userModel") UserRegisterBindingModel userModel, Model model) {
+        if (userModel.getPassword() == null
+                || !userModel.getPassword().equals(userModel.getConfirmPassword())
                 || !userService.register(userModel)) {
             model.addAttribute("registerFailed", true);
             return "register";

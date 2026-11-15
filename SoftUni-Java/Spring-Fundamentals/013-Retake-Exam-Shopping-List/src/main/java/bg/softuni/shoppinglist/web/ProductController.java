@@ -3,7 +3,9 @@ package bg.softuni.shoppinglist.web;
 import bg.softuni.shoppinglist.model.CategoryName;
 import bg.softuni.shoppinglist.model.ProductAddBindingModel;
 import bg.softuni.shoppinglist.service.ProductService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +31,9 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public String add(@Valid @ModelAttribute("product") ProductAddBindingModel product, BindingResult result) {
+    public String add(
+            @Valid @ModelAttribute("product") ProductAddBindingModel product,
+            BindingResult result) {
         if (result.hasErrors()) {
             return "product-add";
         }

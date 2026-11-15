@@ -4,6 +4,7 @@ import bg.softuni.coffeeshop.model.*;
 import bg.softuni.coffeeshop.repository.CategoryRepository;
 import bg.softuni.coffeeshop.repository.OrderRepository;
 import bg.softuni.coffeeshop.repository.UserRepository;
+
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,11 @@ public class OrderService {
     private final UserRepository userRepository;
     private final CurrentUser currentUser;
 
-    public OrderService(OrderRepository orderRepository, CategoryRepository categoryRepository,
-                        UserRepository userRepository, CurrentUser currentUser) {
+    public OrderService(
+            OrderRepository orderRepository,
+            CategoryRepository categoryRepository,
+            UserRepository userRepository,
+            CurrentUser currentUser) {
         this.orderRepository = orderRepository;
         this.categoryRepository = categoryRepository;
         this.userRepository = userRepository;
@@ -34,15 +38,21 @@ public class OrderService {
     ApplicationRunner initCategories() {
         return args -> {
             if (categoryRepository.count() == 0) {
-                categoryRepository.saveAll(Arrays.stream(CategoryName.values()).map(Category::new).toList());
+                categoryRepository.saveAll(
+                        Arrays.stream(CategoryName.values()).map(Category::new).toList());
             }
         };
     }
 
     public void add(OrderAddBindingModel model) {
-        orderRepository.save(new Order(model.getName(), model.getPrice(), model.getOrderTime(),
-                categoryRepository.findByName(model.getCategory()).orElseThrow(),
-                model.getDescription(), userRepository.getReferenceById(currentUser.getId())));
+        orderRepository.save(
+                new Order(
+                        model.getName(),
+                        model.getPrice(),
+                        model.getOrderTime(),
+                        categoryRepository.findByName(model.getCategory()).orElseThrow(),
+                        model.getDescription(),
+                        userRepository.getReferenceById(currentUser.getId())));
     }
 
     public void ready(Long id) {
@@ -59,10 +69,15 @@ public class OrderService {
 
     /** Every registered employee with their open orders, most orders first. */
     public List<EmployeeOrdersView> employees(List<Order> orders) {
-        Map<String, Long> counts = orders.stream()
-                .collect(Collectors.groupingBy(o -> o.getEmployee().getUsername(), Collectors.counting()));
+        Map<String, Long> counts =
+                orders.stream()
+                        .collect(
+                                Collectors.groupingBy(
+                                        o -> o.getEmployee().getUsername(), Collectors.counting()));
         return userRepository.findAll().stream()
-                .map(u -> new EmployeeOrdersView(u.getUsername(), counts.getOrDefault(u.getUsername(), 0L)))
+                .map(u ->
+                        new EmployeeOrdersView(
+                                u.getUsername(), counts.getOrDefault(u.getUsername(), 0L)))
                 .sorted(Comparator.comparingLong(EmployeeOrdersView::orders).reversed())
                 .toList();
     }

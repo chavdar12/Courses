@@ -4,7 +4,9 @@ import bg.softuni.linkedout.model.EducationLevel;
 import bg.softuni.linkedout.model.Employee;
 import bg.softuni.linkedout.repository.CompanyRepository;
 import bg.softuni.linkedout.repository.EmployeeRepository;
+
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +32,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/add")
-    public String add(@Valid @ModelAttribute("employee") Employee employee, BindingResult result, Model model) {
+    public String add(
+            @Valid @ModelAttribute("employee") Employee employee,
+            BindingResult result,
+            Model model) {
         if (result.hasErrors()) {
             return addForm(model);
         }
@@ -52,8 +57,11 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public String details(@PathVariable Long id, Model model) {
-        model.addAttribute("employee", employees.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
+        model.addAttribute(
+                "employee",
+                employees
+                        .findById(id)
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
         return "employee-details";
     }
 

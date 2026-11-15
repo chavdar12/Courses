@@ -3,7 +3,9 @@ package bg.softuni.coffeeshop.web;
 import bg.softuni.coffeeshop.model.CategoryName;
 import bg.softuni.coffeeshop.model.OrderAddBindingModel;
 import bg.softuni.coffeeshop.service.OrderService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +31,8 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public String add(@Valid @ModelAttribute("order") OrderAddBindingModel order, BindingResult result) {
+    public String add(
+            @Valid @ModelAttribute("order") OrderAddBindingModel order, BindingResult result) {
         if (result.hasErrors()) {
             return "order-add";
         }

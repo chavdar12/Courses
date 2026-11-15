@@ -3,7 +3,9 @@ package bg.softuni.pathfinder.web;
 import bg.softuni.pathfinder.model.binding.UserRegisterBindingModel;
 import bg.softuni.pathfinder.service.CurrentUser;
 import bg.softuni.pathfinder.service.UserService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +28,10 @@ public class UserController {
         this.currentUser = currentUser;
     }
 
-    /** Empty form on the first visit; after a failed submit the flash attribute with the user's input wins. */
+    /**
+     * Empty form on the first visit; after a failed submit the flash attribute with the user's
+     * input wins.
+     */
     @ModelAttribute("userModel")
     public UserRegisterBindingModel userModel() {
         return new UserRegisterBindingModel();
@@ -38,9 +43,12 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid UserRegisterBindingModel userModel, BindingResult result,
-                           RedirectAttributes redirect) {
-        if (!result.hasErrors() && !userModel.getPassword().equals(userModel.getConfirmPassword())) {
+    public String register(
+            @Valid UserRegisterBindingModel userModel,
+            BindingResult result,
+            RedirectAttributes redirect) {
+        if (!result.hasErrors()
+                && !userModel.getPassword().equals(userModel.getConfirmPassword())) {
             result.rejectValue("confirmPassword", "mismatch", "Passwords do not match.");
         }
         if (!result.hasErrors() && !userService.register(userModel)) {
@@ -60,7 +68,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes redirect) {
+    public String login(
+            @RequestParam String username,
+            @RequestParam String password,
+            RedirectAttributes redirect) {
         if (userService.login(username, password)) {
             return "redirect:/home";
         }
@@ -82,8 +93,11 @@ public class UserController {
 
     @GetMapping("/profile/{id}")
     public String profile(@PathVariable Long id, Model model) {
-        model.addAttribute("user", userService.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
+        model.addAttribute(
+                "user",
+                userService
+                        .findById(id)
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
         return "profile";
     }
 }

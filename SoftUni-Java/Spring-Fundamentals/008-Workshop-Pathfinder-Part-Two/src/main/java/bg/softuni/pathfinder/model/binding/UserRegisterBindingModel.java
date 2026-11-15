@@ -12,9 +12,7 @@ public class UserRegisterBindingModel {
     @Size(min = 5, max = 20)
     private String fullName;
 
-    @NotBlank
-    @Email
-    private String email;
+    @NotBlank @Email private String email;
 
     @NotNull
     @Min(0)

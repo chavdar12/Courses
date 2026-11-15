@@ -4,5 +4,6 @@ import bg.softuni.mobilele.model.view.StatsView;
 
 public interface StatsService {
     void onRequest();
+
     StatsView getStats();
 }

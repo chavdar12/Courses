@@ -1,6 +1,7 @@
 package bg.softuni.mobilele.model.entity;
 
 import jakarta.persistence.*;
+
 import java.time.Instant;
 
 @MappedSuperclass

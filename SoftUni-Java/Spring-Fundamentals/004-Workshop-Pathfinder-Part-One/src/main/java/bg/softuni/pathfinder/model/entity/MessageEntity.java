@@ -14,9 +14,7 @@ public class MessageEntity extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String textContent;
 
-    @ManyToOne
-    private UserEntity author;
+    @ManyToOne private UserEntity author;
 
-    @ManyToOne
-    private UserEntity recipient;
+    @ManyToOne private UserEntity recipient;
 }

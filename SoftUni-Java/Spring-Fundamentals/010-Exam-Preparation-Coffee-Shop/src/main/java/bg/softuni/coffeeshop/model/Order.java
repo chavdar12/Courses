@@ -31,11 +31,15 @@ public class Order {
     @ManyToOne(optional = false)
     private User employee;
 
-    protected Order() {
-    }
+    protected Order() {}
 
-    public Order(String name, BigDecimal price, LocalDateTime orderTime, Category category,
-                 String description, User employee) {
+    public Order(
+            String name,
+            BigDecimal price,
+            LocalDateTime orderTime,
+            Category category,
+            String description,
+            User employee) {
         this.name = name;
         this.price = price;
         this.orderTime = orderTime;

@@ -83,8 +83,7 @@ public class OfferSummaryView {
         return transmission;
     }
 
-    public OfferSummaryView setTransmission(
-            TransmissionEnum transmission) {
+    public OfferSummaryView setTransmission(TransmissionEnum transmission) {
         this.transmission = transmission;
         return this;
     }

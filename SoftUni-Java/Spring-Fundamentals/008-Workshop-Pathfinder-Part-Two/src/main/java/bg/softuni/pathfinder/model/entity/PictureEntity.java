@@ -12,11 +12,9 @@ public class PictureEntity extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String url;
 
-    @ManyToOne
-    private UserEntity author;
+    @ManyToOne private UserEntity author;
 
-    @ManyToOne
-    private RouteEntity route;
+    @ManyToOne private RouteEntity route;
 
     public String getTitle() {
         return title;

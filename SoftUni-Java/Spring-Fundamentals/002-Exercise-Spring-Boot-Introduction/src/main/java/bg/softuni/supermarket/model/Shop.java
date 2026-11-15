@@ -3,11 +3,6 @@ package bg.softuni.supermarket.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Table(name = "shops")
 public class Shop {
@@ -29,8 +24,7 @@ public class Shop {
     @ManyToOne(optional = false)
     private Town town;
 
-    protected Shop() {
-    }
+    protected Shop() {}
 
     public Shop(String name, String address, Town town) {
         this.name = name;

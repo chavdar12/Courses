@@ -6,6 +6,7 @@ import bg.softuni.pathfinder.model.entity.RoleName;
 import bg.softuni.pathfinder.model.entity.UserEntity;
 import bg.softuni.pathfinder.repository.RoleRepository;
 import bg.softuni.pathfinder.repository.UserRepository;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +31,14 @@ public class UserService {
         if (users.existsByUsername(model.getUsername())) {
             return false;
         }
-        UserEntity user = new UserEntity().setUsername(model.getUsername()).setFullName(model.getFullName())
-                .setEmail(model.getEmail()).setAge(model.getAge()).setLevel(Level.BEGINNER)
-                .setPassword(encoder.encode(model.getPassword()));
+        UserEntity user =
+                new UserEntity()
+                        .setUsername(model.getUsername())
+                        .setFullName(model.getFullName())
+                        .setEmail(model.getEmail())
+                        .setAge(model.getAge())
+                        .setLevel(Level.BEGINNER)
+                        .setPassword(encoder.encode(model.getPassword()));
         user.getRole().add(roles.findByName(RoleName.USER).orElseThrow());
         users.save(user);
         return true;
@@ -42,7 +48,8 @@ public class UserService {
         return users.findByUsername(username)
                 .filter(user -> encoder.matches(password, user.getPassword()))
                 .map(user -> {
-                    currentUser.login(user.getId(), user.getUsername(), user.hasRole(RoleName.ADMIN));
+                    currentUser.login(
+                            user.getId(), user.getUsername(), user.hasRole(RoleName.ADMIN));
                     return true;
                 })
                 .orElse(false);

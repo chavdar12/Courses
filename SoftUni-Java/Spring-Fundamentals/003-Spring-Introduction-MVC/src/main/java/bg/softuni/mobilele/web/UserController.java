@@ -2,7 +2,9 @@ package bg.softuni.mobilele.web;
 
 import bg.softuni.mobilele.model.binding.UserRegisterBindingModel;
 import bg.softuni.mobilele.service.UserService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,8 +26,11 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("user") UserRegisterBindingModel user, BindingResult result) {
-        if (!result.hasFieldErrors("username") && !result.hasErrors() && !userService.register(user)) {
+    public String register(
+            @Valid @ModelAttribute("user") UserRegisterBindingModel user, BindingResult result) {
+        if (!result.hasFieldErrors("username")
+                && !result.hasErrors()
+                && !userService.register(user)) {
             result.rejectValue("username", "taken", "Username is already taken.");
         }
         return result.hasErrors() ? "auth-register" : "redirect:/users/login";
