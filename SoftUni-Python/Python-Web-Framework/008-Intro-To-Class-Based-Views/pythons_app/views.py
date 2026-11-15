@@ -12,16 +12,16 @@ from pythons_app.models import Python, Profile
 
 
 class IndexView(ListView):
-    context_object_name = 'pythons'
+    context_object_name = "pythons"
     model = Python
-    template_name = 'index.html'
+    template_name = "index.html"
 
 
 class CreatePythonView(GroupRequiredMixin, FormView):
-    template_name = 'create.html'
+    template_name = "create.html"
     form_class = PythonCreateForm
-    success_url = reverse_lazy('index')
-    group_required = ['User']
+    success_url = reverse_lazy("index")
+    group_required = ["User"]
 
     def form_valid(self, form):
         form.save()
@@ -30,12 +30,12 @@ class CreatePythonView(GroupRequiredMixin, FormView):
 
 class RegisterView(CreateView):
     form_class = RegisterForm
-    success_url = reverse_lazy('index')
-    template_name = 'register.html'
+    success_url = reverse_lazy("index")
+    template_name = "register.html"
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        self.object.groups.add(Group.objects.get(name='User'))
+        self.object.groups.add(Group.objects.get(name="User"))
         Profile.objects.create(user=self.object)
         login(self.request, self.object)
         return response
@@ -43,17 +43,17 @@ class RegisterView(CreateView):
 
 def login_view(request):
     form = LoginForm(request, request.POST or None)
-    if request.method == 'POST' and form.is_valid():
+    if request.method == "POST" and form.is_valid():
         login(request, form.user)
-        return redirect('index')
+        return redirect("index")
 
     context = {
-        'form': form,
+        "form": form,
     }
-    return render(request, 'login.html', context)
+    return render(request, "login.html", context)
 
 
 @require_POST
 def logout_view(request):
     logout(request)
-    return redirect('index')
+    return redirect("index")

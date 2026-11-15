@@ -8,12 +8,12 @@ def select_dog_rooms():
 
 # 3. Select only the ids of the cats that are in rooms from the hotel with id=2
 def cat_ids_in_hotel(hotel_id=2):
-    return CatRoom.objects.filter(hotel_id=hotel_id).values_list('cat_id', flat=True)
+    return CatRoom.objects.filter(hotel_id=hotel_id).values_list("cat_id", flat=True)
 
 
 # 4. Sort all the pet owners by age in descending
 def owners_by_age_desc():
-    return PetOwner.objects.order_by('-owner_age')
+    return PetOwner.objects.order_by("-owner_age")
 
 
 # 5. Get the count of all cats that are of age 3 or older

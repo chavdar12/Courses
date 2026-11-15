@@ -11,12 +11,12 @@ from accounts.models import UserProfile
 class UserProfileView(LoginRequiredMixin, UpdateView):
     model = UserProfile
     form_class = ProfilePictureForm
-    context_object_name = 'profile'
-    template_name = 'accounts/user_profile.html'
+    context_object_name = "profile"
+    template_name = "accounts/user_profile.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['pets'] = self.object.pet_set.all()
+        context["pets"] = self.object.pet_set.all()
         return context
 
     def post(self, request, *args, **kwargs):
@@ -26,13 +26,13 @@ class UserProfileView(LoginRequiredMixin, UpdateView):
         return super().post(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('user profile', args=[self.object.pk])
+        return reverse("user profile", args=[self.object.pk])
 
 
 class SignUpView(CreateView):
     form_class = SignUpForm
-    template_name = 'accounts/signup.html'
-    success_url = reverse_lazy('list pets')
+    template_name = "accounts/signup.html"
+    success_url = reverse_lazy("list pets")
 
     def form_valid(self, form):
         response = super().form_valid(form)

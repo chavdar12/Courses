@@ -8,13 +8,13 @@ class SignUpForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs["class"] = "form-control"
 
 
 class ProfilePictureForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('profile_picture',)
+        fields = ("profile_picture",)
         widgets = {
-            'profile_picture': forms.FileInput(attrs={'class': 'form-control-file'}),
+            "profile_picture": forms.FileInput(attrs={"class": "form-control-file"}),
         }

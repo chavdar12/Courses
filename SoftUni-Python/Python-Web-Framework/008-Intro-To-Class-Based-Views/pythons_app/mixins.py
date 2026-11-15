@@ -3,8 +3,9 @@ from django.core.exceptions import PermissionDenied
 
 class GroupRequiredMixin:
     """
-        group_required - list of strings, required param
+    group_required - list of strings, required param
     """
+
     group_required = None
 
     def dispatch(self, request, *args, **kwargs):

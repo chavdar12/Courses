@@ -10,7 +10,7 @@ def group_required(groups):
             user = request.user
             if user.is_superuser or user.groups.filter(name__in=groups).exists():
                 return view_func(request, *args, **kwargs)
-            return render(request, '401.html', status=401)
+            return render(request, "401.html", status=401)
 
         return wrapper
 

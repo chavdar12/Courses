@@ -13,24 +13,26 @@ from pets.models import Pet, Like
 
 class PetListView(LoginRequiredMixin, ListView):
     model = Pet
-    context_object_name = 'pets'
-    template_name = 'pets/pet_list.html'
+    context_object_name = "pets"
+    template_name = "pets/pet_list.html"
 
 
 class PetDetailView(LoginRequiredMixin, DetailView):
     model = Pet
-    template_name = 'pets/pet_detail.html'
+    template_name = "pets/pet_detail.html"
 
     def get_context_data(self, comment_form=None, **kwargs):
         context = super().get_context_data(**kwargs)
         profile = self.request.user.userprofile
         is_owner = self.object.user == profile
-        context.update({
-            'comments': self.object.comment_set.all(),
-            'comment_form': None if is_owner else comment_form or CommentForm(),
-            'is_owner': is_owner,
-            'is_liked': self.object.like_set.filter(user=profile).exists(),
-        })
+        context.update(
+            {
+                "comments": self.object.comment_set.all(),
+                "comment_form": None if is_owner else comment_form or CommentForm(),
+                "is_owner": is_owner,
+                "is_liked": self.object.like_set.filter(user=profile).exists(),
+            }
+        )
         return context
 
     def post(self, request, *args, **kwargs):
@@ -44,7 +46,7 @@ class PetDetailView(LoginRequiredMixin, DetailView):
             comment.pet = self.object
             comment.user = request.user.userprofile
             comment.save()
-            return redirect('pet details', self.object.pk)
+            return redirect("pet details", self.object.pk)
         return self.render_to_response(self.get_context_data(comment_form=form))
 
 
@@ -60,13 +62,13 @@ class LikePetView(LoginRequiredMixin, View):
             like.delete()
         else:
             Like.objects.create(pet=pet, user=profile)
-        return redirect('pet details', pk)
+        return redirect("pet details", pk)
 
 
 class CreatePetView(LoginRequiredMixin, CreateView):
     form_class = PetForm
-    template_name = 'pets/pet_create.html'
-    success_url = reverse_lazy('list pets')
+    template_name = "pets/pet_create.html"
+    success_url = reverse_lazy("list pets")
 
     def form_valid(self, form):
         form.instance.user = self.request.user.userprofile
@@ -76,13 +78,13 @@ class CreatePetView(LoginRequiredMixin, CreateView):
 class EditPetView(OwnerRequiredMixin, UpdateView):
     model = Pet
     form_class = PetForm
-    template_name = 'pets/pet_edit.html'
+    template_name = "pets/pet_edit.html"
 
     def get_success_url(self):
-        return reverse('pet details', args=[self.object.pk])
+        return reverse("pet details", args=[self.object.pk])
 
 
 class DeletePetView(OwnerRequiredMixin, DeleteView):
     model = Pet
-    template_name = 'pets/pet_delete.html'
-    success_url = reverse_lazy('list pets')
+    template_name = "pets/pet_delete.html"
+    success_url = reverse_lazy("list pets")

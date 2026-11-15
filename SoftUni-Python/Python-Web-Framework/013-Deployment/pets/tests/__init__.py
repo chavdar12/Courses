@@ -7,10 +7,10 @@ from django.test import TestCase, override_settings
 from PIL import Image
 
 
-def make_image(name='pet.png'):
+def make_image(name="pet.png"):
     buffer = BytesIO()
-    Image.new('RGB', (10, 10)).save(buffer, 'PNG')
-    return SimpleUploadedFile(name, buffer.getvalue(), content_type='image/png')
+    Image.new("RGB", (10, 10)).save(buffer, "PNG")
+    return SimpleUploadedFile(name, buffer.getvalue(), content_type="image/png")
 
 
 class MediaTestCase(TestCase):

@@ -6,24 +6,24 @@ from pythons_app.models import Python
 
 def index(request):
     context = {
-        'pythons': Python.objects.all(),
+        "pythons": Python.objects.all(),
     }
-    return render(request, 'index.html', context)
+    return render(request, "index.html", context)
 
 
 def create(request):
-    if request.method == 'GET':
+    if request.method == "GET":
         context = {
-            'form': PythonCreateForm(),
+            "form": PythonCreateForm(),
         }
-        return render(request, 'create.html', context)
+        return render(request, "create.html", context)
 
     form = PythonCreateForm(request.POST)
     if form.is_valid():
         form.save()
-        return redirect('index')
+        return redirect("index")
 
     context = {
-        'form': form,
+        "form": form,
     }
-    return render(request, 'create.html', context)
+    return render(request, "create.html", context)

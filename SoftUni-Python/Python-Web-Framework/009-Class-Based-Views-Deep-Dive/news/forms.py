@@ -7,19 +7,19 @@ class BootstrapFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs["class"] = "form-control"
 
 
 class SourceForm(BootstrapFormMixin, forms.ModelForm):
     class Meta:
         model = Source
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ArticleForm(BootstrapFormMixin, forms.ModelForm):
     class Meta:
         model = Article
-        fields = '__all__'
+        fields = "__all__"
         widgets = {
-            'description': forms.Textarea(attrs={'rows': 4}),
+            "description": forms.Textarea(attrs={"rows": 4}),
         }

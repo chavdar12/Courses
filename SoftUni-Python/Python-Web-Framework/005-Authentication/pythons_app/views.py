@@ -9,46 +9,48 @@ from pythons_app.models import Python
 
 def index(request):
     context = {
-        'pythons': Python.objects.all(),
+        "pythons": Python.objects.all(),
     }
-    return render(request, 'index.html', context)
+    return render(request, "index.html", context)
 
 
-@group_required(['User'])
+@group_required(["User"])
 def create(request):
-    if request.method == 'GET':
+    if request.method == "GET":
         context = {
-            'form': PythonCreateForm(),
+            "form": PythonCreateForm(),
         }
-        return render(request, 'create.html', context)
+        return render(request, "create.html", context)
 
     form = PythonCreateForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
-        return redirect('index')
+        return redirect("index")
 
     context = {
-        'form': form,
+        "form": form,
     }
-    return render(request, 'create.html', context)
+    return render(request, "create.html", context)
 
 
 def login_view(request):
-    if request.method == 'GET':
-        return render(request, 'login.html')
+    if request.method == "GET":
+        return render(request, "login.html")
 
-    user = authenticate(request, username=request.POST.get('username'), password=request.POST.get('password'))
+    user = authenticate(
+        request, username=request.POST.get("username"), password=request.POST.get("password")
+    )
     if user:
         login(request, user)
-        return redirect('index')
+        return redirect("index")
 
     context = {
-        'error': 'Invalid username or password',
+        "error": "Invalid username or password",
     }
-    return render(request, 'login.html', context)
+    return render(request, "login.html", context)
 
 
 @require_POST
 def logout_view(request):
     logout(request)
-    return redirect('index')
+    return redirect("index")

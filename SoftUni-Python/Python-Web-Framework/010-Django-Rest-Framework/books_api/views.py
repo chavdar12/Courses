@@ -11,7 +11,7 @@ class ListBooksView(APIView):
     def get(self, request):
         books = Book.objects.all()
         serializer = BookSerializer(books, many=True)
-        return Response({'books': serializer.data})
+        return Response({"books": serializer.data})
 
     def post(self, request):
         serializer = BookSerializer(data=request.data)
@@ -25,7 +25,7 @@ class DetailBookView(APIView):
     def get(self, request, id):
         book = get_object_or_404(Book, pk=id)
         serializer = BookSerializer(book)
-        return Response({'book': serializer.data})
+        return Response({"book": serializer.data})
 
     def post(self, request, id):
         book = get_object_or_404(Book, pk=id)

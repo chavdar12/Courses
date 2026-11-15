@@ -11,16 +11,16 @@ class CommentInline(admin.TabularInline):
 
 @admin.register(Pet)
 class PetAdmin(admin.ModelAdmin):
-    list_display = ('name', 'type', 'age', 'user', 'likes_count')
-    list_filter = ('type',)
-    search_fields = ('name', 'description', 'user__user__username')
+    list_display = ("name", "type", "age", "user", "likes_count")
+    list_filter = ("type",)
+    search_fields = ("name", "description", "user__user__username")
     inlines = (CommentInline,)
 
-    @admin.display(description='Likes')
+    @admin.display(description="Likes")
     def likes_count(self, obj):
         return obj.like_set.count()
 
 
 @admin.register(Like)
 class LikeAdmin(admin.ModelAdmin):
-    list_display = ('pet', 'user')
+    list_display = ("pet", "user")

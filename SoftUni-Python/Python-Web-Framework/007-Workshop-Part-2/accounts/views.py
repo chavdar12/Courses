@@ -11,29 +11,29 @@ from accounts.models import UserProfile
 def user_profile(request, pk):
     profile = get_object_or_404(UserProfile, pk=pk)
     form = ProfilePictureForm(request.POST or None, request.FILES or None, instance=profile)
-    if request.method == 'POST':
+    if request.method == "POST":
         if profile.user != request.user:
             raise PermissionDenied
         if form.is_valid():
             form.save()
-            return redirect('user profile', pk)
+            return redirect("user profile", pk)
 
     context = {
-        'profile': profile,
-        'pets': profile.pet_set.all(),
-        'form': form,
+        "profile": profile,
+        "pets": profile.pet_set.all(),
+        "form": form,
     }
-    return render(request, 'accounts/user_profile.html', context)
+    return render(request, "accounts/user_profile.html", context)
 
 
 def signup(request):
     form = SignUpForm(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
+    if request.method == "POST" and form.is_valid():
         user = form.save()
         login(request, user)
-        return redirect('list pets')
+        return redirect("list pets")
 
     context = {
-        'form': form,
+        "form": form,
     }
-    return render(request, 'accounts/signup.html', context)
+    return render(request, "accounts/signup.html", context)
