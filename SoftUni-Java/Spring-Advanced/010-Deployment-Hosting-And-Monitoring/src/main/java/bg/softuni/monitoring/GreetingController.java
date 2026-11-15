@@ -3,6 +3,7 @@ package bg.softuni.monitoring;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class GreetingController {
                         .register(meterRegistry);
     }
 
-    @GetMapping("/hello")
+    @GetMapping(value = "/hello", produces = MediaType.TEXT_PLAIN_VALUE)
     public String hello(@RequestParam(defaultValue = "World") String name) {
         greetings.increment();
         return "Hello, " + name + "!";
