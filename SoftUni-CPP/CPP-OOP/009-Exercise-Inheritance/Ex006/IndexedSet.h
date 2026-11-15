@@ -7,28 +7,28 @@
 using Value = int;
 
 class IndexedSet {
-    std::set<Value> valuesSet;
-    Value *valuesArray;
+  std::set<Value> valuesSet;
+  Value *valuesArray;
 
 public:
-    IndexedSet();
+  IndexedSet();
 
-    IndexedSet(const IndexedSet &other);
+  IndexedSet(const IndexedSet &other);
 
-    void add(const Value &v);
+  void add(const Value &v);
 
-    size_t size() const;
+  size_t size() const;
 
-    const Value &operator[](size_t index);
+  const Value &operator[](size_t index);
 
-    IndexedSet &operator=(const IndexedSet &other);
+  IndexedSet &operator=(const IndexedSet &other);
 
-    ~IndexedSet();
+  ~IndexedSet();
 
 private:
-    void buildIndex();
+  void buildIndex();
 
-    void clearIndex();
+  void clearIndex();
 };
 
 #endif // INDEXED_MAP_H

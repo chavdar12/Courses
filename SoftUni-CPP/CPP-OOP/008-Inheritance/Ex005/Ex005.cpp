@@ -1,30 +1,28 @@
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 struct Vehicle {
 public:
-    double speed;
+  double speed;
 
-    Vehicle() : speed(0) {
-    }
+  Vehicle() : speed(0) {}
 };
 
 class Airplane : public Vehicle {
 public:
-    double speed;
-    double altitude;
-    double heading;
+  double speed;
+  double altitude;
+  double heading;
 
-    Airplane(double speed, double altitude, double heading)
-        : speed(speed), altitude(altitude), heading(heading) {
-    }
+  Airplane(double speed, double altitude, double heading)
+      : speed(speed), altitude(altitude), heading(heading) {}
 };
 
 int main() {
-    Vehicle v = Airplane(250, 10000, 0);
+  Vehicle v = Airplane(250, 10000, 0);
 
-    std::cout << v.speed << std::endl;
+  std::cout << v.speed << std::endl;
 
-    return 0;
+  return 0;
 }

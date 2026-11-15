@@ -5,16 +5,15 @@
 
 class CharSequenceFilter : public Filter {
 private:
-    char fromChar;
-    char toChar;
+  char fromChar;
+  char toChar;
 
 public:
-    CharSequenceFilter(char from, char to) : fromChar(from), toChar(to) {
-    }
+  CharSequenceFilter(char from, char to) : fromChar(from), toChar(to) {}
 
-    bool shouldFilterOut(char symbol) const override {
-        return this->fromChar <= symbol && symbol <= this->toChar;
-    }
+  bool shouldFilterOut(char symbol) const override {
+    return this->fromChar <= symbol && symbol <= this->toChar;
+  }
 };
 
 #endif

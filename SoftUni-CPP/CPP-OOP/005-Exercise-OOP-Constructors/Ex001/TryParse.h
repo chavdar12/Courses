@@ -3,11 +3,10 @@
 
 #include <sstream>
 
-
 bool tryParse(const std::string &str, int &result) {
-    std::istringstream istr(str);
+  std::istringstream istr(str);
 
-    return static_cast<bool>(istr >> result);
+  return static_cast<bool>(istr >> result);
 }
 
 #endif

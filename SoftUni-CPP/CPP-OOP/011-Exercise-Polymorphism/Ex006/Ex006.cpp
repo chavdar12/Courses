@@ -8,19 +8,19 @@
 #include "Extensions.h"
 
 int main() {
-    std::string input;
+  std::string input;
 
-    CalculationEngine engine;
-    std::shared_ptr<InputInterpreter> interpreter = buildInterpreter(engine);
-    while (std::cin >> input) {
-        if (input == "end") {
-            break;
-        } else {
-            interpreter->interpret(input);
-        }
+  CalculationEngine engine;
+  std::shared_ptr<InputInterpreter> interpreter = buildInterpreter(engine);
+  while (std::cin >> input) {
+    if (input == "end") {
+      break;
+    } else {
+      interpreter->interpret(input);
     }
+  }
 
-    std::cout << engine.getCurrentResult() << std::endl;
+  std::cout << engine.getCurrentResult() << std::endl;
 
-    return 0;
+  return 0;
 }

@@ -7,24 +7,24 @@
 
 class CommandExecutor {
 public:
-    CommandExecutor(const FieldConfig &cfg);
+  CommandExecutor(const FieldConfig &cfg);
 
-    ~CommandExecutor() = default;
+  ~CommandExecutor() = default;
 
-    void extractCommand(const std::string &commandStr);
+  void extractCommand(const std::string &commandStr);
 
-    bool isGameActive() const;
+  bool isGameActive() const;
 
 private:
-    void executeMoveSnake(const int moveDirectionId);
+  void executeMoveSnake(const int moveDirectionId);
 
-    void executeGenerateObstacle(const Point &pos);
+  void executeGenerateObstacle(const Point &pos);
 
-    void executeGeneratePowerUp(const Point &pos);
+  void executeGeneratePowerUp(const Point &pos);
 
-    Field _field;
+  Field _field;
 
-    bool _isGameActive;
+  bool _isGameActive;
 };
 
 #endif /* COMMANDEXECUTOR_H_ */

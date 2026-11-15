@@ -5,9 +5,7 @@
 
 class CapitalsFilter : public CharSequenceFilter {
 public:
-    CapitalsFilter() : CharSequenceFilter('A', 'Z') {
-    };
+  CapitalsFilter() : CharSequenceFilter('A', 'Z') {};
 };
-
 
 #endif

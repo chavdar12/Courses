@@ -6,23 +6,23 @@
 #include "Company.h"
 
 int main() {
-    std::map<int, HasInfo *> byId;
+  std::map<int, HasInfo *> byId;
 
-    std::string line;
-    while (std::getline(std::cin, line) && line != "end") {
-        std::istringstream lineIn(line);
+  std::string line;
+  while (std::getline(std::cin, line) && line != "end") {
+    std::istringstream lineIn(line);
 
-        auto c = new Company();
-        lineIn >> *c;
+    auto c = new Company();
+    lineIn >> *c;
 
-        HasId *hasId = c;
-        byId[hasId->getId()] = c;
-    }
+    HasId *hasId = c;
+    byId[hasId->getId()] = c;
+  }
 
-    for (auto entry: byId) {
-        std::cout << entry.second->getInfo() << std::endl;
-        delete entry.second;
-    }
+  for (auto entry : byId) {
+    std::cout << entry.second->getInfo() << std::endl;
+    delete entry.second;
+  }
 
-    return 0;
+  return 0;
 }

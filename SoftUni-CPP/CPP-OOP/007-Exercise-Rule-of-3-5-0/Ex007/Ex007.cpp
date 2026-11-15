@@ -1,56 +1,56 @@
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 #include "List.h"
 
 List mergeSortedLists(List a, List b) {
-    List merged;
+  List merged;
 
-    while (!a.isEmpty() || !b.isEmpty()) {
-        List *listToTakeFrom;
-        if (a.isEmpty()) {
-            listToTakeFrom = &b;
-        } else if (b.isEmpty()) {
-            listToTakeFrom = &a;
-        } else {
-            if (a.first() < b.first()) {
-                listToTakeFrom = &a;
-            } else {
-                listToTakeFrom = &b;
-            }
-        }
-
-        merged.add(listToTakeFrom->first());
-        listToTakeFrom->removeFirst();
+  while (!a.isEmpty() || !b.isEmpty()) {
+    List *listToTakeFrom;
+    if (a.isEmpty()) {
+      listToTakeFrom = &b;
+    } else if (b.isEmpty()) {
+      listToTakeFrom = &a;
+    } else {
+      if (a.first() < b.first()) {
+        listToTakeFrom = &a;
+      } else {
+        listToTakeFrom = &b;
+      }
     }
 
-    return merged;
+    merged.add(listToTakeFrom->first());
+    listToTakeFrom->removeFirst();
+  }
+
+  return merged;
 }
 
 int main() {
-    using namespace std;
+  using namespace std;
 
-    List sorted;
+  List sorted;
 
-    string listLine;
-    getline(cin, listLine);
+  string listLine;
+  getline(cin, listLine);
 
-    while (listLine != "end") {
-        istringstream lineStream(listLine);
+  while (listLine != "end") {
+    istringstream lineStream(listLine);
 
-        List currentList;
-        int value;
-        while (lineStream >> value) {
-            currentList << value;
-        }
-
-        sorted = mergeSortedLists(sorted, currentList);
-
-        getline(cin, listLine);
+    List currentList;
+    int value;
+    while (lineStream >> value) {
+      currentList << value;
     }
 
-    cout << sorted.toString() << endl;
+    sorted = mergeSortedLists(sorted, currentList);
 
-    return 0;
+    getline(cin, listLine);
+  }
+
+  cout << sorted.toString() << endl;
+
+  return 0;
 }

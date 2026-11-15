@@ -5,62 +5,62 @@
 
 class List {
 private:
-    class Node {
-    private:
-        int value;
-        Node *prev;
-        Node *next;
+  class Node {
+  private:
+    int value;
+    Node *prev;
+    Node *next;
 
-    public:
-        Node(int value, Node *prev, Node *next);
+  public:
+    Node(int value, Node *prev, Node *next);
 
-        int getValue() const;
+    int getValue() const;
 
-        void setValue(int value);
+    void setValue(int value);
 
-        Node *getNext() const;
+    Node *getNext() const;
 
-        void setNext(Node *next);
+    void setNext(Node *next);
 
-        Node *getPrev() const;
+    Node *getPrev() const;
 
-        void setPrev(Node *prev);
-    };
+    void setPrev(Node *prev);
+  };
 
-    Node *head;
-    Node *tail;
-    size_t size;
+  Node *head;
+  Node *tail;
+  size_t size;
 
 public:
-    List();
+  List();
 
-    List(const List &other);
+  List(const List &other);
 
-    int first() const;
+  int first() const;
 
-    void add(int value);
+  void add(int value);
 
-    void addAll(const List &other);
+  void addAll(const List &other);
 
-    void removeFirst();
+  void removeFirst();
 
-    void removeAll();
+  void removeAll();
 
-    size_t getSize() const;
+  size_t getSize() const;
 
-    bool isEmpty() const;
+  bool isEmpty() const;
 
-    static List getReversed(List l);
+  static List getReversed(List l);
 
-    std::string toString() const;
+  std::string toString() const;
 
-    List &operator<<(const int &value);
+  List &operator<<(const int &value);
 
-    List &operator<<(const List &other);
+  List &operator<<(const List &other);
 
-    List &operator=(const List &other);
+  List &operator=(const List &other);
 
-    ~List();
+  ~List();
 };
 
 #endif // LIST_H

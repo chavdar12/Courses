@@ -9,17 +9,15 @@
 
 static int searchId;
 
-const bool findId(Company *c) {
-    return c->getId() == searchId;
-}
+const bool findId(Company *c) { return c->getId() == searchId; }
 
 Company *find(std::vector<Company *> &companies, const int sId) {
-    searchId = sId;
-    auto it = find_if(companies.begin(), companies.end(), findId);
-    //auto it = find_if(companies.begin(), companies.end(), [&](Company *c){ return c->getId() == sId; }};
+  searchId = sId;
+  auto it = find_if(companies.begin(), companies.end(), findId);
+  // auto it = find_if(companies.begin(), companies.end(), [&](Company *c){
+  // return c->getId() == sId; }};
 
-    return it == companies.end() ? nullptr : *it;
+  return it == companies.end() ? nullptr : *it;
 }
-
 
 #endif // !FIND_H

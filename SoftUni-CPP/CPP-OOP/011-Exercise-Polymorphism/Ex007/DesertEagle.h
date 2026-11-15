@@ -5,13 +5,12 @@
 
 class DesertEagle : public Pistol {
 public:
-    DesertEagle(const int damagePerRound,
-                const int clipSize,
-                const int remainingAmmo);
+  DesertEagle(const int damagePerRound, const int clipSize,
+              const int remainingAmmo);
 
-    ~DesertEagle() override = default;
+  ~DesertEagle() override = default;
 
-    bool fire(PlayerVitalData &enemyPlayerData) override;
+  bool fire(PlayerVitalData &enemyPlayerData) override;
 };
 
 #endif /* DESERTEAGLE_H_ */

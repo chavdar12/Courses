@@ -7,4 +7,4 @@
 #include <iostream>
 #include <string>
 
-#endif //DEF_H
+#endif // DEF_H

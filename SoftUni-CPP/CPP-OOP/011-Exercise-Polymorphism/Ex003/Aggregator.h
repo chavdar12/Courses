@@ -5,39 +5,31 @@
 
 class StreamAggregator {
 private:
-    std::istream &stream;
-    int numAggregated;
+  std::istream &stream;
+  int numAggregated;
 
 protected:
-    int aggregationResult;
+  int aggregationResult;
 
-    virtual void aggregate(int next) {
-        this->numAggregated++;
-    }
+  virtual void aggregate(int next) { this->numAggregated++; }
 
 public:
-    StreamAggregator(std::istream &stream) : stream(stream), numAggregated(0) {
+  StreamAggregator(std::istream &stream) : stream(stream), numAggregated(0) {}
+
+  int aggregate() {
+    int next;
+    while (this->stream >> next) {
+      this->aggregate(next);
     }
 
-    int aggregate() {
-        int next;
-        while (this->stream >> next) {
-            this->aggregate(next);
-        }
+    return this->getAggregationResult();
+  }
 
-        return this->getAggregationResult();
-    }
+  int getAggregationResult() const { return this->aggregationResult; }
 
-    int getAggregationResult() const {
-        return this->aggregationResult;
-    }
+  int getNumAggregated() const { return this->numAggregated; }
 
-    int getNumAggregated() const {
-        return this->numAggregated;
-    }
-
-    virtual ~StreamAggregator() {
-    }
+  virtual ~StreamAggregator() {}
 };
 
 #endif // !AGGREGATOR_H

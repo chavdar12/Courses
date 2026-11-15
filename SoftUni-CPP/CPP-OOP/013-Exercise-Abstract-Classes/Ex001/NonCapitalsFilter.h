@@ -5,9 +5,7 @@
 
 class NonCapitalsFilter : public CharSequenceFilter {
 public:
-    NonCapitalsFilter() : CharSequenceFilter('a', 'z') {
-    };
+  NonCapitalsFilter() : CharSequenceFilter('a', 'z') {};
 };
-
 
 #endif

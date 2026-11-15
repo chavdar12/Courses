@@ -5,18 +5,14 @@
 
 class Glock : public Pistol {
 public:
-    Glock(const int damagePerRound,
-          const int clipSize,
-          const int remainingAmmo);
+  Glock(const int damagePerRound, const int clipSize, const int remainingAmmo);
 
-    ~Glock() override = default;
+  ~Glock() override = default;
 
-    bool fire(PlayerVitalData &enemyPlayerData) override;
+  bool fire(PlayerVitalData &enemyPlayerData) override;
 
 private:
-    enum InternalDefines {
-        ROUNDS_PER_FIRE = 3
-    };
+  enum InternalDefines { ROUNDS_PER_FIRE = 3 };
 };
 
 #endif /* GLOCK_H_ */

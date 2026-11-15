@@ -1,29 +1,29 @@
 #ifndef CONTACT_MANAGER_UI_H
 #define CONTACT_MANAGER_UI_H
 
-#include <vector>
-#include "EmailContact.h"
 #include "Echo.h"
+#include "EmailContact.h"
 #include <algorithm>
 #include <sstream>
+#include <vector>
 
 class ContactManagerUI {
-    std::vector<EmailContact> &contacts;
-    bool running;
+  std::vector<EmailContact> &contacts;
+  bool running;
 
 public:
-    ContactManagerUI(std::vector<EmailContact> &contacts, bool hintsOn);
+  ContactManagerUI(std::vector<EmailContact> &contacts, bool hintsOn);
 
-    void start();
+  void start();
 
-    void stop();
+  void stop();
 
 private:
-    void handleInput(char choice);
+  void handleInput(char choice);
 
-    void printMenu();
+  void printMenu();
 
-    std::vector<EmailContact>::iterator queryContact();
+  std::vector<EmailContact>::iterator queryContact();
 };
 
 #endif // !CONTACT_MANAGER_UI_H

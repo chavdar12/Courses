@@ -1,31 +1,27 @@
 #ifndef MEMORY_RECALL_H
 #define MEMORY_RECALL_H
 
-#include <stack>
+#include "MemorySave.h"
+#include "Operation.h"
 #include <iostream>
 #include <memory>
-#include "Operation.h"
-#include "MemorySave.h"
+#include <stack>
 
 class MemoryRecallOperation : public Operation {
 public:
-    MemoryRecallOperation(const std::shared_ptr<MemorySaveOperation> &memorySave) : mMemorySave(memorySave) {
-    }
+  MemoryRecallOperation(const std::shared_ptr<MemorySaveOperation> &memorySave)
+      : mMemorySave(memorySave) {}
 
-    void addOperand(int operand) override {
-        std::cout << "MemoryRecallOperation::addOperand() should not be envoked!\n";
-    }
+  void addOperand(int operand) override {
+    std::cout << "MemoryRecallOperation::addOperand() should not be envoked!\n";
+  }
 
-    bool isCompleted() override {
-        return true;
-    }
+  bool isCompleted() override { return true; }
 
-    int getResult() override {
-        return mMemorySave->recall();
-    }
+  int getResult() override { return mMemorySave->recall(); }
 
 private:
-    std::shared_ptr<MemorySaveOperation> mMemorySave;
+  std::shared_ptr<MemorySaveOperation> mMemorySave;
 };
 
-#endif //MEMORY_RECALL_H
+#endif // MEMORY_RECALL_H

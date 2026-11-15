@@ -3,9 +3,9 @@
 
 #include <map>
 #include <memory>
+#include <sstream>
 #include <string>
 #include <vector>
-#include <sstream>
 
 #include "TextTransform.h"
 
@@ -14,50 +14,52 @@ using Command = std::pair<std::string, TextTransformPtr>;
 
 class CommandInterface {
 private:
-    class ToUpperTransform : public TextTransform {
-    public:
-        void invokeOn(std::string &text, int startIndex, int endIndex) override {
-            for (int i = startIndex; i < endIndex; i++) {
-                text[i] = toupper(text[i]);
-            }
-        }
-    };
+  class ToUpperTransform : public TextTransform {
+  public:
+    void invokeOn(std::string &text, int startIndex, int endIndex) override {
+      for (int i = startIndex; i < endIndex; i++) {
+        text[i] = toupper(text[i]);
+      }
+    }
+  };
 
-    std::map<std::string, std::shared_ptr<TextTransform> > commandTransforms;
-    std::string &text;
+  std::map<std::string, std::shared_ptr<TextTransform>> commandTransforms;
+  std::string &text;
 
 public:
-    CommandInterface(std::string &text) : text{text} {
+  CommandInterface(std::string &text) : text{text} {}
+
+  void init() {
+    this->commandTransforms.clear();
+    for (std::pair<std::string, std::shared_ptr<TextTransform>> p :
+         this->initCommands()) {
+      commandTransforms[p.first] = p.second;
     }
+  }
 
-    void init() {
-        this->commandTransforms.clear();
-        for (std::pair<std::string, std::shared_ptr<TextTransform> > p: this->initCommands()) {
-            commandTransforms[p.first] = p.second;
-        }
-    }
+  void handleInput(std::string input) {
+    std::istringstream parseStream(input);
 
-    void handleInput(std::string input) {
-        std::istringstream parseStream(input);
+    std::string commandName;
+    int startInd, endInd;
 
-        std::string commandName;
-        int startInd, endInd;
+    parseStream >> commandName >> startInd >> endInd;
 
-        parseStream >> commandName >> startInd >> endInd;
+    this->commandTransforms[commandName]->invokeOn(this->text, startInd,
+                                                   endInd);
+  }
 
-        this->commandTransforms[commandName]->invokeOn(this->text, startInd, endInd);
-    }
-
-    virtual ~CommandInterface() = default;
+  virtual ~CommandInterface() = default;
 
 protected:
-    virtual std::vector<Command> initCommands() {
-        std::vector<Command> commands;
+  virtual std::vector<Command> initCommands() {
+    std::vector<Command> commands;
 
-        commands.push_back(Command("uppercase", std::make_shared<ToUpperTransform>()));
+    commands.push_back(
+        Command("uppercase", std::make_shared<ToUpperTransform>()));
 
-        return commands;
-    }
+    return commands;
+  }
 };
 
 #endif // COMMAND_INTERFACE_H

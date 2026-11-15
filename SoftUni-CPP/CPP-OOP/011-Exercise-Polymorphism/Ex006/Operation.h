@@ -3,13 +3,13 @@
 
 class Operation {
 public:
-    virtual void addOperand(int operand) = 0;
+  virtual void addOperand(int operand) = 0;
 
-    virtual int getResult() = 0;
+  virtual int getResult() = 0;
 
-    virtual bool isCompleted() = 0;
+  virtual bool isCompleted() = 0;
 
-    virtual ~Operation() = default;
+  virtual ~Operation() = default;
 };
 
 #endif // OPERATION_H

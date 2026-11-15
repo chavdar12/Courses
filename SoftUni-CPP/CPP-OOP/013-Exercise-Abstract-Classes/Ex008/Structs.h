@@ -4,15 +4,13 @@
 #include <string>
 
 struct Spell {
-    Spell(const std::string &inputName,
-          const int inputManaCost) {
-        name = inputName;
-        manaCost = inputManaCost;
-    }
+  Spell(const std::string &inputName, const int inputManaCost) {
+    name = inputName;
+    manaCost = inputManaCost;
+  }
 
-    std::string name;
-    int manaCost;
+  std::string name;
+  int manaCost;
 };
-
 
 #endif /* STRUCTS_H_ */

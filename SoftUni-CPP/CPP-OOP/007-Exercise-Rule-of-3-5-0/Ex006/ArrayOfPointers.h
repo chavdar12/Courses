@@ -2,28 +2,23 @@
 #define ARRAY_H
 
 #include "Company.h"
-#include <vector>
 #include <memory>
+#include <vector>
 
 class ArrayOfPointers {
 private:
-    std::vector<std::shared_ptr<Company> > pointers;
+  std::vector<std::shared_ptr<Company>> pointers;
 
 public:
-    ArrayOfPointers() {
-    }
+  ArrayOfPointers() {}
 
-    void add(Company *c) {
-        this->pointers.push_back(std::shared_ptr<Company>(c));
-    }
+  void add(Company *c) {
+    this->pointers.push_back(std::shared_ptr<Company>(c));
+  }
 
-    int getSize() const {
-        return this->pointers.size();
-    }
+  int getSize() const { return this->pointers.size(); }
 
-    Company *get(int index) const {
-        return this->pointers.at(index).get();
-    }
+  Company *get(int index) const { return this->pointers.at(index).get(); }
 };
 
 #endif

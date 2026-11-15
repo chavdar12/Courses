@@ -4,21 +4,21 @@
 #include "Company.h"
 
 class Register {
-    size_t numAdded;
-    Company *companiesArray;
+  size_t numAdded;
+  Company *companiesArray;
 
 public:
-    Register(size_t numCompanies);
+  Register(size_t numCompanies);
 
-    void add(const Company &c);
+  void add(const Company &c);
 
-    Company get(int companyId) const;
+  Company get(int companyId) const;
 
-    ~Register();
+  ~Register();
 
-    Register &operator=(const Register &other) = delete;
+  Register &operator=(const Register &other) = delete;
 
-    Register(const Register &other) = delete;
+  Register(const Register &other) = delete;
 };
 
 #endif // !REGISTER_H

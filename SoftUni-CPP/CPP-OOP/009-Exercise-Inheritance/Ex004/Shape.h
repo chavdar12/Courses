@@ -5,19 +5,16 @@
 
 class Shape {
 protected:
-    Vector2D center;
-    float area = 0;
+  Vector2D center;
+  float area = 0;
 
 public:
-    Shape() : center(0, 0) {
-    }
+  Shape() : center(0, 0) {}
 
-    Shape(const Vector2D &center) : center(center) {
-    }
+  Shape(const Vector2D &center) : center(center) {}
 
-    const float getArea() const { return this->area; };
-    const Vector2D getCenter() const { return this->center; };
+  const float getArea() const { return this->area; };
+  const Vector2D getCenter() const { return this->center; };
 };
-
 
 #endif

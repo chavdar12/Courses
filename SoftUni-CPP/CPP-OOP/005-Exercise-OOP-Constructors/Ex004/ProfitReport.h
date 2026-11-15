@@ -6,20 +6,21 @@
 
 #include <sstream>
 
-std::string getProfitReport(Company *from, Company *to, std::map<int, ProfitCalculator> &calc) {
-    std::ostringstream ostr;
+std::string getProfitReport(Company *from, Company *to,
+                            std::map<int, ProfitCalculator> &calc) {
+  std::ostringstream ostr;
 
-    while (true) {
-        ProfitCalculator &pc = calc[from->getId()];
+  while (true) {
+    ProfitCalculator &pc = calc[from->getId()];
 
-        ostr << from->getName() << " = " << pc.calculateProfit(*from) << std::endl;
+    ostr << from->getName() << " = " << pc.calculateProfit(*from) << std::endl;
 
-        if (from == to) break;
-        from++;
-    }
+    if (from == to)
+      break;
+    from++;
+  }
 
-    return ostr.str();
+  return ostr.str();
 }
-
 
 #endif // !PROFIT_REPORT_H

@@ -5,9 +5,7 @@
 
 class DigitsFilter : public CharSequenceFilter {
 public:
-    DigitsFilter() : CharSequenceFilter('0', '9') {
-    };
+  DigitsFilter() : CharSequenceFilter('0', '9') {};
 };
-
 
 #endif

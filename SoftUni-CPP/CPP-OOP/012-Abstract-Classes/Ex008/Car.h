@@ -8,20 +8,20 @@
 
 class Car : public CarInterface {
 public:
-    Car(int wheelAngle, double speed);
+  Car(int wheelAngle, double speed);
 
-    std::string toString() const;
+  std::string toString() const;
 
-    void turnWheel(int angle);
+  void turnWheel(int angle);
 
-    bool hasMadeFullTurn() const;
+  bool hasMadeFullTurn() const;
 
 private:
-    void setFullTurn(bool status) final;
+  void setFullTurn(bool status) final;
 
-    Wheel _wheel;
-    double _speed;
-    bool _hasMadeFullTurn = false;
+  Wheel _wheel;
+  double _speed;
+  bool _hasMadeFullTurn = false;
 };
 
 #endif /* CAR_H_ */

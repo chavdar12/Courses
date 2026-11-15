@@ -5,19 +5,19 @@
 #include <string>
 #include <vector>
 
-template<typename T>
+template <typename T>
 std::string join(const std::vector<T> &items, const std::string &joinStr) {
-    std::ostringstream oss;
+  std::ostringstream oss;
 
-    if (!items.empty()) {
-        oss << items[0];
+  if (!items.empty()) {
+    oss << items[0];
 
-        for (size_t i = 1; i < items.size(); ++i) {
-            oss << joinStr << items[i];
-        }
+    for (size_t i = 1; i < items.size(); ++i) {
+      oss << joinStr << items[i];
     }
+  }
 
-    return oss.str();
+  return oss.str();
 }
 
 #endif // JOIN_H

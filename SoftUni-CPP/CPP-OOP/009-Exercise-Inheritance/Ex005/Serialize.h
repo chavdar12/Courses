@@ -2,41 +2,41 @@
 #define SERIALIZE_H
 
 byte *serializeToMemory(std::string s, size_t &bytesWritten) {
-    std::vector<byte> vB;
+  std::vector<byte> vB;
 
-    byte companies = 0;
-    vB.push_back(companies); //reserve position to calibrate later
+  byte companies = 0;
+  vB.push_back(companies); // reserve position to calibrate later
 
-    std::istringstream iss(s);
-    Company company;
+  std::istringstream iss(s);
+  Company company;
 
-    while (iss >> company) {
-        vB.push_back((byte) company.getId());
+  while (iss >> company) {
+    vB.push_back((byte)company.getId());
 
-        for (auto chN: company.getName())
-            vB.push_back((byte) chN);
+    for (auto chN : company.getName())
+      vB.push_back((byte)chN);
 
-        vB.push_back(0);
+    vB.push_back(0);
 
-        vB.push_back((byte) company.getEmployees().size());
+    vB.push_back((byte)company.getEmployees().size());
 
-        for (auto empl: company.getEmployees()) {
-            vB.push_back((byte) empl.first);
-            vB.push_back((byte) empl.second);
-        }
-
-        ++companies;
+    for (auto empl : company.getEmployees()) {
+      vB.push_back((byte)empl.first);
+      vB.push_back((byte)empl.second);
     }
 
-    vB[0] = companies; //calibrate number of companies
+    ++companies;
+  }
 
-    bytesWritten = vB.size();
-    auto arrB = new byte[bytesWritten];
+  vB[0] = companies; // calibrate number of companies
 
-    for (size_t i = 0; i < bytesWritten; i++)
-        arrB[i] = vB[i];
+  bytesWritten = vB.size();
+  auto arrB = new byte[bytesWritten];
 
-    return arrB;
+  for (size_t i = 0; i < bytesWritten; i++)
+    arrB[i] = vB[i];
+
+  return arrB;
 }
 
 #endif

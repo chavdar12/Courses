@@ -1,25 +1,25 @@
 #ifndef PROFIT_CALCULATOR_H
 #define PROFIT_CALCULATOR_H
 
-#include <istream>
 #include "Company.h"
+#include <istream>
 
 class ProfitCalculator {
 private:
-    int taxPercentage = 0;
+  int taxPercentage = 0;
 
 public:
-    int calculateProfit(const Company &company) const {
-        int balance = company.getRevenue() - company.getCosts();
-        int tax = (balance * taxPercentage) / 100;
-        return balance - tax;
-    }
+  int calculateProfit(const Company &company) const {
+    int balance = company.getRevenue() - company.getCosts();
+    int tax = (balance * taxPercentage) / 100;
+    return balance - tax;
+  }
 
-    friend std::istream &operator>>(std::istream &stream, ProfitCalculator &p);
+  friend std::istream &operator>>(std::istream &stream, ProfitCalculator &p);
 };
 
 std::istream &operator>>(std::istream &stream, ProfitCalculator &p) {
-    return stream >> p.taxPercentage;
+  return stream >> p.taxPercentage;
 }
 
 #endif

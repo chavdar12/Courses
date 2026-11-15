@@ -1,96 +1,88 @@
-#include <string>
-#include <sstream>
-#include <vector>
-#include <utility>
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <utility>
+#include <vector>
 
 class Describable {
 public:
-    virtual std::string getDescription() const = 0;
+  virtual std::string getDescription() const = 0;
 
-    virtual ~Describable() {
-    }
+  virtual ~Describable() {}
 };
 
 class Company : public Describable {
 private:
-    int id;
-    std::string name;
-    std::vector<std::pair<char, char> > employees;
+  int id;
+  std::string name;
+  std::vector<std::pair<char, char>> employees;
 
 public:
-    Company(int id, std::string name, std::vector<std::pair<char, char> > employees)
-        : id(id)
-          , name(name)
-          , employees(employees) {
+  Company(int id, std::string name,
+          std::vector<std::pair<char, char>> employees)
+      : id(id), name(name), employees(employees) {}
+
+  std::string getDescription() const override {
+    std::ostringstream stream;
+    stream << id << " " << name << " ";
+
+    for (int i = 0; i < employees.size(); i++) {
+      auto initials = employees[i];
+      stream << initials.first << initials.second;
+      if (i < employees.size() - 1) {
+        stream << " ";
+      }
     }
 
-    std::string getDescription() const override {
-        std::ostringstream stream;
-        stream << id << " " << name << " ";
-
-        for (int i = 0; i < employees.size(); i++) {
-            auto initials = employees[i];
-            stream << initials.first << initials.second;
-            if (i < employees.size() - 1) {
-                stream << " ";
-            }
-        }
-
-        return stream.str();
-    }
+    return stream.str();
+  }
 };
 
 class Organism {
 public:
-    float weight;
-    bool eatsPlants;
-    bool eatsAnimals;
+  float weight;
+  bool eatsPlants;
+  bool eatsAnimals;
 
-    Organism(float weight, bool eatsPlants, bool eatsAnimals)
-        : weight(weight), eatsPlants(eatsPlants), eatsAnimals(eatsAnimals) {
-    }
+  Organism(float weight, bool eatsPlants, bool eatsAnimals)
+      : weight(weight), eatsPlants(eatsPlants), eatsAnimals(eatsAnimals) {}
 
-    virtual void mutate() = 0;
+  virtual void mutate() = 0;
 
-    virtual ~Organism() {
-    }
+  virtual ~Organism() {}
 };
 
 class Spider : public Organism, public Describable {
-    int numLegs;
+  int numLegs;
 
 public:
-    Spider(int numLegs, float weight)
-        : Organism(weight, false, true)
-          , numLegs(numLegs) {
-    }
+  Spider(int numLegs, float weight)
+      : Organism(weight, false, true), numLegs(numLegs) {}
 
-    void mutate() override {
-        this->numLegs++;
-    }
+  void mutate() override { this->numLegs++; }
 
-    std::string getDescription() const override {
-        std::ostringstream description;
+  std::string getDescription() const override {
+    std::ostringstream description;
 
-        description << numLegs << "-legged spider, weight: " << this->weight;
+    description << numLegs << "-legged spider, weight: " << this->weight;
 
-        return description.str();
-    }
+    return description.str();
+  }
 };
 
 void printDescription(const Describable &d) {
-    std::cout << d.getDescription() << std::endl;
+  std::cout << d.getDescription() << std::endl;
 }
 
 int main() {
-    Spider spider(6, 0.042);
-    Company company(42, "TheAnswer Ltd.", std::vector<std::pair<char, char> >{{'G', 'G'}, {'B', 'D'}});
+  Spider spider(6, 0.042);
+  Company company(42, "TheAnswer Ltd.",
+                  std::vector<std::pair<char, char>>{{'G', 'G'}, {'B', 'D'}});
 
-    printDescription(spider);
-    spider.mutate();
-    printDescription(spider);
-    printDescription(company);
+  printDescription(spider);
+  spider.mutate();
+  printDescription(spider);
+  printDescription(company);
 
-    return 0;
+  return 0;
 }

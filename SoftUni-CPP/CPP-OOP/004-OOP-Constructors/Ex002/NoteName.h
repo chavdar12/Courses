@@ -2,15 +2,12 @@
 #define NOTE_NAME_H
 
 class NoteName {
-    char englishName;
+  char englishName;
 
 public:
-    NoteName(char englishName) : englishName(englishName) {
-    }
+  NoteName(char englishName) : englishName(englishName) {}
 
-    operator char() const {
-        return this->englishName;
-    }
+  operator char() const { return this->englishName; }
 };
 
 #endif // !NOTE_NAME_H

@@ -5,28 +5,23 @@
 
 class Archmage : public Hero {
 public:
-    Archmage() = delete;
+  Archmage() = delete;
 
-    Archmage(const std::string &name,
-             const int maxMana,
-             const int baseManaRegenRate,
-             const int manaRegenModifier);
+  Archmage(const std::string &name, const int maxMana,
+           const int baseManaRegenRate, const int manaRegenModifier);
 
-    ~Archmage() override = default;
+  ~Archmage() override = default;
 
-    void castSpell(const SpellType spell) override;
+  void castSpell(const SpellType spell) override;
 
-    void regenerateMana() override;
+  void regenerateMana() override;
 
 private:
-    void generateSpells() override {
-        _spells = {
-            {"Water Elemental", 120},
-            {"Mass Teleport", 180}
-        };
-    }
+  void generateSpells() override {
+    _spells = {{"Water Elemental", 120}, {"Mass Teleport", 180}};
+  }
 
-    int _manaRegenModifier;
+  int _manaRegenModifier;
 };
 
 #endif /* ARCHMAGE_H_ */

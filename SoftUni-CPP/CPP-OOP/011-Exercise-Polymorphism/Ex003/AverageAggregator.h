@@ -5,18 +5,18 @@
 
 class AverageAggregator : public StreamAggregator {
 private:
-    int curSum = 0;
+  int curSum = 0;
 
 public:
-    AverageAggregator(std::istream &stream) : StreamAggregator(stream) {
-        this->aggregationResult = 0;
-    }
+  AverageAggregator(std::istream &stream) : StreamAggregator(stream) {
+    this->aggregationResult = 0;
+  }
 
-    void aggregate(int next) override {
-        this->curSum += next;
-        StreamAggregator::aggregate(next);
-        this->aggregationResult = curSum / getNumAggregated();
-    }
+  void aggregate(int next) override {
+    this->curSum += next;
+    StreamAggregator::aggregate(next);
+    this->aggregationResult = curSum / getNumAggregated();
+  }
 };
 
 #endif

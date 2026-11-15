@@ -3,10 +3,9 @@
 
 class CarInterface {
 public:
-    virtual ~CarInterface() = default;
+  virtual ~CarInterface() = default;
 
-    virtual void setFullTurn(bool status) = 0;
+  virtual void setFullTurn(bool status) = 0;
 };
-
 
 #endif /* CARINTERFACE_H_ */
