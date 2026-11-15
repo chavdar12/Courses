@@ -19,7 +19,11 @@ export default class Cube {
         if (!URL_PATTERN.test(this.imageUrl)) {
             return 'Image URL must start with http:// or https://.';
         }
-        if (!Number.isInteger(this.difficultyLevel) || this.difficultyLevel < 1 || this.difficultyLevel > 6) {
+        if (
+            !Number.isInteger(this.difficultyLevel) ||
+            this.difficultyLevel < 1 ||
+            this.difficultyLevel > 6
+        ) {
             return 'Difficulty level must be between 1 and 6.';
         }
         return null;
@@ -36,8 +40,12 @@ export default class Cube {
         const cubes = JSON.parse(await readFile(config.dbFile, 'utf8'));
         const min = Number(from) || 1;
         const max = Number(to) || 6;
-        return cubes.filter((c) => c.name.toLowerCase().includes(search.toLowerCase())
-            && c.difficultyLevel >= min && c.difficultyLevel <= max);
+        return cubes.filter(
+            (c) =>
+                c.name.toLowerCase().includes(search.toLowerCase()) &&
+                c.difficultyLevel >= min &&
+                c.difficultyLevel <= max,
+        );
     }
 
     static async getById(id) {

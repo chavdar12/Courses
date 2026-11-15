@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const { search = '', from = '', to = '' } = req.query;
     const cubes = await Cube.find({
         name: { $regex: escapeRegex(String(search).trim()), $options: 'i' },
-        difficultyLevel: { $gte: Number(from) || 1, $lte: Number(to) || 6 }
+        difficultyLevel: { $gte: Number(from) || 1, $lte: Number(to) || 6 },
     }).lean();
     res.render('index', { title: 'Browse', cubes, search, from, to });
 });

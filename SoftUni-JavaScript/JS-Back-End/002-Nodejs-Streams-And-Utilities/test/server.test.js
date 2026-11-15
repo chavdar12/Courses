@@ -10,7 +10,8 @@ let server;
 let base;
 let dir;
 
-const readJson = async (name) => JSON.parse(await readFile(join(dir, 'data', `${name}.json`), 'utf8'));
+const readJson = async (name) =>
+    JSON.parse(await readFile(join(dir, 'data', `${name}.json`), 'utf8'));
 const post = (path, body) => fetch(base + path, { method: 'POST', body, redirect: 'manual' });
 
 before(async () => {
@@ -20,7 +21,7 @@ before(async () => {
     await cp(new URL('../content/', import.meta.url), join(dir, 'content'), { recursive: true });
     server = createServer({
         dataDir: pathToFileURL(join(dir, 'data/')),
-        contentDir: pathToFileURL(join(dir, 'content/'))
+        contentDir: pathToFileURL(join(dir, 'content/')),
     });
     await new Promise((resolve) => server.listen(0, resolve));
     base = `http://localhost:${server.address().port}`;
@@ -65,7 +66,10 @@ test('add cat with upload, edit, search and shelter', async () => {
     form.set('name', 'Niya');
     form.set('description', 'Lonely and lazy cat seek for a hospitable owner');
     form.set('breed', 'Bengal Cat');
-    form.set('upload', new File([Buffer.from([0x89, 0x50, 0x4e, 0x47])], 'niya.png', { type: 'image/png' }));
+    form.set(
+        'upload',
+        new File([Buffer.from([0x89, 0x50, 0x4e, 0x47])], 'niya.png', { type: 'image/png' }),
+    );
     assert.equal((await post('/cats/add-cat', form)).status, 302);
 
     const [cat] = await readJson('cats');

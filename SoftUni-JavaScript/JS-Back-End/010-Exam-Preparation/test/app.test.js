@@ -23,19 +23,24 @@ const post = {
     location: 'Kenya',
     date: '02.02.2021',
     image: 'https://example.com/lion.jpg',
-    description: 'A lion waking up at dawn'
+    description: 'A lion waking up at dawn',
 };
 
 async function registered(email) {
     const http = client(server.base);
     const res = await http.post('/register', {
-        firstName: 'Petar', lastName: 'Petrov', email, password: '1234', repeatPassword: '1234'
+        firstName: 'Petar',
+        lastName: 'Petrov',
+        email,
+        password: '1234',
+        repeatPassword: '1234',
     });
     assert.equal(res.status, 302, `register ${email}`);
     return http;
 }
 
-const errorOf = async (res) => (await res.text()).match(/<div class="error-container">\s*<p>([^<]*)/)?.[1];
+const errorOf = async (res) =>
+    (await res.text()).match(/<div class="error-container">\s*<p>([^<]*)/)?.[1];
 
 test('register logs in with a hashed password and the user navigation', async () => {
     const http = await registered('petar@softuni.bg');
@@ -44,13 +49,22 @@ test('register logs in with a hashed password and the user navigation', async ()
 
     await http.get('/logout');
     assert.match(await http.html('/'), /href="\/login"/);
-    assert.equal((await http.post('/login', { email: 'petar@softuni.bg', password: '1234' })).status, 302);
+    assert.equal(
+        (await http.post('/login', { email: 'petar@softuni.bg', password: '1234' })).status,
+        302,
+    );
     assert.match(await http.html('/'), /Logout/);
 });
 
 test('register and login validation', async () => {
     const http = client(server.base);
-    const valid = { firstName: 'Maria', lastName: 'Ivanova', email: 'maria@abv.bg', password: '1234', repeatPassword: '1234' };
+    const valid = {
+        firstName: 'Maria',
+        lastName: 'Ivanova',
+        email: 'maria@abv.bg',
+        password: '1234',
+        repeatPassword: '1234',
+    };
     const cases = [
         [{ firstName: 'Mi' }, /First name must be at least 3/],
         [{ firstName: 'Mar1a' }, /First name may contain only English letters/],
@@ -59,14 +73,17 @@ test('register and login validation', async () => {
         [{ email: 'mar1a@abv.bg' }, /Email must look like/],
         [{ password: '123', repeatPassword: '123' }, /Password must be at least 4/],
         [{ repeatPassword: '4321' }, /Passwords do not match/],
-        [{ email: 'petar@softuni.bg' }, /Email is already taken/]
+        [{ email: 'petar@softuni.bg' }, /Email is already taken/],
     ];
     for (const [change, message] of cases) {
         const res = await http.post('/register', { ...valid, ...change });
         assert.equal(res.status, 400);
         assert.match(await errorOf(res), message);
     }
-    assert.match(await errorOf(await http.post('/login', { email: 'petar@softuni.bg', password: 'nope' })), /Invalid email or password/);
+    assert.match(
+        await errorOf(await http.post('/login', { email: 'petar@softuni.bg', password: 'nope' })),
+        /Invalid email or password/,
+    );
 });
 
 test('route guards redirect guests to login and users home', async () => {
@@ -89,10 +106,13 @@ test('post validation', async () => {
         [{ location: 'Somewhere very far away' }, /Location must be at most 15/],
         [{ date: '2.2.2021' }, /Date must be exactly 10/],
         [{ image: 'lion.jpg' }, /Image must start with http/],
-        [{ description: 'Short' }, /Description must be at least 8/]
+        [{ description: 'Short' }, /Description must be at least 8/],
     ];
     for (const [change, message] of cases) {
-        assert.match(await errorOf(await http.post('/posts/create', { ...post, ...change })), message);
+        assert.match(
+            await errorOf(await http.post('/posts/create', { ...post, ...change })),
+            message,
+        );
     }
 });
 
@@ -124,7 +144,10 @@ test('create, list, details, vote, edit and delete a post', async () => {
 
     const voter1 = await registered('first@softuni.bg');
     assert.match(await voter1.html(`/posts/${id}`), /UpVote \+1/);
-    assert.equal((await voter1.post(`/posts/${id}/vote/up`, {})).headers.get('location'), `/posts/${id}`);
+    assert.equal(
+        (await voter1.post(`/posts/${id}/vote/up`, {})).headers.get('location'),
+        `/posts/${id}`,
+    );
     await voter1.post(`/posts/${id}/vote/up`, {});
     assert.match(await voter1.html(`/posts/${id}`), /Thanks For Voting/);
 
@@ -142,7 +165,10 @@ test('create, list, details, vote, edit and delete a post', async () => {
     const edited = await author.post(`/posts/${id}/edit`, { ...post, location: 'Tanzania' });
     assert.equal(edited.headers.get('location'), `/posts/${id}`);
     assert.equal((await Post.findById(id)).location, 'Tanzania');
-    assert.match(await errorOf(await author.post(`/posts/${id}/edit`, { ...post, date: 'today' })), /Date must be exactly 10/);
+    assert.match(
+        await errorOf(await author.post(`/posts/${id}/edit`, { ...post, date: 'today' })),
+        /Date must be exactly 10/,
+    );
 
     assert.equal((await author.post(`/posts/${id}/delete`, {})).headers.get('location'), '/posts');
     assert.equal(await Post.findById(id), null);

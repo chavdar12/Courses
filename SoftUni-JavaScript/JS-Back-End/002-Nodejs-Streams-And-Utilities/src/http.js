@@ -21,6 +21,9 @@ export function redirect(res, location = '/') {
 /** Parses urlencoded and multipart bodies with the platform's own FormData parser. */
 export function readForm(req) {
     return new Request('http://localhost', {
-        method: 'POST', headers: req.headers, body: Readable.toWeb(req), duplex: 'half'
+        method: 'POST',
+        headers: req.headers,
+        body: Readable.toWeb(req),
+        duplex: 'half',
     }).formData();
 }

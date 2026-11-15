@@ -4,7 +4,8 @@ import config from '../config/config.js';
 import User from '../models/User.js';
 import { UserError } from '../utils/errors.js';
 
-const createToken = (user) => jwt.sign({ _id: user._id, email: user.email }, config.jwtSecret, { expiresIn: '2d' });
+const createToken = (user) =>
+    jwt.sign({ _id: user._id, email: user.email }, config.jwtSecret, { expiresIn: '2d' });
 
 export const verifyToken = (token) => jwt.verify(token, config.jwtSecret);
 
@@ -19,13 +20,18 @@ export async function register({ firstName, lastName, email = '', password = '',
     if (await User.exists({ email: email.trim() })) {
         throw new UserError('Email is already taken');
     }
-    const user = await User.create({ firstName, lastName, email, password: await bcrypt.hash(password, 10) });
+    const user = await User.create({
+        firstName,
+        lastName,
+        email,
+        password: await bcrypt.hash(password, 10),
+    });
     return createToken(user);
 }
 
 export async function login({ email = '', password = '' }) {
     const user = await User.findOne({ email: email.trim() });
-    if (!user || !await bcrypt.compare(password, user.password)) {
+    if (!user || !(await bcrypt.compare(password, user.password))) {
         throw new UserError('Invalid email or password');
     }
     return createToken(user);

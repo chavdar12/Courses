@@ -16,7 +16,11 @@ export function client(base) {
             ...options,
             method: form ? 'POST' : options.method,
             body: form ? new URLSearchParams(form) : options.body,
-            headers: { cookie: Object.entries(cookies).map(([k, v]) => `${k}=${v}`).join('; ') }
+            headers: {
+                cookie: Object.entries(cookies)
+                    .map(([k, v]) => `${k}=${v}`)
+                    .join('; '),
+            },
         });
         for (const header of res.headers.getSetCookie()) {
             const [pair] = header.split(';');

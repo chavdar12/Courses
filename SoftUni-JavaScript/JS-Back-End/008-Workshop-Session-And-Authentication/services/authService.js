@@ -6,7 +6,8 @@ import { UserError } from '../utils/errors.js';
 
 const PASSWORD = /^[a-zA-Z0-9]{8,}$/;
 
-const createToken = (user) => jwt.sign({ _id: user._id, username: user.username }, config.jwtSecret, { expiresIn: '2d' });
+const createToken = (user) =>
+    jwt.sign({ _id: user._id, username: user.username }, config.jwtSecret, { expiresIn: '2d' });
 
 export const verifyToken = (token) => jwt.verify(token, config.jwtSecret);
 
@@ -27,7 +28,7 @@ export async function register({ username = '', password = '', repeatPassword })
 
 export async function login({ username = '', password = '' }) {
     const user = await User.findOne({ username: username.trim() });
-    if (!user || !await bcrypt.compare(password, user.password)) {
+    if (!user || !(await bcrypt.compare(password, user.password))) {
         throw new UserError('Invalid username or password');
     }
     return createToken(user);

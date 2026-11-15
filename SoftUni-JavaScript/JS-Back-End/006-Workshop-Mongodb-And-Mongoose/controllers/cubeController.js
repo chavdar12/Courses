@@ -13,12 +13,18 @@ router.post('/create', async (req, res) => {
         await Cube.create({ name, description, imageUrl, difficultyLevel });
         res.redirect('/');
     } catch (err) {
-        res.status(400).render('create', { title: 'Create Cube', cube: req.body, error: errorMessage(err) });
+        res.status(400).render('create', {
+            title: 'Create Cube',
+            cube: req.body,
+            error: errorMessage(err),
+        });
     }
 });
 
 router.get('/details/:id', async (req, res, next) => {
-    const cube = isValidObjectId(req.params.id) && await Cube.findById(req.params.id).populate('accessories').lean();
+    const cube =
+        isValidObjectId(req.params.id) &&
+        (await Cube.findById(req.params.id).populate('accessories').lean());
     if (!cube) {
         return next();
     }

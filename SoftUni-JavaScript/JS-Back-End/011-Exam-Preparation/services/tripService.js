@@ -1,8 +1,17 @@
 import Trip from '../models/Trip.js';
 import User from '../models/User.js';
 
-const tripData = ({ startPoint, endPoint, date, time, carImage, carBrand, seats, price, description }) =>
-    ({ startPoint, endPoint, date, time, carImage, carBrand, seats, price, description });
+const tripData = ({
+    startPoint,
+    endPoint,
+    date,
+    time,
+    carImage,
+    carBrand,
+    seats,
+    price,
+    description,
+}) => ({ startPoint, endPoint, date, time, carImage, carBrand, seats, price, description });
 
 export const getAll = () => Trip.find().lean();
 
@@ -16,7 +25,8 @@ export async function create(data, creator) {
     return trip;
 }
 
-export const update = (id, data) => Trip.findByIdAndUpdate(id, tripData(data), { runValidators: true });
+export const update = (id, data) =>
+    Trip.findByIdAndUpdate(id, tripData(data), { runValidators: true });
 
 export async function remove(id) {
     const trip = await Trip.findByIdAndDelete(id);
@@ -24,7 +34,8 @@ export async function remove(id) {
 }
 
 /** Joins once, never your own trip, only while seats are left; the filter makes the check and the update atomic. */
-export const join = (id, userId) => Trip.updateOne(
-    { _id: id, creator: { $ne: userId }, buddies: { $ne: userId }, seats: { $gt: 0 } },
-    { $push: { buddies: userId }, $inc: { seats: -1 } }
-);
+export const join = (id, userId) =>
+    Trip.updateOne(
+        { _id: id, creator: { $ne: userId }, buddies: { $ne: userId }, seats: { $gt: 0 } },
+        { $push: { buddies: userId }, $inc: { seats: -1 } },
+    );

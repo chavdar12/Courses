@@ -1,16 +1,16 @@
 [
-    {
-        "id": 1,
-        "name": "Rubik's Cube",
-        "description": "The classic 3x3 puzzle cube invented in 1974 by Erno Rubik.",
-        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71WS9kb-JFL._SL1300_.jpg",
-        "difficultyLevel": 3
-    },
-    {
-        "id": 2,
-        "name": "Megaminx",
-        "description": "A dodecahedron shaped puzzle with twelve faces to solve.",
-        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SL1000_.jpg",
-        "difficultyLevel": 5
-    }
+  {
+    "id": 1,
+    "name": "Rubik's Cube",
+    "description": "The classic 3x3 puzzle cube invented in 1974 by Erno Rubik.",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71WS9kb-JFL._SL1300_.jpg",
+    "difficultyLevel": 3
+  },
+  {
+    "id": 2,
+    "name": "Megaminx",
+    "description": "A dodecahedron shaped puzzle with twelve faces to solve.",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SL1000_.jpg",
+    "difficultyLevel": 5
+  }
 ]

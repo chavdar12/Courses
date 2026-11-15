@@ -19,8 +19,17 @@ after(async () => {
     await stopDb();
 });
 
-const cube = { name: 'Megaminx', description: 'Twelve faces', imageUrl: 'https://example.com/m.jpg', difficultyLevel: '5' };
-const accessory = { name: 'Stand', description: 'Holds the cube', imageUrl: 'https://example.com/s.jpg' };
+const cube = {
+    name: 'Megaminx',
+    description: 'Twelve faces',
+    imageUrl: 'https://example.com/m.jpg',
+    difficultyLevel: '5',
+};
+const accessory = {
+    name: 'Stand',
+    description: 'Holds the cube',
+    imageUrl: 'https://example.com/s.jpg',
+};
 
 test('creates a cube in MongoDB and lists it', async () => {
     const res = await http.post('/create', cube);
@@ -49,7 +58,10 @@ test('accessories are created, offered only once and attached both ways', async 
     const { _id: cubeId } = await Cube.findOne();
     const { _id: accessoryId } = await Accessory.findOne();
 
-    assert.match(await http.html(`/attach/accessory/${cubeId}`), /<option value="[a-f\d]+">Stand<\/option>/);
+    assert.match(
+        await http.html(`/attach/accessory/${cubeId}`),
+        /<option value="[a-f\d]+">Stand<\/option>/,
+    );
 
     const res = await http.post(`/attach/accessory/${cubeId}`, { accessory: String(accessoryId) });
     assert.equal(res.headers.get('location'), `/details/${cubeId}`);
@@ -63,5 +75,8 @@ test('accessories are created, offered only once and attached both ways', async 
 test('bad ids render 404', async () => {
     assert.equal((await http.get('/details/not-an-id')).status, 404);
     assert.equal((await http.get('/attach/accessory/000000000000000000000000')).status, 404);
-    assert.equal((await http.post('/attach/accessory/000000000000000000000000', { accessory: 'x' })).status, 404);
+    assert.equal(
+        (await http.post('/attach/accessory/000000000000000000000000', { accessory: 'x' })).status,
+        404,
+    );
 });

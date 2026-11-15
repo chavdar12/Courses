@@ -14,7 +14,11 @@ router.post('/register', isGuest, async (req, res) => {
         res.cookie(config.cookieName, await register(req.body), cookieOptions);
         res.redirect('/');
     } catch (err) {
-        res.status(400).render('register', { title: 'Register', username: req.body.username, error: errorMessage(err) });
+        res.status(400).render('register', {
+            title: 'Register',
+            username: req.body.username,
+            error: errorMessage(err),
+        });
     }
 });
 
@@ -25,7 +29,11 @@ router.post('/login', isGuest, async (req, res) => {
         res.cookie(config.cookieName, await login(req.body), cookieOptions);
         res.redirect('/');
     } catch (err) {
-        res.status(400).render('login', { title: 'Login', username: req.body.username, error: errorMessage(err) });
+        res.status(400).render('login', {
+            title: 'Login',
+            username: req.body.username,
+            error: errorMessage(err),
+        });
     }
 });
 

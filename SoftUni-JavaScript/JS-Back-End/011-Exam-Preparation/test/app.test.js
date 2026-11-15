@@ -26,12 +26,17 @@ const trip = {
     carBrand: 'Skoda',
     seats: '2',
     price: '25',
-    description: 'Comfortable ride to the sea'
+    description: 'Comfortable ride to the sea',
 };
 
 async function registered(email, gender = 'male') {
     const http = client(server.base);
-    const res = await http.post('/register', { email, password: '1234', repeatPassword: '1234', gender });
+    const res = await http.post('/register', {
+        email,
+        password: '1234',
+        repeatPassword: '1234',
+        gender,
+    });
     assert.equal(res.status, 302, `register ${email}`);
     return http;
 }
@@ -45,26 +50,37 @@ test('register, logout and login', async () => {
 
     await http.get('/logout');
     assert.match(await http.html('/'), /href="\/login"/);
-    assert.equal((await http.post('/login', { email: 'driver@softuni.bg', password: '1234' })).status, 302);
+    assert.equal(
+        (await http.post('/login', { email: 'driver@softuni.bg', password: '1234' })).status,
+        302,
+    );
     assert.match(await http.html('/'), /Logout/);
 });
 
 test('register and login validation', async () => {
     const http = client(server.base);
-    const valid = { email: 'new@softuni.bg', password: '1234', repeatPassword: '1234', gender: 'female' };
+    const valid = {
+        email: 'new@softuni.bg',
+        password: '1234',
+        repeatPassword: '1234',
+        gender: 'female',
+    };
     const cases = [
         [{ email: 'new.softuni.bg' }, /Email must look like/],
         [{ password: '123', repeatPassword: '123' }, /Password must be at least 4/],
         [{ repeatPassword: '4321' }, /Passwords do not match/],
         [{ gender: 'other' }, /Gender must be male or female/],
-        [{ email: 'driver@softuni.bg' }, /Email is already taken/]
+        [{ email: 'driver@softuni.bg' }, /Email is already taken/],
     ];
     for (const [change, message] of cases) {
         const res = await http.post('/register', { ...valid, ...change });
         assert.equal(res.status, 400);
         assert.match(await errorOf(res), message);
     }
-    assert.match(await errorOf(await http.post('/login', { email: 'driver@softuni.bg', password: 'bad' })), /Invalid email or password/);
+    assert.match(
+        await errorOf(await http.post('/login', { email: 'driver@softuni.bg', password: 'bad' })),
+        /Invalid email or password/,
+    );
 });
 
 test('route guards', async () => {
@@ -88,10 +104,13 @@ test('trip validation', async () => {
         [{ carImage: 'car.jpg' }, /Car image must start with http/],
         [{ carBrand: 'VW' }, /Car brand must be at least 4/],
         [{ price: '0' }, /Price must be from 1 to 50/],
-        [{ price: '51' }, /Price must be from 1 to 50/]
+        [{ price: '51' }, /Price must be from 1 to 50/],
     ];
     for (const [change, message] of cases) {
-        assert.match(await errorOf(await http.post('/trips/create', { ...trip, ...change })), message);
+        assert.match(
+            await errorOf(await http.post('/trips/create', { ...trip, ...change })),
+            message,
+        );
     }
 });
 
@@ -116,7 +135,10 @@ test('offer, join until full, edit, profile and delete a trip', async () => {
 
     const anna = await registered('anna@softuni.bg', 'female');
     assert.match(await anna.html(`/trips/${id}`), /Join now, 2 left/);
-    assert.equal((await anna.post(`/trips/${id}/join`, {})).headers.get('location'), `/trips/${id}`);
+    assert.equal(
+        (await anna.post(`/trips/${id}/join`, {})).headers.get('location'),
+        `/trips/${id}`,
+    );
     await anna.post(`/trips/${id}/join`, {});
     assert.match(await anna.html(`/trips/${id}`), /Already joined. Don't be late!/);
 
@@ -134,15 +156,26 @@ test('offer, join until full, edit, profile and delete a trip', async () => {
     assert.equal((await carol.post(`/trips/${id}/delete`, {})).headers.get('location'), '/');
 
     assert.match(await driver.html(`/trips/${id}/edit`), /value="Varna"/);
-    assert.equal((await driver.post(`/trips/${id}/edit`, { ...trip, endPoint: 'Burgas', seats: '0' })).headers.get('location'), `/trips/${id}`);
+    assert.equal(
+        (
+            await driver.post(`/trips/${id}/edit`, { ...trip, endPoint: 'Burgas', seats: '0' })
+        ).headers.get('location'),
+        `/trips/${id}`,
+    );
     assert.equal((await Trip.findById(id)).endPoint, 'Burgas');
-    assert.match(await errorOf(await driver.post(`/trips/${id}/edit`, { ...trip, price: '100' })), /Price must be from 1 to 50/);
+    assert.match(
+        await errorOf(await driver.post(`/trips/${id}/edit`, { ...trip, price: '100' })),
+        /Price must be from 1 to 50/,
+    );
 
     const profile = await driver.html('/profile');
     assert.match(profile, /male\.svg/);
     assert.match(profile, /Trips: 1/);
     assert.match(profile, /Sofia - Burgas/);
-    assert.match(await carol.html('/profile'), /female\.svg[\s\S]*Trips: 0[\s\S]*not offered any trips/);
+    assert.match(
+        await carol.html('/profile'),
+        /female\.svg[\s\S]*Trips: 0[\s\S]*not offered any trips/,
+    );
 
     assert.equal((await driver.post(`/trips/${id}/delete`, {})).headers.get('location'), '/trips');
     assert.equal(await Trip.findById(id), null);

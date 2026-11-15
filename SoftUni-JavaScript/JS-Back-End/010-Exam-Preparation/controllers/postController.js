@@ -8,7 +8,7 @@ const router = Router();
 
 /** Loads the post from :id into res.locals.post, 404 when missing. */
 async function loadPost(req, res, next) {
-    const post = isValidObjectId(req.params.id) && await postService.getById(req.params.id);
+    const post = isValidObjectId(req.params.id) && (await postService.getById(req.params.id));
     if (!post) {
         return res.status(404).render('404', { title: 'Page Not Found' });
     }
@@ -16,12 +16,18 @@ async function loadPost(req, res, next) {
     next();
 }
 
-const isAuthor = (req, res, next) => (res.locals.post.author._id.equals(req.user._id) ? next() : res.redirect('/'));
+const isAuthor = (req, res, next) =>
+    res.locals.post.author._id.equals(req.user._id) ? next() : res.redirect('/');
 
-router.get('/', async (req, res) => res.render('catalog', { title: 'All Posts', posts: await postService.getAll() }));
+router.get('/', async (req, res) =>
+    res.render('catalog', { title: 'All Posts', posts: await postService.getAll() }),
+);
 
 router.get('/mine', isAuth, async (req, res) => {
-    res.render('my-posts', { title: 'My Posts', posts: await postService.getByAuthor(req.user._id) });
+    res.render('my-posts', {
+        title: 'My Posts',
+        posts: await postService.getByAuthor(req.user._id),
+    });
 });
 
 router.get('/create', isAuth, (req, res) => res.render('create', { title: 'Create Post' }));
@@ -31,7 +37,11 @@ router.post('/create', isAuth, async (req, res) => {
         await postService.create(req.body, req.user._id);
         res.redirect('/posts');
     } catch (err) {
-        res.status(400).render('create', { title: 'Create Post', post: req.body, error: errorMessage(err) });
+        res.status(400).render('create', {
+            title: 'Create Post',
+            post: req.body,
+            error: errorMessage(err),
+        });
     }
 });
 
@@ -43,18 +53,24 @@ router.get('/:id', loadPost, (req, res) => {
         title: post.title,
         isAuthor,
         canVote: Boolean(userId) && !isAuthor && !post.votes.some((v) => v._id.equals(userId)),
-        voters: post.votes.map((v) => v.email).join(', ')
+        voters: post.votes.map((v) => v.email).join(', '),
     });
 });
 
-router.get('/:id/edit', isAuth, loadPost, isAuthor, (req, res) => res.render('edit', { title: 'Edit Post' }));
+router.get('/:id/edit', isAuth, loadPost, isAuthor, (req, res) =>
+    res.render('edit', { title: 'Edit Post' }),
+);
 
 router.post('/:id/edit', isAuth, loadPost, isAuthor, async (req, res) => {
     try {
         await postService.update(req.params.id, req.body);
         res.redirect(`/posts/${req.params.id}`);
     } catch (err) {
-        res.status(400).render('edit', { title: 'Edit Post', post: { ...req.body, _id: req.params.id }, error: errorMessage(err) });
+        res.status(400).render('edit', {
+            title: 'Edit Post',
+            post: { ...req.body, _id: req.params.id },
+            error: errorMessage(err),
+        });
     }
 });
 

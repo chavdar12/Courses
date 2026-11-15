@@ -7,7 +7,9 @@ import { errorMessage } from '../utils/errors.js';
 
 const router = Router();
 
-router.get('/create/accessory', isAuth, (req, res) => res.render('createAccessory', { title: 'Create Accessory' }));
+router.get('/create/accessory', isAuth, (req, res) =>
+    res.render('createAccessory', { title: 'Create Accessory' }),
+);
 
 router.post('/create/accessory', isAuth, async (req, res) => {
     const { name, description, imageUrl } = req.body;
@@ -15,12 +17,16 @@ router.post('/create/accessory', isAuth, async (req, res) => {
         await Accessory.create({ name, description, imageUrl });
         res.redirect('/');
     } catch (err) {
-        res.status(400).render('createAccessory', { title: 'Create Accessory', accessory: req.body, error: errorMessage(err) });
+        res.status(400).render('createAccessory', {
+            title: 'Create Accessory',
+            accessory: req.body,
+            error: errorMessage(err),
+        });
     }
 });
 
 router.get('/attach/accessory/:id', isAuth, async (req, res, next) => {
-    const cube = isValidObjectId(req.params.id) && await Cube.findById(req.params.id).lean();
+    const cube = isValidObjectId(req.params.id) && (await Cube.findById(req.params.id).lean());
     if (!cube) {
         return next();
     }

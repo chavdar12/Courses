@@ -6,9 +6,13 @@ import { CONTENT_TYPES } from './static-files.js';
 
 const ROUTE = /^\/cats\/(add-breed|add-cat|edit|shelter)(?:\/([\w-]+))?$/;
 
-const breedOptions = (breeds, selected) => breeds
-    .map((b) => `<option value="${escape(b)}"${b === selected ? ' selected' : ''}>${escape(b)}</option>`)
-    .join('');
+const breedOptions = (breeds, selected) =>
+    breeds
+        .map(
+            (b) =>
+                `<option value="${escape(b)}"${b === selected ? ' selected' : ''}>${escape(b)}</option>`,
+        )
+        .join('');
 
 const catValues = (cat, breeds) => ({
     id: escape(cat.id),
@@ -16,7 +20,7 @@ const catValues = (cat, breeds) => ({
     description: escape(cat.description),
     image: escape(cat.image),
     breed: escape(cat.breed),
-    catBreeds: breedOptions(breeds, cat.breed)
+    catBreeds: breedOptions(breeds, cat.breed),
 });
 
 const text = (form, key) => String(form.get(key) ?? '').trim();
@@ -33,77 +37,99 @@ async function saveImage(file, contentDir) {
 }
 
 async function readCat(form, breeds, contentDir) {
-    const cat = { name: text(form, 'name'), description: text(form, 'description'), breed: text(form, 'breed') };
+    const cat = {
+        name: text(form, 'name'),
+        description: text(form, 'description'),
+        breed: text(form, 'breed'),
+    };
     if (!cat.name || !breeds.includes(cat.breed)) {
         return null;
     }
     return { ...cat, image: await saveImage(form.get('upload'), contentDir) };
 }
 
-export const catHandler = ({ store, contentDir }) => async (req, res, url) => {
-    const match = url.pathname.match(ROUTE);
-    if (!match) {
-        return false;
-    }
-    const [, action, id] = match;
-    const breeds = await store.read('breeds');
-    const cats = await store.read('cats');
-    const cat = cats.find((c) => c.id === id);
-    if ((action === 'edit' || action === 'shelter') !== Boolean(cat)) {
-        return false;
-    }
-
-    switch (`${req.method} ${action}`) {
-        case 'GET add-breed':
-            await render(res, 'addBreed');
-            return true;
-        case 'POST add-breed': {
-            const breed = text(await readForm(req), 'breed');
-            if (!breed) {
-                await render(res, 'addBreed', { error: 'Breed is required.' }, 400);
-                return true;
-            }
-            if (!breeds.includes(breed)) {
-                await store.write('breeds', [...breeds, breed]);
-            }
-            redirect(res);
-            return true;
-        }
-        case 'GET add-cat':
-            await render(res, 'addCat', { catBreeds: breedOptions(breeds) });
-            return true;
-        case 'POST add-cat': {
-            const data = await readCat(await readForm(req), breeds, contentDir);
-            if (!data) {
-                await render(res, 'addCat', { catBreeds: breedOptions(breeds), error: 'Name and breed are required.' }, 400);
-                return true;
-            }
-            await store.write('cats', [...cats, { id: randomUUID(), ...data, image: data.image ?? '' }]);
-            redirect(res);
-            return true;
-        }
-        case 'GET edit':
-            await render(res, 'editCat', catValues(cat, breeds));
-            return true;
-        case 'POST edit': {
-            const data = await readCat(await readForm(req), breeds, contentDir);
-            if (!data) {
-                await render(res, 'editCat', { ...catValues(cat, breeds), error: 'Name and breed are required.' }, 400);
-                return true;
-            }
-            Object.assign(cat, data, { image: data.image ?? cat.image });
-            await store.write('cats', cats);
-            redirect(res);
-            return true;
-        }
-        case 'GET shelter':
-            await render(res, 'catShelter', catValues(cat, breeds));
-            return true;
-        case 'POST shelter':
-            await store.write('cats', cats.filter((c) => c.id !== id));
-            redirect(res);
-            return true;
-        default:
+export const catHandler =
+    ({ store, contentDir }) =>
+    async (req, res, url) => {
+        const match = url.pathname.match(ROUTE);
+        if (!match) {
             return false;
-    }
-};
+        }
+        const [, action, id] = match;
+        const breeds = await store.read('breeds');
+        const cats = await store.read('cats');
+        const cat = cats.find((c) => c.id === id);
+        if ((action === 'edit' || action === 'shelter') !== Boolean(cat)) {
+            return false;
+        }
+
+        switch (`${req.method} ${action}`) {
+            case 'GET add-breed':
+                await render(res, 'addBreed');
+                return true;
+            case 'POST add-breed': {
+                const breed = text(await readForm(req), 'breed');
+                if (!breed) {
+                    await render(res, 'addBreed', { error: 'Breed is required.' }, 400);
+                    return true;
+                }
+                if (!breeds.includes(breed)) {
+                    await store.write('breeds', [...breeds, breed]);
+                }
+                redirect(res);
+                return true;
+            }
+            case 'GET add-cat':
+                await render(res, 'addCat', { catBreeds: breedOptions(breeds) });
+                return true;
+            case 'POST add-cat': {
+                const data = await readCat(await readForm(req), breeds, contentDir);
+                if (!data) {
+                    await render(
+                        res,
+                        'addCat',
+                        { catBreeds: breedOptions(breeds), error: 'Name and breed are required.' },
+                        400,
+                    );
+                    return true;
+                }
+                await store.write('cats', [
+                    ...cats,
+                    { id: randomUUID(), ...data, image: data.image ?? '' },
+                ]);
+                redirect(res);
+                return true;
+            }
+            case 'GET edit':
+                await render(res, 'editCat', catValues(cat, breeds));
+                return true;
+            case 'POST edit': {
+                const data = await readCat(await readForm(req), breeds, contentDir);
+                if (!data) {
+                    await render(
+                        res,
+                        'editCat',
+                        { ...catValues(cat, breeds), error: 'Name and breed are required.' },
+                        400,
+                    );
+                    return true;
+                }
+                Object.assign(cat, data, { image: data.image ?? cat.image });
+                await store.write('cats', cats);
+                redirect(res);
+                return true;
+            }
+            case 'GET shelter':
+                await render(res, 'catShelter', catValues(cat, breeds));
+                return true;
+            case 'POST shelter':
+                await store.write(
+                    'cats',
+                    cats.filter((c) => c.id !== id),
+                );
+                redirect(res);
+                return true;
+            default:
+                return false;
+        }
+    };

@@ -5,10 +5,13 @@ import { fileURLToPath } from 'node:url';
 import { auth } from '../middlewares/auth.js';
 
 export default (app) => {
-    app.engine('hbs', engine({
-        extname: '.hbs',
-        helpers: { selected: (a, b) => (String(a) === String(b) ? 'selected' : '') }
-    }));
+    app.engine(
+        'hbs',
+        engine({
+            extname: '.hbs',
+            helpers: { selected: (a, b) => (String(a) === String(b) ? 'selected' : '') },
+        }),
+    );
     app.set('view engine', 'hbs');
     app.set('views', fileURLToPath(new URL('../views', import.meta.url)));
 

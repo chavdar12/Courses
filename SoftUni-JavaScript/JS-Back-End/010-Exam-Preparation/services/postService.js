@@ -1,7 +1,14 @@
 import Post from '../models/Post.js';
 import User from '../models/User.js';
 
-const postData = ({ title, keyword, location, date, image, description }) => ({ title, keyword, location, date, image, description });
+const postData = ({ title, keyword, location, date, image, description }) => ({
+    title,
+    keyword,
+    location,
+    date,
+    image,
+    description,
+});
 
 export const getAll = () => Post.find().lean();
 
@@ -15,7 +22,8 @@ export async function create(data, author) {
     return post;
 }
 
-export const update = (id, data) => Post.findByIdAndUpdate(id, postData(data), { runValidators: true });
+export const update = (id, data) =>
+    Post.findByIdAndUpdate(id, postData(data), { runValidators: true });
 
 export async function remove(id) {
     const post = await Post.findByIdAndDelete(id);
@@ -23,7 +31,8 @@ export async function remove(id) {
 }
 
 /** One vote per user and never on your own post; the filter makes the check and the update atomic. */
-export const vote = (id, userId, value) => Post.updateOne(
-    { _id: id, author: { $ne: userId }, votes: { $ne: userId } },
-    { $push: { votes: userId }, $inc: { rating: value } }
-);
+export const vote = (id, userId, value) =>
+    Post.updateOne(
+        { _id: id, author: { $ne: userId }, votes: { $ne: userId } },
+        { $push: { votes: userId }, $inc: { rating: value } },
+    );

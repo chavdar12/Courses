@@ -25,7 +25,7 @@ const cube = {
     name: 'Pyraminx',
     description: 'A tetrahedron shaped puzzle',
     imageUrl: 'https://example.com/pyraminx.jpg',
-    difficultyLevel: '2'
+    difficultyLevel: '2',
 };
 
 test('home, about and create pages render', async () => {
