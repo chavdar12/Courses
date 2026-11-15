@@ -4,6 +4,7 @@ import com.example.springDataIntro.models.Account;
 import com.example.springDataIntro.models.User;
 import com.example.springDataIntro.repository.AccountRepository;
 import com.example.springDataIntro.repository.UserRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -40,7 +41,6 @@ public class UserServiceImpl implements UserService {
         User user = this.userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
 
         this.saveAccount(amount, user);
-
     }
 
     private void saveAccount(BigDecimal amount, User user) {

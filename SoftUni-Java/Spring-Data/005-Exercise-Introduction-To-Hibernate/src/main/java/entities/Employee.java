@@ -47,15 +47,20 @@ public class Employee {
     private Address address;
 
     @ManyToMany
-    @JoinTable(name = "employees_projects",
+    @JoinTable(
+            name = "employees_projects",
             joinColumns = @JoinColumn(name = "employee_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id"))
     private Set<Project> projects = new HashSet<>();
 
-    protected Employee() {
-    }
+    protected Employee() {}
 
-    public Employee(String firstName, String lastName, String jobTitle, Department department, BigDecimal salary) {
+    public Employee(
+            String firstName,
+            String lastName,
+            String jobTitle,
+            Department department,
+            BigDecimal salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.jobTitle = jobTitle;

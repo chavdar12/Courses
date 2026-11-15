@@ -4,6 +4,7 @@ import com.example.springDataAdvancedQuerying.entities.Label;
 import com.example.springDataAdvancedQuerying.entities.Shampoo;
 import com.example.springDataAdvancedQuerying.entities.Size;
 import com.example.springDataAdvancedQuerying.repositories.ShampooRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -18,7 +19,6 @@ public class ShampooServicesImpl implements ShampooServices {
     public ShampooServicesImpl(ShampooRepository shampooRepository) {
         this.shampooRepository = shampooRepository;
     }
-
 
     @Override
     public List<Shampoo> findAllBySizeOrderById(Size size) {

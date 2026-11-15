@@ -3,6 +3,7 @@ package com.example.springDataAutoMappingObjects;
 import com.example.springDataAutoMappingObjects.models.Employee;
 import com.example.springDataAutoMappingObjects.repositories.EmployeeRepository;
 import com.example.springDataAutoMappingObjects.services.EmployeeService;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -26,10 +27,20 @@ public class CLR implements CommandLineRunner {
             seed();
         }
 
-        employeeService.findAllManagers().forEach(manager -> {
-            System.out.printf("%s %s | Employees: %d%n", manager.getFirstName(), manager.getLastName(), manager.getSubordinates().size());
-            manager.getSubordinates().forEach(e -> System.out.printf("    - %s %s %.2f%n", e.getFirstName(), e.getLastName(), e.getSalary()));
-        });
+        employeeService
+                .findAllManagers()
+                .forEach(manager -> {
+                    System.out.printf(
+                            "%s %s | Employees: %d%n",
+                            manager.getFirstName(),
+                            manager.getLastName(),
+                            manager.getSubordinates().size());
+                    manager.getSubordinates()
+                            .forEach(e ->
+                                    System.out.printf(
+                                            "    - %s %s %.2f%n",
+                                            e.getFirstName(), e.getLastName(), e.getSalary()));
+                });
 
         employeeService.findAllBornBefore(1990).forEach(System.out::println);
     }
@@ -44,7 +55,12 @@ public class CLR implements CommandLineRunner {
         employee("Kopp", "Spidok", "2000.21", LocalDate.of(1987, 7, 7), carl);
     }
 
-    private Employee employee(String firstName, String lastName, String salary, LocalDate birthday, Employee manager) {
+    private Employee employee(
+            String firstName,
+            String lastName,
+            String salary,
+            LocalDate birthday,
+            Employee manager) {
         Employee employee = new Employee();
         employee.setFirstName(firstName);
         employee.setLastName(lastName);

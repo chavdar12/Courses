@@ -1,4 +1,5 @@
 import entities.User;
+
 import orm.EntityManager;
 import orm.MyConnector;
 
@@ -8,9 +9,13 @@ import java.time.LocalDate;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        try (Connection connection = MyConnector.createConnection(
-                System.getProperty("db.url", "jdbc:mysql://localhost:3306/custom_orm?createDatabaseIfNotExist=true"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""))) {
+        try (Connection connection =
+                MyConnector.createConnection(
+                        System.getProperty(
+                                "db.url",
+                                "jdbc:mysql://localhost:3306/custom_orm?createDatabaseIfNotExist=true"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""))) {
 
             EntityManager<User> userManager = new EntityManager<>(connection);
             userManager.doCreate(User.class);

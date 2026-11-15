@@ -5,12 +5,11 @@ import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.annotation.XmlAnyElement;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
-import javax.xml.namespace.QName;
-import javax.xml.transform.stream.StreamSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
@@ -20,9 +19,12 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.namespace.QName;
+import javax.xml.transform.stream.StreamSource;
+
 /**
- * Reads and writes XML lists like {@code <users><user .../><user .../></users>}: the root name is passed in,
- * each item's element name comes from its {@code @XmlRootElement}.
+ * Reads and writes XML lists like {@code <users><user .../><user .../></users>}: the root name is
+ * passed in, each item's element name comes from its {@code @XmlRootElement}.
  */
 @Component
 public class XmlIO {
@@ -41,8 +43,11 @@ public class XmlIO {
 
     public <T> List<T> readList(String classpathFile, Class<T> itemType) {
         try (InputStream in = new ClassPathResource(classpathFile).getInputStream()) {
-            Items root = JAXBContext.newInstance(Items.class, itemType).createUnmarshaller()
-                    .unmarshal(new StreamSource(in), Items.class).getValue();
+            Items root =
+                    JAXBContext.newInstance(Items.class, itemType)
+                            .createUnmarshaller()
+                            .unmarshal(new StreamSource(in), Items.class)
+                            .getValue();
             return root.items.stream().filter(itemType::isInstance).map(itemType::cast).toList();
         } catch (IOException e) {
             throw new UncheckedIOException(e);
@@ -55,7 +60,8 @@ public class XmlIO {
     public String toXml(String rootName, List<?> items) {
         Items root = new Items();
         root.items.addAll(items);
-        Class<?>[] classes = items.stream().map(Object::getClass).distinct().toArray(Class<?>[]::new);
+        Class<?>[] classes =
+                items.stream().map(Object::getClass).distinct().toArray(Class<?>[]::new);
         Class<?>[] all = new Class<?>[classes.length + 1];
         all[0] = Items.class;
         System.arraycopy(classes, 0, all, 1, classes.length);

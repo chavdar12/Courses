@@ -24,8 +24,7 @@ public class Department {
     @OneToMany(mappedBy = "department")
     private Set<Employee> employees = new HashSet<>();
 
-    protected Department() {
-    }
+    protected Department() {}
 
     public Department(String name) {
         this.name = name;

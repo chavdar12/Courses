@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 @DiscriminatorValue("bike")
 public class Bike extends Vehicle {
 
-    protected Bike() {
-    }
+    protected Bike() {}
 
     public Bike(String model, BigDecimal price) {
         super(model, price, "none");

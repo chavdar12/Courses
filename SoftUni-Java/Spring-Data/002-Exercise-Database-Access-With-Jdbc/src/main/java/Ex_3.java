@@ -11,8 +11,11 @@ public class Ex_3 {
     public static void main(String[] args) throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        connection = DriverManager.getConnection(System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
 
         int villain_id = Integer.parseInt(reader.readLine());
 
@@ -28,8 +31,12 @@ public class Ex_3 {
 
     private static void getMinionAndAgeByVillainId(int id) throws SQLException {
 
-        statement = connection.prepareStatement("SELECT m.name, m.age FROM minions AS m\r\n" + "JOIN minions_villains"
-                                                + " mv on m.id = mv.minion_id\r\n" + "WHERE mv.villain_id = ?;");
+        statement =
+                connection.prepareStatement(
+                        "SELECT m.name, m.age FROM minions AS m\r\n"
+                                + "JOIN minions_villains"
+                                + " mv on m.id = mv.minion_id\r\n"
+                                + "WHERE mv.villain_id = ?;");
 
         statement.setInt(1, id);
 
@@ -38,7 +45,8 @@ public class Ex_3 {
         int count = 1;
 
         while (resultSet.next()) {
-            System.out.printf("%d. %s %s%n", count, resultSet.getString("name"), resultSet.getString("age"));
+            System.out.printf(
+                    "%d. %s %s%n", count, resultSet.getString("name"), resultSet.getString("age"));
             count++;
         }
     }

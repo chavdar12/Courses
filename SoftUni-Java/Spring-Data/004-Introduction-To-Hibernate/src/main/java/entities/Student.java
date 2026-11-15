@@ -18,8 +18,7 @@ public class Student {
     @Column(name = "registration_date")
     private LocalDateTime registrationDate;
 
-    protected Student() {
-    }
+    protected Student() {}
 
     public Student(String name) {
         this.name = name;

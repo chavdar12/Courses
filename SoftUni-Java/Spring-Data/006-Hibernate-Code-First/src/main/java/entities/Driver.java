@@ -19,8 +19,7 @@ public class Driver {
     @ManyToMany(mappedBy = "drivers")
     private Set<Truck> trucks = new HashSet<>();
 
-    protected Driver() {
-    }
+    protected Driver() {}
 
     public Driver(String fullName) {
         this.fullName = fullName;

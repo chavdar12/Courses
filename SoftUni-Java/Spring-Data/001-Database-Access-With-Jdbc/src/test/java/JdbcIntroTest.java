@@ -1,16 +1,19 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class JdbcIntroTest {
 
     @Test
     void ex1PrintsEmployeesWithSalaryAboveInput() throws Exception {
-        try (TestDb db = new TestDb(
-                "CREATE TABLE employees (id INT PRIMARY KEY, first_name VARCHAR(50), last_name VARCHAR(50), salary DECIMAL(19, 4))",
-                "INSERT INTO employees VALUES (1, 'Guy', 'Gilbert', 12500), (2, 'Ken', 'Sanchez', 125500), (3, 'Rob', 'Walters', 60100)")) {
+        try (TestDb db =
+                new TestDb(
+                        "CREATE TABLE employees (id INT PRIMARY KEY, first_name VARCHAR(50), last_name VARCHAR(50), salary DECIMAL(19, 4))",
+                        "INSERT INTO employees VALUES (1, 'Guy', 'Gilbert', 12500), (2, 'Ken', 'Sanchez', 125500), (3, 'Rob', 'Walters', 60100)")) {
 
-            assertEquals("Ken Sanchez\nRob Walters\n", db.run("50000\n", () -> Ex_1.main(new String[0])));
+            assertEquals(
+                    "Ken Sanchez\nRob Walters\n",
+                    db.run("50000\n", () -> Ex_1.main(new String[0])));
         }
     }
 
@@ -25,7 +28,8 @@ class JdbcIntroTest {
     @Test
     void ex2PrintsGamesPlayedByUser() throws Exception {
         try (TestDb db = diablo()) {
-            assertEquals("User: nakov\nSvetlin Nakov has played 3 games\n",
+            assertEquals(
+                    "User: nakov\nSvetlin Nakov has played 3 games\n",
                     db.run("nakov\n", () -> Ex_2.main(new String[0])));
         }
     }
@@ -33,7 +37,8 @@ class JdbcIntroTest {
     @Test
     void ex2ReportsUnknownUser() throws Exception {
         try (TestDb db = diablo()) {
-            assertEquals("No such user exists\n", db.run("ghost\n", () -> Ex_2.main(new String[0])));
+            assertEquals(
+                    "No such user exists\n", db.run("ghost\n", () -> Ex_2.main(new String[0])));
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.exercisejsonprocessing.productshop.entity;
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,10 @@ public class User {
     private Integer age;
 
     @ManyToMany
-    @JoinTable(name = "users_friends", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "friend_id"))
+    @JoinTable(
+            name = "users_friends",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id"))
     private Set<User> friends = new HashSet<>();
 
     @OneToMany(mappedBy = "seller")

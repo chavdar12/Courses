@@ -1,6 +1,7 @@
 package com.example.exerciseSpringDataAutoMappingObjects.utilities;
 
 import jakarta.validation.ConstraintViolation;
+
 import java.util.Set;
 
 public interface ValidationUtil {

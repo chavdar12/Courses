@@ -8,8 +8,11 @@ public class Ex_7 {
 
     public static void main(String[] args) throws SQLException {
 
-        connection = DriverManager.getConnection(System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
 
         statement = connection.prepareStatement("SELECT * FROM minions;");
         resultSet = statement.executeQuery();

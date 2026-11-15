@@ -3,8 +3,9 @@ package com.example.exercisexmlprocessing.cardealer.service;
 import com.example.exercisexmlprocessing.cardealer.dto.XmlDtos.*;
 import com.example.exercisexmlprocessing.cardealer.entity.*;
 import com.example.exercisexmlprocessing.cardealer.repository.*;
-import com.example.exercisexmlprocessing.util.XmlIO;
 import com.example.exercisexmlprocessing.util.ValidationUtil;
+import com.example.exercisexmlprocessing.util.XmlIO;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,8 +19,10 @@ import java.util.Random;
 public class CarDealerService {
 
     /** Discounts the task allows, as fractions of the price. */
-    static final List<BigDecimal> DISCOUNTS = List.of("0", "0.05", "0.10", "0.15", "0.20", "0.30", "0.40", "0.50")
-            .stream().map(BigDecimal::new).toList();
+    static final List<BigDecimal> DISCOUNTS =
+            List.of("0", "0.05", "0.10", "0.15", "0.20", "0.30", "0.40", "0.50").stream()
+                    .map(BigDecimal::new)
+                    .toList();
 
     private final SupplierRepository supplierRepository;
     private final PartRepository partRepository;
@@ -30,9 +33,15 @@ public class CarDealerService {
     private final ValidationUtil validation;
     private final Random random;
 
-    public CarDealerService(SupplierRepository supplierRepository, PartRepository partRepository, CarRepository carRepository,
-                            CustomerRepository customerRepository, SaleRepository saleRepository, XmlIO xml,
-                            ValidationUtil validation, Random random) {
+    public CarDealerService(
+            SupplierRepository supplierRepository,
+            PartRepository partRepository,
+            CarRepository carRepository,
+            CustomerRepository customerRepository,
+            SaleRepository saleRepository,
+            XmlIO xml,
+            ValidationUtil validation,
+            Random random) {
         this.supplierRepository = supplierRepository;
         this.partRepository = partRepository;
         this.carRepository = carRepository;
@@ -43,7 +52,10 @@ public class CarDealerService {
         this.random = random;
     }
 
-    /** Seeds everything; parts get a random supplier, cars 3-5 random parts, each customer buys one random car. */
+    /**
+     * Seeds everything; parts get a random supplier, cars 3-5 random parts, each customer buys one
+     * random car.
+     */
     @Transactional
     public void seed() {
         if (supplierRepository.count() > 0) {
@@ -112,7 +124,9 @@ public class CarDealerService {
     @Transactional(readOnly = true)
     public List<OrderedCustomer> orderedCustomers() {
         return customerRepository.findAllByOrderByBirthDateAscIsYoungDriverAsc().stream()
-                .map(c -> new OrderedCustomer(c.getId(), c.getName(), c.getBirthDate(), c.getIsYoungDriver()))
+                .map(c ->
+                        new OrderedCustomer(
+                                c.getId(), c.getName(), c.getBirthDate(), c.getIsYoungDriver()))
                 .toList();
     }
 
@@ -120,7 +134,9 @@ public class CarDealerService {
     @Transactional(readOnly = true)
     public List<ToyotaCar> toyotaCars() {
         return carRepository.findAllByMakeOrderByModelAscTravelledDistanceDesc("Toyota").stream()
-                .map(c -> new ToyotaCar(c.getId(), c.getMake(), c.getModel(), c.getTravelledDistance()))
+                .map(c ->
+                        new ToyotaCar(
+                                c.getId(), c.getMake(), c.getModel(), c.getTravelledDistance()))
                 .toList();
     }
 
@@ -136,21 +152,37 @@ public class CarDealerService {
     @Transactional(readOnly = true)
     public List<CarWithParts> carsWithParts() {
         return carRepository.findAll().stream()
-                .map(c -> new CarWithParts(c.getMake(), c.getModel(), c.getTravelledDistance(), c.getParts().stream()
-                        .sorted(Comparator.comparing(Part::getId))
-                        .map(p -> new PartInfo(p.getName(), p.getPrice()))
-                        .toList()))
+                .map(c ->
+                        new CarWithParts(
+                                c.getMake(),
+                                c.getModel(),
+                                c.getTravelledDistance(),
+                                c.getParts().stream()
+                                        .sorted(Comparator.comparing(Part::getId))
+                                        .map(p -> new PartInfo(p.getName(), p.getPrice()))
+                                        .toList()))
                 .toList();
     }
 
-    /** Query 5: customers who bought a car, by money spent (after discount), then by cars bought. */
+    /**
+     * Query 5: customers who bought a car, by money spent (after discount), then by cars bought.
+     */
     @Transactional(readOnly = true)
     public List<CustomerTotal> totalSalesByCustomer() {
         return customerRepository.findAllBySalesIsNotEmpty().stream()
-                .map(c -> new CustomerTotal(c.getName(), c.getSales().size(),
-                        c.getSales().stream().map(CarDealerService::priceWithDiscount).reduce(BigDecimal.ZERO, BigDecimal::add)))
-                .sorted(Comparator.comparing((CustomerTotal t) -> t.spentMoney).reversed()
-                        .thenComparing(Comparator.comparingInt((CustomerTotal t) -> t.boughtCars).reversed()))
+                .map(c ->
+                        new CustomerTotal(
+                                c.getName(),
+                                c.getSales().size(),
+                                c.getSales().stream()
+                                        .map(CarDealerService::priceWithDiscount)
+                                        .reduce(BigDecimal.ZERO, BigDecimal::add)))
+                .sorted(
+                        Comparator.comparing((CustomerTotal t) -> t.spentMoney)
+                                .reversed()
+                                .thenComparing(
+                                        Comparator.comparingInt((CustomerTotal t) -> t.boughtCars)
+                                                .reversed()))
                 .toList();
     }
 
@@ -158,8 +190,13 @@ public class CarDealerService {
     @Transactional(readOnly = true)
     public List<SaleWithDiscount> salesWithDiscount() {
         return saleRepository.findAll().stream()
-                .map(s -> new SaleWithDiscount(carInfo(s.getCar()), s.getCustomer().getName(), s.getDiscount(),
-                        price(s.getCar()), priceWithDiscount(s)))
+                .map(s ->
+                        new SaleWithDiscount(
+                                carInfo(s.getCar()),
+                                s.getCustomer().getName(),
+                                s.getDiscount(),
+                                price(s.getCar()),
+                                priceWithDiscount(s)))
                 .toList();
     }
 
@@ -168,7 +205,9 @@ public class CarDealerService {
     }
 
     static BigDecimal priceWithDiscount(Sale sale) {
-        return price(sale.getCar()).multiply(BigDecimal.ONE.subtract(sale.getDiscount())).setScale(2, RoundingMode.HALF_UP);
+        return price(sale.getCar())
+                .multiply(BigDecimal.ONE.subtract(sale.getDiscount()))
+                .setScale(2, RoundingMode.HALF_UP);
     }
 
     private static CarInfo carInfo(Car car) {

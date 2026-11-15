@@ -3,8 +3,9 @@ package com.example.exerciseSpringDataAdvancedQuerying.service.impl;
 import com.example.exerciseSpringDataAdvancedQuerying.model.entity.Category;
 import com.example.exerciseSpringDataAdvancedQuerying.repository.CategoryRepository;
 import com.example.exerciseSpringDataAdvancedQuerying.service.CategoryService;
-import org.springframework.data.domain.PageRequest;
+
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -30,11 +31,15 @@ public class CategoryServiceImpl implements CategoryService {
             return;
         }
 
-        new ClassPathResource(CATEGORIES_FILE_PATH).getContentAsString(StandardCharsets.UTF_8).lines().filter(row -> !row.isBlank()).forEach(categoryName -> {
-            Category category = new Category(categoryName);
+        new ClassPathResource(CATEGORIES_FILE_PATH)
+                .getContentAsString(StandardCharsets.UTF_8)
+                .lines()
+                .filter(row -> !row.isBlank())
+                .forEach(categoryName -> {
+                    Category category = new Category(categoryName);
 
-            categoryRepository.save(category);
-        });
+                    categoryRepository.save(category);
+                });
     }
 
     @Override
@@ -46,10 +51,11 @@ public class CategoryServiceImpl implements CategoryService {
         for (int i = 0; i < randInt; i++) {
             long randomIndex = ThreadLocalRandom.current().nextLong(catRepoCount);
 
-            categoryRepository.findAll(PageRequest.of((int) randomIndex, 1)).stream().findFirst().ifPresent(categories::add);
+            categoryRepository.findAll(PageRequest.of((int) randomIndex, 1)).stream()
+                    .findFirst()
+                    .ifPresent(categories::add);
         }
 
         return categories;
-
     }
 }

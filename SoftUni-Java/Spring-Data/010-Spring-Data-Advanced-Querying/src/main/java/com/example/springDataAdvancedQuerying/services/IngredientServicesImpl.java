@@ -2,6 +2,7 @@ package com.example.springDataAdvancedQuerying.services;
 
 import com.example.springDataAdvancedQuerying.entities.Ingredient;
 import com.example.springDataAdvancedQuerying.repositories.IngredientRepository;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

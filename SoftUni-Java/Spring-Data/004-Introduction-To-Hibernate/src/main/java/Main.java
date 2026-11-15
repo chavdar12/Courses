@@ -1,4 +1,5 @@
 import entities.Student;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -10,11 +11,15 @@ public class Main {
     public static void main(String[] args) {
         Configuration configuration = new Configuration().configure();
         // credentials from the environment win over hibernate.cfg.xml
-        if (System.getenv("DB_USERNAME") != null) configuration.setProperty("hibernate.connection.username", System.getenv("DB_USERNAME"));
-        if (System.getenv("DB_PASSWORD") != null) configuration.setProperty("hibernate.connection.password", System.getenv("DB_PASSWORD"));
+        if (System.getenv("DB_USERNAME") != null)
+            configuration.setProperty(
+                    "hibernate.connection.username", System.getenv("DB_USERNAME"));
+        if (System.getenv("DB_PASSWORD") != null)
+            configuration.setProperty(
+                    "hibernate.connection.password", System.getenv("DB_PASSWORD"));
 
         try (SessionFactory sessionFactory = configuration.buildSessionFactory();
-             Session session = sessionFactory.openSession()) {
+                Session session = sessionFactory.openSession()) {
 
             Student student = save(session, new Student("Teo"));
             System.out.println("Saved: " + student);

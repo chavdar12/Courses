@@ -1,6 +1,7 @@
 package com.example.exercisexmlprocessing.productshop.entity;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +29,10 @@ public class Product {
     private User seller;
 
     @ManyToMany
-    @JoinTable(name = "products_categories", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @JoinTable(
+            name = "products_categories",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
     public Long getId() {

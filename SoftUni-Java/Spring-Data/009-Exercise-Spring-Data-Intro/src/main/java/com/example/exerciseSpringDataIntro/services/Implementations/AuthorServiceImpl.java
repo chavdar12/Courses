@@ -3,8 +3,9 @@ package com.example.exerciseSpringDataIntro.services.Implementations;
 import com.example.exerciseSpringDataIntro.models.Author;
 import com.example.exerciseSpringDataIntro.repositories.AuthorRepository;
 import com.example.exerciseSpringDataIntro.services.AuthorService;
-import org.springframework.data.domain.PageRequest;
+
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -29,14 +30,17 @@ public class AuthorServiceImpl implements AuthorService {
             return;
         }
 
-        new ClassPathResource(AUTHORS_FILE_PATH).getContentAsString(StandardCharsets.UTF_8).lines().filter(row -> !row.isBlank()).forEach(row -> {
+        new ClassPathResource(AUTHORS_FILE_PATH)
+                .getContentAsString(StandardCharsets.UTF_8)
+                .lines()
+                .filter(row -> !row.isBlank())
+                .forEach(row -> {
+                    String[] fullName = row.split("\\s+");
 
-            String[] fullName = row.split("\\s+");
+                    Author author = new Author(fullName[0], fullName[1]);
 
-            Author author = new Author(fullName[0], fullName[1]);
-
-            authorRepository.save(author);
-        });
+                    authorRepository.save(author);
+                });
     }
 
     @Override
@@ -51,6 +55,8 @@ public class AuthorServiceImpl implements AuthorService {
         // pick by position: ids are not guaranteed to be 1..count
         long randomIndex = ThreadLocalRandom.current().nextLong(authorRepository.count());
 
-        return authorRepository.findAll(PageRequest.of((int) randomIndex, 1)).stream().findFirst().orElse(null);
+        return authorRepository.findAll(PageRequest.of((int) randomIndex, 1)).stream()
+                .findFirst()
+                .orElse(null);
     }
 }

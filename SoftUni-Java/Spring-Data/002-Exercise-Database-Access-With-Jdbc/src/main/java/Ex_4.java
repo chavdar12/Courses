@@ -11,8 +11,11 @@ public class Ex_4 {
     public static void main(String[] args) throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        connection = DriverManager.getConnection(System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
 
         String[] minionParameters = reader.readLine().split("\\s+");
 
@@ -33,24 +36,28 @@ public class Ex_4 {
 
         addMinionToVillain(insertMinion(minionName, minionAge, minionTown), villainName);
         System.out.printf("Successfully added %s to be minion of %s.", minionName, villainName);
-
     }
 
     private static void addMinionToVillain(int minionId, String villainName) throws SQLException {
 
         // link by the new minion's id: names are not unique
-        statement = connection.prepareStatement("INSERT INTO minions_villains (minion_id, villain_id) VALUES (?, " +
-                                                "(SELECT id FROM villains WHERE name = ? LIMIT 1))");
+        statement =
+                connection.prepareStatement(
+                        "INSERT INTO minions_villains (minion_id, villain_id) VALUES (?, "
+                                + "(SELECT id FROM villains WHERE name = ? LIMIT 1))");
         statement.setInt(1, minionId);
         statement.setString(2, villainName);
         statement.execute();
     }
 
-    private static int insertMinion(String minionName, int minionAge, String minionTown) throws SQLException {
+    private static int insertMinion(String minionName, int minionAge, String minionTown)
+            throws SQLException {
 
         statement =
-                connection.prepareStatement("INSERT INTO minions (name, age,town_id) VALUES (?, ?, (SELECT id " +
-                                            "FROM towns WHERE name = ? LIMIT 1))", Statement.RETURN_GENERATED_KEYS);
+                connection.prepareStatement(
+                        "INSERT INTO minions (name, age,town_id) VALUES (?, ?, (SELECT id "
+                                + "FROM towns WHERE name = ? LIMIT 1))",
+                        Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, minionName);
         statement.setInt(2, minionAge);
         statement.setString(3, minionTown);
@@ -61,7 +68,9 @@ public class Ex_4 {
     }
 
     private static void insertEntityInVillains(String villainName) throws SQLException {
-        statement = connection.prepareStatement("INSERT INTO villains (name, evilness_factor) values(?, ?)");
+        statement =
+                connection.prepareStatement(
+                        "INSERT INTO villains (name, evilness_factor) values(?, ?)");
         statement.setString(1, villainName);
         statement.setString(2, "evil");
         statement.execute();
@@ -76,7 +85,8 @@ public class Ex_4 {
         statement.execute();
     }
 
-    private static boolean checkIfEntityExistByName(String entityName, String tableName) throws SQLException {
+    private static boolean checkIfEntityExistByName(String entityName, String tableName)
+            throws SQLException {
 
         statement = connection.prepareStatement("SELECT * FROM " + tableName + " WHERE name = ?");
 

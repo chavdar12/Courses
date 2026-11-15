@@ -11,18 +11,20 @@ import java.time.LocalDateTime;
 /** Shapes of suppliers.json, parts.json, cars.json and customers.json. */
 public final class SeedDtos {
 
-    private SeedDtos() {
-    }
+    private SeedDtos() {}
 
-    public record SupplierSeed(@NotBlank String name, boolean isImporter) {
-    }
+    public record SupplierSeed(@NotBlank String name, boolean isImporter) {}
 
-    public record PartSeed(@NotBlank String name, @NotNull @Positive BigDecimal price, @PositiveOrZero Integer quantity) {
-    }
+    public record PartSeed(
+            @NotBlank String name,
+            @NotNull @Positive BigDecimal price,
+            @PositiveOrZero Integer quantity) {}
 
-    public record CarSeed(@NotBlank String make, @NotBlank String model, @NotNull @PositiveOrZero Long travelledDistance) {
-    }
+    public record CarSeed(
+            @NotBlank String make,
+            @NotBlank String model,
+            @NotNull @PositiveOrZero Long travelledDistance) {}
 
-    public record CustomerSeed(@NotBlank String name, @NotNull LocalDateTime birthDate, boolean isYoungDriver) {
-    }
+    public record CustomerSeed(
+            @NotBlank String name, @NotNull LocalDateTime birthDate, boolean isYoungDriver) {}
 }

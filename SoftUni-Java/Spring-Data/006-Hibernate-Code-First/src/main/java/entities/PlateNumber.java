@@ -13,8 +13,7 @@ public class PlateNumber {
     @Column(nullable = false, unique = true)
     private String number;
 
-    protected PlateNumber() {
-    }
+    protected PlateNumber() {}
 
     public PlateNumber(String number) {
         this.number = number;

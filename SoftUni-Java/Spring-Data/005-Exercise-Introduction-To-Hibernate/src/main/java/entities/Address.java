@@ -24,8 +24,7 @@ public class Address {
     @OneToMany(mappedBy = "address")
     private Set<Employee> employees = new HashSet<>();
 
-    protected Address() {
-    }
+    protected Address() {}
 
     public Address(String text, Town town) {
         this.text = text;

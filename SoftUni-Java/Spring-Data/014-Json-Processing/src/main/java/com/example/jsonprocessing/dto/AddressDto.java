@@ -4,17 +4,13 @@ import com.google.gson.annotations.Expose;
 
 public class AddressDto {
 
-    @Expose
-    private String country;
+    @Expose private String country;
 
-    @Expose
-    private String city;
+    @Expose private String city;
 
-    @Expose
-    private String street;
+    @Expose private String street;
 
-    public AddressDto() {
-    }
+    public AddressDto() {}
 
     public AddressDto(String country, String city, String street) {
         this.country = country;

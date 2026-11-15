@@ -9,12 +9,21 @@ public class Ex_2 {
     public static void main(String[] args) throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        connection = DriverManager.getConnection(System.getProperty("db.url", "jdbc:mysql://localhost:3306/diablo"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        System.getProperty("db.url", "jdbc:mysql://localhost:3306/diablo"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
 
-        PreparedStatement stmt = connection.prepareStatement("SELECT u.first_name, u.last_name, count(ug.game_id)" +
-                "\r\n" + "FROM users as u\r\n" + "INNER JOIN users_games as ug ON u.id=ug.user_id\r\n" + "WHERE u" +
-                ".user_name = ?\r\n" + "GROUP BY u.id, u.first_name, u.last_name;");
+        PreparedStatement stmt =
+                connection.prepareStatement(
+                        "SELECT u.first_name, u.last_name, count(ug.game_id)"
+                                + "\r\n"
+                                + "FROM users as u\r\n"
+                                + "INNER JOIN users_games as ug ON u.id=ug.user_id\r\n"
+                                + "WHERE u"
+                                + ".user_name = ?\r\n"
+                                + "GROUP BY u.id, u.first_name, u.last_name;");
 
         String user = reader.readLine();
 
@@ -23,8 +32,9 @@ public class Ex_2 {
         ResultSet rs = stmt.executeQuery();
 
         if (rs.next()) {
-            System.out.printf("User: %s\r\n%s %s has played %d games\r\n", user, rs.getString("first_name"),
-                    rs.getString("last_name"), rs.getInt(3));
+            System.out.printf(
+                    "User: %s\r\n%s %s has played %d games\r\n",
+                    user, rs.getString("first_name"), rs.getString("last_name"), rs.getInt(3));
         } else {
             System.out.println("No such user exists");
         }

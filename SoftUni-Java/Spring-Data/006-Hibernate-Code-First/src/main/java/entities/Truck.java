@@ -14,13 +14,13 @@ public class Truck extends Vehicle {
     private Double loadCapacity;
 
     @ManyToMany
-    @JoinTable(name = "trucks_drivers",
+    @JoinTable(
+            name = "trucks_drivers",
             joinColumns = @JoinColumn(name = "truck_id"),
             inverseJoinColumns = @JoinColumn(name = "driver_id"))
     private Set<Driver> drivers = new HashSet<>();
 
-    protected Truck() {
-    }
+    protected Truck() {}
 
     public Truck(String model, BigDecimal price, String fuelType, double loadCapacity) {
         super(model, price, fuelType);

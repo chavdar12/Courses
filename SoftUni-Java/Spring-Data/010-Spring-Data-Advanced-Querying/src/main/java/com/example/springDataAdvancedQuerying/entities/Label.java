@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
 import java.util.Set;
 
 @Entity
@@ -14,8 +15,7 @@ public class Label extends BaseEntity {
     private String subtitle;
     private Set<Shampoo> shampoos;
 
-    public Label() {
-    }
+    public Label() {}
 
     @Column(name = "title")
     public String getTitle() {

@@ -9,5 +9,4 @@ public class ExerciseSpringDataIntroApplication {
     public static void main(String[] args) {
         SpringApplication.run(ExerciseSpringDataIntroApplication.class, args);
     }
-
 }

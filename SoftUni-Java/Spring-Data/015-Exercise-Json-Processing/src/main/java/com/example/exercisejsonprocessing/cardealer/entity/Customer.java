@@ -1,7 +1,7 @@
 package com.example.exercisejsonprocessing.cardealer.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;

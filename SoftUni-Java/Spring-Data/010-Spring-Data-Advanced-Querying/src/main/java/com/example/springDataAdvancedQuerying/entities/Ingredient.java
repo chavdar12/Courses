@@ -1,6 +1,7 @@
 package com.example.springDataAdvancedQuerying.entities;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -12,8 +13,7 @@ public class Ingredient extends BaseEntity {
     private BigDecimal price;
     private Set<Shampoo> shampoos;
 
-    public Ingredient() {
-    }
+    public Ingredient() {}
 
     @Column(name = "name")
     public String getName() {

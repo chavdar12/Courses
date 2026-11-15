@@ -5,6 +5,7 @@ import com.example.exerciseSpringDataAutoMappingObjects.models.dto.UserLoginDto;
 import com.example.exerciseSpringDataAutoMappingObjects.models.dto.UserRegisterDto;
 import com.example.exerciseSpringDataAutoMappingObjects.services.GameService;
 import com.example.exerciseSpringDataAutoMappingObjects.services.UserService;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -53,7 +54,8 @@ public class CLR implements CommandLineRunner {
                     System.out.println("Invalid command");
                     return;
                 }
-                userService.registerUser(new UserRegisterDto(command[1], command[2], command[3], command[4]));
+                userService.registerUser(
+                        new UserRegisterDto(command[1], command[2], command[3], command[4]));
             }
             case "LoginUser" -> {
                 if (command.length < 3) {
@@ -68,8 +70,16 @@ public class CLR implements CommandLineRunner {
                     System.out.println("Invalid command");
                     return;
                 }
-                gameService.addGame(new GameAddDto(command[1], new BigDecimal(command[2]), new BigDecimal(command[3]),
-                        command[4], command[5], command[6], LocalDate.parse(command[7], DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
+                gameService.addGame(
+                        new GameAddDto(
+                                command[1],
+                                new BigDecimal(command[2]),
+                                new BigDecimal(command[3]),
+                                command[4],
+                                command[5],
+                                command[6],
+                                LocalDate.parse(
+                                        command[7], DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
             }
             case "EditGame" -> {
                 if (command.length < 3) {
@@ -77,7 +87,9 @@ public class CLR implements CommandLineRunner {
                     return;
                 }
                 Map<String, String> values = new LinkedHashMap<>();
-                Arrays.stream(command).skip(2).map(pair -> pair.split("=", 2))
+                Arrays.stream(command)
+                        .skip(2)
+                        .map(pair -> pair.split("=", 2))
                         .forEach(pair -> values.put(pair[0], pair.length > 1 ? pair[1] : ""));
                 gameService.editGame(Long.parseLong(command[1]), values);
             }

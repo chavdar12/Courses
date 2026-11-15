@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,8 +22,7 @@ public class User extends BaseEntity {
 
     private Set<Game> games = new HashSet<>();
 
-    public User() {
-    }
+    public User() {}
 
     @Column(unique = true)
     public String getEmail() {

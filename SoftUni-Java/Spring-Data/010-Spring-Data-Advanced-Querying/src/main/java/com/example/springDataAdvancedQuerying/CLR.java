@@ -4,6 +4,7 @@ import com.example.springDataAdvancedQuerying.entities.Size;
 import com.example.springDataAdvancedQuerying.repositories.LabelRepository;
 import com.example.springDataAdvancedQuerying.services.IngredientServices;
 import com.example.springDataAdvancedQuerying.services.ShampooServices;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -24,8 +25,11 @@ public class CLR implements CommandLineRunner {
     private final IngredientServices ingredientServices;
     private final LabelRepository labelRepository;
 
-    public CLR(DataSeeder dataSeeder, ShampooServices shampooServices, IngredientServices ingredientServices,
-               LabelRepository labelRepository) {
+    public CLR(
+            DataSeeder dataSeeder,
+            ShampooServices shampooServices,
+            IngredientServices ingredientServices,
+            LabelRepository labelRepository) {
         this.dataSeeder = dataSeeder;
         this.shampooServices = shampooServices;
         this.ingredientServices = ingredientServices;
@@ -42,35 +46,60 @@ public class CLR implements CommandLineRunner {
             return;
         }
         switch (task.trim()) {
-            case "1" -> shampooServices.findAllBySizeOrderById(readSize()).forEach(System.out::println);
+            case "1" ->
+                    shampooServices.findAllBySizeOrderById(readSize()).forEach(System.out::println);
             case "2" -> {
                 Size size = readSize();
                 System.out.println("Label id:");
-                labelRepository.findById(Long.parseLong(reader.readLine().trim())).ifPresentOrElse(
-                        label -> shampooServices.findAllBySizeOrLabelIdOrderByPrice(size, label).forEach(System.out::println),
-                        () -> System.out.println("No such label"));
+                labelRepository
+                        .findById(Long.parseLong(reader.readLine().trim()))
+                        .ifPresentOrElse(
+                                label ->
+                                        shampooServices
+                                                .findAllBySizeOrLabelIdOrderByPrice(size, label)
+                                                .forEach(System.out::println),
+                                () -> System.out.println("No such label"));
             }
-            case "3" -> shampooServices.findAllByPriceHigherThan(readPrice()).forEach(System.out::println);
+            case "3" ->
+                    shampooServices
+                            .findAllByPriceHigherThan(readPrice())
+                            .forEach(System.out::println);
             case "4" -> {
                 System.out.println("Starting letters:");
-                ingredientServices.findAllByNameStartingWith(reader.readLine().trim())
+                ingredientServices
+                        .findAllByNameStartingWith(reader.readLine().trim())
                         .forEach(i -> System.out.println(i.getName()));
             }
-            case "5" -> ingredientServices.findAllByNamesOrderByPrice(readNames())
-                    .forEach(i -> System.out.println(i.getName()));
+            case "5" ->
+                    ingredientServices
+                            .findAllByNamesOrderByPrice(readNames())
+                            .forEach(i -> System.out.println(i.getName()));
             case "6" -> System.out.println(shampooServices.countByPriceLowerThan(readPrice()));
-            case "7" -> shampooServices.findAllByIngredientNames(readNames()).forEach(s -> System.out.println(s.getBrand()));
+            case "7" ->
+                    shampooServices
+                            .findAllByIngredientNames(readNames())
+                            .forEach(s -> System.out.println(s.getBrand()));
             case "8" -> {
                 System.out.println("Ingredient count:");
-                shampooServices.findAllWithIngredientCountLessThan(Integer.parseInt(reader.readLine().trim()))
+                shampooServices
+                        .findAllWithIngredientCountLessThan(
+                                Integer.parseInt(reader.readLine().trim()))
                         .forEach(s -> System.out.println(s.getBrand()));
             }
             case "9" -> {
                 System.out.println("Ingredient name:");
-                System.out.println(ingredientServices.deleteByName(reader.readLine().trim()) + " ingredient(s) deleted");
+                System.out.println(
+                        ingredientServices.deleteByName(reader.readLine().trim())
+                                + " ingredient(s) deleted");
             }
-            case "10" -> System.out.println(ingredientServices.increaseAllPricesBy10Percent() + " ingredient prices increased");
-            case "11" -> System.out.println(ingredientServices.increasePricesBy10Percent(readNames()) + " ingredient prices increased");
+            case "10" ->
+                    System.out.println(
+                            ingredientServices.increaseAllPricesBy10Percent()
+                                    + " ingredient prices increased");
+            case "11" ->
+                    System.out.println(
+                            ingredientServices.increasePricesBy10Percent(readNames())
+                                    + " ingredient prices increased");
             default -> System.out.println("Unknown task");
         }
     }
@@ -87,6 +116,9 @@ public class CLR implements CommandLineRunner {
 
     private List<String> readNames() throws IOException {
         System.out.println("Ingredient names, comma separated:");
-        return Arrays.stream(reader.readLine().split(",")).map(String::trim).filter(s -> !s.isEmpty()).toList();
+        return Arrays.stream(reader.readLine().split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .toList();
     }
 }

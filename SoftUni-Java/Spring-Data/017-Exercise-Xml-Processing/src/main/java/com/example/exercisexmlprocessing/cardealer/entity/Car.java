@@ -1,6 +1,7 @@
 package com.example.exercisexmlprocessing.cardealer.entity;
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +23,10 @@ public class Car {
     private Long travelledDistance;
 
     @ManyToMany
-    @JoinTable(name = "parts_cars", joinColumns = @JoinColumn(name = "car_id"), inverseJoinColumns = @JoinColumn(name = "part_id"))
+    @JoinTable(
+            name = "parts_cars",
+            joinColumns = @JoinColumn(name = "car_id"),
+            inverseJoinColumns = @JoinColumn(name = "part_id"))
     private Set<Part> parts = new HashSet<>();
 
     public Long getId() {

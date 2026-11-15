@@ -30,10 +30,10 @@ public class Project {
     @ManyToMany(mappedBy = "projects")
     private Set<Employee> employees = new HashSet<>();
 
-    protected Project() {
-    }
+    protected Project() {}
 
-    public Project(String name, String description, LocalDateTime startDate, LocalDateTime endDate) {
+    public Project(
+            String name, String description, LocalDateTime startDate, LocalDateTime endDate) {
         this.name = name;
         this.description = description;
         this.startDate = startDate;

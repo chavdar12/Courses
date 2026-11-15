@@ -3,9 +3,11 @@ package com.example.xmlprocessing;
 import com.example.xmlprocessing.dto.AddressDto;
 import com.example.xmlprocessing.dto.PeopleDto;
 import com.example.xmlprocessing.dto.PersonDto;
+
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -28,8 +30,14 @@ public class XmlDemo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        PersonDto pesho = new PersonDto("Pesho", "Peshev", LocalDate.of(1990, 5, 20), List.of("+359 888 123 456"),
-                new AddressDto("Bulgaria", "Sofia", "Vitoshka 15"), "secret");
+        PersonDto pesho =
+                new PersonDto(
+                        "Pesho",
+                        "Peshev",
+                        LocalDate.of(1990, 5, 20),
+                        List.of("+359 888 123 456"),
+                        new AddressDto("Bulgaria", "Sofia", "Vitoshka 15"),
+                        "secret");
 
         System.out.println("Object to XML:");
         System.out.println(toXml(pesho));
@@ -38,13 +46,17 @@ public class XmlDemo implements CommandLineRunner {
         System.out.println(toXml(new PeopleDto(List.of(pesho))));
 
         System.out.println("XML to object:");
-        PersonDto parsed = fromXml("<person first-name=\"Gosho\" last-name=\"Goshev\"><address country=\"Bulgaria\"><city>Varna</city></address></person>",
-                PersonDto.class);
+        PersonDto parsed =
+                fromXml(
+                        "<person first-name=\"Gosho\" last-name=\"Goshev\"><address country=\"Bulgaria\"><city>Varna</city></address></person>",
+                        PersonDto.class);
         System.out.println(parsed.getFirstName() + " from " + parsed.getAddress().getCity());
 
         System.out.println("XML file to objects:");
         for (PersonDto person : readPeople().getPeople()) {
-            System.out.printf("%s %s from %s%n", person.getFirstName(), person.getLastName(), person.getAddress().getCity());
+            System.out.printf(
+                    "%s %s from %s%n",
+                    person.getFirstName(), person.getLastName(), person.getAddress().getCity());
         }
     }
 

@@ -14,10 +14,10 @@ public class Car extends Vehicle {
     @JoinColumn(name = "plate_number_id", unique = true)
     private PlateNumber plateNumber;
 
-    protected Car() {
-    }
+    protected Car() {}
 
-    public Car(String model, BigDecimal price, String fuelType, int seats, PlateNumber plateNumber) {
+    public Car(
+            String model, BigDecimal price, String fuelType, int seats, PlateNumber plateNumber) {
         super(model, price, fuelType);
         this.seats = seats;
         this.plateNumber = plateNumber;

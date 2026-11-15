@@ -1,6 +1,7 @@
 package com.example.springDataAdvancedQuerying;
 
 import com.example.springDataAdvancedQuerying.repositories.ShampooRepository;
+
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,8 @@ public class DataSeeder {
 
     public void seed() {
         if (shampooRepository.count() == 0) {
-            new ResourceDatabasePopulator(new ClassPathResource("shampoo-company-insert.sql")).execute(dataSource);
+            new ResourceDatabasePopulator(new ClassPathResource("shampoo-company-insert.sql"))
+                    .execute(dataSource);
         }
     }
 }

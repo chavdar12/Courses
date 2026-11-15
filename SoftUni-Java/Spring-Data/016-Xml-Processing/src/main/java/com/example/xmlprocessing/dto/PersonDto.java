@@ -24,18 +24,20 @@ public class PersonDto {
     @XmlElement(name = "phone-number")
     private List<String> phoneNumbers;
 
-    @XmlElement
-    private AddressDto address;
+    @XmlElement private AddressDto address;
 
     // never written to or read from XML
-    @XmlTransient
-    private String password;
+    @XmlTransient private String password;
 
-    public PersonDto() {
-    }
+    public PersonDto() {}
 
-    public PersonDto(String firstName, String lastName, LocalDate birthDate, List<String> phoneNumbers, AddressDto address,
-                     String password) {
+    public PersonDto(
+            String firstName,
+            String lastName,
+            LocalDate birthDate,
+            List<String> phoneNumbers,
+            AddressDto address,
+            String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;

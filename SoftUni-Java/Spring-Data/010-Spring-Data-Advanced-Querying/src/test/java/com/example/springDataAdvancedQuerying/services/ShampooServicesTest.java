@@ -1,10 +1,13 @@
 package com.example.springDataAdvancedQuerying.services;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.example.springDataAdvancedQuerying.entities.Label;
 import com.example.springDataAdvancedQuerying.entities.Shampoo;
 import com.example.springDataAdvancedQuerying.entities.Size;
 import com.example.springDataAdvancedQuerying.repositories.LabelRepository;
 import com.example.springDataAdvancedQuerying.repositories.ShampooRepository;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +17,13 @@ import org.springframework.context.annotation.Import;
 import java.math.BigDecimal;
 import java.util.Set;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @DataJpaTest
 @Import(ShampooServicesImpl.class)
 class ShampooServicesTest {
 
-    @Autowired
-    private ShampooServices shampooServices;
-    @Autowired
-    private ShampooRepository shampooRepository;
-    @Autowired
-    private LabelRepository labelRepository;
+    @Autowired private ShampooServices shampooServices;
+    @Autowired private ShampooRepository shampooRepository;
+    @Autowired private LabelRepository labelRepository;
 
     private Label fresh;
 
@@ -57,19 +55,22 @@ class ShampooServicesTest {
 
     @Test
     void findsBySizeOrderedById() {
-        assertThat(shampooServices.findAllBySizeOrderById(Size.MEDIUM)).extracting(Shampoo::getBrand)
+        assertThat(shampooServices.findAllBySizeOrderById(Size.MEDIUM))
+                .extracting(Shampoo::getBrand)
                 .containsExactly("Nettle", "Aloe");
     }
 
     @Test
     void findsBySizeOrLabelOrderedByPrice() {
-        assertThat(shampooServices.findAllBySizeOrLabelIdOrderByPrice(Size.MEDIUM, fresh)).extracting(Shampoo::getBrand)
+        assertThat(shampooServices.findAllBySizeOrLabelIdOrderByPrice(Size.MEDIUM, fresh))
+                .extracting(Shampoo::getBrand)
                 .containsExactly("Apple", "Aloe", "Nettle");
     }
 
     @Test
     void toStringShowsBrandSizeAndPrice() {
-        assertThat(shampooServices.findAllBySizeOrderById(Size.LARGE)).singleElement().hasToString(
-                String.format("Big LARGE %.2flv.", 3.10));
+        assertThat(shampooServices.findAllBySizeOrderById(Size.LARGE))
+                .singleElement()
+                .hasToString(String.format("Big LARGE %.2flv.", 3.10));
     }
 }

@@ -5,6 +5,7 @@ import com.example.exerciseSpringDataIntro.repositories.BookRepository;
 import com.example.exerciseSpringDataIntro.services.AuthorService;
 import com.example.exerciseSpringDataIntro.services.BookService;
 import com.example.exerciseSpringDataIntro.services.CategoryService;
+
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +28,10 @@ public class BookServiceImpl implements BookService {
     private final AuthorService authorService;
     private final CategoryService categoryService;
 
-    public BookServiceImpl(BookRepository bookRepository, AuthorService authorService,
-                           CategoryService categoryService) {
+    public BookServiceImpl(
+            BookRepository bookRepository,
+            AuthorService authorService,
+            CategoryService categoryService) {
         this.bookRepository = bookRepository;
         this.authorService = authorService;
         this.categoryService = categoryService;
@@ -40,13 +43,17 @@ public class BookServiceImpl implements BookService {
             return;
         }
 
-        new ClassPathResource(BOOKS_FILE_PATH).getContentAsString(StandardCharsets.UTF_8).lines().filter(row -> !row.isBlank()).forEach(row -> {
-            String[] bookInfo = row.split("\\s+");
+        new ClassPathResource(BOOKS_FILE_PATH)
+                .getContentAsString(StandardCharsets.UTF_8)
+                .lines()
+                .filter(row -> !row.isBlank())
+                .forEach(row -> {
+                    String[] bookInfo = row.split("\\s+");
 
-            Book book = createBookFromInfo(bookInfo);
+                    Book book = createBookFromInfo(bookInfo);
 
-            bookRepository.save(book);
-        });
+                    bookRepository.save(book);
+                });
     }
 
     @Override
@@ -56,27 +63,33 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<String> findAllAuthorsWithBooksWithReleaseDateBeforeYear(int year) {
-        return bookRepository.findAllByReleaseDateBefore(LocalDate.of(year, 1, 1))
-                .stream()
-                .map(book -> String.format("%s %s", book.getAuthor().getFirstName(),
-                                           book.getAuthor().getLastName()))
+        return bookRepository.findAllByReleaseDateBefore(LocalDate.of(year, 1, 1)).stream()
+                .map(book ->
+                        String.format(
+                                "%s %s",
+                                book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
                 .distinct()
                 .collect(Collectors.toList());
     }
 
-
     @Override
     public List<String> findAllBooksByAuthorOrderByReleaseDate(String firstName, String lastName) {
-        return bookRepository.findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(firstName, lastName)
+        return bookRepository
+                .findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(
+                        firstName, lastName)
                 .stream()
-                .map(book -> "%s %s %d".formatted(book.getTitle(), book.getReleaseDate(), book.getCopies()))
+                .map(book ->
+                        "%s %s %d"
+                                .formatted(
+                                        book.getTitle(), book.getReleaseDate(), book.getCopies()))
                 .toList();
     }
 
     private Book createBookFromInfo(String[] bookInfo) {
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
 
-        LocalDate releaseDate = LocalDate.parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));
+        LocalDate releaseDate =
+                LocalDate.parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));
 
         Integer copies = Integer.parseInt(bookInfo[2]);
 
@@ -90,6 +103,7 @@ public class BookServiceImpl implements BookService {
 
         Set<Category> categories = categoryService.getRandomCategories();
 
-        return new Book(editionType, releaseDate, copies, price, ageRestriction, title, author, categories);
+        return new Book(
+                editionType, releaseDate, copies, price, ageRestriction, title, author, categories);
     }
 }

@@ -6,8 +6,7 @@ public class EmployeeDTO extends BasicEmployeeDTO {
 
     private BigDecimal salary;
 
-    public EmployeeDTO() {
-    }
+    public EmployeeDTO() {}
 
     public BigDecimal getSalary() {
         return salary;

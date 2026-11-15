@@ -15,10 +15,14 @@ public class Plane extends Vehicle {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    protected Plane() {
-    }
+    protected Plane() {}
 
-    public Plane(String model, BigDecimal price, String fuelType, int passengerCapacity, Company company) {
+    public Plane(
+            String model,
+            BigDecimal price,
+            String fuelType,
+            int passengerCapacity,
+            Company company) {
         super(model, price, fuelType);
         this.passengerCapacity = passengerCapacity;
         this.company = company;

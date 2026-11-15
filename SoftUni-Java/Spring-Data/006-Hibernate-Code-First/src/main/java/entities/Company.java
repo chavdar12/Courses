@@ -19,8 +19,7 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Plane> planes = new ArrayList<>();
 
-    protected Company() {
-    }
+    protected Company() {}
 
     public Company(String name) {
         this.name = name;

@@ -9,10 +9,14 @@ public class Ex_1 {
     public static void main(String[] args) throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        connection = DriverManager.getConnection(System.getProperty("db.url", "jdbc:mysql://localhost:3306/soft_uni"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        System.getProperty("db.url", "jdbc:mysql://localhost:3306/soft_uni"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
 
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM employees WHERE salary > ?");
+        PreparedStatement statement =
+                connection.prepareStatement("SELECT * FROM employees WHERE salary > ?");
 
         statement.setDouble(1, Double.parseDouble(reader.readLine()));
 

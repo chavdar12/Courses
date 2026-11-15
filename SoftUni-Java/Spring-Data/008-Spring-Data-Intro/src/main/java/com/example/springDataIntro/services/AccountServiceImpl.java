@@ -2,6 +2,7 @@ package com.example.springDataIntro.services;
 
 import com.example.springDataIntro.models.Account;
 import com.example.springDataIntro.repository.AccountRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -14,7 +15,6 @@ public class AccountServiceImpl implements AccountService {
     public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
-
 
     @Override
     public void withdrawMoney(BigDecimal amount, Long id) {

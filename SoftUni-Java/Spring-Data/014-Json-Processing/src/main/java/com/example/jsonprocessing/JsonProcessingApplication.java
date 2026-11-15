@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -24,8 +25,14 @@ public class JsonProcessingApplication {
         return new GsonBuilder()
                 .setPrettyPrinting()
                 .excludeFieldsWithoutExposeAnnotation()
-                .registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (date, type, ctx) -> new JsonPrimitive(date.toString()))
-                .registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, type, ctx) -> LocalDate.parse(json.getAsString()))
+                .registerTypeAdapter(
+                        LocalDate.class,
+                        (JsonSerializer<LocalDate>)
+                                (date, type, ctx) -> new JsonPrimitive(date.toString()))
+                .registerTypeAdapter(
+                        LocalDate.class,
+                        (JsonDeserializer<LocalDate>)
+                                (json, type, ctx) -> LocalDate.parse(json.getAsString()))
                 .create();
     }
 }

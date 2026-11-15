@@ -5,6 +5,7 @@ import com.example.exerciseSpringDataAdvancedQuerying.repository.BookRepository;
 import com.example.exerciseSpringDataAdvancedQuerying.service.AuthorService;
 import com.example.exerciseSpringDataAdvancedQuerying.service.BookService;
 import com.example.exerciseSpringDataAdvancedQuerying.service.CategoryService;
+
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,8 +29,10 @@ public class BookServiceImpl implements BookService {
     private final AuthorService authorService;
     private final CategoryService categoryService;
 
-    public BookServiceImpl(BookRepository bookRepository, AuthorService authorService,
-                           CategoryService categoryService) {
+    public BookServiceImpl(
+            BookRepository bookRepository,
+            AuthorService authorService,
+            CategoryService categoryService) {
         this.bookRepository = bookRepository;
         this.authorService = authorService;
         this.categoryService = categoryService;
@@ -41,13 +44,17 @@ public class BookServiceImpl implements BookService {
             return;
         }
 
-        new ClassPathResource(BOOKS_FILE_PATH).getContentAsString(StandardCharsets.UTF_8).lines().filter(row -> !row.isBlank()).forEach(row -> {
-            String[] bookInfo = row.split("\\s+");
+        new ClassPathResource(BOOKS_FILE_PATH)
+                .getContentAsString(StandardCharsets.UTF_8)
+                .lines()
+                .filter(row -> !row.isBlank())
+                .forEach(row -> {
+                    String[] bookInfo = row.split("\\s+");
 
-            Book book = createBookFromInfo(bookInfo);
+                    Book book = createBookFromInfo(bookInfo);
 
-            bookRepository.save(book);
-        });
+                    bookRepository.save(book);
+                });
     }
 
     @Override
@@ -57,29 +64,51 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<String> findAllAuthorsWithBooksWithReleaseDateBeforeYear(int year) {
-        return bookRepository.findAllByReleaseDateBefore(LocalDate.of(year, 1, 1)).stream().map(book -> String.format("%s %s", book.getAuthor().getFirstName(), book.getAuthor().getLastName())).distinct().collect(Collectors.toList());
+        return bookRepository.findAllByReleaseDateBefore(LocalDate.of(year, 1, 1)).stream()
+                .map(book ->
+                        String.format(
+                                "%s %s",
+                                book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<String> findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(String firstName, String lastName) {
-        return bookRepository.findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(firstName,
-                                                                                                     lastName).stream().map(book -> String.format("%s %s %d", book.getTitle(), book.getReleaseDate(),
-                                                                                                                                                  book.getCopies())).collect(Collectors.toList());
+    public List<String> findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(
+            String firstName, String lastName) {
+        return bookRepository
+                .findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(
+                        firstName, lastName)
+                .stream()
+                .map(book ->
+                        String.format(
+                                "%s %s %d",
+                                book.getTitle(), book.getReleaseDate(), book.getCopies()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<String> findAllBookTitlesWithAgeRestriction(AgeRestriction ageRestriction) {
-        return bookRepository.findAllByAgeRestriction(ageRestriction).stream().map(Book::getTitle).collect(Collectors.toList());
+        return bookRepository.findAllByAgeRestriction(ageRestriction).stream()
+                .map(Book::getTitle)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<String> findAllGoldBookTitlesWithLessThan5000Copies() {
-        return bookRepository.findAllByEditionTypeAndCopiesLessThan(EditionType.GOLD, 5000).stream().map(Book::getTitle).collect(Collectors.toList());
+        return bookRepository.findAllByEditionTypeAndCopiesLessThan(EditionType.GOLD, 5000).stream()
+                .map(Book::getTitle)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<String> findAllBookTitlesWithPriceLessThan5OrMoreThan40() {
-        return bookRepository.findAllByPriceLessThanOrPriceGreaterThan(BigDecimal.valueOf(5), BigDecimal.valueOf(40)).stream().map(book -> String.format("%s - $ %.2f", book.getTitle(), book.getPrice())).collect(Collectors.toList());
+        return bookRepository
+                .findAllByPriceLessThanOrPriceGreaterThan(
+                        BigDecimal.valueOf(5), BigDecimal.valueOf(40))
+                .stream()
+                .map(book -> String.format("%s - $ %.2f", book.getTitle(), book.getPrice()))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -87,25 +116,36 @@ public class BookServiceImpl implements BookService {
         LocalDate lower = LocalDate.of(year, 1, 1);
         LocalDate upper = LocalDate.of(year, 12, 31);
 
-        return bookRepository.findAllByReleaseDateBeforeOrReleaseDateAfter(lower, upper).stream().map(Book::getTitle).collect(Collectors.toList());
+        return bookRepository.findAllByReleaseDateBeforeOrReleaseDateAfter(lower, upper).stream()
+                .map(Book::getTitle)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<String> findAllBooksReleasedBefore(LocalDate date) {
         return bookRepository.findAllByReleaseDateBefore(date).stream()
-                .map(book -> "%s %s %.2f".formatted(book.getTitle(), book.getEditionType(), book.getPrice()))
+                .map(book ->
+                        "%s %s %.2f"
+                                .formatted(book.getTitle(), book.getEditionType(), book.getPrice()))
                 .toList();
     }
 
     @Override
     public List<String> findAllBookTitlesContaining(String part) {
-        return bookRepository.findAllByTitleContainingIgnoreCase(part).stream().map(Book::getTitle).toList();
+        return bookRepository.findAllByTitleContainingIgnoreCase(part).stream()
+                .map(Book::getTitle)
+                .toList();
     }
 
     @Override
     public List<String> findAllBooksByAuthorLastNameStartingWith(String prefix) {
         return bookRepository.findAllByAuthor_LastNameStartingWithIgnoreCase(prefix).stream()
-                .map(book -> "%s (%s %s)".formatted(book.getTitle(), book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
+                .map(book ->
+                        "%s (%s %s)"
+                                .formatted(
+                                        book.getTitle(),
+                                        book.getAuthor().getFirstName(),
+                                        book.getAuthor().getLastName()))
                 .toList();
     }
 
@@ -117,7 +157,13 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<String> findBookSummariesByTitle(String title) {
         return bookRepository.findAllByTitle(title).stream()
-                .map(b -> "%s %s %s %.2f".formatted(b.getTitle(), b.getEditionType(), b.getAgeRestriction(), b.getPrice()))
+                .map(b ->
+                        "%s %s %s %.2f"
+                                .formatted(
+                                        b.getTitle(),
+                                        b.getEditionType(),
+                                        b.getAgeRestriction(),
+                                        b.getPrice()))
                 .toList();
     }
 
@@ -143,7 +189,8 @@ public class BookServiceImpl implements BookService {
 
     private Book createBookFromInfo(String[] bookInfo) {
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
-        LocalDate releaseDate = LocalDate.parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));
+        LocalDate releaseDate =
+                LocalDate.parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));
         Integer copies = Integer.parseInt(bookInfo[2]);
         BigDecimal price = new BigDecimal(bookInfo[3]);
         AgeRestriction ageRestriction = AgeRestriction.values()[Integer.parseInt(bookInfo[4])];
@@ -152,6 +199,7 @@ public class BookServiceImpl implements BookService {
         Author author = authorService.getRandomAuthor();
         Set<Category> categories = categoryService.getRandomCategories();
 
-        return new Book(editionType, releaseDate, copies, price, ageRestriction, title, author, categories);
+        return new Book(
+                editionType, releaseDate, copies, price, ageRestriction, title, author, categories);
     }
 }

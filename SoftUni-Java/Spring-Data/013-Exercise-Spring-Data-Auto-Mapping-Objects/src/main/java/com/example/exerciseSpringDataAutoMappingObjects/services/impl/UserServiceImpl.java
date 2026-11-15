@@ -1,8 +1,5 @@
 package com.example.exerciseSpringDataAutoMappingObjects.services.impl;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 import com.example.exerciseSpringDataAutoMappingObjects.models.dto.UserLoginDto;
 import com.example.exerciseSpringDataAutoMappingObjects.models.dto.UserRegisterDto;
 import com.example.exerciseSpringDataAutoMappingObjects.models.entities.Game;
@@ -13,11 +10,15 @@ import com.example.exerciseSpringDataAutoMappingObjects.repositories.OrderReposi
 import com.example.exerciseSpringDataAutoMappingObjects.repositories.UserRepository;
 import com.example.exerciseSpringDataAutoMappingObjects.services.UserService;
 import com.example.exerciseSpringDataAutoMappingObjects.utilities.ValidationUtil;
+
+import jakarta.validation.ConstraintViolation;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import jakarta.validation.ConstraintViolation;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,8 +31,12 @@ public class UserServiceImpl implements UserService {
     private final Set<Game> cart = new LinkedHashSet<>();
     private User loggedInUser;
 
-    public UserServiceImpl(UserRepository userRepository, GameRepository gameRepository, OrderRepository orderRepository,
-                           ModelMapper mapper, ValidationUtil validationUtill) {
+    public UserServiceImpl(
+            UserRepository userRepository,
+            GameRepository gameRepository,
+            OrderRepository orderRepository,
+            ModelMapper mapper,
+            ValidationUtil validationUtill) {
         this.userRepository = userRepository;
         this.gameRepository = gameRepository;
         this.orderRepository = orderRepository;
@@ -60,7 +65,8 @@ public class UserServiceImpl implements UserService {
         }
 
         User user = mapper.map(userRegisterDto, User.class);
-        user.setAdmin(userRepository.count() == 0); // the first registered user is the administrator
+        user.setAdmin(
+                userRepository.count() == 0); // the first registered user is the administrator
         userRepository.save(user);
         System.out.printf("%s was registered%n", userRegisterDto.getFullName());
     }
@@ -76,7 +82,9 @@ public class UserServiceImpl implements UserService {
         }
 
         var user =
-                userRepository.findByEmailAndPassword(userLoginDto.getEmail(), userLoginDto.getPassword()).orElse(null);
+                userRepository
+                        .findByEmailAndPassword(userLoginDto.getEmail(), userLoginDto.getPassword())
+                        .orElse(null);
 
         if (user == null) {
             System.out.println("Incorrect username/password");
@@ -109,7 +117,9 @@ public class UserServiceImpl implements UserService {
     public void printOwnedGames() {
         if (requireLogin()) {
             userRepository.findById(loggedInUser.getId()).orElseThrow().getGames().stream()
-                    .map(Game::getTitle).sorted().forEach(System.out::println);
+                    .map(Game::getTitle)
+                    .sorted()
+                    .forEach(System.out::println);
         }
     }
 
@@ -122,7 +132,11 @@ public class UserServiceImpl implements UserService {
         Game game = gameRepository.findByTitle(title).orElse(null);
         if (game == null) {
             System.out.println("No such game");
-        } else if (userRepository.findById(loggedInUser.getId()).orElseThrow().getGames().contains(game)) {
+        } else if (userRepository
+                .findById(loggedInUser.getId())
+                .orElseThrow()
+                .getGames()
+                .contains(game)) {
             System.out.printf("You already own %s%n", title);
         } else if (!cart.add(game)) {
             System.out.printf("%s is already in the cart%n", title);
@@ -134,9 +148,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void removeItem(String title) {
         if (requireLogin()) {
-            System.out.println(cart.removeIf(game -> game.getTitle().equals(title))
-                    ? title + " removed from cart."
-                    : title + " is not in the cart");
+            System.out.println(
+                    cart.removeIf(game -> game.getTitle().equals(title))
+                            ? title + " removed from cart."
+                            : title + " is not in the cart");
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.exercisexmlprocessing.productshop.entity;
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 

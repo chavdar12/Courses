@@ -9,5 +9,4 @@ public class ExerciseSpringDataAutoMappingObjectsApplication {
     public static void main(String[] args) {
         SpringApplication.run(ExerciseSpringDataAutoMappingObjectsApplication.class, args);
     }
-
 }

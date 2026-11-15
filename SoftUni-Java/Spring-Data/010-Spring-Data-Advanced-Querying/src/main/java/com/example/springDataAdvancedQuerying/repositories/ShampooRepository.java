@@ -2,6 +2,7 @@ package com.example.springDataAdvancedQuerying.repositories;
 
 import com.example.springDataAdvancedQuerying.entities.Shampoo;
 import com.example.springDataAdvancedQuerying.entities.Size;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -18,7 +19,8 @@ public interface ShampooRepository extends BaseRepository<Shampoo> {
 
     long countByPriceLessThan(BigDecimal price);
 
-    @Query("SELECT DISTINCT s FROM Shampoo s JOIN s.ingredients i WHERE i.name IN :names ORDER BY s.id")
+    @Query(
+            "SELECT DISTINCT s FROM Shampoo s JOIN s.ingredients i WHERE i.name IN :names ORDER BY s.id")
     List<Shampoo> findAllByIngredientNames(@Param("names") Collection<String> names);
 
     @Query("SELECT s FROM Shampoo s WHERE SIZE(s.ingredients) < :count ORDER BY s.id")

@@ -16,8 +16,7 @@ public class PeopleDto {
     @XmlElement(name = "person")
     private List<PersonDto> people = new ArrayList<>();
 
-    public PeopleDto() {
-    }
+    public PeopleDto() {}
 
     public PeopleDto(List<PersonDto> people) {
         this.people = people;

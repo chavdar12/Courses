@@ -8,33 +8,33 @@ import java.util.List;
 
 public class PersonDto {
 
-    @Expose
-    private String firstName;
+    @Expose private String firstName;
 
-    @Expose
-    private String lastName;
+    @Expose private String lastName;
 
-    @Expose
-    private LocalDate birthDate;
+    @Expose private LocalDate birthDate;
 
     @Expose
     @SerializedName("married")
     private boolean isMarried;
 
-    @Expose
-    private List<String> phoneNumbers;
+    @Expose private List<String> phoneNumbers;
 
-    @Expose
-    private AddressDto address;
+    @Expose private AddressDto address;
 
     // no @Expose: never written to or read from JSON
     private String password;
 
-    public PersonDto() {
-    }
+    public PersonDto() {}
 
-    public PersonDto(String firstName, String lastName, LocalDate birthDate, boolean isMarried, List<String> phoneNumbers,
-                     AddressDto address, String password) {
+    public PersonDto(
+            String firstName,
+            String lastName,
+            LocalDate birthDate,
+            boolean isMarried,
+            List<String> phoneNumbers,
+            AddressDto address,
+            String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;

@@ -2,6 +2,7 @@ package com.example.exerciseSpringDataAutoMappingObjects.repositories;
 
 import com.example.exerciseSpringDataAutoMappingObjects.models.entities.Game;
 import com.example.exerciseSpringDataAutoMappingObjects.models.entities.User;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

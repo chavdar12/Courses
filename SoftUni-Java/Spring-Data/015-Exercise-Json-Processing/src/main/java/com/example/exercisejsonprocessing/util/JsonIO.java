@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -21,11 +22,18 @@ import java.time.LocalDateTime;
 @Component
 public class JsonIO {
 
-    private final Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .registerTypeAdapter(LocalDateTime.class, (JsonDeserializer<LocalDateTime>) (json, type, ctx) -> LocalDateTime.parse(json.getAsString()))
-            .registerTypeAdapter(LocalDateTime.class, (JsonSerializer<LocalDateTime>) (value, type, ctx) -> new JsonPrimitive(value.toString()))
-            .create();
+    private final Gson gson =
+            new GsonBuilder()
+                    .setPrettyPrinting()
+                    .registerTypeAdapter(
+                            LocalDateTime.class,
+                            (JsonDeserializer<LocalDateTime>)
+                                    (json, type, ctx) -> LocalDateTime.parse(json.getAsString()))
+                    .registerTypeAdapter(
+                            LocalDateTime.class,
+                            (JsonSerializer<LocalDateTime>)
+                                    (value, type, ctx) -> new JsonPrimitive(value.toString()))
+                    .create();
 
     private final Path outputDir;
 
@@ -34,7 +42,10 @@ public class JsonIO {
     }
 
     public <T> T read(String classpathFile, Class<T> type) {
-        try (Reader reader = new java.io.InputStreamReader(new ClassPathResource(classpathFile).getInputStream(), StandardCharsets.UTF_8)) {
+        try (Reader reader =
+                new java.io.InputStreamReader(
+                        new ClassPathResource(classpathFile).getInputStream(),
+                        StandardCharsets.UTF_8)) {
             return gson.fromJson(reader, type);
         } catch (IOException e) {
             throw new UncheckedIOException(e);

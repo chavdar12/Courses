@@ -3,6 +3,7 @@ package com.example.exerciseSpringDataAutoMappingObjects.models.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -18,8 +19,7 @@ public class Game extends BaseEntity {
     private String description;
     private LocalDate releaseDate;
 
-    public Game() {
-    }
+    public Game() {}
 
     @Column(unique = true)
     public String getTitle() {

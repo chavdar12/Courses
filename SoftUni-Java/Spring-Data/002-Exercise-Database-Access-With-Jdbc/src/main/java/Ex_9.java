@@ -9,8 +9,11 @@ public class Ex_9 {
     public static void main(String[] args) throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        connection = DriverManager.getConnection(System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
 
         int minionId = Integer.parseInt(reader.readLine());
 
@@ -19,7 +22,8 @@ public class Ex_9 {
 
         callableStatement.execute();
 
-        PreparedStatement statement = connection.prepareStatement("SELECT name, age FROM minions WHERE id = ?");
+        PreparedStatement statement =
+                connection.prepareStatement("SELECT name, age FROM minions WHERE id = ?");
         statement.setInt(1, minionId);
         ResultSet resultSet = statement.executeQuery();
 

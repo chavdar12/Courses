@@ -1,6 +1,7 @@
 package com.example.springDataIntro.models;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
 @Entity
@@ -12,8 +13,7 @@ public class Account {
 
     private BigDecimal balance;
 
-    @ManyToOne
-    private User user;
+    @ManyToOne private User user;
 
     public Long getId() {
         return id;

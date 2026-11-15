@@ -1,9 +1,13 @@
 package orm;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import entities.User;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import orm.annotations.Column;
 import orm.annotations.Entity;
 import orm.annotations.Id;
@@ -14,8 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class EntityManagerTest {
 
     private Connection connection;
@@ -23,7 +25,11 @@ class EntityManagerTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        connection = MyConnector.createConnection("jdbc:h2:mem:" + UUID.randomUUID() + ";MODE=MySQL;DATABASE_TO_LOWER=TRUE", "sa", "");
+        connection =
+                MyConnector.createConnection(
+                        "jdbc:h2:mem:" + UUID.randomUUID() + ";MODE=MySQL;DATABASE_TO_LOWER=TRUE",
+                        "sa",
+                        "");
         users = new EntityManager<>(connection);
         users.doCreate(User.class);
     }
@@ -70,13 +76,14 @@ class EntityManagerTest {
         @Id
         @Column(name = "id")
         private long id;
+
         @Column(name = "username")
         private String username;
+
         @Column(name = "email")
         private String email;
 
-        public UserWithEmail() {
-        }
+        public UserWithEmail() {}
     }
 
     @Test

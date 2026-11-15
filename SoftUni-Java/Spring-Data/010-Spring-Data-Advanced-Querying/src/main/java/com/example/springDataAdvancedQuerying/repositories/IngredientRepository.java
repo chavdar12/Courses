@@ -1,6 +1,7 @@
 package com.example.springDataAdvancedQuerying.repositories;
 
 import com.example.springDataAdvancedQuerying.entities.Ingredient;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -16,7 +17,10 @@ public interface IngredientRepository extends BaseRepository<Ingredient> {
 
     // the join table has no ON DELETE CASCADE, so links go first
     @Modifying(clearAutomatically = true)
-    @Query(value = "DELETE FROM shampoos_ingredients WHERE ingredient_id IN (SELECT id FROM ingredients WHERE name = :name)", nativeQuery = true)
+    @Query(
+            value =
+                    "DELETE FROM shampoos_ingredients WHERE ingredient_id IN (SELECT id FROM ingredients WHERE name = :name)",
+            nativeQuery = true)
     int deleteShampooLinksByName(@Param("name") String name);
 
     @Modifying(clearAutomatically = true)
@@ -29,5 +33,6 @@ public interface IngredientRepository extends BaseRepository<Ingredient> {
 
     @Modifying(clearAutomatically = true)
     @Query("UPDATE Ingredient i SET i.price = i.price * :factor WHERE i.name IN :names")
-    int multiplyPricesByNames(@Param("factor") BigDecimal factor, @Param("names") Collection<String> names);
+    int multiplyPricesByNames(
+            @Param("factor") BigDecimal factor, @Param("names") Collection<String> names);
 }

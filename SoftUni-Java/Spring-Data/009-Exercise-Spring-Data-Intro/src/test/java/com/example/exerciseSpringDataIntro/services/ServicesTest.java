@@ -1,5 +1,7 @@
 package com.example.exerciseSpringDataIntro.services;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.example.exerciseSpringDataIntro.models.Book;
 import com.example.exerciseSpringDataIntro.models.EditionType;
 import com.example.exerciseSpringDataIntro.repositories.AuthorRepository;
@@ -8,6 +10,7 @@ import com.example.exerciseSpringDataIntro.repositories.CategoryRepository;
 import com.example.exerciseSpringDataIntro.services.Implementations.AuthorServiceImpl;
 import com.example.exerciseSpringDataIntro.services.Implementations.BookServiceImpl;
 import com.example.exerciseSpringDataIntro.services.Implementations.CategoryServiceImpl;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,25 +20,17 @@ import org.springframework.context.annotation.Import;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /** Seeds from the fixture files in src/test/resources/files. */
 @DataJpaTest
 @Import({AuthorServiceImpl.class, BookServiceImpl.class, CategoryServiceImpl.class})
 class ServicesTest {
 
-    @Autowired
-    private CategoryService categoryService;
-    @Autowired
-    private AuthorService authorService;
-    @Autowired
-    private BookService bookService;
-    @Autowired
-    private CategoryRepository categoryRepository;
-    @Autowired
-    private AuthorRepository authorRepository;
-    @Autowired
-    private BookRepository bookRepository;
+    @Autowired private CategoryService categoryService;
+    @Autowired private AuthorService authorService;
+    @Autowired private BookService bookService;
+    @Autowired private CategoryRepository categoryRepository;
+    @Autowired private AuthorRepository authorRepository;
+    @Autowired private BookRepository bookRepository;
 
     @BeforeEach
     void seed() throws IOException {
@@ -50,16 +45,21 @@ class ServicesTest {
 
         assertThat(categoryRepository.count()).isEqualTo(4);
         assertThat(authorRepository.count()).isEqualTo(1);
-        assertThat(bookRepository.findAll()).hasSize(5).allSatisfy(book -> {
-            assertThat(book.getAuthor().getLastName()).isEqualTo("Powell");
-            assertThat(book.getCategories()).isNotEmpty().doesNotContainNull();
-        });
+        assertThat(bookRepository.findAll())
+                .hasSize(5)
+                .allSatisfy(book -> {
+                    assertThat(book.getAuthor().getLastName()).isEqualTo("Powell");
+                    assertThat(book.getCategories()).isNotEmpty().doesNotContainNull();
+                });
     }
 
     @Test
     void seedingParsesBookColumns() {
-        Book book = bookRepository.findAll().stream().filter(b -> b.getTitle().equals("Last Day Of The Century"))
-                .findFirst().orElseThrow();
+        Book book =
+                bookRepository.findAll().stream()
+                        .filter(b -> b.getTitle().equals("Last Day Of The Century"))
+                        .findFirst()
+                        .orElseThrow();
 
         assertThat(book.getEditionType()).isEqualTo(EditionType.GOLD);
         assertThat(book.getReleaseDate()).isEqualTo(LocalDate.of(2000, 12, 31));
@@ -70,34 +70,41 @@ class ServicesTest {
     @Test
     void randomCategoriesAreExistingCategories() {
         for (int i = 0; i < 20; i++) {
-            assertThat(categoryService.getRandomCategories()).hasSizeBetween(1, 2).doesNotContainNull();
+            assertThat(categoryService.getRandomCategories())
+                    .hasSizeBetween(1, 2)
+                    .doesNotContainNull();
         }
     }
 
     @Test
     void booksAfterYearExcludeThatYear() {
-        assertThat(bookService.findAllBooksAfterYear(2000)).extracting(Book::getTitle).containsExactly("New Century");
+        assertThat(bookService.findAllBooksAfterYear(2000))
+                .extracting(Book::getTitle)
+                .containsExactly("New Century");
     }
 
     @Test
     void authorsWithBooksBeforeYearAreDistinct() {
-        assertThat(bookService.findAllAuthorsWithBooksWithReleaseDateBeforeYear(1990)).containsExactly("George Powell");
+        assertThat(bookService.findAllAuthorsWithBooksWithReleaseDateBeforeYear(1990))
+                .containsExactly("George Powell");
         assertThat(bookService.findAllAuthorsWithBooksWithReleaseDateBeforeYear(1985)).isEmpty();
     }
 
     @Test
     void authorsOrderedByBookCount() {
-        assertThat(authorService.getAllAuthorsOrderByCountOfTheirBooks()).containsExactly("George Powell 5");
+        assertThat(authorService.getAllAuthorsOrderByCountOfTheirBooks())
+                .containsExactly("George Powell 5");
     }
 
     @Test
     void booksByAuthorNewestFirstThenByTitle() {
-        assertThat(bookService.findAllBooksByAuthorOrderByReleaseDate("George", "Powell")).containsExactly(
-                "New Century 2001-01-02 5000",
-                "Last Day Of The Century 2000-12-31 300",
-                "Millennium Story 2000-01-01 300",
-                "Eighties Thriller 1989-07-15 80",
-                "Old Classic 1985-02-06 120");
+        assertThat(bookService.findAllBooksByAuthorOrderByReleaseDate("George", "Powell"))
+                .containsExactly(
+                        "New Century 2001-01-02 5000",
+                        "Last Day Of The Century 2000-12-31 300",
+                        "Millennium Story 2000-01-01 300",
+                        "Eighties Thriller 1989-07-15 80",
+                        "Old Classic 1985-02-06 120");
         assertThat(bookService.findAllBooksByAuthorOrderByReleaseDate("No", "Body")).isEmpty();
     }
 }

@@ -13,8 +13,11 @@ public class Ex_5 {
     public static void main(String[] args) throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        connection = DriverManager.getConnection(System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
 
         String country = reader.readLine();
         resultSet = getTownsByCountry(country);
@@ -26,7 +29,8 @@ public class Ex_5 {
         while (resultSet.next()) {
             townsAffected.add(resultSet.getString("name").toUpperCase());
 
-            statement = connection.prepareStatement("UPDATE towns SET name = UCASE(?) WHERE name = ?;");
+            statement =
+                    connection.prepareStatement("UPDATE towns SET name = UCASE(?) WHERE name = ?;");
 
             statement.setString(1, resultSet.getString("name"));
             statement.setString(2, resultSet.getString("name"));
@@ -43,13 +47,13 @@ public class Ex_5 {
 
             System.out.printf("%d town names were affected.\n", counter);
             System.out.println(Arrays.toString(townsAffected.toArray()));
-
         }
     }
 
     private static ResultSet getTownsByCountry(String country) throws SQLException {
 
-        statement = connection.prepareStatement("SELECT name FROM towns\r\n" + "WHERE country = ?;");
+        statement =
+                connection.prepareStatement("SELECT name FROM towns\r\n" + "WHERE country = ?;");
         statement.setString(1, country);
 
         return statement.executeQuery();

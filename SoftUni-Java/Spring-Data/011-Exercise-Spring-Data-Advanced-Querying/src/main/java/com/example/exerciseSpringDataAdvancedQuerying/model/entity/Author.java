@@ -1,6 +1,7 @@
 package com.example.exerciseSpringDataAdvancedQuerying.model.entity;
 
 import jakarta.persistence.*;
+
 import java.util.Set;
 
 @Entity
@@ -11,8 +12,7 @@ public class Author extends BaseEntity {
     private String lastName;
     private Set<Book> books;
 
-    public Author() {
-    }
+    public Author() {}
 
     public Author(String firstName, String lastName) {
         this.firstName = firstName;

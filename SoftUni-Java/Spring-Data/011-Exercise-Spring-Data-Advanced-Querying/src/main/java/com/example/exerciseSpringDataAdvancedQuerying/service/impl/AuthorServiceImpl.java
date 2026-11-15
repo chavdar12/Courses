@@ -3,8 +3,9 @@ package com.example.exerciseSpringDataAdvancedQuerying.service.impl;
 import com.example.exerciseSpringDataAdvancedQuerying.model.entity.Author;
 import com.example.exerciseSpringDataAdvancedQuerying.repository.AuthorRepository;
 import com.example.exerciseSpringDataAdvancedQuerying.service.AuthorService;
-import org.springframework.data.domain.PageRequest;
+
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -30,12 +31,16 @@ public class AuthorServiceImpl implements AuthorService {
             return;
         }
 
-        new ClassPathResource(AUTHORS_FILE_PATH).getContentAsString(StandardCharsets.UTF_8).lines().filter(row -> !row.isBlank()).forEach(row -> {
-            String[] fullName = row.split("\\s+");
-            Author author = new Author(fullName[0], fullName[1]);
+        new ClassPathResource(AUTHORS_FILE_PATH)
+                .getContentAsString(StandardCharsets.UTF_8)
+                .lines()
+                .filter(row -> !row.isBlank())
+                .forEach(row -> {
+                    String[] fullName = row.split("\\s+");
+                    Author author = new Author(fullName[0], fullName[1]);
 
-            authorRepository.save(author);
-        });
+                    authorRepository.save(author);
+                });
     }
 
     @Override
@@ -43,7 +48,9 @@ public class AuthorServiceImpl implements AuthorService {
         // pick by position: ids are not guaranteed to be 1..count
         long randomIndex = ThreadLocalRandom.current().nextLong(authorRepository.count());
 
-        return authorRepository.findAll(PageRequest.of((int) randomIndex, 1)).stream().findFirst().orElse(null);
+        return authorRepository.findAll(PageRequest.of((int) randomIndex, 1)).stream()
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
@@ -62,7 +69,13 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<String> getAllAuthorsOrderByCountOfTheirBooks() {
-        return authorRepository.findAllByBooksSizeDESC().stream().map(author -> String.format("%s %s %d",
-                                                                                              author.getFirstName(), author.getLastName(), author.getBooks().size())).collect(Collectors.toList());
+        return authorRepository.findAllByBooksSizeDESC().stream()
+                .map(author ->
+                        String.format(
+                                "%s %s %d",
+                                author.getFirstName(),
+                                author.getLastName(),
+                                author.getBooks().size()))
+                .collect(Collectors.toList());
     }
 }

@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,8 +15,7 @@ public class Order extends BaseEntity {
     private User buyer;
     private Set<Game> games = new HashSet<>();
 
-    public Order() {
-    }
+    public Order() {}
 
     @ManyToOne
     public User getBuyer() {

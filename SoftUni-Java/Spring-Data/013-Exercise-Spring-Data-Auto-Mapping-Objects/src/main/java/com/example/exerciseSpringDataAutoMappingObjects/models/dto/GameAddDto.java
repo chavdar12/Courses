@@ -7,7 +7,9 @@ import java.time.LocalDate;
 
 public class GameAddDto {
 
-    @Pattern(regexp = "[A-Z].{2,99}", message = "Title must start with an uppercase letter and be 3-100 symbols")
+    @Pattern(
+            regexp = "[A-Z].{2,99}",
+            message = "Title must start with an uppercase letter and be 3-100 symbols")
     private String title;
 
     @NotNull
@@ -16,7 +18,10 @@ public class GameAddDto {
 
     @NotNull
     @Positive(message = "Size must be positive")
-    @Digits(integer = 10, fraction = 1, message = "Size must have up to 1 digit after the decimal point")
+    @Digits(
+            integer = 10,
+            fraction = 1,
+            message = "Size must have up to 1 digit after the decimal point")
     private BigDecimal size;
 
     @Size(min = 11, max = 11, message = "Trailer must be a YouTube video id of 11 symbols")
@@ -29,19 +34,26 @@ public class GameAddDto {
     @Size(min = 20, message = "Description must be at least 20 symbols")
     private String description;
 
-    @NotNull
-    private LocalDate releaseDate;
+    @NotNull private LocalDate releaseDate;
 
-    public GameAddDto() {
-    }
+    public GameAddDto() {}
 
-    public GameAddDto(String title, BigDecimal price, BigDecimal size, String trailer, String imageThumbnail,
-                      String description, LocalDate releaseDate) {
+    public GameAddDto(
+            String title,
+            BigDecimal price,
+            BigDecimal size,
+            String trailer,
+            String imageThumbnail,
+            String description,
+            LocalDate releaseDate) {
         this.title = title;
         this.price = price;
         this.size = size;
         // the task gives full YouTube links but stores only the video id
-        this.trailer = trailer == null ? null : trailer.replaceFirst("^https?://(www\\.)?youtube\\.com/watch\\?v=", "");
+        this.trailer =
+                trailer == null
+                        ? null
+                        : trailer.replaceFirst("^https?://(www\\.)?youtube\\.com/watch\\?v=", "");
         this.imageThumbnail = imageThumbnail;
         this.description = description;
         this.releaseDate = releaseDate;

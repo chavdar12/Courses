@@ -8,17 +8,13 @@ import jakarta.xml.bind.annotation.XmlElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AddressDto {
 
-    @XmlAttribute
-    private String country;
+    @XmlAttribute private String country;
 
-    @XmlElement
-    private String city;
+    @XmlElement private String city;
 
-    @XmlElement
-    private String street;
+    @XmlElement private String street;
 
-    public AddressDto() {
-    }
+    public AddressDto() {}
 
     public AddressDto(String country, String city, String street) {
         this.country = country;

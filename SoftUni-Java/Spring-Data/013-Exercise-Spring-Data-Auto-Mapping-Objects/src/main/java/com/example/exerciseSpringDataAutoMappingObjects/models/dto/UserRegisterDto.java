@@ -9,8 +9,7 @@ public class UserRegisterDto {
     private String confirmPassword;
     private String fullName;
 
-    public UserRegisterDto() {
-    }
+    public UserRegisterDto() {}
 
     public UserRegisterDto(String email, String password, String confirmPassword, String fullName) {
         this.email = email;

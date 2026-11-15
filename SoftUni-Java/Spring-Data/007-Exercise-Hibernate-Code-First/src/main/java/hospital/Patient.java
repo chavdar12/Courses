@@ -1,6 +1,7 @@
 package hospital;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,8 +28,7 @@ public class Patient {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @Lob
-    private byte[] picture;
+    @Lob private byte[] picture;
 
     @Column(name = "has_medical_insurance")
     private Boolean hasMedicalInsurance;
@@ -40,7 +40,10 @@ public class Patient {
     private Set<Diagnose> diagnoses = new HashSet<>();
 
     @ManyToMany
-    @JoinTable(name = "prescriptions", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "medicament_id"))
+    @JoinTable(
+            name = "prescriptions",
+            joinColumns = @JoinColumn(name = "patient_id"),
+            inverseJoinColumns = @JoinColumn(name = "medicament_id"))
     private Set<Medicament> medicaments = new HashSet<>();
 
     public Long getId() {

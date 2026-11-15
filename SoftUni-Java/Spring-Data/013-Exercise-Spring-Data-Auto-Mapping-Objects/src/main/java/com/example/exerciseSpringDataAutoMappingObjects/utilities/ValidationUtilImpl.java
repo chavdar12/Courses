@@ -1,10 +1,11 @@
 package com.example.exerciseSpringDataAutoMappingObjects.utilities;
 
-import org.springframework.stereotype.Component;
-
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
+
+import org.springframework.stereotype.Component;
+
 import java.util.Set;
 
 @Component

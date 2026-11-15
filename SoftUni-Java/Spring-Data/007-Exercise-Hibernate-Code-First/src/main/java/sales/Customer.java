@@ -1,6 +1,7 @@
 package sales;
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 

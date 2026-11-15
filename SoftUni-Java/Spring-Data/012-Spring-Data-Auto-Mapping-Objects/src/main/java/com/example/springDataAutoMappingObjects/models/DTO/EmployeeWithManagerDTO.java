@@ -27,7 +27,11 @@ public class EmployeeWithManagerDTO extends BasicEmployeeDTO {
 
     @Override
     public String toString() {
-        return "%s %s %.2f - Manager: %s".formatted(getFirstName(), getLastName(), salary,
-                managerLastName == null ? "[no manager]" : managerLastName);
+        return "%s %s %.2f - Manager: %s"
+                .formatted(
+                        getFirstName(),
+                        getLastName(),
+                        salary,
+                        managerLastName == null ? "[no manager]" : managerLastName);
     }
 }

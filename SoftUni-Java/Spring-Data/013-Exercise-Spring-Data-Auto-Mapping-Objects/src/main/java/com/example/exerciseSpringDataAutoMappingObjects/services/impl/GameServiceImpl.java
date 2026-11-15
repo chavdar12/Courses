@@ -9,7 +9,9 @@ import com.example.exerciseSpringDataAutoMappingObjects.repositories.UserReposit
 import com.example.exerciseSpringDataAutoMappingObjects.services.GameService;
 import com.example.exerciseSpringDataAutoMappingObjects.services.UserService;
 import com.example.exerciseSpringDataAutoMappingObjects.utilities.ValidationUtil;
+
 import jakarta.validation.ConstraintViolation;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,8 +33,13 @@ public class GameServiceImpl implements GameService {
     private final ModelMapper mapper;
     private final ValidationUtil validationUtil;
 
-    public GameServiceImpl(GameRepository gameRepository, UserRepository userRepository, OrderRepository orderRepository,
-                           UserService userService, ModelMapper mapper, ValidationUtil validationUtil) {
+    public GameServiceImpl(
+            GameRepository gameRepository,
+            UserRepository userRepository,
+            OrderRepository orderRepository,
+            UserService userService,
+            ModelMapper mapper,
+            ValidationUtil validationUtil) {
         this.gameRepository = gameRepository;
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
@@ -73,7 +80,10 @@ public class GameServiceImpl implements GameService {
                 case "title" -> edited.setTitle(value);
                 case "price" -> edited.setPrice(new BigDecimal(value));
                 case "size" -> edited.setSize(new BigDecimal(value));
-                case "trailer" -> edited.setTrailer(new GameAddDto(null, null, null, value, null, null, null).getTrailer());
+                case "trailer" ->
+                        edited.setTrailer(
+                                new GameAddDto(null, null, null, value, null, null, null)
+                                        .getTrailer());
                 case "thumbnailURL", "imageThumbnail" -> edited.setImageThumbnail(value);
                 case "description" -> edited.setDescription(value);
                 case "releaseDate" -> edited.setReleaseDate(LocalDate.parse(value, DATE));
@@ -104,22 +114,33 @@ public class GameServiceImpl implements GameService {
         }
         // the join tables reference the game, so unlink it first
         userRepository.findAllByGamesContaining(game).forEach(user -> user.getGames().remove(game));
-        orderRepository.findAllByGamesContaining(game).forEach(order -> order.getGames().remove(game));
+        orderRepository
+                .findAllByGamesContaining(game)
+                .forEach(order -> order.getGames().remove(game));
         gameRepository.delete(game);
         System.out.printf("Deleted %s%n", game.getTitle());
     }
 
     @Override
     public void printAllGames() {
-        gameRepository.findAll().forEach(game -> System.out.printf("%s %.2f%n", game.getTitle(), game.getPrice()));
+        gameRepository
+                .findAll()
+                .forEach(game -> System.out.printf("%s %.2f%n", game.getTitle(), game.getPrice()));
     }
 
     @Override
     public void printGameDetails(String title) {
-        gameRepository.findByTitle(title).ifPresentOrElse(game -> System.out.printf(
-                "Title: %s%nPrice: %.2f%nDescription: %s%nRelease date: %s%n",
-                game.getTitle(), game.getPrice(), game.getDescription(), game.getReleaseDate().format(DATE)),
-                () -> System.out.println("No such game"));
+        gameRepository
+                .findByTitle(title)
+                .ifPresentOrElse(
+                        game ->
+                                System.out.printf(
+                                        "Title: %s%nPrice: %.2f%nDescription: %s%nRelease date: %s%n",
+                                        game.getTitle(),
+                                        game.getPrice(),
+                                        game.getDescription(),
+                                        game.getReleaseDate().format(DATE)),
+                        () -> System.out.println("No such game"));
     }
 
     private boolean isAdmin() {
@@ -133,7 +154,10 @@ public class GameServiceImpl implements GameService {
 
     private boolean isValid(GameAddDto dto) {
         var violations = validationUtil.violation(dto);
-        violations.stream().map(ConstraintViolation::getMessage).sorted().forEach(System.out::println);
+        violations.stream()
+                .map(ConstraintViolation::getMessage)
+                .sorted()
+                .forEach(System.out::println);
         return violations.isEmpty();
     }
 }

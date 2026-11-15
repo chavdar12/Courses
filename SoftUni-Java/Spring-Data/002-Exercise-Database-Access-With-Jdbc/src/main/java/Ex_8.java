@@ -12,11 +12,16 @@ public class Ex_8 {
     public static void main(String[] args) throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        connection = DriverManager.getConnection(System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
-                System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        System.getProperty("db.url", "jdbc:mysql://localhost:3306/minions_db"),
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
 
         Integer[] minionsId =
-                Arrays.stream(reader.readLine().split("\\s+")).map(Integer::parseInt).toArray(Integer[]::new);
+                Arrays.stream(reader.readLine().split("\\s+"))
+                        .map(Integer::parseInt)
+                        .toArray(Integer[]::new);
 
         incrementAgeAndLowerName(minionsId);
         printAllMinions();
@@ -35,7 +40,9 @@ public class Ex_8 {
     }
 
     private static void incrementAgeAndLowerName(Integer[] minionsId) throws SQLException {
-        statement = connection.prepareStatement("UPDATE minions SET age = age + 1, name = LCASE(name) WHERE id = ?;");
+        statement =
+                connection.prepareStatement(
+                        "UPDATE minions SET age = age + 1, name = LCASE(name) WHERE id = ?;");
 
         for (Integer id : minionsId) {
             statement.setInt(1, id);

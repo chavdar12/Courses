@@ -1,3 +1,5 @@
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -8,9 +10,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.UUID;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
-/** Fresh in-memory H2 database (MySQL mode) that the exercises connect to through the db.url property. */
+/**
+ * Fresh in-memory H2 database (MySQL mode) that the exercises connect to through the db.url
+ * property.
+ */
 final class TestDb implements AutoCloseable {
 
     interface Program {
@@ -23,8 +26,11 @@ final class TestDb implements AutoCloseable {
         String url = "jdbc:h2:mem:" + UUID.randomUUID() + ";MODE=MySQL;DATABASE_TO_LOWER=TRUE";
         System.setProperty("db.url", url);
         // keeping this connection open keeps the in-memory database alive
-        connection = DriverManager.getConnection(url, System.getenv().getOrDefault("DB_USERNAME", "root"),
-                System.getenv().getOrDefault("DB_PASSWORD", ""));
+        connection =
+                DriverManager.getConnection(
+                        url,
+                        System.getenv().getOrDefault("DB_USERNAME", "root"),
+                        System.getenv().getOrDefault("DB_PASSWORD", ""));
         try (Statement statement = connection.createStatement()) {
             for (String sql : statements) {
                 statement.execute(sql);

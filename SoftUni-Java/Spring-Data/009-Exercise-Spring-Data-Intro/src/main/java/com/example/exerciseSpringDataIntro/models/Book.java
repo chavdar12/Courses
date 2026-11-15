@@ -1,6 +1,7 @@
 package com.example.exerciseSpringDataIntro.models;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
@@ -27,11 +28,17 @@ public class Book extends BaseEntity {
 
     private Set<Category> categories;
 
-    public Book() {
-    }
+    public Book() {}
 
-    public Book(EditionType editionType, LocalDate releaseDate, Integer copies, BigDecimal price,
-                AgeRestriction ageRestriction, String title, Author author, Set<Category> categories) {
+    public Book(
+            EditionType editionType,
+            LocalDate releaseDate,
+            Integer copies,
+            BigDecimal price,
+            AgeRestriction ageRestriction,
+            String title,
+            Author author,
+            Set<Category> categories) {
         this.editionType = editionType;
         this.releaseDate = releaseDate;
         this.copies = copies;
@@ -41,7 +48,6 @@ public class Book extends BaseEntity {
         this.author = author;
         this.categories = categories;
     }
-
 
     @Column(name = "title", columnDefinition = "VARCHAR(50)", nullable = false)
     public String getTitle() {

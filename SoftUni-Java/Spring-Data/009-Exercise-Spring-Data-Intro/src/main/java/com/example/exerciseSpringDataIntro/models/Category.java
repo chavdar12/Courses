@@ -3,6 +3,7 @@ package com.example.exerciseSpringDataIntro.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+
 import java.util.Objects;
 
 @Entity
@@ -11,8 +12,7 @@ public class Category extends BaseEntity {
 
     private String name;
 
-    public Category() {
-    }
+    public Category() {}
 
     public Category(String name) {
         this.name = name;

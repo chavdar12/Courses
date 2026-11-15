@@ -1,6 +1,7 @@
 package com.example.exercisexmlprocessing.productshop.repository;
 
 import com.example.exercisexmlprocessing.productshop.entity.Product;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.math.BigDecimal;

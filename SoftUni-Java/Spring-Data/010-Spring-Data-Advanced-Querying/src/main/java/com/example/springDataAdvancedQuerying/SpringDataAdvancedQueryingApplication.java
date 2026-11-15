@@ -9,5 +9,4 @@ public class SpringDataAdvancedQueryingApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringDataAdvancedQueryingApplication.class, args);
     }
-
 }

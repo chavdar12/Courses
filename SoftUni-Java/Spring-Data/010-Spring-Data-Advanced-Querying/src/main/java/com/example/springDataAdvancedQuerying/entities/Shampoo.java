@@ -1,6 +1,7 @@
 package com.example.springDataAdvancedQuerying.entities;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -14,8 +15,7 @@ public class Shampoo extends BaseEntity {
     private Label label;
     private Set<Ingredient> ingredients;
 
-    public Shampoo() {
-    }
+    public Shampoo() {}
 
     @Column(name = "brand")
     public String getBrand() {
@@ -56,8 +56,10 @@ public class Shampoo extends BaseEntity {
     }
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "shampoos_ingredients", joinColumns = @JoinColumn(name = "shampoo_id", referencedColumnName =
-            "id"), inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
+    @JoinTable(
+            name = "shampoos_ingredients",
+            joinColumns = @JoinColumn(name = "shampoo_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
     public Set<Ingredient> getIngredients() {
         return this.ingredients;
     }

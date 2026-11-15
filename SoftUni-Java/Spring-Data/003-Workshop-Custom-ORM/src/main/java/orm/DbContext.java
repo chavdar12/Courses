@@ -8,7 +8,8 @@ public interface DbContext<E> {
 
     Iterable<E> find(Class<E> table) throws SQLException, ReflectiveOperationException;
 
-    Iterable<E> find(Class<E> table, String where) throws SQLException, ReflectiveOperationException;
+    Iterable<E> find(Class<E> table, String where)
+            throws SQLException, ReflectiveOperationException;
 
     E findFirst(Class<E> table) throws SQLException, ReflectiveOperationException;
 

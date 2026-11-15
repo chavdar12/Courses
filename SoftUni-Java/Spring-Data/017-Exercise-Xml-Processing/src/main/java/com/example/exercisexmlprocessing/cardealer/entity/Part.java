@@ -1,6 +1,7 @@
 package com.example.exercisexmlprocessing.cardealer.entity;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
 @Entity

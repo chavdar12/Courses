@@ -14,8 +14,7 @@ public class Town {
     @Column(name = "name")
     private String name;
 
-    protected Town() {
-    }
+    protected Town() {}
 
     public Town(String name) {
         this.name = name;

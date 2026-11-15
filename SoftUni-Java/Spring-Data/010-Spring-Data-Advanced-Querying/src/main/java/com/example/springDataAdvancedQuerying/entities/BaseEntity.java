@@ -7,8 +7,7 @@ public abstract class BaseEntity {
 
     private Long id;
 
-    protected BaseEntity() {
-    }
+    protected BaseEntity() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

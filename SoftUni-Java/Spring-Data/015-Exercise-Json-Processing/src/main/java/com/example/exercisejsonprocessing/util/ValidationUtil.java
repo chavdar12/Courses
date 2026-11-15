@@ -3,6 +3,7 @@ package com.example.exercisejsonprocessing.util;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
+
 import org.springframework.stereotype.Component;
 
 /** Logs why a seed record is skipped. */
@@ -17,7 +18,9 @@ public class ValidationUtil {
 
     public boolean isValid(Object dto) {
         var violations = validator.validate(dto);
-        violations.stream().map(ConstraintViolation::getMessage).forEach(m -> System.out.println("Skipped " + dto + ": " + m));
+        violations.stream()
+                .map(ConstraintViolation::getMessage)
+                .forEach(m -> System.out.println("Skipped " + dto + ": " + m));
         return violations.isEmpty();
     }
 }

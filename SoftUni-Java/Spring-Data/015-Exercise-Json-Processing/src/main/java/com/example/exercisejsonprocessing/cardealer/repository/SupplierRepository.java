@@ -1,6 +1,7 @@
 package com.example.exercisejsonprocessing.cardealer.repository;
 
 import com.example.exercisejsonprocessing.cardealer.entity.Supplier;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

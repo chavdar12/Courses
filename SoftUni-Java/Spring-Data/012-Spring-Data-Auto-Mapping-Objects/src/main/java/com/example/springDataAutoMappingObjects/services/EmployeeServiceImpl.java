@@ -4,6 +4,7 @@ import com.example.springDataAutoMappingObjects.models.DTO.EmployeeDTO;
 import com.example.springDataAutoMappingObjects.models.DTO.EmployeeWithManagerDTO;
 import com.example.springDataAutoMappingObjects.models.DTO.ManagerDTO;
 import com.example.springDataAutoMappingObjects.repositories.EmployeeRepository;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +39,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<EmployeeWithManagerDTO> findAllBornBefore(int year) {
-        return this.employeeRepository.findAllByBirthdayBeforeOrderBySalaryDesc(LocalDate.of(year, 1, 1)).stream()
+        return this.employeeRepository
+                .findAllByBirthdayBeforeOrderBySalaryDesc(LocalDate.of(year, 1, 1))
+                .stream()
                 .map(employee -> mapper.map(employee, EmployeeWithManagerDTO.class))
                 .toList();
     }

@@ -12,8 +12,7 @@ public class UserLoginDto {
         this.password = password;
     }
 
-    public UserLoginDto() {
-    }
+    public UserLoginDto() {}
 
     @Email(message = "Enter valid email")
     public String getEmail() {

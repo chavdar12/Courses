@@ -1,6 +1,7 @@
 package com.example.springDataIntro.models;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity

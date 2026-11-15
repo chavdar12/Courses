@@ -22,8 +22,7 @@ public class User {
     @Column(name = "registration_date")
     private LocalDate registration;
 
-    public User() {
-    }
+    public User() {}
 
     public User(String username, int age, LocalDate registration) {
         this.username = username;

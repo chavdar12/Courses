@@ -24,8 +24,7 @@ public abstract class Vehicle {
     @Column(name = "fuel_type")
     private String fuelType;
 
-    protected Vehicle() {
-    }
+    protected Vehicle() {}
 
     protected Vehicle(String model, BigDecimal price, String fuelType) {
         this.model = model;
