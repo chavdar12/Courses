@@ -13,7 +13,15 @@ while effects and powers and not all(count >= 3 for count in fireworks.values())
         continue
 
     total = effects[0] + powers[-1]
-    kind = "Crossette" if total % 15 == 0 else "Palm" if total % 3 == 0 else "Willow" if total % 5 == 0 else None
+    kind = (
+        "Crossette"
+        if total % 15 == 0
+        else "Palm"
+        if total % 3 == 0
+        else "Willow"
+        if total % 5 == 0
+        else None
+    )
     if kind:
         fireworks[kind] += 1
         effects.popleft()

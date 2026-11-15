@@ -12,7 +12,7 @@ with open("Files/words.txt") as words_file, open("Files/text.txt") as text_file:
     text_from_the_text_file = text_file.read()
     words_their_count = {}
     for word in words:
-        number_of_matches = len(re.findall(fr"\b{word}\b", text_from_the_text_file, re.IGNORECASE))
+        number_of_matches = len(re.findall(rf"\b{word}\b", text_from_the_text_file, re.IGNORECASE))
         words_their_count[word] = number_of_matches
 
 sorted_dict = sorted(words_their_count.items(), key=lambda kvp: -kvp[1])

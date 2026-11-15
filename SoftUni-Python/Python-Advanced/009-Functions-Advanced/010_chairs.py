@@ -16,7 +16,7 @@ def combination(names, chairs, current_names=[]):
 
     for i in range(len(names)):
         current_names.append(names[i])
-        combination(names[i + 1:], chairs, current_names)
+        combination(names[i + 1 :], chairs, current_names)
         current_names.pop()
 
 

@@ -25,7 +25,7 @@ def return_lowercase_text(file_path: str) -> str:
 def count_matches(words: list, txt: str) -> dict:
     word_count = {}
     for word in words:
-        matches = len(re.findall(fr"\b{word}\b", txt))
+        matches = len(re.findall(rf"\b{word}\b", txt))
         word_count[word] = matches
 
     return word_count

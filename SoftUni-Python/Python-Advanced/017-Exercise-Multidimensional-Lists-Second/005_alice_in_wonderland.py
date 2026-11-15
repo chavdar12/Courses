@@ -18,6 +18,8 @@ while tea < 10:
     if cell.isdigit():
         tea += int(cell)
 
-print("She did it! She went to the party." if tea >= 10 else "Alice didn't make it to the tea party.")
+print(
+    "She did it! She went to the party." if tea >= 10 else "Alice didn't make it to the tea party."
+)
 for row in field:
     print(*row)

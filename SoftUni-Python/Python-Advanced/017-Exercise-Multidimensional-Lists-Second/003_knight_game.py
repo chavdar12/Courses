@@ -22,7 +22,6 @@ def find_all_knights(matrix):
     knights = []
     for r in range(len(matrix)):
         for c in range(len(matrix)):
-
             current_char = matrix[r][c]
             if current_char == "K":
                 knights.append((r, c))
@@ -33,7 +32,6 @@ def find_all_knights(matrix):
 def find_attacking_knights(matrix, all_knights):
     attacking_knights = {}
     for row, col in all_knights:
-
         attacked_positions = [
             (row - 1, col - 2),
             (row - 2, col - 1),
@@ -57,13 +55,11 @@ def find_attacking_knights(matrix, all_knights):
     return attacking_knights
 
 
-
 def find_most_aggressive_knight(attacking_knights):
     most_aggressive_knight_coordinates = None
     aggression = None
 
     for coordinates, value in attacking_knights.items():
-
         if aggression is None or value > aggression:
             aggression = value
             most_aggressive_knight_coordinates = coordinates

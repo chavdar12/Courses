@@ -13,7 +13,7 @@ for el in robots_info:
     robot = {
         "Robot_name": robot_name,
         "Processing_time": int(processing_time),
-        "Available_at": time
+        "Available_at": time,
     }
 
     robots.append(robot)
@@ -31,12 +31,12 @@ while products:
 
     if available_robots:
         current_robot = available_robots.popleft()
-        current_robot['Available_at'] = time + timedelta(seconds=current_robot['Processing_time'])
+        current_robot["Available_at"] = time + timedelta(seconds=current_robot["Processing_time"])
         print(f"{current_robot['Robot_name']} - {current_product} [{time.time()}]")
 
     else:
         for robby in robots:
-            if time >= robby['Available_at']:
+            if time >= robby["Available_at"]:
                 available_robots.append(robby)
 
         if not available_robots:
@@ -44,7 +44,9 @@ while products:
 
         else:
             current_robot = available_robots.popleft()
-            current_robot['Available_at'] = time + timedelta(seconds=current_robot['Processing_time'])
+            current_robot["Available_at"] = time + timedelta(
+                seconds=current_robot["Processing_time"]
+            )
             print(f"{current_robot['Robot_name']} - {current_product} [{time.time()}]")
 
     time += timedelta(seconds=1)

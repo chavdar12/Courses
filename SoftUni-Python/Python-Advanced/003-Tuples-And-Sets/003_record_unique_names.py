@@ -10,4 +10,4 @@ n = int(input())
 
 names = input_to_list(n)
 unique_names = set(names)
-print(*unique_names, sep='\n')
+print(*unique_names, sep="\n")

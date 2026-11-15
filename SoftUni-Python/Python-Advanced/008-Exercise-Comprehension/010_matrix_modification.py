@@ -5,9 +5,7 @@ def read_matrix(dimension):
 
 
 def indices_are_valid(row, column, matrix):
-    return True \
-        if row in range(len(matrix)) and column in range(len(matrix[0])) \
-        else False
+    return True if row in range(len(matrix)) and column in range(len(matrix[0])) else False
 
 
 def increase_number_at_coordinates(matrix, command):

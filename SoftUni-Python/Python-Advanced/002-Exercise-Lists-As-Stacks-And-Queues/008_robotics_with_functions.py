@@ -17,11 +17,7 @@ products = deque()
 
 for each_robot in robots_info:  # fills robots and available_robots
     name, processing_time = each_robot.split("-")
-    robot = {
-        "Name": name,
-        "Time": int(processing_time),
-        "Available_at": time
-    }
+    robot = {"Name": name, "Time": int(processing_time), "Available_at": time}
     robots.append(robot)
     available_robots.append(robot)
 

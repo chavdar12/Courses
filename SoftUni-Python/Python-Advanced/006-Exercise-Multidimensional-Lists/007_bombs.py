@@ -19,9 +19,14 @@ def read_bomb_coordinates():
 def find_bomb_range(matrix, bomb_coordinates):
     r, c = bomb_coordinates
     affected_areas = [
-        (r - 1, c - 1), (r - 1, c), (r - 1, c + 1),
-        (r, c - 1), (r, c + 1),
-        (r + 1, c - 1), (r + 1, c), (r + 1, c + 1)
+        (r - 1, c - 1),
+        (r - 1, c),
+        (r - 1, c + 1),
+        (r, c - 1),
+        (r, c + 1),
+        (r + 1, c - 1),
+        (r + 1, c),
+        (r + 1, c + 1),
     ]
 
     return affected_areas

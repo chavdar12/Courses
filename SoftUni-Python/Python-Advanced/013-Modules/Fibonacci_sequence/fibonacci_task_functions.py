@@ -14,5 +14,5 @@ def locate_num_in_fibonacci(n, fib_sequence: list):
     return f"The number {n} is not in the sequence"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("heyyyyy")

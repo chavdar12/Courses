@@ -17,9 +17,11 @@ while not car_or_command == "END":
 
         while cars and green > 0:
             car_entering_the_crossroads = cars.popleft()
-            car_entering_the_crossroads = {"Name": car_entering_the_crossroads,
-                                           'Length': len(car_entering_the_crossroads)}
-            green -= car_entering_the_crossroads['Length']
+            car_entering_the_crossroads = {
+                "Name": car_entering_the_crossroads,
+                "Length": len(car_entering_the_crossroads),
+            }
+            green -= car_entering_the_crossroads["Length"]
 
             if green >= 0:
                 cars_successfully_crossed += 1
@@ -30,8 +32,10 @@ while not car_or_command == "END":
                     cars_successfully_crossed += 1
                 else:
                     car_length_left -= free_window
-                    hit_letter = car_entering_the_crossroads['Name'][-car_length_left]
-                    print(f"A crash happened!\n{car_entering_the_crossroads['Name']} was hit at {hit_letter}.")
+                    hit_letter = car_entering_the_crossroads["Name"][-car_length_left]
+                    print(
+                        f"A crash happened!\n{car_entering_the_crossroads['Name']} was hit at {hit_letter}."
+                    )
                     crash = True
     if crash:
         break
@@ -39,5 +43,4 @@ while not car_or_command == "END":
     car_or_command = input()
 
 if not crash:
-    print("Everyone is safe.\n"
-          f"{cars_successfully_crossed} total cars passed the crossroads.")
+    print(f"Everyone is safe.\n{cars_successfully_crossed} total cars passed the crossroads.")

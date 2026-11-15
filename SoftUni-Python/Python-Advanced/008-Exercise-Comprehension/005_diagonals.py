@@ -1,6 +1,6 @@
 def print_result(diagonal1, diagonal2):
-    print(f'First diagonal: {", ".join(list(map(str, diagonal1)))}. Sum: {sum(diagonal1)}')
-    print(f'Second diagonal: {", ".join(list(map(str, diagonal2)))}. Sum: {sum(diagonal2)}')
+    print(f"First diagonal: {', '.join(list(map(str, diagonal1)))}. Sum: {sum(diagonal1)}")
+    print(f"Second diagonal: {', '.join(list(map(str, diagonal2)))}. Sum: {sum(diagonal2)}")
 
 
 dimensions = int(input())

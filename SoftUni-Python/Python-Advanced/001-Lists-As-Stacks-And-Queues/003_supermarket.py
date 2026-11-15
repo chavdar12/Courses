@@ -4,7 +4,6 @@ my_queue = deque()
 
 command = input()
 while not command == "End":
-
     if command == "Paid":
         while my_queue:
             print(my_queue.popleft())

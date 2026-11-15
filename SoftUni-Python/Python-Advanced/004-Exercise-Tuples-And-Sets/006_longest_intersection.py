@@ -27,7 +27,9 @@ def find_the_longest_intersection(data):
 
 
 def print_result(result: set):
-    print(f"Longest intersection is [{', '.join(map(lambda num: str(num), result))}] with length {len(result)}")
+    print(
+        f"Longest intersection is [{', '.join(map(lambda num: str(num), result))}] with length {len(result)}"
+    )
 
 
 n = int(input())

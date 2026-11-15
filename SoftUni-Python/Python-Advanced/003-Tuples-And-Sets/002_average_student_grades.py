@@ -14,14 +14,16 @@ def calculate_average(dictionary):
     student_grade_average = {}
     for student, grades in dictionary.items():
         avg = sum(grades) / len(grades)
-        student_grade_average[student] = f'{avg:.2f}'
+        student_grade_average[student] = f"{avg:.2f}"
 
     return student_grade_average
 
 
 def print_result(all_grades, avg_grades):
     for student, grades in all_grades.items():
-        print(f"{student} -> {' '.join([f'{num:.2f}' for num in grades])} (avg: {avg_grades[student]})")
+        print(
+            f"{student} -> {' '.join([f'{num:.2f}' for num in grades])} (avg: {avg_grades[student]})"
+        )
 
 
 n = int(input())

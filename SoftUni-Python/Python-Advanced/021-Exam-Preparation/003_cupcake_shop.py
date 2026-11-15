@@ -5,7 +5,7 @@ def stock_availability(inventory, action, *args):
     if not args:
         return inventory[1:]
     if isinstance(args[0], int):
-        return inventory[args[0]:]
+        return inventory[args[0] :]
     return [box for box in inventory if box not in args]
 
 

@@ -11,7 +11,6 @@ def find_starting_position(matrix):
     found_it = False
     for i in range(len(matrix)):
         for j in range(len(matrix)):
-
             if matrix[i][j] == "s":
                 starting_position = (i, j)
                 found_it = True

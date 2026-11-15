@@ -1,7 +1,10 @@
 def print_result(min, max, tots):
-    print(f"The minimum number is {min}",
-          f"The maximum number is {max}",
-          f"The sum number is: {tots}", sep="\n")
+    print(
+        f"The minimum number is {min}",
+        f"The maximum number is {max}",
+        f"The sum number is: {tots}",
+        sep="\n",
+    )
 
 
 numbers = [int(num) for num in input().split()]

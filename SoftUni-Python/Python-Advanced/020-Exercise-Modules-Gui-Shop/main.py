@@ -22,8 +22,9 @@ def form(fields, submit_text, on_submit, back=None):
         tk.Label(frame, text=label).grid(row=row, column=0, sticky="w")
         entries[label] = tk.Entry(frame, show=show)
         entries[label].grid(row=row, column=1)
-    tk.Button(frame, text=submit_text, command=lambda: on_submit({k: e.get() for k, e in entries.items()})).grid(
-        row=len(fields), column=1, pady=10)
+    tk.Button(
+        frame, text=submit_text, command=lambda: on_submit({k: e.get() for k, e in entries.items()})
+    ).grid(row=len(fields), column=1, pady=10)
     if back:
         tk.Button(frame, text="Back", command=back).grid(row=len(fields), column=0)
 
@@ -47,14 +48,20 @@ def show_login():
 def show_register():
     def submit(values):
         try:
-            storage.register(values["Username"], values["Password"], values["First name"], values["Last name"])
+            storage.register(
+                values["Username"], values["Password"], values["First name"], values["Last name"]
+            )
         except ValueError as error:
             messagebox.showerror("Error", str(error))
             return
         show_login()
 
-    form([("First name", ""), ("Last name", ""), ("Username", ""), ("Password", "*")], "Register", submit,
-         back=show_start)
+    form(
+        [("First name", ""), ("Last name", ""), ("Username", ""), ("Password", "*")],
+        "Register",
+        submit,
+        back=show_start,
+    )
 
 
 def show_products(username):
@@ -63,8 +70,9 @@ def show_products(username):
         tk.Label(frame, text=product["name"]).grid(row=0, column=col, padx=10)
         tk.Label(frame, text=f"Left: {product['count']}").grid(row=1, column=col)
         state = tk.NORMAL if product["count"] > 0 else tk.DISABLED
-        tk.Button(frame, text="Buy", state=state, command=lambda pid=product["id"]: buy(username, pid)).grid(
-            row=2, column=col)
+        tk.Button(
+            frame, text="Buy", state=state, command=lambda pid=product["id"]: buy(username, pid)
+        ).grid(row=2, column=col)
 
 
 def buy(username, product_id):

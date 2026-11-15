@@ -37,7 +37,6 @@ from Triangle.print_triangle_funcitons import (  # noqa: E402
 )
 
 
-
 class TestReusableModules(unittest.TestCase):
     def test_fibonacci_helpers(self):
         self.assertEqual(create_fibonacci_sequence(5), [0, 1, 1, 2, 3])
@@ -150,4 +149,3 @@ class TestModuleEntryPoints(unittest.TestCase):
             with contextlib.redirect_stdout(buffer):
                 runpy.run_module(module_name, run_name="__main__")
         return buffer.getvalue()
-

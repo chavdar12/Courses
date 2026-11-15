@@ -7,5 +7,4 @@ try:
         print(sum_of_nums)
 
 except FileNotFoundError:
-
     print("file not found")

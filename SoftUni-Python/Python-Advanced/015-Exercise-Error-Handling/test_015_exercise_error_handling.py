@@ -1,4 +1,5 @@
 """Runs this lesson's scripts with the examples from the course PDF."""
+
 import contextlib
 import io
 import runpy
@@ -13,8 +14,14 @@ HERE = Path(__file__).resolve().parent
 
 
 def run(script, stdin, cwd=HERE):
-    return subprocess.run([sys.executable, str(cwd / script)], input="\n".join(map(str, stdin)) + "\n",
-                          capture_output=True, text=True, timeout=10, cwd=cwd)
+    return subprocess.run(
+        [sys.executable, str(cwd / script)],
+        input="\n".join(map(str, stdin)) + "\n",
+        capture_output=True,
+        text=True,
+        timeout=10,
+        cwd=cwd,
+    )
 
 
 def lines(text, unordered=False):
@@ -23,18 +30,26 @@ def lines(text, unordered=False):
 
 
 # (script, stdin lines, expected stdout, compare lines unordered?)
-STDIN_CASES = [('001_numbers_dictionary.py',
-  ['one', 1, 'two', 2, 'Search', 'one', 'Remove', 'two', 'End'],
-  "1\n{'one': 1}",
-  False),
- ('001_numbers_dictionary.py',
-  ['one', 'two', 'Search', 'Remove', 'End'],
-  'The variable number must be an integer\n{}',
-  False),
- ('001_numbers_dictionary.py',
-  ['one', 1, 'Search', 'one', 'Remove', 'two', 'End'],
-  "1\nNumber does not exist in dictionary\n{'one': 1}",
-  False)]
+STDIN_CASES = [
+    (
+        "001_numbers_dictionary.py",
+        ["one", 1, "two", 2, "Search", "one", "Remove", "two", "End"],
+        "1\n{'one': 1}",
+        False,
+    ),
+    (
+        "001_numbers_dictionary.py",
+        ["one", "two", "Search", "Remove", "End"],
+        "The variable number must be an integer\n{}",
+        False,
+    ),
+    (
+        "001_numbers_dictionary.py",
+        ["one", 1, "Search", "one", "Remove", "two", "End"],
+        "1\nNumber does not exist in dictionary\n{'one': 1}",
+        False,
+    ),
+]
 
 
 class TestStdinScripts(unittest.TestCase):
@@ -47,12 +62,16 @@ class TestStdinScripts(unittest.TestCase):
 
 
 # (script, stdin lines, expected stdout before the error, exception name)
-RAISES_CASES = [('002_email_validator.py', ['abc@abv.bg'], '', 'NameTooShortError'),
- ('002_email_validator.py',
-  ['peter@gmail.com', 'petergmail.com'],
-  'Email is valid',
-  'MustContainAtSymbolError'),
- ('002_email_validator.py', ['peter@gmail.hotmail'], '', 'InvalidDomainError')]
+RAISES_CASES = [
+    ("002_email_validator.py", ["abc@abv.bg"], "", "NameTooShortError"),
+    (
+        "002_email_validator.py",
+        ["peter@gmail.com", "petergmail.com"],
+        "Email is valid",
+        "MustContainAtSymbolError",
+    ),
+    ("002_email_validator.py", ["peter@gmail.hotmail"], "", "InvalidDomainError"),
+]
 
 
 class TestRaises(unittest.TestCase):

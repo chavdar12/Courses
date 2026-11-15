@@ -1,4 +1,5 @@
 """Users and products persisted as JSON files in the db folder (no GUI code here, so it can be tested)."""
+
 import json
 from pathlib import Path
 
@@ -20,13 +21,22 @@ def register(username, password, first_name, last_name, db_dir=DB_DIR):
     users = _read("users.json", db_dir)
     if any(u["username"] == username for u in users):
         raise ValueError("Username is already taken")
-    users.append({"username": username, "password": password, "first_name": first_name,
-                  "last_name": last_name, "products": []})
+    users.append(
+        {
+            "username": username,
+            "password": password,
+            "first_name": first_name,
+            "last_name": last_name,
+            "products": [],
+        }
+    )
     _write("users.json", users, db_dir)
 
 
 def login(username, password, db_dir=DB_DIR):
-    return any(u["username"] == username and u["password"] == password for u in _read("users.json", db_dir))
+    return any(
+        u["username"] == username and u["password"] == password for u in _read("users.json", db_dir)
+    )
 
 
 def list_products(db_dir=DB_DIR):

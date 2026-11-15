@@ -1,13 +1,11 @@
 parentheses = input()
 
-brackets = {")": '(', "]": '[', "}": "{"}
+brackets = {")": "(", "]": "[", "}": "{"}
 stack = []
 balanced = True
 
 for char in parentheses:
-
     if char in brackets:
-
         if not stack or not stack[-1] == brackets[char]:
             print("NO")
             balanced = False

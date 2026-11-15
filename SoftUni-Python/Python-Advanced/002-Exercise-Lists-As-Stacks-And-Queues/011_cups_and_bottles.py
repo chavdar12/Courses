@@ -5,7 +5,6 @@ bottles = deque(int(el) for el in input().split())
 
 wasted_water = 0
 while bottles and cups:
-
     if cups[0] > bottles[-1]:
         cups[0] -= bottles.pop()
 

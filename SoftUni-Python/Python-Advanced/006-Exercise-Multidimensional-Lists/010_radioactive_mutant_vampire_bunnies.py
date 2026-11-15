@@ -42,7 +42,7 @@ def follow_command(matrix, current_position, command):
 
 
 def escaped(matrix):
-    """checks if the player left the board a.k.a """
+    """checks if the player left the board a.k.a"""
     for row in matrix:
         if "P" in row:
             return False
@@ -73,17 +73,10 @@ def bunnies_procreate(matrix):
     bunnies = find_bunnies(matrix)
     killed = False
     for r, c in bunnies:
-
-        baby_bunnies = [
-            [r, c - 1],
-            [r + 1, c],
-            [r, c + 1],
-            [r - 1, c]
-        ]
+        baby_bunnies = [[r, c - 1], [r + 1, c], [r, c + 1], [r - 1, c]]
 
         for row, col in baby_bunnies:
-            if row not in range(len(matrix)) or \
-                    col not in range(len(matrix[0])):
+            if row not in range(len(matrix)) or col not in range(len(matrix[0])):
                 continue
             if matrix[row][col] == "P":
                 busted = True
@@ -101,7 +94,7 @@ def print_result(matrix, coordinates, won=True):
     for row in matrix:
         print(*row, sep="")
     if won:
-        print("won: ", end='')
+        print("won: ", end="")
     else:
         print("dead: ", end="")
     print(*coordinates, sep=" ")

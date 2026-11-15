@@ -15,25 +15,30 @@ def supplies_for_the_bunker(inventory_list):
 
 
 def print_result(inventory_list):
-    items_count = sum([name_quantity_quality['Quantity'] for category, name_quantity_quality in inventory_list.items()])
+    items_count = sum(
+        [
+            name_quantity_quality["Quantity"]
+            for category, name_quantity_quality in inventory_list.items()
+        ]
+    )
     print(f"Count of items: {items_count}")
 
-    sum_quality = sum([name_quantity_quality['Quality'] for category, name_quantity_quality in inventory_list.items()])
+    sum_quality = sum(
+        [
+            name_quantity_quality["Quality"]
+            for category, name_quantity_quality in inventory_list.items()
+        ]
+    )
     average_quality = sum_quality / len(inventory_list)
     print(f"Average quality: {average_quality:.2f}")
 
     for category, name_quantity_quality in inventory_list.items():
         print(f"{category} -> ", end="")
-        print(*name_quantity_quality['Name'], sep=", ")
+        print(*name_quantity_quality["Name"], sep=", ")
 
 
 categories = input().split(", ")
 number_of_entries = int(input())
-bunker_inventory = {
-    category: {"Name": [],
-               "Quantity": 0,
-               "Quality": 0}
-    for category in categories
-}
+bunker_inventory = {category: {"Name": [], "Quantity": 0, "Quality": 0} for category in categories}
 supplies_for_the_bunker(bunker_inventory)
 print_result(bunker_inventory)

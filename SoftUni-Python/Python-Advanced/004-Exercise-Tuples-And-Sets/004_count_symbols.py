@@ -12,7 +12,7 @@ def count_and_sort_occurrences_of_chars(given_text: str):
 
 def print_result():
     for character, number_of_occurrences in number_of_characters_occurrences:
-        print(f'{character}: {number_of_occurrences} time/s')
+        print(f"{character}: {number_of_occurrences} time/s")
 
 
 txt = input()

@@ -43,13 +43,18 @@ def sub_matrix_sum_and_coordinates(matrix):
                 third_index_position = third_num
                 fourth_index_position = fourth_num
 
-    return (first_index_position, second_index_position, third_index_position, fourth_index_position), max_sum
+    return (
+        first_index_position,
+        second_index_position,
+        third_index_position,
+        fourth_index_position,
+    ), max_sum
 
 
 def print_result(result):
     coordinates, max_sum = result
     first, second, third, fourth = coordinates
-    print(first, second, ' ')
+    print(first, second, " ")
     print(third, fourth, " ")
     print(max_sum)
 
