@@ -11,7 +11,7 @@ def exchange(data: list, index: int):
 def max_n(data: list, int_type: str):
     if int_type == "even":
         nums = [i for i in data if i % 2 == 0]
-    elif int_type == "odd":
+    else:
         nums = [i for i in data if i % 2 == 1]
 
     if len(nums) == 0:
@@ -28,7 +28,7 @@ def max_n(data: list, int_type: str):
 def min_n(data: list, int_type: str):
     if int_type == "even":
         nums = [i for i in data if i % 2 == 0]
-    elif int_type == "odd":
+    else:
         nums = [i for i in data if i % 2 == 1]
 
     if len(nums) == 0:
