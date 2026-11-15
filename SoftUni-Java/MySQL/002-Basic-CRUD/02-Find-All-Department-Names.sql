@@ -1,4 +1,4 @@
 -- database: soft_uni
 SELECT `name`
-from `departments`
+FROM `departments`
 ORDER BY `department_id` ASC;

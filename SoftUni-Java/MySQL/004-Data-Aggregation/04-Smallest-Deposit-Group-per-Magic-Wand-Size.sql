@@ -1,6 +1,8 @@
 -- database: gringotts
 CREATE TABLE `temp_table` AS
-SELECT `deposit_group`, avg(`magic_wand_size`) as `wand_size`
+SELECT
+    `deposit_group`,
+    avg(`magic_wand_size`) AS `wand_size`
 FROM `wizzard_deposits`
 GROUP BY `deposit_group`;
 

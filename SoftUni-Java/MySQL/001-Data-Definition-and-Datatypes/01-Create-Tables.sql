@@ -1,13 +1,13 @@
 -- database: minions
 CREATE TABLE `minions`
 (
-    `id`   INT PRIMARY KEY AUTO_INCREMENT,
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(50),
-    `age`  INT
+    `age` INT
 );
 
 CREATE TABLE `towns`
 (
     `town_id` INT PRIMARY KEY AUTO_INCREMENT,
-    `name`    VARCHAR(50)
+    `name` VARCHAR(50)
 );
