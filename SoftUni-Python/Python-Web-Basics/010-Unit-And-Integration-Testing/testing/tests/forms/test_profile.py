@@ -1,8 +1,6 @@
-from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from testing.forms.profile import ProfileForm
-from testing.models import Profile
 
 
 class TestProfileForm(TestCase):
