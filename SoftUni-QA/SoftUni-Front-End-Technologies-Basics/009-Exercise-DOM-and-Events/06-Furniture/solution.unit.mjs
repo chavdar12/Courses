@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPage, click } from '../../test-utils/index.mjs';
+import { openPage, click } from '../test-utils.mjs';
 
 import { readFileSync } from 'node:fs';
 

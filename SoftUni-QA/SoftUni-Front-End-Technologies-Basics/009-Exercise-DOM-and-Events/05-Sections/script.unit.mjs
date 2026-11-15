@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPage, click } from '../../test-utils/index.mjs';
+import { openPage, click } from '../test-utils.mjs';
 
 test('creates hidden sections that are revealed on click', async () => {
     const window = await openPage(new URL('./index.html', import.meta.url));

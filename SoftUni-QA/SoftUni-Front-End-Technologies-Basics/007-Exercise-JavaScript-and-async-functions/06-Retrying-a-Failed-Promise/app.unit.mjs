@@ -1,6 +1,6 @@
 import { test, mock } from 'node:test';
 import assert from 'node:assert/strict';
-import { loadScript, advance } from '../../test-utils/index.mjs';
+import { loadScript, advance } from '../test-utils.mjs';
 
 const file = new URL('./app.js', import.meta.url);
 

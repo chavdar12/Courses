@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPage, click } from '../../test-utils/index.mjs';
+import { openPage, click } from './test-utils.mjs';
 
 const fields = { 'snowman-name': 'Frosty', 'snowman-height': '120', location: 'Sofia', 'creator-name': 'Ivan', 'special-attribute': 'Carrot Nose' };
 

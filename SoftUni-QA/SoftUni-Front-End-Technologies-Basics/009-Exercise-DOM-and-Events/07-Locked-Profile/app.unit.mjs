@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPage, click } from '../../test-utils/index.mjs';
+import { openPage, click } from '../test-utils.mjs';
 
 async function setup() {
     const window = await openPage(new URL('./template.html', import.meta.url));

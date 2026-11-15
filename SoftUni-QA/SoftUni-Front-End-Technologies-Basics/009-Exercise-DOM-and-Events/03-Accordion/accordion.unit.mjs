@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPage, click } from '../../test-utils/index.mjs';
+import { openPage, click } from '../test-utils.mjs';
 
 test('More shows the extra text, Less hides it again', async () => {
     const window = await openPage(new URL('./accordion.html', import.meta.url));

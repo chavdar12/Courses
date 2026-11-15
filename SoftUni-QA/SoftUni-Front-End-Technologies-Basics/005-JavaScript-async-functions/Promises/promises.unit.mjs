@@ -1,6 +1,6 @@
 import { test, mock } from 'node:test';
 import assert from 'node:assert/strict';
-import { loadScript, openPage, click, advance, flush } from '../../test-utils/index.mjs';
+import { loadScript, openPage, click, advance, flush } from '../test-utils.mjs';
 
 test('promise.js logs the success message after 1s', async () => {
     mock.timers.enable({ apis: ['setTimeout'] });

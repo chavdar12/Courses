@@ -1,6 +1,6 @@
 import { test, mock } from 'node:test';
 import assert from 'node:assert/strict';
-import { loadScript, openPage, click, advance, flush } from '../../test-utils/index.mjs';
+import { loadScript, openPage, click, advance, flush } from '../test-utils.mjs';
 
 test.beforeEach(() => mock.timers.enable({ apis: ['setTimeout'] }));
 test.afterEach(() => mock.timers.reset());

@@ -1,5 +1,12 @@
 {
   "name": "019-jasmine",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "jasmine spec/*.spec.js"
+  },
+  "devDependencies": {
+    "jasmine": "^5.13.0"
+  }
 }

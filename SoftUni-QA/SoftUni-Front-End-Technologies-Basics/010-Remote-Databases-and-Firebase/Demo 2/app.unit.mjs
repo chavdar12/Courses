@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPage, click, flush } from '../../test-utils/index.mjs';
+import { openPage, click, flush } from '../test-utils.mjs';
 
 // in-memory stand-in for the firebase compat SDK loaded from the CDN
 function fakeFirebase(docs, { failWrites = false } = {}) {

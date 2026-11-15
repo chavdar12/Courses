@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPage, click } from '../../test-utils/index.mjs';
+import { openPage, click } from '../test-utils.mjs';
 
 test('encode shifts every char up by one, decode shifts it back', async () => {
     const window = await openPage(new URL('./template.html', import.meta.url));

@@ -1,3 +1,3 @@
 # 001-Course-Introduction
 
-No public solutions were found for this lesson, so this is an empty project.
+Course introduction lecture. It has no exercises, so there is nothing to solve or test here.

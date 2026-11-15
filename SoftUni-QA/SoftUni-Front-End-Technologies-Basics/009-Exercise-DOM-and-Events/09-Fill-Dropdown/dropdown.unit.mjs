@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPage, click } from '../../test-utils/index.mjs';
+import { openPage, click } from '../test-utils.mjs';
 
 test('adds an option with the given text and value, then clears the inputs', async () => {
     const window = await openPage(new URL('./filldropdown.html', import.meta.url));

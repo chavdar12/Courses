@@ -16,13 +16,16 @@ jobs:
           node-version: 24
           cache: npm
           cache-dependency-path: '**/package-lock.json'
-      - run: npm ci
-      - name: jsdom / node:test suites
-        run: npm test
-      - name: qUnit lessons
+      - name: Lesson test suites
         run: |
-          for dir in 011-qUnit-Introduction 012-Exercise-qUnit; do
-            (cd "$dir" && npm ci && npm test)
+          # every lesson is its own npm project; Playwright ones run in the e2e job
+          find . -name package.json -not -path '*/node_modules/*' -not -path './.github/*' | sort | while read -r pkg; do
+            dir=$(dirname "$pkg")
+            grep -q '"test":' "$pkg" || continue
+            grep -q '"test": *"[^"]*playwright' "$pkg" && continue
+            echo "::group::$dir"
+            (cd "$dir" && npm ci --no-audit --no-fund && npm test) || exit 1
+            echo "::endgroup::"
           done
 
   e2e:
@@ -38,6 +41,9 @@ jobs:
             port: 3001
             backend: true
           - dir: 017-Practical-Project-Automated-Testing-of-Single-Page-App-(with qUnit)-1
+            port: 3001
+            backend: true
+          - dir: 018-Practical-Project-Automated-Testing-of-Single-Page-App-(with qUnit)-2
             port: 3001
             backend: true
           - dir: 020-Exam-Preparation/02.JS-App-For-Testing
@@ -57,6 +63,7 @@ jobs:
           cache: npm
           cache-dependency-path: '**/package-lock.json'
       - run: npm ci
+      - run: npm run test:unit --if-present
       - run: npx playwright install --with-deps chromium
       - name: Start REST backend (port 3030)
         if: matrix.backend

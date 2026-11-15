@@ -1,43 +1,28 @@
-## .NET / C#
-[Bb]in/
-[Oo]bj/
-[Dd]ebug/
-[Rr]elease/
-*.user
-*.suo
-*.userprefs
-*.rsuser
-.vs/
-TestResults/
-*.trx
-*.coverage
-*.nupkg
-*.snupkg
-artifacts/
-
-## JetBrains Rider
-.idea/
-*.sln.iml
-*.DotSettings.user
-_ReSharper*/
-
-## VS Code
-.vscode/
-
-## Node (lesson projects are JavaScript)
+# Dependencies
 node_modules/
-npm-debug.log*
-playwright-report/
-test-results/
-blob-report/
 
-## macOS
+# Test output
+coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
 .DS_Store
-.AppleDouble
-.LSOverride
 ._*
-.Spotlight-V100
-.Trashes
-.fseventsd
-.TemporaryItems
-Icon?
+Thumbs.db
+desktop.ini
