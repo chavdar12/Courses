@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../AppFlow/AppFlow.csproj" />
+  </ItemGroup>
+</Project>

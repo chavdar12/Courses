@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <ItemGroup>
+    <!-- bUnit renders components in memory: click, type, assert on markup; no browser. -->
+    <PackageReference Include="bunit" Version="2.15.2" />
+    <ProjectReference Include="../BlazorApp/BlazorApp.csproj" />
+  </ItemGroup>
+</Project>

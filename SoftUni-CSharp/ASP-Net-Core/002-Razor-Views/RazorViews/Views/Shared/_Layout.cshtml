@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Library</title>
+</head>
+<body>
+<header>
+    <a asp-controller="Books" asp-action="Index">All books</a> |
+    <a asp-controller="Books" asp-action="Create">Add book</a>
+</header>
+<main>@RenderBody()</main>
+<footer>@await RenderSectionAsync("Footer", required: false)</footer>
+</body>
+</html>

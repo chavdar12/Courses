@@ -1,0 +1,25 @@
+@model IReadOnlyList<Book>
+@inject IBookService Books
+@{
+    ViewData["Title"] = "Books";
+    var longest = Books.All().MaxBy(b => b.Pages);
+}
+<h1>Books (@Model.Count)</h1>
+<table>
+    <thead><tr><th>Title</th><th>Author</th><th>Pages</th></tr></thead>
+    <tbody>
+    @foreach (var book in Model)
+    {
+        <partial name="_BookRow" model="book" />
+    }
+    </tbody>
+</table>
+@if (longest is not null)
+{
+    <p>Longest: <strong>@longest.Title</strong></p>
+}
+<vc:book-stats label="Library"></vc:book-stats>
+
+@section Footer {
+    <small>Rendered at @DateTime.UtcNow.ToString("yyyy")</small>
+}

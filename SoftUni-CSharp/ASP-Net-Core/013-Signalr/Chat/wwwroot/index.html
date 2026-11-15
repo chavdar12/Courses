@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SignalR Chat</title>
+</head>
+<body>
+<h1>Chat</h1>
+<form id="send">
+    <label>Name <input id="user" required /></label>
+    <label>Message <input id="message" required maxlength="500" /></label>
+    <button>Send</button>
+</form>
+<ul id="messages" aria-live="polite"></ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+<script>
+    const messages = document.getElementById('messages');
+    const connection = new signalR.HubConnectionBuilder().withUrl('/chat').withAutomaticReconnect().build();
+
+    // textContent, never innerHTML: messages come from other users.
+    function show(text) {
+        const li = document.createElement('li');
+        li.textContent = text;
+        messages.append(li);
+    }
+
+    connection.on('Receive', (user, message) => show(`${user}: ${message}`));
+    connection.on('System', show);
+
+    document.getElementById('send').addEventListener('submit', async e => {
+        e.preventDefault();
+        const message = document.getElementById('message');
+        try {
+            await connection.invoke('Send', document.getElementById('user').value, message.value);
+            message.value = '';
+        } catch (err) {
+            show(`Error: ${err.message}`);
+        }
+    });
+
+    connection.start().catch(err => show(`Connection failed: ${err.message}`));
+</script>
+</body>
+</html>

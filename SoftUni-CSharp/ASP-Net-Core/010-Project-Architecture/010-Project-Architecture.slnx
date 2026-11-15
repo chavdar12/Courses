@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Library.Data/Library.Data.csproj" />
+  <Project Path="Library.Services/Library.Services.csproj" />
+  <Project Path="Library.Web/Library.Web.csproj" />
+  <Project Path="LibraryTests/LibraryTests.csproj" />
+</Solution>

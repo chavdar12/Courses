@@ -1,0 +1,40 @@
+@page "/todos"
+
+<PageTitle>Todos</PageTitle>
+<h1>Todos (@todos.Count(t => !t.Done) left)</h1>
+
+<ul>
+    @foreach (var todo in todos)
+    {
+        <li>
+            <label><input type="checkbox" @bind="todo.Done" /> @todo.Title</label>
+        </li>
+    }
+</ul>
+
+<EditForm Model="newTodo" OnValidSubmit="Add" FormName="new-todo">
+    <DataAnnotationsValidator />
+    <label for="title">New todo</label>
+    <InputText id="title" @bind-Value="newTodo.Title" />
+    <ValidationMessage For="() => newTodo.Title" />
+    <button type="submit">Add</button>
+</EditForm>
+
+@code {
+    private readonly List<TodoItem> todos = [];
+    private TodoItem newTodo = new();
+
+    private void Add()
+    {
+        todos.Add(newTodo);
+        newTodo = new();
+    }
+
+    public class TodoItem
+    {
+        [Required(ErrorMessage = "Title is required."), StringLength(50)]
+        public string Title { get; set; }
+
+        public bool Done { get; set; }
+    }
+}

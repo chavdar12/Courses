@@ -1,0 +1,21 @@
+@model Book
+@{ ViewData["Title"] = "Add book"; }
+<h1>Add book</h1>
+@* Tag helpers *@
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <label asp-for="Title"></label>
+    <input asp-for="Title" />
+    <span asp-validation-for="Title"></span>
+
+    <label asp-for="Author"></label>
+    <input asp-for="Author" />
+    <span asp-validation-for="Author"></span>
+
+    @* The same field via an HTML helper *@
+    @Html.LabelFor(m => m.Pages)
+    @Html.TextBoxFor(m => m.Pages, new { type = "number" })
+    @Html.ValidationMessageFor(m => m.Pages)
+
+    <button type="submit">Save</button>
+</form>
