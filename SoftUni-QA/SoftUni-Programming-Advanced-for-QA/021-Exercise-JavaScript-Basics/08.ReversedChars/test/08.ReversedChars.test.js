@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as reversedChars } from '../08.ReversedChars.js';
 
 describe('08.ReversedChars', () => {

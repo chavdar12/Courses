@@ -1,9 +1,9 @@
 {
-  "name": "softuni-programming-advanced-for-qa",
+  "name": "023-exercise-javascript-fundamentals",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "mocha \"02[0-5]-*/**/*.test.js\""
+    "test": "mocha \"*/test/*.test.js\""
   },
   "devDependencies": {
     "chai": "^5.1.2",

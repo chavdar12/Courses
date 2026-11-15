@@ -1,0 +1,12 @@
+{
+  "name": "020-javascript-basics",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "mocha \"*/test/*.test.js\""
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2"
+  }
+}

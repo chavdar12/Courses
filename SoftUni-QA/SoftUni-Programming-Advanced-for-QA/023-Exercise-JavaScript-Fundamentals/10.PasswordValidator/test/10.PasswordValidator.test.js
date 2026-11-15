@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as passwordValidator } from '../10.PasswordValidator.js';
 
 describe('10.PasswordValidator', () => {

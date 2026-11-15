@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as largestNumber } from '../06.LargestNumber.js';
 
 describe('06.LargestNumber', () => {

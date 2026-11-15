@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as arrayRotation } from '../01.ArrayRotation.js';
 
 describe('01.ArrayRotation', () => {

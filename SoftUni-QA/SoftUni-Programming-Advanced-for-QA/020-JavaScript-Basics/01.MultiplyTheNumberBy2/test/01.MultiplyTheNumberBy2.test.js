@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as multiply } from '../01.MultiplyTheNumberBy2.js';
 
 describe('01.MultiplyTheNumberBy2', () => {

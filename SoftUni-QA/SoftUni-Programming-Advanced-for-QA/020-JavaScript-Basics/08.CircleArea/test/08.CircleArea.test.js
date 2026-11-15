@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as circleArea } from '../08.CircleArea.js';
 
 describe('08.CircleArea', () => {

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as countOccurrences } from '../06.CountStringOccurrences.js';
 
 describe('06.CountStringOccurrences', () => {

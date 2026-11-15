@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as cookingByNumbers } from '../12.CookingByNumbers.js';
 
 describe('12.CookingByNumbers', () => {

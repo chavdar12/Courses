@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as repeatString } from '../09.RepeatString.js';
 
 describe('09.RepeatString', () => {

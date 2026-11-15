@@ -13,9 +13,8 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
-      - run: dotnet restore
-      - run: dotnet build --no-restore
-      - run: dotnet test --no-build
+      # Every module folder is its own solution.
+      - run: for s in */*.slnx; do dotnet test "$s"; done
 
   javascript:
     runs-on: ubuntu-latest
@@ -25,5 +24,6 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - run: npm test
+          cache-dependency-path: "*/package-lock.json"
+      # Every JS module folder is its own npm project.
+      - run: for p in */package.json; do (cd "$(dirname "$p")" && npm ci && npm test); done

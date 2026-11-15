@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as smallest } from '../07.SmallestOfThreeNums.js';
 
 describe('07.SmallestOfThreeNums', () => {

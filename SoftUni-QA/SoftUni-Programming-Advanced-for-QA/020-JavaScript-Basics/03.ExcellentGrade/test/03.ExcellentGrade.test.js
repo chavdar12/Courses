@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as excellentGrade } from '../03.ExcellentGrade.js';
 
 describe('03.ExcellentGrade', () => {

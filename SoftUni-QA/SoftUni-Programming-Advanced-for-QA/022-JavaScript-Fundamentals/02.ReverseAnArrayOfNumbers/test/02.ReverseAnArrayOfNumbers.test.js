@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as reverseArray } from '../02.ReverseAnArrayOfNumbers.js';
 
 describe('02.ReverseAnArrayOfNumbers', () => {

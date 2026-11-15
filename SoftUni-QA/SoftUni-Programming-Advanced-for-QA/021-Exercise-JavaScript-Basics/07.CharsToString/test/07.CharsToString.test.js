@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as charsToString } from '../07.CharsToString.js';
 
 describe('07.CharsToString', () => {

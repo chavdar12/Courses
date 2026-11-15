@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as multiplicationTable } from '../05.MultiplicationTable.js';
 
 describe('05.MultiplicationTable', () => {

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { captureLog } from '../../../captureLog.js';
+import { captureLog } from '../../captureLog.js';
 import { solve as sumFirstAndLast } from '../01.SumFirstAndLastArrayElements.js';
 
 describe('01.SumFirstAndLastArrayElements', () => {
