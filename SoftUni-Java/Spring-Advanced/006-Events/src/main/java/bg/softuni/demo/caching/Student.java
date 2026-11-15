@@ -1,4 +1,3 @@
 package bg.softuni.demo.caching;
 
-public record Student(String name, int age) {
-}
+public record Student(String name, int age) {}

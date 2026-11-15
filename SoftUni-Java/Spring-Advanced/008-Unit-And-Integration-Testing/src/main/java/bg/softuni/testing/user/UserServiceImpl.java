@@ -15,7 +15,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity getUserByUsername(String username) {
-        return userRepository.findByUsername(username)
+        return userRepository
+                .findByUsername(username)
                 .orElseThrow(() -> new NoSuchElementException("User " + username + " not found."));
     }
 }

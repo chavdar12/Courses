@@ -14,23 +14,26 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfiguration {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http,
-                                                   @Value("${app.remember-me-key}") String rememberMeKey) throws Exception {
-        return http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/register", "/login", "/unauthorized", "/error").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated())
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .usernameParameter("username")
-                        .passwordParameter("password")
-                        .defaultSuccessUrl("/", true)
-                        .failureUrl("/login?error"))
-                .rememberMe(remember -> remember
-                        .key(rememberMeKey)
-                        .rememberMeParameter("remember")
-                        .tokenValiditySeconds(7 * 24 * 60 * 60))
+    public SecurityFilterChain securityFilterChain(
+            HttpSecurity http, @Value("${app.remember-me-key}") String rememberMeKey)
+            throws Exception {
+        return http.authorizeHttpRequests(auth ->
+                        auth.requestMatchers("/", "/register", "/login", "/unauthorized", "/error")
+                                .permitAll()
+                                .requestMatchers("/admin/**")
+                                .hasRole("ADMIN")
+                                .anyRequest()
+                                .authenticated())
+                .formLogin(form ->
+                        form.loginPage("/login")
+                                .usernameParameter("username")
+                                .passwordParameter("password")
+                                .defaultSuccessUrl("/", true)
+                                .failureUrl("/login?error"))
+                .rememberMe(remember ->
+                        remember.key(rememberMeKey)
+                                .rememberMeParameter("remember")
+                                .tokenValiditySeconds(7 * 24 * 60 * 60))
                 .logout(logout -> logout.logoutSuccessUrl("/login?logout"))
                 .exceptionHandling(ex -> ex.accessDeniedPage("/unauthorized"))
                 // CSRF stays enabled: Thymeleaf adds the token to every th:action form

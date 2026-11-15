@@ -2,6 +2,7 @@ package bg.softuni.errors.web;
 
 import bg.softuni.errors.product.OutOfStockException;
 import bg.softuni.errors.product.ProductService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,7 +21,8 @@ public class ProductsController {
         this.productService = productService;
     }
 
-    // ProductNotFoundException is not handled here: its @ResponseStatus produces a 404 and Boot renders templates/error/404.html
+    // ProductNotFoundException is not handled here: its @ResponseStatus produces a 404 and Boot
+    // renders templates/error/404.html
     @GetMapping("/products/{id}")
     public ModelAndView details(@PathVariable Long id) {
         return new ModelAndView("product", "product", productService.getById(id));

@@ -1,6 +1,7 @@
 package bg.softuni.demo;
 
 import jakarta.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,8 +38,11 @@ public class BooksController {
     @PostMapping
     public ResponseEntity<BookDTO> create(@Valid @RequestBody BookDTO book) {
         BookDTO created = bookService.create(book);
-        return ResponseEntity
-                .created(ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(created.id()).toUri())
+        return ResponseEntity.created(
+                        ServletUriComponentsBuilder.fromCurrentRequest()
+                                .path("/{id}")
+                                .buildAndExpand(created.id())
+                                .toUri())
                 .body(created);
     }
 
@@ -49,6 +53,8 @@ public class BooksController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        return bookService.delete(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+        return bookService.delete(id)
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
     }
 }

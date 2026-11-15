@@ -1,6 +1,7 @@
 package bg.softuni.demo.model.entity;
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,10 @@ public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private int age;
+
     @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
     private List<OrderEntity> orders = new ArrayList<>();
 

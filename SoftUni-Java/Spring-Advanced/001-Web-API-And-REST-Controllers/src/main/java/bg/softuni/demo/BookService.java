@@ -26,13 +26,16 @@ public class BookService {
 
     public BookDTO create(BookDTO book) {
         if (bookRepository.existsByIsbn(book.isbn())) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "A book with ISBN " + book.isbn() + " already exists.");
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT, "A book with ISBN " + book.isbn() + " already exists.");
         }
         return BookDTO.of(bookRepository.save(copy(book, new BookEntity())));
     }
 
     public Optional<BookDTO> update(Long id, BookDTO book) {
-        return bookRepository.findById(id).map(entity -> BookDTO.of(bookRepository.save(copy(book, entity))));
+        return bookRepository
+                .findById(id)
+                .map(entity -> BookDTO.of(bookRepository.save(copy(book, entity))));
     }
 
     public boolean delete(Long id) {

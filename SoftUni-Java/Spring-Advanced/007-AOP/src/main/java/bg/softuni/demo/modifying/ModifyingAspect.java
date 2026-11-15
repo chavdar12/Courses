@@ -13,8 +13,7 @@ import org.springframework.stereotype.Component;
 public class ModifyingAspect {
 
     @Pointcut("execution(* bg.softuni.demo.Student.concat(..))")
-    public void concatPointcut() {
-    }
+    public void concatPointcut() {}
 
     @Around(value = "concatPointcut() && args(a, b)", argNames = "pjp,a,b")
     public Object modify(ProceedingJoinPoint pjp, String a, String b) throws Throwable {
@@ -24,10 +23,7 @@ public class ModifyingAspect {
         String modifiedArgument2 = "[" + b + "]";
 
         // call the method via th proceeding join point
-        Object methodResult = pjp.proceed(new Object[]{
-                modifiedArgument1,
-                modifiedArgument2
-        });
+        Object methodResult = pjp.proceed(new Object[] {modifiedArgument1, modifiedArgument2});
 
         // modify the result.
         return "(" + methodResult + ")";

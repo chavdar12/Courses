@@ -9,10 +9,8 @@ public class OrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private CourseEntity course;
-    @ManyToOne
-    private StudentEntity student;
+    @ManyToOne private CourseEntity course;
+    @ManyToOne private StudentEntity student;
 
     public Long getId() {
         return id;

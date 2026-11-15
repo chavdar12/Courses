@@ -2,7 +2,9 @@ package bg.softuni.security.web;
 
 import bg.softuni.security.user.UserRegisterDTO;
 import bg.softuni.security.user.UserService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,7 +41,8 @@ public class HomeController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("user") UserRegisterDTO user, BindingResult bindingResult) {
+    public String register(
+            @Valid @ModelAttribute("user") UserRegisterDTO user, BindingResult bindingResult) {
         if (!bindingResult.hasErrors() && !userService.register(user)) {
             bindingResult.rejectValue("username", "taken", "This username is already taken.");
         }

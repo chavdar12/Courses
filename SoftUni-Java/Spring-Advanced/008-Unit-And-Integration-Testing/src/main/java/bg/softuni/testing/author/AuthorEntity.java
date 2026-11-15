@@ -16,8 +16,7 @@ public class AuthorEntity {
 
     private String name;
 
-    protected AuthorEntity() {
-    }
+    protected AuthorEntity() {}
 
     public AuthorEntity(String name) {
         this.name = name;

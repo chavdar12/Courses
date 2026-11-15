@@ -24,20 +24,32 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username)
-                .map(user -> User.withUsername(user.getUsername())
-                        .password(user.getPassword())
-                        .roles(user.getRoles().stream().map(Enum::name).toArray(String[]::new))
-                        .build())
-                .orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found."));
+        return userRepository
+                .findByUsername(username)
+                .map(user ->
+                        User.withUsername(user.getUsername())
+                                .password(user.getPassword())
+                                .roles(
+                                        user.getRoles().stream()
+                                                .map(Enum::name)
+                                                .toArray(String[]::new))
+                                .build())
+                .orElseThrow(
+                        () -> new UsernameNotFoundException("User " + username + " not found."));
     }
 
-    /** @return false when the username is already taken */
+    /**
+     * @return false when the username is already taken
+     */
     public boolean register(UserRegisterDTO dto) {
         if (userRepository.existsByUsername(dto.username())) {
             return false;
         }
-        userRepository.save(new UserEntity(dto.username(), passwordEncoder.encode(dto.password()), Set.of(UserRole.USER)));
+        userRepository.save(
+                new UserEntity(
+                        dto.username(),
+                        passwordEncoder.encode(dto.password()),
+                        Set.of(UserRole.USER)));
         return true;
     }
 

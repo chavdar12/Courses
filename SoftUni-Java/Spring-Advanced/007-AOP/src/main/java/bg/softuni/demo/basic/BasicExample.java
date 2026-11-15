@@ -1,6 +1,7 @@
 package bg.softuni.demo.basic;
 
 import bg.softuni.demo.Student;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
@@ -23,7 +24,8 @@ public class BasicExample implements CommandLineRunner {
         try {
             student.boom();
         } catch (IllegalStateException expected) {
-            // the @AfterThrowing advice already logged it; rethrowing would crash application startup
+            // the @AfterThrowing advice already logged it; rethrowing would crash application
+            // startup
         }
     }
 }

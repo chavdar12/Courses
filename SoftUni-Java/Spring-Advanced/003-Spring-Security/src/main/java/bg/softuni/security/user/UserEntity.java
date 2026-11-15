@@ -32,8 +32,7 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private Set<UserRole> roles = EnumSet.noneOf(UserRole.class);
 
-    protected UserEntity() {
-    }
+    protected UserEntity() {}
 
     public UserEntity(String username, String encodedPassword, Set<UserRole> roles) {
         this.username = username;

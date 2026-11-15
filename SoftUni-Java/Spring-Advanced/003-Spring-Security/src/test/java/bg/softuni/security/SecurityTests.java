@@ -1,20 +1,5 @@
 package bg.softuni.security;
 
-import bg.softuni.security.user.UserRepository;
-import bg.softuni.security.user.UserService;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.system.CapturedOutput;
-import org.springframework.boot.test.system.OutputCaptureExtension;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
-import org.springframework.security.authorization.AuthorizationDeniedException;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.web.servlet.MockMvc;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.hamcrest.Matchers.containsString;
@@ -32,23 +17,35 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import bg.softuni.security.user.UserRepository;
+import bg.softuni.security.user.UserService;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.system.CapturedOutput;
+import org.springframework.boot.test.system.OutputCaptureExtension;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.security.authorization.AuthorizationDeniedException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.web.servlet.MockMvc;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(OutputCaptureExtension.class)
 class SecurityTests {
 
-    @Autowired
-    MockMvc mockMvc;
+    @Autowired MockMvc mockMvc;
 
-    @Autowired
-    UserRepository userRepository;
+    @Autowired UserRepository userRepository;
 
-    @Autowired
-    UserService userService;
+    @Autowired UserService userService;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    @Autowired PasswordEncoder passwordEncoder;
 
     @Test
     void homePage_isPublic_andShowsGuestGreeting() throws Exception {
@@ -59,13 +56,19 @@ class SecurityTests {
 
     @Test
     void protectedPage_redirectsAnonymousToLogin() throws Exception {
-        mockMvc.perform(get("/profile")).andExpect(status().isFound()).andExpect(redirectedUrl("/login"));
+        mockMvc.perform(get("/profile"))
+                .andExpect(status().isFound())
+                .andExpect(redirectedUrl("/login"));
     }
 
     @Test
     void register_storesEncodedPassword_andAllowsLogin() throws Exception {
-        mockMvc.perform(post("/register").with(csrf())
-                        .param("username", "pesho").param("password", "secret1").param("confirmPassword", "secret1"))
+        mockMvc.perform(
+                        post("/register")
+                                .with(csrf())
+                                .param("username", "pesho")
+                                .param("password", "secret1")
+                                .param("confirmPassword", "secret1"))
                 .andExpect(redirectedUrl("/login"));
 
         String stored = userRepository.findByUsername("pesho").orElseThrow().getPassword();
@@ -81,26 +84,43 @@ class SecurityTests {
 
     @Test
     void register_rejectsInvalidInputAndTakenUsernames() throws Exception {
-        mockMvc.perform(post("/register").with(csrf())
-                        .param("username", "ivan").param("password", "secret1").param("confirmPassword", "other"))
+        mockMvc.perform(
+                        post("/register")
+                                .with(csrf())
+                                .param("username", "ivan")
+                                .param("password", "secret1")
+                                .param("confirmPassword", "other"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Passwords do not match.")));
 
-        mockMvc.perform(post("/register").with(csrf())
-                        .param("username", "admin").param("password", "secret1").param("confirmPassword", "secret1"))
+        mockMvc.perform(
+                        post("/register")
+                                .with(csrf())
+                                .param("username", "admin")
+                                .param("password", "secret1")
+                                .param("confirmPassword", "secret1"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("This username is already taken.")));
     }
 
     @Test
     void postWithoutCsrfToken_isForbidden() throws Exception {
-        mockMvc.perform(post("/register").param("username", "x").param("password", "y").param("confirmPassword", "y"))
+        mockMvc.perform(
+                        post("/register")
+                                .param("username", "x")
+                                .param("password", "y")
+                                .param("confirmPassword", "y"))
                 .andExpect(status().isForbidden());
     }
 
     @Test
     void rememberMe_setsCookie() throws Exception {
-        mockMvc.perform(post("/login").with(csrf()).param("username", "admin").param("password", "admin12345").param("remember", "on"))
+        mockMvc.perform(
+                        post("/login")
+                                .with(csrf())
+                                .param("username", "admin")
+                                .param("password", "admin12345")
+                                .param("remember", "on"))
                 .andExpect(cookie().exists("remember-me"));
     }
 
@@ -110,20 +130,27 @@ class SecurityTests {
         mockMvc.perform(get("/admin/users"))
                 .andExpect(status().isForbidden())
                 .andExpect(forwardedUrl("/unauthorized"));
-        mockMvc.perform(get("/")).andExpect(content().string(not(containsString("only shown to administrators"))));
+        mockMvc.perform(get("/"))
+                .andExpect(content().string(not(containsString("only shown to administrators"))));
     }
 
     @Test
-    @WithMockUser(username = "boss", roles = {"USER", "ADMIN"})
+    @WithMockUser(
+            username = "boss",
+            roles = {"USER", "ADMIN"})
     void adminSeesAdminContent() throws Exception {
-        mockMvc.perform(get("/admin/users")).andExpect(status().isOk()).andExpect(content().string(containsString("admin")));
-        mockMvc.perform(get("/")).andExpect(content().string(containsString("only shown to administrators")));
+        mockMvc.perform(get("/admin/users"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("admin")));
+        mockMvc.perform(get("/"))
+                .andExpect(content().string(containsString("only shown to administrators")));
     }
 
     @Test
     @WithMockUser(roles = "USER")
     void methodSecurity_blocksNonAdmins() {
-        assertThatThrownBy(() -> userService.delete("admin")).isInstanceOf(AuthorizationDeniedException.class);
+        assertThatThrownBy(() -> userService.delete("admin"))
+                .isInstanceOf(AuthorizationDeniedException.class);
         assertThat(userRepository.existsByUsername("admin")).isTrue();
     }
 

@@ -14,8 +14,10 @@ public class AdminSeeder implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
     private final String adminPassword;
 
-    public AdminSeeder(UserRepository userRepository, PasswordEncoder passwordEncoder,
-                       @Value("${app.admin-password}") String adminPassword) {
+    public AdminSeeder(
+            UserRepository userRepository,
+            PasswordEncoder passwordEncoder,
+            @Value("${app.admin-password}") String adminPassword) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.adminPassword = adminPassword;
@@ -24,7 +26,11 @@ public class AdminSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) {
         if (!userRepository.existsByUsername("admin")) {
-            userRepository.save(new UserEntity("admin", passwordEncoder.encode(adminPassword), Set.of(UserRole.USER, UserRole.ADMIN)));
+            userRepository.save(
+                    new UserEntity(
+                            "admin",
+                            passwordEncoder.encode(adminPassword),
+                            Set.of(UserRole.USER, UserRole.ADMIN)));
         }
     }
 }

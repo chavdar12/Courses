@@ -20,8 +20,7 @@ public class CourseEntity {
 
     private BigDecimal price;
 
-    protected CourseEntity() {
-    }
+    protected CourseEntity() {}
 
     public CourseEntity(String name, BigDecimal price) {
         this.name = name;

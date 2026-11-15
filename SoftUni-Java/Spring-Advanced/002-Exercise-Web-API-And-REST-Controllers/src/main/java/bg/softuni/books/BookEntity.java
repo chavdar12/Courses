@@ -54,7 +54,9 @@ public class BookEntity {
         this.title = dto.title();
         this.author = dto.author();
         this.isbn = dto.isbn();
-        this.tags = new ArrayList<>(dto.tags() == null ? List.of() : dto.tags().stream().distinct().toList());
+        this.tags =
+                new ArrayList<>(
+                        dto.tags() == null ? List.of() : dto.tags().stream().distinct().toList());
         return this;
     }
 }

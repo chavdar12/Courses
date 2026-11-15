@@ -1,5 +1,7 @@
 package bg.softuni.demo.sla;
 
+import static bg.softuni.demo.sla.SLOsConfig.SLOConfig;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -8,14 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
-import static bg.softuni.demo.sla.SLOsConfig.SLOConfig;
-
 @Aspect
 @Component
 public class SLOAspect {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SLOAspect.class);
-
 
     private final SLOsConfig slosConfig;
 
@@ -24,14 +23,16 @@ public class SLOAspect {
     }
 
     @Around(value = "@annotation(trackLatency)")
-    public Object trackLatency(ProceedingJoinPoint pjp, TrackLatency trackLatency) throws Throwable {
+    public Object trackLatency(ProceedingJoinPoint pjp, TrackLatency trackLatency)
+            throws Throwable {
         String latencyId = trackLatency.latency();
-        SLOConfig config = slosConfig
-                .getSlos()
-                .stream()
-                .filter(s -> s.getId().equals(latencyId))
-                .findAny()
-                .orElseThrow(() -> new IllegalStateException("SLO with ID " + latencyId + " is not configured."));
+        SLOConfig config =
+                slosConfig.getSlos().stream()
+                        .filter(s -> s.getId().equals(latencyId))
+                        .findAny()
+                        .orElseThrow(() ->
+                                new IllegalStateException(
+                                        "SLO with ID " + latencyId + " is not configured."));
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -41,7 +42,10 @@ public class SLOAspect {
         long actualExecutionTime = stopWatch.getTotalTimeMillis();
 
         if (actualExecutionTime > config.getThreshold()) {
-            LOGGER.warn("Method {} was too slow. Execution time {} millis.", latencyId, actualExecutionTime);
+            LOGGER.warn(
+                    "Method {} was too slow. Execution time {} millis.",
+                    latencyId,
+                    actualExecutionTime);
         }
 
         return result;

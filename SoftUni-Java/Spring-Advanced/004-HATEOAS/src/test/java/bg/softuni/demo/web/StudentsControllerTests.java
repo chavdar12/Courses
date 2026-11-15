@@ -1,12 +1,5 @@
 package bg.softuni.demo.web;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -14,12 +7,18 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 class StudentsControllerTests {
 
-    @Autowired
-    MockMvc mockMvc;
+    @Autowired MockMvc mockMvc;
 
     @Test
     void getStudents_returnsSeededStudentsWithLinks() throws Exception {
@@ -27,9 +26,18 @@ class StudentsControllerTests {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$._embedded.studentDTOList", hasSize(2)))
                 .andExpect(jsonPath("$._embedded.studentDTOList[0].name").value("Pesho"))
-                .andExpect(jsonPath("$._embedded.studentDTOList[0]._links.self.href", endsWith("/students/1")))
-                .andExpect(jsonPath("$._embedded.studentDTOList[0]._links.orders.href", endsWith("/students/1/orders")))
-                .andExpect(jsonPath("$._embedded.studentDTOList[0]._links.update.href", endsWith("/students/1")));
+                .andExpect(
+                        jsonPath(
+                                "$._embedded.studentDTOList[0]._links.self.href",
+                                endsWith("/students/1")))
+                .andExpect(
+                        jsonPath(
+                                "$._embedded.studentDTOList[0]._links.orders.href",
+                                endsWith("/students/1/orders")))
+                .andExpect(
+                        jsonPath(
+                                "$._embedded.studentDTOList[0]._links.update.href",
+                                endsWith("/students/1")));
     }
 
     @Test
@@ -57,7 +65,10 @@ class StudentsControllerTests {
     @Test
     void update_isAcceptedButNotImplemented() throws Exception {
         // the course demo only exposes the "update" link; the endpoint itself is a stub
-        mockMvc.perform(put("/students/1").contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"X\",\"age\":1}"))
+        mockMvc.perform(
+                        put("/students/1")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("{\"name\":\"X\",\"age\":1}"))
                 .andExpect(status().isOk());
         mockMvc.perform(get("/students/1")).andExpect(jsonPath("$.name").value("Pesho"));
     }

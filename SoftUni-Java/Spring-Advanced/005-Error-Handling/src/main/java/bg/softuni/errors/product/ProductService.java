@@ -9,9 +9,11 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class ProductService {
 
-    private final Map<Long, Product> products = new ConcurrentHashMap<>(Map.of(
-            1L, new Product(1L, "Keyboard", 3),
-            2L, new Product(2L, "Mouse", 0)));
+    private final Map<Long, Product> products =
+            new ConcurrentHashMap<>(
+                    Map.of(
+                            1L, new Product(1L, "Keyboard", 3),
+                            2L, new Product(2L, "Mouse", 0)));
     private final AtomicLong nextId = new AtomicLong(3);
 
     public Product getById(Long id) {
@@ -23,15 +25,17 @@ public class ProductService {
     }
 
     public Product buy(Long id) {
-        return products.compute(id, (key, product) -> {
-            if (product == null) {
-                throw new ProductNotFoundException(id);
-            }
-            if (product.stock() == 0) {
-                throw new OutOfStockException(product.name());
-            }
-            return new Product(id, product.name(), product.stock() - 1);
-        });
+        return products.compute(
+                id,
+                (key, product) -> {
+                    if (product == null) {
+                        throw new ProductNotFoundException(id);
+                    }
+                    if (product.stock() == 0) {
+                        throw new OutOfStockException(product.name());
+                    }
+                    return new Product(id, product.name(), product.stock() - 1);
+                });
     }
 
     public Product create(Product product) {

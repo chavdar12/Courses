@@ -18,12 +18,10 @@ public class BasicExampleAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(BasicExampleAspect.class);
 
     @Pointcut("execution(* bg.softuni.demo.Student.*(..))")
-    public void track() {
-    }
+    public void track() {}
 
     @Pointcut("execution(* bg.softuni.demo.Student.echo(..))")
-    public void trackEcho() {
-    }
+    public void trackEcho() {}
 
     @Before("track()")
     public void beforeAnyMethod(JoinPoint joinPoint) {

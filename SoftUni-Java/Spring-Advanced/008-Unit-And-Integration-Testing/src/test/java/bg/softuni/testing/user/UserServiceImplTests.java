@@ -1,5 +1,9 @@
 package bg.softuni.testing.user;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,16 +13,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.when;
-
 // Unit test: no Spring context, the repository is replaced by a Mockito mock.
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTests {
 
-    @Mock
-    UserRepository mockedUserRepository;
+    @Mock UserRepository mockedUserRepository;
 
     UserServiceImpl userService;
 

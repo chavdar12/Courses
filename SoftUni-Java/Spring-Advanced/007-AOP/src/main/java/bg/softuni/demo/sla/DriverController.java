@@ -13,10 +13,10 @@ public class DriverController {
     @TrackLatency(latency = "local_operation")
     @GetMapping("/drivers")
     public ResponseEntity<List<Driver>> allDrivers() {
-        return ResponseEntity.ok(List.of(
-                new Driver().setName("Pesho").setLicenceCategory("C"),
-                new Driver().setName("Lucho").setLicenceCategory("A")
-        ));
+        return ResponseEntity.ok(
+                List.of(
+                        new Driver().setName("Pesho").setLicenceCategory("C"),
+                        new Driver().setName("Lucho").setLicenceCategory("A")));
     }
 
     @TrackLatency(latency = "remote_operation")
@@ -29,9 +29,9 @@ public class DriverController {
             Thread.currentThread().interrupt();
         }
 
-        return ResponseEntity.ok(List.of(
-                new Driver().setName("Pesho").setLicenceCategory("C"),
-                new Driver().setName("Lucho").setLicenceCategory("A")
-        ));
+        return ResponseEntity.ok(
+                List.of(
+                        new Driver().setName("Pesho").setLicenceCategory("C"),
+                        new Driver().setName("Lucho").setLicenceCategory("A")));
     }
 }

@@ -1,20 +1,20 @@
 package bg.softuni.demo;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.system.CapturedOutput;
-import org.springframework.boot.test.system.OutputCaptureExtension;
-import org.springframework.test.context.event.ApplicationEvents;
-import org.springframework.test.context.event.RecordApplicationEvents;
-import org.springframework.test.web.servlet.MockMvc;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.system.CapturedOutput;
+import org.springframework.boot.test.system.OutputCaptureExtension;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.test.context.event.ApplicationEvents;
+import org.springframework.test.context.event.RecordApplicationEvents;
+import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -22,23 +22,28 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(OutputCaptureExtension.class)
 class OrderEventsTests {
 
-    @Autowired
-    MockMvc mockMvc;
+    @Autowired MockMvc mockMvc;
 
-    @Autowired
-    ApplicationEvents events;
+    @Autowired ApplicationEvents events;
 
     @Test
-    void createOrder_publishesOneEvent_handledByBothListeners(CapturedOutput output) throws Exception {
+    void createOrder_publishesOneEvent_handledByBothListeners(CapturedOutput output)
+            throws Exception {
         mockMvc.perform(get("/create-order"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("test"));
 
         assertThat(events.stream(OrderCreatedEvent.class)).hasSize(1);
-        String orderId = events.stream(OrderCreatedEvent.class).findFirst().orElseThrow().getOrderId();
+        String orderId =
+                events.stream(OrderCreatedEvent.class).findFirst().orElseThrow().getOrderId();
 
-        assertThat(output).contains("Order no " + orderId + " has been created. I'm going to give bonus points");
-        assertThat(output).contains("Order no " + orderId + " has been created. I'm going to calculate");
+        assertThat(output)
+                .contains(
+                        "Order no "
+                                + orderId
+                                + " has been created. I'm going to give bonus points");
+        assertThat(output)
+                .contains("Order no " + orderId + " has been created. I'm going to calculate");
     }
 
     @Test
@@ -46,6 +51,10 @@ class OrderEventsTests {
         mockMvc.perform(get("/create-order"));
         mockMvc.perform(get("/create-order"));
 
-        assertThat(events.stream(OrderCreatedEvent.class).map(OrderCreatedEvent::getOrderId).distinct()).hasSize(2);
+        assertThat(
+                        events.stream(OrderCreatedEvent.class)
+                                .map(OrderCreatedEvent::getOrderId)
+                                .distinct())
+                .hasSize(2);
     }
 }

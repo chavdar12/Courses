@@ -1,6 +1,13 @@
 package bg.softuni.testing.author;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import bg.softuni.testing.SecurityConfiguration;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -10,22 +17,14 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 // Slice test: only the web layer is started; the repository is a mock, so no database is involved.
 @WebMvcTest(AuthorsController.class)
 @Import(SecurityConfiguration.class)
 class AuthorsControllerWebMvcTests {
 
-    @Autowired
-    MockMvc mockMvc;
+    @Autowired MockMvc mockMvc;
 
-    @MockitoBean
-    AuthorRepository authorRepository;
+    @MockitoBean AuthorRepository authorRepository;
 
     @Test
     void getAuthors_mapsRepositoryResultToJson() throws Exception {

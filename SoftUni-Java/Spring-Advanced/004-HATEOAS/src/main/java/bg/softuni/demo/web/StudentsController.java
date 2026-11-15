@@ -1,11 +1,15 @@
 package bg.softuni.demo.web;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import bg.softuni.demo.model.dto.OrderDTO;
 import bg.softuni.demo.model.dto.StudentDTO;
 import bg.softuni.demo.model.entity.OrderEntity;
 import bg.softuni.demo.model.entity.StudentEntity;
 import bg.softuni.demo.model.mapping.StudentMapper;
 import bg.softuni.demo.repository.StudentsRepository;
+
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
@@ -16,9 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RequestMapping("/students")
 @RestController
@@ -34,26 +35,23 @@ public class StudentsController {
 
     @GetMapping
     public ResponseEntity<CollectionModel<EntityModel<StudentDTO>>> getStudents() {
-        List<EntityModel<StudentDTO>> allStudents = studentsRepository
-                .findAll()
-                .stream()
-                .map(studentMapper::mapEntityToDTO)
-                .map(dto -> EntityModel.of(dto, createStudentLinks(dto)))
-                .toList();
+        List<EntityModel<StudentDTO>> allStudents =
+                studentsRepository.findAll().stream()
+                        .map(studentMapper::mapEntityToDTO)
+                        .map(dto -> EntityModel.of(dto, createStudentLinks(dto)))
+                        .toList();
 
         return ResponseEntity.ok(CollectionModel.of(allStudents));
     }
 
     @GetMapping("/{id}/orders")
-    public ResponseEntity<CollectionModel<EntityModel<OrderDTO>>> getOrders(@PathVariable("id") Long id) {
-        StudentEntity student = studentsRepository.findById(id).orElseThrow(StudentsController::notFound);
+    public ResponseEntity<CollectionModel<EntityModel<OrderDTO>>> getOrders(
+            @PathVariable("id") Long id) {
+        StudentEntity student =
+                studentsRepository.findById(id).orElseThrow(StudentsController::notFound);
 
-        List<EntityModel<OrderDTO>> orders = student
-                .getOrders()
-                .stream()
-                .map(this::map)
-                .map(EntityModel::of)
-                .toList();
+        List<EntityModel<OrderDTO>> orders =
+                student.getOrders().stream().map(this::map).map(EntityModel::of).toList();
 
         return ResponseEntity.ok(CollectionModel.of(orders));
     }
@@ -67,17 +65,18 @@ public class StudentsController {
 
     @GetMapping("/{id}")
     public ResponseEntity<EntityModel<StudentDTO>> getStudentsByID(@PathVariable("id") Long id) {
-        StudentDTO student = studentsRepository
-                .findById(id)
-                .map(studentMapper::mapEntityToDTO)
-                .orElseThrow(StudentsController::notFound);
+        StudentDTO student =
+                studentsRepository
+                        .findById(id)
+                        .map(studentMapper::mapEntityToDTO)
+                        .orElseThrow(StudentsController::notFound);
 
         return ResponseEntity.ok(EntityModel.of(student, createStudentLinks(student)));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EntityModel<StudentDTO>> update(@PathVariable Long id,
-                                                          @RequestBody StudentDTO studentDTO) {
+    public ResponseEntity<EntityModel<StudentDTO>> update(
+            @PathVariable Long id, @RequestBody StudentDTO studentDTO) {
         return ResponseEntity.ok().build();
     }
 
@@ -88,16 +87,19 @@ public class StudentsController {
     private Link[] createStudentLinks(StudentDTO studentDTO) {
         List<Link> result = new ArrayList<>();
 
-        Link selfLink = linkTo(methodOn(StudentsController.class).
-                getStudentsByID(studentDTO.getId())).withSelfRel();
+        Link selfLink =
+                linkTo(methodOn(StudentsController.class).getStudentsByID(studentDTO.getId()))
+                        .withSelfRel();
         result.add(selfLink);
 
-        Link updateLink = linkTo(methodOn(StudentsController.class)
-                .update(studentDTO.getId(), studentDTO)).withRel("update");
+        Link updateLink =
+                linkTo(methodOn(StudentsController.class).update(studentDTO.getId(), studentDTO))
+                        .withRel("update");
         result.add(updateLink);
 
-        Link orderLink = linkTo(methodOn(StudentsController.class)
-                .getOrders(studentDTO.getId())).withRel("orders");
+        Link orderLink =
+                linkTo(methodOn(StudentsController.class).getOrders(studentDTO.getId()))
+                        .withRel("orders");
         result.add(orderLink);
 
         return result.toArray(new Link[0]);

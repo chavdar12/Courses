@@ -1,16 +1,15 @@
 package bg.softuni.demo.scheduling;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @SpringBootTest(properties = "schedules.fixed-rate=50")
 class ScheduledTasksTests {
 
-    @Autowired
-    ScheduledTasks scheduledTasks;
+    @Autowired ScheduledTasks scheduledTasks;
 
     @Test
     void fixedRateTask_runsRepeatedly() throws InterruptedException {
