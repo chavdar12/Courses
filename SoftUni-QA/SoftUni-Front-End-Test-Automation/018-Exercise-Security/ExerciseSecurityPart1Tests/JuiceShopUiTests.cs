@@ -63,7 +63,7 @@ namespace ExerciseSecurityPart1
             accountMenu.Click();
 
             Assert.That(
-                driver.FindElement(By.Id("navbarLogoutButton")).Displayed,
+                wait.Until(ExpectedConditions.ElementIsVisible(By.Id("navbarLogoutButton"))).Displayed,
                 Is.True,
                 "Login should NOT succeed with an injection payload; this asserts the known vulnerability is present."
             );
@@ -76,10 +76,12 @@ namespace ExerciseSecurityPart1
             driver.Navigate().GoToUrl(BaseUrl + "/#/search");
             wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("#searchQuery mat-icon"))).Click();
 
-            var box = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("mat-input-1")));
+            // Angular Material generates ids like mat-input-1 that change between versions; select by container instead.
+            var box = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("#searchQuery input")));
             box.SendKeys("apple" + Keys.Enter);
 
-            var results = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".item-name")));
+            // Juice Shop 20.x renders each result title as ".product .name" (older versions used ".item-name").
+            var results = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".product .name")));
             Assert.That(results.Text, Does.Contain("Apple"));
         }
     }

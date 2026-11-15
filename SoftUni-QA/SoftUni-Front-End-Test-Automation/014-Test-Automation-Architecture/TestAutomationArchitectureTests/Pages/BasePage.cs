@@ -21,9 +21,17 @@ namespace TestAutomationArchitecture.Pages
             driver.Navigate().GoToUrl(Url);
         }
 
+        // Waits for navigation (e.g. after a form submit) instead of checking the URL once.
         public bool IsOpen()
         {
-            return driver.Url.StartsWith(Url);
+            try
+            {
+                return wait.Until(d => d.Url.StartsWith(Url));
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
         }
 
         protected IWebElement FindElement(By by)
