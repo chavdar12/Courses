@@ -44,7 +44,7 @@ public class HomeController(WeatherService weather, ILogger<HomeController> logg
     // Non-essential cookie: only written once the user consented.
     public IActionResult Theme(string value)
     {
-        Response.Cookies.Append("theme", value);
+        Response.Cookies.Append("theme", value, new CookieOptions { Secure = true, HttpOnly = true });
         return Content(HttpContext.Features.Get<ITrackingConsentFeature>()!.CanTrack ? "stored" : "needs consent");
     }
 
