@@ -13,4 +13,15 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
-      - run: dotnet test
+      # Every folder is its own project; gather them into a throwaway solution (one folder each, names repeat).
+      - name: Generate solution
+        run: |
+          {
+            echo '<Solution>'
+            git ls-files '*.csproj' | while read -r p; do
+              echo "  <Folder Name=\"/$(dirname "$p")/\"><Project Path=\"$p\" /></Folder>"
+            done
+            echo '</Solution>'
+          } > "$RUNNER_TEMP/All.slnx"
+          sed -i "s|Path=\"|Path=\"$GITHUB_WORKSPACE/|" "$RUNNER_TEMP/All.slnx"
+      - run: dotnet test "$RUNNER_TEMP/All.slnx"

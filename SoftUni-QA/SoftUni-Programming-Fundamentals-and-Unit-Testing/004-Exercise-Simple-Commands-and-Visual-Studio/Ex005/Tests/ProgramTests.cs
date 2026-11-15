@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Tests;
 
 public class ProgramTests
@@ -5,6 +7,27 @@ public class ProgramTests
     [TestCase("3\n4\n5", "12")]
     public void Program_PrintsExpectedOutput(string input, string expected)
     {
-        Assert.That(ConsoleRunner.Run("Ex005", input), Is.EqualTo(expected));
+        Assert.That(Run(input), Is.EqualTo(expected));
+    }
+
+    // Runs Ex005's Main with fake stdin and returns its stdout.
+    private static string Run(string input)
+    {
+        var originalIn = Console.In;
+        var originalOut = Console.Out;
+        var output = new StringWriter();
+        try
+        {
+            Console.SetIn(new StringReader(input));
+            Console.SetOut(output);
+            Assembly.Load("Ex005").EntryPoint!.Invoke(null, [Array.Empty<string>()]);
+        }
+        finally
+        {
+            Console.SetIn(originalIn);
+            Console.SetOut(originalOut);
+        }
+
+        return output.ToString().ReplaceLineEndings("\n").TrimEnd();
     }
 }
