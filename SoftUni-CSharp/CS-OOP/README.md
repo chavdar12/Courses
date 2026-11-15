@@ -1,0 +1,40 @@
+# SoftUni C# OOP
+
+Solutions for the SoftUni C# OOP course: inheritance, encapsulation, interfaces and abstraction, polymorphism, SOLID,
+reflection and attributes, unit testing with NUnit, mocking and TDD, and design patterns. One project (`ExNNN`) per
+problem with tests next to it; [CS-OOP.slnx](CS-OOP.slnx) holds every lecture.
+
+## Lectures
+
+| #   | Lecture | Exercises |
+| --- | ------- | --------- |
+| 001 | Inheritance | [Single Inheritance](001-Inheritance/Ex001) · [Multiple Inheritance](001-Inheritance/Ex002) · [Hierarchical Inheritance](001-Inheritance/Ex003) · [Random List](001-Inheritance/Ex004) · [Stack of Strings](001-Inheritance/Ex005) |
+| 002 | Exercise: Inheritance | [Person](002-Exercise-Inheritance/Ex001) · [Zoo](002-Exercise-Inheritance/Ex002) · [Players and Monsters](002-Exercise-Inheritance/Ex003) · [Need for Speed](002-Exercise-Inheritance/Ex004) · [Restaurant](002-Exercise-Inheritance/Ex005) · [Animals](002-Exercise-Inheritance/Ex006) |
+| 003 | Encapsulation | [Sort Persons by Name and Age](003-Encapsulation/Ex001) · [Salary Increase](003-Encapsulation/Ex002) · [Validation Data](003-Encapsulation/Ex003) · [First and Reserve Team](003-Encapsulation/Ex004) |
+| 004 | Exercise: Encapsulation | [Class Box Data Validation](004-Exercise-Encapsulation/Ex001) · [Animal Farm](004-Exercise-Encapsulation/Ex002) · [Shopping Spree](004-Exercise-Encapsulation/Ex003) · [Pizza Calories](004-Exercise-Encapsulation/Ex004) · [Football Team Generator](004-Exercise-Encapsulation/Ex005) |
+| 005 | Interfaces and Abstraction | [Shapes](005-Interfaces-And-Abstraction/Ex001) · [Cars](005-Interfaces-And-Abstraction/Ex002) |
+| 006 | Exercise: Interfaces and Abstraction | [Define an Interface IPerson](006-Exercise-Interfaces-And-Abstraction/Ex001) · [Multiple Implementation](006-Exercise-Interfaces-And-Abstraction/Ex002) · [Telephony](006-Exercise-Interfaces-And-Abstraction/Ex003) · [Border Control](006-Exercise-Interfaces-And-Abstraction/Ex004) · [Birthday Celebrations](006-Exercise-Interfaces-And-Abstraction/Ex005) · [Food Shortage](006-Exercise-Interfaces-And-Abstraction/Ex006) · [Military Elite](006-Exercise-Interfaces-And-Abstraction/Ex007) · [Collection Hierarchy](006-Exercise-Interfaces-And-Abstraction/Ex008) · [Explicit Interfaces](006-Exercise-Interfaces-And-Abstraction/Ex009) |
+| 007 | Polymorphism | [Method Overloading](007-Polymorphism/Ex001) · [Animals](007-Polymorphism/Ex002) · [Shapes](007-Polymorphism/Ex003) |
+| 008 | Exercise: Polymorphism | [Vehicles](008-Exercise-Polymorphism/Ex001) · [Vehicles Extension](008-Exercise-Polymorphism/Ex002) · [Raiding](008-Exercise-Polymorphism/Ex003) · [Wild Farm](008-Exercise-Polymorphism/Ex004) |
+| 012 | Exercise: SOLID | [Logger](012-Exercise-Solid/Ex001) |
+| 013 | Reflection and Attributes | [Stealer](013-Reflection-And-Attributes/Ex001) · [High Quality Mistakes](013-Reflection-And-Attributes/Ex002) · [Mission Private Impossible](013-Reflection-And-Attributes/Ex003) · [Collector](013-Reflection-And-Attributes/Ex004) · [Create Attribute](013-Reflection-And-Attributes/Ex005) · [Coding Tracker](013-Reflection-And-Attributes/Ex006) |
+| 014 | Exercise: Reflection and Attributes | [Command Pattern](014-Exercise-Reflection-And-Attributes/Ex001) · [Validation Attributes](014-Exercise-Reflection-And-Attributes/Ex002) |
+| 015 | Unit Testing | [Axe and Dummy](015-Unit-Testing/Ex001) |
+| 016 | Exercise: Unit Testing | [Database](016-Exercise-Unit-Testing/Ex001) · [Extended Database](016-Exercise-Unit-Testing/Ex002) · [Car Manager](016-Exercise-Unit-Testing/Ex003) · [Arena and Warriors](016-Exercise-Unit-Testing/Ex004) |
+| 017 | Mocking and Test Driven Development | [Product Stock (TDD)](017-Mocking-And-Test-Driven-Development/Ex001) · [Hero with Mocked Weapon / Target](017-Mocking-And-Test-Driven-Development/Ex002) |
+| 018 | Exercise: Mocking and Test Driven Development | [Chainblock](018-Exercise-Mocking-And-Test-Driven-Development/Ex001) |
+| 019 | Design Patterns | [Singleton](019-Design-Patterns/Ex001) · [Builder (Facade)](019-Design-Patterns/Ex002) · [Command](019-Design-Patterns/Ex003) |
+| 020 | Exercise: Design Patterns | [Prototype (Sandwiches)](020-Exercise-Design-Patterns/Ex001) · [Composite (Gifts)](020-Exercise-Design-Patterns/Ex002) · [Template Method (Bread)](020-Exercise-Design-Patterns/Ex003) |
+
+## Run
+
+Needs the .NET 10 SDK.
+
+```bash
+dotnet run --project 008-Exercise-Polymorphism/Ex004      # type the input, Enter
+dotnet test CS-OOP.slnx
+```
+
+## License
+
+[MIT](LICENSE)
