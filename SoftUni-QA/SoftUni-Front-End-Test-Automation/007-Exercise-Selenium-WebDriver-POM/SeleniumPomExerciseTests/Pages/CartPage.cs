@@ -6,9 +6,8 @@ namespace SeleniumWebDriverPOMExercise.Pages
 
         protected readonly By checkoutButton = By.XPath("//button[@id='checkout']");
 
-        public CartPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public CartPage(IWebDriver driver)
+            : base(driver) { }
 
         public bool IsCartItemDisplayed()
         {

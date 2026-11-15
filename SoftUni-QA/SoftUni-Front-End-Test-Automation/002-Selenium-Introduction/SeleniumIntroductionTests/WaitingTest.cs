@@ -19,13 +19,13 @@ namespace FirstLabWikipediaUITesting
 
             driver.Manage().Window.Maximize();
         }
+
         [TearDown]
         public void TearDown()
         {
             driver.Quit();
             driver.Dispose();
         }
-
 
         [Test]
         public void ImplicitWaitExampleTest()

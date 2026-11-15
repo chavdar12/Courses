@@ -42,7 +42,15 @@ namespace SeleniumWebDriverPOMLab.Pages
 
         public string GenerateRandomName()
         {
-            var names = new[] { "John Doe", "Jane Smith", "Alice Cooper", "Bob Down", "Charlie Johnson", "Billy Smith" };
+            var names = new[]
+            {
+                "John Doe",
+                "Jane Smith",
+                "Alice Cooper",
+                "Bob Down",
+                "Charlie Johnson",
+                "Billy Smith",
+            };
             Random random = new Random();
             return names[random.Next(names.Length)];
         }

@@ -30,7 +30,9 @@ namespace HandlingFormInputs
         {
             var element = driver.FindElement(by);
             element.Click();
-            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.StalenessOf(element));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(
+                SeleniumExtras.WaitHelpers.ExpectedConditions.StalenessOf(element)
+            );
         }
 
         [Test]
@@ -90,7 +92,11 @@ namespace HandlingFormInputs
 
             IWebElement accountCreatedMessage = driver.FindElement(By.XPath("//div[@id='bodyContent']//h1"));
 
-            Assert.That(accountCreatedMessage.Text, Is.EqualTo("Your Account Has Been Created!"), "Account creation failed.");
+            Assert.That(
+                accountCreatedMessage.Text,
+                Is.EqualTo("Your Account Has Been Created!"),
+                "Account creation failed."
+            );
 
             // Click on the [Log out] button
             ClickAndWaitForNextPage(By.XPath("//a[@id='tdb4']//span[@class='ui-button-text']"));
@@ -102,7 +108,11 @@ namespace HandlingFormInputs
 
             IWebElement homePageH1Title = driver.FindElement(By.XPath("//div[@id='bodyContent']//h1"));
 
-            Assert.That(homePageH1Title.Text, Is.EqualTo("Welcome to BPB Online"), "Home page is not loaded as expected");
+            Assert.That(
+                homePageH1Title.Text,
+                Is.EqualTo("Welcome to BPB Online"),
+                "Home page is not loaded as expected"
+            );
 
             // Printing final message
             Console.WriteLine("User Account Created Succesfully with email: " + email);

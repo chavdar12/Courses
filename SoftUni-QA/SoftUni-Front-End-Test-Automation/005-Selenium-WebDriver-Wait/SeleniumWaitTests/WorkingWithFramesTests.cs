@@ -35,11 +35,19 @@ namespace SeleniumWaitsExercise
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.FrameToBeAvailableAndSwitchToIt(By.TagName("iframe")));
 
-            var dropDownButton = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='dropbtn']")));
+            var dropDownButton = wait.Until(
+                ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='dropbtn']"))
+            );
             dropDownButton.Click();
 
-            var dropDownLinks = wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='dropdown-content']/a")));
-            Assert.That(dropDownLinks.Count, Is.EqualTo(3), "The count of the elements in the dropdown is not as expected.");
+            var dropDownLinks = wait.Until(
+                ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='dropdown-content']/a"))
+            );
+            Assert.That(
+                dropDownLinks.Count,
+                Is.EqualTo(3),
+                "The count of the elements in the dropdown is not as expected."
+            );
 
             foreach (var link in dropDownLinks)
             {
@@ -57,11 +65,19 @@ namespace SeleniumWaitsExercise
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.FrameToBeAvailableAndSwitchToIt("result"));
 
-            var dropDownButton = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='dropbtn']")));
+            var dropDownButton = wait.Until(
+                ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='dropbtn']"))
+            );
             dropDownButton.Click();
 
-            var dropDownLinks = wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='dropdown-content']/a")));
-            Assert.That(dropDownLinks.Count, Is.EqualTo(3), "The count of the elements in the dropdown is not as expected.");
+            var dropDownLinks = wait.Until(
+                ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='dropdown-content']/a"))
+            );
+            Assert.That(
+                dropDownLinks.Count,
+                Is.EqualTo(3),
+                "The count of the elements in the dropdown is not as expected."
+            );
 
             foreach (var link in dropDownLinks)
             {
@@ -80,11 +96,19 @@ namespace SeleniumWaitsExercise
 
             driver.SwitchTo().Frame(frameElement);
 
-            var dropDownButton = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='dropbtn']")));
+            var dropDownButton = wait.Until(
+                ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='dropbtn']"))
+            );
             dropDownButton.Click();
 
-            var dropDownLinks = wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='dropdown-content']/a")));
-            Assert.That(dropDownLinks.Count, Is.EqualTo(3), "The count of the elements in the dropdown is not as expected.");
+            var dropDownLinks = wait.Until(
+                ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='dropdown-content']/a"))
+            );
+            Assert.That(
+                dropDownLinks.Count,
+                Is.EqualTo(3),
+                "The count of the elements in the dropdown is not as expected."
+            );
 
             foreach (var link in dropDownLinks)
             {

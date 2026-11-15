@@ -2,9 +2,8 @@ namespace SeleniumWebDriverPOMLab.Pages
 {
     public class HomePage : BasePage
     {
-        public HomePage(IWebDriver driver) : base(driver)
-        {
-        }
+        public HomePage(IWebDriver driver)
+            : base(driver) { }
 
         public override string PageUrl => "http://localhost:8080/";
 

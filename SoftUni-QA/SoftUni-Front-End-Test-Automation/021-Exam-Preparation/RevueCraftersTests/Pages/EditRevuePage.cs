@@ -2,9 +2,8 @@ namespace RevueCraftersTestProject.Pages
 {
     public class EditRevuePage : BasePage
     {
-        public EditRevuePage(IWebDriver driver) :base(driver)
-        {
-        }
+        public EditRevuePage(IWebDriver driver)
+            : base(driver) { }
 
         protected readonly By editRevueCard = By.XPath("//div[@class='card-body p-md-5']");
         public IWebElement EditRevueCardElement => FindElement(editRevueCard);

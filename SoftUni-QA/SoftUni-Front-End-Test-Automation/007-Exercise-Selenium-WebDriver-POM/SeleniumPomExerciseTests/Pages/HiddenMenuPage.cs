@@ -6,9 +6,8 @@ namespace SeleniumWebDriverPOMExercise.Pages
 
         protected readonly By logoutButton = By.XPath("//a[@id='logout_sidebar_link']");
 
-        public HiddenMenuPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public HiddenMenuPage(IWebDriver driver)
+            : base(driver) { }
 
         public void ClickMenuButton()
         {

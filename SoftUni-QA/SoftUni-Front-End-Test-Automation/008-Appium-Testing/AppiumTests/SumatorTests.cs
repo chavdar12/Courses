@@ -15,7 +15,8 @@ namespace Appium_Testing
 
             AppiumOptions options = new AppiumOptions();
             // Appium downloads the app from the release URL itself.
-            options.App = "https://github.com/nakov/AndroidApp-Summator/releases/download/v1.0/com.example.androidappsummator.apk";
+            options.App =
+                "https://github.com/nakov/AndroidApp-Summator/releases/download/v1.0/com.example.androidappsummator.apk";
             options.PlatformName = "Android";
             options.AutomationName = "UiAutomator2";
             options.DeviceName = "Pixel_7_API_34";
@@ -36,7 +37,11 @@ namespace Appium_Testing
             firstInput.Clear();
             firstInput.SendKeys("2");
 
-            var secondInput = driver.FindElement(MobileBy.XPath("//android.widget.EditText[@resource-id=\"com.example.androidappsummator:id/editText2\"]"));
+            var secondInput = driver.FindElement(
+                MobileBy.XPath(
+                    "//android.widget.EditText[@resource-id=\"com.example.androidappsummator:id/editText2\"]"
+                )
+            );
             secondInput.Clear();
             secondInput.SendKeys("5");
 
@@ -54,7 +59,11 @@ namespace Appium_Testing
             firstInput.Clear();
             firstInput.SendKeys("2");
 
-            var secondInput = driver.FindElement(MobileBy.XPath("//android.widget.EditText[@resource-id=\"com.example.androidappsummator:id/editText2\"]"));
+            var secondInput = driver.FindElement(
+                MobileBy.XPath(
+                    "//android.widget.EditText[@resource-id=\"com.example.androidappsummator:id/editText2\"]"
+                )
+            );
             secondInput.Clear();
             secondInput.SendKeys("5");
 
@@ -68,84 +77,68 @@ namespace Appium_Testing
         [Test]
         public void TestWithValidData()
         {
-            IWebElement firstField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText1"));
+            IWebElement firstField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText1"));
             firstField.Clear();
             firstField.SendKeys("2");
 
-            IWebElement secondField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText2"));
+            IWebElement secondField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText2"));
             secondField.Clear();
             secondField.SendKeys("5");
 
-            IWebElement sumButton = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/buttonCalcSum"));
+            IWebElement sumButton = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/buttonCalcSum"));
             sumButton.Click();
 
-            IWebElement resultField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editTextSum"));
+            IWebElement resultField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editTextSum"));
             Assert.That(resultField.Text, Is.EqualTo("7"));
         }
 
         [Test]
         public void TestWithInvalidData_ClickOnlySumButton()
         {
-            IWebElement firstField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText1"));
+            IWebElement firstField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText1"));
             firstField.Clear();
 
-            IWebElement secondField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText2"));
+            IWebElement secondField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText2"));
             secondField.Clear();
 
-            IWebElement sumButton = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/buttonCalcSum"));
+            IWebElement sumButton = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/buttonCalcSum"));
             sumButton.Click();
 
-            IWebElement resultField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editTextSum"));
+            IWebElement resultField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editTextSum"));
             Assert.That(resultField.Text, Is.EqualTo("error"));
         }
 
         [Test]
         public void TestWithInvalidData_FillOnlyFirstField()
         {
-            IWebElement firstField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText1"));
+            IWebElement firstField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText1"));
             firstField.Clear();
             firstField.SendKeys("2");
 
-            IWebElement secondField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText2"));
+            IWebElement secondField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText2"));
             secondField.Clear();
 
-            IWebElement sumButton = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/buttonCalcSum"));
+            IWebElement sumButton = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/buttonCalcSum"));
             sumButton.Click();
 
-            IWebElement resultField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editTextSum"));
+            IWebElement resultField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editTextSum"));
             Assert.That(resultField.Text, Is.EqualTo("error"));
         }
 
         [Test]
         public void TestWithInvalidData_FillOnlySecondField()
         {
-            IWebElement firstField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText1"));
+            IWebElement firstField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText1"));
             firstField.Clear();
 
-            IWebElement secondField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText2"));
+            IWebElement secondField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText2"));
             secondField.Clear();
             secondField.SendKeys("5");
 
-            IWebElement sumButton = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/buttonCalcSum"));
+            IWebElement sumButton = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/buttonCalcSum"));
             sumButton.Click();
 
-            IWebElement resultField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editTextSum"));
+            IWebElement resultField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editTextSum"));
             Assert.That(resultField.Text, Is.EqualTo("error"));
         }
 
@@ -158,22 +151,18 @@ namespace Appium_Testing
         [TestCase("10.9", "10.1", "21.0")]
         public void TestWithValidData_Parametrized(string input1, string input2, string expectedResults)
         {
-            IWebElement firstField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText1"));
+            IWebElement firstField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText1"));
             firstField.Clear();
             firstField.SendKeys(input1);
 
-            IWebElement secondField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editText2"));
+            IWebElement secondField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editText2"));
             secondField.Clear();
             secondField.SendKeys(input2);
 
-            IWebElement sumButton = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/buttonCalcSum"));
+            IWebElement sumButton = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/buttonCalcSum"));
             sumButton.Click();
 
-            IWebElement resultField = driver.FindElement(MobileBy.Id
-                ("com.example.androidappsummator:id/editTextSum"));
+            IWebElement resultField = driver.FindElement(MobileBy.Id("com.example.androidappsummator:id/editTextSum"));
             Assert.That(resultField.Text, Is.EqualTo(expectedResults));
         }
     }

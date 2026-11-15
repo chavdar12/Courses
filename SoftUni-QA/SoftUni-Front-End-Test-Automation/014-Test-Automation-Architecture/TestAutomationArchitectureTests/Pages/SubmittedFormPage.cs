@@ -2,9 +2,8 @@ namespace TestAutomationArchitecture.Pages
 {
     public class SubmittedFormPage : BasePage
     {
-        public SubmittedFormPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public SubmittedFormPage(IWebDriver driver)
+            : base(driver) { }
 
         protected override string Path => "submitted-form.html";
 

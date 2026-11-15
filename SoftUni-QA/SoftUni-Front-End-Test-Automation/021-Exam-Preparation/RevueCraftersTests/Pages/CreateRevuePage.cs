@@ -2,9 +2,8 @@ namespace RevueCraftersTestProject.Pages
 {
     public class CreateRevuePage : BasePage
     {
-        public CreateRevuePage(IWebDriver driver) :base(driver)
-        {
-        }
+        public CreateRevuePage(IWebDriver driver)
+            : base(driver) { }
 
         public readonly string PageUrl = BaseUrl + "/Revue/Create#createRevue";
 

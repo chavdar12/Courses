@@ -17,7 +17,10 @@ namespace SeleniumWebDriverPOMExercise.Tests
         [Test]
         public void TestCheckoutPageLoaded()
         {
-            ClassicAssert.IsTrue(driver.Url.Contains("checkout-step-one.html"), "The checkout page is not loaded as expected.");
+            ClassicAssert.IsTrue(
+                driver.Url.Contains("checkout-step-one.html"),
+                "The checkout page is not loaded as expected."
+            );
         }
 
         [Test]
@@ -29,7 +32,10 @@ namespace SeleniumWebDriverPOMExercise.Tests
 
             checkoutPage.ClickContinueButton();
 
-            ClassicAssert.IsTrue(driver.Url.Contains("checkout-step-two.html"), "The second checkout page is not loaded after pressing the 'continue' button.");
+            ClassicAssert.IsTrue(
+                driver.Url.Contains("checkout-step-two.html"),
+                "The second checkout page is not loaded after pressing the 'continue' button."
+            );
         }
 
         [Test]
@@ -43,9 +49,15 @@ namespace SeleniumWebDriverPOMExercise.Tests
 
             checkoutPage.ClickFinishButton();
 
-            ClassicAssert.IsTrue(driver.Url.Contains("checkout-complete.html"), "The complete page is not loaded after pressing the 'finish' button.");
+            ClassicAssert.IsTrue(
+                driver.Url.Contains("checkout-complete.html"),
+                "The complete page is not loaded after pressing the 'finish' button."
+            );
 
-            ClassicAssert.IsTrue(checkoutPage.IsPageComplete(), "The order is not completed and the finish page is not loaded.");
+            ClassicAssert.IsTrue(
+                checkoutPage.IsPageComplete(),
+                "The order is not completed and the finish page is not loaded."
+            );
         }
     }
 }

@@ -2,11 +2,12 @@ namespace SeleniumWebDriverPOMLab.Pages
 {
     public class AddStudentPage : BasePage
     {
-        private const string ErrorMsgXPath = "//div[@style='background:red;color:white; margin:20px 10px 10px 10px;padding:10px']";
+        private const string ErrorMsgXPath =
+            "//div[@style='background:red;color:white; margin:20px 10px 10px 10px;padding:10px']";
 
-        public AddStudentPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public AddStudentPage(IWebDriver driver)
+            : base(driver) { }
+
         public override string PageUrl => "http://localhost:8080/add-student";
 
         public IWebElement ElementErrorMsg => driver.FindElement(By.XPath(ErrorMsgXPath));
@@ -24,7 +25,9 @@ namespace SeleniumWebDriverPOMLab.Pages
             var addButton = this.AddButton;
             addButton.Click();
             // The form posts and reloads the page; wait for that before callers read the URL or the new page.
-            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.StalenessOf(addButton));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(
+                SeleniumExtras.WaitHelpers.ExpectedConditions.StalenessOf(addButton)
+            );
         }
 
         public string GetErrorMsg()

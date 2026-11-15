@@ -12,11 +12,20 @@ namespace IdeaCenterTestProject.Tests
 
             createIdeaPage.CreateIdea("", "", "");
 
-            ClassicAssert.True(createIdeaPage.IsMainErrorMessageCorrect(), "The main error message is not as expected.");
+            ClassicAssert.True(
+                createIdeaPage.IsMainErrorMessageCorrect(),
+                "The main error message is not as expected."
+            );
 
-            ClassicAssert.True(createIdeaPage.IsTitleErrorMessageCorrect(), "The title error message is not as expected.");
+            ClassicAssert.True(
+                createIdeaPage.IsTitleErrorMessageCorrect(),
+                "The title error message is not as expected."
+            );
 
-            ClassicAssert.True(createIdeaPage.IsDescriptionErrorMessageCorrect(), "The description error message is not as expected.");
+            ClassicAssert.True(
+                createIdeaPage.IsDescriptionErrorMessageCorrect(),
+                "The description error message is not as expected."
+            );
         }
 
         [Test, Order(2)]
@@ -27,11 +36,18 @@ namespace IdeaCenterTestProject.Tests
 
             createIdeaPage.OpenPage();
 
-            createIdeaPage.CreateIdea(lastCreatedIdeaTitle, "http://www.pictures.com/picture.jpg", lastCreatedIdeaDescription);
+            createIdeaPage.CreateIdea(
+                lastCreatedIdeaTitle,
+                "http://www.pictures.com/picture.jpg",
+                lastCreatedIdeaDescription
+            );
 
             Assert.That(driver.Url, Is.EqualTo(myIdeasPage.PageUrl), "URL is not correct");
 
-            ClassicAssert.True(myIdeasPage.IsDescriptionLastIdeaTextCorrect(lastCreatedIdeaDescription), "The last created idea description is not as expected");
+            ClassicAssert.True(
+                myIdeasPage.IsDescriptionLastIdeaTextCorrect(lastCreatedIdeaDescription),
+                "The last created idea description is not as expected"
+            );
         }
 
         [Test, Order(3)]
@@ -41,9 +57,15 @@ namespace IdeaCenterTestProject.Tests
 
             myIdeasPage.viewButtonLastIdea.Click();
 
-            ClassicAssert.True(ideasReadPage.IsIdeaTitleCorrect(lastCreatedIdeaTitle), "The title of the last created idea is not as expected in read page.");
+            ClassicAssert.True(
+                ideasReadPage.IsIdeaTitleCorrect(lastCreatedIdeaTitle),
+                "The title of the last created idea is not as expected in read page."
+            );
 
-            ClassicAssert.True(ideasReadPage.IsIdeaDescriptionCorrect(lastCreatedIdeaDescription), "The description of the last created idea is not as expected in read page.");
+            ClassicAssert.True(
+                ideasReadPage.IsIdeaDescriptionCorrect(lastCreatedIdeaDescription),
+                "The description of the last created idea is not as expected in read page."
+            );
         }
 
         [Test, Order(4)]
@@ -81,7 +103,11 @@ namespace IdeaCenterTestProject.Tests
 
             myIdeasPage.viewButtonLastIdea.Click();
 
-            Assert.That(basePage.GetText(ideasReadPage.ideaDescription), Is.EqualTo(updatedDescription), "Description does not match");
+            Assert.That(
+                basePage.GetText(ideasReadPage.ideaDescription),
+                Is.EqualTo(updatedDescription),
+                "Description does not match"
+            );
         }
 
         [Test, Order(6)]

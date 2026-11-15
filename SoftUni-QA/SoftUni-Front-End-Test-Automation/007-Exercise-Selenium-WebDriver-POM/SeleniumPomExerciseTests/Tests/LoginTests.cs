@@ -9,7 +9,10 @@ namespace SeleniumWebDriverPOMExercise.Tests
         {
             Login("standard_user", "secret_sauce");
 
-            ClassicAssert.IsTrue(inventoryPage.IsPageLoaded(), "The login is not successfully after login with valid credentials.");
+            ClassicAssert.IsTrue(
+                inventoryPage.IsPageLoaded(),
+                "The login is not successfully after login with valid credentials."
+            );
         }
 
         [Test, Order(2)]
@@ -17,7 +20,10 @@ namespace SeleniumWebDriverPOMExercise.Tests
         {
             Login("invalid_user123", "secret_sauce");
 
-            Assert.That(loginPage.GetErrorMessage().Contains("Username and password do not match any user in this service"), "The error message was not as expected after login with invalid credentials.");
+            Assert.That(
+                loginPage.GetErrorMessage().Contains("Username and password do not match any user in this service"),
+                "The error message was not as expected after login with invalid credentials."
+            );
         }
 
         [Test, Order(3)]
@@ -25,7 +31,10 @@ namespace SeleniumWebDriverPOMExercise.Tests
         {
             Login("locked_out_user", "secret_sauce");
 
-            Assert.That(loginPage.GetErrorMessage().Contains("Sorry, this user has been locked out."), "The error message was not as expected after login with locked user.");
+            Assert.That(
+                loginPage.GetErrorMessage().Contains("Sorry, this user has been locked out."),
+                "The error message was not as expected after login with locked user."
+            );
         }
     }
 }

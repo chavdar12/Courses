@@ -2,9 +2,8 @@ namespace IdeaCenterTestProject.Pages
 {
     public class IdeaEditPage : BasePage
     {
-        public IdeaEditPage(IWebDriver driver) :base(driver)
-        {
-        }
+        public IdeaEditPage(IWebDriver driver)
+            : base(driver) { }
 
         public readonly By editTitleInput = By.XPath("//input[@name='Title']");
 

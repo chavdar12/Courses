@@ -17,9 +17,18 @@ namespace RevueCraftersTestProject.Tests
 
             createRevuePage.CreateNewRevue("", "", "");
 
-            ClassicAssert.True(createRevuePage.IsMainErroMessageCorrect(), "The main error message is not as expected.");
-            ClassicAssert.True(createRevuePage.IsTitleErroMessageCorrect(), "The title error message is not as expected.");
-            ClassicAssert.True(createRevuePage.IsDescriptionErroMessageCorrect(), "The description error message is not as expected.");
+            ClassicAssert.True(
+                createRevuePage.IsMainErroMessageCorrect(),
+                "The main error message is not as expected."
+            );
+            ClassicAssert.True(
+                createRevuePage.IsTitleErroMessageCorrect(),
+                "The title error message is not as expected."
+            );
+            ClassicAssert.True(
+                createRevuePage.IsDescriptionErroMessageCorrect(),
+                "The description error message is not as expected."
+            );
         }
 
         [Test, Order(2)]
@@ -32,14 +41,24 @@ namespace RevueCraftersTestProject.Tests
 
             actions.ScrollToElement(createRevuePage.CreateRevueCardElement).Perform();
 
-            createRevuePage.CreateNewRevue(lastCreatedRevueTitle, "http://www.pictures.com/picture.jpg", lastCreatedRevueDescription);
+            createRevuePage.CreateNewRevue(
+                lastCreatedRevueTitle,
+                "http://www.pictures.com/picture.jpg",
+                lastCreatedRevueDescription
+            );
 
             string expectedUrl = "https://d3s5nxhwblsjbi.cloudfront.net/Revue/MyRevues#createRevue";
 
             Assert.That(driver.Url, Is.EqualTo(expectedUrl), "URL is not correct");
 
-            ClassicAssert.True(myRevuesPage.IsTitleLastRevueTextCorrect(lastCreatedRevueTitle), "The last created revue title is not as expected.");
-            ClassicAssert.True(myRevuesPage.IsDescriptionLastRevueTextCorrect(lastCreatedRevueDescription), "The last revue descripton is not as expected.");
+            ClassicAssert.True(
+                myRevuesPage.IsTitleLastRevueTextCorrect(lastCreatedRevueTitle),
+                "The last created revue title is not as expected."
+            );
+            ClassicAssert.True(
+                myRevuesPage.IsDescriptionLastRevueTextCorrect(lastCreatedRevueDescription),
+                "The last revue descripton is not as expected."
+            );
         }
 
         [Test, Order(3)]
@@ -53,7 +72,11 @@ namespace RevueCraftersTestProject.Tests
             myRevuesPage.SearchBarElement.SendKeys(lastCreatedRevueTitle);
             myRevuesPage.SearchButtonElement.Click();
 
-            Assert.That(myRevuesPage.SearchedElementTitle.Text, Is.EqualTo(lastCreatedRevueTitle), "The searched keyword title does not match the last created one.");
+            Assert.That(
+                myRevuesPage.SearchedElementTitle.Text,
+                Is.EqualTo(lastCreatedRevueTitle),
+                "The searched keyword title does not match the last created one."
+            );
         }
 
         [Test, Order(4)]
@@ -111,7 +134,9 @@ namespace RevueCraftersTestProject.Tests
 
             Assert.That(currentRevues.Count, Is.LessThan(revuesCount), "The number of Revues did not decrease.");
 
-            bool isRevueDeleted = currentRevues.Any(card => card.Text.Contains(updatedTitle) && card.Text.Contains(lastCreatedRevueDescription));
+            bool isRevueDeleted = currentRevues.Any(card =>
+                card.Text.Contains(updatedTitle) && card.Text.Contains(lastCreatedRevueDescription)
+            );
 
             ClassicAssert.False(isRevueDeleted, "The last created idea is not deleted as expected.");
         }
@@ -127,7 +152,10 @@ namespace RevueCraftersTestProject.Tests
             myRevuesPage.SearchBarElement.SendKeys(updatedTitle);
             myRevuesPage.SearchButtonElement.Click();
 
-            ClassicAssert.True(myRevuesPage.IsSearchResultEmpty(), "The searched revue was found but should not found it.");
+            ClassicAssert.True(
+                myRevuesPage.IsSearchResultEmpty(),
+                "The searched revue was found but should not found it."
+            );
         }
     }
 }

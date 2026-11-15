@@ -62,8 +62,11 @@ namespace ExerciseSecurityPart1
             var accountMenu = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("navbarAccount")));
             accountMenu.Click();
 
-            Assert.That(driver.FindElement(By.Id("navbarLogoutButton")).Displayed, Is.True,
-                "Login should NOT succeed with an injection payload; this asserts the known vulnerability is present.");
+            Assert.That(
+                driver.FindElement(By.Id("navbarLogoutButton")).Displayed,
+                Is.True,
+                "Login should NOT succeed with an injection payload; this asserts the known vulnerability is present."
+            );
         }
 
         [Test]

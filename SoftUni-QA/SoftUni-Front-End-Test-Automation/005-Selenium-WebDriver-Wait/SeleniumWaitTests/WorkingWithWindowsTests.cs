@@ -1,6 +1,6 @@
+using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System.Collections.ObjectModel;
 
 namespace SeleniumWaitsExercise
 {
@@ -46,7 +46,10 @@ namespace SeleniumWaitsExercise
             Assert.That(newPageTitle, Is.EqualTo("New Window"));
 
             string newWindowContent = driver.PageSource;
-            ClassicAssert.IsTrue(newWindowContent.Contains("New Window"), "The content of the new window is not as expected.");
+            ClassicAssert.IsTrue(
+                newWindowContent.Contains("New Window"),
+                "The content of the new window is not as expected."
+            );
 
             driver.Close();
 

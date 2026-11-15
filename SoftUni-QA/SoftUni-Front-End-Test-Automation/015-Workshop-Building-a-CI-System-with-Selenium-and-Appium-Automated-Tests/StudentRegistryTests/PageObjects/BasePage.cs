@@ -1,5 +1,5 @@
-using OpenQA.Selenium;
 using System;
+using OpenQA.Selenium;
 
 namespace Students_Registry_Automated_Tests.PageObjects
 {
@@ -14,17 +14,13 @@ namespace Students_Registry_Automated_Tests.PageObjects
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
         }
 
-        public IWebElement LinkHomePage =>
-            driver.FindElement(By.XPath("//a[contains(., 'Home')]"));
+        public IWebElement LinkHomePage => driver.FindElement(By.XPath("//a[contains(., 'Home')]"));
 
-        public IWebElement LinkViewStudentsPage =>
-            driver.FindElement(By.XPath("//a[contains(., 'View Students')]"));
+        public IWebElement LinkViewStudentsPage => driver.FindElement(By.XPath("//a[contains(., 'View Students')]"));
 
-        public IWebElement LinkAddStudentPage =>
-            driver.FindElement(By.XPath("//a[contains(., 'Add Student')]"));
+        public IWebElement LinkAddStudentPage => driver.FindElement(By.XPath("//a[contains(., 'Add Student')]"));
 
-        public IWebElement ElementPageHeading =>
-            driver.FindElement(By.CssSelector("body > h1"));
+        public IWebElement ElementPageHeading => driver.FindElement(By.CssSelector("body > h1"));
 
         public void Open()
         {
@@ -45,6 +41,5 @@ namespace Students_Registry_Automated_Tests.PageObjects
         {
             return ElementPageHeading.Text;
         }
-
     }
 }

@@ -2,9 +2,8 @@ namespace RevueCraftersTestProject.Pages
 {
     public class LoginPage : BasePage
     {
-        public LoginPage(IWebDriver driver) :base(driver)
-        {
-        }
+        public LoginPage(IWebDriver driver)
+            : base(driver) { }
 
         public readonly string PageUrl = BaseUrl + "/Users/Login#loginForm";
 

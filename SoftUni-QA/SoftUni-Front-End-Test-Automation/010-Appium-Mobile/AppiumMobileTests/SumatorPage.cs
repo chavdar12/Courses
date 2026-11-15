@@ -13,17 +13,13 @@ namespace Appium_Testing
             this.driver = driver;
         }
 
-        public IWebElement firstField => driver.FindElement(MobileBy.Id
-               ("editText1"));
+        public IWebElement firstField => driver.FindElement(MobileBy.Id("editText1"));
 
-        public IWebElement secondField => driver.FindElement(MobileBy.Id
-                ("editText2"));
+        public IWebElement secondField => driver.FindElement(MobileBy.Id("editText2"));
 
-        public IWebElement sumButton => driver.FindElement(MobileBy.Id
-                ("buttonCalcSum"));
+        public IWebElement sumButton => driver.FindElement(MobileBy.Id("buttonCalcSum"));
 
-        public IWebElement resultField => driver.FindElement(MobileBy.Id
-                ("editTextSum"));
+        public IWebElement resultField => driver.FindElement(MobileBy.Id("editTextSum"));
 
         public string GetResult(string firstNum, string secondNum)
         {

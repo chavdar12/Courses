@@ -2,9 +2,8 @@ namespace TestAutomationArchitecture.Pages
 {
     public class WebFormPage : BasePage
     {
-        public WebFormPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public WebFormPage(IWebDriver driver)
+            : base(driver) { }
 
         protected override string Path => "web-form.html";
 

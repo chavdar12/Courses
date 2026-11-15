@@ -1,6 +1,6 @@
+using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
-using OpenQA.Selenium;
 
 namespace ColorNoteAppTesting
 {
@@ -19,7 +19,11 @@ namespace ColorNoteAppTesting
                 PlatformName = "Android",
                 DeviceName = "Pixel_7_API_34",
                 // Notepad.apk (ColorNote) comes with the course resources; put it in your Downloads folder.
-                App = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "Notepad.apk")
+                App = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                    "Downloads",
+                    "Notepad.apk"
+                ),
             };
 
             androidOptions.AddAdditionalAppiumOption("autoGrantPermissions", true);
@@ -30,14 +34,15 @@ namespace ColorNoteAppTesting
 
             try
             {
-                var skipTutorial = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/btn_start_skip"));
+                var skipTutorial = driver.FindElement(
+                    MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/btn_start_skip")
+                );
                 skipTutorial.Click();
             }
             catch (NoSuchElementException)
             {
                 // Skip tutorial
             }
-
         }
 
         [OneTimeTearDown]
@@ -50,20 +55,28 @@ namespace ColorNoteAppTesting
         [Test]
         public void TestCreateNewNote()
         {
-            IWebElement newNoteBtn = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/main_btn1"));
+            IWebElement newNoteBtn = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/main_btn1")
+            );
             newNoteBtn.Click();
 
             IWebElement noteText = driver.FindElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Text\")"));
             noteText.Click();
 
-            IWebElement noteTextField = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_note"));
+            IWebElement noteTextField = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_note")
+            );
             noteTextField.SendKeys("Test Note!");
 
-            IWebElement backBtn = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/back_btn"));
+            IWebElement backBtn = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/back_btn")
+            );
             backBtn.Click();
             backBtn.Click();
 
-            IWebElement noteTitle = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/title"));
+            IWebElement noteTitle = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/title")
+            );
 
             Assert.That(noteTitle, Is.Not.Null, "Note was not found!");
             Assert.That(noteTitle.Text, Is.EqualTo("Test Note!"), "Title don't mach!");
@@ -72,32 +85,46 @@ namespace ColorNoteAppTesting
         [Test]
         public void TestUpdateNote()
         {
-            IWebElement newNoteBtn = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/main_btn1"));
+            IWebElement newNoteBtn = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/main_btn1")
+            );
             newNoteBtn.Click();
 
             IWebElement noteText = driver.FindElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Text\")"));
             noteText.Click();
 
-            IWebElement noteTextField = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_note"));
+            IWebElement noteTextField = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_note")
+            );
             noteTextField.SendKeys("Test Note2!");
 
-            IWebElement backBtn = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/back_btn"));
+            IWebElement backBtn = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/back_btn")
+            );
             backBtn.Click();
             backBtn.Click();
 
-            IWebElement note = driver.FindElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Test Note2!\")"));
+            IWebElement note = driver.FindElement(
+                MobileBy.AndroidUIAutomator("new UiSelector().text(\"Test Note2!\")")
+            );
             note.Click();
 
-            IWebElement editBtn = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_btn"));
+            IWebElement editBtn = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_btn")
+            );
             editBtn.Click();
 
-            noteTextField = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_note"));
+            noteTextField = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_note")
+            );
 
             noteTextField.Click();
             noteTextField.Clear();
             noteTextField.SendKeys("Test Note Edited!");
 
-            IWebElement editedNote = driver.FindElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Test Note Edited!\")"));
+            IWebElement editedNote = driver.FindElement(
+                MobileBy.AndroidUIAutomator("new UiSelector().text(\"Test Note Edited!\")")
+            );
 
             Assert.That(editedNote, Is.Not.Null, "Note was not found!");
             Assert.That(editedNote.Text, Is.EqualTo("Test Note Edited!"), "Note was not edited!");
@@ -106,32 +133,46 @@ namespace ColorNoteAppTesting
         [Test]
         public void TestDeleteNote()
         {
-            IWebElement newNoteBtn = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/main_btn1"));
+            IWebElement newNoteBtn = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/main_btn1")
+            );
             newNoteBtn.Click();
 
             IWebElement noteText = driver.FindElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Text\")"));
             noteText.Click();
 
-            IWebElement noteTextField = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_note"));
+            IWebElement noteTextField = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/edit_note")
+            );
             noteTextField.SendKeys("Note For Deletion!");
 
-            IWebElement backBtn = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/back_btn"));
+            IWebElement backBtn = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/back_btn")
+            );
             backBtn.Click();
             backBtn.Click();
 
-            IWebElement note = driver.FindElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Note For Deletion!\")"));
+            IWebElement note = driver.FindElement(
+                MobileBy.AndroidUIAutomator("new UiSelector().text(\"Note For Deletion!\")")
+            );
             note.Click();
 
-            IWebElement menuBtn = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/menu_btn"));
+            IWebElement menuBtn = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/menu_btn")
+            );
             menuBtn.Click();
 
-            IWebElement deleteBtn = driver.FindElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Delete\")"));
+            IWebElement deleteBtn = driver.FindElement(
+                MobileBy.AndroidUIAutomator("new UiSelector().text(\"Delete\")")
+            );
             deleteBtn.Click();
 
             IWebElement okBtn = driver.FindElement(MobileBy.Id("android:id/button1"));
             okBtn.Click();
 
-            IWebElement addNoteMsg = driver.FindElement(MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/empty_text"));
+            IWebElement addNoteMsg = driver.FindElement(
+                MobileBy.Id("com.socialnmobile.dictapps.notepad.color.note:id/empty_text")
+            );
 
             Assert.That(addNoteMsg.Text, Is.EqualTo("Add note"), "Note was not deleted!");
         }

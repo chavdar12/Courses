@@ -2,9 +2,8 @@ namespace IdeaCenterTestProject.Pages
 {
     public class LoginPage : BasePage
     {
-        public LoginPage(IWebDriver driver) :base(driver)
-        {
-        }
+        public LoginPage(IWebDriver driver)
+            : base(driver) { }
 
         public static readonly string PageUrl = BaseUrl + "/Users/Login";
 

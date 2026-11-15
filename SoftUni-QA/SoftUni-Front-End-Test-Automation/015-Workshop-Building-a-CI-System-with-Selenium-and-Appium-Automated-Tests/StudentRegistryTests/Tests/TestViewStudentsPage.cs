@@ -12,12 +12,12 @@ namespace Students_Registry_Automated_Tests.Tests
             page.Open();
             ClassicAssert.AreEqual("Students", page.GetPageTitle());
             ClassicAssert.AreEqual("Registered Students", page.GetPageHeadingText());
-            
+
             var students = page.GetRegisteredStudents();
             foreach (string st in students)
             {
                 ClassicAssert.IsTrue(st.IndexOf("(") > 0);
-                ClassicAssert.IsTrue(st.LastIndexOf(")") == st.Length-1);
+                ClassicAssert.IsTrue(st.LastIndexOf(")") == st.Length - 1);
             }
         }
 

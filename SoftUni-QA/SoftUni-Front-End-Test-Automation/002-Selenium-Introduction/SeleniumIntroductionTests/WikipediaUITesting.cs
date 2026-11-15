@@ -1,5 +1,5 @@
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace NUnitTestingWiki
 {
@@ -19,13 +19,13 @@ namespace NUnitTestingWiki
 
             driver.Manage().Window.Maximize();
         }
+
         [TearDown]
         public void TearDown()
         {
             driver.Quit();
             driver.Dispose();
         }
-
 
         [Test]
         public void VerifyQualityAssuranceTitle()
@@ -35,7 +35,9 @@ namespace NUnitTestingWiki
             driver.FindElement(By.Id("searchInput")).SendKeys("Quality Assurance" + Keys.Enter);
 
             // The title changes only after the search page loads; asserting right away races the navigation.
-            new OpenQA.Selenium.Support.UI.WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(d => d.Title != "Wikipedia");
+            new OpenQA.Selenium.Support.UI.WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(d =>
+                d.Title != "Wikipedia"
+            );
 
             Assert.That(driver.Title, Is.EqualTo("Quality assurance - Wikipedia"));
         }

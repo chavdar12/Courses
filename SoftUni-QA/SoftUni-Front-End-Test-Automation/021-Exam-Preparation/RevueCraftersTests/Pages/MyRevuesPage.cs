@@ -4,9 +4,8 @@ namespace RevueCraftersTestProject.Pages
 {
     public class MyRevuesPage : BasePage
     {
-        public MyRevuesPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public MyRevuesPage(IWebDriver driver)
+            : base(driver) { }
 
         public readonly string PageUrl = BaseUrl + "/Revue/MyRevues#myRevues";
 
@@ -16,9 +15,12 @@ namespace RevueCraftersTestProject.Pages
         public ReadOnlyCollection<IWebElement> RevuesCards => FindElements(revuesCards);
 
         public IWebElement viewButtonLastRevue => RevuesCards.Last().FindElement(By.XPath(".//a[text()='View']"));
-        public IWebElement editButtonLastRevue => RevuesCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Revue/Edit')]"));
-        public IWebElement deleteButtonLastRevue => RevuesCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Revue/Delete')]"));
-        public IWebElement titleLastRevue => RevuesCards.Last().FindElement(By.XPath(".//div[@class='text-muted text-center']"));
+        public IWebElement editButtonLastRevue =>
+            RevuesCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Revue/Edit')]"));
+        public IWebElement deleteButtonLastRevue =>
+            RevuesCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Revue/Delete')]"));
+        public IWebElement titleLastRevue =>
+            RevuesCards.Last().FindElement(By.XPath(".//div[@class='text-muted text-center']"));
         public IWebElement descriptionLastRevue => RevuesCards.Last().FindElement(By.XPath(".//p[@class='card-text']"));
 
         protected readonly By searchBar = By.XPath("//input[@type='search']");
@@ -38,7 +40,7 @@ namespace RevueCraftersTestProject.Pages
         public IWebElement AllRevuesSection => FindElement(allRevuesSection);
 
         protected readonly By emptySearchResultMessage = By.XPath("//span[@class='col-12 text-muted']");
-        
+
         public void OpenPage()
         {
             driver.Navigate().GoToUrl(PageUrl);

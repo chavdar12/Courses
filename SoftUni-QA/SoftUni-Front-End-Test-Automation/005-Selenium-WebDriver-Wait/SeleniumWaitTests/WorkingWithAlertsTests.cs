@@ -40,7 +40,11 @@ namespace SeleniumWaitsExercise
 
             IWebElement resultElement = driver.FindElement(By.Id("result"));
 
-            Assert.That(resultElement.Text, Is.EqualTo("You successfully clicked an alert"), "Result message was not as expected.");
+            Assert.That(
+                resultElement.Text,
+                Is.EqualTo("You successfully clicked an alert"),
+                "Result message was not as expected."
+            );
         }
 
         [Test, Order(2)]
@@ -56,7 +60,11 @@ namespace SeleniumWaitsExercise
             alert.Accept();
 
             IWebElement resultElementOk = driver.FindElement(By.Id("result"));
-            Assert.That(resultElementOk.Text, Is.EqualTo("You clicked: Ok"), "The result message after clicking 'Ok' was not as expected");
+            Assert.That(
+                resultElementOk.Text,
+                Is.EqualTo("You clicked: Ok"),
+                "The result message after clicking 'Ok' was not as expected"
+            );
 
             // Handling alert with Cancel
             driver.FindElement(By.XPath("//button[contains(text(), 'Click for JS Confirm')]")).Click();
@@ -66,7 +74,11 @@ namespace SeleniumWaitsExercise
             alert.Dismiss();
 
             IWebElement resultElementCancel = driver.FindElement(By.Id("result"));
-            Assert.That(resultElementCancel.Text, Is.EqualTo("You clicked: Cancel"), "The result message after clicking 'Cancel' was not as expected");
+            Assert.That(
+                resultElementCancel.Text,
+                Is.EqualTo("You clicked: Cancel"),
+                "The result message after clicking 'Cancel' was not as expected"
+            );
         }
 
         [Test, Order(3)]
@@ -84,7 +96,11 @@ namespace SeleniumWaitsExercise
             alert.Accept();
 
             IWebElement resultElementOk = driver.FindElement(By.Id("result"));
-            Assert.That(resultElementOk.Text, Is.EqualTo($"You entered: {inputText}"), "The result message after clicking 'Ok' was not as expected");
+            Assert.That(
+                resultElementOk.Text,
+                Is.EqualTo($"You entered: {inputText}"),
+                "The result message after clicking 'Ok' was not as expected"
+            );
 
             // Handling alert with Cancel
             driver.FindElement(By.XPath("//button[contains(text(), 'Click for JS Prompt')]")).Click();
@@ -95,8 +111,16 @@ namespace SeleniumWaitsExercise
             alert.Dismiss();
 
             IWebElement resultElementCancel = driver.FindElement(By.Id("result"));
-            Assert.That(resultElementCancel.Text, Is.EqualTo("You entered: null"), "The result message after clicking 'Cancel' was not as expected");
-            Assert.That(resultElementCancel.Text, Does.Not.Contain(inputText), $"The result message after clicking 'Cancel' should not contain {inputText}");
+            Assert.That(
+                resultElementCancel.Text,
+                Is.EqualTo("You entered: null"),
+                "The result message after clicking 'Cancel' was not as expected"
+            );
+            Assert.That(
+                resultElementCancel.Text,
+                Does.Not.Contain(inputText),
+                $"The result message after clicking 'Cancel' should not contain {inputText}"
+            );
         }
     }
 }

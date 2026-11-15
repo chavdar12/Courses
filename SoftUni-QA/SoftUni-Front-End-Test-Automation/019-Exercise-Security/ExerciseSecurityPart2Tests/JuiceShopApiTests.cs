@@ -35,8 +35,9 @@ namespace ExerciseSecurityPart2
         private JsonElement PostLogin(string email, string password)
         {
             var payload = JsonSerializer.Serialize(new { email, password });
-            var response = client.PostAsync("/rest/user/login",
-                new StringContent(payload, Encoding.UTF8, "application/json")).Result;
+            var response = client
+                .PostAsync("/rest/user/login", new StringContent(payload, Encoding.UTF8, "application/json"))
+                .Result;
             var body = response.Content.ReadAsStringAsync().Result;
             return JsonDocument.Parse(body).RootElement;
         }
@@ -45,8 +46,9 @@ namespace ExerciseSecurityPart2
         public void Test_LoginWithWrongCredentials_ReturnsUnauthorized()
         {
             var payload = JsonSerializer.Serialize(new { email = "nobody@example.com", password = "wrong" });
-            var response = client.PostAsync("/rest/user/login",
-                new StringContent(payload, Encoding.UTF8, "application/json")).Result;
+            var response = client
+                .PostAsync("/rest/user/login", new StringContent(payload, Encoding.UTF8, "application/json"))
+                .Result;
 
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
         }
@@ -58,8 +60,11 @@ namespace ExerciseSecurityPart2
             // A hardened endpoint would answer 401 here; this test documents that it does not.
             var root = PostLogin("' OR 1=1--", "anything");
 
-            Assert.That(root.TryGetProperty("authentication", out var auth), Is.True,
-                "SQL injection should NOT yield a session; this asserts the known vulnerability is present.");
+            Assert.That(
+                root.TryGetProperty("authentication", out var auth),
+                Is.True,
+                "SQL injection should NOT yield a session; this asserts the known vulnerability is present."
+            );
             Assert.That(auth.GetProperty("token").GetString(), Is.Not.Empty);
         }
 
@@ -67,14 +72,20 @@ namespace ExerciseSecurityPart2
         public void Test_ProductSearch_IsVulnerableToSqlInjection()
         {
             // A closing-paren payload breaks out of the WHERE clause and returns every product instead of a filtered set.
-            var injected = client.GetAsync("/rest/products/search?q=%27%29%29--").Result.Content.ReadAsStringAsync().Result;
+            var injected = client
+                .GetAsync("/rest/products/search?q=%27%29%29--")
+                .Result.Content.ReadAsStringAsync()
+                .Result;
             var empty = client.GetAsync("/rest/products/search?q=zzzzzz").Result.Content.ReadAsStringAsync().Result;
 
             int injectedCount = JsonDocument.Parse(injected).RootElement.GetProperty("data").GetArrayLength();
             int emptyCount = JsonDocument.Parse(empty).RootElement.GetProperty("data").GetArrayLength();
 
-            Assert.That(injectedCount, Is.GreaterThan(emptyCount),
-                "Injection should NOT return more rows than a normal query; this asserts the known vulnerability is present.");
+            Assert.That(
+                injectedCount,
+                Is.GreaterThan(emptyCount),
+                "Injection should NOT return more rows than a normal query; this asserts the known vulnerability is present."
+            );
         }
 
         [Test]

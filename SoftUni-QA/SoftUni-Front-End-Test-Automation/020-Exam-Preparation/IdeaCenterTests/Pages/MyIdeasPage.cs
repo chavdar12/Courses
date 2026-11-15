@@ -2,9 +2,8 @@ namespace IdeaCenterTestProject.Pages
 {
     public class MyIdeasPage : BasePage
     {
-        public MyIdeasPage(IWebDriver driver) :base(driver)
-        {
-        }
+        public MyIdeasPage(IWebDriver driver)
+            : base(driver) { }
 
         public string PageUrl = BaseUrl + "/Ideas/MyIdeas";
 
@@ -14,11 +13,13 @@ namespace IdeaCenterTestProject.Pages
 
         public ReadOnlyCollection<IWebElement> IdeaCards => FindElements(ideasCards);
 
-        public IWebElement viewButtonLastIdea => IdeaCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Ideas/Read')]"));
-        public IWebElement editButtonLastIdea => IdeaCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Ideas/Edit')]"));
-        public IWebElement deleteButtonLastIdea => IdeaCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Ideas/Delete')]"));
+        public IWebElement viewButtonLastIdea =>
+            IdeaCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Ideas/Read')]"));
+        public IWebElement editButtonLastIdea =>
+            IdeaCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Ideas/Edit')]"));
+        public IWebElement deleteButtonLastIdea =>
+            IdeaCards.Last().FindElement(By.XPath(".//a[contains(@href, '/Ideas/Delete')]"));
         public IWebElement descriptionLastIdea => IdeaCards.Last().FindElement(By.XPath(".//p[@class='card-text']"));
-
 
         // Methods
         public void OpenPage()
@@ -30,6 +31,5 @@ namespace IdeaCenterTestProject.Pages
         {
             return descriptionLastIdea.Text == lastCreatedIdeaDescription;
         }
-
     }
 }

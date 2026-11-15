@@ -1,6 +1,6 @@
+using System;
 using NUnit.Framework;
 using Students_Registry_Automated_Tests.PageObjects;
-using System;
 
 namespace Students_Registry_Automated_Tests.Tests
 {
@@ -62,6 +62,5 @@ namespace Students_Registry_Automated_Tests.Tests
             ClassicAssert.IsTrue(page.IsOpen());
             ClassicAssert.IsTrue(page.ElementErrorMsg.Text.Contains("Cannot add student"));
         }
-
     }
 }

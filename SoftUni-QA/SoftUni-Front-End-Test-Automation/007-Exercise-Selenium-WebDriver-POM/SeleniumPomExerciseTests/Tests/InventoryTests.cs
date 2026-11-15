@@ -23,9 +23,15 @@ namespace SeleniumWebDriverPOMExercise.Tests
 
             inventoryPage.ClickCartLink();
 
-            Assert.That(driver.PageSource.Contains("Sauce Labs Backpack"), "The page does not contains the title of the added item");
+            Assert.That(
+                driver.PageSource.Contains("Sauce Labs Backpack"),
+                "The page does not contains the title of the added item"
+            );
 
-            ClassicAssert.IsTrue(cartPage.IsCartItemDisplayed(), "The cart items section is empty after adding item by index");
+            ClassicAssert.IsTrue(
+                cartPage.IsCartItemDisplayed(),
+                "The cart items section is empty after adding item by index"
+            );
         }
 
         [Test, Order(3)]
@@ -35,9 +41,15 @@ namespace SeleniumWebDriverPOMExercise.Tests
 
             inventoryPage.ClickCartLink();
 
-            Assert.That(driver.PageSource.Contains("Sauce Labs Bike Light"), "The page does not contains the title of the added item.");
+            Assert.That(
+                driver.PageSource.Contains("Sauce Labs Bike Light"),
+                "The page does not contains the title of the added item."
+            );
 
-            ClassicAssert.IsTrue(cartPage.IsCartItemDisplayed(), "The cart items section is empty after adding item by name.");
+            ClassicAssert.IsTrue(
+                cartPage.IsCartItemDisplayed(),
+                "The cart items section is empty after adding item by name."
+            );
         }
 
         [Test, Order(4)]

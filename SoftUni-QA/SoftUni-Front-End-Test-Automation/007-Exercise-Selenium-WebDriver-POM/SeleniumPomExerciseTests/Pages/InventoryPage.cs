@@ -2,9 +2,8 @@ namespace SeleniumWebDriverPOMExercise.Pages
 {
     public class InventoryPage : BasePage
     {
-        public InventoryPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public InventoryPage(IWebDriver driver)
+            : base(driver) { }
 
         protected readonly By cartLink = By.XPath("//a[@data-test='shopping-cart-link']");
 
@@ -14,13 +13,18 @@ namespace SeleniumWebDriverPOMExercise.Pages
 
         public void AddToCartByIndex(int itemIndex)
         {
-            var itemAddToCartButton = By.XPath($"//div[@class='inventory_list']//div[@class='inventory_item'][{itemIndex}]//button");
+            var itemAddToCartButton = By.XPath(
+                $"//div[@class='inventory_list']//div[@class='inventory_item'][{itemIndex}]//button"
+            );
             Click(itemAddToCartButton);
         }
 
         public void AddToCartByName(string productName)
         {
-            var itemAddToCartButton = By.XPath($"//div[text()='{productName}']" + "/ancestor::div[@class='inventory_item']//button[contains(@class, 'btn_inventory')]");
+            var itemAddToCartButton = By.XPath(
+                $"//div[text()='{productName}']"
+                    + "/ancestor::div[@class='inventory_item']//button[contains(@class, 'btn_inventory')]"
+            );
             Click(itemAddToCartButton);
         }
 

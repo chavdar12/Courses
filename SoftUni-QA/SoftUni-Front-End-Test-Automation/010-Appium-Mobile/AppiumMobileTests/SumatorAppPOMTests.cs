@@ -1,5 +1,5 @@
-using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Android;
 
 namespace Appium_Testing
 {
@@ -15,7 +15,8 @@ namespace Appium_Testing
 
             AppiumOptions options = new AppiumOptions();
             // Appium downloads the app from the release URL itself.
-            options.App = "https://github.com/nakov/AndroidApp-Summator/releases/download/v1.0/com.example.androidappsummator.apk";
+            options.App =
+                "https://github.com/nakov/AndroidApp-Summator/releases/download/v1.0/com.example.androidappsummator.apk";
             options.PlatformName = "Android";
             options.AutomationName = "UiAutomator2";
             options.DeviceName = "Pixel_7_API_34";
@@ -29,7 +30,6 @@ namespace Appium_Testing
         public void TearDown()
         {
             driver?.Quit();
-
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace Appium_Testing
         {
             sumatorPage.ClearFields();
             sumatorPage.sumButton.Click();
-            Assert.That(sumatorPage.resultField.Text, Is.EqualTo("error")); 
+            Assert.That(sumatorPage.resultField.Text, Is.EqualTo("error"));
         }
 
         [Test]

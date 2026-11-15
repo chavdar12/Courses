@@ -6,7 +6,8 @@ namespace IdeaCenterTestProject.Pages
 
         protected readonly WebDriverWait wait;
 
-        protected static readonly string BaseUrl = "http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com:83";
+        protected static readonly string BaseUrl =
+            "http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com:83";
 
         // Locating Base Page Elements
         public readonly By loginButton = By.XPath("//a[@class='btn btn-outline-info px-3 me-2']");
@@ -22,7 +23,6 @@ namespace IdeaCenterTestProject.Pages
         public readonly By createIdeaLink = By.XPath("//a[text()='Create Idea']");
 
         public readonly By logOutButton = By.XPath("//a[@href='/Users/Logout']");
-
 
         public BasePage(IWebDriver driver)
         {

@@ -16,6 +16,7 @@ namespace SeleniumWaits
             driver.Navigate().GoToUrl("https://www.selenium.dev/selenium/web/dynamic.html");
             driver.Manage().Window.Maximize();
         }
+
         [TearDown]
         public void TearDown()
         {
@@ -112,7 +113,9 @@ namespace SeleniumWaits
             fluentWait.Timeout = TimeSpan.FromSeconds(10);
             fluentWait.PollingInterval = TimeSpan.FromMilliseconds(500);
 
-            var revealedField = fluentWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@id='revealed']")));
+            var revealedField = fluentWait.Until(
+                ExpectedConditions.ElementIsVisible(By.XPath("//input[@id='revealed']"))
+            );
 
             ClassicAssert.IsTrue(revealedField.Displayed);
         }

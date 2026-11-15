@@ -14,9 +14,17 @@ namespace SeleniumWebDriverPOMLab.Tests
             var currentPageHeadingText = page.GetPageHeadingText();
             var currentStudentsList = page.GetStudentsList();
 
-            Assert.That(currentPageTitle, Is.EqualTo("Students"), $"The title was expected to be 'Students' but was {currentPageTitle}");
+            Assert.That(
+                currentPageTitle,
+                Is.EqualTo("Students"),
+                $"The title was expected to be 'Students' but was {currentPageTitle}"
+            );
 
-            Assert.That(currentPageHeadingText, Is.EqualTo("Registered Students"), $"The heading was expected to be 'Registered Students' but was {currentPageHeadingText}");
+            Assert.That(
+                currentPageHeadingText,
+                Is.EqualTo("Registered Students"),
+                $"The heading was expected to be 'Registered Students' but was {currentPageHeadingText}"
+            );
 
             ClassicAssert.IsTrue(currentStudentsList.Contains("Steve (steve@yahoo.com)"));
 

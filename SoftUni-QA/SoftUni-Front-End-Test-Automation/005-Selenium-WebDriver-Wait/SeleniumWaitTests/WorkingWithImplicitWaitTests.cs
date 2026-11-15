@@ -32,11 +32,19 @@ namespace SeleniumWaitsExercise
 
             try
             {
+                var productsTableHeader = driver.FindElement(
+                    By.XPath("//a[@title='Sort products descendingly by Product Name']")
+                );
 
-                var productsTableHeader = driver.FindElement(By.XPath("//a[@title='Sort products descendingly by Product Name']"));
-
-                Assert.That(productsTableHeader.Text.Trim(), Is.EqualTo("Product Name+"), "Products with keyword 'keyboard' are no found");
-                ClassicAssert.IsTrue(driver.PageSource.Contains("Displaying"), "Products with keyword 'keyboard' are no found");
+                Assert.That(
+                    productsTableHeader.Text.Trim(),
+                    Is.EqualTo("Product Name+"),
+                    "Products with keyword 'keyboard' are no found"
+                );
+                ClassicAssert.IsTrue(
+                    driver.PageSource.Contains("Displaying"),
+                    "Products with keyword 'keyboard' are no found"
+                );
 
                 driver.FindElement(By.LinkText("Buy Now")).Click();
 

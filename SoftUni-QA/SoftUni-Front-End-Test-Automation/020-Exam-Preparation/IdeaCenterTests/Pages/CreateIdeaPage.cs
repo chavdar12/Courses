@@ -2,9 +2,8 @@ namespace IdeaCenterTestProject.Pages
 {
     public class CreateIdeaPage : BasePage
     {
-        public CreateIdeaPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public CreateIdeaPage(IWebDriver driver)
+            : base(driver) { }
 
         protected static readonly string PageUrl = BaseUrl + "/Ideas/Create";
 
@@ -19,9 +18,13 @@ namespace IdeaCenterTestProject.Pages
 
         public readonly By mainErrorMessage = By.XPath("//div[@class='text-danger validation-summary-errors']/ul/li");
 
-        public readonly By titleErrorMesage = By.XPath("//div[@style='text-align:center']/span[@data-valmsg-for='Title']");
+        public readonly By titleErrorMesage = By.XPath(
+            "//div[@style='text-align:center']/span[@data-valmsg-for='Title']"
+        );
 
-        public readonly By descriptionErrorMessage = By.XPath("//div[@style='text-align:center']/span[@data-valmsg-for='Description']");
+        public readonly By descriptionErrorMessage = By.XPath(
+            "//div[@style='text-align:center']/span[@data-valmsg-for='Description']"
+        );
 
         // Methods
         public void OpenPage()
@@ -39,7 +42,7 @@ namespace IdeaCenterTestProject.Pages
 
         public bool IsMainErrorMessageCorrect()
         {
-            return GetText(mainErrorMessage) == "Unable to create new Idea!"; 
+            return GetText(mainErrorMessage) == "Unable to create new Idea!";
         }
 
         public bool IsTitleErrorMessageCorrect()

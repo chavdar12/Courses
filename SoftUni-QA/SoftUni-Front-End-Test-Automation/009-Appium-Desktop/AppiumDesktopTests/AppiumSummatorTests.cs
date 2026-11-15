@@ -7,7 +7,11 @@ namespace Appium.Tests
     public class AppiumSummatorTests
     {
         // The Summator desktop app: https://github.com/nakov/WindowsFormsApp-Summator/releases/download/v.1.0/WindowsFormsApp.exe
-        private static readonly string AppPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "WindowsFormsApp.exe");
+        private static readonly string AppPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            "Downloads",
+            "WindowsFormsApp.exe"
+        );
 
         private WindowsDriver driver;
 
@@ -16,7 +20,12 @@ namespace Appium.Tests
         {
             AppiumServer.RequireRunning();
 
-            var options = new AppiumOptions { PlatformName = "Windows", AutomationName = "Windows", App = AppPath };
+            var options = new AppiumOptions
+            {
+                PlatformName = "Windows",
+                AutomationName = "Windows",
+                App = AppPath,
+            };
             driver = new WindowsDriver(AppiumServer.Url, options);
         }
 

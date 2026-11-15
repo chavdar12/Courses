@@ -11,7 +11,9 @@ public static class Browser
         options.AddUserProfilePreference("profile.password_manager_leak_detection", false);
         // Chrome now tries HTTPS first and shows a warning page for HTTP-only course sites (uitestingplayground.com).
         options.AddUserProfilePreference("https_only_mode_enabled", false);
-        options.AddArgument("--disable-features=HttpsUpgrades,HttpsFirstBalancedModeAutoEnable,HttpsFirstModeV2ForTypicallySecureUsers");
+        options.AddArgument(
+            "--disable-features=HttpsUpgrades,HttpsFirstBalancedModeAutoEnable,HttpsFirstModeV2ForTypicallySecureUsers"
+        );
         return new ChromeDriver(options);
     }
 
@@ -24,9 +26,7 @@ public static class Browser
             http.GetAsync(url).Result.EnsureSuccessStatusCode();
             return;
         }
-        catch (Exception e) when (e is AggregateException or HttpRequestException)
-        {
-        }
+        catch (Exception e) when (e is AggregateException or HttpRequestException) { }
 
         Assert.Ignore($"{url} is not reachable.");
     }

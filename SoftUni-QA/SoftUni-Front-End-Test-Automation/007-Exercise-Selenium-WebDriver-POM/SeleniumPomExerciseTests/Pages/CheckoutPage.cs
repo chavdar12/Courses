@@ -14,9 +14,8 @@ namespace SeleniumWebDriverPOMExercise.Pages
 
         public readonly By completeHeader = By.XPath("//h2[@data-test='complete-header']");
 
-        public CheckoutPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public CheckoutPage(IWebDriver driver)
+            : base(driver) { }
 
         public void EnterFirstName(string firstName)
         {
@@ -45,8 +44,7 @@ namespace SeleniumWebDriverPOMExercise.Pages
 
         public bool IsPageLoaded()
         {
-            return driver.Url.Contains("checkout-step-one.html") ||
-            driver.Url.Contains("checkout-step-two.html");
+            return driver.Url.Contains("checkout-step-one.html") || driver.Url.Contains("checkout-step-two.html");
         }
 
         public bool IsPageComplete()

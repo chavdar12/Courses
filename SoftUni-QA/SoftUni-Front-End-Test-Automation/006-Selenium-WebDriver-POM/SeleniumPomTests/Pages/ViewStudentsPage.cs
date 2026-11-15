@@ -2,9 +2,8 @@ namespace SeleniumWebDriverPOMLab.Pages
 {
     public class ViewStudentsPage : BasePage
     {
-        public ViewStudentsPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public ViewStudentsPage(IWebDriver driver)
+            : base(driver) { }
 
         public override string PageUrl => "http://localhost:8080/students";
 

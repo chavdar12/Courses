@@ -15,9 +15,7 @@ public static class AppiumServer
                 return;
             }
         }
-        catch (AggregateException)
-        {
-        }
+        catch (AggregateException) { }
 
         Assert.Ignore($"No Appium server listening on {Url}.");
     }

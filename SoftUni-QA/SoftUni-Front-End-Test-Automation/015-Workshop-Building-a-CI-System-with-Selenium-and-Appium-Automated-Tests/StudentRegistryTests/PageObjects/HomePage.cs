@@ -4,15 +4,12 @@ namespace Students_Registry_Automated_Tests.PageObjects
 {
     public class HomePage : BasePage
     {
-        public HomePage(IWebDriver driver) : base(driver)
-        {
-        }
+        public HomePage(IWebDriver driver)
+            : base(driver) { }
 
-        public override string PageUrl => 
-            "http://localhost:8080/";
+        public override string PageUrl => "http://localhost:8080/";
 
-        public IWebElement ElementStudentsCount =>
-            driver.FindElement(By.CssSelector("body > p > b"));
+        public IWebElement ElementStudentsCount => driver.FindElement(By.CssSelector("body > p > b"));
 
         public int GetStudentsCount()
         {

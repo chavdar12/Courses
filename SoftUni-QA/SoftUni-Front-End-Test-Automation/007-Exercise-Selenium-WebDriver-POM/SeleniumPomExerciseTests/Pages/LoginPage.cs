@@ -2,9 +2,8 @@ namespace SeleniumWebDriverPOMExercise.Pages
 {
     public class LoginPage : BasePage
     {
-        public LoginPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public LoginPage(IWebDriver driver)
+            : base(driver) { }
 
         protected readonly By usernameField = By.XPath("//input[@data-test='username']");
 
