@@ -23,13 +23,17 @@ class TestHero(unittest.TestCase):
         enemy = Hero("Jenata Myj", 4, 44, 12)
         with self.assertRaises(Exception) as context:
             bay_huy.battle(enemy)
-        self.assertEqual("Your health is lower than or equal to 0. You need to rest", str(context.exception))
+        self.assertEqual(
+            "Your health is lower than or equal to 0. You need to rest", str(context.exception)
+        )
 
         bay_huy = Hero("Bay Huy", 8, -31, 2.6)
         enemy = Hero("Jenata Myj", 4, 44, 12)
         with self.assertRaises(Exception) as context:
             bay_huy.battle(enemy)
-        self.assertEqual("Your health is lower than or equal to 0. You need to rest", str(context.exception))
+        self.assertEqual(
+            "Your health is lower than or equal to 0. You need to rest", str(context.exception)
+        )
 
     def test_fight_meth__if_enemy_health_is_zero_or_below__expect_exception(self):
         bay_huy = Hero("Bay Huy", 8, 99.99, 2.6)
@@ -54,7 +58,9 @@ class TestHero(unittest.TestCase):
         self.assertEqual(expected_health_bh, actual_health_bh)
         self.assertEqual(expected_health_enemy, actual_health_enemy)
 
-    def test_fight_meth__if_both_can_fight_end_with_negative_health__expect_negative_health_and_draw(self):
+    def test_fight_meth__if_both_can_fight_end_with_negative_health__expect_negative_health_and_draw(
+        self,
+    ):
         bay_huy = Hero("Bay Huy", 2, 11, 8)
         enemy = Hero("Jenata Myj", 2, 8, 11)
         func_result = bay_huy.battle(enemy)
@@ -91,9 +97,7 @@ class TestHero(unittest.TestCase):
     def test_str_method(self):
         bay_huy = Hero("Bay Huy", 2, 10, 5)
         enemy = Hero("Jenata Myj", 20, 100, 50)
-        expected = f"Hero Bay Huy: 2 lvl\n" \
-                   f"Health: 10\n" \
-                   f"Damage: 5\n"
+        expected = f"Hero Bay Huy: 2 lvl\nHealth: 10\nDamage: 5\n"
         actual = str(bay_huy)
         self.assertEqual(expected, actual)
 

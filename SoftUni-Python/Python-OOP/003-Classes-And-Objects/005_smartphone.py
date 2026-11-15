@@ -1,5 +1,4 @@
 class Smartphone:
-
     def __init__(self, memory: int):
         self.memory = memory
         self.apps = []

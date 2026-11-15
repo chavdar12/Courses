@@ -17,6 +17,6 @@ class vowels:
         raise StopIteration
 
 
-my_string = vowels('Abcedifuty0o')
+my_string = vowels("Abcedifuty0o")
 for char in my_string:
     print(char)

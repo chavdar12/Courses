@@ -10,18 +10,18 @@ class Animal:
 
 
 class Cat(Animal):
-    _sound = 'meow'
-    _species = 'cat'
+    _sound = "meow"
+    _species = "cat"
 
 
 class Dog(Animal):
-    _sound = 'woof-woof'
-    _species = 'dog'
+    _sound = "woof-woof"
+    _species = "dog"
 
 
 class Chicken(Animal):
-    _sound = 'chik-chirik'
-    _species = 'chicken'
+    _sound = "chik-chirik"
+    _species = "chicken"
 
 
 def animal_sound(animals: list):

@@ -13,8 +13,16 @@ from project.wizard import Wizard
 
 class TestHeroes(unittest.TestCase):
     def test_parents(self):
-        expected = {Elf: Hero, MuseElf: Elf, Wizard: Hero, DarkWizard: Wizard, SoulMaster: DarkWizard,
-                    Knight: Hero, DarkKnight: Knight, BladeKnight: DarkKnight}
+        expected = {
+            Elf: Hero,
+            MuseElf: Elf,
+            Wizard: Hero,
+            DarkWizard: Wizard,
+            SoulMaster: DarkWizard,
+            Knight: Hero,
+            DarkKnight: Knight,
+            BladeKnight: DarkKnight,
+        }
         for cls, parent in expected.items():
             with self.subTest(cls=cls.__name__):
                 self.assertIs(cls.__bases__[0], parent)

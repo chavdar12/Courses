@@ -88,5 +88,5 @@ class Tests(unittest.TestCase):
         self.assertEqual(p.calculate_total_weight(), 60)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

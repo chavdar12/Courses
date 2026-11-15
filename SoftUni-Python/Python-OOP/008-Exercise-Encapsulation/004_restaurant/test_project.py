@@ -17,9 +17,20 @@ from project.product import Product
 
 class TestRestaurant(unittest.TestCase):
     def test_hierarchy(self):
-        expected = {Beverage: Product, HotBeverage: Beverage, ColdBeverage: Beverage, Coffee: HotBeverage,
-                    Tea: HotBeverage, Food: Product, Starter: Food, Soup: Starter, MainDish: Food,
-                    Salmon: MainDish, Dessert: Food, Cake: Dessert}
+        expected = {
+            Beverage: Product,
+            HotBeverage: Beverage,
+            ColdBeverage: Beverage,
+            Coffee: HotBeverage,
+            Tea: HotBeverage,
+            Food: Product,
+            Starter: Food,
+            Soup: Starter,
+            MainDish: Food,
+            Salmon: MainDish,
+            Dessert: Food,
+            Cake: Dessert,
+        }
         for cls, parent in expected.items():
             with self.subTest(cls=cls.__name__):
                 self.assertIs(cls.__bases__[0], parent)

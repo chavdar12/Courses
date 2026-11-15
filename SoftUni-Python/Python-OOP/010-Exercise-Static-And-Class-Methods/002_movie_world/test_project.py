@@ -8,11 +8,16 @@ from project.movie_world import MovieWorld
 class TestDVD(unittest.TestCase):
     def test_from_date(self):
         dvd = DVD.from_date(2, "The Croods 2", "23.12.2020", 3)
-        self.assertEqual((dvd.id, dvd.name, dvd.creation_year, dvd.creation_month), (2, "The Croods 2", 2020, "December"))
+        self.assertEqual(
+            (dvd.id, dvd.name, dvd.creation_year, dvd.creation_month),
+            (2, "The Croods 2", 2020, "December"),
+        )
 
     def test_repr(self):
-        self.assertEqual(repr(DVD("Black Widow", 1, 2020, "April", 18)),
-                         "1: Black Widow (April 2020) has age restriction 18. Status: not rented")
+        self.assertEqual(
+            repr(DVD("Black Widow", 1, 2020, "April", 18)),
+            "1: Black Widow (April 2020) has age restriction 18. Status: not rented",
+        )
 
 
 class TestMovieWorld(unittest.TestCase):
@@ -48,7 +53,9 @@ class TestMovieWorld(unittest.TestCase):
 
     def test_repr(self):
         self.world.rent_dvd(1, 2)
-        self.assertEqual(repr(self.world).splitlines()[0], "1: John of age 16 has 1 rented DVD's (Croods)")
+        self.assertEqual(
+            repr(self.world).splitlines()[0], "1: John of age 16 has 1 rented DVD's (Croods)"
+        )
 
 
 if __name__ == "__main__":

@@ -32,15 +32,15 @@ class Group:
         return f"Person {index}: {str(self.people[index])}"
 
 
-p0 = Person('Aliko', 'Dangote')
-p1 = Person('Bill', 'Gates')
-p2 = Person('Warren', 'Buffet')
-p3 = Person('Elon', 'Musk')
+p0 = Person("Aliko", "Dangote")
+p1 = Person("Bill", "Gates")
+p2 = Person("Warren", "Buffet")
+p3 = Person("Elon", "Musk")
 p4 = p2 + p3
 # print(p4)
 
-first_group = Group('__VIP__', [p0, p1, p2])
-second_group = Group('Special', [p3, p4])
+first_group = Group("__VIP__", [p0, p1, p2])
+second_group = Group("Special", [p3, p4])
 third_group = first_group + second_group
 
 print(len(first_group))

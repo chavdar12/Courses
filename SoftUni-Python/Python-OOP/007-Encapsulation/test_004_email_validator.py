@@ -2,7 +2,9 @@ import runpy
 import unittest
 from pathlib import Path
 
-EmailValidator = runpy.run_path(str(Path(__file__).with_name("004_email_validator.py")))["EmailValidator"]
+EmailValidator = runpy.run_path(str(Path(__file__).with_name("004_email_validator.py")))[
+    "EmailValidator"
+]
 
 
 class TestEmailValidator(unittest.TestCase):

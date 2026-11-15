@@ -20,7 +20,9 @@ class TestManager(unittest.TestCase):
     def test_manages_every_worker_type(self):
         self.assertEqual(self.manage(ns["Worker"]()), "I'm working!!\n")
         self.assertEqual(self.manage(ns["SuperWorker"]()), "I work very hard!!!\n")
-        self.assertEqual(self.manage(ns["LazyWorker"]()), "Working is not something I love doing...\n")
+        self.assertEqual(
+            self.manage(ns["LazyWorker"]()), "Working is not something I love doing...\n"
+        )
 
     def test_rejects_non_worker(self):
         with self.assertRaises(AssertionError):

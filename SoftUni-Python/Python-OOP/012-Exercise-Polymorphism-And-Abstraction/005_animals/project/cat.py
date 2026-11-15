@@ -10,6 +10,7 @@ class Cat(Animal, ABC):
     def make_sound(self):
         return "Meow meow!"
 
+
 # cat = Cat("Johnny", 7, "Male")
 # print(cat.make_sound())
 # print(cat)

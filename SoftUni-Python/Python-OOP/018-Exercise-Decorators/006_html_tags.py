@@ -9,7 +9,7 @@ def tags(tag):
     return decorator
 
 
-@tags('p')
+@tags("p")
 def join_strings(*args):
     return "".join(args)
 
@@ -17,9 +17,9 @@ def join_strings(*args):
 print(join_strings("Hello", " you!"))
 
 
-@tags('h1')
+@tags("h1")
 def to_upper(text):
     return text.upper()
 
 
-print(to_upper('hello'))
+print(to_upper("hello"))

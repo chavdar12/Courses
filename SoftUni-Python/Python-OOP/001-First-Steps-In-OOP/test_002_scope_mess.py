@@ -10,8 +10,10 @@ class TestScope(unittest.TestCase):
         out = io.StringIO()
         with contextlib.redirect_stdout(out):
             runpy.run_path(str(Path(__file__).with_name("002_scope_mess.py")))
-        self.assertEqual(out.getvalue().splitlines(),
-                         ["global", "outer: local", "inner: nonlocal", "outer: nonlocal", "global: changed!"])
+        self.assertEqual(
+            out.getvalue().splitlines(),
+            ["global", "outer: local", "inner: nonlocal", "outer: nonlocal", "global: changed!"],
+        )
 
 
 if __name__ == "__main__":

@@ -6,8 +6,10 @@ from project.team import Team
 
 class TestPlayer(unittest.TestCase):
     def test_str(self):
-        self.assertEqual(str(Player("Pall", 1, 3, 5, 7)),
-                         "Player: Pall\nSprint: 1\nDribble: 3\nPassing: 5\nShooting: 7")
+        self.assertEqual(
+            str(Player("Pall", 1, 3, 5, 7)),
+            "Player: Pall\nSprint: 1\nDribble: 3\nPassing: 5\nShooting: 7",
+        )
 
 
 class TestTeam(unittest.TestCase):

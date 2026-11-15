@@ -14,7 +14,9 @@ class TestPizzaValidation(unittest.TestCase):
         for capacity in [0, -1]:
             with self.subTest(capacity=capacity), self.assertRaises(ValueError) as ctx:
                 Pizza("Margherita", self.dough, capacity)
-            self.assertEqual(str(ctx.exception), "The topping's capacity cannot be less or equal to zero")
+            self.assertEqual(
+                str(ctx.exception), "The topping's capacity cannot be less or equal to zero"
+            )
 
     def test_missing_dough_rejected(self):
         with self.assertRaises(ValueError) as ctx:

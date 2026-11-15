@@ -26,10 +26,12 @@ class TestStoreResults(unittest.TestCase):
             return a - b
 
         sub(5, 3)
-        self.assertEqual(Path("09X_08_stored_results.txt").read_text(),
-                         "Function 'add' was called. Result: 4\n"
-                         "Function 'mult' was called. Result: 24\n"
-                         "Function 'sub' was called. Result: 2\n")
+        self.assertEqual(
+            Path("09X_08_stored_results.txt").read_text(),
+            "Function 'add' was called. Result: 4\n"
+            "Function 'mult' was called. Result: 24\n"
+            "Function 'sub' was called. Result: 2\n",
+        )
 
 
 if __name__ == "__main__":

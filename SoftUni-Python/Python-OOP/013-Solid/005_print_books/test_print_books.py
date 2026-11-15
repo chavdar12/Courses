@@ -11,8 +11,12 @@ with contextlib.redirect_stdout(io.StringIO()):
 class TestPrinter(unittest.TestCase):
     def test_formatters(self):
         book = ns["Book"]("Lorem Ipsum")
-        expected = {"RegularFormatter": "Lorem Ipsum", "UpperCaseFormatter": "LOREM IPSUM",
-                    "LowerCaseFormatter": "lorem ipsum", "ReversingFormatter": "muspI meroL"}
+        expected = {
+            "RegularFormatter": "Lorem Ipsum",
+            "UpperCaseFormatter": "LOREM IPSUM",
+            "LowerCaseFormatter": "lorem ipsum",
+            "ReversingFormatter": "muspI meroL",
+        }
         for formatter, text in expected.items():
             with self.subTest(formatter=formatter):
                 self.assertEqual(ns["Printer"](ns[formatter]()).get_book(book), text)

@@ -40,7 +40,7 @@ class CatTest(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             gosho.eat()
         # assert
-        self.assertEqual('Already fed.', str(context.exception))
+        self.assertEqual("Already fed.", str(context.exception))
 
     def test_cannot_sleep__when_hungry__raises_exception(self):
         # arrange
@@ -50,7 +50,7 @@ class CatTest(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             gosho.sleep()
         # assert
-        self.assertEqual('Cannot sleep while hungry', str(context.exception))
+        self.assertEqual("Cannot sleep while hungry", str(context.exception))
 
     def test_not_sleepy__after_sleep__expect_sleepy_false(self):
         # arrange

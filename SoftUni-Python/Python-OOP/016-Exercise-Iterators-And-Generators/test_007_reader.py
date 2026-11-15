@@ -10,7 +10,9 @@ with contextlib.redirect_stdout(io.StringIO()):
 
 class TestReadNext(unittest.TestCase):
     def test_reads_all_iterables(self):
-        self.assertEqual("".join(map(str, read_next("string", (2,), {"d": 1, "I": 2}))), "string2dI")
+        self.assertEqual(
+            "".join(map(str, read_next("string", (2,), {"d": 1, "I": 2}))), "string2dI"
+        )
         self.assertEqual(list(read_next("Ne", ["words"])), ["N", "e", "words"])
 
 

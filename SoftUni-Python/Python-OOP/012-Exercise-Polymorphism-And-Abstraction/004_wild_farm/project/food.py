@@ -26,6 +26,7 @@ class Seed(Food):
     def __init__(self, quantity):
         super().__init__(quantity)
 
+
 # manja = Seed(8)
 # print(manja.__class__.__name__)
 # manj2 = Food(7)

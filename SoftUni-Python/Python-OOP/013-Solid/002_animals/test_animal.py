@@ -10,8 +10,11 @@ with contextlib.redirect_stdout(io.StringIO()):
 
 class TestAnimals(unittest.TestCase):
     def test_sound_and_species(self):
-        for cls, sound, species in [("Cat", "meow", "cat"), ("Dog", "woof-woof", "dog"),
-                                    ("Chicken", "chik-chirik", "chicken")]:
+        for cls, sound, species in [
+            ("Cat", "meow", "cat"),
+            ("Dog", "woof-woof", "dog"),
+            ("Chicken", "chik-chirik", "chicken"),
+        ]:
             with self.subTest(cls=cls):
                 self.assertEqual((ns[cls]().get_sound(), ns[cls]().get_species()), (sound, species))
 

@@ -92,7 +92,9 @@ class Zoo:
         for key, value in dict_workers.items():
             workers_result += f"----- {len(value)} {key}s:\n"
             for this_guy in value:
-                workers_result += f"Name: {this_guy.name}, Age: {this_guy.age}, Salary: {this_guy.salary}\n"
+                workers_result += (
+                    f"Name: {this_guy.name}, Age: {this_guy.age}, Salary: {this_guy.salary}\n"
+                )
 
         return workers_result.strip()
         # return dict_animals

@@ -27,8 +27,10 @@ class TestTrainer(unittest.TestCase):
     def test_trainer_data(self):
         self.trainer.add_pokemon(self.pikachu)
         self.trainer.add_pokemon(Pokemon("Charizard", 110))
-        self.assertEqual(self.trainer.trainer_data(),
-                         "Pokemon Trainer Ash\nPokemon count 2\n- Pikachu with health 90\n- Charizard with health 110")
+        self.assertEqual(
+            self.trainer.trainer_data(),
+            "Pokemon Trainer Ash\nPokemon count 2\n- Pikachu with health 90\n- Charizard with health 110",
+        )
 
 
 if __name__ == "__main__":

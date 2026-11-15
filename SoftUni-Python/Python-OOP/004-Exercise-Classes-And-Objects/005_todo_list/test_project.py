@@ -32,16 +32,22 @@ class TestSection(unittest.TestCase):
         self.task = Task("Make bed", "27/05/2020")
 
     def test_add_task(self):
-        self.assertEqual(self.section.add_task(self.task),
-                         "Task Name: Make bed - Due Date: 27/05/2020 is added to the section")
-        self.assertEqual(self.section.add_task(Task("Make bed", "01/01/2021")),
-                         "Task is already in the section Daily tasks")
+        self.assertEqual(
+            self.section.add_task(self.task),
+            "Task Name: Make bed - Due Date: 27/05/2020 is added to the section",
+        )
+        self.assertEqual(
+            self.section.add_task(Task("Make bed", "01/01/2021")),
+            "Task is already in the section Daily tasks",
+        )
 
     def test_complete_task(self):
         self.section.add_task(self.task)
         self.assertEqual(self.section.complete_task("Make bed"), "Completed task Make bed")
         self.assertTrue(self.task.completed)
-        self.assertEqual(self.section.complete_task("Nope"), "Could not find task with the name Nope")
+        self.assertEqual(
+            self.section.complete_task("Nope"), "Could not find task with the name Nope"
+        )
 
     def test_clean_section_removes_consecutive_completed(self):
         for name in ["a", "b", "c"]:
@@ -53,7 +59,10 @@ class TestSection(unittest.TestCase):
 
     def test_view_section(self):
         self.section.add_task(self.task)
-        self.assertEqual(self.section.view_section(), "Section Daily tasks:\nName: Make bed - Due Date: 27/05/2020")
+        self.assertEqual(
+            self.section.view_section(),
+            "Section Daily tasks:\nName: Make bed - Due Date: 27/05/2020",
+        )
 
 
 if __name__ == "__main__":

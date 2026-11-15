@@ -41,6 +41,8 @@ class Hero:
         return "You lose"
 
     def __str__(self):
-        return f"Hero {self.username}: {self.level} lvl\n" \
-               f"Health: {self.health}\n" \
-               f"Damage: {self.damage}\n"
+        return (
+            f"Hero {self.username}: {self.level} lvl\n"
+            f"Health: {self.health}\n"
+            f"Damage: {self.damage}\n"
+        )

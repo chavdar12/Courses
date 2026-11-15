@@ -5,7 +5,9 @@ import unittest
 from pathlib import Path
 
 with contextlib.redirect_stdout(io.StringIO()):
-    fibonacci = runpy.run_path(str(Path(__file__).with_name("006_fibonacci_generator.py")))["fibonacci"]
+    fibonacci = runpy.run_path(str(Path(__file__).with_name("006_fibonacci_generator.py")))[
+        "fibonacci"
+    ]
 
 
 class TestFibonacci(unittest.TestCase):

@@ -5,7 +5,9 @@ import unittest
 from pathlib import Path
 
 with contextlib.redirect_stdout(io.StringIO()):
-    sequence_repeat = runpy.run_path(str(Path(__file__).with_name("004_sequence_repeat.py")))["sequence_repeat"]
+    sequence_repeat = runpy.run_path(str(Path(__file__).with_name("004_sequence_repeat.py")))[
+        "sequence_repeat"
+    ]
 
 
 class TestSequenceRepeat(unittest.TestCase):

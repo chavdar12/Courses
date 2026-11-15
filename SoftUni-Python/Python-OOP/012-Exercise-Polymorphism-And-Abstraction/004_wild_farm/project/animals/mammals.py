@@ -10,11 +10,10 @@ class Mouse(Mammal):
         return "Squeak"
 
     def feed(self, food: Food):
-        if food.__class__.__name__ != "Vegetable" and \
-                food.__class__.__name__ != "Fruit":
+        if food.__class__.__name__ != "Vegetable" and food.__class__.__name__ != "Fruit":
             return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
         else:
-            self.weight += .10 * food.quantity
+            self.weight += 0.10 * food.quantity
             self.food_eaten += food.quantity
 
 
@@ -29,7 +28,7 @@ class Dog(Mammal):
         if food.__class__.__name__ != "Meat":
             return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
         else:
-            self.weight += .40 * food.quantity
+            self.weight += 0.40 * food.quantity
             self.food_eaten += food.quantity
 
 
@@ -41,11 +40,10 @@ class Cat(Mammal):
         return "Meow"
 
     def feed(self, food: Food):
-        if food.__class__.__name__ != "Meat" and \
-                food.__class__.__name__ != "Vegetable":
+        if food.__class__.__name__ != "Meat" and food.__class__.__name__ != "Vegetable":
             return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
         else:
-            self.weight += .3 * food.quantity
+            self.weight += 0.3 * food.quantity
             self.food_eaten += food.quantity
 
 
@@ -62,6 +60,7 @@ class Tiger(Mammal):
         else:
             self.weight += 1 * food.quantity
             self.food_eaten += food.quantity
+
 
 # ivan = Dog("Ivan", 11, "Gabrovo")
 # print(ivan)

@@ -11,8 +11,15 @@ from project.vehicle import Vehicle
 
 class TestVehicles(unittest.TestCase):
     def test_fuel_consumption(self):
-        expected = {Vehicle: 1.25, Motorcycle: 1.25, CrossMotorcycle: 1.25, RaceMotorcycle: 8,
-                    Car: 3, FamilyCar: 3, SportCar: 10}
+        expected = {
+            Vehicle: 1.25,
+            Motorcycle: 1.25,
+            CrossMotorcycle: 1.25,
+            RaceMotorcycle: 8,
+            Car: 3,
+            FamilyCar: 3,
+            SportCar: 10,
+        }
         for cls, consumption in expected.items():
             with self.subTest(cls=cls.__name__):
                 self.assertEqual(cls(50, 150).fuel_consumption, consumption)

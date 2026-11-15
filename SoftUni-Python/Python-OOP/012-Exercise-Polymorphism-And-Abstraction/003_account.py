@@ -54,13 +54,13 @@ class Account:
 
     def __add__(self, other):
         created_account = Account(self.owner + "&" + other.owner, self.amount + other.amount)
-        for transaction in (self._transactions + other._transactions):  # combined list
+        for transaction in self._transactions + other._transactions:  # combined list
             created_account.add_transaction(transaction)
         return created_account
 
 
-acc = Account('bob', 10)
-acc2 = Account('john')
+acc = Account("bob", 10)
+acc2 = Account("john")
 print(acc)
 print(repr(acc))
 acc.add_transaction(20)

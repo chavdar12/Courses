@@ -56,7 +56,7 @@ class TestDocumentManagement(unittest.TestCase):
 
     def test_document_repr(self):
         self.d.add_tag("tag")
-        self.assertEqual(str(self.d), 'Document 1: D; category 1, topic 1, tags: tag')
+        self.assertEqual(str(self.d), "Document 1: D; category 1, topic 1, tags: tag")
 
     def test_topic_init(self):
         self.assertEqual(self.t.id, 1)
@@ -126,7 +126,7 @@ class TestDocumentManagement(unittest.TestCase):
         self.s.add_category(self.c)
         self.s.add_topic(self.t)
         self.s.add_document(self.d)
-        expected = str(self.s).strip('\n')
+        expected = str(self.s).strip("\n")
         self.assertEqual(expected, "Document 1: D; category 1, topic 1, tags: ")
 
 

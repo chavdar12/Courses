@@ -2,14 +2,14 @@ import unittest
 
 from worker import Worker
 
-'''
+"""
     • Test if the worker is initialized with the correct name, salary, and energy
     • Test if the worker's energy is incremented after the rest method is called
     • Test if an error is raised if the worker tries to work with negative energy or equal to 0
     • Test if the worker's money is increased by his salary correctly after the work method is called
     • Test if the worker's energy is decreased after the work method is called	
     • Test if the get_info method returns the proper string with correct values
-'''
+"""
 
 
 class WorkerTests(unittest.TestCase):
@@ -45,7 +45,7 @@ class WorkerTests(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             worker.work()
         # assert
-        self.assertEqual('Not enough energy.', str(context.exception))
+        self.assertEqual("Not enough energy.", str(context.exception))
 
     def test_work__when_energy_negative__expect_exception(self):
         # arrange
@@ -54,7 +54,7 @@ class WorkerTests(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             worker.work()
         # assert
-        self.assertEqual('Not enough energy.', str(context.exception))
+        self.assertEqual("Not enough energy.", str(context.exception))
 
     def test_raise_money_by_salary__when_work_method_called__expect_money_plus_salary(self):
         worker = Worker(self.name, self.salary, self.energy)
@@ -79,7 +79,7 @@ class WorkerTests(unittest.TestCase):
         # worker.get_info()
         # expected = f'Ivan has saved 0 money.'
         # actual = f'{worker.name} has saved {worker.money} money.'
-        expected = f'Ivan has saved 0 money.'
+        expected = f"Ivan has saved 0 money."
         actual = worker.get_info()
 
         self.assertEqual(expected, actual)
@@ -89,7 +89,7 @@ class WorkerTests(unittest.TestCase):
         worker.work()
         worker.work()
         worker.get_info()
-        expected = f'Ivan has saved {4 * 350} money.'
+        expected = f"Ivan has saved {4 * 350} money."
         actual = worker.get_info()
         self.assertEqual(expected, actual)
 

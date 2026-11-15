@@ -36,7 +36,9 @@ class Printer:
         return formatted_book
 
 
-new_book = Book("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...")
+new_book = Book(
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..."
+)
 
 upperc_f = UpperCaseFormatter()
 lowerc_f = LowerCaseFormatter()

@@ -65,6 +65,7 @@ class Gym:
 
         return str_to_display + to_add_plan_str_at_the_end
 
+
 # ivan = Customer("ivan", "hg", "kjkjk@kur.com")
 # my_gym = Gym()
 # ivan = my_gym.add_customer(ivan)

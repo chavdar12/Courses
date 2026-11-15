@@ -26,7 +26,9 @@ class TestStudent(TestCase):
         actual_list_values = student.courses["Bio"]
         self.assertEqual(expected_list_values, actual_list_values)
 
-    def test_enrol__if_new_course_and_add_notes_blank__expect_new_kvpair_in_course_dict_and_output(self):
+    def test_enrol__if_new_course_and_add_notes_blank__expect_new_kvpair_in_course_dict_and_output(
+        self,
+    ):
         student = Student("Ivanushka", {"Bio": [1, 2, 3]})
         expected_output = "Course and course notes have been added."
         actual_output = student.enroll("Sport", [44, 66, 88])
@@ -36,7 +38,9 @@ class TestStudent(TestCase):
         actual_student_courses = student.courses
         self.assertEqual(expected_student_courses, actual_student_courses)
 
-    def test_enrol__if_new_course_and_add_notes_Y__expect_new_kvpair_in_course_dict_and_output(self):
+    def test_enrol__if_new_course_and_add_notes_Y__expect_new_kvpair_in_course_dict_and_output(
+        self,
+    ):
         student = Student("Ivanushka", {"Bio": [1, 2, 3]})
         expected_output = "Course and course notes have been added."
         actual_output = student.enroll("Sport", [44, 66, 88], "Y")

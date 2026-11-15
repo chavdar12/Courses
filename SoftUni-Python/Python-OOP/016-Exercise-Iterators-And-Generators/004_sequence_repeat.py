@@ -22,9 +22,9 @@ class sequence_repeat:
         return self.sequence[self.idx]
 
 
-result = sequence_repeat('abc', 5)
+result = sequence_repeat("abc", 5)
 for item in result:
-    print(item, end='')
-result = sequence_repeat('I Love Python', 3)
+    print(item, end="")
+result = sequence_repeat("I Love Python", 3)
 for item in result:
-    print(item, end='')
+    print(item, end="")

@@ -1,6 +1,6 @@
-'''
+"""
 I could be wrong but I didn't see much point of this exercise and have created some really basic functionality instead
-'''
+"""
 
 
 class Book:

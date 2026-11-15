@@ -16,8 +16,13 @@ class TestGym(unittest.TestCase):
             cls.id = 1  # ids are class-level counters
 
     def test_ids_auto_increment(self):
-        for cls, args in [(Customer, ("a", "b", "c")), (Equipment, ("e",)), (Trainer, ("t",)),
-                          (Subscription, ("d", 1, 1, 1)), (ExercisePlan, (1, 1, 20))]:
+        for cls, args in [
+            (Customer, ("a", "b", "c")),
+            (Equipment, ("e",)),
+            (Trainer, ("t",)),
+            (Subscription, ("d", 1, 1, 1)),
+            (ExercisePlan, (1, 1, 20)),
+        ]:
             with self.subTest(cls=cls.__name__):
                 self.assertEqual([cls(*args).id, cls(*args).id], [1, 2])
                 self.assertEqual(cls.get_next_id(), 3)
@@ -41,12 +46,14 @@ class TestGym(unittest.TestCase):
         gym.add_plan(ExercisePlan(1, 1, 20))
         gym.add_plan(ExercisePlan(1, 2, 45))
         gym.add_subscription(Subscription("14.05.2020", 1, 1, 2))
-        self.assertEqual(gym.subscription_info(1),
-                         "Subscription <1> on 14.05.2020\n"
-                         "Customer <1> John; Address: Maple Street; Email: john.smith@gmail.com\n"
-                         "Trainer <1> Peter\n"
-                         "Equipment <2> Bike\n"
-                         "Plan <2> with duration 45 minutes")
+        self.assertEqual(
+            gym.subscription_info(1),
+            "Subscription <1> on 14.05.2020\n"
+            "Customer <1> John; Address: Maple Street; Email: john.smith@gmail.com\n"
+            "Trainer <1> Peter\n"
+            "Equipment <2> Bike\n"
+            "Plan <2> with duration 45 minutes",
+        )
 
 
 if __name__ == "__main__":

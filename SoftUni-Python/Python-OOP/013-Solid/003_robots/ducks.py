@@ -32,11 +32,11 @@ class RobotDuck(Duck):
 
     @staticmethod
     def quack():
-        return 'Robotic quacking'
+        return "Robotic quacking"
 
     @staticmethod
     def walk():
-        return 'Robotic walking'
+        return "Robotic walking"
 
     def fly(self):
         """can only fly to specific height but

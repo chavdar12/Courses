@@ -21,7 +21,9 @@ class TestPersonAndGroup(unittest.TestCase):
         second = Group("Special", [self.p3])
         merged = first + second
         self.assertEqual(len(merged), 2)
-        self.assertEqual(repr(merged), "Group __VIP__ Special with members Warren Buffet, Elon Musk")
+        self.assertEqual(
+            repr(merged), "Group __VIP__ Special with members Warren Buffet, Elon Musk"
+        )
         self.assertEqual(merged[1], "Person 1: Elon Musk")
         self.assertEqual(list(merged), ["Person 0: Warren Buffet", "Person 1: Elon Musk"])
 

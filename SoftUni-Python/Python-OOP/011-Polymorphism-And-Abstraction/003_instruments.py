@@ -1,5 +1,4 @@
 class Guitar:
-
     def play(self):
         return "Playing the guitar"
 

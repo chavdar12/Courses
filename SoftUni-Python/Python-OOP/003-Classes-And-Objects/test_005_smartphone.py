@@ -13,7 +13,9 @@ class TestSmartphone(unittest.TestCase):
         self.phone = Smartphone(100)
 
     def test_install_when_off(self):
-        self.assertEqual(self.phone.install("Facebook", 60), "Turn on your phone to install Facebook")
+        self.assertEqual(
+            self.phone.install("Facebook", 60), "Turn on your phone to install Facebook"
+        )
 
     def test_power_toggles(self):
         self.phone.power()
@@ -24,7 +26,9 @@ class TestSmartphone(unittest.TestCase):
     def test_install(self):
         self.phone.power()
         self.assertEqual(self.phone.install("Facebook", 60), "Installing Facebook")
-        self.assertEqual(self.phone.install("Instagram", 60), "Not enough memory to install Instagram")
+        self.assertEqual(
+            self.phone.install("Instagram", 60), "Not enough memory to install Instagram"
+        )
         self.assertEqual(self.phone.status(), "Total apps: 1. Memory left: 40")
 
 

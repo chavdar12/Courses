@@ -10,7 +10,9 @@ with contextlib.redirect_stdout(io.StringIO()):
 
 class TestCar(unittest.TestCase):
     def test_get_info(self):
-        self.assertEqual(Car("Kia", "Rio", "1.3L B3 I4").get_info(), "This is Kia Rio with engine 1.3L B3 I4")
+        self.assertEqual(
+            Car("Kia", "Rio", "1.3L B3 I4").get_info(), "This is Kia Rio with engine 1.3L B3 I4"
+        )
 
 
 if __name__ == "__main__":

@@ -5,7 +5,9 @@ import unittest
 from pathlib import Path
 
 with contextlib.redirect_stdout(io.StringIO()):
-    custom_range = runpy.run_path(str(Path(__file__).with_name("001_custom_range.py")))["custom_range"]
+    custom_range = runpy.run_path(str(Path(__file__).with_name("001_custom_range.py")))[
+        "custom_range"
+    ]
 
 
 class TestCustomRange(unittest.TestCase):

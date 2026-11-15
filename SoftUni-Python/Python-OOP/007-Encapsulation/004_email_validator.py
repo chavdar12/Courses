@@ -17,6 +17,10 @@ class EmailValidator:
         name, remainder = entry.split("@")
         mail, _, domain = remainder.partition(".")
 
-        if self.__is_name_valid(name) and self.__is_mail_valid(mail) and self.__is_domain_valid(domain):
+        if (
+            self.__is_name_valid(name)
+            and self.__is_mail_valid(mail)
+            and self.__is_domain_valid(domain)
+        ):
             return True
         return False

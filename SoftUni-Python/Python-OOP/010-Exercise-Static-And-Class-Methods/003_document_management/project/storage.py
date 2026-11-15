@@ -24,17 +24,23 @@ class Storage:
             return
         self.documents.append(document)
 
-    def edit_category(self, category_id: int, new_name: str):  # – edit the name of the category with the provided id
+    def edit_category(
+        self, category_id: int, new_name: str
+    ):  # – edit the name of the category with the provided id
         for this_cat in self.categories:
             if this_cat.id == category_id:
                 this_cat.edit(new_name)
 
-    def edit_topic(self, topic_id: int, new_topic: str, new_storage_folder: str):  # – edit the topic with the given id
+    def edit_topic(
+        self, topic_id: int, new_topic: str, new_storage_folder: str
+    ):  # – edit the topic with the given id
         for this_topic in self.topics:
             if this_topic.id == topic_id:
                 this_topic.edit(new_topic, new_storage_folder)
 
-    def edit_document(self, document_id: int, new_file_name: str):  # – edit the document with the given id
+    def edit_document(
+        self, document_id: int, new_file_name: str
+    ):  # – edit the document with the given id
         for this_doc in self.documents:
             if this_doc.id == document_id:
                 this_doc.edit(new_file_name)

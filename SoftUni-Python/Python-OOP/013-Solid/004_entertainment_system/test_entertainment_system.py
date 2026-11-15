@@ -14,11 +14,20 @@ class TestEntertainmentSystem(unittest.TestCase):
         self.console, self.router = ns["GameConsole"](), ns["Router"]()
 
     def test_connections(self):
-        self.assertEqual(self.tv.connect_to_dvd("dvd"), f"connected {self.tv} to dvd via RCI connection")
-        self.assertEqual(self.dvd.connect_to_tv("tv"), f"connected {self.dvd} to tv via HDMI connection")
-        self.assertEqual(self.console.connect_to_router("r"), f"connected {self.console} to r via Ethernet connection")
-        self.assertEqual(self.router.connect_to_game_console("c"),
-                         f"connected {self.router} to c via Ethernet connection")
+        self.assertEqual(
+            self.tv.connect_to_dvd("dvd"), f"connected {self.tv} to dvd via RCI connection"
+        )
+        self.assertEqual(
+            self.dvd.connect_to_tv("tv"), f"connected {self.dvd} to tv via HDMI connection"
+        )
+        self.assertEqual(
+            self.console.connect_to_router("r"),
+            f"connected {self.console} to r via Ethernet connection",
+        )
+        self.assertEqual(
+            self.router.connect_to_game_console("c"),
+            f"connected {self.router} to c via Ethernet connection",
+        )
 
     def test_only_needed_interfaces(self):
         self.assertFalse(hasattr(self.dvd, "connect_to_device_via_ethernet_cable"))

@@ -10,7 +10,9 @@ class TestSportsCar(unittest.TestCase):
         car = SportsCar()
         self.assertIsInstance(car, Car)
         self.assertIsInstance(car, Vehicle)
-        self.assertEqual((car.race(), car.drive(), car.move()), ("racing...", "driving...", "moving..."))
+        self.assertEqual(
+            (car.race(), car.drive(), car.move()), ("racing...", "driving...", "moving...")
+        )
 
 
 if __name__ == "__main__":

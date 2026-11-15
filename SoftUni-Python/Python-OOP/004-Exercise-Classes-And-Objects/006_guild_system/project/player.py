@@ -13,10 +13,7 @@ class Player:
         return f"Skill {skill_name} added to the collection of the player {self.name}"
 
     def player_info(self):
-        result = (f"Name: {self.name}\n"
-                  f"Guild: {self.guild}\n"
-                  f"HP: {self.hp}\n"
-                  f"MP: {self.mp}\n")
+        result = f"Name: {self.name}\nGuild: {self.guild}\nHP: {self.hp}\nMP: {self.mp}\n"
         skills_as_list = [f"==={key} - {value}" for key, value in self.skills.items()]
         result += "\n".join(skills_as_list)
         return result

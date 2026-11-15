@@ -11,7 +11,14 @@ from project.snake import Snake
 
 class TestZooHierarchy(unittest.TestCase):
     def test_parents(self):
-        expected = {Mammal: Animal, Reptile: Animal, Bear: Mammal, Gorilla: Mammal, Lizard: Reptile, Snake: Reptile}
+        expected = {
+            Mammal: Animal,
+            Reptile: Animal,
+            Bear: Mammal,
+            Gorilla: Mammal,
+            Lizard: Reptile,
+            Snake: Reptile,
+        }
         for cls, parent in expected.items():
             with self.subTest(cls=cls.__name__):
                 self.assertIs(cls.__bases__[0], parent)

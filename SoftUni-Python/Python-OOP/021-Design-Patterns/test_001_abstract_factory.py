@@ -7,7 +7,11 @@ ns = runpy.run_path(str(Path(__file__).with_name("001_abstract_factory.py")))
 
 class TestAbstractFactory(unittest.TestCase):
     def test_each_factory_creates_its_style(self):
-        for name, style in [("VictorianFactory", "Victorian"), ("ModernFactory", "Modern"), ("FuturisticFactory", "Futuristic")]:
+        for name, style in [
+            ("VictorianFactory", "Victorian"),
+            ("ModernFactory", "Modern"),
+            ("FuturisticFactory", "Futuristic"),
+        ]:
             factory = ns[name]()
             self.assertIsInstance(factory, ns["AbstractFactory"])
             self.assertEqual(str(factory.create_chair()), f"{style} chair")

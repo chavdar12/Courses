@@ -5,7 +5,9 @@ import unittest
 from pathlib import Path
 
 with contextlib.redirect_stdout(io.StringIO()):
-    reverse_iter = runpy.run_path(str(Path(__file__).with_name("002_reverse_iter.py")))["reverse_iter"]
+    reverse_iter = runpy.run_path(str(Path(__file__).with_name("002_reverse_iter.py")))[
+        "reverse_iter"
+    ]
 
 
 class TestReverseIter(unittest.TestCase):

@@ -24,6 +24,7 @@ class ExercisePlan:
     def __repr__(self):
         return f"Plan <{self.id}> with duration {self.duration} minutes"
 
+
 # my_plan = ExercisePlan(11, 4, 77)
 # print(my_plan)
 # print(my_plan.get_next_id())

@@ -33,7 +33,6 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
-
     def __init__(self, height, width):
         self.__height = height
         self.__width = width

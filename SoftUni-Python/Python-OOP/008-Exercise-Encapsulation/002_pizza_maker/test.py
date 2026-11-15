@@ -29,17 +29,17 @@ class Tests(unittest.TestCase):
 
     def test_dough_flour_type_error(self):
         with self.assertRaises(ValueError) as ve:
-            d = Dough("", 'ab', 20)
+            d = Dough("", "ab", 20)
         self.assertEqual("The flour type cannot be an empty string", str(ve.exception))
 
     def test_dough_baking_technique_error(self):
         with self.assertRaises(ValueError) as ve:
-            d = Dough("ab", '', 20)
+            d = Dough("ab", "", 20)
         self.assertEqual("The baking technique cannot be an empty string", str(ve.exception))
 
     def test_dough_weight_error(self):
         with self.assertRaises(ValueError) as ve:
-            t = Dough("a", 'ab', -1)
+            t = Dough("a", "ab", -1)
         self.assertEqual("The weight cannot be less or equal to zero", str(ve.exception))
 
     def test_pizza_init(self):
@@ -88,5 +88,5 @@ class Tests(unittest.TestCase):
         self.assertEqual(p.calculate_total_weight(), 60)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

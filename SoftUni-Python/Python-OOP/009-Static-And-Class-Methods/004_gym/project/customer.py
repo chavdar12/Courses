@@ -20,6 +20,7 @@ class Customer:
     def __repr__(self):
         return f"Customer <{self.id}> {self.name}; Address: {self.address}; Email: {self.email}"
 
+
 # c1 = Customer("c1", "hg", "kjkjk")
 # c2 = Customer("c2", "hg", "kjkjk")
 # c3 = Customer("c3", "hg", "kjkjk")

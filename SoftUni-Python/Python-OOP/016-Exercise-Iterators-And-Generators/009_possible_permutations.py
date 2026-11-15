@@ -9,7 +9,7 @@ def possible_permutations(iterable):
 
     for i in range(len(iterable)):
         current = iterable[i]
-        remaining_elements = iterable[:i] + iterable[i + 1:]  # list of remaining elements
+        remaining_elements = iterable[:i] + iterable[i + 1 :]  # list of remaining elements
 
         # Generating all permutations where <current> is first
         for p in possible_permutations(remaining_elements):

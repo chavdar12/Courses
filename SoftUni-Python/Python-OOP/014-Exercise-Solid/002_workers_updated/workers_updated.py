@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 
 
 class AbstractWorker(ABC):
-
     @abstractmethod
     def work(self):
         pass
@@ -14,7 +13,6 @@ class AbstractWorker(ABC):
 
 
 class Worker(AbstractWorker):
-
     def work(self):
         print("I'm normal worker. I'm working.")
 
@@ -24,7 +22,6 @@ class Worker(AbstractWorker):
 
 
 class SuperWorker(AbstractWorker):
-
     def work(self):
         print("I'm super worker. I work very hard!")
 
@@ -34,12 +31,13 @@ class SuperWorker(AbstractWorker):
 
 
 class Manager:
-
     def __init__(self):
         self.worker = None
 
     def set_worker(self, worker):
-        assert isinstance(worker, AbstractWorker), "`worker` must be of type {}".format(AbstractWorker)
+        assert isinstance(worker, AbstractWorker), "`worker` must be of type {}".format(
+            AbstractWorker
+        )
 
         self.worker = worker
 
@@ -51,7 +49,6 @@ class Manager:
 
 
 class Robot(AbstractWorker):
-
     def work(self):
         print("I'm a robot. I'm working....")
 

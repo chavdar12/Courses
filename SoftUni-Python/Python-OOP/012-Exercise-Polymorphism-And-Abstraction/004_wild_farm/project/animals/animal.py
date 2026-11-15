@@ -24,8 +24,10 @@ class Bird(Animal, ABC):
         self.wing_size = wing_size
 
     def __repr__(self):
-        return f"{self.__class__.__name__} [{self.name}, {self.wing_size}, " \
-               f"{self.weight}, {self.food_eaten}]"
+        return (
+            f"{self.__class__.__name__} [{self.name}, {self.wing_size}, "
+            f"{self.weight}, {self.food_eaten}]"
+        )
 
 
 class Mammal(Animal, ABC):
@@ -34,5 +36,7 @@ class Mammal(Animal, ABC):
         self.living_region = living_region
 
     def __repr__(self):
-        return f"{self.__class__.__name__} [{self.name}, {self.weight}, " \
-               f"{self.living_region}, {self.food_eaten}]"
+        return (
+            f"{self.__class__.__name__} [{self.name}, {self.weight}, "
+            f"{self.living_region}, {self.food_eaten}]"
+        )

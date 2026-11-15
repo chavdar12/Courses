@@ -13,7 +13,7 @@ class Owl(Bird):
         if food.__class__.__name__ != "Meat":
             return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
         else:
-            self.weight += .25 * food.quantity
+            self.weight += 0.25 * food.quantity
             self.food_eaten += food.quantity
 
 
@@ -25,8 +25,9 @@ class Hen(Bird):
         return "Cluck"
 
     def feed(self, food: Food):
-        self.weight += .35 * food.quantity
+        self.weight += 0.35 * food.quantity
         self.food_eaten += food.quantity
+
 
 # from project.animals.birds import Owl
 # from project.food import Meat, Vegetable, Fruit

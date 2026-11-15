@@ -12,7 +12,7 @@ class Profile:
         if 5 <= len(value) <= 15:
             self.__username = value
         else:
-            raise ValueError('The username must be between 5 and 15 characters.')
+            raise ValueError("The username must be between 5 and 15 characters.")
 
     @property
     def password(self):
@@ -21,11 +21,17 @@ class Profile:
     @password.setter
     def password(self, value):
         if len(value) < 8:
-            raise ValueError("The password must be 8 or more characters with at least 1 digit and 1 uppercase letter.")
+            raise ValueError(
+                "The password must be 8 or more characters with at least 1 digit and 1 uppercase letter."
+            )
         if len([x for x in list(value) if x.isupper()]) < 1:
-            raise ValueError("The password must be 8 or more characters with at least 1 digit and 1 uppercase letter.")
+            raise ValueError(
+                "The password must be 8 or more characters with at least 1 digit and 1 uppercase letter."
+            )
         if len([x for x in list(value) if x.isdigit()]) < 1:
-            raise ValueError("The password must be 8 or more characters with at least 1 digit and 1 uppercase letter.")
+            raise ValueError(
+                "The password must be 8 or more characters with at least 1 digit and 1 uppercase letter."
+            )
         self.__password = value
 
     def __str__(self):

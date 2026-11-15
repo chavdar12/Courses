@@ -10,6 +10,7 @@ class Dog(Animal, ABC):
     def make_sound(self):
         return "Woof!"
 
+
 # dog = Dog("Rocky", 3, "Male")
 # print(dog.make_sound())
 # print(dog)
