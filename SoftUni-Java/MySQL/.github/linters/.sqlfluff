@@ -1,9 +1,9 @@
 [sqlfluff]
 dialect = mysql
-max_line_length = 120
-# Formatting only: layout plus upper-case keywords. Names keep their case and no
-# "convention" rewrites (e.g. IFNULL -> COALESCE) are applied.
-exclude_rules = CP02, CP03, CP04, CP05, convention
-
-[sqlfluff:rules:capitalisation.keywords]
-capitalisation_policy = upper
+# Code-quality rules only (super-linter lints the files a push/PR changes). Not checked here:
+# - layout / capitalisation: owned by the Format workflow (pinned SQLFluff, root .sqlfluff)
+# - RF06: backtick / bracket quoting is the course style
+# - RF05, AM04, AL03, AL08: the tasks require aliases like [Full Name], SELECT * and exact output columns
+# - RF02, RF03, RF04, AL05: qualifying references can change meaning when a parameter shadows a column
+# - ST06, ST11, AM01, CV02, CV08: rewrites that reorder output columns or need per-query judgement
+exclude_rules = layout, capitalisation, RF06, RF05, AM04, AL03, AL08, RF02, RF03, RF04, AL05, ST06, ST11, AM01, CV02, CV08

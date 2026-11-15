@@ -8,7 +8,7 @@ BEGIN
         a.`balance`,
         ufn_calculate_future_value(a.`balance`, interest_rate, 5) AS `balance_in_5_years`
     FROM `account_holders` AS `h`
-    JOIN `accounts` `a` ON `a`.`account_holder_id` = `h`.`id`
+    INNER JOIN `accounts` AS `a` ON `h`.`id` = `a`.`account_holder_id`
     WHERE a.`id` = `account_id`
     GROUP BY a.`account_holder_id`;
 END;

@@ -5,7 +5,7 @@ BEGIN
         ah.`first_name`,
         ah.`last_name`
     FROM `accounts` AS `a`
-    JOIN `account_holders` `ah` ON `ah`.`id` = `a`.`account_holder_id`
+    INNER JOIN `account_holders` AS `ah` ON `a`.`account_holder_id` = `ah`.`id`
     WHERE (
         SELECT sum(a2.`balance`)
         FROM `accounts` AS `a2`

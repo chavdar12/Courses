@@ -9,7 +9,7 @@ SELECT
         END
     ) AS `project_name`
 FROM `employees` AS `e`
-LEFT JOIN `employees_projects` `ep` ON `e`.`employee_id` = `ep`.`employee_id`
-JOIN `projects` `p` ON `ep`.`project_id` = `p`.`project_id`
+LEFT JOIN `employees_projects` AS `ep` ON `e`.`employee_id` = `ep`.`employee_id`
+INNER JOIN `projects` AS `p` ON `ep`.`project_id` = `p`.`project_id`
 WHERE e.`employee_id` = 24
 ORDER BY `project_name`;

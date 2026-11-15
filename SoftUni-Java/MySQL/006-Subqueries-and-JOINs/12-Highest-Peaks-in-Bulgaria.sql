@@ -5,9 +5,9 @@ SELECT
     p.`peak_name`,
     p.`elevation`
 FROM `countries` AS `c`
-JOIN `mountains_countries` `mc` ON `c`.`country_code` = `mc`.`country_code`
-JOIN `mountains` `m` ON `mc`.`mountain_id` = `m`.`id`
-JOIN `peaks` `p` ON `m`.`id` = `p`.`mountain_id`
+INNER JOIN `mountains_countries` AS `mc` ON `c`.`country_code` = `mc`.`country_code`
+INNER JOIN `mountains` AS `m` ON `mc`.`mountain_id` = `m`.`id`
+INNER JOIN `peaks` AS `p` ON `m`.`id` = `p`.`mountain_id`
 WHERE
     c.`country_code` = 'BG'
     AND p.`elevation` > 2835
