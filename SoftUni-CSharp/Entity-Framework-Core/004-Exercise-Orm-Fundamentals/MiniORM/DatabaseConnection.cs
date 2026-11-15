@@ -71,8 +71,9 @@ internal class DatabaseConnection
         foreach (var entity in entities)
         {
             var command = CreateCommand(
-                $"INSERT INTO [{tableName}] ({string.Join(", ", insertColumns.Select(c => $"[{c}]"))}) " +
-                $"VALUES ({string.Join(", ", insertColumns.Select(c => "@" + c))})");
+                $"INSERT INTO [{tableName}] ({string.Join(", ", insertColumns.Select(c => $"[{c}]"))}) "
+                    + $"VALUES ({string.Join(", ", insertColumns.Select(c => "@" + c))})"
+            );
             AddParameters<T>(command, entity, insertColumns);
             command.ExecuteNonQuery();
         }
@@ -86,7 +87,8 @@ internal class DatabaseConnection
         foreach (var entity in entities)
         {
             var command = CreateCommand(
-                $"UPDATE [{tableName}] SET {string.Join(", ", setColumns.Select(c => $"[{c}] = @{c}"))} WHERE {Where(keys)}");
+                $"UPDATE [{tableName}] SET {string.Join(", ", setColumns.Select(c => $"[{c}] = @{c}"))} WHERE {Where(keys)}"
+            );
             AddParameters<T>(command, entity, columns);
             command.ExecuteNonQuery();
         }

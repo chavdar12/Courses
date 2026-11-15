@@ -29,7 +29,9 @@ public class ClientService(PetStoreDbContext context)
         }
 
         var spent = context.Sales.Where(s => s.ClientId == clientId).Sum(s => s.Price);
-        return spent >= 1000 ? 10 : spent >= 500 ? 5 : 2;
+        return spent >= 1000 ? 10
+            : spent >= 500 ? 5
+            : 2;
     }
 
     internal decimal ApplyDiscount(int clientId, decimal price) =>

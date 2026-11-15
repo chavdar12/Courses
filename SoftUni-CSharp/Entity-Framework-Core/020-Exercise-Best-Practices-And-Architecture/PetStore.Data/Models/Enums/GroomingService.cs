@@ -9,5 +9,5 @@ public enum GroomingService
     EarCleaning = 4,
     Clipping = 8,
     Bathing = 16,
-    FullSet = TailTrimming | NailTrimming | EarCleaning | Clipping | Bathing
+    FullSet = TailTrimming | NailTrimming | EarCleaning | Clipping | Bathing,
 }

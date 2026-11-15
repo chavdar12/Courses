@@ -11,17 +11,26 @@ public abstract class DbContext
 {
     internal static readonly Type[] AllowedSqlTypes =
     {
-        typeof(string), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(decimal), typeof(double),
-        typeof(bool), typeof(DateTime), typeof(int?), typeof(decimal?), typeof(bool?), typeof(DateTime?)
+        typeof(string),
+        typeof(int),
+        typeof(uint),
+        typeof(long),
+        typeof(ulong),
+        typeof(decimal),
+        typeof(double),
+        typeof(bool),
+        typeof(DateTime),
+        typeof(int?),
+        typeof(decimal?),
+        typeof(bool?),
+        typeof(DateTime?),
     };
 
     private readonly DatabaseConnection connection;
     private readonly Dictionary<Type, PropertyInfo> dbSetProperties;
 
     protected DbContext(string connectionString)
-        : this(() => new SqlConnection(connectionString))
-    {
-    }
+        : this(() => new SqlConnection(connectionString)) { }
 
     // Any ADO.NET provider works; the tests pass SQLite here.
     protected DbContext(Func<DbConnection> connectionFactory)
@@ -40,7 +49,9 @@ public abstract class DbContext
             var invalidEntities = dbSet.Where(entity => !IsObjectValid(entity)).ToArray();
             if (invalidEntities.Any())
             {
-                throw new InvalidOperationException($"{invalidEntities.Length} Invalid Entities found in {dbSet.GetType().Name}!");
+                throw new InvalidOperationException(
+                    $"{invalidEntities.Length} Invalid Entities found in {dbSet.GetType().Name}!"
+                );
             }
         }
 
@@ -133,8 +144,11 @@ public abstract class DbContext
     {
         MapNavigationProperties(dbSet);
 
-        var collections = typeof(TEntity).GetProperties()
-            .Where(p => p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>));
+        var collections = typeof(TEntity)
+            .GetProperties()
+            .Where(p =>
+                p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>)
+            );
 
         foreach (var collection in collections)
         {
@@ -153,15 +167,21 @@ public abstract class DbContext
         var collectionType = typeof(TCollection);
 
         var primaryKey = entityType.GetProperties().Single(p => p.HasAttribute<KeyAttribute>());
-        var foreignKey = collectionType.GetProperties().First(p =>
-            p.GetCustomAttribute<ForeignKeyAttribute>() is { } fk && collectionType.GetProperty(fk.Name)!.PropertyType == entityType);
+        var foreignKey = collectionType
+            .GetProperties()
+            .First(p =>
+                p.GetCustomAttribute<ForeignKeyAttribute>() is { } fk
+                && collectionType.GetProperty(fk.Name)!.PropertyType == entityType
+            );
 
         var navigationDbSet = (DbSet<TCollection>)dbSetProperties[collectionType].GetValue(this)!;
 
         foreach (var entity in dbSet)
         {
             var primaryKeyValue = primaryKey.GetValue(entity);
-            var navigationEntities = navigationDbSet.Where(e => Equals(foreignKey.GetValue(e), primaryKeyValue)).ToList();
+            var navigationEntities = navigationDbSet
+                .Where(e => Equals(foreignKey.GetValue(e), primaryKeyValue))
+                .ToList();
 
             ReflectionHelper.ReplaceBackingField(entity, collectionProperty.Name, navigationEntities);
         }
@@ -175,14 +195,20 @@ public abstract class DbContext
 
         foreach (var foreignKey in foreignKeys)
         {
-            var navigationProperty = entityType.GetProperty(foreignKey.GetCustomAttribute<ForeignKeyAttribute>()!.Name)!;
+            var navigationProperty = entityType.GetProperty(
+                foreignKey.GetCustomAttribute<ForeignKeyAttribute>()!.Name
+            )!;
             var navigationDbSet = (IEnumerable<object>)dbSetProperties[navigationProperty.PropertyType].GetValue(this)!;
-            var navigationPrimaryKey = navigationProperty.PropertyType.GetProperties().First(p => p.HasAttribute<KeyAttribute>());
+            var navigationPrimaryKey = navigationProperty
+                .PropertyType.GetProperties()
+                .First(p => p.HasAttribute<KeyAttribute>());
 
             foreach (var entity in dbSet)
             {
                 var foreignKeyValue = foreignKey.GetValue(entity);
-                var navigationEntity = navigationDbSet.FirstOrDefault(e => Equals(navigationPrimaryKey.GetValue(e), foreignKeyValue));
+                var navigationEntity = navigationDbSet.FirstOrDefault(e =>
+                    Equals(navigationPrimaryKey.GetValue(e), foreignKeyValue)
+                );
 
                 navigationProperty.SetValue(entity, navigationEntity);
             }
@@ -190,7 +216,12 @@ public abstract class DbContext
     }
 
     private static bool IsObjectValid(object entity) =>
-        Validator.TryValidateObject(entity, new ValidationContext(entity), new List<ValidationResult>(), validateAllProperties: true);
+        Validator.TryValidateObject(
+            entity,
+            new ValidationContext(entity),
+            new List<ValidationResult>(),
+            validateAllProperties: true
+        );
 
     private IEnumerable<TEntity> LoadTableEntities<TEntity>()
         where TEntity : class, new()
@@ -203,7 +234,8 @@ public abstract class DbContext
         tableType.GetCustomAttribute<TableAttribute>()?.Name ?? dbSetProperties[tableType].Name;
 
     private Dictionary<Type, PropertyInfo> DiscoverDbSets() =>
-        GetType().GetProperties()
+        GetType()
+            .GetProperties()
             .Where(p => p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof(DbSet<>))
             .ToDictionary(p => p.PropertyType.GetGenericArguments().First(), p => p);
 
@@ -211,8 +243,13 @@ public abstract class DbContext
     {
         var columns = connection.FetchColumnNames(GetTableName(table)).ToHashSet();
 
-        return table.GetProperties()
-            .Where(p => columns.Contains(p.Name) && !p.HasAttribute<NotMappedAttribute>() && AllowedSqlTypes.Contains(p.PropertyType))
+        return table
+            .GetProperties()
+            .Where(p =>
+                columns.Contains(p.Name)
+                && !p.HasAttribute<NotMappedAttribute>()
+                && AllowedSqlTypes.Contains(p.PropertyType)
+            )
             .Select(p => p.Name)
             .ToArray();
     }
@@ -220,7 +257,9 @@ public abstract class DbContext
     // The entity types are only known at runtime, so the generic helpers are invoked through reflection.
     private void InvokeGeneric(string methodName, Type[] typeArguments, params object[] arguments)
     {
-        var method = typeof(DbContext).GetMethod(methodName, BindingFlags.Instance | BindingFlags.NonPublic)!.MakeGenericMethod(typeArguments);
+        var method = typeof(DbContext)
+            .GetMethod(methodName, BindingFlags.Instance | BindingFlags.NonPublic)!
+            .MakeGenericMethod(typeArguments);
         try
         {
             method.Invoke(this, arguments);

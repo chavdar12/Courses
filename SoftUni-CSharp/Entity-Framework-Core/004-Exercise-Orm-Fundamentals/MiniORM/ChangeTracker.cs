@@ -30,7 +30,9 @@ internal class ChangeTracker<T>
         foreach (var proxyEntity in AllEntities)
         {
             var primaryKeyValues = GetPrimaryKeyValues(primaryKeys, proxyEntity).ToArray();
-            var entity = dbSet.Entities.FirstOrDefault(e => GetPrimaryKeyValues(primaryKeys, e).SequenceEqual(primaryKeyValues));
+            var entity = dbSet.Entities.FirstOrDefault(e =>
+                GetPrimaryKeyValues(primaryKeys, e).SequenceEqual(primaryKeyValues)
+            );
 
             if (entity != null && IsModified(proxyEntity, entity))
             {
@@ -49,16 +51,18 @@ internal class ChangeTracker<T>
     {
         var properties = SqlProperties();
 
-        return entities.Select(entity =>
-        {
-            var clone = new T();
-            foreach (var property in properties)
+        return entities
+            .Select(entity =>
             {
-                property.SetValue(clone, property.GetValue(entity));
-            }
+                var clone = new T();
+                foreach (var property in properties)
+                {
+                    property.SetValue(clone, property.GetValue(entity));
+                }
 
-            return clone;
-        }).ToList();
+                return clone;
+            })
+            .ToList();
     }
 
     private static PropertyInfo[] SqlProperties() =>

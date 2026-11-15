@@ -11,7 +11,9 @@ public class ProductShopTests
     [SetUp]
     public void SetUp()
     {
-        context = new ProductShopContext(new DbContextOptionsBuilder<ProductShopContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+        context = new ProductShopContext(
+            new DbContextOptionsBuilder<ProductShopContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options
+        );
     }
 
     [TearDown]
@@ -21,9 +23,18 @@ public class ProductShopTests
     public void ImportsSkipNamelessCategoriesAndUnknownIds()
     {
         Assert.That(StartUp.ImportUsers(context, StartUp.Dataset("users.xml")), Is.EqualTo("Successfully imported 4"));
-        Assert.That(StartUp.ImportProducts(context, StartUp.Dataset("products.xml")), Is.EqualTo("Successfully imported 5"));
-        Assert.That(StartUp.ImportCategories(context, StartUp.Dataset("categories.xml")), Is.EqualTo("Successfully imported 2"));
-        Assert.That(StartUp.ImportCategoryProducts(context, StartUp.Dataset("categories-products.xml")), Is.EqualTo("Successfully imported 5"));
+        Assert.That(
+            StartUp.ImportProducts(context, StartUp.Dataset("products.xml")),
+            Is.EqualTo("Successfully imported 5")
+        );
+        Assert.That(
+            StartUp.ImportCategories(context, StartUp.Dataset("categories.xml")),
+            Is.EqualTo("Successfully imported 2")
+        );
+        Assert.That(
+            StartUp.ImportCategoryProducts(context, StartUp.Dataset("categories-products.xml")),
+            Is.EqualTo("Successfully imported 5")
+        );
     }
 
     [Test]
@@ -33,14 +44,17 @@ public class ProductShopTests
         var actual = StartUp.GetProductsInRange(context);
 
         Assert.That(actual, Does.StartWith("""<?xml version="1.0" encoding="utf-16"?>"""));
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <Products>
               <Product><name>TRAMADOL HYDROCHLORIDE</name><price>516.48</price></Product>
               <Product><name>Allopurinol</name><price>518.5</price><buyer>Wallas Duffyn</buyer></Product>
               <Product><name>Acnezzol Base</name><price>710.6</price><buyer>Chrissy Falconbridge</buyer></Product>
               <Product><name>ESIKA</name><price>879.37</price></Product>
             </Products>
-            """, actual);
+            """,
+            actual
+        );
     }
 
     [Test]
@@ -48,7 +62,8 @@ public class ProductShopTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <Users>
               <User><firstName>Almire</firstName><lastName>Ainslee</lastName><soldProducts>
                 <Product><name>Allopurinol</name><price>518.5</price></Product>
@@ -62,7 +77,9 @@ public class ProductShopTests
                 <Product><name>allergy eye</name><price>426.91</price></Product>
               </soldProducts></User>
             </Users>
-            """, StartUp.GetSoldProducts(context));
+            """,
+            StartUp.GetSoldProducts(context)
+        );
     }
 
     [Test]
@@ -70,12 +87,16 @@ public class ProductShopTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual($"""
+        XmlAssert.AreEqual(
+            $"""
             <Categories>
-              <Category><name>Adult</name><count>3</count><averagePrice>{2016.88m / 3}</averagePrice><totalRevenue>2016.88</totalRevenue></Category>
+              <Category><name>Adult</name><count>3</count><averagePrice>{2016.88m
+                / 3}</averagePrice><totalRevenue>2016.88</totalRevenue></Category>
               <Category><name>Garden</name><count>2</count><averagePrice>517.49</averagePrice><totalRevenue>1034.98</totalRevenue></Category>
             </Categories>
-            """, StartUp.GetCategoriesByProductsCount(context));
+            """,
+            StartUp.GetCategoriesByProductsCount(context)
+        );
     }
 
     [Test]
@@ -83,7 +104,8 @@ public class ProductShopTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <Users>
               <count>3</count>
               <users>
@@ -100,7 +122,9 @@ public class ProductShopTests
                 </products></SoldProducts></User>
               </users>
             </Users>
-            """, StartUp.GetUsersWithProducts(context));
+            """,
+            StartUp.GetUsersWithProducts(context)
+        );
     }
 
     private void ImportAll()

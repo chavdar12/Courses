@@ -5,5 +5,5 @@ public enum ProductType
     Food,
     Toy,
     Decoration,
-    Other
+    Other,
 }

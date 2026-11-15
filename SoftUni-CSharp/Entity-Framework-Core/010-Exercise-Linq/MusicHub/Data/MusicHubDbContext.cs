@@ -8,14 +8,10 @@ public class MusicHubDbContext : DbContext
     public const string ConnectionString =
         "Server=localhost,1433;Database=MusicHub;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True";
 
-    public MusicHubDbContext()
-    {
-    }
+    public MusicHubDbContext() { }
 
     public MusicHubDbContext(DbContextOptions<MusicHubDbContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public DbSet<Song> Songs { get; set; }
 

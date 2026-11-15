@@ -8,14 +8,10 @@ public class StudentSystemContext : DbContext
     public const string ConnectionString =
         "Server=localhost,1433;Database=StudentSystem;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True";
 
-    public StudentSystemContext()
-    {
-    }
+    public StudentSystemContext() { }
 
     public StudentSystemContext(DbContextOptions<StudentSystemContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public DbSet<Student> Students { get; set; }
 

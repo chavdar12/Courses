@@ -11,7 +11,9 @@ public class CarDealerTests
     [SetUp]
     public void SetUp()
     {
-        context = new CarDealerContext(new DbContextOptionsBuilder<CarDealerContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+        context = new CarDealerContext(
+            new DbContextOptionsBuilder<CarDealerContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options
+        );
     }
 
     [TearDown]
@@ -20,12 +22,21 @@ public class CarDealerTests
     [Test]
     public void ImportsSkipUnknownSuppliersPartsAndCars()
     {
-        Assert.That(StartUp.ImportSuppliers(context, StartUp.Dataset("suppliers.xml")), Is.EqualTo("Successfully imported 3"));
+        Assert.That(
+            StartUp.ImportSuppliers(context, StartUp.Dataset("suppliers.xml")),
+            Is.EqualTo("Successfully imported 3")
+        );
         Assert.That(StartUp.ImportParts(context, StartUp.Dataset("parts.xml")), Is.EqualTo("Successfully imported 4"));
         Assert.That(StartUp.ImportCars(context, StartUp.Dataset("cars.xml")), Is.EqualTo("Successfully imported 4"));
-        Assert.That(StartUp.ImportCustomers(context, StartUp.Dataset("customers.xml")), Is.EqualTo("Successfully imported 2"));
+        Assert.That(
+            StartUp.ImportCustomers(context, StartUp.Dataset("customers.xml")),
+            Is.EqualTo("Successfully imported 2")
+        );
         Assert.That(StartUp.ImportSales(context, StartUp.Dataset("sales.xml")), Is.EqualTo("Successfully imported 3"));
-        Assert.That(context.Cars.Where(c => c.Id == 1).SelectMany(c => c.PartsCars).Select(pc => pc.PartId), Is.EquivalentTo(new[] { 1, 2, 3 }));
+        Assert.That(
+            context.Cars.Where(c => c.Id == 1).SelectMany(c => c.PartsCars).Select(pc => pc.PartId),
+            Is.EquivalentTo(new[] { 1, 2, 3 })
+        );
     }
 
     [Test]
@@ -33,13 +44,16 @@ public class CarDealerTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <cars>
               <car><make>BMW</make><model>1M Coupe</model><travelled-distance>39826890</travelled-distance></car>
               <car><make>BMW</make><model>E88</model><travelled-distance>27453411</travelled-distance></car>
               <car><make>Opel</make><model>Astra</model><travelled-distance>516628215</travelled-distance></car>
             </cars>
-            """, StartUp.GetCarsWithDistance(context));
+            """,
+            StartUp.GetCarsWithDistance(context)
+        );
     }
 
     [Test]
@@ -47,13 +61,16 @@ public class CarDealerTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <cars>
               <car id="3" model="1M Coupe" travelled-distance="39826890" />
               <car id="2" model="E88" travelled-distance="27453411" />
               <car id="4" model="E88" travelled-distance="1500" />
             </cars>
-            """, StartUp.GetCarsFromMakeBmw(context));
+            """,
+            StartUp.GetCarsFromMakeBmw(context)
+        );
     }
 
     [Test]
@@ -61,12 +78,15 @@ public class CarDealerTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <suppliers>
               <suplier id="2" name="VF Corporation" parts-count="2" />
               <suplier id="3" name="Saks Inc" parts-count="1" />
             </suppliers>
-            """, StartUp.GetLocalSuppliers(context));
+            """,
+            StartUp.GetLocalSuppliers(context)
+        );
     }
 
     [Test]
@@ -74,7 +94,8 @@ public class CarDealerTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <cars>
               <car make="Opel" model="Astra" travelled-distance="516628215"><parts>
                 <part name="Master cylinder" price="130.99" />
@@ -85,7 +106,9 @@ public class CarDealerTests
               <car make="BMW" model="E88" travelled-distance="27453411"><parts><part name="Bonnet" price="1001.34" /></parts></car>
               <car make="BMW" model="E88" travelled-distance="1500"><parts><part name="Water tank" price="100.99" /></parts></car>
             </cars>
-            """, StartUp.GetCarsWithTheirListOfParts(context));
+            """,
+            StartUp.GetCarsWithTheirListOfParts(context)
+        );
     }
 
     [Test]
@@ -93,12 +116,15 @@ public class CarDealerTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <customers>
               <customer full-name="Hai Everton" bought-cars="1" spent-money="1001.34" />
               <customer full-name="Hipolito Lamoreaux" bought-cars="2" spent-money="433.47" />
             </customers>
-            """, StartUp.GetTotalSalesByCustomer(context));
+            """,
+            StartUp.GetTotalSalesByCustomer(context)
+        );
     }
 
     [Test]
@@ -106,7 +132,8 @@ public class CarDealerTests
     {
         ImportAll();
 
-        XmlAssert.AreEqual("""
+        XmlAssert.AreEqual(
+            """
             <sales>
               <sale><car make="Opel" model="Astra" travelled-distance="516628215" /><discount>30.00</discount>
                 <customer-name>Hipolito Lamoreaux</customer-name><price>332.48</price><price-with-discount>232.74</price-with-discount></sale>
@@ -115,7 +142,9 @@ public class CarDealerTests
               <sale><car make="BMW" model="E88" travelled-distance="1500" /><discount>0.00</discount>
                 <customer-name>Hipolito Lamoreaux</customer-name><price>100.99</price><price-with-discount>100.99</price-with-discount></sale>
             </sales>
-            """, StartUp.GetSalesWithAppliedDiscount(context));
+            """,
+            StartUp.GetSalesWithAppliedDiscount(context)
+        );
     }
 
     private void ImportAll()

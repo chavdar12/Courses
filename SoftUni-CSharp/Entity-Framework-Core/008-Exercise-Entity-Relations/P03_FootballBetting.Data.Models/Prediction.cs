@@ -4,5 +4,5 @@ public enum Prediction
 {
     Draw,
     HomeTeamWin,
-    AwayTeamWin
+    AwayTeamWin,
 }

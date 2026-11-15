@@ -20,10 +20,11 @@ public class StartUp
 
     public static string ExportAlbumsInfo(MusicHubDbContext context, int producerId)
     {
-        var albums = context.Albums
-            .Where(a => a.ProducerId == producerId)
+        var albums = context
+            .Albums.Where(a => a.ProducerId == producerId)
             .Include(a => a.Producer)
-            .Include(a => a.Songs).ThenInclude(s => s.Writer)
+            .Include(a => a.Songs)
+                .ThenInclude(s => s.Writer)
             .AsNoTracking()
             .ToList()
             // Price is computed in C#, so the albums are sorted after loading.
@@ -32,7 +33,8 @@ public class StartUp
         var result = new StringBuilder();
         foreach (var album in albums)
         {
-            result.AppendLine($"-AlbumName: {album.Name}")
+            result
+                .AppendLine($"-AlbumName: {album.Name}")
                 .AppendLine($"-ReleaseDate: {album.ReleaseDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)}")
                 .AppendLine($"-ProducerName: {album.Producer.Name}")
                 .AppendLine("-Songs:");
@@ -40,7 +42,8 @@ public class StartUp
             var songs = album.Songs.OrderByDescending(s => s.Name).ThenBy(s => s.Writer.Name).ToList();
             for (var i = 0; i < songs.Count; i++)
             {
-                result.AppendLine($"---#{i + 1}")
+                result
+                    .AppendLine($"---#{i + 1}")
                     .AppendLine($"---SongName: {songs[i].Name}")
                     .AppendLine($"---Price: {songs[i].Price:f2}")
                     .AppendLine($"---Writer: {songs[i].Writer.Name}");
@@ -54,18 +57,18 @@ public class StartUp
 
     public static string ExportSongsAboveDuration(MusicHubDbContext context, int duration)
     {
-        var songs = context.Songs
-            .Where(s => s.Duration > TimeSpan.FromSeconds(duration))
+        var songs = context
+            .Songs.Where(s => s.Duration > TimeSpan.FromSeconds(duration))
             .Select(s => new
             {
                 s.Name,
                 Writer = s.Writer.Name,
-                Performers = s.SongPerformers
-                    .Select(sp => sp.Performer.FirstName + " " + sp.Performer.LastName)
+                Performers = s
+                    .SongPerformers.Select(sp => sp.Performer.FirstName + " " + sp.Performer.LastName)
                     .OrderBy(name => name)
                     .ToList(),
                 AlbumProducer = s.Album.Producer.Name,
-                s.Duration
+                s.Duration,
             })
             .ToList()
             .OrderBy(s => s.Name)
@@ -76,7 +79,8 @@ public class StartUp
         var result = new StringBuilder();
         for (var i = 0; i < songs.Count; i++)
         {
-            result.AppendLine($"-Song #{i + 1}")
+            result
+                .AppendLine($"-Song #{i + 1}")
                 .AppendLine($"---SongName: {songs[i].Name}")
                 .AppendLine($"---Writer: {songs[i].Writer}");
 
@@ -85,7 +89,8 @@ public class StartUp
                 result.AppendLine($"---Performer: {performer}");
             }
 
-            result.AppendLine($"---AlbumProducer: {songs[i].AlbumProducer}")
+            result
+                .AppendLine($"---AlbumProducer: {songs[i].AlbumProducer}")
                 .AppendLine($"---Duration: {songs[i].Duration:c}");
         }
 

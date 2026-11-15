@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<FastFoodContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("FastFood")));
+builder.Services.AddDbContext<FastFoodContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FastFood"))
+);
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile<FastFoodProfile>());
 builder.Services.AddControllers();
 

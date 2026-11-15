@@ -13,11 +13,12 @@ public class OrdersController(FastFoodContext context, IMapper mapper) : Control
 {
     // The item and employee ids an order can be created with.
     [HttpGet("Create")]
-    public CreateOrderViewModel Create() => new()
-    {
-        Items = context.Items.Select(i => i.Id).ToList(),
-        Employees = context.Employees.Select(e => e.Id).ToList()
-    };
+    public CreateOrderViewModel Create() =>
+        new()
+        {
+            Items = context.Items.Select(i => i.Id).ToList(),
+            Employees = context.Employees.Select(e => e.Id).ToList(),
+        };
 
     [HttpPost("Create")]
     public IActionResult Create(CreateOrderInputModel model)

@@ -13,7 +13,9 @@ public class StartUpTests
     [SetUp]
     public void SetUp()
     {
-        context = new BookShopContext(new DbContextOptionsBuilder<BookShopContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+        context = new BookShopContext(
+            new DbContextOptionsBuilder<BookShopContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options
+        );
 
         var george = new Author { FirstName = "George", LastName = "Powell" };
         var jane = new Author { FirstName = "Jane", LastName = "Ortiz" };
@@ -27,12 +29,65 @@ public class StartUpTests
         var art = new Category { Name = "Art" };
 
         context.Books.AddRange(
-            Book(1, "A Farewell to Arms", new DateTime(1990, 5, 1), 3000, 45.00m, EditionType.Gold, AgeRestriction.Minor, george, drama),
-            Book(2, "A Scanner Darkly", new DateTime(2012, 1, 1), 8000, 20.00m, EditionType.Normal, AgeRestriction.Teen, jane, horror, art),
-            Book(3, "The Skull Beneath the Skin", new DateTime(1985, 3, 10), 4100, 48.63m, EditionType.Gold, AgeRestriction.Adult, bozhidara, mystery),
-            Book(4, "Postern of Fate", new DateTime(2000, 7, 7), 4500, 10.50m, EditionType.Promo, AgeRestriction.Minor, stanko, mystery, drama),
+            Book(
+                1,
+                "A Farewell to Arms",
+                new DateTime(1990, 5, 1),
+                3000,
+                45.00m,
+                EditionType.Gold,
+                AgeRestriction.Minor,
+                george,
+                drama
+            ),
+            Book(
+                2,
+                "A Scanner Darkly",
+                new DateTime(2012, 1, 1),
+                8000,
+                20.00m,
+                EditionType.Normal,
+                AgeRestriction.Teen,
+                jane,
+                horror,
+                art
+            ),
+            Book(
+                3,
+                "The Skull Beneath the Skin",
+                new DateTime(1985, 3, 10),
+                4100,
+                48.63m,
+                EditionType.Gold,
+                AgeRestriction.Adult,
+                bozhidara,
+                mystery
+            ),
+            Book(
+                4,
+                "Postern of Fate",
+                new DateTime(2000, 7, 7),
+                4500,
+                10.50m,
+                EditionType.Promo,
+                AgeRestriction.Minor,
+                stanko,
+                mystery,
+                drama
+            ),
             Book(5, "Great Work of Time", null, 6000, 41.00m, EditionType.Normal, AgeRestriction.Teen, randy, art),
-            Book(6, "Precious Bane", new DateTime(2015, 2, 2), 7000, 15.00m, EditionType.Gold, AgeRestriction.Adult, stanko, art));
+            Book(
+                6,
+                "Precious Bane",
+                new DateTime(2015, 2, 2),
+                7000,
+                15.00m,
+                EditionType.Gold,
+                AgeRestriction.Adult,
+                stanko,
+                art
+            )
+        );
         context.SaveChanges();
         context.ChangeTracker.Clear();
     }
@@ -56,29 +111,37 @@ public class StartUpTests
     [Test]
     public void BooksByPrice()
     {
-        Assert.That(StartUp.GetBooksByPrice(context), Is.EqualTo(
-            "The Skull Beneath the Skin - $48.63\nA Farewell to Arms - $45.00\nGreat Work of Time - $41.00"));
+        Assert.That(
+            StartUp.GetBooksByPrice(context),
+            Is.EqualTo("The Skull Beneath the Skin - $48.63\nA Farewell to Arms - $45.00\nGreat Work of Time - $41.00")
+        );
     }
 
     [Test]
     public void BooksNotReleasedInSkipsBooksWithoutReleaseDate()
     {
-        Assert.That(StartUp.GetBooksNotReleasedIn(context, 2000), Is.EqualTo(
-            "A Farewell to Arms\nA Scanner Darkly\nThe Skull Beneath the Skin\nPrecious Bane"));
+        Assert.That(
+            StartUp.GetBooksNotReleasedIn(context, 2000),
+            Is.EqualTo("A Farewell to Arms\nA Scanner Darkly\nThe Skull Beneath the Skin\nPrecious Bane")
+        );
     }
 
     [Test]
     public void BooksByCategory()
     {
-        Assert.That(StartUp.GetBooksByCategory(context, "horror  MYSTERY"), Is.EqualTo(
-            "A Scanner Darkly\nPostern of Fate\nThe Skull Beneath the Skin"));
+        Assert.That(
+            StartUp.GetBooksByCategory(context, "horror  MYSTERY"),
+            Is.EqualTo("A Scanner Darkly\nPostern of Fate\nThe Skull Beneath the Skin")
+        );
     }
 
     [Test]
     public void BooksReleasedBefore()
     {
-        Assert.That(StartUp.GetBooksReleasedBefore(context, "12-04-1992"), Is.EqualTo(
-            "A Farewell to Arms - Gold - $45.00\nThe Skull Beneath the Skin - Gold - $48.63"));
+        Assert.That(
+            StartUp.GetBooksReleasedBefore(context, "12-04-1992"),
+            Is.EqualTo("A Farewell to Arms - Gold - $45.00\nThe Skull Beneath the Skin - Gold - $48.63")
+        );
     }
 
     [TestCase("e", "George Powell\nJane Ortiz")]
@@ -112,15 +175,21 @@ public class StartUpTests
     [Test]
     public void CopiesByAuthor()
     {
-        Assert.That(StartUp.CountCopiesByAuthor(context), Is.EqualTo(
-            "Stanko Popov - 11500\nJane Ortiz - 8000\nRandy Morales - 6000\nBozhidara Rysinova - 4100\nGeorge Powell - 3000"));
+        Assert.That(
+            StartUp.CountCopiesByAuthor(context),
+            Is.EqualTo(
+                "Stanko Popov - 11500\nJane Ortiz - 8000\nRandy Morales - 6000\nBozhidara Rysinova - 4100\nGeorge Powell - 3000"
+            )
+        );
     }
 
     [Test]
     public void TotalProfitByCategory()
     {
-        Assert.That(StartUp.GetTotalProfitByCategory(context), Is.EqualTo(
-            "Art $511000.00\nMystery $246633.00\nDrama $182250.00\nHorror $160000.00"));
+        Assert.That(
+            StartUp.GetTotalProfitByCategory(context),
+            Is.EqualTo("Art $511000.00\nMystery $246633.00\nDrama $182250.00\nHorror $160000.00")
+        );
     }
 
     [Test]
@@ -137,7 +206,10 @@ public class StartUpTests
     {
         StartUp.IncreasePrices(context);
 
-        Assert.That(context.Books.OrderBy(b => b.BookId).Select(b => b.Price), Is.EqualTo(new[] { 50.00m, 20.00m, 53.63m, 15.50m, 41.00m, 15.00m }));
+        Assert.That(
+            context.Books.OrderBy(b => b.BookId).Select(b => b.Price),
+            Is.EqualTo(new[] { 50.00m, 20.00m, 53.63m, 15.50m, 41.00m, 15.00m })
+        );
     }
 
     [Test]
@@ -147,13 +219,29 @@ public class StartUpTests
         Assert.That(context.Books.Count(), Is.EqualTo(4));
     }
 
-    private static Book Book(int id, string title, DateTime? released, int copies, decimal price, EditionType edition, AgeRestriction age,
-        Author author, params Category[] categories)
+    private static Book Book(
+        int id,
+        string title,
+        DateTime? released,
+        int copies,
+        decimal price,
+        EditionType edition,
+        AgeRestriction age,
+        Author author,
+        params Category[] categories
+    )
     {
         var book = new Book
         {
-            BookId = id, Title = title, Description = title, ReleaseDate = released, Copies = copies, Price = price, EditionType = edition,
-            AgeRestriction = age, Author = author
+            BookId = id,
+            Title = title,
+            Description = title,
+            ReleaseDate = released,
+            Copies = copies,
+            Price = price,
+            EditionType = edition,
+            AgeRestriction = age,
+            Author = author,
         };
         foreach (var category in categories)
         {

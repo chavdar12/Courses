@@ -8,14 +8,10 @@ public class BookShopContext : DbContext
     public const string ConnectionString =
         "Server=localhost,1433;Database=BookShop;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True";
 
-    public BookShopContext()
-    {
-    }
+    public BookShopContext() { }
 
     public BookShopContext(DbContextOptions<BookShopContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public DbSet<Book> Books { get; set; }
 

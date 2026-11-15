@@ -6,5 +6,5 @@ public enum Genre
     Rap,
     PopMusic,
     Rock,
-    Jazz
+    Jazz,
 }

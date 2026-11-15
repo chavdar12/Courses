@@ -42,11 +42,17 @@ public class DbContextTests
     {
         var context = CreateContext();
 
-        Assert.That(context.Employees.Select(e => e.FirstName), Is.EqualTo(new[] { "Stamat", "Petar", "Ivan", "Gosho" }));
+        Assert.That(
+            context.Employees.Select(e => e.FirstName),
+            Is.EqualTo(new[] { "Stamat", "Petar", "Ivan", "Gosho" })
+        );
         Assert.That(context.Employees.First().IsEmployed, Is.True);
         Assert.That(context.Employees.All(e => e.Department == context.Departments.Single()));
         Assert.That(context.Departments.Single().Employees, Has.Count.EqualTo(4));
-        Assert.That(context.Projects.First().EmployeesProjects.Select(ep => ep.Employee.FirstName), Is.EqualTo(new[] { "Stamat", "Ivan" }));
+        Assert.That(
+            context.Projects.First().EmployeesProjects.Select(ep => ep.Employee.FirstName),
+            Is.EqualTo(new[] { "Stamat", "Ivan" })
+        );
         Assert.That(context.Employees.Single(e => e.FirstName == "Ivan").EmployeesProjects, Has.Count.EqualTo(2));
     }
 
@@ -54,14 +60,25 @@ public class DbContextTests
     public void SaveChangesInsertsUpdatesAndDeletes()
     {
         var context = CreateContext();
-        context.Employees.Add(new Employee { FirstName = "New", LastName = "Employee", DepartmentId = 1, IsEmployed = true });
+        context.Employees.Add(
+            new Employee
+            {
+                FirstName = "New",
+                LastName = "Employee",
+                DepartmentId = 1,
+                IsEmployed = true,
+            }
+        );
         context.Employees.First().FirstName = "Modified";
         context.EmployeesProjects.Remove(context.EmployeesProjects.First());
 
         context.SaveChanges();
 
         var reloaded = CreateContext();
-        Assert.That(reloaded.Employees.Select(e => e.FirstName), Is.EqualTo(new[] { "Modified", "Petar", "Ivan", "Gosho", "New" }));
+        Assert.That(
+            reloaded.Employees.Select(e => e.FirstName),
+            Is.EqualTo(new[] { "Modified", "Petar", "Ivan", "Gosho", "New" })
+        );
         Assert.That(reloaded.Employees.Last().Id, Is.EqualTo(5));
         Assert.That(reloaded.EmployeesProjects, Has.Count.EqualTo(3));
     }
@@ -84,8 +101,10 @@ public class DbContextTests
         var context = CreateContext();
         context.Departments.Add(new Department());
 
-        Assert.That(() => context.SaveChanges(),
-            Throws.InvalidOperationException.With.Message.EqualTo("1 Invalid Entities found in DbSet`1!"));
+        Assert.That(
+            () => context.SaveChanges(),
+            Throws.InvalidOperationException.With.Message.EqualTo("1 Invalid Entities found in DbSet`1!")
+        );
         Assert.That(CreateContext().Departments, Has.Count.EqualTo(1));
     }
 

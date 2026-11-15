@@ -6,9 +6,7 @@ namespace FastFood.Data;
 public class FastFoodContext : DbContext
 {
     public FastFoodContext(DbContextOptions<FastFoodContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public DbSet<Category> Categories { get; set; }
 

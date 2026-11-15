@@ -8,7 +8,14 @@ public class PetService(PetStoreDbContext context, ClientService clients)
 {
     public int Add(string name, string breed, Gender gender, DateTime birthDate, decimal price)
     {
-        var pet = new Pet { Name = name, Breed = breed, Gender = gender, BirthDate = birthDate, Price = price };
+        var pet = new Pet
+        {
+            Name = name,
+            Breed = breed,
+            Gender = gender,
+            BirthDate = birthDate,
+            Price = price,
+        };
         context.Pets.Add(pet);
         context.SaveChanges();
 
@@ -27,7 +34,16 @@ public class PetService(PetStoreDbContext context, ClientService clients)
 
         var price = clients.ApplyDiscount(clientId, pet.Price);
         pet.IsSold = true;
-        context.Sales.Add(new Sale { ClientId = clientId, PetId = petId, Quantity = 1, Price = price, Date = date });
+        context.Sales.Add(
+            new Sale
+            {
+                ClientId = clientId,
+                PetId = petId,
+                Quantity = 1,
+                Price = price,
+                Date = date,
+            }
+        );
         context.SaveChanges();
 
         return price;

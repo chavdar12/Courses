@@ -6,14 +6,10 @@ namespace MiniORM.App.Data;
 public class SoftUniDbContext : DbContext
 {
     public SoftUniDbContext(string connectionString)
-        : base(connectionString)
-    {
-    }
+        : base(connectionString) { }
 
     public SoftUniDbContext(Func<DbConnection> connectionFactory)
-        : base(connectionFactory)
-    {
-    }
+        : base(connectionFactory) { }
 
     public DbSet<Employee> Employees { get; }
 

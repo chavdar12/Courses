@@ -11,7 +11,9 @@ public class ProductShopTests
     [SetUp]
     public void SetUp()
     {
-        context = new ProductShopContext(new DbContextOptionsBuilder<ProductShopContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+        context = new ProductShopContext(
+            new DbContextOptionsBuilder<ProductShopContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options
+        );
     }
 
     [TearDown]
@@ -21,9 +23,18 @@ public class ProductShopTests
     public void ImportsReportCountsAndSkipNamelessCategories()
     {
         Assert.That(StartUp.ImportUsers(context, StartUp.Dataset("users.json")), Is.EqualTo("Successfully imported 5"));
-        Assert.That(StartUp.ImportProducts(context, StartUp.Dataset("products.json")), Is.EqualTo("Successfully imported 7"));
-        Assert.That(StartUp.ImportCategories(context, StartUp.Dataset("categories.json")), Is.EqualTo("Successfully imported 3"));
-        Assert.That(StartUp.ImportCategoryProducts(context, StartUp.Dataset("categories-products.json")), Is.EqualTo("Successfully imported 7"));
+        Assert.That(
+            StartUp.ImportProducts(context, StartUp.Dataset("products.json")),
+            Is.EqualTo("Successfully imported 7")
+        );
+        Assert.That(
+            StartUp.ImportCategories(context, StartUp.Dataset("categories.json")),
+            Is.EqualTo("Successfully imported 3")
+        );
+        Assert.That(
+            StartUp.ImportCategoryProducts(context, StartUp.Dataset("categories-products.json")),
+            Is.EqualTo("Successfully imported 7")
+        );
     }
 
     [Test]
@@ -31,13 +42,16 @@ public class ProductShopTests
     {
         ImportAll();
 
-        JsonAssert.AreEqual("""
+        JsonAssert.AreEqual(
+            """
             [
               { "name": "TRAMADOL HYDROCHLORIDE", "price": 516.48, "seller": "Chrissy Falconbridge" },
               { "name": "Allopurinol", "price": 518.50, "seller": "Kathy Gilbert" },
               { "name": "Parsley", "price": 999.99, "seller": "Gloria Alexander" }
             ]
-            """, StartUp.GetProductsInRange(context));
+            """,
+            StartUp.GetProductsInRange(context)
+        );
     }
 
     [Test]
@@ -45,7 +59,8 @@ public class ProductShopTests
     {
         ImportAll();
 
-        JsonAssert.AreEqual("""
+        JsonAssert.AreEqual(
+            """
             [
               { "firstName": "Gloria", "lastName": "Alexander", "soldProducts": [
                 { "name": "Metoprolol Tartrate", "price": 1405.74, "buyerFirstName": "Bonnie", "buyerLastName": "Fox" } ] },
@@ -55,7 +70,9 @@ public class ProductShopTests
                 { "name": "Finasteride", "price": 1374.01, "buyerFirstName": "Chrissy", "buyerLastName": "Falconbridge" },
                 { "name": "Glyburide", "price": 95.1, "buyerFirstName": "Gloria", "buyerLastName": "Alexander" } ] }
             ]
-            """, StartUp.GetSoldProducts(context));
+            """,
+            StartUp.GetSoldProducts(context)
+        );
     }
 
     [Test]
@@ -63,13 +80,16 @@ public class ProductShopTests
     {
         ImportAll();
 
-        JsonAssert.AreEqual("""
+        JsonAssert.AreEqual(
+            """
             [
               { "category": "Drugs", "productsCount": 4, "averagePrice": "953.68", "totalRevenue": "3814.73" },
               { "category": "Garden", "productsCount": 2, "averagePrice": "1187.00", "totalRevenue": "2374.00" },
               { "category": "Adult", "productsCount": 1, "averagePrice": "95.10", "totalRevenue": "95.10" }
             ]
-            """, StartUp.GetCategoriesByProductsCount(context));
+            """,
+            StartUp.GetCategoriesByProductsCount(context)
+        );
     }
 
     [Test]
@@ -77,7 +97,8 @@ public class ProductShopTests
     {
         ImportAll();
 
-        JsonAssert.AreEqual("""
+        JsonAssert.AreEqual(
+            """
             {
               "usersCount": 3,
               "users": [
@@ -89,7 +110,9 @@ public class ProductShopTests
                   { "name": "Allopurinol", "price": 518.50 } ] } }
               ]
             }
-            """, StartUp.GetUsersWithProducts(context));
+            """,
+            StartUp.GetUsersWithProducts(context)
+        );
     }
 
     private void ImportAll()

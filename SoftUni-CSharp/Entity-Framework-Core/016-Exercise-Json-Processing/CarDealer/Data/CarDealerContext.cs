@@ -8,14 +8,10 @@ public class CarDealerContext : DbContext
     public const string ConnectionString =
         "Server=localhost,1433;Database=CarDealer;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True";
 
-    public CarDealerContext()
-    {
-    }
+    public CarDealerContext() { }
 
     public CarDealerContext(DbContextOptions<CarDealerContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public DbSet<Car> Cars { get; set; }
 

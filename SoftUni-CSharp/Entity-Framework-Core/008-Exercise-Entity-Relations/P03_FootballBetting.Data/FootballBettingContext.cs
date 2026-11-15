@@ -8,14 +8,10 @@ public class FootballBettingContext : DbContext
     public const string ConnectionString =
         "Server=localhost,1433;Database=FootballBetting;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True";
 
-    public FootballBettingContext()
-    {
-    }
+    public FootballBettingContext() { }
 
     public FootballBettingContext(DbContextOptions<FootballBettingContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public DbSet<Team> Teams { get; set; }
 
@@ -54,9 +50,21 @@ public class FootballBettingContext : DbContext
             entity.Property(t => t.Budget).HasPrecision(18, 2);
 
             // Two relations to the same table would give SQL Server multiple cascade paths, so deletes are restricted.
-            entity.HasOne(t => t.PrimaryKitColor).WithMany(c => c.PrimaryKitTeams).HasForeignKey(t => t.PrimaryKitColorId).OnDelete(DeleteBehavior.Restrict);
-            entity.HasOne(t => t.SecondaryKitColor).WithMany(c => c.SecondaryKitTeams).HasForeignKey(t => t.SecondaryKitColorId).OnDelete(DeleteBehavior.Restrict);
-            entity.HasOne(t => t.Town).WithMany(t => t.Teams).HasForeignKey(t => t.TownId).OnDelete(DeleteBehavior.Restrict);
+            entity
+                .HasOne(t => t.PrimaryKitColor)
+                .WithMany(c => c.PrimaryKitTeams)
+                .HasForeignKey(t => t.PrimaryKitColorId)
+                .OnDelete(DeleteBehavior.Restrict);
+            entity
+                .HasOne(t => t.SecondaryKitColor)
+                .WithMany(c => c.SecondaryKitTeams)
+                .HasForeignKey(t => t.SecondaryKitColorId)
+                .OnDelete(DeleteBehavior.Restrict);
+            entity
+                .HasOne(t => t.Town)
+                .WithMany(t => t.Teams)
+                .HasForeignKey(t => t.TownId)
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<Color>().Property(c => c.Name).IsRequired().HasMaxLength(30);
@@ -88,8 +96,16 @@ public class FootballBettingContext : DbContext
         modelBuilder.Entity<Game>(entity =>
         {
             entity.Property(g => g.Result).HasMaxLength(7);
-            entity.HasOne(g => g.HomeTeam).WithMany(t => t.HomeGames).HasForeignKey(g => g.HomeTeamId).OnDelete(DeleteBehavior.Restrict);
-            entity.HasOne(g => g.AwayTeam).WithMany(t => t.AwayGames).HasForeignKey(g => g.AwayTeamId).OnDelete(DeleteBehavior.Restrict);
+            entity
+                .HasOne(g => g.HomeTeam)
+                .WithMany(t => t.HomeGames)
+                .HasForeignKey(g => g.HomeTeamId)
+                .OnDelete(DeleteBehavior.Restrict);
+            entity
+                .HasOne(g => g.AwayTeam)
+                .WithMany(t => t.AwayGames)
+                .HasForeignKey(g => g.AwayTeamId)
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<Bet>(entity =>

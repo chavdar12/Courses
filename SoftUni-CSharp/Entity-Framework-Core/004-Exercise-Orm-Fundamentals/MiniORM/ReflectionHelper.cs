@@ -7,7 +7,8 @@ internal static class ReflectionHelper
     // Auto-properties without a setter can only be replaced through their compiler-generated backing field.
     public static void ReplaceBackingField(object sourceObj, string propertyName, object targetObj)
     {
-        var backingField = sourceObj.GetType()
+        var backingField = sourceObj
+            .GetType()
             .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.SetField)
             .First(f => f.Name == $"<{propertyName}>k__BackingField");
 

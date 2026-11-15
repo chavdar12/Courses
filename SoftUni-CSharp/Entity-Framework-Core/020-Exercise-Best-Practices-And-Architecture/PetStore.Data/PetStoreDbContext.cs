@@ -8,14 +8,10 @@ public class PetStoreDbContext : DbContext
     public const string ConnectionString =
         "Server=localhost,1433;Database=PetStore;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True";
 
-    public PetStoreDbContext()
-    {
-    }
+    public PetStoreDbContext() { }
 
     public PetStoreDbContext(DbContextOptions<PetStoreDbContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public DbSet<Client> Clients { get; set; }
 

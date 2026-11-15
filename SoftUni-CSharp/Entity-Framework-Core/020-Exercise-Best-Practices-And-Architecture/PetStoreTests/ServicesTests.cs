@@ -21,7 +21,9 @@ public class ServicesTests
     [SetUp]
     public void SetUp()
     {
-        context = new PetStoreDbContext(new DbContextOptionsBuilder<PetStoreDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+        context = new PetStoreDbContext(
+            new DbContextOptionsBuilder<PetStoreDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options
+        );
         clients = new ClientService(context);
         products = new ProductService(context, clients);
         pets = new PetService(context, clients);
@@ -39,7 +41,10 @@ public class ServicesTests
         var second = products.Buy("Acme", "Kibble", ProductType.Food, 5, 2, 6, January);
 
         Assert.That(second, Is.EqualTo(first));
-        Assert.That(context.Products.Single(), Has.Property(nameof(Product.Quantity)).EqualTo(15).And.Property(nameof(Product.Price)).EqualTo(6));
+        Assert.That(
+            context.Products.Single(),
+            Has.Property(nameof(Product.Quantity)).EqualTo(15).And.Property(nameof(Product.Price)).EqualTo(6)
+        );
         Assert.That(context.Distributors.Count(), Is.EqualTo(1));
         Assert.That(context.Purchases.Count(), Is.EqualTo(2));
     }
@@ -104,10 +109,16 @@ public class ServicesTests
         var january = reports.GetMonthlyReport(2026, 1);
         var year = reports.GetAnnualReport(2026);
 
-        Assert.That((january.Revenue, january.PurchaseCosts, january.Salaries, january.Profit), Is.EqualTo((25m, 32m, 100m, -107m)));
+        Assert.That(
+            (january.Revenue, january.PurchaseCosts, january.Salaries, january.Profit),
+            Is.EqualTo((25m, 32m, 100m, -107m))
+        );
         Assert.That(january.Distributors["Acme"].SoldPercentage, Is.EqualTo(50));
         Assert.That(january.Distributors["Toys Ltd"].SoldPercentage, Is.EqualTo(0));
-        Assert.That((year.Revenue, year.PurchaseCosts, year.Salaries, year.Profit), Is.EqualTo((55m, 32m, 1200m, -1177m)));
+        Assert.That(
+            (year.Revenue, year.PurchaseCosts, year.Salaries, year.Profit),
+            Is.EqualTo((55m, 32m, 1200m, -1177m))
+        );
         Assert.That(year.Distributors["Acme"], Is.EqualTo(new PetStore.Services.Models.DistributorStats(10, 5)));
         Assert.That(year.Meets(-2000), Is.True);
         Assert.That(year.Meets(0), Is.False);
