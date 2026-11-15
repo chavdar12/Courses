@@ -1,10 +1,16 @@
-# CLion / JetBrains
+# IDEs
 .idea/
 *.iml
 *.iws
 *.ipr
+.vscode/
+.vs/
+*.vcxproj.user
+*.suo
+*.swp
+*~
 
-# CMake build directories
+# CMake build directories (each lesson folder is its own project)
 cmake-build-*/
 build/
 out/
@@ -12,12 +18,14 @@ out/
 # CMake generated files
 CMakeCache.txt
 CMakeFiles/
+CMakeUserPresets.json
 cmake_install.cmake
 CTestTestfile.cmake
 Testing/
 compile_commands.json
 install_manifest.txt
 _deps/
+.cache/
 
 # Compiled objects and binaries
 *.o
@@ -29,14 +37,20 @@ _deps/
 *.dll
 *.exe
 *.out
+!**/tests/*.out
 *.app
 *.dSYM/
+*.actual
+
+# Visual Studio build output
+[Dd]ebug/
+[Rr]elease/
+x64/
 
 # Debug / misc
 *.log
 *.pdb
 
-# macOS
+# OS
 .DS_Store
-# expected test outputs are source, not build artifacts
-!**/tests/*.out
+Thumbs.db

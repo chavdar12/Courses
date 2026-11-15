@@ -2,26 +2,26 @@
 #include <unordered_map>
 
 int main() {
-    int n;
-    std::cin >> n;
+  int n;
+  std::cin >> n;
 
-    std::unordered_map<int, int> counts;
+  std::unordered_map<int, int> counts;
 
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        counts[num]++;
+  for (int i = 0; i < n; ++i) {
+    int num;
+    std::cin >> num;
+    counts[num]++;
+  }
+
+  int result = 0;
+  for (const auto &pair : counts) {
+    if (pair.second % 2 == 0) {
+      result = pair.first;
+      break;
     }
+  }
 
-    int result = 0;
-    for (const auto &pair: counts) {
-        if (pair.second % 2 == 0) {
-            result = pair.first;
-            break;
-        }
-    }
+  std::cout << result << '\n';
 
-    std::cout << result << '\n';
-
-    return 0;
+  return 0;
 }

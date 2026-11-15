@@ -1,34 +1,34 @@
 #include <iostream>
 #include <vector>
 
-void reverse_diagonals(std::vector<std::vector<int> > &matrix) {
-    const int n = matrix.size();
-    for (int i = 0; i < n / 2; ++i) {
-        std::swap(matrix[i][i], matrix[n - 1 - i][n - 1 - i]);
-        std::swap(matrix[i][n - 1 - i], matrix[n - 1 - i][i]);
-    }
+void reverse_diagonals(std::vector<std::vector<int>> &matrix) {
+  const int n = matrix.size();
+  for (int i = 0; i < n / 2; ++i) {
+    std::swap(matrix[i][i], matrix[n - 1 - i][n - 1 - i]);
+    std::swap(matrix[i][n - 1 - i], matrix[n - 1 - i][i]);
+  }
 }
 
 int main() {
-    int n;
-    std::cin >> n;
+  int n;
+  std::cin >> n;
 
-    std::vector<std::vector<int> > matrix(n, std::vector<int>(n));
+  std::vector<std::vector<int>> matrix(n, std::vector<int>(n));
 
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            std::cin >> matrix[i][j];
-        }
+  for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < n; ++j) {
+      std::cin >> matrix[i][j];
     }
+  }
 
-    reverse_diagonals(matrix);
+  reverse_diagonals(matrix);
 
-    for (const auto &row: matrix) {
-        for (const int element: row) {
-            std::cout << element << " ";
-        }
-        std::cout << '\n';
+  for (const auto &row : matrix) {
+    for (const int element : row) {
+      std::cout << element << " ";
     }
+    std::cout << '\n';
+  }
 
-    return 0;
+  return 0;
 }

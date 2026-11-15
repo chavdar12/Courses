@@ -3,24 +3,24 @@
 #include <string>
 
 void print_sub_expressions(const std::string &expression) {
-    std::stack<int> opening_brackets;
+  std::stack<int> opening_brackets;
 
-    for (int i = 0; i < expression.size(); ++i) {
-        if (expression[i] == '(') {
-            opening_brackets.push(i);
-        } else if (expression[i] == ')' && !opening_brackets.empty()) {
-            const int start = opening_brackets.top();
-            opening_brackets.pop();
-            std::cout << expression.substr(start, i - start + 1) << '\n';
-        }
+  for (int i = 0; i < expression.size(); ++i) {
+    if (expression[i] == '(') {
+      opening_brackets.push(i);
+    } else if (expression[i] == ')' && !opening_brackets.empty()) {
+      const int start = opening_brackets.top();
+      opening_brackets.pop();
+      std::cout << expression.substr(start, i - start + 1) << '\n';
     }
+  }
 }
 
 int main() {
-    std::string expression;
-    std::getline(std::cin, expression);
+  std::string expression;
+  std::getline(std::cin, expression);
 
-    print_sub_expressions(expression);
+  print_sub_expressions(expression);
 
-    return 0;
+  return 0;
 }

@@ -4,35 +4,35 @@
 #include <string>
 
 int main() {
-    std::queue<std::string> children;
-    int n;
-    std::string name;
+  std::queue<std::string> children;
+  int n;
+  std::string name;
 
-    std::string line;
-    std::getline(std::cin, line);
-    std::istringstream iss(line);
-    while (iss >> name) {
-        children.push(name);
-    }
+  std::string line;
+  std::getline(std::cin, line);
+  std::istringstream iss(line);
+  while (iss >> name) {
+    children.push(name);
+  }
 
-    std::cin >> n;
+  std::cin >> n;
 
-    if (children.empty() || n < 1) {
-        return 0;
-    }
-
-    while (children.size() > 1) {
-        for (int i = 0; i < n - 1; ++i) {
-            std::string front_child = children.front();
-            children.pop();
-            children.push(front_child);
-        }
-
-        std::cout << "Removed " << children.front() << '\n';
-        children.pop();
-    }
-
-    std::cout << "Last is " << children.front() << '\n';
-
+  if (children.empty() || n < 1) {
     return 0;
+  }
+
+  while (children.size() > 1) {
+    for (int i = 0; i < n - 1; ++i) {
+      std::string front_child = children.front();
+      children.pop();
+      children.push(front_child);
+    }
+
+    std::cout << "Removed " << children.front() << '\n';
+    children.pop();
+  }
+
+  std::cout << "Last is " << children.front() << '\n';
+
+  return 0;
 }

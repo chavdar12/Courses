@@ -1,19 +1,19 @@
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
 
 int main() {
-    std::map<int, std::string> companies;
+  std::map<int, std::string> companies;
 
-    std::string name;
-    int id;
-    while (std::cin >> name >> id && name != "end") {
-        companies[id] = name;
-    }
+  std::string name;
+  int id;
+  while (std::cin >> name >> id && name != "end") {
+    companies[id] = name;
+  }
 
-    for (const auto &pair: companies) {
-        std::cout << pair.second << " " << pair.first << '\n';
-    }
+  for (const auto &pair : companies) {
+    std::cout << pair.second << " " << pair.first << '\n';
+  }
 
-    return 0;
+  return 0;
 }
