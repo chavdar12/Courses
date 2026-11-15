@@ -12,8 +12,6 @@ end_price = total_clothes_price + movie_decor
 
 diff = abs(film_budget - end_price)
 if end_price > film_budget:
-    print(f"Not enough money!\n"
-          f"Wingard needs {diff:.2f} leva more.")
+    print(f"Not enough money!\nWingard needs {diff:.2f} leva more.")
 else:
-    print(f"Action!\n"
-          f"Wingard starts filming with {diff:.2f} leva left.")
+    print(f"Action!\nWingard starts filming with {diff:.2f} leva left.")

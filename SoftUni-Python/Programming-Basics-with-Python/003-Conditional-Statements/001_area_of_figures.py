@@ -7,7 +7,7 @@ area = 0
 
 if figure == "square":
     a = float(input())
-    area = a ** 2
+    area = a**2
 elif figure == "rectangle":
     a = float(input())
     b = float(input())

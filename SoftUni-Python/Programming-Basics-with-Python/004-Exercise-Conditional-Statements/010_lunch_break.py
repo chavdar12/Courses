@@ -7,6 +7,10 @@ break_duration = int(input())
 free_time = break_duration - break_duration / 8 - break_duration / 4
 
 if free_time >= episode_duration:
-    print(f"You have enough time to watch {series_name} and left with {math.ceil(free_time - episode_duration)} minutes free time.")
+    print(
+        f"You have enough time to watch {series_name} and left with {math.ceil(free_time - episode_duration)} minutes free time."
+    )
 else:
-    print(f"You don't have enough time to watch {series_name}, you need {math.ceil(episode_duration - free_time)} more minutes.")
+    print(
+        f"You don't have enough time to watch {series_name}, you need {math.ceil(episode_duration - free_time)} more minutes."
+    )

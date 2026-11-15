@@ -6,7 +6,6 @@ birthday_moneys = 0
 birthday_moneys_sum = 0
 
 for birthday in range(1, lily_age + 1):
-
     if birthday % 2 == 0:
         birthday_moneys += 10
         birthday_moneys_sum += birthday_moneys

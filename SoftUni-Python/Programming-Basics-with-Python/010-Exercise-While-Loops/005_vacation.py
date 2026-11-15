@@ -25,7 +25,6 @@ while current_money < needed_money:
         break
 
 if is_spend_five:
-    print(f"You can't save the money.\n"
-          f"{total_days_counter}")
+    print(f"You can't save the money.\n{total_days_counter}")
 else:
     print(f"You saved the money for {total_days_counter} days.")

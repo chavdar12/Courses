@@ -14,5 +14,4 @@ while checked_book != "No More Books":
 if is_book_found:
     print(f"You checked {checked_books_count} books and found it.")
 else:
-    print(f"The book you search is not here!\n"
-          f"You checked {checked_books_count} books.")
+    print(f"The book you search is not here!\nYou checked {checked_books_count} books.")

@@ -16,6 +16,8 @@ while current_boxes_count != "Done":
     current_boxes_count = input()
 
 if is_room_space_end:
-    print(f"No more free space! You need {abs(free_room_area - current_boxes_count)} Cubic meters more.")
+    print(
+        f"No more free space! You need {abs(free_room_area - current_boxes_count)} Cubic meters more."
+    )
 else:
     print(f"{free_room_area} Cubic meters left.")

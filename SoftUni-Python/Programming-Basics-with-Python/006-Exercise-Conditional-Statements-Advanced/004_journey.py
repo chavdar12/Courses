@@ -25,5 +25,4 @@ elif budget > 1000:
     spent_money = budget * 0.90
     holiday_type = "Hotel"
 
-print(f"Somewhere in {destination}\n"
-      f"{holiday_type} - {spent_money:.2f}")
+print(f"Somewhere in {destination}\n{holiday_type} - {spent_money:.2f}")

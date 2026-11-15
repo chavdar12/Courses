@@ -14,8 +14,6 @@ for i in range(numbers_count):
 total_sum -= biggest_number
 
 if biggest_number == total_sum:
-    print(f"Yes\n"
-          f"Sum = {total_sum}")
+    print(f"Yes\nSum = {total_sum}")
 else:
-    print(f"No\n"
-          f"Diff = {abs(total_sum - biggest_number)}")
+    print(f"No\nDiff = {abs(total_sum - biggest_number)}")

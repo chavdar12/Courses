@@ -3,9 +3,15 @@ puzzles_count = int(input())
 dolls_count = int(input())
 bears_count = int(input())
 minions_count = int(input())
-trucks_count = (int(input()))
+trucks_count = int(input())
 
-total_price = 2.6 * puzzles_count + 3 * dolls_count + 4.1 * bears_count + 8.2 * minions_count + 2 * trucks_count
+total_price = (
+    2.6 * puzzles_count
+    + 3 * dolls_count
+    + 4.1 * bears_count
+    + 8.2 * minions_count
+    + 2 * trucks_count
+)
 
 total_toys_count = puzzles_count + dolls_count + bears_count + minions_count + trucks_count
 

@@ -27,6 +27,8 @@ elif flowers_kind == "Gladiolus":
 
 left_needed_sum = abs(budget - price)
 if budget >= price:
-    print(f"Hey, you have a great garden with {flowers_count} {flowers_kind} and {left_needed_sum:.2f} leva left.")
+    print(
+        f"Hey, you have a great garden with {flowers_count} {flowers_kind} and {left_needed_sum:.2f} leva left."
+    )
 else:
     print(f"Not enough money, you need {left_needed_sum:.2f} leva more.")

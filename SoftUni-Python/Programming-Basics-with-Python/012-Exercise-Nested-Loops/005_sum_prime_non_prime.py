@@ -22,5 +22,4 @@ while number != "stop":
 
     number = input()
 
-print(f"Sum of all prime numbers is: {prime_sum}\n"
-      f"Sum of all non prime numbers is: {non_prime_sum}")
+print(f"Sum of all prime numbers is: {prime_sum}\nSum of all non prime numbers is: {non_prime_sum}")

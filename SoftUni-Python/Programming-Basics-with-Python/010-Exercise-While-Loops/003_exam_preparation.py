@@ -24,6 +24,8 @@ while problem_name != "Enough":
 if is_enough:
     print(f"You need a break, {max_bad_appraisals} poor grades.")
 else:
-    print(f"Average score: {appraisals_sum / total_problems:.2f}\n"
-          f"Number of problems: {total_problems}\n"
-          f"Last problem: {last_problem}")
+    print(
+        f"Average score: {appraisals_sum / total_problems:.2f}\n"
+        f"Number of problems: {total_problems}\n"
+        f"Last problem: {last_problem}"
+    )

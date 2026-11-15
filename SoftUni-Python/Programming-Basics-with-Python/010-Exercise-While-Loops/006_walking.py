@@ -14,7 +14,6 @@ while steps_counter < steps_goal:
 steps_diff = abs(steps_goal - steps_counter)
 
 if steps_counter >= steps_goal:
-    print(f"Goal reached! Good job!\n"
-          f"{steps_diff} steps over the goal!")
+    print(f"Goal reached! Good job!\n{steps_diff} steps over the goal!")
 else:
     print(f"{steps_diff} more steps to reach goal.")
