@@ -13,7 +13,8 @@ public class ChatRoom
 
     public string DisplayChat()
     {
-        if (_chatMessages.Count == 0) return string.Empty;
+        if (_chatMessages.Count == 0)
+            return string.Empty;
 
         StringBuilder sb = new();
         sb.AppendLine("Chat Room Messages:");

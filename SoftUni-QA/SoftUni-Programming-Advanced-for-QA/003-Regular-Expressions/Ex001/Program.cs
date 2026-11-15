@@ -15,7 +15,8 @@ internal class Program
 
         List<string> result = new();
 
-        foreach (Match match in matches) result.Add(match.Value);
+        foreach (Match match in matches)
+            result.Add(match.Value);
 
         Console.WriteLine(string.Join(" ", result));
     }

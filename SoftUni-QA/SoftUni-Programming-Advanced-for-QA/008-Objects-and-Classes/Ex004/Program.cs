@@ -6,9 +6,7 @@ internal class Truck
     public string Model { get; set; }
     public string Weight { get; set; }
 
-    public Truck()
-    {
-    }
+    public Truck() { }
 
     public Truck(string brand, string model, string weight)
     {
@@ -24,9 +22,7 @@ internal class Car
     public string Model { get; set; }
     public string HorsePower { get; set; }
 
-    public Car()
-    {
-    }
+    public Car() { }
 
     public Car(string brand, string model, string horsePower)
     {
@@ -82,8 +78,8 @@ internal class Program
         if (catalog.CarList.Count != 0)
         {
             Console.WriteLine("Cars:");
-            catalog.CarList
-                .OrderBy(c => c.Brand)
+            catalog
+                .CarList.OrderBy(c => c.Brand)
                 .Select(c =>
                 {
                     Console.WriteLine($"{c.Brand}: {c.Model} - {c.HorsePower}hp");
@@ -96,8 +92,8 @@ internal class Program
         if (catalog.TruckList.Count != 0)
         {
             Console.WriteLine("Trucks:");
-            catalog.TruckList
-                .OrderBy(t => t.Brand)
+            catalog
+                .TruckList.OrderBy(t => t.Brand)
                 .Select(t =>
                 {
                     Console.WriteLine($"{t.Brand}: {t.Model} - {t.Weight}kg");

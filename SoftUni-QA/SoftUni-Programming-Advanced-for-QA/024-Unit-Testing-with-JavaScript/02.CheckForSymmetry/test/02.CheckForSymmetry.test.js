@@ -1,5 +1,5 @@
-import { isSymmetric } from '../02.CheckForSymmetry.js'
-import { expect } from 'chai'
+import { isSymmetric } from '../02.CheckForSymmetry.js';
+import { expect } from 'chai';
 
 describe('isSymmetric', () => {
     it('if given a empty array should return true', () => {
@@ -9,7 +9,7 @@ describe('isSymmetric', () => {
         const result = isSymmetric(inputArr);
         // Assert
         expect(result).to.be.true;
-    })
+    });
 
     it('should return false if a non-array value is given', () => {
         // Arrange
@@ -27,32 +27,32 @@ describe('isSymmetric', () => {
         expect(stringResult).to.be.false;
         expect(objectResult).to.be.false;
         expect(numericResult).to.be.false;
-    })
+    });
 
     it('should return false if a non-semmetric array is given', () => {
         // Arrange
-        const nonSemmetricArr = [1, 2, 3, 4]
+        const nonSemmetricArr = [1, 2, 3, 4];
         // Act
         const result = isSymmetric(nonSemmetricArr);
         // Assert
         expect(result).to.be.false;
-    })
+    });
 
     it('should return true if a semmetric array is given', () => {
         // Arrange
-        const semmetricArr = [3, 2, 1, 2, 3]
+        const semmetricArr = [3, 2, 1, 2, 3];
         // Act
         const result = isSymmetric(semmetricArr);
         // Assert
         expect(result).to.be.true;
-    })
+    });
 
     it('should return false if a string and numeric semmetric values are given', () => {
         // Arrange
-        const semmetricArr = [3, 2, 1, '2', '3']
+        const semmetricArr = [3, 2, 1, '2', '3'];
         // Act
         const result = isSymmetric(semmetricArr);
         // Assert
         expect(result).to.be.false;
-    })
-})
+    });
+});

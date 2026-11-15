@@ -15,7 +15,8 @@ internal class Program
 
         var validNumbers = new List<string>();
 
-        foreach (Match match in matches) validNumbers.Add(match.Value);
+        foreach (Match match in matches)
+            validNumbers.Add(match.Value);
 
         Console.WriteLine(string.Join(", ", validNumbers));
     }

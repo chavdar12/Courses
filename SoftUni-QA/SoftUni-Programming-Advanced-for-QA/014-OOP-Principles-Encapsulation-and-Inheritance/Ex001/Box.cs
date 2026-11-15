@@ -18,7 +18,8 @@ public class Box
         get => _length;
         private set
         {
-            if (value <= 0) throw new ArgumentException("Length cannot be zero or negative.");
+            if (value <= 0)
+                throw new ArgumentException("Length cannot be zero or negative.");
 
             _length = value;
         }
@@ -29,7 +30,8 @@ public class Box
         get => _width;
         private set
         {
-            if (value <= 0) throw new ArgumentException("Width cannot be zero or negative.");
+            if (value <= 0)
+                throw new ArgumentException("Width cannot be zero or negative.");
 
             _width = value;
         }
@@ -40,7 +42,8 @@ public class Box
         get => _height;
         private set
         {
-            if (value <= 0) throw new ArgumentException("Height cannot be zero or negative.");
+            if (value <= 0)
+                throw new ArgumentException("Height cannot be zero or negative.");
 
             _height = value;
         }

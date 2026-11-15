@@ -17,8 +17,10 @@ public class ProductInventoryTests
     {
         _inventory.AddProduct("Milk", 2.5, 3);
 
-        Assert.That(_inventory.DisplayInventory(),
-            Is.EqualTo($"Product Inventory:{Environment.NewLine}Milk - Price: $2.50 - Quantity: 3"));
+        Assert.That(
+            _inventory.DisplayInventory(),
+            Is.EqualTo($"Product Inventory:{Environment.NewLine}Milk - Price: $2.50 - Quantity: 3")
+        );
     }
 
     [Test]
@@ -33,9 +35,10 @@ public class ProductInventoryTests
         // Arrange
         _inventory.AddProduct("Milk", 2.5, 3);
         _inventory.AddProduct("Bread", 1.199, 10);
-        var expected = $"Product Inventory:{Environment.NewLine}" +
-                       $"Milk - Price: $2.50 - Quantity: 3{Environment.NewLine}" +
-                       "Bread - Price: $1.20 - Quantity: 10";
+        var expected =
+            $"Product Inventory:{Environment.NewLine}"
+            + $"Milk - Price: $2.50 - Quantity: 3{Environment.NewLine}"
+            + "Bread - Price: $1.20 - Quantity: 10";
 
         // Act
         var result = _inventory.DisplayInventory();

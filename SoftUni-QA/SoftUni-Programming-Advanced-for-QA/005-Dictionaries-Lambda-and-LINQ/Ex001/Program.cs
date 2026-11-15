@@ -4,10 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var numbers = Console.ReadLine()
-            .Split()
-            .Select(double.Parse)
-            .ToList();
+        var numbers = Console.ReadLine().Split().Select(double.Parse).ToList();
 
         var counter = new SortedDictionary<double, int>();
 
@@ -17,6 +14,7 @@ internal class Program
             else
                 counter.Add(number, 1);
 
-        foreach (var element in counter) Console.WriteLine($"{element.Key} -> {element.Value}");
+        foreach (var element in counter)
+            Console.WriteLine($"{element.Key} -> {element.Value}");
     }
 }

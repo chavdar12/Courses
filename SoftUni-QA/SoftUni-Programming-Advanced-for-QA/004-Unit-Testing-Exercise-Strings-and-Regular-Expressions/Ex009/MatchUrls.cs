@@ -14,7 +14,8 @@ public class MatchUrls
         var matches = regex.Matches(text);
 
         List<string> urls = new();
-        foreach (Match match in matches) urls.Add(match.Value);
+        foreach (Match match in matches)
+            urls.Add(match.Value);
 
         return urls;
     }

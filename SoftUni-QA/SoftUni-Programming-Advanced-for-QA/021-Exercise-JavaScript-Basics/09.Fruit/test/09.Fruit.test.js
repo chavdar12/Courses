@@ -4,7 +4,8 @@ import { solve as fruit } from '../09.Fruit.js';
 
 describe('09.Fruit', () => {
     it('09 prices fruit by weight', () => {
-        expect(captureLog(() => fruit('orange', 2500, 1.80)))
-            .to.deep.equal(['I need $4.50 to buy 2.50 kilograms orange.']);
+        expect(captureLog(() => fruit('orange', 2500, 1.8))).to.deep.equal([
+            'I need $4.50 to buy 2.50 kilograms orange.',
+        ]);
     });
 });

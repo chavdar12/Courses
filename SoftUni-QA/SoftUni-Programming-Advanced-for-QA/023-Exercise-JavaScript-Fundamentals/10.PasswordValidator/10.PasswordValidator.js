@@ -21,7 +21,7 @@ export function solve(password) {
         }
 
         return counter;
-    }
+    };
 
     const numberOfDigitsInString = countDigitsInString(password);
 
@@ -30,9 +30,8 @@ export function solve(password) {
     }
 
     if (errors.length === 0) {
-        console.log('Password is valid')
-    }
-    else {
+        console.log('Password is valid');
+    } else {
         errors.forEach((error) => console.log(error));
     }
 }

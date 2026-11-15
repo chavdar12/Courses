@@ -5,9 +5,7 @@ internal class Item
     public string Name { get; set; }
     public double Price { get; set; }
 
-    public Item()
-    {
-    }
+    public Item() { }
 
     public Item(string name, double price)
     {
@@ -23,9 +21,7 @@ internal class Box
     public int Quantity { get; set; }
     public double PriceOfABox { get; set; }
 
-    public Box()
-    {
-    }
+    public Box() { }
 
     public Box(string serialNumber, Item item, int itemQuantity)
     {
@@ -60,7 +56,8 @@ internal class Program
             input = Console.ReadLine();
         }
 
-        boxes.OrderByDescending(b => b.PriceOfABox)
+        boxes
+            .OrderByDescending(b => b.PriceOfABox)
             .Select(b =>
             {
                 Console.WriteLine(b.SerialNumber);

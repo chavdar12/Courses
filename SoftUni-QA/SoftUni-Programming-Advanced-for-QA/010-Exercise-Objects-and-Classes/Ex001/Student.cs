@@ -8,9 +8,7 @@ public class Student
 
     public double Grade { get; set; }
 
-    public Student()
-    {
-    }
+    public Student() { }
 
     public Student(string firstName, string lastName, double grade)
     {

@@ -19,7 +19,8 @@ internal class Program
             students.Add(student);
         }
 
-        students.OrderByDescending(s => s.Grade)
+        students
+            .OrderByDescending(s => s.Grade)
             .Select(s =>
             {
                 Console.WriteLine($"{s.FirstName} {s.LastName}: {s.Grade:F2}");

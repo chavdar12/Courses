@@ -32,7 +32,8 @@ internal class Program
     {
         var number = int.Parse(Console.ReadLine());
 
-        if (number <= start || number >= end) throw new ArgumentOutOfRangeException();
+        if (number <= start || number >= end)
+            throw new ArgumentOutOfRangeException();
 
         return number;
     }

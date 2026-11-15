@@ -11,6 +11,7 @@ internal class Program
         foreach (var ch in input.Where(ch => ch != ' ').Where(ch => !characters.TryAdd(ch, 1)))
             characters[ch]++;
 
-        foreach (var pair in characters) Console.WriteLine($"{pair.Key} -> {pair.Value}");
+        foreach (var pair in characters)
+            Console.WriteLine($"{pair.Key} -> {pair.Value}");
     }
 }

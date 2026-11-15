@@ -9,16 +9,21 @@ public class SubstringExtractorTests
     [Test]
     public void Test_ExtractSubstringBetweenMarkers_SubstringFound_ReturnsExtractedSubstring()
     {
-        Assert.That(SubstringExtractor.ExtractSubstringBetweenMarkers("[start]hello[end]", "[start]", "[end]"),
-            Is.EqualTo("hello"));
+        Assert.That(
+            SubstringExtractor.ExtractSubstringBetweenMarkers("[start]hello[end]", "[start]", "[end]"),
+            Is.EqualTo("hello")
+        );
     }
 
     [TestCase("hello[end]", "[start]", "[end]")]
     [TestCase("[start]hello", "[start]", "[end]")]
     [TestCase("hello", "[start]", "[end]")]
     [TestCase("", "[start]", "[end]")]
-    public void Test_ExtractSubstringBetweenMarkers_MarkerMissing_ReturnsNotFoundMessage(string input, string start,
-        string end)
+    public void Test_ExtractSubstringBetweenMarkers_MarkerMissing_ReturnsNotFoundMessage(
+        string input,
+        string start,
+        string end
+    )
     {
         Assert.That(SubstringExtractor.ExtractSubstringBetweenMarkers(input, start, end), Is.EqualTo(NotFound));
     }

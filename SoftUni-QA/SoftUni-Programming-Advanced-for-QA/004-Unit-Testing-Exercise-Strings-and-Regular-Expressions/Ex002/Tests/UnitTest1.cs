@@ -11,7 +11,6 @@ public class Tests
         var toRemove = "fox";
         var input = "The quick brown fox jumps over the lazy dog";
 
-
         // Act
         var result = Substring.RemoveOccurrences(toRemove, input);
 
@@ -26,7 +25,6 @@ public class Tests
         // Arrange
         var toRemove = "Hello";
         var input = "Hello, my name is Daniel";
-
 
         // Act
         var result = Substring.RemoveOccurrences(toRemove, input);
@@ -57,7 +55,6 @@ public class Tests
         // Arrange
         const string toRemove = "Golf";
         const string input = "First Golf was made in 1976, and the latest version of Golf 8 is from 2024";
-
 
         // Act
         var result = Substring.RemoveOccurrences(toRemove, input);

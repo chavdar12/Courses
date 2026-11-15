@@ -1,10 +1,10 @@
 export function solve(object) {
     let uniqueNames = {};
-    object.forEach(element => {
+    object.forEach((element) => {
         let keyValuePair = element.split(' ');
         let key = keyValuePair[0]; // Name
         let value = keyValuePair[1]; // Phone Number
-        
+
         uniqueNames[key] = value;
     });
 

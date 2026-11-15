@@ -17,18 +17,14 @@ public class Shop
             var price = decimal.Parse(data[3]);
 
             var boxPrice = price * itemQty;
-            Item newItem = new()
-            {
-                Name = name,
-                Price = price
-            };
+            Item newItem = new() { Name = name, Price = price };
 
             Box newBox = new()
             {
                 SerialNumber = serialNumber,
                 Item = newItem,
                 ItemQuantity = itemQty,
-                BoxPrice = boxPrice
+                BoxPrice = boxPrice,
             };
 
             boxList.Add(newBox);

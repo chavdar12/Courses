@@ -4,7 +4,8 @@ public class Exceptions
 {
     public string ArgumentNullReverse(string? s)
     {
-        if (s is null) throw new ArgumentNullException(nameof(s), "String cannot be null.");
+        if (s is null)
+            throw new ArgumentNullException(nameof(s), "String cannot be null.");
 
         var arr = s.ToCharArray();
         Array.Reverse(arr);
@@ -13,21 +14,24 @@ public class Exceptions
 
     public decimal ArgumentCalculateDiscount(decimal totalPrice, decimal discount)
     {
-        if (discount is < 0 or > 100) throw new ArgumentException("Discount must be between 0 and 100.", "discount");
+        if (discount is < 0 or > 100)
+            throw new ArgumentException("Discount must be between 0 and 100.", "discount");
 
         return totalPrice - totalPrice * discount / 100;
     }
 
     public int IndexOutOfRangeGetElement(int[] array, int index)
     {
-        if (index < 0 || index >= array.Length) throw new IndexOutOfRangeException("Index is out of range.");
+        if (index < 0 || index >= array.Length)
+            throw new IndexOutOfRangeException("Index is out of range.");
 
         return array[index];
     }
 
     public string InvalidOperationPerformSecureOperation(bool isLoggedIn)
     {
-        if (!isLoggedIn) throw new InvalidOperationException("User must be logged in to perform this operation.");
+        if (!isLoggedIn)
+            throw new InvalidOperationException("User must be logged in to perform this operation.");
 
         return "User logged in.";
     }
@@ -62,14 +66,16 @@ public class Exceptions
 
     public int DivideByZeroDivideNumbers(int dividend, int divisor)
     {
-        if (divisor == 0) throw new DivideByZeroException("Division by zero is not allowed.");
+        if (divisor == 0)
+            throw new DivideByZeroException("Division by zero is not allowed.");
 
         return dividend / divisor;
     }
 
     public int SumCollectionElements(int[]? collection, int index)
     {
-        if (collection is null) throw new ArgumentNullException(nameof(collection), "Collection cannot be null.");
+        if (collection is null)
+            throw new ArgumentNullException(nameof(collection), "Collection cannot be null.");
 
         if (index < 0 || index >= collection.Length)
             throw new IndexOutOfRangeException("Index has to be within bounds.");
@@ -79,7 +85,8 @@ public class Exceptions
 
     public int GetElementAsNumber(Dictionary<string, string> dictionary, string key)
     {
-        if (!dictionary.ContainsKey(key)) throw new KeyNotFoundException("Key not found in the dictionary.");
+        if (!dictionary.ContainsKey(key))
+            throw new KeyNotFoundException("Key not found in the dictionary.");
 
         var s = dictionary[key];
         int n;

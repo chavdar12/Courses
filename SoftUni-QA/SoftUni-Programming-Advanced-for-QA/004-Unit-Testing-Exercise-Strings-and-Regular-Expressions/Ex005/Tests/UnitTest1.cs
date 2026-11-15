@@ -27,7 +27,10 @@ public class Tests
         var repetitionFactor = 3;
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => { Pattern.GeneratePatternedString(input, repetitionFactor); });
+        Assert.Throws<ArgumentException>(() =>
+        {
+            Pattern.GeneratePatternedString(input, repetitionFactor);
+        });
     }
 
     [Test]
@@ -38,7 +41,10 @@ public class Tests
         var repetitionFactor = -3;
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => { Pattern.GeneratePatternedString(input, repetitionFactor); });
+        Assert.Throws<ArgumentException>(() =>
+        {
+            Pattern.GeneratePatternedString(input, repetitionFactor);
+        });
     }
 
     [Test]
@@ -49,6 +55,9 @@ public class Tests
         var repetitionFactor = 0;
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => { Pattern.GeneratePatternedString(input, repetitionFactor); });
+        Assert.Throws<ArgumentException>(() =>
+        {
+            Pattern.GeneratePatternedString(input, repetitionFactor);
+        });
     }
 }

@@ -71,8 +71,10 @@ public class Tests
         var discount = 100.1m;
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => _exceptions.ArgumentCalculateDiscount(totalPrice, discount),
-            "Discount must be between 0 and 100.");
+        Assert.Throws<ArgumentException>(
+            () => _exceptions.ArgumentCalculateDiscount(totalPrice, discount),
+            "Discount must be between 0 and 100."
+        );
     }
 
     [Test]
@@ -98,8 +100,10 @@ public class Tests
         var index = -1;
 
         // Act & Assert
-        Assert.That(() => _exceptions.IndexOutOfRangeGetElement(array, index),
-            Throws.InstanceOf<IndexOutOfRangeException>());
+        Assert.That(
+            () => _exceptions.IndexOutOfRangeGetElement(array, index),
+            Throws.InstanceOf<IndexOutOfRangeException>()
+        );
     }
 
     [Test]
@@ -110,8 +114,10 @@ public class Tests
         var index = array.Length;
 
         // Act & Assert
-        Assert.Throws<IndexOutOfRangeException>(() => _exceptions.IndexOutOfRangeGetElement(array, index),
-            "Index is out of range.");
+        Assert.Throws<IndexOutOfRangeException>(
+            () => _exceptions.IndexOutOfRangeGetElement(array, index),
+            "Index is out of range."
+        );
     }
 
     [Test]
@@ -121,8 +127,10 @@ public class Tests
         var index = array.Length + 1;
 
         // Act & Assert
-        Assert.Throws<IndexOutOfRangeException>(() => _exceptions.IndexOutOfRangeGetElement(array, index),
-            "Index is out of range.");
+        Assert.Throws<IndexOutOfRangeException>(
+            () => _exceptions.IndexOutOfRangeGetElement(array, index),
+            "Index is out of range."
+        );
     }
 
     [Test]
@@ -146,8 +154,10 @@ public class Tests
         var isLoggedIn = false;
 
         // Act & Assert
-        Assert.Throws<InvalidOperationException>(() => _exceptions.InvalidOperationPerformSecureOperation(isLoggedIn),
-            "User must be logged in to perform this operation.");
+        Assert.Throws<InvalidOperationException>(
+            () => _exceptions.InvalidOperationPerformSecureOperation(isLoggedIn),
+            "User must be logged in to perform this operation."
+        );
     }
 
     [Test]
@@ -171,8 +181,10 @@ public class Tests
         var input = "10.";
 
         // Act & Assert
-        Assert.Throws<FormatException>(() => _exceptions.FormatExceptionParseInt(input),
-            "Input is not in the correct format for an integer.");
+        Assert.Throws<FormatException>(
+            () => _exceptions.FormatExceptionParseInt(input),
+            "Input is not in the correct format for an integer."
+        );
     }
 
     [Test]
@@ -183,7 +195,7 @@ public class Tests
         {
             { "Day of Birth", 18 },
             { "Month of Birth", 9 },
-            { "Year of Birth", 1995 }
+            { "Year of Birth", 1995 },
         };
         var key = "Day of Birth";
         var expected = 18;
@@ -203,13 +215,15 @@ public class Tests
         {
             { "Day of Birth", 18 },
             { "Month of Birth", 9 },
-            { "Year of Birth", 1995 }
+            { "Year of Birth", 1995 },
         };
         var key = "EGN";
 
         // Act & Assert
-        Assert.Throws<KeyNotFoundException>(() => _exceptions.KeyNotFoundFindValueByKey(dictionary, key),
-            "The specified key was not found in the dictionary.");
+        Assert.Throws<KeyNotFoundException>(
+            () => _exceptions.KeyNotFoundFindValueByKey(dictionary, key),
+            "The specified key was not found in the dictionary."
+        );
     }
 
     [Test]
@@ -235,8 +249,10 @@ public class Tests
         var b = 2147483647;
 
         // Act & Assert
-        Assert.Throws<OverflowException>(() => _exceptions.OverflowAddNumbers(a, b),
-            "Arithmetic overflow occurred during addition.");
+        Assert.Throws<OverflowException>(
+            () => _exceptions.OverflowAddNumbers(a, b),
+            "Arithmetic overflow occurred during addition."
+        );
     }
 
     [Test]
@@ -247,8 +263,10 @@ public class Tests
         var b = -2147483648;
 
         // Act & Assert
-        Assert.Throws<OverflowException>(() => _exceptions.OverflowAddNumbers(a, b),
-            "Arithmetic overflow occurred during addition.");
+        Assert.Throws<OverflowException>(
+            () => _exceptions.OverflowAddNumbers(a, b),
+            "Arithmetic overflow occurred during addition."
+        );
     }
 
     [Test]
@@ -274,8 +292,10 @@ public class Tests
         var divisor = 0;
 
         // Act & Assert
-        Assert.Throws<DivideByZeroException>(() => _exceptions.DivideByZeroDivideNumbers(dividend, divisor),
-            "Division by zero is not allowed.");
+        Assert.Throws<DivideByZeroException>(
+            () => _exceptions.DivideByZeroDivideNumbers(dividend, divisor),
+            "Division by zero is not allowed."
+        );
     }
 
     [Test]
@@ -301,8 +321,10 @@ public class Tests
         var index = 0;
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => _exceptions.SumCollectionElements(collection, index),
-            "Collection cannot be null.");
+        Assert.Throws<ArgumentNullException>(
+            () => _exceptions.SumCollectionElements(collection, index),
+            "Collection cannot be null."
+        );
     }
 
     [Test]
@@ -313,8 +335,10 @@ public class Tests
         var index = -1;
 
         // Act & Assert
-        Assert.Throws<IndexOutOfRangeException>(() => _exceptions.SumCollectionElements(collection, index),
-            "Index has to be within bounds.");
+        Assert.Throws<IndexOutOfRangeException>(
+            () => _exceptions.SumCollectionElements(collection, index),
+            "Index has to be within bounds."
+        );
     }
 
     [Test]
@@ -325,7 +349,7 @@ public class Tests
         {
             { "Day of Birth", "18" },
             { "Month of Birth", "9" },
-            { "Year of Birth", "1995" }
+            { "Year of Birth", "1995" },
         };
         var key = "Day of Birth";
         var expected = 18;
@@ -345,13 +369,15 @@ public class Tests
         {
             { "Day of Birth", "18" },
             { "Month of Birth", "9" },
-            { "Year of Birth", "1995" }
+            { "Year of Birth", "1995" },
         };
         var key = "EGN";
 
         // Act & Assert
-        Assert.Throws<KeyNotFoundException>(() => _exceptions.GetElementAsNumber(dictionary, key),
-            "Key not found in the dictionary.");
+        Assert.Throws<KeyNotFoundException>(
+            () => _exceptions.GetElementAsNumber(dictionary, key),
+            "Key not found in the dictionary."
+        );
     }
 
     [Test]
@@ -362,7 +388,7 @@ public class Tests
         {
             { "Day of Birth", "Invalid" },
             { "Month of Birth", "9" },
-            { "Year of Birth", "1995" }
+            { "Year of Birth", "1995" },
         };
         var key = "Day of Birth";
 

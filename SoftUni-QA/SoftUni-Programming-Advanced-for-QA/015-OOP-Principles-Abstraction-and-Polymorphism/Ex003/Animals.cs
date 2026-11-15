@@ -20,9 +20,8 @@ public abstract class Animal
 
 public class Cat : Animal
 {
-    public Cat(string name, string favouriteFood) : base(name, favouriteFood)
-    {
-    }
+    public Cat(string name, string favouriteFood)
+        : base(name, favouriteFood) { }
 
     public override string ExplainSelf()
     {
@@ -32,9 +31,8 @@ public class Cat : Animal
 
 public class Dog : Animal
 {
-    public Dog(string name, string favouriteFood) : base(name, favouriteFood)
-    {
-    }
+    public Dog(string name, string favouriteFood)
+        : base(name, favouriteFood) { }
 
     public override string ExplainSelf()
     {

@@ -6,8 +6,7 @@ internal class Program
     {
         var words = Console.ReadLine().Split().ToArray();
 
-        var result = words.Aggregate("", (current1, word) =>
-            word.Aggregate(current1, (current, _) => current + word));
+        var result = words.Aggregate("", (current1, word) => word.Aggregate(current1, (current, _) => current + word));
 
         Console.WriteLine(result);
     }

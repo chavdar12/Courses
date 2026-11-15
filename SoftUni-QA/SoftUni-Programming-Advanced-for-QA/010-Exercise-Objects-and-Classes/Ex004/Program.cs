@@ -37,12 +37,14 @@ internal class Program
                 CheckPokemonForElement(trainers, command);
             else if (command == "Water")
                 CheckPokemonForElement(trainers, command);
-            else if (command == "Electricity") CheckPokemonForElement(trainers, command);
+            else if (command == "Electricity")
+                CheckPokemonForElement(trainers, command);
 
             command = Console.ReadLine();
         }
 
-        trainers.OrderByDescending(t => t.Value.NumberOfBadges)
+        trainers
+            .OrderByDescending(t => t.Value.NumberOfBadges)
             .Select(t =>
             {
                 Console.WriteLine($"{t.Value.Name} {t.Value.NumberOfBadges} {t.Value.Pokemons.Count}");

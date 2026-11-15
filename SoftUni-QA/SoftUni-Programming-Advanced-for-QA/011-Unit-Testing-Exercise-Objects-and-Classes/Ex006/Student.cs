@@ -24,18 +24,19 @@ public class Student
             var age = int.Parse(data[2]);
             var hometown = data[3];
 
-            var student = studentList
-                .FirstOrDefault(s => s.FirstName == firstName && s.LastName == lastName);
+            var student = studentList.FirstOrDefault(s => s.FirstName == firstName && s.LastName == lastName);
 
             if (student is null)
             {
-                studentList.Add(new Student
-                {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    Age = age,
-                    Hometown = hometown
-                });
+                studentList.Add(
+                    new Student
+                    {
+                        FirstName = firstName,
+                        LastName = lastName,
+                        Age = age,
+                        Hometown = hometown,
+                    }
+                );
             }
             else
             {

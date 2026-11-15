@@ -22,7 +22,8 @@ internal class Program
         {
             var student = pair.Key;
             var averageGrade = pair.Value.Average();
-            if (averageGrade >= 4.50) Console.WriteLine($"{student} -> {averageGrade:F2}");
+            if (averageGrade >= 4.50)
+                Console.WriteLine($"{student} -> {averageGrade:F2}");
         }
     }
 }

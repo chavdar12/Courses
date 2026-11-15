@@ -26,18 +26,17 @@ public class Song
             {
                 ListType = type,
                 Name = name,
-                Time = time
+                Time = time,
             };
 
             addedSongs.Add(song);
         }
 
-        var filtered = wantedList == "all"
-            ? addedSongs
-            : addedSongs.Where(s => s.ListType == wantedList).ToList();
+        var filtered = wantedList == "all" ? addedSongs : addedSongs.Where(s => s.ListType == wantedList).ToList();
 
         StringBuilder sb = new();
-        foreach (var song in filtered) sb.AppendLine(song.Name);
+        foreach (var song in filtered)
+            sb.AppendLine(song.Name);
 
         return sb.ToString().Trim();
     }

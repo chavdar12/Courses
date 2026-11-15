@@ -71,7 +71,7 @@ public class Tesla : ICar, IElectricCar
 
     public override string ToString()
     {
-        return $"{Color} {GetType().Name} {Model} with {Battery} Batteries{Environment.NewLine}" +
-               $"{Start()}{Environment.NewLine}{Stop()}";
+        return $"{Color} {GetType().Name} {Model} with {Battery} Batteries{Environment.NewLine}"
+            + $"{Start()}{Environment.NewLine}{Stop()}";
     }
 }

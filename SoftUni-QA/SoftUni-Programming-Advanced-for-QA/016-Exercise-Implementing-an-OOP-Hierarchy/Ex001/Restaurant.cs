@@ -58,7 +58,8 @@ public class Restaurant
 
     public MenuItem GetMenuItem(int index)
     {
-        if (index < 0 || index >= _menu.Count) throw new IndexOutOfRangeException("Invalid index!");
+        if (index < 0 || index >= _menu.Count)
+            throw new IndexOutOfRangeException("Invalid index!");
 
         return _menu[index];
     }
@@ -72,7 +73,8 @@ public class Restaurant
     {
         StringBuilder sb = new();
         sb.AppendLine("Menu Items:");
-        foreach (var item in _menu) sb.AppendLine(item.ToString());
+        foreach (var item in _menu)
+            sb.AppendLine(item.ToString());
 
         Console.WriteLine(sb.ToString().TrimEnd());
     }
@@ -82,7 +84,8 @@ public class Restaurant
         StringBuilder sb = new();
         sb.AppendLine($"{customer.Name}'s Order History:");
         sb.AppendLine($"Order Total: ${customer.OrderHistory.Sum(o => o.GetTotal())}");
-        foreach (var item in customer.OrderHistory.SelectMany(o => o.Items)) sb.AppendLine($" {item}");
+        foreach (var item in customer.OrderHistory.SelectMany(o => o.Items))
+            sb.AppendLine($" {item}");
 
         Console.WriteLine(sb.ToString().TrimEnd());
     }

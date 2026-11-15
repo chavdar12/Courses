@@ -7,9 +7,7 @@ internal class Student
     public int Age { get; set; }
     public string HomeTown { get; set; }
 
-    public Student()
-    {
-    }
+    public Student() { }
 
     public Student(string firstName, string secondName, int age, string homeTown)
     {
@@ -44,7 +42,8 @@ internal class Program
 
         var city = Console.ReadLine();
 
-        students.Where(s => s.HomeTown.Equals(city))
+        students
+            .Where(s => s.HomeTown.Equals(city))
             .Select(s =>
             {
                 Console.WriteLine($"{s.FirstName} {s.LastName} is {s.Age} years old.");

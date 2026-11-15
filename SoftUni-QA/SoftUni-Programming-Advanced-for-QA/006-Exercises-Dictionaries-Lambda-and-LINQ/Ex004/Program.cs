@@ -42,6 +42,7 @@ internal class Program
             }
         }
 
-        foreach (var pair in usersWithPlates) Console.WriteLine($"{pair.Key} => {pair.Value}");
+        foreach (var pair in usersWithPlates)
+            Console.WriteLine($"{pair.Key} => {pair.Value}");
     }
 }

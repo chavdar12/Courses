@@ -7,8 +7,7 @@ export function solve(input) {
 
         if (currentNumber % 2 === 0) {
             evenNums += currentNumber;
-        }
-        else {
+        } else {
             oddNums += currentNumber;
         }
     }

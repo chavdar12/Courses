@@ -8,7 +8,14 @@ public class ProductInventory
 
     public void AddProduct(string name, double price, int quantity)
     {
-        _products.Add(new Product { Name = name, Price = price, Quantity = quantity });
+        _products.Add(
+            new Product
+            {
+                Name = name,
+                Price = price,
+                Quantity = quantity,
+            }
+        );
     }
 
     public string DisplayInventory()

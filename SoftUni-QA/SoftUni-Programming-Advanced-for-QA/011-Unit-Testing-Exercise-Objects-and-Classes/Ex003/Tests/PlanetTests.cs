@@ -30,10 +30,11 @@ public class PlanetTests
     public void Test_GetPlanetInfo_ReturnsCorrectInfo()
     {
         // Arrange
-        var expected = $"Planet: Earth{Environment.NewLine}" +
-                       $"Diameter: 12742 km{Environment.NewLine}" +
-                       $"Distance from the Sun: 149600000 km{Environment.NewLine}" +
-                       $"Number of Moons: 1";
+        var expected =
+            $"Planet: Earth{Environment.NewLine}"
+            + $"Diameter: 12742 km{Environment.NewLine}"
+            + $"Distance from the Sun: 149600000 km{Environment.NewLine}"
+            + $"Number of Moons: 1";
 
         // Act
         var actual = _earth.GetPlanetInfo();

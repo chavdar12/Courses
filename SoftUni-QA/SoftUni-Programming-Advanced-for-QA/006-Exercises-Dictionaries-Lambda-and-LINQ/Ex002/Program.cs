@@ -19,6 +19,7 @@ internal class Program
             resource = Console.ReadLine();
         }
 
-        foreach (var pair in resources) Console.WriteLine($"{pair.Key} -> {pair.Value}");
+        foreach (var pair in resources)
+            Console.WriteLine($"{pair.Key} -> {pair.Value}");
     }
 }

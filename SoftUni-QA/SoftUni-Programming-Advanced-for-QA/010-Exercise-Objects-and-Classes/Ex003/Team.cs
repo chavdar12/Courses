@@ -8,9 +8,7 @@ public class Team
 
     public List<string> Members { get; set; }
 
-    public Team()
-    {
-    }
+    public Team() { }
 
     public Team(string name, string creator)
     {

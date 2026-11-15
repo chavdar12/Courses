@@ -13,7 +13,8 @@ internal class Program
             var word = Console.ReadLine();
             var synonym = Console.ReadLine();
 
-            if (!synonyms.ContainsKey(word)) synonyms[word] = new List<string>();
+            if (!synonyms.ContainsKey(word))
+                synonyms[word] = new List<string>();
 
             synonyms[word].Add(synonym);
         }

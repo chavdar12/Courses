@@ -18,19 +18,23 @@ public class Vehicles
             var power = int.Parse(data[3]);
 
             if (type == "Truck")
-                catalogue.TruckList.Add(new Truck
-                {
-                    Brand = brand,
-                    Model = model,
-                    Weight = power
-                });
+                catalogue.TruckList.Add(
+                    new Truck
+                    {
+                        Brand = brand,
+                        Model = model,
+                        Weight = power,
+                    }
+                );
             else
-                catalogue.CarList.Add(new Car
-                {
-                    Brand = brand,
-                    Model = model,
-                    HorsePower = power
-                });
+                catalogue.CarList.Add(
+                    new Car
+                    {
+                        Brand = brand,
+                        Model = model,
+                        HorsePower = power,
+                    }
+                );
         }
 
         StringBuilder sb = new();

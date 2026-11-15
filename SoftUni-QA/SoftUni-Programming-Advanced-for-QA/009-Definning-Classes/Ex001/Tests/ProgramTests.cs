@@ -25,7 +25,11 @@ public class ProgramTests
     [Test]
     public void Test_DefaultCar_WhoAmI_ReturnsDefaults()
     {
-        Assert.That(new Car().WhoAmI(), Is.EqualTo(
-            $"Make: VW{Environment.NewLine}Model: Golf{Environment.NewLine}Year: 2025{Environment.NewLine}Fuel: 200.00"));
+        Assert.That(
+            new Car().WhoAmI(),
+            Is.EqualTo(
+                $"Make: VW{Environment.NewLine}Model: Golf{Environment.NewLine}Year: 2025{Environment.NewLine}Fuel: 200.00"
+            )
+        );
     }
 }

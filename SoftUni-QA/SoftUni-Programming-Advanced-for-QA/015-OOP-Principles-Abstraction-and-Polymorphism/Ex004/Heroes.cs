@@ -28,9 +28,8 @@ public abstract class BaseHero : IHero
 
 public abstract class Healer : BaseHero
 {
-    protected Healer(string name) : base(name)
-    {
-    }
+    protected Healer(string name)
+        : base(name) { }
 
     public override string CastAbility()
     {
@@ -40,9 +39,8 @@ public abstract class Healer : BaseHero
 
 public abstract class Fighter : BaseHero
 {
-    protected Fighter(string name) : base(name)
-    {
-    }
+    protected Fighter(string name)
+        : base(name) { }
 
     public override string CastAbility()
     {
@@ -52,36 +50,32 @@ public abstract class Fighter : BaseHero
 
 public class Druid : Healer
 {
-    public Druid(string name) : base(name)
-    {
-    }
+    public Druid(string name)
+        : base(name) { }
 
     public override int Power => 80;
 }
 
 public class Paladin : Healer
 {
-    public Paladin(string name) : base(name)
-    {
-    }
+    public Paladin(string name)
+        : base(name) { }
 
     public override int Power => 100;
 }
 
 public class Rogue : Fighter
 {
-    public Rogue(string name) : base(name)
-    {
-    }
+    public Rogue(string name)
+        : base(name) { }
 
     public override int Power => 80;
 }
 
 public class Warrior : Fighter
 {
-    public Warrior(string name) : base(name)
-    {
-    }
+    public Warrior(string name)
+        : base(name) { }
 
     public override int Power => 100;
 }

@@ -8,13 +8,13 @@ export function solve(heroesData) {
         let heroItems = [];
 
         if (tokens.length > 2) {
-            heroItems = tokens[2]. split(', ');
+            heroItems = tokens[2].split(', ');
         }
-        
+
         let hero = {
             name: heroName,
             level: heroLevel,
-            items: heroItems
+            items: heroItems,
         };
 
         heroes.push(hero);

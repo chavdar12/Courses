@@ -23,20 +23,20 @@ public class ArticleTests
             {
                 Title = "Title1",
                 Content = "Content1",
-                Author = "Author1"
+                Author = "Author1",
             },
             new Article
             {
                 Title = "Title2",
                 Content = "Content2",
-                Author = "Author2"
+                Author = "Author2",
             },
             new Article
             {
                 Title = "Title3",
                 Content = "Content3",
-                Author = "Author3"
-            }
+                Author = "Author3",
+            },
         };
 
         // Act
@@ -64,26 +64,27 @@ public class ArticleTests
                 {
                     Title = "ATitle",
                     Content = "ContentA",
-                    Author = "AuthorA"
+                    Author = "AuthorA",
                 },
                 new()
                 {
                     Title = "BTitle",
                     Content = "ContentB",
-                    Author = "AuthorB"
+                    Author = "AuthorB",
                 },
                 new()
                 {
                     Title = "CTitle",
                     Content = "ContentC",
-                    Author = "AuthorC"
-                }
-            }
+                    Author = "AuthorC",
+                },
+            },
         };
         var printCriteria = "title";
-        var expected = $"ATitle - ContentA: AuthorA{Environment.NewLine}" +
-                       $"BTitle - ContentB: AuthorB{Environment.NewLine}" +
-                       $"CTitle - ContentC: AuthorC";
+        var expected =
+            $"ATitle - ContentA: AuthorA{Environment.NewLine}"
+            + $"BTitle - ContentB: AuthorB{Environment.NewLine}"
+            + $"CTitle - ContentC: AuthorC";
 
         // Act
         var actual = _article.GetArticleList(article, printCriteria);
@@ -104,21 +105,21 @@ public class ArticleTests
                 {
                     Title = "ATitle",
                     Content = "ContentA",
-                    Author = "AuthorA"
+                    Author = "AuthorA",
                 },
                 new()
                 {
                     Title = "BTitle",
                     Content = "ContentB",
-                    Author = "AuthorB"
+                    Author = "AuthorB",
                 },
                 new()
                 {
                     Title = "CTitle",
                     Content = "ContentC",
-                    Author = "AuthorC"
-                }
-            }
+                    Author = "AuthorC",
+                },
+            },
         };
         var printCriteria = "else";
 

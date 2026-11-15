@@ -23,7 +23,8 @@ internal class Program
                 article.Edit(newData);
             else if (command == "ChangeAuthor")
                 article.ChangeAuthor(newData);
-            else if (command == "Rename") article.Rename(newData);
+            else if (command == "Rename")
+                article.Rename(newData);
         }
 
         Console.WriteLine(article.ToString());

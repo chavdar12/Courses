@@ -53,9 +53,12 @@ public class Tests
         var result = MatchUrls.ExtractUrls(text);
 
         // Assert
-        Assert.That(result,
+        Assert.That(
+            result,
             Is.EquivalentTo(
-                new List<string> { "https://example.com", "http://test.com", "https://another-example.com" }));
+                new List<string> { "https://example.com", "http://test.com", "https://another-example.com" }
+            )
+        );
     }
 
     [Test]

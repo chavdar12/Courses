@@ -58,7 +58,8 @@ internal class Program
             input = Console.ReadLine();
         }
 
-        teams.Where(t => t.Members.Count > 0)
+        teams
+            .Where(t => t.Members.Count > 0)
             .OrderByDescending(t => t.Members.Count)
             .ThenBy(t => t.Name)
             .Select(t =>
@@ -66,14 +67,16 @@ internal class Program
                 Console.WriteLine($"{t.Name}");
                 Console.WriteLine($"- {t.Creator}");
 
-                foreach (var member in t.Members.OrderBy(m => m)) Console.WriteLine($"-- {member}");
+                foreach (var member in t.Members.OrderBy(m => m))
+                    Console.WriteLine($"-- {member}");
 
                 return 1;
             })
             .ToList();
 
         Console.WriteLine("Teams to disband:");
-        teams.Where(t => t.Members.Count == 0)
+        teams
+            .Where(t => t.Members.Count == 0)
             .OrderBy(t => t.Name)
             .Select(t =>
             {

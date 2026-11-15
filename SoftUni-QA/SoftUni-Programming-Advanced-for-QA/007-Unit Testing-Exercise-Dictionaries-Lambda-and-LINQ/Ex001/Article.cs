@@ -25,12 +25,14 @@ public class Article
             var content = split[1];
             var author = split[2];
 
-            article.ArticleList.Add(new Article
-            {
-                Title = title,
-                Content = content,
-                Author = author
-            });
+            article.ArticleList.Add(
+                new Article
+                {
+                    Title = title,
+                    Content = content,
+                    Author = author,
+                }
+            );
         }
 
         return article;
@@ -55,7 +57,8 @@ public class Article
         }
 
         StringBuilder sb = new();
-        foreach (var item in list) sb.AppendLine($"{item.Title} - {item.Content}: {item.Author}");
+        foreach (var item in list)
+            sb.AppendLine($"{item.Title} - {item.Content}: {item.Author}");
 
         return sb.ToString().Trim();
     }

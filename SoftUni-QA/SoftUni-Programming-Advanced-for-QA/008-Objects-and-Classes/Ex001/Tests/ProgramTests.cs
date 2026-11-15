@@ -3,7 +3,12 @@ namespace Tests;
 public class ProgramTests
 {
     private static readonly string[] Songs =
-        { "3", "favourite_DownTown_3:14", "favourite_Kiss_4:16", "listenLater_Ring_2:10" };
+    {
+        "3",
+        "favourite_DownTown_3:14",
+        "favourite_Kiss_4:16",
+        "listenLater_Ring_2:10",
+    };
 
     [TestCase("favourite", "DownTown\nKiss")]
     [TestCase("all", "DownTown\nKiss\nRing")]

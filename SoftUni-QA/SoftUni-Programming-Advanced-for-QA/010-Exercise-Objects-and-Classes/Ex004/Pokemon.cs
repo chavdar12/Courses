@@ -8,9 +8,7 @@ public class Pokemon
 
     public int Health { get; set; }
 
-    public Pokemon()
-    {
-    }
+    public Pokemon() { }
 
     public Pokemon(string name, string element, int health)
     {

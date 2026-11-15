@@ -34,7 +34,7 @@ export function solve(num) {
             console.log('November');
             break;
         case 12:
-            console.log('December');   
+            console.log('December');
             break;
         default:
             console.log('Error!');

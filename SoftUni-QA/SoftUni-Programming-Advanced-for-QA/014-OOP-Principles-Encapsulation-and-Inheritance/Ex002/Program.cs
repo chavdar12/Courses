@@ -14,10 +14,6 @@ internal class Program
             persons.Add(new Person(data[0], data[1], int.Parse(data[2])));
         }
 
-        persons
-            .OrderBy(p => p.FirstName)
-            .ThenBy(p => p.Age)
-            .ToList()
-            .ForEach(Console.WriteLine);
+        persons.OrderBy(p => p.FirstName).ThenBy(p => p.Age).ToList().ForEach(Console.WriteLine);
     }
 }

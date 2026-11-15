@@ -7,7 +7,8 @@ public class MatchDates
 {
     public static string Match(string? dates)
     {
-        if (dates is null) throw new ArgumentException("Input cannot be null!");
+        if (dates is null)
+            throw new ArgumentException("Input cannot be null!");
 
         Regex pattern = new(@"\b(?<day>\d{2})(?<seperator>[-.\/])(?<month>[A-Z][a-z]+)\k<seperator>(?<year>\d{4})");
 

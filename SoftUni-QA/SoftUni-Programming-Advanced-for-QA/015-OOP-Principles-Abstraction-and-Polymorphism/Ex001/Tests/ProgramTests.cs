@@ -16,7 +16,7 @@ public class ProgramTests
             "   *******   ",
             "******",
             "*    *",
-            "******"
+            "******",
         };
 
         Assert.That(ConsoleRunner.Run("Ex001", "3", "6", "3").Split('\n'), Is.EqualTo(expected));

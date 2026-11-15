@@ -17,11 +17,12 @@ public class Tests
     {
         // Arrange
         string[] vehicles = { "Car/Ford/Focus/120", "Car/Toyota/Camry/150", "Truck/Volvo/VNL/500" };
-        var expected = $"Cars:{Environment.NewLine}" +
-                       $"Ford: Focus - 120hp{Environment.NewLine}" +
-                       $"Toyota: Camry - 150hp{Environment.NewLine}" +
-                       $"Trucks:{Environment.NewLine}" +
-                       $"Volvo: VNL - 500kg";
+        var expected =
+            $"Cars:{Environment.NewLine}"
+            + $"Ford: Focus - 120hp{Environment.NewLine}"
+            + $"Toyota: Camry - 150hp{Environment.NewLine}"
+            + $"Trucks:{Environment.NewLine}"
+            + $"Volvo: VNL - 500kg";
 
         // Act
         var actual = _vehicles.AddAndGetCatalogue(vehicles);

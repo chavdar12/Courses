@@ -15,10 +15,13 @@ public class HomiesDbContext(DbContextOptions<HomiesDbContext> options) : DbCont
         modelBuilder.Entity<Event>().Property(e => e.Name).HasMaxLength(20);
         modelBuilder.Entity<Event>().Property(e => e.Description).HasMaxLength(500);
         modelBuilder.Entity<EventType>().Property(t => t.Name).HasMaxLength(15);
-        modelBuilder.Entity<EventType>().HasData(
-            new EventType { Id = 1, Name = "Animals" },
-            new EventType { Id = 2, Name = "Fun" },
-            new EventType { Id = 3, Name = "Discussion" },
-            new EventType { Id = 4, Name = "Work" });
+        modelBuilder
+            .Entity<EventType>()
+            .HasData(
+                new EventType { Id = 1, Name = "Animals" },
+                new EventType { Id = 2, Name = "Fun" },
+                new EventType { Id = 3, Name = "Discussion" },
+                new EventType { Id = 4, Name = "Work" }
+            );
     }
 }

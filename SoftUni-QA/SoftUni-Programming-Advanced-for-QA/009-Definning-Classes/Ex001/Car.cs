@@ -61,22 +61,31 @@ public class Car
         FuelConsumption = 10;
     }
 
-    public Car(string make, string model, int year) : this()
+    public Car(string make, string model, int year)
+        : this()
     {
         Make = make;
         Model = model;
         Year = year;
     }
 
-    public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption) : this(make, model,
-        year)
+    public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption)
+        : this(make, model, year)
     {
         FuelQuantity = fuelQuantity;
         FuelConsumption = fuelConsumption;
     }
 
-    public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption, Engine engine,
-        Tire[] tires) : this(make, model, year, fuelQuantity, fuelConsumption)
+    public Car(
+        string make,
+        string model,
+        int year,
+        double fuelQuantity,
+        double fuelConsumption,
+        Engine engine,
+        Tire[] tires
+    )
+        : this(make, model, year, fuelQuantity, fuelConsumption)
     {
         Engine = engine;
         Tires = tires;
@@ -92,9 +101,9 @@ public class Car
 
     public string WhoAmI()
     {
-        return $"Make: {Make}{Environment.NewLine}" +
-               $"Model: {Model}{Environment.NewLine}" +
-               $"Year: {Year}{Environment.NewLine}" +
-               $"Fuel: {_fuelQuantity:F2}";
+        return $"Make: {Make}{Environment.NewLine}"
+            + $"Model: {Model}{Environment.NewLine}"
+            + $"Year: {Year}{Environment.NewLine}"
+            + $"Fuel: {_fuelQuantity:F2}";
     }
 }

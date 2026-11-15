@@ -14,7 +14,8 @@ public class ToDoList
     public void CompleteTask(string title)
     {
         var task = _tasks.FirstOrDefault(t => t.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
-        if (task is null) throw new ArgumentException("Task with given title does not exist.");
+        if (task is null)
+            throw new ArgumentException("Task with given title does not exist.");
 
         task.IsCompleted = true;
     }

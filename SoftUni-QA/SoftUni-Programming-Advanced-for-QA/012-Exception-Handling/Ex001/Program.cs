@@ -8,7 +8,8 @@ internal class Program
 
         try
         {
-            if (number < 0) throw new ArgumentOutOfRangeException();
+            if (number < 0)
+                throw new ArgumentOutOfRangeException();
 
             Console.WriteLine(Math.Sqrt(number));
         }

@@ -17,8 +17,10 @@ public class ChatRoomTests
     {
         _chatRoom.SendMessage("John", "Hello");
 
-        Assert.That(_chatRoom.DisplayChat(), Is.EqualTo(
-            $"Chat Room Messages:{Environment.NewLine}John: Hello - Sent at {DateTime.Now.Date:d}"));
+        Assert.That(
+            _chatRoom.DisplayChat(),
+            Is.EqualTo($"Chat Room Messages:{Environment.NewLine}John: Hello - Sent at {DateTime.Now.Date:d}")
+        );
     }
 
     [Test]

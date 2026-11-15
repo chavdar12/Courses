@@ -1,24 +1,25 @@
-export function solve(rawNumber, firstOperation, secondOperation, thirdOperation, forthOperation, fifthOperation) {
+export function solve(
+    rawNumber,
+    firstOperation,
+    secondOperation,
+    thirdOperation,
+    forthOperation,
+    fifthOperation,
+) {
     let number = parseInt(rawNumber);
 
     function executeOps(currentNum, currentOperation) {
-
         if (currentOperation === 'chop') {
             return currentNum / 2;
-        }
-        else if (currentOperation === 'dice') {
+        } else if (currentOperation === 'dice') {
             return Math.sqrt(currentNum);
-        }
-        else if (currentOperation === 'spice') {
+        } else if (currentOperation === 'spice') {
             return currentNum + 1;
-        }
-        else if (currentOperation === 'bake') {
+        } else if (currentOperation === 'bake') {
             return currentNum * 3;
-        }
-        else if (currentOperation === 'fillet') {
+        } else if (currentOperation === 'fillet') {
             return currentNum - currentNum * 0.2;
-        }
-        else {
+        } else {
             return currentNum;
         }
     }

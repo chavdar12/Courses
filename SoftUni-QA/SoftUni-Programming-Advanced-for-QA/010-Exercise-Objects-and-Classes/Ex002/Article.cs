@@ -8,9 +8,7 @@ public class Article
 
     private string Author { get; set; }
 
-    public Article()
-    {
-    }
+    public Article() { }
 
     public Article(string title, string content, string author)
     {

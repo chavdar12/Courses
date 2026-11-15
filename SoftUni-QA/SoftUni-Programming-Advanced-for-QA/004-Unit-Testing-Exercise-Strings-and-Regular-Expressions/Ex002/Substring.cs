@@ -13,7 +13,8 @@ public class Substring
             removeIndex = input.IndexOf(toRemove, StringComparison.OrdinalIgnoreCase);
         }
 
-        while (input.Contains("  ")) input = input.Replace("  ", " ");
+        while (input.Contains("  "))
+            input = input.Replace("  ", " ");
 
         return input.Trim();
     }

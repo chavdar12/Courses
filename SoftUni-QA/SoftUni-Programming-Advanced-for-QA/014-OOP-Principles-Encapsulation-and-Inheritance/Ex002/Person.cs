@@ -18,7 +18,8 @@ public class Person
         get => _firstName;
         set
         {
-            if (value.Length < 3) throw new ArgumentException("First name cannot contain fewer than 3 symbols!");
+            if (value.Length < 3)
+                throw new ArgumentException("First name cannot contain fewer than 3 symbols!");
 
             _firstName = value;
         }
@@ -29,7 +30,8 @@ public class Person
         get => _lastName;
         set
         {
-            if (value.Length < 3) throw new ArgumentException("Last name cannot contain fewer than 3 symbols!");
+            if (value.Length < 3)
+                throw new ArgumentException("Last name cannot contain fewer than 3 symbols!");
 
             _lastName = value;
         }
@@ -40,7 +42,8 @@ public class Person
         get => _age;
         set
         {
-            if (value <= 0) throw new ArgumentException("Age cannot be zero or a negative integer!");
+            if (value <= 0)
+                throw new ArgumentException("Age cannot be zero or a negative integer!");
 
             _age = value;
         }

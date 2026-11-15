@@ -10,7 +10,8 @@ internal class Program
         {
             var output = "";
 
-            for (var i = input.Length - 1; i >= 0; i--) output += input[i];
+            for (var i = input.Length - 1; i >= 0; i--)
+                output += input[i];
 
             Console.WriteLine(input + " = " + output);
 

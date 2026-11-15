@@ -1,9 +1,8 @@
 export function solve(startNum, endNum) {
-    
     let message = '';
     let sum = 0;
 
-    for (let i = startNum; i <= endNum; i++){
+    for (let i = startNum; i <= endNum; i++) {
         sum += i;
         message += `${i} `;
     }

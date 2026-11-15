@@ -24,12 +24,14 @@ public class Person
             var searchPerson = peopleList.FirstOrDefault(person => person.Id == id);
             if (searchPerson is null)
             {
-                peopleList.Add(new Person
-                {
-                    Name = name,
-                    Id = id,
-                    Age = age
-                });
+                peopleList.Add(
+                    new Person
+                    {
+                        Name = name,
+                        Id = id,
+                        Age = age,
+                    }
+                );
             }
             else
             {

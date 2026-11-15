@@ -8,9 +8,7 @@ public class Trainer
 
     public List<Pokemon> Pokemons { get; set; }
 
-    public Trainer()
-    {
-    }
+    public Trainer() { }
 
     public Trainer(string name)
     {

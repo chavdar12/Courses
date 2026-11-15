@@ -23,9 +23,8 @@ public abstract class MenuItem
 
 public class AppetizerMenuItem : MenuItem
 {
-    public AppetizerMenuItem(string name, string description, decimal price) : base(name, description, price)
-    {
-    }
+    public AppetizerMenuItem(string name, string description, decimal price)
+        : base(name, description, price) { }
 
     public override string ToString()
     {
@@ -35,9 +34,8 @@ public class AppetizerMenuItem : MenuItem
 
 public class MainCourseMenuItem : MenuItem
 {
-    public MainCourseMenuItem(string name, string description, decimal price) : base(name, description, price)
-    {
-    }
+    public MainCourseMenuItem(string name, string description, decimal price)
+        : base(name, description, price) { }
 
     public override string ToString()
     {
@@ -47,9 +45,8 @@ public class MainCourseMenuItem : MenuItem
 
 public class DessertMenuItem : MenuItem
 {
-    public DessertMenuItem(string name, string description, decimal price) : base(name, description, price)
-    {
-    }
+    public DessertMenuItem(string name, string description, decimal price)
+        : base(name, description, price) { }
 
     public override string ToString()
     {

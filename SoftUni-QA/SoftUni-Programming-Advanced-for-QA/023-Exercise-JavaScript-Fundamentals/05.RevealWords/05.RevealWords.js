@@ -7,10 +7,9 @@ export function solve(text, replaceWord) {
 
     for (const word of repleacedWords) {
         if (word[0] === '*') {
-            const correspondingWord = seperatedText.find(x => x.length === word.length)
+            const correspondingWord = seperatedText.find((x) => x.length === word.length);
             result += correspondingWord + ' ';
-        } 
-        else {
+        } else {
             result += word + ' ';
         }
     }

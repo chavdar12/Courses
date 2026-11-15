@@ -31,14 +31,15 @@ public class EventServiceTests
         _connection.Dispose();
     }
 
-    private static EventFormModel Form(string name = "Board games", int typeId = 2, int startDay = 10) => new()
-    {
-        Name = name,
-        Description = "Bring your favourite game",
-        Start = new DateTime(2026, 6, startDay, 18, 0, 0),
-        End = new DateTime(2026, 6, startDay, 22, 0, 0),
-        TypeId = typeId,
-    };
+    private static EventFormModel Form(string name = "Board games", int typeId = 2, int startDay = 10) =>
+        new()
+        {
+            Name = name,
+            Description = "Bring your favourite game",
+            Start = new DateTime(2026, 6, startDay, 18, 0, 0),
+            End = new DateTime(2026, 6, startDay, 22, 0, 0),
+            TypeId = typeId,
+        };
 
     [Test]
     public async Task AddEventAsync_StoresEventWithOrganiserAndCreatedOn()

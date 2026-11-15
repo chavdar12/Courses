@@ -23,14 +23,14 @@ public class PersonTests
             {
                 Name = "Alice",
                 Id = "A001",
-                Age = 35
+                Age = 35,
             },
             new Person
             {
                 Name = "Bob",
                 Id = "B002",
-                Age = 30
-            }
+                Age = 30,
+            },
         };
 
         // Act
@@ -56,24 +56,25 @@ public class PersonTests
             {
                 Name = "Alice",
                 Id = "A001",
-                Age = 25
+                Age = 25,
             },
             new Person
             {
                 Name = "Bob",
                 Id = "B002",
-                Age = 30
+                Age = 30,
             },
             new Person
             {
                 Name = "Christian",
                 Id = "C003",
-                Age = 28
-            }
+                Age = 28,
+            },
         };
-        var expected = $"Alice with ID: A001 is 25 years old.{Environment.NewLine}" +
-                       $"Christian with ID: C003 is 28 years old.{Environment.NewLine}" +
-                       $"Bob with ID: B002 is 30 years old.";
+        var expected =
+            $"Alice with ID: A001 is 25 years old.{Environment.NewLine}"
+            + $"Christian with ID: C003 is 28 years old.{Environment.NewLine}"
+            + $"Bob with ID: B002 is 30 years old.";
 
         // Act
         var actual = _person.GetByAgeAscending(peopleData);

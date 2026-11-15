@@ -6,9 +6,7 @@ internal class Song
     public string Name { get; set; }
     public string Time { get; set; }
 
-    public Song()
-    {
-    }
+    public Song() { }
 
     public Song(string typeList, string name, string time)
     {
@@ -39,7 +37,8 @@ internal class Song
 
             var outputCommand = Console.ReadLine();
 
-            if (!outputCommand.Equals("all")) songs = songs.Where(t => t.TypeList.Equals(outputCommand)).ToList();
+            if (!outputCommand.Equals("all"))
+                songs = songs.Where(t => t.TypeList.Equals(outputCommand)).ToList();
 
             songs.ForEach(s => Console.WriteLine(s.Name));
         }

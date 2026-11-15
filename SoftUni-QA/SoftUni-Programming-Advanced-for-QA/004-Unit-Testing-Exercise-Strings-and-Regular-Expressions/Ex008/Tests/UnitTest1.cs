@@ -18,7 +18,6 @@ public class Tests
         Assert.That(result, Is.EqualTo(expected));
     }
 
-
     [Test]
     public void Test_Match_NoMatch_ReturnsEmptyString()
     {
@@ -68,7 +67,9 @@ public class Tests
         string input = null;
 
         // Act & Assert
-        Assert.That(() => MatchDates.Match(input),
-            Throws.ArgumentException.With.Message.EqualTo("Input cannot be null!"));
+        Assert.That(
+            () => MatchDates.Match(input),
+            Throws.ArgumentException.With.Message.EqualTo("Input cannot be null!")
+        );
     }
 }

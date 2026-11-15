@@ -17,9 +17,7 @@ public class Tire
         set => _pressure = value;
     }
 
-    public Tire()
-    {
-    }
+    public Tire() { }
 
     public Tire(int year, double pressure)
     {

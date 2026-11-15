@@ -34,7 +34,7 @@ internal class Program
             "Paladin" => new Paladin(name),
             "Rogue" => new Rogue(name),
             "Warrior" => new Warrior(name),
-            _ => throw new ArgumentException("Invalid hero!")
+            _ => throw new ArgumentException("Invalid hero!"),
         };
     }
 }

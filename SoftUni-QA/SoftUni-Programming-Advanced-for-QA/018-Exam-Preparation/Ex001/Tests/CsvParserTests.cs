@@ -26,8 +26,10 @@ public class CsvParserTests
     [Test]
     public void Test_ParseCsv_TrimsWhiteSpace_ReturnsCleanArray()
     {
-        Assert.That(CsvParser.ParseCsv("  apple , green banana ,kiwi  "),
-            Is.EqualTo(new[] { "apple", "green banana", "kiwi" }));
+        Assert.That(
+            CsvParser.ParseCsv("  apple , green banana ,kiwi  "),
+            Is.EqualTo(new[] { "apple", "green banana", "kiwi" })
+        );
     }
 
     [Test]

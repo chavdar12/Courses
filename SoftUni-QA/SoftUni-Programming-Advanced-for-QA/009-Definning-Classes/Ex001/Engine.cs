@@ -17,9 +17,7 @@ public class Engine
         set => _cubicCapacity = value;
     }
 
-    public Engine()
-    {
-    }
+    public Engine() { }
 
     public Engine(int horsePower, double cubicCapacity)
     {
