@@ -75,13 +75,17 @@ public class RoyalArenaTest {
 
     @Test
     public void getByCardTypeAndMaximumDamage_ShouldFilterInclusive() {
-        Assert.assertEquals(List.of(2, 4, 1), ids(this.arena.getByCardTypeAndMaximumDamage(CardType.MELEE, 20)));
-        Assert.assertEquals(List.of(1), ids(this.arena.getByCardTypeAndMaximumDamage(CardType.MELEE, 19)));
+        Assert.assertEquals(
+                List.of(2, 4, 1),
+                ids(this.arena.getByCardTypeAndMaximumDamage(CardType.MELEE, 20)));
+        Assert.assertEquals(
+                List.of(1), ids(this.arena.getByCardTypeAndMaximumDamage(CardType.MELEE, 19)));
     }
 
     @Test
     public void getByNameOrderedBySwagDescending_ShouldOrder() {
-        Assert.assertEquals(List.of(2, 1), ids(this.arena.getByNameOrderedBySwagDescending("Knight")));
+        Assert.assertEquals(
+                List.of(2, 1), ids(this.arena.getByNameOrderedBySwagDescending("Knight")));
     }
 
     @Test(expected = UnsupportedOperationException.class)

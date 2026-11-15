@@ -8,7 +8,6 @@ public class Battlecard implements Comparable<Battlecard> {
     private double damage;
     private double swag;
 
-
     public Battlecard(int id, CardType type, String name, double damage, double swag) {
         this.id = id;
         this.type = type;
@@ -73,11 +72,11 @@ public class Battlecard implements Comparable<Battlecard> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Battlecard that = (Battlecard) o;
-        return id == that.id &&
-                Double.compare(that.damage, damage) == 0 &&
-                Double.compare(that.swag, swag) == 0 &&
-                type == that.type &&
-                Objects.equals(name, that.name);
+        return id == that.id
+                && Double.compare(that.damage, damage) == 0
+                && Double.compare(that.swag, swag) == 0
+                && type == that.type
+                && Objects.equals(name, that.name);
     }
 
     @Override

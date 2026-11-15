@@ -6,19 +6,14 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader =
-                new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         List<String> words =
-                Arrays.stream(reader.readLine().split(",\\s"))
-                        .collect(Collectors.toList());
+                Arrays.stream(reader.readLine().split(",\\s")).collect(Collectors.toList());
 
         String target = reader.readLine();
 
-        words = words
-                .stream()
-                .filter(target::contains)
-                .collect(Collectors.toList());
+        words = words.stream().filter(target::contains).collect(Collectors.toList());
 
         Map<Integer, TreeSet<String>> tree = new LinkedHashMap<>();
         Map<String, Integer> wordsWithCount = new LinkedHashMap<>();
@@ -43,11 +38,12 @@ public class Main {
         combine(0, target, tree, wordsWithCount, new LinkedHashMap<>());
     }
 
-    private static void combine(Integer index,
-                                String target,
-                                Map<Integer, TreeSet<String>> tree,
-                                Map<String, Integer> wordsWithCount,
-                                Map<Integer, String> result) {
+    private static void combine(
+            Integer index,
+            String target,
+            Map<Integer, TreeSet<String>> tree,
+            Map<String, Integer> wordsWithCount,
+            Map<Integer, String> result) {
 
         if (index >= target.length()) {
             System.out.println(String.join(" ", result.values()));
@@ -62,7 +58,8 @@ public class Main {
                         result.putIfAbsent(index, wordsAtIndex);
                         wordsWithCount.put(wordsAtIndex, wordsWithCount.get(wordsAtIndex) - 1);
 
-                        combine(index + wordsAtIndex.length(),
+                        combine(
+                                index + wordsAtIndex.length(),
                                 target,
                                 tree,
                                 wordsWithCount,

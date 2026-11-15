@@ -1,9 +1,11 @@
 package test.performance;
 
 import main.Hierarchy;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BasePerformanceTest;
 import test.helpers.IterableExtensions;
 import test.types.PerformanceTests;
@@ -26,7 +28,6 @@ public class RemovePerformance extends BasePerformanceTest {
             hierarchy.add(counter2, ++counter2);
         }
 
-
         long start = System.currentTimeMillis();
         for (int i = 1; i < 25001; i++) {
             hierarchy.remove(i);
@@ -39,13 +40,16 @@ public class RemovePerformance extends BasePerformanceTest {
 
         Assert.assertEquals("Incorrect count after removal!", 1, hierarchy.getCount());
         Assert.assertTrue(hierarchy.contains(-1));
-        Assert.assertEquals("Children were not deleted correcly after removal!", 0,
+        Assert.assertEquals(
+                "Children were not deleted correcly after removal!",
+                0,
                 IterableExtensions.getCount(hierarchy.getChildren(-1)));
     }
 
     @Category(PerformanceTests.class)
     @Test
-    public void PerformanceRemove_With20000RemovalsIn4GroupsInReverseOrderFromTheMiddleWith40000Elements() {
+    public void
+            PerformanceRemove_With20000RemovalsIn4GroupsInReverseOrderFromTheMiddleWith40000Elements() {
         int counter1 = 10000;
         int counter2 = 20000;
         int counter3 = 30000;
@@ -94,9 +98,13 @@ public class RemovePerformance extends BasePerformanceTest {
         }
 
         Assert.assertTrue(hierarchy.contains(-2));
-        Assert.assertEquals(Arrays.asList(4000), IterableExtensions.toList(hierarchy.getChildren(9001)));
-        Assert.assertEquals(Arrays.asList(13000), IterableExtensions.toList(hierarchy.getChildren(18001)));
-        Assert.assertEquals(Arrays.asList(22000), IterableExtensions.toList(hierarchy.getChildren(27001)));
-        Assert.assertEquals(Arrays.asList(31000), IterableExtensions.toList(hierarchy.getChildren(36001)));
+        Assert.assertEquals(
+                Arrays.asList(4000), IterableExtensions.toList(hierarchy.getChildren(9001)));
+        Assert.assertEquals(
+                Arrays.asList(13000), IterableExtensions.toList(hierarchy.getChildren(18001)));
+        Assert.assertEquals(
+                Arrays.asList(22000), IterableExtensions.toList(hierarchy.getChildren(27001)));
+        Assert.assertEquals(
+                Arrays.asList(31000), IterableExtensions.toList(hierarchy.getChildren(36001)));
     }
 }

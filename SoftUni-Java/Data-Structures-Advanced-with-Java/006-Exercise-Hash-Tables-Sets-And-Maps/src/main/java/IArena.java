@@ -13,7 +13,8 @@ public interface IArena extends Iterable<Battlecard> {
 
     Iterable<Battlecard> getByCardType(CardType type);
 
-    Iterable<Battlecard> getByTypeAndDamageRangeOrderedByDamageThenById(CardType type, int lo, int hi);
+    Iterable<Battlecard> getByTypeAndDamageRangeOrderedByDamageThenById(
+            CardType type, int lo, int hi);
 
     Iterable<Battlecard> getByCardTypeAndMaximumDamage(CardType type, double damage);
 

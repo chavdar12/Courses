@@ -18,7 +18,15 @@ public class Vehicle {
 
     private boolean isVIP;
 
-    public Vehicle(String id, String brand, String model, String location, String color, int horsepower, double price, boolean isVIP) {
+    public Vehicle(
+            String id,
+            String brand,
+            String model,
+            String location,
+            String color,
+            int horsepower,
+            double price,
+            boolean isVIP) {
         this.id = id;
         this.brand = brand;
         this.model = model;

@@ -15,7 +15,6 @@ public class ShoppingCentre {
         this.productsByProducer.get(producer).add(product);
 
         return "Product added" + System.lineSeparator();
-
     }
 
     public String delete(String name, String producer) {
@@ -42,21 +41,22 @@ public class ShoppingCentre {
     }
 
     public String findProductsByName(String name) {
-        return getSortedProducts(this.productsByProducer.values()
-                .stream()
-                .flatMap(List::stream)
-                .filter(product -> product.getName().equals(name)));
+        return getSortedProducts(
+                this.productsByProducer.values().stream()
+                        .flatMap(List::stream)
+                        .filter(product -> product.getName().equals(name)));
     }
 
     public String findProductsByProducer(String producer) {
-        return getSortedProducts(this.productsByProducer.getOrDefault(producer, Collections.emptyList()).stream());
+        return getSortedProducts(
+                this.productsByProducer.getOrDefault(producer, Collections.emptyList()).stream());
     }
 
     public String findProductsByPriceRange(double priceFrom, double priceTo) {
-        return getSortedProducts(this.productsByProducer.values()
-                .stream()
-                .flatMap(List::stream)
-                .filter(p -> p.getPrice() >= priceFrom && p.getPrice() <= priceTo));
+        return getSortedProducts(
+                this.productsByProducer.values().stream()
+                        .flatMap(List::stream)
+                        .filter(p -> p.getPrice() >= priceFrom && p.getPrice() <= priceTo));
     }
 
     private String getSortedProducts(Stream<Product> products) {

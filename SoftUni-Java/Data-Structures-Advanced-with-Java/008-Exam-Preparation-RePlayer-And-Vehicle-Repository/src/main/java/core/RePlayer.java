@@ -22,7 +22,8 @@ public interface RePlayer {
 
     Track play();
 
-    Iterable<Track> getTracksInDurationRangeOrderedByDurationThenByPlaysDescending(int lowerBound, int upperBound);
+    Iterable<Track> getTracksInDurationRangeOrderedByDurationThenByPlaysDescending(
+            int lowerBound, int upperBound);
 
     Iterable<Track> getTracksOrderedByAlbumNameThenByPlaysDescendingThenByDurationDescending();
 

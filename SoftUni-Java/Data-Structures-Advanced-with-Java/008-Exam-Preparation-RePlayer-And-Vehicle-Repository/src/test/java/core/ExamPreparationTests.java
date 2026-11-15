@@ -1,13 +1,14 @@
 package core;
 
+import static org.junit.Assert.*;
+
 import models.Track;
 import models.Vehicle;
+
 import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.Assert.*;
 
 // Covers the methods the Judge skeleton tests leave out.
 public class ExamPreparationTests {
@@ -24,7 +25,9 @@ public class ExamPreparationTests {
 
         assertSame(b, player.getTrack("B", "Album1"));
         assertEquals(List.of(b, a), player.getAlbum("Album1"));
-        assertEquals(List.of(b, c, a), player.getTracksInDurationRangeOrderedByDurationThenByPlaysDescending(100, 200));
+        assertEquals(
+                List.of(b, c, a),
+                player.getTracksInDurationRangeOrderedByDurationThenByPlaysDescending(100, 200));
         assertEquals(Map.of("Album1", List.of(a, b)), player.getDiscography("Queen"));
 
         player.addToQueue("A", "Album1");
@@ -62,7 +65,8 @@ public class ExamPreparationTests {
         assertEquals(List.of(vip, strong, cheap), repository.getVehicles(List.of("Sofia", "Red")));
         assertEquals(List.of(cheap, vip), repository.getVehiclesBySeller("George"));
         assertEquals(List.of(cheap, vip), repository.getVehiclesInPriceRange(10000, 20000));
-        assertEquals(Map.of("BMW", List.of(cheap, strong), "Audi", List.of(vip)),
+        assertEquals(
+                Map.of("BMW", List.of(cheap, strong), "Audi", List.of(vip)),
                 repository.getAllVehiclesGroupedByBrand());
 
         assertSame(cheap, repository.buyCheapestFromSeller("George"));
@@ -70,9 +74,12 @@ public class ExamPreparationTests {
         assertEquals(2, repository.size());
 
         repository.removeVehicle("2");
-        assertThrows(IllegalArgumentException.class, () -> repository.buyCheapestFromSeller("George"));
-        assertThrows(IllegalArgumentException.class, () -> repository.getVehiclesBySeller("Nobody"));
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(
+                IllegalArgumentException.class, () -> repository.buyCheapestFromSeller("George"));
+        assertThrows(
+                IllegalArgumentException.class, () -> repository.getVehiclesBySeller("Nobody"));
+        assertThrows(
+                IllegalArgumentException.class,
                 () -> new VehicleRepositoryImpl().getAllVehiclesGroupedByBrand());
     }
 }

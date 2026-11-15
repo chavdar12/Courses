@@ -25,7 +25,8 @@ public class ShoppingCentreTest {
     @Test
     public void deleteByNameAndProducer_ShouldDeleteOnlyMatchingProducts() {
         Assert.assertEquals("2 products deleted" + NL, this.centre.delete("IdeaPad", "Lenovo"));
-        Assert.assertEquals("{ThinkPad;Lenovo;900.00}" + NL, this.centre.findProductsByProducer("Lenovo"));
+        Assert.assertEquals(
+                "{ThinkPad;Lenovo;900.00}" + NL, this.centre.findProductsByProducer("Lenovo"));
     }
 
     @Test
@@ -48,7 +49,12 @@ public class ShoppingCentreTest {
     @Test
     public void findProductsByName_ShouldSortAcrossProducers() {
         Assert.assertEquals(
-                "{IdeaPad;Acer;300.00}" + NL + "{IdeaPad;Lenovo;450.00}" + NL + "{IdeaPad;Lenovo;500.00}" + NL,
+                "{IdeaPad;Acer;300.00}"
+                        + NL
+                        + "{IdeaPad;Lenovo;450.00}"
+                        + NL
+                        + "{IdeaPad;Lenovo;500.00}"
+                        + NL,
                 this.centre.findProductsByName("IdeaPad"));
     }
 

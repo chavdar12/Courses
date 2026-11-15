@@ -1,16 +1,16 @@
 package core;
 
+import static org.junit.Assert.*;
+
 import models.Track;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
-import static org.junit.Assert.*;
 
 public class RePlayerTests {
     private RePlayer rePlayer;
@@ -61,7 +61,11 @@ public class RePlayerTests {
         this.rePlayer.addTrack(track5, "aandomAlbum2");
 
         List<Track> list =
-                StreamSupport.stream(this.rePlayer.getTracksOrderedByAlbumNameThenByPlaysDescendingThenByDurationDescending().spliterator(), false)
+                StreamSupport.stream(
+                                this.rePlayer
+                                        .getTracksOrderedByAlbumNameThenByPlaysDescendingThenByDurationDescending()
+                                        .spliterator(),
+                                false)
                         .collect(Collectors.toList());
 
         assertEquals(5, list.size());
@@ -78,14 +82,12 @@ public class RePlayerTests {
 
         Track trackToContain = null;
 
-        for (int i = 0; i < count; i++)
-        {
+        for (int i = 0; i < count; i++) {
             Track track = new Track(i + "", "Title" + i, "Artist" + i, i * 100, i * 10);
 
             this.rePlayer.addTrack(track, "randomAlbum");
 
-            if (i == 800000)
-            {
+            if (i == 800000) {
                 trackToContain = track;
             }
         }
@@ -106,19 +108,16 @@ public class RePlayerTests {
 
         Track actual = null;
 
-        for (int i = count; i >= 0; i--)
-        {
+        for (int i = count; i >= 0; i--) {
             Track track = new Track(i + "", "Title" + i, "Artist" + i, i * 1000, i * 100);
 
             String album = null;
 
             if (i <= 50000) {
                 album = "randomAlbum5";
-            }
-            else if (i <= 30000) {
+            } else if (i <= 30000) {
                 album = "randomAlbum3";
-            }
-            else {
+            } else {
                 album = "randomAlbum";
             }
 
@@ -146,8 +145,7 @@ public class RePlayerTests {
         while (true) {
             try {
                 assertNotEquals(this.rePlayer.play(), actual);
-            }
-            catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 break;
             }
         }

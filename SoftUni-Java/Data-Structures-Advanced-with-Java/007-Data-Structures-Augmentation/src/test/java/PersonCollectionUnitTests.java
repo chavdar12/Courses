@@ -20,8 +20,7 @@ public class PersonCollectionUnitTests {
         // Arrange
 
         // Act
-        boolean isAdded =
-                this.people.add("pesho@gmail.com", "Peter", 18, "Sofia");
+        boolean isAdded = this.people.add("pesho@gmail.com", "Peter", 18, "Sofia");
 
         // Assert
         Assert.assertTrue(isAdded);
@@ -33,10 +32,8 @@ public class PersonCollectionUnitTests {
         // Arrange
 
         // Act
-        boolean isAddedFirst =
-                this.people.add("pesho@gmail.com", "Peter", 18, "Sofia");
-        boolean isAddedSecond =
-                this.people.add("pesho@gmail.com", "Maria", 24, "Plovdiv");
+        boolean isAddedFirst = this.people.add("pesho@gmail.com", "Peter", 18, "Sofia");
+        boolean isAddedSecond = this.people.add("pesho@gmail.com", "Maria", 24, "Plovdiv");
 
         // Assert
         Assert.assertTrue(isAddedFirst);
@@ -73,10 +70,8 @@ public class PersonCollectionUnitTests {
         this.people.add("pesho@gmail.com", "Peter", 28, "Plovdiv");
 
         // Act
-        boolean isDeletedExisting =
-                this.people.delete("pesho@gmail.com");
-        boolean isDeletedNonExisting =
-                this.people.delete("pesho@gmail.com");
+        boolean isDeletedExisting = this.people.delete("pesho@gmail.com");
+        boolean isDeletedNonExisting = this.people.delete("pesho@gmail.com");
 
         // Assert
         Assert.assertTrue(isDeletedExisting);
@@ -123,16 +118,11 @@ public class PersonCollectionUnitTests {
 
         // Assert
         Assert.assertArrayEquals(
-                new String[]{"ani@gmail.com", "mary@gmail.com", "pesho@gmail.com"},
-                gmailResult);
+                new String[] {"ani@gmail.com", "mary@gmail.com", "pesho@gmail.com"}, gmailResult);
 
-        Assert.assertArrayEquals(
-                new String[]{"kiro@yahoo.co.uk"},
-                yahooResult);
+        Assert.assertArrayEquals(new String[] {"kiro@yahoo.co.uk"}, yahooResult);
 
-        Assert.assertArrayEquals(
-                new String[]{},
-                hooResult);
+        Assert.assertArrayEquals(new String[] {}, hooResult);
     }
 
     @Test
@@ -170,7 +160,6 @@ public class PersonCollectionUnitTests {
             peopleAnnaBourgasResult.add(e.getEmail());
         });
 
-
         String[] peshoPlovdivReslt = new String[personPeshoPlovdivReslt.size()];
         for (int i = 0; i < peshoPlovdivReslt.length; i++) {
             peshoPlovdivReslt[i] = personPeshoPlovdivReslt.get(i);
@@ -196,21 +185,13 @@ public class PersonCollectionUnitTests {
         Arrays.sort(expected1);
 
         // Assert
-        Assert.assertArrayEquals(
-                expected1,
-                peshoPlovdivReslt);
+        Assert.assertArrayEquals(expected1, peshoPlovdivReslt);
 
-        Assert.assertArrayEquals(
-                new String[]{},
-                lowercaseResult);
+        Assert.assertArrayEquals(new String[] {}, lowercaseResult);
 
-        Assert.assertArrayEquals(
-                new String[]{},
-                peshoNoTownResult);
+        Assert.assertArrayEquals(new String[] {}, peshoNoTownResult);
 
-        Assert.assertArrayEquals(
-                new String[]{"ani@gmail.com"},
-                annaBourgasResult);
+        Assert.assertArrayEquals(new String[] {"ani@gmail.com"}, annaBourgasResult);
     }
 
     @Test
@@ -262,34 +243,35 @@ public class PersonCollectionUnitTests {
         }
 
         Arrays.sort(from21to22Result);
-        String[] expected1 = new String[]{"asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr", "kiro@yahoo.co.uk"};
+        String[] expected1 =
+                new String[] {
+                    "asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr", "kiro@yahoo.co.uk"
+                };
         Arrays.sort(expected1);
 
         Arrays.sort(aged21);
-        String[] expected2 = new String[]{"asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr"};
+        String[] expected2 = new String[] {"asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr"};
         Arrays.sort(expected2);
 
         Arrays.sort(agedFrom0to1000);
-        String[] expected3 = new String[]{"ani@gmail.com", "asen@gmail.com", "pepi@gmail.com", "pepi2@yahoo.fr",
-                "kiro@yahoo.co.uk", "pesho@gmail.com"};
+        String[] expected3 =
+                new String[] {
+                    "ani@gmail.com",
+                    "asen@gmail.com",
+                    "pepi@gmail.com",
+                    "pepi2@yahoo.fr",
+                    "kiro@yahoo.co.uk",
+                    "pesho@gmail.com"
+                };
         Arrays.sort(expected3);
 
         // Assert
-        Assert.assertArrayEquals(
-                expected1,
-                from21to22Result);
+        Assert.assertArrayEquals(expected1, from21to22Result);
 
+        Assert.assertArrayEquals(new String[] {}, from10to11);
 
-        Assert.assertArrayEquals(
-                new String[]{},
-                from10to11);
+        Assert.assertArrayEquals(expected2, aged21);
 
-        Assert.assertArrayEquals(
-                expected2,
-                aged21);
-
-        Assert.assertArrayEquals(
-                expected3,
-                agedFrom0to1000);
+        Assert.assertArrayEquals(expected3, agedFrom0to1000);
     }
 }

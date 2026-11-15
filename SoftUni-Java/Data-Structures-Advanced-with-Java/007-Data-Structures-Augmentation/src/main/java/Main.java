@@ -22,37 +22,41 @@ public class Main {
         System.out.println(builder.toString());
     }
 
-    private static void executeCommand(ShoppingCentre shoppingCentre, StringBuilder builder, String command,
-                                       String[] params) {
+    private static void executeCommand(
+            ShoppingCentre shoppingCentre, StringBuilder builder, String command, String[] params) {
         switch (command) {
-            case "AddProduct": {
-                String name = params[0];
-                double price = Double.parseDouble(params[1]);
-                String producer = params[2];
-                builder.append(shoppingCentre.addProduct(name, price, producer));
-                break;
-            }
-            case "DeleteProducts": {
-                if (params.length > 1) {
+            case "AddProduct":
+                {
                     String name = params[0];
-                    String producer = params[1];
-                    builder.append(shoppingCentre.delete(name, producer));
-                } else {
-                    String producer = params[0];
-                    builder.append(shoppingCentre.delete(producer));
+                    double price = Double.parseDouble(params[1]);
+                    String producer = params[2];
+                    builder.append(shoppingCentre.addProduct(name, price, producer));
+                    break;
                 }
-                break;
-            }
-            case "FindProductsByName": {
-                String name = params[0];
-                builder.append(shoppingCentre.findProductsByName(name));
-                break;
-            }
-            case "FindProductsByProducer": {
-                String producer = params[0];
-                builder.append(shoppingCentre.findProductsByProducer(producer));
-                break;
-            }
+            case "DeleteProducts":
+                {
+                    if (params.length > 1) {
+                        String name = params[0];
+                        String producer = params[1];
+                        builder.append(shoppingCentre.delete(name, producer));
+                    } else {
+                        String producer = params[0];
+                        builder.append(shoppingCentre.delete(producer));
+                    }
+                    break;
+                }
+            case "FindProductsByName":
+                {
+                    String name = params[0];
+                    builder.append(shoppingCentre.findProductsByName(name));
+                    break;
+                }
+            case "FindProductsByProducer":
+                {
+                    String producer = params[0];
+                    builder.append(shoppingCentre.findProductsByProducer(producer));
+                    break;
+                }
             case "FindProductsByPriceRange":
                 double priceFrom = Double.parseDouble(params[0]);
                 double priceTo = Double.parseDouble(params[1]);

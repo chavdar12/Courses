@@ -67,19 +67,20 @@ public class RoyalArena implements IArena {
 
     @Override
     public Iterable<Battlecard> getByCardType(CardType type) {
-        List<Battlecard> result = this.battleCardsById.values()
-                .stream()
-                .filter(card -> card.getType().equals(type))
-                .sorted((card1, card2) -> {
-                    int compareResult = Double.compare(card2.getDamage(), card1.getDamage());
+        List<Battlecard> result =
+                this.battleCardsById.values().stream()
+                        .filter(card -> card.getType().equals(type))
+                        .sorted((card1, card2) -> {
+                            int compareResult =
+                                    Double.compare(card2.getDamage(), card1.getDamage());
 
-                    if (compareResult == 0) {
-                        return Integer.compare(card1.getId(), card2.getId());
-                    }
+                            if (compareResult == 0) {
+                                return Integer.compare(card1.getId(), card2.getId());
+                            }
 
-                    return compareResult;
-                })
-                .collect(Collectors.toList());
+                            return compareResult;
+                        })
+                        .collect(Collectors.toList());
 
         if (result.isEmpty()) {
             throw new UnsupportedOperationException();
@@ -89,21 +90,25 @@ public class RoyalArena implements IArena {
     }
 
     @Override
-    public Iterable<Battlecard> getByTypeAndDamageRangeOrderedByDamageThenById(CardType type, int lo, int hi) {
-        List<Battlecard> result = this.battleCardsById.values()
-                .stream()
-                .filter(card -> card.getType().equals(type)
-                        && card.getDamage() > lo && card.getDamage() < hi)
-                .sorted((card1, card2) -> {
-                    int compareResult = Double.compare(card2.getDamage(), card1.getDamage());
+    public Iterable<Battlecard> getByTypeAndDamageRangeOrderedByDamageThenById(
+            CardType type, int lo, int hi) {
+        List<Battlecard> result =
+                this.battleCardsById.values().stream()
+                        .filter(card ->
+                                card.getType().equals(type)
+                                        && card.getDamage() > lo
+                                        && card.getDamage() < hi)
+                        .sorted((card1, card2) -> {
+                            int compareResult =
+                                    Double.compare(card2.getDamage(), card1.getDamage());
 
-                    if (compareResult == 0) {
-                        return Integer.compare(card1.getId(), card2.getId());
-                    }
+                            if (compareResult == 0) {
+                                return Integer.compare(card1.getId(), card2.getId());
+                            }
 
-                    return compareResult;
-                })
-                .collect(Collectors.toList());
+                            return compareResult;
+                        })
+                        .collect(Collectors.toList());
 
         if (result.isEmpty()) {
             throw new UnsupportedOperationException();
@@ -114,20 +119,20 @@ public class RoyalArena implements IArena {
 
     @Override
     public Iterable<Battlecard> getByCardTypeAndMaximumDamage(CardType type, double damage) {
-        List<Battlecard> result = this.battleCardsById.values()
-                .stream()
-                .filter(card -> card.getType().equals(type)
-                        && card.getDamage() <= damage)
-                .sorted((card1, card2) -> {
-                    int compareResult = Double.compare(card2.getDamage(), card1.getDamage());
+        List<Battlecard> result =
+                this.battleCardsById.values().stream()
+                        .filter(card -> card.getType().equals(type) && card.getDamage() <= damage)
+                        .sorted((card1, card2) -> {
+                            int compareResult =
+                                    Double.compare(card2.getDamage(), card1.getDamage());
 
-                    if (compareResult == 0) {
-                        return Integer.compare(card1.getId(), card2.getId());
-                    }
+                            if (compareResult == 0) {
+                                return Integer.compare(card1.getId(), card2.getId());
+                            }
 
-                    return compareResult;
-                })
-                .collect(Collectors.toList());
+                            return compareResult;
+                        })
+                        .collect(Collectors.toList());
 
         if (result.isEmpty()) {
             throw new UnsupportedOperationException();
@@ -138,18 +143,18 @@ public class RoyalArena implements IArena {
 
     @Override
     public Iterable<Battlecard> getByNameOrderedBySwagDescending(String name) {
-        List<Battlecard> result = this.battleCardsByName.getOrDefault(name, Collections.emptyList())
-                .stream()
-                .sorted((card1, card2) -> {
-                    int compareResult = Double.compare(card2.getSwag(), card1.getSwag());
+        List<Battlecard> result =
+                this.battleCardsByName.getOrDefault(name, Collections.emptyList()).stream()
+                        .sorted((card1, card2) -> {
+                            int compareResult = Double.compare(card2.getSwag(), card1.getSwag());
 
-                    if (compareResult == 0) {
-                        return Integer.compare(card1.getId(), card2.getId());
-                    }
+                            if (compareResult == 0) {
+                                return Integer.compare(card1.getId(), card2.getId());
+                            }
 
-                    return compareResult;
-                })
-                .collect(Collectors.toList());
+                            return compareResult;
+                        })
+                        .collect(Collectors.toList());
 
         if (result.isEmpty()) {
             throw new UnsupportedOperationException();
@@ -160,20 +165,22 @@ public class RoyalArena implements IArena {
 
     @Override
     public Iterable<Battlecard> getByNameAndSwagRange(String name, double lo, double hi) {
-        List<Battlecard> result = this.battleCardsById.values()
-                .stream()
-                .filter(card -> card.getName().equals(name)
-                        && card.getSwag() >= lo && card.getSwag() < hi)
-                .sorted((card1, card2) -> {
-                    int compareResult = Double.compare(card2.getSwag(), card1.getSwag());
+        List<Battlecard> result =
+                this.battleCardsById.values().stream()
+                        .filter(card ->
+                                card.getName().equals(name)
+                                        && card.getSwag() >= lo
+                                        && card.getSwag() < hi)
+                        .sorted((card1, card2) -> {
+                            int compareResult = Double.compare(card2.getSwag(), card1.getSwag());
 
-                    if (compareResult == 0) {
-                        return Integer.compare(card1.getId(), card2.getId());
-                    }
+                            if (compareResult == 0) {
+                                return Integer.compare(card1.getId(), card2.getId());
+                            }
 
-                    return compareResult;
-                })
-                .collect(Collectors.toList());
+                            return compareResult;
+                        })
+                        .collect(Collectors.toList());
 
         if (result.isEmpty()) {
             throw new UnsupportedOperationException();
@@ -185,11 +192,11 @@ public class RoyalArena implements IArena {
     @Override
     public Iterable<Battlecard> getAllByNameAndSwag() {
 
-        return this.battleCardsByName.values()
-                .stream()
-                .map(cardList -> cardList.stream()
-                        .max(Comparator.comparingDouble(Battlecard::getSwag))
-                        .orElse(null))
+        return this.battleCardsByName.values().stream()
+                .map(cardList ->
+                        cardList.stream()
+                                .max(Comparator.comparingDouble(Battlecard::getSwag))
+                                .orElse(null))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }
@@ -200,8 +207,7 @@ public class RoyalArena implements IArena {
             throw new UnsupportedOperationException();
         }
 
-        return battleCardsById.values()
-                .stream()
+        return battleCardsById.values().stream()
                 .sorted((card1, card2) -> {
                     int compareResult = Double.compare(card1.getSwag(), card2.getSwag());
 
@@ -218,8 +224,7 @@ public class RoyalArena implements IArena {
     @Override
     public Iterable<Battlecard> getAllInSwagRange(double lo, double hi) {
 
-        return battleCardsById.values()
-                .stream()
+        return battleCardsById.values().stream()
                 .filter(card -> card.getSwag() >= lo && card.getSwag() <= hi)
                 .sorted(Comparator.comparingDouble(Battlecard::getSwag))
                 .collect(Collectors.toList());

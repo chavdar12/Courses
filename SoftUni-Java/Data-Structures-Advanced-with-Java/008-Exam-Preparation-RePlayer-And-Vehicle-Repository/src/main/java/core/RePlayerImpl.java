@@ -21,7 +21,9 @@ public class RePlayerImpl implements RePlayer {
     @Override
     public void addTrack(Track track, String album) {
         this.tracksById.put(track.getId(), track);
-        this.tracksByAlbum.computeIfAbsent(album, k -> new LinkedHashMap<>()).put(track.getTitle(), track);
+        this.tracksByAlbum
+                .computeIfAbsent(album, k -> new LinkedHashMap<>())
+                .put(track.getTitle(), track);
         this.albumByTrackId.put(track.getId(), album);
     }
 
@@ -62,8 +64,7 @@ public class RePlayerImpl implements RePlayer {
 
     @Override
     public Iterable<Track> getAlbum(String albumName) {
-        return this.getAlbumTracks(albumName).values()
-                .stream()
+        return this.getAlbumTracks(albumName).values().stream()
                 .sorted(Comparator.comparingInt(Track::getPlays).reversed())
                 .collect(Collectors.toList());
     }
@@ -88,23 +89,29 @@ public class RePlayerImpl implements RePlayer {
     }
 
     @Override
-    public Iterable<Track> getTracksInDurationRangeOrderedByDurationThenByPlaysDescending(int lowerBound, int upperBound) {
-        return this.tracksById.values()
-                .stream()
-                .filter(track -> track.getDurationInSeconds() >= lowerBound
-                        && track.getDurationInSeconds() <= upperBound)
-                .sorted(Comparator.comparingInt(Track::getDurationInSeconds)
-                        .thenComparing(Comparator.comparingInt(Track::getPlays).reversed()))
+    public Iterable<Track> getTracksInDurationRangeOrderedByDurationThenByPlaysDescending(
+            int lowerBound, int upperBound) {
+        return this.tracksById.values().stream()
+                .filter(track ->
+                        track.getDurationInSeconds() >= lowerBound
+                                && track.getDurationInSeconds() <= upperBound)
+                .sorted(
+                        Comparator.comparingInt(Track::getDurationInSeconds)
+                                .thenComparing(Comparator.comparingInt(Track::getPlays).reversed()))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public Iterable<Track> getTracksOrderedByAlbumNameThenByPlaysDescendingThenByDurationDescending() {
-        return this.tracksById.values()
-                .stream()
-                .sorted(Comparator.comparing((Track track) -> this.albumByTrackId.get(track.getId()))
-                        .thenComparing(Comparator.comparingInt(Track::getPlays).reversed())
-                        .thenComparing(Comparator.comparingInt(Track::getDurationInSeconds).reversed()))
+    public Iterable<Track>
+            getTracksOrderedByAlbumNameThenByPlaysDescendingThenByDurationDescending() {
+        return this.tracksById.values().stream()
+                .sorted(
+                        Comparator.comparing(
+                                        (Track track) -> this.albumByTrackId.get(track.getId()))
+                                .thenComparing(Comparator.comparingInt(Track::getPlays).reversed())
+                                .thenComparing(
+                                        Comparator.comparingInt(Track::getDurationInSeconds)
+                                                .reversed()))
                 .collect(Collectors.toList());
     }
 
@@ -113,10 +120,10 @@ public class RePlayerImpl implements RePlayer {
         Map<String, List<Track>> discography = new LinkedHashMap<>();
 
         this.tracksByAlbum.forEach((album, tracks) -> {
-            List<Track> artistTracks = tracks.values()
-                    .stream()
-                    .filter(track -> track.getArtist().equals(artistName))
-                    .collect(Collectors.toList());
+            List<Track> artistTracks =
+                    tracks.values().stream()
+                            .filter(track -> track.getArtist().equals(artistName))
+                            .collect(Collectors.toList());
 
             if (!artistTracks.isEmpty()) {
                 discography.put(album, artistTracks);

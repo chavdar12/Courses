@@ -1,7 +1,9 @@
 package test.helpers;
 
 import main.IHierarchy;
+
 import org.junit.Before;
+
 import test.HierarchyStructureInitializer;
 
 public class BaseTest {

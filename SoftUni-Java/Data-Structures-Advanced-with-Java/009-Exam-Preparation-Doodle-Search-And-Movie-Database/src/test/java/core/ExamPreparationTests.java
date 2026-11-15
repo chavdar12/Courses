@@ -1,12 +1,13 @@
 package core;
 
+import static org.junit.Assert.*;
+
 import models.Doodle;
 import models.Movie;
+
 import org.junit.Test;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 // Covers the methods the Judge skeleton tests leave out.
 public class ExamPreparationTests {
@@ -56,7 +57,9 @@ public class ExamPreparationTests {
 
         database.removeMovie("1");
         assertEquals(2, database.size());
-        assertThrows(IllegalArgumentException.class, () -> database.getMoviesByActors(List.of("Gosho", "Pesho")));
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> database.getMoviesByActors(List.of("Gosho", "Pesho")));
         assertThrows(IllegalArgumentException.class, () -> database.getMoviesByActor("Nobody"));
         assertThrows(IllegalArgumentException.class, () -> database.removeMovie("1"));
     }

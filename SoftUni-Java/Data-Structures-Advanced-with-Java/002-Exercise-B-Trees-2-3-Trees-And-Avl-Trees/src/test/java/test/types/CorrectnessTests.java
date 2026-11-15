@@ -1,4 +1,3 @@
 package test.types;
 
-public interface CorrectnessTests {
-}
+public interface CorrectnessTests {}

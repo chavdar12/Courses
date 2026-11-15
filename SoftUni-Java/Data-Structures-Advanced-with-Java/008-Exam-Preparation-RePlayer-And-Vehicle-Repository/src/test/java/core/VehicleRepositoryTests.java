@@ -1,15 +1,15 @@
 package core;
 
+import static org.junit.Assert.*;
+
 import models.Vehicle;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
-import static org.junit.Assert.*;
 
 public class VehicleRepositoryTests {
     private VehicleRepository vehicleRepository;
@@ -48,7 +48,9 @@ public class VehicleRepositoryTests {
         this.vehicleRepository.addVehicleForSale(vehicle2, "George");
         this.vehicleRepository.addVehicleForSale(vehicle, "George");
 
-        assertThrows(IllegalArgumentException.class, () -> this.vehicleRepository.removeVehicle("non-existent"));
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> this.vehicleRepository.removeVehicle("non-existent"));
     }
 
     @Test
@@ -65,8 +67,13 @@ public class VehicleRepositoryTests {
         this.vehicleRepository.addVehicleForSale(vehicle4, "Isacc");
         this.vehicleRepository.addVehicleForSale(vehicle5, "Igor");
 
-        List<Vehicle> orderedVehicles = StreamSupport.stream(this.vehicleRepository.getAllVehiclesOrderedByHorsepowerDescendingThenByPriceThenBySellerName().spliterator(), false)
-                .collect(Collectors.toList());
+        List<Vehicle> orderedVehicles =
+                StreamSupport.stream(
+                                this.vehicleRepository
+                                        .getAllVehiclesOrderedByHorsepowerDescendingThenByPriceThenBySellerName()
+                                        .spliterator(),
+                                false)
+                        .collect(Collectors.toList());
 
         assertEquals(5, orderedVehicles.size());
 

@@ -1,6 +1,9 @@
 package core;
 
+import static org.junit.Assert.*;
+
 import models.Doodle;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,8 +12,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
-import static org.junit.Assert.*;
 
 public class DoodleSearchTests {
     private interface InternalTest {
@@ -107,8 +108,9 @@ public class DoodleSearchTests {
         this.doodleSearch.addDoodle(Doodle5);
         this.doodleSearch.addDoodle(Doodle6);
 
-        List<Doodle> Doodles = StreamSupport.stream(this.doodleSearch.searchDoodles("sd").spliterator(), false)
-                .collect(Collectors.toList());
+        List<Doodle> Doodles =
+                StreamSupport.stream(this.doodleSearch.searchDoodles("sd").spliterator(), false)
+                        .collect(Collectors.toList());
 
         assertEquals(5, Doodles.size());
         assertEquals(Doodle5, Doodles.get(0));

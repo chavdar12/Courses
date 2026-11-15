@@ -14,12 +14,13 @@ public class HashTableTests {
         HashTable<String, Integer> hashTable = new HashTable<>();
 
         // Act
-        KeyValue<String, Integer>[] elements = new KeyValue[]{
-                new KeyValue<>("Peter", 5),
-                new KeyValue<>("Maria", 6),
-                new KeyValue<>("George", 4),
-                new KeyValue<>("Kiril", 5)
-        };
+        KeyValue<String, Integer>[] elements =
+                new KeyValue[] {
+                    new KeyValue<>("Peter", 5),
+                    new KeyValue<>("Maria", 6),
+                    new KeyValue<>("George", 4),
+                    new KeyValue<>("Kiril", 5)
+                };
 
         for (KeyValue<String, Integer> element : elements) {
             hashTable.add(element.getKey(), element.getValue());
@@ -44,7 +45,8 @@ public class HashTableTests {
         HashTable<String, Integer> hashTable = new HashTable<String, Integer>(1);
 
         // Act
-        List<KeyValue<String, Integer>> expectedElements = new ArrayList<KeyValue<String, Integer>>();
+        List<KeyValue<String, Integer>> expectedElements =
+                new ArrayList<KeyValue<String, Integer>>();
         for (Integer i = 0; i < 1000; i++) {
             hashTable.add("key" + i, i);
             expectedElements.add(new KeyValue<>("key" + i, i));
@@ -69,10 +71,8 @@ public class HashTableTests {
         hashTable.addOrReplace("Peter", 5);
 
         // Assert
-        KeyValue<String, Integer>[] expectedElements = new KeyValue[]{
-                new KeyValue<>("Peter", 5),
-                new KeyValue<>("Maria", 6)
-        };
+        KeyValue<String, Integer>[] expectedElements =
+                new KeyValue[] {new KeyValue<>("Peter", 5), new KeyValue<>("Maria", 6)};
 
         for (KeyValue<String, Integer> expectedElement : expectedElements) {
             Assert.assertTrue(hashTable.containsKey(expectedElement.getKey()));
@@ -265,7 +265,7 @@ public class HashTableTests {
             Assert.assertEquals(count, hashTable.size());
         }
 
-//         Assert
+        //         Assert
         int counter = 0;
         for (KeyValue<String, Integer> ignored : hashTable) {
             counter++;

@@ -8,7 +8,8 @@ import java.util.stream.Stream;
 
 public class MovieDatabaseImpl implements MovieDatabase {
     private static final Comparator<Movie> BY_RATING_THEN_YEAR =
-            Comparator.comparingDouble(Movie::getRating).reversed()
+            Comparator.comparingDouble(Movie::getRating)
+                    .reversed()
                     .thenComparing(Comparator.comparingInt(Movie::getReleaseYear).reversed());
 
     private Map<String, Movie> moviesById;
@@ -58,7 +59,8 @@ public class MovieDatabaseImpl implements MovieDatabase {
 
     @Override
     public Iterable<Movie> getMoviesByActor(String actorName) {
-        return this.sortedOrThrow(this.moviesByActor.getOrDefault(actorName, Collections.emptySet()).stream());
+        return this.sortedOrThrow(
+                this.moviesByActor.getOrDefault(actorName, Collections.emptySet()).stream());
     }
 
     @Override
@@ -67,15 +69,14 @@ public class MovieDatabaseImpl implements MovieDatabase {
             throw new IllegalArgumentException();
         }
 
-        return this.sortedOrThrow(this.moviesByActor.getOrDefault(actors.get(0), Collections.emptySet())
-                .stream()
-                .filter(movie -> movie.getActors().containsAll(actors)));
+        return this.sortedOrThrow(
+                this.moviesByActor.getOrDefault(actors.get(0), Collections.emptySet()).stream()
+                        .filter(movie -> movie.getActors().containsAll(actors)));
     }
 
     @Override
     public Iterable<Movie> getMoviesByYear(Integer releaseYear) {
-        return this.moviesById.values()
-                .stream()
+        return this.moviesById.values().stream()
                 .filter(movie -> movie.getReleaseYear() == releaseYear)
                 .sorted(Comparator.comparingDouble(Movie::getRating).reversed())
                 .collect(Collectors.toList());
@@ -83,8 +84,7 @@ public class MovieDatabaseImpl implements MovieDatabase {
 
     @Override
     public Iterable<Movie> getMoviesInRatingRange(double lowerBound, double upperBound) {
-        return this.moviesById.values()
-                .stream()
+        return this.moviesById.values().stream()
                 .filter(movie -> movie.getRating() >= lowerBound && movie.getRating() <= upperBound)
                 .sorted(Comparator.comparingDouble(Movie::getRating).reversed())
                 .collect(Collectors.toList());
@@ -92,17 +92,17 @@ public class MovieDatabaseImpl implements MovieDatabase {
 
     @Override
     public Iterable<Movie> getAllMoviesOrderedByActorPopularityThenByRatingThenByYear() {
-        return this.moviesById.values()
-                .stream()
-                .sorted(Comparator.comparingInt(this::getActorPopularity).reversed()
-                        .thenComparing(BY_RATING_THEN_YEAR))
+        return this.moviesById.values().stream()
+                .sorted(
+                        Comparator.comparingInt(this::getActorPopularity)
+                                .reversed()
+                                .thenComparing(BY_RATING_THEN_YEAR))
                 .collect(Collectors.toList());
     }
 
     // popularity = movie count of the most popular actor in the movie
     private int getActorPopularity(Movie movie) {
-        return movie.getActors()
-                .stream()
+        return movie.getActors().stream()
                 .mapToInt(actor -> this.moviesByActor.get(actor).size())
                 .max()
                 .orElse(0);

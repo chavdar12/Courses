@@ -1,9 +1,11 @@
 package test.performance;
 
 import main.Hierarchy;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BasePerformanceTest;
 import test.helpers.IterableExtensions;
 import test.types.PerformanceTests;
@@ -39,14 +41,17 @@ public class AddPerformance extends BasePerformanceTest {
         counter2 = 25001;
         for (int i = 1; i < 25000; i++) {
             Assert.assertEquals("Parent did not match!", 1, (int) hierarchy.getParent(++counter1));
-            Assert.assertEquals("Parent did not match!", 25001, (int) hierarchy.getParent(++counter2));
+            Assert.assertEquals(
+                    "Parent did not match!", 25001, (int) hierarchy.getParent(++counter2));
         }
 
-        List<Integer> expectedChildren = IntStream.range(2, 25000 + 1).boxed().collect(Collectors.toList());
+        List<Integer> expectedChildren =
+                IntStream.range(2, 25000 + 1).boxed().collect(Collectors.toList());
         List<Integer> actualChildren = IterableExtensions.toList(hierarchy.getChildren(1));
         Assert.assertTrue(expectedChildren.equals(actualChildren));
 
-        List<Integer> expectedChildren2 = IntStream.range(25002, 25000 + 25001).boxed().collect(Collectors.toList());
+        List<Integer> expectedChildren2 =
+                IntStream.range(25002, 25000 + 25001).boxed().collect(Collectors.toList());
         List<Integer> actualChildren2 = IterableExtensions.toList(hierarchy.getChildren(25001));
         Assert.assertTrue(expectedChildren2.equals(actualChildren2));
     }
@@ -87,10 +92,14 @@ public class AddPerformance extends BasePerformanceTest {
             Assert.assertEquals(counter3 + 1, (int) hierarchy.getParent(counter3));
             Assert.assertEquals(counter4 + 1, (int) hierarchy.getParent(counter4));
 
-            Assert.assertEquals(counter1, (int) hierarchy.getChildren(counter1 + 1).iterator().next());
-            Assert.assertEquals(counter2, (int) hierarchy.getChildren(counter2 + 1).iterator().next());
-            Assert.assertEquals(counter3, (int) hierarchy.getChildren(counter3 + 1).iterator().next());
-            Assert.assertEquals(counter4, (int) hierarchy.getChildren(counter4 + 1).iterator().next());
+            Assert.assertEquals(
+                    counter1, (int) hierarchy.getChildren(counter1 + 1).iterator().next());
+            Assert.assertEquals(
+                    counter2, (int) hierarchy.getChildren(counter2 + 1).iterator().next());
+            Assert.assertEquals(
+                    counter3, (int) hierarchy.getChildren(counter3 + 1).iterator().next());
+            Assert.assertEquals(
+                    counter4, (int) hierarchy.getChildren(counter4 + 1).iterator().next());
             counter1++;
             counter2++;
             counter3++;

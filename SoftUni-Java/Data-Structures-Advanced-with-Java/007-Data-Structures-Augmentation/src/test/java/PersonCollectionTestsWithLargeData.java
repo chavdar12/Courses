@@ -51,8 +51,7 @@ public class PersonCollectionTestsWithLargeData {
 
         // Act
         for (int i = 0; i < 10000; i++) {
-            Iterable<Person> allPeople =
-                    this.people.findAll("gmail1.com");
+            Iterable<Person> allPeople = this.people.findAll("gmail1.com");
             int count = 0;
             for (Person existingPerson : allPeople) {
                 count++;
@@ -60,8 +59,7 @@ public class PersonCollectionTestsWithLargeData {
 
             Assert.assertEquals(50, count);
 
-            Iterable<Person> notExistingPeople =
-                    this.people.findAll("non-existing email");
+            Iterable<Person> notExistingPeople = this.people.findAll("non-existing email");
             count = 0;
             for (Person notExistingPerson : notExistingPeople) {
                 count++;
@@ -77,8 +75,7 @@ public class PersonCollectionTestsWithLargeData {
 
         // Act
         for (int i = 0; i < 2000; i++) {
-            Iterable<Person> existingpeople =
-                    this.people.findAll(20, 21);
+            Iterable<Person> existingpeople = this.people.findAll(20, 21);
             int count = 0;
             for (Person existingPerson : existingpeople) {
                 count++;
@@ -86,8 +83,7 @@ public class PersonCollectionTestsWithLargeData {
 
             Assert.assertEquals(100, count);
 
-            Iterable<Person> notExistingPeople =
-                    this.people.findAll(500, 600);
+            Iterable<Person> notExistingPeople = this.people.findAll(500, 600);
 
             count = 0;
             for (Person notExistingPerson : notExistingPeople) {
@@ -105,8 +101,7 @@ public class PersonCollectionTestsWithLargeData {
 
         // Act
         for (int i = 0; i < 5000; i++) {
-            Iterable<Person> existingPeople =
-                    this.people.findAll(18, 22, "Sofia20");
+            Iterable<Person> existingPeople = this.people.findAll(18, 22, "Sofia20");
             int count = 0;
             for (Person existingPerson : existingPeople) {
                 count++;
@@ -114,8 +109,7 @@ public class PersonCollectionTestsWithLargeData {
 
             Assert.assertEquals(50, count);
 
-            Iterable<Person> notExistingTownPeople =
-                    this.people.findAll(20, 30, "Missing town");
+            Iterable<Person> notExistingTownPeople = this.people.findAll(20, 30, "Missing town");
             count = 0;
             for (Person notExistingTownPerson : notExistingTownPeople) {
                 count++;
@@ -123,8 +117,7 @@ public class PersonCollectionTestsWithLargeData {
 
             Assert.assertEquals(0, count);
 
-            Iterable<Person> notExistingAgePeople =
-                    this.people.findAll(200, 300, "Sofia1");
+            Iterable<Person> notExistingAgePeople = this.people.findAll(200, 300, "Sofia1");
 
             count = 0;
             for (Person notExistingAgePerson : notExistingAgePeople) {

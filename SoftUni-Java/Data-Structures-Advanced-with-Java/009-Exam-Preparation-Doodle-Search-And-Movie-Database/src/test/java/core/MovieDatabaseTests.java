@@ -1,6 +1,9 @@
+import static org.junit.Assert.*;
+
 import core.*;
 
 import models.Movie;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,8 +11,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.StreamSupport;
-
-import static org.junit.Assert.*;
 
 public class MovieDatabaseTests {
     private interface InternalTest {
@@ -24,7 +25,10 @@ public class MovieDatabaseTests {
                 UUID.randomUUID().toString(),
                 (int) Math.min(1, Math.random() * 2_000),
                 Math.min(1, Math.random() * 10),
-                new ArrayList<String>(IntStream.range(1,  (int) Math.min(2, Math.random() * 10)).mapToObj(x -> UUID.randomUUID().toString()).collect(Collectors.toList())));
+                new ArrayList<String>(
+                        IntStream.range(1, (int) Math.min(2, Math.random() * 10))
+                                .mapToObj(x -> UUID.randomUUID().toString())
+                                .collect(Collectors.toList())));
     }
 
     @Before
@@ -39,7 +43,8 @@ public class MovieDatabaseTests {
 
                     try {
                         method.execute();
-                    } catch (IllegalArgumentException ignored) { }
+                    } catch (IllegalArgumentException ignored) {
+                    }
                 });
 
         this.movieDatabase = new MovieDatabaseImpl();
@@ -85,8 +90,7 @@ public class MovieDatabaseTests {
     }
 
     @Test
-    public void testCount_WithEmpty_ShouldReturnZero()
-    {
+    public void testCount_WithEmpty_ShouldReturnZero() {
         assertEquals(0, this.movieDatabase.size());
     }
 
@@ -105,7 +109,11 @@ public class MovieDatabaseTests {
         this.movieDatabase.addMovie(Movie5);
 
         List<Movie> list =
-                StreamSupport.stream(this.movieDatabase.getAllMoviesOrderedByActorPopularityThenByRatingThenByYear().spliterator(), false)
+                StreamSupport.stream(
+                                this.movieDatabase
+                                        .getAllMoviesOrderedByActorPopularityThenByRatingThenByYear()
+                                        .spliterator(),
+                                false)
                         .collect(Collectors.toList());
 
         assertEquals(5, list.size());

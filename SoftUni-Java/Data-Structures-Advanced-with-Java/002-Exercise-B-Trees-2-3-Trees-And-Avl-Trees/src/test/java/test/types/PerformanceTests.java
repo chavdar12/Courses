@@ -1,4 +1,3 @@
 package test.types;
 
-public interface PerformanceTests {
-}
+public interface PerformanceTests {}

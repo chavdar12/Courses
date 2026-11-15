@@ -1,9 +1,11 @@
 package test.performance;
 
 import main.Hierarchy;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BasePerformanceTest;
 import test.helpers.IterableExtensions;
 import test.types.PerformanceTests;
@@ -51,10 +53,12 @@ public class GetCommonElementsPerformance extends BasePerformanceTest {
             hierarchy2.add(start2, i);
         }
 
-        List<Integer> expectedCommon = IntStream.range(25001, 25001 + 25000).boxed().collect(Collectors.toList());
+        List<Integer> expectedCommon =
+                IntStream.range(25001, 25001 + 25000).boxed().collect(Collectors.toList());
         long start = System.currentTimeMillis();
 
-        List<Integer> actualCommon = IterableExtensions.toList(hierarchy.getCommonElements(hierarchy2));
+        List<Integer> actualCommon =
+                IterableExtensions.toList(hierarchy.getCommonElements(hierarchy2));
         Assert.assertEquals(expectedCommon, actualCommon);
 
         long end = System.currentTimeMillis();

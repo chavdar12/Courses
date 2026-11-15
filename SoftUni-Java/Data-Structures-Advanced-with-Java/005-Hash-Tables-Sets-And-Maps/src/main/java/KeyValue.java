@@ -36,8 +36,7 @@ public class KeyValue<Key, Value> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KeyValue<?, ?> keyValue = (KeyValue<?, ?>) o;
-        return Objects.equals(key, keyValue.key) &&
-                Objects.equals(value, keyValue.value);
+        return Objects.equals(key, keyValue.key) && Objects.equals(value, keyValue.value);
     }
 
     @Override

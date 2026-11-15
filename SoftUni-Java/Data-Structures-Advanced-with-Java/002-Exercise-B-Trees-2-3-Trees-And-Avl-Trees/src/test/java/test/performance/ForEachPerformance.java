@@ -1,9 +1,11 @@
 package test.performance;
 
 import main.Hierarchy;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BasePerformanceTest;
 import test.types.PerformanceTests;
 
@@ -42,7 +44,8 @@ public class ForEachPerformance extends BasePerformanceTest {
         int counter = 0;
         long start = System.currentTimeMillis();
         for (int element : hierarchy) {
-            Assert.assertEquals("Expected element did not match!", (int) elements.get(counter++), element);
+            Assert.assertEquals(
+                    "Expected element did not match!", (int) elements.get(counter++), element);
         }
 
         long end = System.currentTimeMillis();

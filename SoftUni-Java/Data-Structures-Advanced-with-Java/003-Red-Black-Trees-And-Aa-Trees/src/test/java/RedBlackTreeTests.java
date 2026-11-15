@@ -34,7 +34,7 @@ public class RedBlackTreeTests {
         }
 
         // Assert
-        int[] expectedNodes = new int[]{5, 12, 18, 37, 48, 60, 80};
+        int[] expectedNodes = new int[] {5, 12, 18, 37, 48, 60, 80};
 
         Assert.assertArrayEquals(expectedNodes, result);
     }
@@ -54,7 +54,6 @@ public class RedBlackTreeTests {
         Assert.assertEquals(3, rbt.search(12).getNodesCount());
         Assert.assertEquals(3, rbt.search(60).getNodesCount());
     }
-
 
     @Test
     public void insert_MultipleElements_ShouldHaveQuickFind() {

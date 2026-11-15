@@ -30,12 +30,13 @@ public class Tree23 {
                 for (Node23<K> subNode : this.subNodes) {
                     subNode.parent = this;
                 }
-
             }
 
             @Override
             public String toString() {
-                return "{" + keys.stream().map(Object::toString).collect(Collectors.joining(",")) + "}";
+                return "{"
+                        + keys.stream().map(Object::toString).collect(Collectors.joining(","))
+                        + "}";
             }
 
             boolean contains(K key) {
@@ -52,15 +53,21 @@ public class Tree23 {
                 Node23<K> insertionNode = this;
                 while (insertionNode.keys.size() == 3) {
 
-                    Node23<K> leftPart = new Node23<>(insertionNode.parent, insertionNode.keys.get(0),
-                            !insertionNode.subNodes.isEmpty()
-                                    ? insertionNode.subNodes.subList(0, 2)
-                                    : new ArrayList<>());
+                    Node23<K> leftPart =
+                            new Node23<>(
+                                    insertionNode.parent,
+                                    insertionNode.keys.get(0),
+                                    !insertionNode.subNodes.isEmpty()
+                                            ? insertionNode.subNodes.subList(0, 2)
+                                            : new ArrayList<>());
 
-                    Node23<K> rightPart = new Node23<>(insertionNode.parent, insertionNode.keys.get(2),
-                            !insertionNode.subNodes.isEmpty()
-                                    ? insertionNode.subNodes.subList(2, 4)
-                                    : new ArrayList<>());
+                    Node23<K> rightPart =
+                            new Node23<>(
+                                    insertionNode.parent,
+                                    insertionNode.keys.get(2),
+                                    !insertionNode.subNodes.isEmpty()
+                                            ? insertionNode.subNodes.subList(2, 4)
+                                            : new ArrayList<>());
 
                     K median = insertionNode.keys.get(1);
 
@@ -74,7 +81,8 @@ public class Tree23 {
                         insertionNode.subNodes.set(insertionIndex + 1, rightPart);
 
                     } else {
-                        insertionNode = new Node23<>(null, median, Arrays.asList(leftPart, rightPart));
+                        insertionNode =
+                                new Node23<>(null, median, Arrays.asList(leftPart, rightPart));
                     }
                 }
 
@@ -155,7 +163,5 @@ public class Tree23 {
         }
     }
 
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 }

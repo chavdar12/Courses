@@ -1,3 +1,5 @@
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -6,25 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.*;
-
 public class AATreeTest {
     private AATree<Integer> aaTree;
-    private Integer[] input = {
-            18,
-            13,
-            1,
-            7,
-            42,
-            73,
-            56,
-            24,
-            6,
-            2,
-            74,
-            69,
-            55
-    };
+    private Integer[] input = {18, 13, 1, 7, 42, 73, 56, 24, 6, 2, 74, 69, 55};
 
     @Before
     public void setUp() {
@@ -39,9 +25,7 @@ public class AATreeTest {
     public void testCreation() {
         List<Integer> numbers = new ArrayList<>();
         this.aaTree.inOrder(numbers::add);
-        List<Integer> expected = Arrays.stream(input)
-                .sorted()
-                .collect(Collectors.toList());
+        List<Integer> expected = Arrays.stream(input).sorted().collect(Collectors.toList());
 
         assertEquals(expected.size(), numbers.size());
 

@@ -21,7 +21,7 @@ public class AVLTest {
         }
 
         // Assert
-        int[] expectedNodes = new int[]{1};
+        int[] expectedNodes = new int[] {1};
         Assert.assertArrayEquals(expectedNodes, result);
     }
 
@@ -42,7 +42,7 @@ public class AVLTest {
         }
 
         // Assert
-        int[] expectedNodes = new int[]{1, 2, 3};
+        int[] expectedNodes = new int[] {1, 2, 3};
         Assert.assertArrayEquals(expectedNodes, result);
     }
 

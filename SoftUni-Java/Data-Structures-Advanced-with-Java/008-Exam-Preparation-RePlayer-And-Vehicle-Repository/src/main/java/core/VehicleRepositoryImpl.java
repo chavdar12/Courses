@@ -23,7 +23,9 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     public void addVehicleForSale(Vehicle vehicle, String sellerName) {
         this.vehiclesById.put(vehicle.getId(), vehicle);
         this.sellerByVehicleId.put(vehicle.getId(), sellerName);
-        this.vehiclesBySeller.computeIfAbsent(sellerName, k -> new TreeSet<>(BY_PRICE_THEN_ID)).add(vehicle);
+        this.vehiclesBySeller
+                .computeIfAbsent(sellerName, k -> new TreeSet<>(BY_PRICE_THEN_ID))
+                .add(vehicle);
     }
 
     @Override
@@ -50,15 +52,18 @@ public class VehicleRepositoryImpl implements VehicleRepository {
 
     @Override
     public Iterable<Vehicle> getVehicles(List<String> keywords) {
-        return this.vehiclesById.values()
-                .stream()
-                .filter(vehicle -> keywords.contains(vehicle.getBrand())
-                        || keywords.contains(vehicle.getModel())
-                        || keywords.contains(vehicle.getLocation())
-                        || keywords.contains(vehicle.getColor()))
-                .sorted(Comparator.comparing(Vehicle::getIsVIP).reversed()
-                        .thenComparing(Comparator.comparingInt(Vehicle::getHorsepower).reversed())
-                        .thenComparingDouble(Vehicle::getPrice))
+        return this.vehiclesById.values().stream()
+                .filter(vehicle ->
+                        keywords.contains(vehicle.getBrand())
+                                || keywords.contains(vehicle.getModel())
+                                || keywords.contains(vehicle.getLocation())
+                                || keywords.contains(vehicle.getColor()))
+                .sorted(
+                        Comparator.comparing(Vehicle::getIsVIP)
+                                .reversed()
+                                .thenComparing(
+                                        Comparator.comparingInt(Vehicle::getHorsepower).reversed())
+                                .thenComparingDouble(Vehicle::getPrice))
                 .collect(Collectors.toList());
     }
 
@@ -69,9 +74,9 @@ public class VehicleRepositoryImpl implements VehicleRepository {
 
     @Override
     public Iterable<Vehicle> getVehiclesInPriceRange(double lowerBound, double upperBound) {
-        return this.vehiclesById.values()
-                .stream()
-                .filter(vehicle -> vehicle.getPrice() >= lowerBound && vehicle.getPrice() <= upperBound)
+        return this.vehiclesById.values().stream()
+                .filter(vehicle ->
+                        vehicle.getPrice() >= lowerBound && vehicle.getPrice() <= upperBound)
                 .sorted(Comparator.comparingInt(Vehicle::getHorsepower).reversed())
                 .collect(Collectors.toList());
     }
@@ -82,19 +87,23 @@ public class VehicleRepositoryImpl implements VehicleRepository {
             throw new IllegalArgumentException();
         }
 
-        return this.vehiclesById.values()
-                .stream()
+        return this.vehiclesById.values().stream()
                 .sorted(Comparator.comparingDouble(Vehicle::getPrice))
-                .collect(Collectors.groupingBy(Vehicle::getBrand, LinkedHashMap::new, Collectors.toList()));
+                .collect(
+                        Collectors.groupingBy(
+                                Vehicle::getBrand, LinkedHashMap::new, Collectors.toList()));
     }
 
     @Override
-    public Iterable<Vehicle> getAllVehiclesOrderedByHorsepowerDescendingThenByPriceThenBySellerName() {
-        return this.vehiclesById.values()
-                .stream()
-                .sorted(Comparator.comparingInt(Vehicle::getHorsepower).reversed()
-                        .thenComparingDouble(Vehicle::getPrice)
-                        .thenComparing(vehicle -> this.sellerByVehicleId.get(vehicle.getId())))
+    public Iterable<Vehicle>
+            getAllVehiclesOrderedByHorsepowerDescendingThenByPriceThenBySellerName() {
+        return this.vehiclesById.values().stream()
+                .sorted(
+                        Comparator.comparingInt(Vehicle::getHorsepower)
+                                .reversed()
+                                .thenComparingDouble(Vehicle::getPrice)
+                                .thenComparing(
+                                        vehicle -> this.sellerByVehicleId.get(vehicle.getId())))
                 .collect(Collectors.toList());
     }
 

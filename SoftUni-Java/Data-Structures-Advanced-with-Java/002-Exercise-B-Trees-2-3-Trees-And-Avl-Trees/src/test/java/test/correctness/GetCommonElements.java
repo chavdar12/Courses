@@ -1,10 +1,11 @@
 package test.correctness;
 
-
 import main.Hierarchy;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BaseTest;
 import test.helpers.IterableExtensions;
 import test.types.CorrectnessTests;
@@ -17,7 +18,8 @@ public class GetCommonElements extends BaseTest {
 
     @Category(CorrectnessTests.class)
     @Test
-    public void GetCommonElements_WithHierarchyWithoutCommonElements_ShouldReturnAnEmptyCollection() {
+    public void
+            GetCommonElements_WithHierarchyWithoutCommonElements_ShouldReturnAnEmptyCollection() {
         Hierarchy<Integer> otherHierarchy = new Hierarchy<>(1);
 
         Iterable<Integer> commonElements = this.Hierarchy.getCommonElements(otherHierarchy);
@@ -27,7 +29,8 @@ public class GetCommonElements extends BaseTest {
 
     @Category(CorrectnessTests.class)
     @Test
-    public void GetCommonElements_WithHierarchyWithOneCommonElement_ShouldReturnACollectionOfCorrectElement() {
+    public void
+            GetCommonElements_WithHierarchyWithOneCommonElement_ShouldReturnACollectionOfCorrectElement() {
         Hierarchy<Integer> otherHierarchy = new Hierarchy<>(1);
         otherHierarchy.add(1, 13);
         this.Hierarchy.add(DefaultRootValue, 13);
@@ -40,7 +43,8 @@ public class GetCommonElements extends BaseTest {
 
     @Category(CorrectnessTests.class)
     @Test
-    public void GetCommonElements_WithHierarchyWithMultipleCommonElements_ShouldReturnACorrectCollection() {
+    public void
+            GetCommonElements_WithHierarchyWithMultipleCommonElements_ShouldReturnACorrectCollection() {
         Hierarchy<Integer> otherHierarchy = new Hierarchy<>(10);
         otherHierarchy.add(10, -22);
         otherHierarchy.add(-22, 56);

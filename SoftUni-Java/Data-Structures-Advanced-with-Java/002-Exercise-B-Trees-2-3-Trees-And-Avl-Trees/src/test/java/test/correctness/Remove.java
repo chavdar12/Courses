@@ -3,6 +3,7 @@ package test.correctness;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BaseTest;
 import test.helpers.IterableExtensions;
 import test.types.CorrectnessTests;

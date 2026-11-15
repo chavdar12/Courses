@@ -6,8 +6,7 @@ public class RedBlackTree<T extends Comparable<T>> {
 
     private Node<T> root;
 
-    public RedBlackTree() {
-    }
+    public RedBlackTree() {}
 
     private RedBlackTree(Node<T> node) {
         this.preOrderCopy(node);
@@ -148,4 +147,3 @@ public class RedBlackTree<T extends Comparable<T>> {
         }
     }
 }
-

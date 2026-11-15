@@ -106,7 +106,6 @@ public class HashTable<K, V> implements Iterable<KeyValue<K, V>> {
         if (this.hashtable[index] != null) {
 
             for (var kvp : this.hashtable[index])
-
                 if (kvp.getKey().equals(key)) {
 
                     return kvp;

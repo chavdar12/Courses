@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 
 public class DoodleSearchImpl implements DoodleSearch {
     private static final Comparator<Doodle> BY_REVENUE_THEN_VISITS =
-            Comparator.comparingDouble(Doodle::getRevenue).reversed()
+            Comparator.comparingDouble(Doodle::getRevenue)
+                    .reversed()
                     .thenComparing(Comparator.comparingInt(Doodle::getVisits).reversed());
 
     private Map<String, Doodle> doodlesById;
@@ -58,8 +59,7 @@ public class DoodleSearchImpl implements DoodleSearch {
 
     @Override
     public double getTotalRevenueFromDoodleAds() {
-        return this.doodlesById.values()
-                .stream()
+        return this.doodlesById.values().stream()
                 .filter(Doodle::getIsAd)
                 .mapToDouble(doodle -> doodle.getRevenue() * doodle.getVisits())
                 .sum();
@@ -78,19 +78,20 @@ public class DoodleSearchImpl implements DoodleSearch {
 
     @Override
     public Iterable<Doodle> searchDoodles(String searchQuery) {
-        return this.doodlesById.values()
-                .stream()
+        return this.doodlesById.values().stream()
                 .filter(doodle -> doodle.getTitle().contains(searchQuery))
-                .sorted(Comparator.comparing(Doodle::getIsAd).reversed()
-                        .thenComparingInt(doodle -> doodle.getTitle().indexOf(searchQuery))
-                        .thenComparing(Comparator.comparingInt(Doodle::getVisits).reversed()))
+                .sorted(
+                        Comparator.comparing(Doodle::getIsAd)
+                                .reversed()
+                                .thenComparingInt(doodle -> doodle.getTitle().indexOf(searchQuery))
+                                .thenComparing(
+                                        Comparator.comparingInt(Doodle::getVisits).reversed()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public Iterable<Doodle> getDoodleAds() {
-        return this.doodlesById.values()
-                .stream()
+        return this.doodlesById.values().stream()
                 .filter(Doodle::getIsAd)
                 .sorted(BY_REVENUE_THEN_VISITS)
                 .collect(Collectors.toList());
@@ -98,8 +99,7 @@ public class DoodleSearchImpl implements DoodleSearch {
 
     @Override
     public Iterable<Doodle> getTop3DoodlesByRevenueThenByVisits() {
-        return this.doodlesById.values()
-                .stream()
+        return this.doodlesById.values().stream()
                 .sorted(BY_REVENUE_THEN_VISITS)
                 .limit(3)
                 .collect(Collectors.toList());

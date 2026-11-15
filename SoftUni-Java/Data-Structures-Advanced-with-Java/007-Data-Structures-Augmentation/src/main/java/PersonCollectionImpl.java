@@ -12,7 +12,9 @@ public class PersonCollectionImpl implements PersonCollection {
         this.peopleByEmails = new HashMap<>();
         this.peopleByDomains = new HashMap<>();
         this.peopleByNameAndTown = new HashMap<>();
-        this.people = new TreeSet<>(Comparator.comparingInt(Person::getAge).thenComparing(Person::getEmail));
+        this.people =
+                new TreeSet<>(
+                        Comparator.comparingInt(Person::getAge).thenComparing(Person::getEmail));
     }
 
     @Override
@@ -37,7 +39,6 @@ public class PersonCollectionImpl implements PersonCollection {
         return true;
     }
 
-
     @Override
     public int getCount() {
         return this.peopleByEmails.size();
@@ -53,7 +54,9 @@ public class PersonCollectionImpl implements PersonCollection {
 
         this.people.remove(person);
         this.peopleByDomains.get(getDomain(email)).remove(person);
-        this.peopleByNameAndTown.get(getNameAndTown(person.getName(), person.getTown())).remove(person);
+        this.peopleByNameAndTown
+                .get(getNameAndTown(person.getName(), person.getTown()))
+                .remove(person);
 
         return true;
     }
@@ -78,18 +81,17 @@ public class PersonCollectionImpl implements PersonCollection {
     @Override
     public Iterable<Person> findAll(int startAge, int endAge) {
         return people.stream()
-                .filter(person -> person.getAge() >= startAge
-                        && person.getAge() <= endAge)
+                .filter(person -> person.getAge() >= startAge && person.getAge() <= endAge)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Iterable<Person> findAll(int startAge, int endAge, String town) {
-        return people
-                .stream()
-                .filter(person -> person.getAge() >= startAge
-                        && person.getAge() <= endAge
-                        && person.getTown().equals(town))
+        return people.stream()
+                .filter(person ->
+                        person.getAge() >= startAge
+                                && person.getAge() <= endAge
+                                && person.getTown().equals(town))
                 .collect(Collectors.toList());
     }
 

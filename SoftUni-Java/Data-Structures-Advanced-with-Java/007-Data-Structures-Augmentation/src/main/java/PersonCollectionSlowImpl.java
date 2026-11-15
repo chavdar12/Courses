@@ -44,8 +44,7 @@ public class PersonCollectionSlowImpl implements PersonCollection {
 
     @Override
     public Iterable<Person> findAll(String emailDomain) {
-        return people.values()
-                .stream()
+        return people.values().stream()
                 .filter(person -> person.getEmail().endsWith("@" + emailDomain))
                 .sorted(Comparator.comparing(Person::getEmail))
                 .collect(Collectors.toList());
@@ -53,8 +52,7 @@ public class PersonCollectionSlowImpl implements PersonCollection {
 
     @Override
     public Iterable<Person> findAll(String name, String town) {
-        return people.values()
-                .stream()
+        return people.values().stream()
                 .filter(person -> person.getName().equals(name) && person.getTown().equals(town))
                 .sorted(Comparator.comparing(Person::getEmail))
                 .collect(Collectors.toList());
@@ -63,8 +61,7 @@ public class PersonCollectionSlowImpl implements PersonCollection {
     @Override
     public Iterable<Person> findAll(int startAge, int endAge) {
 
-        return people.values()
-                .stream()
+        return people.values().stream()
                 .filter(person -> person.getAge() >= startAge && person.getAge() <= endAge)
                 .sorted(Comparator.comparing(Person::getAge).thenComparing(Person::getEmail))
                 .collect(Collectors.toList());
@@ -72,9 +69,10 @@ public class PersonCollectionSlowImpl implements PersonCollection {
 
     @Override
     public Iterable<Person> findAll(int startAge, int endAge, String town) {
-        return people.values()
-                .stream()
-                .filter(person -> (person.getAge() >= startAge && person.getAge() <= endAge) && person.getTown().equals(town))
+        return people.values().stream()
+                .filter(person ->
+                        (person.getAge() >= startAge && person.getAge() <= endAge)
+                                && person.getTown().equals(town))
                 .sorted(Comparator.comparing(Person::getAge).thenComparing(Person::getEmail))
                 .collect(Collectors.toList());
     }

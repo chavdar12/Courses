@@ -1,9 +1,11 @@
 package test.correctness;
 
 import main.Hierarchy;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BaseTest;
 import test.types.CorrectnessTests;
 

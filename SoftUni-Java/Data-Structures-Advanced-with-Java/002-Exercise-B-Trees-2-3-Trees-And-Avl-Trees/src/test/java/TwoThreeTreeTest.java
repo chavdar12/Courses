@@ -1,6 +1,6 @@
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 public class TwoThreeTreeTest {
 
@@ -17,9 +17,9 @@ public class TwoThreeTreeTest {
         tree.insert(13);
         tree.insert(42);
         tree.insert(69);
-        assertEquals("42 " + System.lineSeparator() +
-                "13 " + System.lineSeparator() +
-                "69", tree.getAsString());
+        assertEquals(
+                "42 " + System.lineSeparator() + "13 " + System.lineSeparator() + "69",
+                tree.getAsString());
     }
 
     @Test
@@ -32,16 +32,28 @@ public class TwoThreeTreeTest {
             tree.insert(arr[i]);
         }
 
-        assertEquals("2002 6209" + System.lineSeparator() +
-                "1593 " + System.lineSeparator() +
-                "707 " + System.lineSeparator() +
-                "1937 " + System.lineSeparator() +
-                "5494 " + System.lineSeparator() +
-                "2736 " + System.lineSeparator() +
-                "6209 " + System.lineSeparator() +
-                "6541 8168" + System.lineSeparator() +
-                "6254 " + System.lineSeparator() +
-                "7037 " + System.lineSeparator() +
-                "8168", tree.getAsString());
+        assertEquals(
+                "2002 6209"
+                        + System.lineSeparator()
+                        + "1593 "
+                        + System.lineSeparator()
+                        + "707 "
+                        + System.lineSeparator()
+                        + "1937 "
+                        + System.lineSeparator()
+                        + "5494 "
+                        + System.lineSeparator()
+                        + "2736 "
+                        + System.lineSeparator()
+                        + "6209 "
+                        + System.lineSeparator()
+                        + "6541 8168"
+                        + System.lineSeparator()
+                        + "6254 "
+                        + System.lineSeparator()
+                        + "7037 "
+                        + System.lineSeparator()
+                        + "8168",
+                tree.getAsString());
     }
 }

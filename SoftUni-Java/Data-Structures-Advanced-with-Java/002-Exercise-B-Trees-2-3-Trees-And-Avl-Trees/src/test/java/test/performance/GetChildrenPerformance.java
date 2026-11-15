@@ -1,9 +1,11 @@
 package test.performance;
 
 import main.Hierarchy;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BasePerformanceTest;
 import test.helpers.IterableExtensions;
 import test.types.PerformanceTests;
@@ -24,7 +26,8 @@ public class GetChildrenPerformance extends BasePerformanceTest {
             hierarchy.add(-17, i);
         }
 
-        List<Integer> expectedChildren = IntStream.range(1, 50000 + 1).boxed().collect(Collectors.toList());
+        List<Integer> expectedChildren =
+                IntStream.range(1, 50000 + 1).boxed().collect(Collectors.toList());
         Collections.reverse(expectedChildren);
         long start = System.currentTimeMillis();
         List<Integer> actualChildren = IterableExtensions.toList(hierarchy.getChildren(-17));
@@ -47,7 +50,8 @@ public class GetChildrenPerformance extends BasePerformanceTest {
             }
         }
 
-        List<Integer> expectedChildren = IntStream.range(1, 5000 + 1).boxed().collect(Collectors.toList());
+        List<Integer> expectedChildren =
+                IntStream.range(1, 5000 + 1).boxed().collect(Collectors.toList());
         counter = 5001;
         long start = System.currentTimeMillis();
 

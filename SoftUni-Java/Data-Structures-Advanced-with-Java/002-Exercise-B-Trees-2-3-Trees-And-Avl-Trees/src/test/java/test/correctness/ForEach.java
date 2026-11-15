@@ -3,6 +3,7 @@ package test.correctness;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BaseTest;
 import test.types.CorrectnessTests;
 
@@ -12,7 +13,7 @@ public class ForEach extends BaseTest {
     @Test
     public void ForEach_WithOnlyRoot_ShouldIterateOnlyThroughRoot() {
         int count = 0;
-        int[] collection = new int[]{DefaultRootValue};
+        int[] collection = new int[] {DefaultRootValue};
         for (int element : this.Hierarchy) {
             Assert.assertEquals(collection[count++], element);
         }
@@ -32,7 +33,8 @@ public class ForEach extends BaseTest {
         this.Hierarchy.add(200, 201);
         this.Hierarchy.add(201, 202);
         this.Hierarchy.add(50, 300);
-        int[] collection = new int[]{DefaultRootValue, 50, 70, 200, 300, 100, 120, 110, 201, 0, 202};
+        int[] collection =
+                new int[] {DefaultRootValue, 50, 70, 200, 300, 100, 120, 110, 201, 0, 202};
 
         for (int element : this.Hierarchy) {
             Assert.assertEquals(collection[count++], element);
@@ -56,7 +58,8 @@ public class ForEach extends BaseTest {
         this.Hierarchy.add(-12, -16);
         this.Hierarchy.add(11, 13);
         int count = 0;
-        int[] collection = new int[]{DefaultRootValue, -10, 10, -11, -12, 11, 12, -13, -14, -15, -16, 13};
+        int[] collection =
+                new int[] {DefaultRootValue, -10, 10, -11, -12, 11, 12, -13, -14, -15, -16, 13};
         for (int element : this.Hierarchy) {
             Assert.assertEquals(collection[count++], element);
         }

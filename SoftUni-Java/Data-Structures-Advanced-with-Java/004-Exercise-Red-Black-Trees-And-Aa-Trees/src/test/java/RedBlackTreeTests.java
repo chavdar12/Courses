@@ -1,27 +1,13 @@
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Map;
 
-import static org.junit.Assert.*;
-
 public class RedBlackTreeTests {
     private RedBlackTree<String, Integer> redBlackTree;
-    private String[] input = {
-            "S",
-            "E",
-            "A",
-            "R",
-            "C",
-            "H",
-            "E",
-            "X",
-            "A",
-            "M",
-            "P",
-            "L",
-            "E"
-    };
+    private String[] input = {"S", "E", "A", "R", "C", "H", "E", "X", "A", "M", "P", "L", "E"};
 
     @Before
     public void setUp() {
@@ -34,17 +20,18 @@ public class RedBlackTreeTests {
 
     @Test
     public void testCreation() {
-        Map<String, Integer> expected = Map.of(
-                "A", 8,
-                "C", 4,
-                "E", 12,
-                "H", 5,
-                "L", 11,
-                "M", 9,
-                "P", 10,
-                "R", 3,
-                "S", 0,
-                "X", 7);
+        Map<String, Integer> expected =
+                Map.of(
+                        "A", 8,
+                        "C", 4,
+                        "E", 12,
+                        "H", 5,
+                        "L", 11,
+                        "M", 9,
+                        "P", 10,
+                        "R", 3,
+                        "S", 0,
+                        "X", 7);
 
         assertEquals(expected.size(), this.redBlackTree.size());
 
@@ -163,17 +150,18 @@ public class RedBlackTreeTests {
 
     @Test
     public void keys() {
-        Map<String, Integer> expected = Map.of(
-                "A", 8,
-                "C", 4,
-                "E", 12,
-                "H", 5,
-                "L", 11,
-                "M", 9,
-                "P", 10,
-                "R", 3,
-                "S", 0,
-                "X", 7);
+        Map<String, Integer> expected =
+                Map.of(
+                        "A", 8,
+                        "C", 4,
+                        "E", 12,
+                        "H", 5,
+                        "L", 11,
+                        "M", 9,
+                        "P", 10,
+                        "R", 3,
+                        "S", 0,
+                        "X", 7);
 
         assertEquals(expected.size(), this.redBlackTree.size());
 

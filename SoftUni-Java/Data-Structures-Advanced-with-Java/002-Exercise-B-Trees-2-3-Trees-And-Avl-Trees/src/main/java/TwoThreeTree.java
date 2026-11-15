@@ -143,8 +143,7 @@ public class TwoThreeTree<K extends Comparable<K>> {
             return;
         }
         if (node.leftKey != null) {
-            out.append(node.leftKey)
-                    .append(" ");
+            out.append(node.leftKey).append(" ");
         }
         if (node.rightKey != null) {
             out.append(node.rightKey).append(System.lineSeparator());

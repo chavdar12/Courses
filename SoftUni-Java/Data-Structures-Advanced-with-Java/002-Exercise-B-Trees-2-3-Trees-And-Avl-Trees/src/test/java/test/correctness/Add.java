@@ -3,6 +3,7 @@ package test.correctness;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+
 import test.helpers.BaseTest;
 import test.types.CorrectnessTests;
 
@@ -34,7 +35,7 @@ public class Add extends BaseTest {
     @Category(CorrectnessTests.class)
     @Test
     public void Add_WithMultipleElements_ShouldIncrementCountCorrectly() {
-        int[] elementsToAdd = new int[]{3, 2, 7};
+        int[] elementsToAdd = new int[] {3, 2, 7};
 
         this.Hierarchy.add(DefaultRootValue, elementsToAdd[0]);
         this.Hierarchy.add(DefaultRootValue, elementsToAdd[1]);

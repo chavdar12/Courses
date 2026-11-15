@@ -17,9 +17,7 @@ class AATree<T extends Comparable<T>> {
 
     private Node<T> root;
 
-    public AATree() {
-
-    }
+    public AATree() {}
 
     public boolean isEmpty() {
         return this.root == null;
@@ -65,7 +63,9 @@ class AATree<T extends Comparable<T>> {
     }
 
     private Node<T> split(Node<T> node) {
-        if (node.right != null && node.right.right != null && node.right.right.level == node.level) {
+        if (node.right != null
+                && node.right.right != null
+                && node.right.right.level == node.level) {
             Node<T> right = node.right;
             node.right = right.left;
             right.left = node;
