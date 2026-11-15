@@ -1,5 +1,5 @@
-#ifndef ARRAY_H
-#define ARRAY_H
+#ifndef ARRAY_OF_POINTERS_H
+#define ARRAY_OF_POINTERS_H
 
 #include "Company.h"
 #include <memory>
