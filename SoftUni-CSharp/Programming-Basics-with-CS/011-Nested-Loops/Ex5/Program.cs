@@ -10,7 +10,8 @@ internal class Program
         {
             var budget = double.Parse(Console.ReadLine());
             double savedMoney = 0;
-            while (savedMoney < budget) savedMoney += double.Parse(Console.ReadLine());
+            while (savedMoney < budget)
+                savedMoney += double.Parse(Console.ReadLine());
             Console.WriteLine($"Going to {destination}!");
             destination = Console.ReadLine();
         }

@@ -10,7 +10,8 @@ internal class Program
         var convertToMinutes = inputHours * 60 + inputMinutes + 15;
         var convertedToHours = convertToMinutes / 60;
 
-        if (convertedToHours >= 24) convertedToHours = 0;
+        if (convertedToHours >= 24)
+            convertedToHours = 0;
         var totalMinutes = convertToMinutes % 60;
 
         Console.WriteLine($"{convertedToHours}:{totalMinutes:d2}");

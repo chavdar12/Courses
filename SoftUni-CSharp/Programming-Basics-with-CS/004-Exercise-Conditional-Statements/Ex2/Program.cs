@@ -20,8 +20,10 @@ internal class Program
                 break;
         }
 
-        if (pointsNumber % 2 == 0) bonusPoints += 1;
-        if (pointsNumber % 10 == 5) bonusPoints += 2;
+        if (pointsNumber % 2 == 0)
+            bonusPoints += 1;
+        if (pointsNumber % 10 == 5)
+            bonusPoints += 2;
 
         Console.WriteLine(bonusPoints);
         Console.WriteLine(pointsNumber + bonusPoints);

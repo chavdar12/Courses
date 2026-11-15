@@ -6,6 +6,7 @@ internal class Program
     {
         var grade = double.Parse(Console.ReadLine());
 
-        if (grade >= 5.50) Console.WriteLine("Excellent!");
+        if (grade >= 5.50)
+            Console.WriteLine("Excellent!");
     }
 }

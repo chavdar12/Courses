@@ -29,7 +29,8 @@ internal class Program
                     break;
                 }
 
-            if (isIPrime && isJPrime) Console.WriteLine($"{i}{j}");
+            if (isIPrime && isJPrime)
+                Console.WriteLine($"{i}{j}");
         }
     }
 }

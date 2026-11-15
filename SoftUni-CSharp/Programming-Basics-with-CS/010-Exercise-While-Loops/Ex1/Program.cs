@@ -20,7 +20,8 @@ internal class Program
             input = Console.ReadLine();
         }
 
-        if (input != "No More Books") return;
+        if (input != "No More Books")
+            return;
         Console.WriteLine($"The book you search is not here!");
         Console.WriteLine($"You checked {check} books.");
     }

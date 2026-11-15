@@ -13,7 +13,8 @@ internal class Program
         {
             var nums = int.Parse(Console.ReadLine());
             totalSum += nums;
-            if (nums > max) max = nums;
+            if (nums > max)
+                max = nums;
         }
 
         var sumWithoutMax = totalSum - max;

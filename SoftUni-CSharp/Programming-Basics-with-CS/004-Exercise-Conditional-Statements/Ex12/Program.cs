@@ -32,19 +32,21 @@ internal class Program
             }
             case >= 100:
             {
-                if (dayOrNight is "day" or "night") trainPrice = 0.06 * km;
+                if (dayOrNight is "day" or "night")
+                    trainPrice = 0.06 * km;
                 break;
             }
             case >= 20:
             {
-                if (dayOrNight is "day" or "night") busPrice = 0.09 * km;
+                if (dayOrNight is "day" or "night")
+                    busPrice = 0.09 * km;
                 break;
             }
         }
 
-
         if (busPrice > trainPrice)
             Console.WriteLine($"{busPrice:f2}");
-        else if (trainPrice > busPrice) Console.WriteLine($"{trainPrice:f2}");
+        else if (trainPrice > busPrice)
+            Console.WriteLine($"{trainPrice:f2}");
     }
 }

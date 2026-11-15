@@ -17,7 +17,7 @@ internal class Program
             "Premiere" => numberOfRows * numberOfColumns * premiere,
             "Normal" => numberOfRows * numberOfColumns * normal,
             "Discount" => numberOfRows * numberOfColumns * discount,
-            _ => 0
+            _ => 0,
         };
 
         Console.WriteLine($"{totalIncome:f2}");

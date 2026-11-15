@@ -17,10 +17,12 @@ internal class Program
                 {
                     Console.Write($"{i}{j}{k}{l} ");
                     counter++;
-                    if (counter == 4) password = $"{i}{j}{k}{l}";
+                    if (counter == 4)
+                        password = $"{i}{j}{k}{l}";
                 }
 
-        if (counter > 0) Console.WriteLine();
+        if (counter > 0)
+            Console.WriteLine();
         Console.WriteLine(password != null ? $"Password: {password}" : "No!");
     }
 }

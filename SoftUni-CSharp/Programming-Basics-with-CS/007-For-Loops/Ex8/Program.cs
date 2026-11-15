@@ -12,8 +12,10 @@ internal class Program
         for (var i = 0; i < number; i++)
         {
             var numbers = int.Parse(Console.ReadLine());
-            if (numbers > maxNumber) maxNumber = numbers;
-            if (numbers < minNumber) minNumber = numbers;
+            if (numbers > maxNumber)
+                maxNumber = numbers;
+            if (numbers < minNumber)
+                minNumber = numbers;
         }
 
         Console.WriteLine($"Max number: {maxNumber}");

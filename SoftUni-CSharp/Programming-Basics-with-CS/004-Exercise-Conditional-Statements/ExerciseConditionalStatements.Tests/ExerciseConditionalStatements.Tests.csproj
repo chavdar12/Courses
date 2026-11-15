@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
@@ -20,5 +19,4 @@
   <ItemGroup>
     <ProjectReference Include="../Ex?/*.csproj;../Ex??/*.csproj" />
   </ItemGroup>
-
 </Project>

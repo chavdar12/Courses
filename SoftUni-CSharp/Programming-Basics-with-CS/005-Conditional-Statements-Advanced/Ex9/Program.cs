@@ -80,6 +80,7 @@ internal class Program
         }
 
         var totalSum = sales * commission;
-        if (commission > 0) Console.WriteLine($"{totalSum:f2}");
+        if (commission > 0)
+            Console.WriteLine($"{totalSum:f2}");
     }
 }

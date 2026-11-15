@@ -19,7 +19,7 @@ internal class Program
                 "beer" => qty * 1.20,
                 "sweets" => qty * 1.45,
                 "peanuts" => qty * 1.60,
-                _ => totalSum
+                _ => totalSum,
             },
             "Plovdiv" => product switch
             {
@@ -28,7 +28,7 @@ internal class Program
                 "beer" => qty * 1.15,
                 "sweets" => qty * 1.30,
                 "peanuts" => qty * 1.50,
-                _ => totalSum
+                _ => totalSum,
             },
             "Varna" => product switch
             {
@@ -37,9 +37,9 @@ internal class Program
                 "beer" => qty * 1.10,
                 "sweets" => qty * 1.35,
                 "peanuts" => qty * 1.55,
-                _ => totalSum
+                _ => totalSum,
             },
-            _ => totalSum
+            _ => totalSum,
         };
 
         Console.WriteLine(totalSum);

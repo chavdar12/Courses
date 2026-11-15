@@ -15,7 +15,8 @@ internal class Program
             if (grades < 4.00)
             {
                 excludeCounter++;
-                if (excludeCounter > 1) break;
+                if (excludeCounter > 1)
+                    break;
                 continue;
             }
 

@@ -19,13 +19,14 @@ internal class Program
             var charFirstSymbol = (char)firstSymbol;
             var charSecondSymbol = (char)secondSymbol;
 
-            passwordsCombo += $"" +
-                              $"{charFirstSymbol}" +
-                              $"{charSecondSymbol}" +
-                              $"{thirdSymbol}" +
-                              $"{forthSymbol}" +
-                              $"{charSecondSymbol}" +
-                              $"{charFirstSymbol}|";
+            passwordsCombo +=
+                $""
+                + $"{charFirstSymbol}"
+                + $"{charSecondSymbol}"
+                + $"{thirdSymbol}"
+                + $"{forthSymbol}"
+                + $"{charSecondSymbol}"
+                + $"{charFirstSymbol}|";
 
             passwordsCounter++;
 
@@ -38,8 +39,10 @@ internal class Program
             firstSymbol++;
             secondSymbol++;
 
-            if (firstSymbol > 55) firstSymbol = 35;
-            if (secondSymbol > 96) secondSymbol = 64;
+            if (firstSymbol > 55)
+                firstSymbol = 35;
+            if (secondSymbol > 96)
+                secondSymbol = 64;
         }
 
         Console.WriteLine(passwordsCombo);

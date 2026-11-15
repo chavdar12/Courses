@@ -25,6 +25,7 @@ internal class Program
             input = Console.ReadLine();
         }
 
-        if (volume >= boxesVolume) Console.WriteLine($"{volume - boxesVolume} Cubic meters left.");
+        if (volume >= boxesVolume)
+            Console.WriteLine($"{volume - boxesVolume} Cubic meters left.");
     }
 }

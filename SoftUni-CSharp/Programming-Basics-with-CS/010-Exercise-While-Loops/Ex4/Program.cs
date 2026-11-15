@@ -28,7 +28,8 @@ internal class Program
 
             var steps = int.Parse(stepsCounter);
             totalSteps += steps;
-            if (totalSteps < 10000) continue;
+            if (totalSteps < 10000)
+                continue;
             Console.WriteLine($"Goal reached! Good job!");
             Console.WriteLine($"{totalSteps - 10000} steps over the goal!");
             break;

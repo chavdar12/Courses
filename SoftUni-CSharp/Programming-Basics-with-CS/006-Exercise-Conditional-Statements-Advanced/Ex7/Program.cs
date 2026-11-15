@@ -12,7 +12,6 @@ internal class Program
 
         if (secondNumber == 0 && numbersOperator is '/' or '%')
             Console.WriteLine($"Cannot divide {firstNumber} by zero");
-
         else
             switch (numbersOperator)
             {
@@ -25,25 +24,31 @@ internal class Program
                         case '+':
                         {
                             result = firstNumber + secondNumber;
-                            Console.WriteLine(result % 2 == 0
-                                ? $"{firstNumber} {numbersOperator} {secondNumber} = {result} - even"
-                                : $"{firstNumber} {numbersOperator} {secondNumber} = {result} - odd");
+                            Console.WriteLine(
+                                result % 2 == 0
+                                    ? $"{firstNumber} {numbersOperator} {secondNumber} = {result} - even"
+                                    : $"{firstNumber} {numbersOperator} {secondNumber} = {result} - odd"
+                            );
                             break;
                         }
                         case '-':
                         {
                             result = firstNumber - secondNumber;
-                            Console.WriteLine(result % 2 == 0
-                                ? $"{firstNumber} {numbersOperator} {secondNumber} = {result} - even"
-                                : $"{firstNumber} {numbersOperator} {secondNumber} = {result} - odd");
+                            Console.WriteLine(
+                                result % 2 == 0
+                                    ? $"{firstNumber} {numbersOperator} {secondNumber} = {result} - even"
+                                    : $"{firstNumber} {numbersOperator} {secondNumber} = {result} - odd"
+                            );
                             break;
                         }
                         case '*':
                         {
                             result = firstNumber * secondNumber;
-                            Console.WriteLine(result % 2 == 0
-                                ? $"{firstNumber} {numbersOperator} {secondNumber} = {result} - even"
-                                : $"{firstNumber} {numbersOperator} {secondNumber} = {result} - odd");
+                            Console.WriteLine(
+                                result % 2 == 0
+                                    ? $"{firstNumber} {numbersOperator} {secondNumber} = {result} - even"
+                                    : $"{firstNumber} {numbersOperator} {secondNumber} = {result} - odd"
+                            );
                             break;
                         }
                     }

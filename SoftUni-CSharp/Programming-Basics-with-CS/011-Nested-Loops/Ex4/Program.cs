@@ -14,7 +14,8 @@ internal class Program
         for (var j = start; j <= end; j++)
         {
             comb++;
-            if (i + j != magicNumber) continue;
+            if (i + j != magicNumber)
+                continue;
             Console.WriteLine($"Combination N:{comb} ({i} + {j} = {magicNumber})");
             return;
         }

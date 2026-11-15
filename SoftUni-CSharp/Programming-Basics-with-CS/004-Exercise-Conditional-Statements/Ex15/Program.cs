@@ -16,8 +16,11 @@ internal class Program
         const double rosesPrice = 3.50;
         const double cactusesPrice = 8.00;
 
-        var totalSum = magnoliasCount * magnoliasPrice + hyacinthsCount * hyacinthsPrice + rosesCount * rosesPrice +
-                       causesCount * cactusesPrice;
+        var totalSum =
+            magnoliasCount * magnoliasPrice
+            + hyacinthsCount * hyacinthsPrice
+            + rosesCount * rosesPrice
+            + causesCount * cactusesPrice;
         var taxes = totalSum * 0.05;
         var sumAfterTaxes = totalSum - taxes;
 

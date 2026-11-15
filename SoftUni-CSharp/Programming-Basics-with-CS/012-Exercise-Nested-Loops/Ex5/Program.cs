@@ -13,11 +13,8 @@ internal class Program
         for (int symbol4 = 'a'; symbol4 < 'a' + l; symbol4++)
         for (var symbol5 = 1; symbol5 <= n; symbol5++)
             if (symbol5 > symbol1 && symbol5 > symbol2)
-                Console.Write("" +
-                              $"{symbol1}" +
-                              $"{symbol2}" +
-                              $"{(char)symbol3}" +
-                              $"{(char)symbol4}" +
-                              $"{symbol5} ");
+                Console.Write(
+                    "" + $"{symbol1}" + $"{symbol2}" + $"{(char)symbol3}" + $"{(char)symbol4}" + $"{symbol5} "
+                );
     }
 }

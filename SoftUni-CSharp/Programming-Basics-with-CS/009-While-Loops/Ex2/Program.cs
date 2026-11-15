@@ -8,7 +8,8 @@ internal class Program
         var pass = Console.ReadLine();
 
         var passwordInput = Console.ReadLine();
-        while (passwordInput != pass) passwordInput = Console.ReadLine();
+        while (passwordInput != pass)
+            passwordInput = Console.ReadLine();
         Console.WriteLine($"Welcome {user}!");
     }
 }

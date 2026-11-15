@@ -6,6 +6,7 @@ internal class Program
     {
         var number = int.Parse(Console.ReadLine());
 
-        if (number is not (>= 100 and <= 200 or 0)) Console.WriteLine("invalid");
+        if (number is not (>= 100 and <= 200 or 0))
+            Console.WriteLine("invalid");
     }
 }

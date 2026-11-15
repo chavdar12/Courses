@@ -17,7 +17,8 @@ internal class Program
             var wineLeft = wine - wineNeeded;
             Console.WriteLine($"Good harvest this year! Total wine: {Math.Floor(wine)} liters.");
             Console.WriteLine(
-                $"{Math.Ceiling(wineLeft)} liters left -> {Math.Ceiling(wineLeft / workersCount)} liters per person.");
+                $"{Math.Ceiling(wineLeft)} liters left -> {Math.Ceiling(wineLeft / workersCount)} liters per person."
+            );
         }
         else if (wine < wineNeeded)
         {

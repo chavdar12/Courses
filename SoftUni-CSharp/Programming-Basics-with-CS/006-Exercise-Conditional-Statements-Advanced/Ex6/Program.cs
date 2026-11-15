@@ -19,7 +19,7 @@ internal class Program
                 {
                     "summer" => budget * 0.30,
                     "winter" => budget * 0.70,
-                    _ => totalSum
+                    _ => totalSum,
                 };
                 break;
             }
@@ -30,7 +30,7 @@ internal class Program
                 {
                     "summer" => budget * 0.40,
                     "winter" => budget * 0.80,
-                    _ => totalSum
+                    _ => totalSum,
                 };
                 break;
             }

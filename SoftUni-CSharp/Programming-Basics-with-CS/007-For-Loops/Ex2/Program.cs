@@ -6,6 +6,7 @@ internal class Program
     {
         var number = int.Parse(Console.ReadLine());
 
-        for (var i = number; i >= 1; i--) Console.WriteLine(i);
+        for (var i = number; i >= 1; i--)
+            Console.WriteLine(i);
     }
 }

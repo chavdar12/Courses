@@ -9,7 +9,8 @@ internal class Program
         while (input != "Stop")
         {
             var numbers = int.Parse(input);
-            if (numbers > maxNumber) maxNumber = numbers;
+            if (numbers > maxNumber)
+                maxNumber = numbers;
             input = Console.ReadLine();
         }
 

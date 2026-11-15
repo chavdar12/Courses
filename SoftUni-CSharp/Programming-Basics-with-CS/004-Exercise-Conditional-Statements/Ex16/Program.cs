@@ -7,7 +7,6 @@ internal class Program
         var fuelType = Console.ReadLine();
         var litersInTank = double.Parse(Console.ReadLine());
 
-
         switch (litersInTank)
         {
             case >= 25 when fuelType == "Diesel" || fuelType == "Gasoline" || fuelType == "Gas":

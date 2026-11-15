@@ -64,7 +64,8 @@ internal class Program
         {
             var moneyLeft = budget - totalSum;
             Console.WriteLine(
-                $"Hey, you have a great garden with {flowersCount} {flowerType} and {moneyLeft:f2} leva left.");
+                $"Hey, you have a great garden with {flowersCount} {flowerType} and {moneyLeft:f2} leva left."
+            );
         }
         else if (totalSum > budget)
         {

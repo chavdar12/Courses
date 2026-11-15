@@ -23,7 +23,8 @@ internal class Program
             }
 
             var grade = int.Parse(Console.ReadLine());
-            if (grade <= 4.00) badGradesCounter++;
+            if (grade <= 4.00)
+                badGradesCounter++;
             if (badGradesCounter == numberOfBadGrades)
             {
                 Console.WriteLine($"You need a break, {badGradesCounter} poor grades.");

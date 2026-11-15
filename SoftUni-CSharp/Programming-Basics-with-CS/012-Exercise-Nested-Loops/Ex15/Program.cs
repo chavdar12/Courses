@@ -16,15 +16,18 @@ internal class Program
             for (var j = start; j <= end; j++)
             {
                 combinationCounter++;
-                if (i + j != magicNumber) continue;
+                if (i + j != magicNumber)
+                    continue;
                 flag = true;
                 Console.WriteLine($"Combination N:{combinationCounter} ({i} + {j} = {magicNumber})");
                 break;
             }
 
-            if (flag) break;
+            if (flag)
+                break;
         }
 
-        if (flag == false) Console.WriteLine($"{combinationCounter} combinations - neither equals {magicNumber}");
+        if (flag == false)
+            Console.WriteLine($"{combinationCounter} combinations - neither equals {magicNumber}");
     }
 }

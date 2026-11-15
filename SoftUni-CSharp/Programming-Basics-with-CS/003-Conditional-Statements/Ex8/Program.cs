@@ -18,8 +18,12 @@ internal class Program
         const double truckPrice = 2.00;
 
         var totalPurchasedToys = puzzlesCount + talkingDollsCount + bearsCount + minionsCount + trucksCount;
-        var totalSum = puzzlesCount * puzzlePrice + talkingDollsCount * talkingDollPrice + bearsCount * bearPrice +
-                       minionsCount * minionPrice + trucksCount * truckPrice;
+        var totalSum =
+            puzzlesCount * puzzlePrice
+            + talkingDollsCount * talkingDollPrice
+            + bearsCount * bearPrice
+            + minionsCount * minionPrice
+            + trucksCount * truckPrice;
 
         if (totalPurchasedToys >= 50)
         {

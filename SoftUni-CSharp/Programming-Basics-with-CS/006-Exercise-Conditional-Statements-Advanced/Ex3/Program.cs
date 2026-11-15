@@ -10,7 +10,6 @@ internal class Program
         var outfit = string.Empty;
         var shoes = string.Empty;
 
-
         switch (time)
         {
             case "Morning":

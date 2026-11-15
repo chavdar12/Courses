@@ -23,7 +23,8 @@ internal class Program
                 currentNumberInPyramid++;
             }
 
-            if (flag) break;
+            if (flag)
+                break;
             Console.WriteLine();
         }
     }

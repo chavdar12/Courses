@@ -12,7 +12,8 @@ internal class Program
         while (true)
         {
             var movieName = Console.ReadLine();
-            if (movieName == "Finish") break;
+            if (movieName == "Finish")
+                break;
             var freePlace = int.Parse(Console.ReadLine());
             var currentTickets = 0;
             for (var i = 0; i < freePlace; i++)

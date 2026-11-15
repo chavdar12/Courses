@@ -16,21 +16,21 @@ internal class Program
             {
                 "cm" => valueToConvert * 100,
                 "mm" => valueToConvert * 1000,
-                _ => valueToConvert
+                _ => valueToConvert,
             },
             "cm" => metricOut switch
             {
                 "m" => valueToConvert * 0.01,
                 "mm" => valueToConvert * 10,
-                _ => valueToConvert
+                _ => valueToConvert,
             },
             "mm" => metricOut switch
             {
                 "cm" => valueToConvert * 0.1,
                 "m" => valueToConvert * 0.001,
-                _ => valueToConvert
+                _ => valueToConvert,
             },
-            _ => converted
+            _ => converted,
         };
 
         Console.WriteLine($"{converted:f3}");

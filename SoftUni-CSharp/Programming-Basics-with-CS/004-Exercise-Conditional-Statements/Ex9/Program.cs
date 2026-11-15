@@ -19,7 +19,8 @@ internal class Program
             var firstPipePercents = firstPipeIncome / totalWaterFromPipes * 100;
             var secondPipePercents = secondPipeIncome / totalWaterFromPipes * 100;
             Console.WriteLine(
-                $"The pool is {poolVolumePercents:f2}% full. Pipe 1: {firstPipePercents:f2}%. Pipe 2: {secondPipePercents:f2}%.");
+                $"The pool is {poolVolumePercents:f2}% full. Pipe 1: {firstPipePercents:f2}%. Pipe 2: {secondPipePercents:f2}%."
+            );
         }
         else if (totalWaterFromPipes > poolVolume)
         {

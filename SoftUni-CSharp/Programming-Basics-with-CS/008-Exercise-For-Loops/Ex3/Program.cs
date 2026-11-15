@@ -13,7 +13,6 @@ internal class Program
         var maxOdd = -1000000000.0;
         var minOdd = 1000000000.0;
 
-
         for (var i = 0; i < count; i++)
         {
             var numbers = double.Parse(Console.ReadLine());
@@ -21,14 +20,18 @@ internal class Program
             {
                 sumOdd += numbers;
 
-                if (numbers > maxOdd) maxOdd = numbers;
-                if (numbers < minOdd) minOdd = numbers;
+                if (numbers > maxOdd)
+                    maxOdd = numbers;
+                if (numbers < minOdd)
+                    minOdd = numbers;
             }
             else
             {
                 sumEven += numbers;
-                if (numbers > maxEven) maxEven = numbers;
-                if (numbers < minEven) minEven = numbers;
+                if (numbers > maxEven)
+                    maxEven = numbers;
+                if (numbers < minEven)
+                    minEven = numbers;
             }
         }
 

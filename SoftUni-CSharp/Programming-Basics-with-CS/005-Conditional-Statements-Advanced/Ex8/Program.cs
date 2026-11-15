@@ -82,6 +82,7 @@ internal class Program
                 break;
         }
 
-        if (totalSum > 0) Console.WriteLine($"{totalSum:f2}");
+        if (totalSum > 0)
+            Console.WriteLine($"{totalSum:f2}");
     }
 }

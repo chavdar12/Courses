@@ -21,7 +21,7 @@ internal class Program
             "Summer" => shipRentAtAutumnAndSummer,
             "Autumn" => shipRentAtAutumnAndSummer,
             "Winter" => shipRentAtWinter,
-            _ => totalSum
+            _ => totalSum,
         };
 
         switch (fishermenCount)

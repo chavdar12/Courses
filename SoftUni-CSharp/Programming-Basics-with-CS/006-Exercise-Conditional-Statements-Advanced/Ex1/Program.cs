@@ -11,7 +11,6 @@ internal class Program
         var x = double.Parse(Console.ReadLine());
         var y = double.Parse(Console.ReadLine());
 
-
         if (((x == x1 || x == x2) && y >= y1 && y <= y2) || ((y == y1 || y == y2) && x >= x1 && x <= x2))
             Console.WriteLine("Border");
         else

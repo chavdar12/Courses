@@ -11,7 +11,6 @@ internal class Program
         var decor = movieBudget * 0.10;
         var clothesTotalPrice = clothesForOneWorkerPrice * workerCount;
 
-
         if (workerCount >= 150)
         {
             var discount = clothesTotalPrice * 0.10;

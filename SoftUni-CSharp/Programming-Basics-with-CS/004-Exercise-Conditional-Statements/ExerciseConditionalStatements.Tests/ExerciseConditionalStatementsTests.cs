@@ -35,7 +35,11 @@ public class ExerciseConditionalStatementsTests
     [InlineData("004-Ex9", "100\n100\n100\n2.5", "For 2.5 hours the pool overflows with 400.00 liters.\n")]
     [InlineData("004-Ex10", "20", "Tom sleeps well\n95 hours and 25 minutes less for play\n")]
     [InlineData("004-Ex10", "113", "Tom will run away\n3 hours and 47 minutes more for play\n")]
-    [InlineData("004-Ex11", "650\n2\n175\n3", "Good harvest this year! Total wine: 208 liters.\n33 liters left -> 11 liters per person.\n")]
+    [InlineData(
+        "004-Ex11",
+        "650\n2\n175\n3",
+        "Good harvest this year! Total wine: 208 liters.\n33 liters left -> 11 liters per person.\n"
+    )]
     [InlineData("004-Ex11", "1020\n1.5\n425\n4", "It will be a tough winter! More 180 liters wine needed.\n")]
     [InlineData("004-Ex12", "5\nday", "4.65\n")]
     [InlineData("004-Ex12", "7\nnight", "7.00\n")]

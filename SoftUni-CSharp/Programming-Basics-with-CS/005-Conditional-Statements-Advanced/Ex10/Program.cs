@@ -27,7 +27,7 @@ internal class Program
                 {
                     < 10 => totalSum * 0.30,
                     >= 10 and <= 15 => totalSum * 0.35,
-                    > 15 => totalSum * 0.50
+                    > 15 => totalSum * 0.50,
                 };
 
                 break;
@@ -39,14 +39,13 @@ internal class Program
                 {
                     < 10 => totalSum * 0.10,
                     >= 10 and <= 15 => totalSum * 0.15,
-                    > 15 => totalSum * 0.20
+                    > 15 => totalSum * 0.20,
                 };
                 break;
             }
         }
 
         totalSum -= discount;
-
 
         switch (feedback)
         {

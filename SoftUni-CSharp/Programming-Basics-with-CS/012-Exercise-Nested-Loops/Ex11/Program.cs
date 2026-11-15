@@ -16,7 +16,8 @@ internal class Program
             Console.Write($"({i} <-> {j}) ");
             tablesCounter++;
 
-            if (tablesCounter == maxTables) return;
+            if (tablesCounter == maxTables)
+                return;
         }
     }
 }

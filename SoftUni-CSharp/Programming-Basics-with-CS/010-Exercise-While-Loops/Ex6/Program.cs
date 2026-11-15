@@ -21,7 +21,8 @@ internal class Program
 
             var cakePiece = int.Parse(cakePieces);
             totalPieces += cakePiece;
-            if (totalPieces < cakeSize) continue;
+            if (totalPieces < cakeSize)
+                continue;
             var piecesNeeded = cakeSize - totalPieces;
             Console.WriteLine($"No more cake left! You need {Math.Abs(piecesNeeded)} pieces more.");
             break;

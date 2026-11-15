@@ -21,7 +21,8 @@ internal class Program
                     oddSum += currentNumber;
             }
 
-            if (evenSum == oddSum) Console.Write($"{i} ");
+            if (evenSum == oddSum)
+                Console.Write($"{i} ");
         }
     }
 }

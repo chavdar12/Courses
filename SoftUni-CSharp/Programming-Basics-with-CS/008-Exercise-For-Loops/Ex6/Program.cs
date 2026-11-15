@@ -23,11 +23,13 @@ internal class Program
                     break;
             }
 
-            if (salary > 0) continue;
+            if (salary > 0)
+                continue;
             Console.WriteLine("You have lost your salary.");
             break;
         }
 
-        if (salary > 0) Console.WriteLine($"{salary}");
+        if (salary > 0)
+            Console.WriteLine($"{salary}");
     }
 }

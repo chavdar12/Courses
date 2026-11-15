@@ -16,8 +16,10 @@ internal class Program
             ageCounter++;
         }
 
-        Console.WriteLine(money >= 0
-            ? $"Yes! He will live a carefree life and will have {money:f2} dollars left."
-            : $"He will need {Math.Abs(money):f2} dollars to survive.");
+        Console.WriteLine(
+            money >= 0
+                ? $"Yes! He will live a carefree life and will have {money:f2} dollars left."
+                : $"He will need {Math.Abs(money):f2} dollars to survive."
+        );
     }
 }

@@ -8,7 +8,6 @@ internal class Program
         var priceLaundryMachine = double.Parse(Console.ReadLine());
         var toysPrice = double.Parse(Console.ReadLine());
 
-
         double ageMoney = 10;
         double toysCount = 0;
         double totalSavings = 0;

@@ -20,7 +20,8 @@ internal class Program
                 daysSheSpend++;
                 moneySheHave -= money;
 
-                if (moneySheHave < 0) moneySheHave = 0;
+                if (moneySheHave < 0)
+                    moneySheHave = 0;
 
                 if (daysSheSpend == 5)
                 {
@@ -35,7 +36,8 @@ internal class Program
                 daysSheSpend = 0;
             }
 
-            if (!(moneySheHave >= triPrice)) continue;
+            if (!(moneySheHave >= triPrice))
+                continue;
             Console.WriteLine($"You saved the money for {totalDays} days.");
             break;
         }

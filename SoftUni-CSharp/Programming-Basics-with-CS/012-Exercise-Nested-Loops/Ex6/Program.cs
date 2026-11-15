@@ -10,10 +10,7 @@ internal class Program
         for (var j = 1; j <= 9; j++)
         for (var k = 1; k <= 9; k++)
         for (var l = 1; l <= 9; l++)
-            if (number % i == 0 &&
-                number % j == 0 &&
-                number % k == 0 &&
-                number % l == 0)
+            if (number % i == 0 && number % j == 0 && number % k == 0 && number % l == 0)
                 Console.Write($"{i}{j}{k}{l} ");
     }
 }
