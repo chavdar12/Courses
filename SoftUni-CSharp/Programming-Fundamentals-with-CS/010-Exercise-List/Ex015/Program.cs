@@ -5,10 +5,7 @@ internal class Program
     private static void Main(string[] args)
     {
         var savings = decimal.Parse(Console.ReadLine());
-        var initial = Console.ReadLine()
-            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse)
-            .ToList();
+        var initial = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
         var drums = initial.ToList();
 
         string command;
@@ -19,7 +16,8 @@ internal class Program
             for (var i = 0; i < drums.Count; i++)
             {
                 drums[i] -= power;
-                if (drums[i] > 0) continue;
+                if (drums[i] > 0)
+                    continue;
 
                 var price = initial[i] * 3;
                 if (savings >= price)

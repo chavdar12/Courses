@@ -11,6 +11,7 @@ internal class Program
 
         var matches = Regex.Matches(text, pattern);
 
-        foreach (Match match in matches) Console.Write($"{match.Value} ");
+        foreach (Match match in matches)
+            Console.Write($"{match.Value} ");
     }
 }

@@ -36,7 +36,7 @@ internal class Program
                 FirstName = firstName,
                 LastName = lastName,
                 Age = age,
-                HomeTown = homeTown
+                HomeTown = homeTown,
             };
             students.Add(student);
 
@@ -46,6 +46,7 @@ internal class Program
         var town = Console.ReadLine();
         var filteredStudents = students.Where(s => s.HomeTown == town).ToList();
 
-        foreach (var student in filteredStudents) Console.WriteLine(student.ToString());
+        foreach (var student in filteredStudents)
+            Console.WriteLine(student.ToString());
     }
 }

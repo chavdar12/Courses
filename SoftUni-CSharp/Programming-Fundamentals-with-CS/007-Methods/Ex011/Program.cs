@@ -19,7 +19,7 @@ internal class Program
             '*' => a * b,
             '+' => a + b,
             '-' => a - b,
-            _ => 0
+            _ => 0,
         };
     }
 }

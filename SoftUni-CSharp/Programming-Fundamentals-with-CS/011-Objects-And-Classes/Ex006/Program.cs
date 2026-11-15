@@ -19,8 +19,11 @@ internal class Box
 
     public override string ToString()
     {
-        return $"{SerialNumber}" + "\n" + $"-- {Item.Name} - ${Item.Price:f2}: {ItemQuantity}" + "\n" +
-               $"-- ${PriceForABox:f2}";
+        return $"{SerialNumber}"
+            + "\n"
+            + $"-- {Item.Name} - ${Item.Price:f2}: {ItemQuantity}"
+            + "\n"
+            + $"-- ${PriceForABox:f2}";
     }
 }
 
@@ -39,17 +42,13 @@ internal class Program
             var itemQuantity = int.Parse(cmdArg[2]);
             var itemPrice = decimal.Parse(cmdArg[3]);
 
-            var item = new Item()
-            {
-                Name = itemName,
-                Price = itemPrice
-            };
+            var item = new Item() { Name = itemName, Price = itemPrice };
             var box = new Box()
             {
                 SerialNumber = serialNumber,
                 ItemQuantity = itemQuantity,
                 PriceForABox = itemQuantity * itemPrice,
-                Item = item
+                Item = item,
             };
 
             list.Add(box);
@@ -59,6 +58,7 @@ internal class Program
 
         var orderedList = list.OrderByDescending(b => b.PriceForABox).ToList();
 
-        foreach (var item in orderedList) Console.WriteLine(item.ToString());
+        foreach (var item in orderedList)
+            Console.WriteLine(item.ToString());
     }
 }

@@ -12,7 +12,8 @@ internal class Program
             var currentChar = number[i];
             var currentDigit = currentChar - 48;
             var currentDigitFactorial = 1;
-            for (var r = currentDigit; r > 1; r--) currentDigitFactorial *= r;
+            for (var r = currentDigit; r > 1; r--)
+                currentDigitFactorial *= r;
 
             sumFactorial += currentDigitFactorial;
         }

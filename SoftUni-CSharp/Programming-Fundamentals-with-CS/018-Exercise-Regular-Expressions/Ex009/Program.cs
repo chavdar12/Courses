@@ -14,16 +14,19 @@ internal class Program
         foreach (Match match in Regex.Matches(parts[1], @"(?<code>\d{2}):(?<length>\d{2})"))
         {
             var letter = (char)int.Parse(match.Groups["code"].Value);
-            if (capitals.Contains(letter)) lengths.TryAdd(letter, int.Parse(match.Groups["length"].Value) + 1);
+            if (capitals.Contains(letter))
+                lengths.TryAdd(letter, int.Parse(match.Groups["length"].Value) + 1);
         }
 
         var words = parts[2].Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var letter in capitals)
         {
-            if (!lengths.TryGetValue(letter, out var length)) continue;
+            if (!lengths.TryGetValue(letter, out var length))
+                continue;
 
-            foreach (var word in words.Where(w => w[0] == letter && w.Length == length)) Console.WriteLine(word);
+            foreach (var word in words.Where(w => w[0] == letter && w.Length == length))
+                Console.WriteLine(word);
         }
     }
 }

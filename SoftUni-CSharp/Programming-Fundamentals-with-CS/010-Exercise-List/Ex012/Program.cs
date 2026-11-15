@@ -4,10 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var times = Console.ReadLine()
-            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse)
-            .ToArray();
+        var times = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 
         var middle = times.Length / 2;
         var left = GetTotalTime(times.Take(middle));
@@ -22,7 +19,8 @@ internal class Program
     private static double GetTotalTime(IEnumerable<int> steps)
     {
         double total = 0;
-        foreach (var step in steps) total = step == 0 ? total * 0.8 : total + step;
+        foreach (var step in steps)
+            total = step == 0 ? total * 0.8 : total + step;
 
         return Math.Round(total, 2);
     }

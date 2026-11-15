@@ -15,8 +15,10 @@ internal class Program
                 var side = data[0];
                 var user = data[1];
 
-                if (sides.Values.Any(users => users.Contains(user))) continue;
-                if (!sides.ContainsKey(side)) sides[side] = new List<string>();
+                if (sides.Values.Any(users => users.Contains(user)))
+                    continue;
+                if (!sides.ContainsKey(side))
+                    sides[side] = new List<string>();
 
                 sides[side].Add(user);
             }
@@ -26,20 +28,26 @@ internal class Program
                 var user = data[0];
                 var side = data[1];
 
-                foreach (var users in sides.Values) users.Remove(user);
-                if (!sides.ContainsKey(side)) sides[side] = new List<string>();
+                foreach (var users in sides.Values)
+                    users.Remove(user);
+                if (!sides.ContainsKey(side))
+                    sides[side] = new List<string>();
 
                 sides[side].Add(user);
                 Console.WriteLine($"{user} joins the {side} side!");
             }
         }
 
-        foreach (var (side, users) in sides.Where(s => s.Value.Count > 0)
-                     .OrderByDescending(s => s.Value.Count)
-                     .ThenBy(s => s.Key))
+        foreach (
+            var (side, users) in sides
+                .Where(s => s.Value.Count > 0)
+                .OrderByDescending(s => s.Value.Count)
+                .ThenBy(s => s.Key)
+        )
         {
             Console.WriteLine($"Side: {side}, Members: {users.Count}");
-            foreach (var user in users.Order()) Console.WriteLine($"! {user}");
+            foreach (var user in users.Order())
+                Console.WriteLine($"! {user}");
         }
     }
 }

@@ -16,7 +16,8 @@ internal class Program
         {
             var match = Regex.Match(input, pattern);
 
-            if (!match.Success) continue;
+            if (!match.Success)
+                continue;
             var name = match.Groups["name"].Value;
             var product = match.Groups["product"].Value;
             var count = int.Parse(match.Groups["count"].Value);

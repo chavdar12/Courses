@@ -10,7 +10,11 @@ public class ListTests
     [InlineData("Ex004", "4\nPotatoes\nTomatoes\nOnions\nApples", "1.Apples\n2.Onions\n3.Potatoes\n4.Tomatoes")]
     [InlineData("Ex005", "", "Hello, World!")]
     [InlineData("Ex006", "4 19 2 53 6 43\nAdd 3\nRemove 2\nRemoveAt 1\nInsert 8 3\nend", "4 53 6 8 43 3")]
-    [InlineData("Ex007", "2 13 43 876 342 23 543\nContains 100\nContains 543\nPrintEven\nPrintOdd\nGetSum\nFilter >= 43\nFilter < 100\nend", "No such number\nYes\n2 876 342\n13 43 23 543\n1842\n43 876 342 543\n2 13 43 23")]
+    [InlineData(
+        "Ex007",
+        "2 13 43 876 342 23 543\nContains 100\nContains 543\nPrintEven\nPrintOdd\nGetSum\nFilter >= 43\nFilter < 100\nend",
+        "No such number\nYes\n2 876 342\n13 43 23 543\n1842\n43 876 342 543\n2 13 43 23"
+    )]
     [InlineData("Ex007", "1 2\nAdd 3\nend", "1 2 3")]
     public void Program_PrintsExpectedOutput(string exercise, string input, string expected) =>
         Assert.Equal(expected, ProgramRunner.Run(exercise, input));

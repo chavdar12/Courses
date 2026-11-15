@@ -45,6 +45,7 @@ internal class Program
             }
         }
 
-        foreach (var (key, value) in data) Console.WriteLine($"{key} => {value}");
+        foreach (var (key, value) in data)
+            Console.WriteLine($"{key} => {value}");
     }
 }

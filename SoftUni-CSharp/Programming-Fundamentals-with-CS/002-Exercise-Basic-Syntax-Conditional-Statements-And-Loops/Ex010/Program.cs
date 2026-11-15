@@ -14,14 +14,18 @@ internal class Program
 
         for (var game = 1; game <= lostGames; game++)
         {
-            if (game % 2 == 0) expenses += headsetPrice;
+            if (game % 2 == 0)
+                expenses += headsetPrice;
 
-            if (game % 3 == 0) expenses += mousePrice;
+            if (game % 3 == 0)
+                expenses += mousePrice;
 
-            if (game % 2 != 0 || game % 3 != 0) continue;
+            if (game % 2 != 0 || game % 3 != 0)
+                continue;
             expenses += keyboardPrice;
             count++;
-            if (count % 2 == 0) expenses += displayPrice;
+            if (count % 2 == 0)
+                expenses += displayPrice;
         }
 
         Console.WriteLine($"Rage expenses: {expenses:f2} lv.");

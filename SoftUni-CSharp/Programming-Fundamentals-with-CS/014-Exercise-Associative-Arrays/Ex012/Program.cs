@@ -14,7 +14,8 @@ internal class Program
             var contest = data[1];
             var points = int.Parse(data[2]);
 
-            if (!contests.ContainsKey(contest)) contests[contest] = new Dictionary<string, int>();
+            if (!contests.ContainsKey(contest))
+                contests[contest] = new Dictionary<string, int>();
 
             contests[contest][user] = Math.Max(contests[contest].GetValueOrDefault(user), points);
         }
@@ -25,8 +26,8 @@ internal class Program
             PrintStandings(participants, "<::>");
         }
 
-        var totals = contests.Values
-            .SelectMany(c => c)
+        var totals = contests
+            .Values.SelectMany(c => c)
             .GroupBy(p => p.Key)
             .ToDictionary(g => g.Key, g => g.Sum(p => p.Value));
 

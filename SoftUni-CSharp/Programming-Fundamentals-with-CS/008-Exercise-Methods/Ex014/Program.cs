@@ -5,7 +5,8 @@ internal class Program
     private static void Main(string[] args)
     {
         var p = new double[8];
-        for (var i = 0; i < p.Length; i++) p[i] = double.Parse(Console.ReadLine());
+        for (var i = 0; i < p.Length; i++)
+            p[i] = double.Parse(Console.ReadLine());
 
         if (Length(p[0], p[1], p[2], p[3]) >= Length(p[4], p[5], p[6], p[7]))
             PrintLine(p[0], p[1], p[2], p[3]);

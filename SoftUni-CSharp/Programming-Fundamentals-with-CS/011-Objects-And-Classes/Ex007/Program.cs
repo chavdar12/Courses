@@ -66,7 +66,7 @@ internal class Program
                     {
                         Brand = brand,
                         Model = model,
-                        HorsePower = valueHpOrHeight
+                        HorsePower = valueHpOrHeight,
                     };
                     catalogObj.Cars.Add(car);
                     break;
@@ -77,7 +77,7 @@ internal class Program
                     {
                         Brand = brand,
                         Model = model,
-                        Weight = valueHpOrHeight
+                        Weight = valueHpOrHeight,
                     };
                     catalogObj.Trucks.Add(truck);
                     break;
@@ -93,13 +93,16 @@ internal class Program
         if (catalogObj.Cars.Count > 0)
         {
             Console.WriteLine("Cars:");
-            foreach (var item in orderedCars) Console.WriteLine(item.ToString());
+            foreach (var item in orderedCars)
+                Console.WriteLine(item.ToString());
         }
 
-        if (catalogObj.Trucks.Count <= 0) return;
+        if (catalogObj.Trucks.Count <= 0)
+            return;
         {
             Console.WriteLine("Trucks:");
-            foreach (var item in orderedTrucks) Console.WriteLine(item.ToString());
+            foreach (var item in orderedTrucks)
+                Console.WriteLine(item.ToString());
         }
     }
 }

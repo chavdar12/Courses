@@ -6,6 +6,7 @@ internal class Program
     {
         var arr = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-        for (var i = arr.Length - 1; i >= 0; i--) Console.Write($"{arr[i]} ");
+        for (var i = arr.Length - 1; i >= 0; i--)
+            Console.Write($"{arr[i]} ");
     }
 }

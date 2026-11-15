@@ -20,7 +20,8 @@ internal class Program
             var decrypted = new string(message.Select(c => (char)(c - key)).ToArray());
 
             var match = Regex.Match(decrypted, pattern);
-            if (!match.Success) continue;
+            if (!match.Success)
+                continue;
 
             var planet = match.Groups["planet"].Value;
             if (match.Groups["type"].Value == "A")
@@ -30,9 +31,11 @@ internal class Program
         }
 
         Console.WriteLine($"Attacked planets: {attacked.Count}");
-        foreach (var planet in attacked.Order(StringComparer.Ordinal)) Console.WriteLine($"-> {planet}");
+        foreach (var planet in attacked.Order(StringComparer.Ordinal))
+            Console.WriteLine($"-> {planet}");
 
         Console.WriteLine($"Destroyed planets: {destroyed.Count}");
-        foreach (var planet in destroyed.Order(StringComparer.Ordinal)) Console.WriteLine($"-> {planet}");
+        foreach (var planet in destroyed.Order(StringComparer.Ordinal))
+            Console.WriteLine($"-> {planet}");
     }
 }

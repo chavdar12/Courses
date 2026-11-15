@@ -35,13 +35,15 @@ internal class Program
 
             if (student == null)
             {
-                students.Add(new Student()
-                {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    Age = age,
-                    HomeTown = homeTown
-                });
+                students.Add(
+                    new Student()
+                    {
+                        FirstName = firstName,
+                        LastName = lastName,
+                        Age = age,
+                        HomeTown = homeTown,
+                    }
+                );
             }
             else
             {
@@ -57,6 +59,7 @@ internal class Program
         var town = Console.ReadLine();
         var filteredStudents = students.Where(s => s.HomeTown == town).ToList();
 
-        foreach (var student in filteredStudents) Console.WriteLine(student.ToString());
+        foreach (var student in filteredStudents)
+            Console.WriteLine(student.ToString());
     }
 }

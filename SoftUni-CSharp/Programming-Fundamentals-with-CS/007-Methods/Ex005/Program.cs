@@ -17,7 +17,7 @@ internal class Program
             "water" => 1.00,
             "coke" => 1.40,
             "snacks" => 2.00,
-            _ => 0
+            _ => 0,
         };
 
         Console.WriteLine($"{price * quantity:f2}");

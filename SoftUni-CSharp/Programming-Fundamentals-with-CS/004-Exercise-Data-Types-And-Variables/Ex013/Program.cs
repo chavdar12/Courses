@@ -9,7 +9,8 @@ internal class Program
 
         for (var i = 0; i < n; i++)
         {
-            var currArr = Console.ReadLine()
+            var currArr = Console
+                .ReadLine()
                 .Split(' ', StringSplitOptions.RemoveEmptyEntries)
                 .Select(long.Parse)
                 .ToArray();

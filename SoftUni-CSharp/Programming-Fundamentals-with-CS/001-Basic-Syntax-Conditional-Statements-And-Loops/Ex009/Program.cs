@@ -9,7 +9,8 @@ internal class Program
 
         for (var i = 1; i <= n * 2; i++)
         {
-            if (i % 2 == 0) continue;
+            if (i % 2 == 0)
+                continue;
             Console.WriteLine(i);
             sum += i;
         }

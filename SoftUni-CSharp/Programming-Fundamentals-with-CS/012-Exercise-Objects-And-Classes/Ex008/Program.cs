@@ -19,13 +19,17 @@ internal class Program
         for (var i = 0; i < n; i++)
         {
             var data = Console.ReadLine().Split();
-            employees.Add(new Employee { Name = data[0], Salary = decimal.Parse(data[1]), Department = data[2] });
+            employees.Add(
+                new Employee
+                {
+                    Name = data[0],
+                    Salary = decimal.Parse(data[1]),
+                    Department = data[2],
+                }
+            );
         }
 
-        var best = employees
-            .GroupBy(e => e.Department)
-            .OrderByDescending(g => g.Average(e => e.Salary))
-            .First();
+        var best = employees.GroupBy(e => e.Department).OrderByDescending(g => g.Average(e => e.Salary)).First();
 
         Console.WriteLine($"Highest Average Salary: {best.Key}");
         foreach (var employee in best.OrderByDescending(e => e.Salary))

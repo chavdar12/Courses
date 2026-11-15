@@ -21,9 +21,17 @@ internal class Program
         for (var i = 0; i < n; i++)
         {
             var data = Console.ReadLine().Split();
-            students.Add(new Student { FirstName = data[0], LastName = data[1], Grade = double.Parse(data[2]) });
+            students.Add(
+                new Student
+                {
+                    FirstName = data[0],
+                    LastName = data[1],
+                    Grade = double.Parse(data[2]),
+                }
+            );
         }
 
-        foreach (var student in students.OrderByDescending(s => s.Grade)) Console.WriteLine(student);
+        foreach (var student in students.OrderByDescending(s => s.Grade))
+            Console.WriteLine(student);
     }
 }

@@ -4,8 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var wagons = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse)
-            .ToList();
+        var wagons = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
 
         var capacity = int.Parse(Console.ReadLine());
         var command = Console.ReadLine();
@@ -19,7 +18,8 @@ internal class Program
                 for (var i = 0; i < wagons.Count; i++)
                 {
                     var passengers = int.Parse(cmd[0]);
-                    if (passengers > capacity - wagons[i]) continue;
+                    if (passengers > capacity - wagons[i])
+                        continue;
                     wagons[i] += passengers;
                     break;
                 }

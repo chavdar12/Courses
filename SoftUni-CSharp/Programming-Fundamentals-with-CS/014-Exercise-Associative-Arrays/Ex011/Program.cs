@@ -23,8 +23,10 @@ internal class Program
             var user = data[2];
             var points = int.Parse(data[3]);
 
-            if (!contests.TryGetValue(contest, out var expected) || expected != password) continue;
-            if (!users.ContainsKey(user)) users[user] = new Dictionary<string, int>();
+            if (!contests.TryGetValue(contest, out var expected) || expected != password)
+                continue;
+            if (!users.ContainsKey(user))
+                users[user] = new Dictionary<string, int>();
 
             users[user][contest] = Math.Max(users[user].GetValueOrDefault(contest), points);
         }

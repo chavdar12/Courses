@@ -4,7 +4,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var distances = Console.ReadLine()
+        var distances = Console
+            .ReadLine()
             .Split(' ', StringSplitOptions.RemoveEmptyEntries)
             .Select(long.Parse)
             .ToList();

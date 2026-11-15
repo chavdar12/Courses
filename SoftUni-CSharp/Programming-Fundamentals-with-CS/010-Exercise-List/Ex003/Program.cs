@@ -27,6 +27,7 @@ internal class Program
             }
         }
 
-        foreach (var item in guests) Console.WriteLine(item);
+        foreach (var item in guests)
+            Console.WriteLine(item);
     }
 }

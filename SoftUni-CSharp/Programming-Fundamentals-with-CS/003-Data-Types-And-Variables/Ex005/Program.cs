@@ -6,7 +6,6 @@ internal class Program
     {
         var n = int.Parse(Console.ReadLine());
 
-
         for (var i = 1; i <= n; i++)
         {
             var currentNum = i;

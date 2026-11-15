@@ -24,7 +24,8 @@ internal class Program
                     startIndex = Math.Max(startIndex, 0);
                     endIndex = Math.Min(endIndex, list.Count - 1);
 
-                    if (startIndex > endIndex) continue;
+                    if (startIndex > endIndex)
+                        continue;
 
                     var merged = new StringBuilder();
 
@@ -48,7 +49,8 @@ internal class Program
                     var parts = new List<string>();
 
                     // the last part takes the remainder when the word doesn't divide evenly
-                    for (var i = 0; i < partitions - 1; i++) parts.Add(wordToDivide.Substring(i * partLength, partLength));
+                    for (var i = 0; i < partitions - 1; i++)
+                        parts.Add(wordToDivide.Substring(i * partLength, partLength));
                     parts.Add(wordToDivide.Substring((partitions - 1) * partLength));
 
                     list.RemoveAt(index);

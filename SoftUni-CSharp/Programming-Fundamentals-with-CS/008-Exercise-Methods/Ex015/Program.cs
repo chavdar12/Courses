@@ -17,7 +17,7 @@ internal class Program
             {
                 0 or 1 => 1,
                 2 => 2,
-                _ => sequence[i - 1] + sequence[i - 2] + sequence[i - 3]
+                _ => sequence[i - 1] + sequence[i - 2] + sequence[i - 3],
             };
 
         return sequence;

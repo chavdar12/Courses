@@ -13,12 +13,15 @@ internal class Program
             var name = Console.ReadLine();
             var grade = double.Parse(Console.ReadLine());
 
-            if (!data.ContainsKey(name)) data[name] = new List<double>();
+            if (!data.ContainsKey(name))
+                data[name] = new List<double>();
 
             data[name].Add(grade);
         }
 
-        foreach (var (key, value) in data.Where(s => s.Value.Average() >= 4.5).OrderByDescending(s => s.Value.Average()))
+        foreach (
+            var (key, value) in data.Where(s => s.Value.Average() >= 4.5).OrderByDescending(s => s.Value.Average())
+        )
             Console.WriteLine($"{key} -> {value.Average():f2}");
     }
 }

@@ -8,7 +8,8 @@ internal class Program
         PrintTag("article", Console.ReadLine());
 
         string comment;
-        while ((comment = Console.ReadLine()) != "end of comments") PrintTag("div", comment);
+        while ((comment = Console.ReadLine()) != "end of comments")
+            PrintTag("div", comment);
     }
 
     private static void PrintTag(string tag, string content)

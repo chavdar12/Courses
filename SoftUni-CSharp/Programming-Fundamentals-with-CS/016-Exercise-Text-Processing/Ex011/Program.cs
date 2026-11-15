@@ -4,10 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var key = Console.ReadLine()
-            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse)
-            .ToArray();
+        var key = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 
         string line;
         while ((line = Console.ReadLine()) != "find")

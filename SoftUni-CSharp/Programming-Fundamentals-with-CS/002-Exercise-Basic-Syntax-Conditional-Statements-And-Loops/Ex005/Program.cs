@@ -7,7 +7,8 @@ internal class Program
         var username = Console.ReadLine();
         var password = string.Empty;
 
-        for (var i = username.Length - 1; i >= 0; i--) password += username[i];
+        for (var i = username.Length - 1; i >= 0; i--)
+            password += username[i];
 
         var trying = Console.ReadLine();
         if (trying != password)

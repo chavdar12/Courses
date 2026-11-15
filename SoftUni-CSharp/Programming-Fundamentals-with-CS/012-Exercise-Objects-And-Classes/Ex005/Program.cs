@@ -61,13 +61,17 @@ internal class Program
             team.Members.Add(user);
         }
 
-        foreach (var team in teams.Where(t => t.Members.Count > 0)
-                     .OrderByDescending(t => t.Members.Count)
-                     .ThenBy(t => t.Name, StringComparer.Ordinal))
+        foreach (
+            var team in teams
+                .Where(t => t.Members.Count > 0)
+                .OrderByDescending(t => t.Members.Count)
+                .ThenBy(t => t.Name, StringComparer.Ordinal)
+        )
         {
             Console.WriteLine(team.Name);
             Console.WriteLine($"- {team.Creator}");
-            foreach (var member in team.Members.Order(StringComparer.Ordinal)) Console.WriteLine($"-- {member}");
+            foreach (var member in team.Members.Order(StringComparer.Ordinal))
+                Console.WriteLine($"-- {member}");
         }
 
         Console.WriteLine("Teams to disband:");

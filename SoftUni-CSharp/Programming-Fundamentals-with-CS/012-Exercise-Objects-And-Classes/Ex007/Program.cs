@@ -33,6 +33,7 @@ internal class Program
             person.Age = int.Parse(data[2]);
         }
 
-        foreach (var person in people.OrderBy(p => p.Age)) Console.WriteLine(person);
+        foreach (var person in people.OrderBy(p => p.Age))
+            Console.WriteLine(person);
     }
 }

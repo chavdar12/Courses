@@ -4,7 +4,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var largest = Console.ReadLine()
+        var largest = Console
+            .ReadLine()
             .Split(' ', StringSplitOptions.RemoveEmptyEntries)
             .Select(int.Parse)
             .OrderDescending()

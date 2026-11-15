@@ -6,7 +6,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var tickets = Console.ReadLine()
+        var tickets = Console
+            .ReadLine()
             .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
         foreach (var ticket in tickets)

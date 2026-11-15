@@ -10,7 +10,8 @@ internal class Program
         foreach (var elementTwo in secondArray)
         foreach (var elementOne in firstArray)
         {
-            if (elementOne != elementTwo) continue;
+            if (elementOne != elementTwo)
+                continue;
             Console.Write(elementOne + " ");
             break;
         }

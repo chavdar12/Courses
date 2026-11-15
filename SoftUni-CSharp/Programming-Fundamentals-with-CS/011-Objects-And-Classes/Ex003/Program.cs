@@ -28,7 +28,7 @@ internal class Program
             {
                 TypeList = type,
                 Name = name,
-                Time = time
+                Time = time,
             };
 
             songs.Add(song);
@@ -38,12 +38,14 @@ internal class Program
 
         if (typeList == "all")
         {
-            foreach (var song in songs) Console.WriteLine(song.Name);
+            foreach (var song in songs)
+                Console.WriteLine(song.Name);
         }
         else
         {
             var filteredSongs = songs.Where(s => s.TypeList == typeList).ToList();
-            foreach (var song in filteredSongs) Console.WriteLine(song.Name);
+            foreach (var song in filteredSongs)
+                Console.WriteLine(song.Name);
         }
     }
 }

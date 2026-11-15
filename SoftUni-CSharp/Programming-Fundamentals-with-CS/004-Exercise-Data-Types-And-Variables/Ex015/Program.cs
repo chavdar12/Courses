@@ -10,7 +10,8 @@ internal class Program
             var isPrime = true;
             for (var num = 2; num < i; num++)
             {
-                if (i % num != 0) continue;
+                if (i % num != 0)
+                    continue;
                 isPrime = false;
                 break;
             }

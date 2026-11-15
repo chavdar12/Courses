@@ -19,17 +19,18 @@ internal class Program
             var line = Console.ReadLine();
             sample += 1;
 
-            if (line == "Clone them!") break;
+            if (line == "Clone them!")
+                break;
 
             var sequence = line.Split('!', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 
             var sequenceSum = sequence.Sum();
 
-
             for (var i = 0; i < sequence.Length; i++)
             {
                 var currentNumber = sequence[i];
-                if (currentNumber == 0) continue;
+                if (currentNumber == 0)
+                    continue;
 
                 var currentSequenceSize = 1;
 

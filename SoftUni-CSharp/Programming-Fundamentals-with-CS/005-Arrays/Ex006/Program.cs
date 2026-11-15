@@ -4,10 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var arr = Console.ReadLine()
-            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse)
-            .ToArray();
+        var arr = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 
         var sumOdd = 0;
         var sumEven = 0;

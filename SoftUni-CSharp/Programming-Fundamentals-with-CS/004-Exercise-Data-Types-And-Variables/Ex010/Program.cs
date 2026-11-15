@@ -16,7 +16,8 @@ internal class Program
             power -= m;
             counter++;
 
-            if (power * 2 == n && y != 0) power /= y;
+            if (power * 2 == n && y != 0)
+                power /= y;
         }
 
         Console.WriteLine(power);

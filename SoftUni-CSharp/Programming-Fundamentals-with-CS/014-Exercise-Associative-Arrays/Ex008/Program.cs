@@ -14,9 +14,11 @@ internal class Program
             var company = cmdArg[0];
             var idNumber = cmdArg[1];
 
-            if (!data.ContainsKey(company)) data[company] = new List<string>();
+            if (!data.ContainsKey(company))
+                data[company] = new List<string>();
 
-            if (data[company].Contains(idNumber)) continue;
+            if (data[company].Contains(idNumber))
+                continue;
 
             data[company].Add(idNumber);
         }
@@ -24,7 +26,8 @@ internal class Program
         foreach (var (key, students) in data.OrderBy(c => c.Key))
         {
             Console.WriteLine(key);
-            foreach (var student in students) Console.WriteLine($"-- {student}");
+            foreach (var student in students)
+                Console.WriteLine($"-- {student}");
         }
     }
 }

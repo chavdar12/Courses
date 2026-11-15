@@ -8,7 +8,8 @@ internal class Program
 
         for (var row = 1; row <= n; row++)
         {
-            for (var column = 1; column <= row; column++) Console.Write($"{row} ");
+            for (var column = 1; column <= row; column++)
+                Console.Write($"{row} ");
 
             Console.WriteLine();
         }

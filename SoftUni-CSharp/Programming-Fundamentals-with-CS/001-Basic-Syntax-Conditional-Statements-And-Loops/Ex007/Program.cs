@@ -18,7 +18,8 @@ internal class Program
                 break;
             case >= 0 and <= 18:
             {
-                if (typeOfDay == "Holiday") price = 5;
+                if (typeOfDay == "Holiday")
+                    price = 5;
 
                 break;
             }
@@ -30,7 +31,8 @@ internal class Program
                 break;
             case > 18 and <= 64:
             {
-                if (typeOfDay == "Holiday") price = 12;
+                if (typeOfDay == "Holiday")
+                    price = 12;
 
                 break;
             }
@@ -42,7 +44,8 @@ internal class Program
                 break;
             case > 64 and <= 122:
             {
-                if (typeOfDay == "Holiday") price = 10;
+                if (typeOfDay == "Holiday")
+                    price = 10;
 
                 break;
             }
@@ -51,6 +54,7 @@ internal class Program
                 break;
         }
 
-        if (price > 0) Console.WriteLine($"{price}$");
+        if (price > 0)
+            Console.WriteLine($"{price}$");
     }
 }

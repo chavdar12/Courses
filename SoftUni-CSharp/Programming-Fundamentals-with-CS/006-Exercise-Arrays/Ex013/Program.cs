@@ -12,8 +12,10 @@ internal class Program
 
     private static long GetFibonacci(int n)
     {
-        if (n <= 2) return 1;
-        if (Memo.TryGetValue(n, out var cached)) return cached;
+        if (n <= 2)
+            return 1;
+        if (Memo.TryGetValue(n, out var cached))
+            return cached;
 
         return Memo[n] = GetFibonacci(n - 1) + GetFibonacci(n - 2);
     }

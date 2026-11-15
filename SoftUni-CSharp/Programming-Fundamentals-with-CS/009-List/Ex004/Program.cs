@@ -16,6 +16,7 @@ internal class Program
 
         list.Sort();
 
-        for (var j = 1; j <= n; j++) Console.WriteLine($"{j}.{list[j - 1]}");
+        for (var j = 1; j <= n; j++)
+            Console.WriteLine($"{j}.{list[j - 1]}");
     }
 }

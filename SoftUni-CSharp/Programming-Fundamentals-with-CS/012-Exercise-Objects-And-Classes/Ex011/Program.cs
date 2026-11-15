@@ -44,10 +44,12 @@ internal class Program
         }
 
         var command = Console.ReadLine();
-        var filtered = command == "fragile"
-            ? cars.Where(c => c.Cargo.Type == "fragile" && c.Cargo.Weight < 1000)
-            : cars.Where(c => c.Cargo.Type == "flamable" && c.Engine.Power > 250);
+        var filtered =
+            command == "fragile"
+                ? cars.Where(c => c.Cargo.Type == "fragile" && c.Cargo.Weight < 1000)
+                : cars.Where(c => c.Cargo.Type == "flamable" && c.Engine.Power > 250);
 
-        foreach (var car in filtered) Console.WriteLine(car.Model);
+        foreach (var car in filtered)
+            Console.WriteLine(car.Model);
     }
 }

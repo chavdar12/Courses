@@ -4,7 +4,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var numbers = Console.ReadLine()
+        var numbers = Console
+            .ReadLine()
             .Split(' ', StringSplitOptions.RemoveEmptyEntries)
             .Select(double.Parse)
             .ToList();
@@ -13,11 +14,13 @@ internal class Program
 
         foreach (var item in numbers)
         {
-            if (!result.ContainsKey(item)) result[item] = 0;
+            if (!result.ContainsKey(item))
+                result[item] = 0;
 
             result[item]++;
         }
 
-        foreach (var (key, value) in result) Console.WriteLine($"{key} -> {value}");
+        foreach (var (key, value) in result)
+            Console.WriteLine($"{key} -> {value}");
     }
 }

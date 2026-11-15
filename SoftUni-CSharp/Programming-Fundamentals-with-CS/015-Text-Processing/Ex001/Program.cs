@@ -10,7 +10,8 @@ internal class Program
         {
             var reversed = string.Empty;
 
-            for (var i = input.Length - 1; i >= 0; i--) reversed += input[i];
+            for (var i = input.Length - 1; i >= 0; i--)
+                reversed += input[i];
 
             Console.WriteLine($"{input} = {reversed}");
         }

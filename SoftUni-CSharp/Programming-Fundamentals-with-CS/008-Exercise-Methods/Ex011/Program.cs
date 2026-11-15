@@ -4,8 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var array = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse)
-            .ToArray();
+        var array = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
         string input;
 
         while ((input = Console.ReadLine()) != "end")

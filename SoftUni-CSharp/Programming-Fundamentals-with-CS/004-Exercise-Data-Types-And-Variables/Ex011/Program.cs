@@ -12,14 +12,14 @@ internal class Program
         var maxSnowballTime = 0;
         var maxSnowballQuality = 0;
 
-
         for (var i = 1; i <= n; i++)
         {
             var snowballSnow = int.Parse(Console.ReadLine());
             var snowballTime = int.Parse(Console.ReadLine());
             var snowballQuality = int.Parse(Console.ReadLine());
             var snowballValue = BigInteger.Pow(snowballSnow / snowballTime, snowballQuality);
-            if (snowballValue <= maxSnowballValue) continue;
+            if (snowballValue <= maxSnowballValue)
+                continue;
             maxSnowballValue = snowballValue;
             maxSnowballSnow = snowballSnow;
             maxSnowballTime = snowballTime;

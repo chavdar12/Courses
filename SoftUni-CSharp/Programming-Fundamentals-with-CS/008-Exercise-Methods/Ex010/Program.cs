@@ -7,7 +7,8 @@ internal class Program
         var end = int.Parse(Console.ReadLine());
 
         Console.WriteLine(
-            string.Join(Environment.NewLine, NumbersWithAtLeastOneOddDigit(NumbersWithDigitSumDivisibleByEight(end))));
+            string.Join(Environment.NewLine, NumbersWithAtLeastOneOddDigit(NumbersWithDigitSumDivisibleByEight(end)))
+        );
     }
 
     private static int[] NumbersWithDigitSumDivisibleByEight(int end)

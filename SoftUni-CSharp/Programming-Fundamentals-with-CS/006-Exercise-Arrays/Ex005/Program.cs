@@ -4,8 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var arr = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse)
-            .ToArray();
+        var arr = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 
         for (var i = 0; i < arr.Length; i++)
         {
@@ -14,7 +13,8 @@ internal class Program
                 if (arr[i] <= arr[j])
                     currentIterationIsBigger = false;
 
-            if (currentIterationIsBigger) Console.Write(arr[i] + " ");
+            if (currentIterationIsBigger)
+                Console.Write(arr[i] + " ");
         }
     }
 }

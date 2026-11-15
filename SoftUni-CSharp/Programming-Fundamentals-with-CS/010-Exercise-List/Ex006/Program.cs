@@ -4,10 +4,16 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var firstPlayer = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse).ToList();
-        var secondPlayer = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse).ToList();
+        var firstPlayer = Console
+            .ReadLine()
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .ToList();
+        var secondPlayer = Console
+            .ReadLine()
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .ToList();
 
         while (firstPlayer.Count != 0 || secondPlayer.Count != 0)
         {
@@ -39,7 +45,8 @@ internal class Program
                 break;
             }
 
-            if (secondPlayer.Count != 0) continue;
+            if (secondPlayer.Count != 0)
+                continue;
             sum = firstPlayer.Sum();
             Console.WriteLine($"First player wins! Sum: {sum}");
             break;

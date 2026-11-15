@@ -9,7 +9,8 @@ internal class Program
         var n = int.Parse(Console.ReadLine());
         BigInteger factorial = 1;
 
-        for (var i = 2; i <= n; i++) factorial *= i;
+        for (var i = 2; i <= n; i++)
+            factorial *= i;
 
         Console.WriteLine(factorial);
     }

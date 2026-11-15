@@ -28,8 +28,10 @@ internal class Program
             }
         }
 
-        foreach (var (key, value) in data) total[key] = value[0] * value[1];
+        foreach (var (key, value) in data)
+            total[key] = value[0] * value[1];
 
-        foreach (var (key, value) in total) Console.WriteLine($"{key} -> {value:f2}");
+        foreach (var (key, value) in total)
+            Console.WriteLine($"{key} -> {value:f2}");
     }
 }

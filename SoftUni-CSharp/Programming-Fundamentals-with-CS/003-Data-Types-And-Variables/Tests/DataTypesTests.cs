@@ -2,10 +2,9 @@ namespace Tests;
 
 public class DataTypesTests
 {
-
     private const string SpecialNumbers15 =
-        "1 -> False\n2 -> False\n3 -> False\n4 -> False\n5 -> True\n6 -> False\n7 -> True\n8 -> False\n" +
-        "9 -> False\n10 -> False\n11 -> False\n12 -> False\n13 -> False\n14 -> True\n15 -> False";
+        "1 -> False\n2 -> False\n3 -> False\n4 -> False\n5 -> True\n6 -> False\n7 -> True\n8 -> False\n"
+        + "9 -> False\n10 -> False\n11 -> False\n12 -> False\n13 -> False\n14 -> True\n15 -> False";
 
     [Theory]
     [InlineData("Ex001", "1852", "1.85")]

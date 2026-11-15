@@ -16,7 +16,8 @@ internal class Program
         {
             var match = Regex.Match(input, pattern);
 
-            if (!match.Success) continue;
+            if (!match.Success)
+                continue;
             var item = match.Groups["item"].Value;
             var price = decimal.Parse(match.Groups["price"].Value);
             var quantity = int.Parse(match.Groups["quantity"].Value);
@@ -26,7 +27,8 @@ internal class Program
         }
 
         Console.WriteLine("Bought furniture:");
-        foreach (var item in items) Console.WriteLine(item);
+        foreach (var item in items)
+            Console.WriteLine(item);
 
         Console.WriteLine($"Total money spend: {total:f2}");
     }

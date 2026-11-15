@@ -13,7 +13,8 @@ internal class Car
     public bool Drive(int km)
     {
         var neededFuel = km * FuelConsumptionPerKm;
-        if (neededFuel > FuelAmount) return false;
+        if (neededFuel > FuelAmount)
+            return false;
 
         FuelAmount -= neededFuel;
         TraveledDistance += km;
@@ -33,12 +34,14 @@ internal class Program
         for (var i = 0; i < n; i++)
         {
             var data = Console.ReadLine().Split();
-            cars.Add(new Car
-            {
-                Model = data[0],
-                FuelAmount = double.Parse(data[1]),
-                FuelConsumptionPerKm = double.Parse(data[2])
-            });
+            cars.Add(
+                new Car
+                {
+                    Model = data[0],
+                    FuelAmount = double.Parse(data[1]),
+                    FuelConsumptionPerKm = double.Parse(data[2]),
+                }
+            );
         }
 
         string command;
@@ -47,9 +50,11 @@ internal class Program
             var data = command.Split();
             var car = cars.First(c => c.Model == data[1]);
 
-            if (!car.Drive(int.Parse(data[2]))) Console.WriteLine("Insufficient fuel for the drive");
+            if (!car.Drive(int.Parse(data[2])))
+                Console.WriteLine("Insufficient fuel for the drive");
         }
 
-        foreach (var car in cars) Console.WriteLine(car);
+        foreach (var car in cars)
+            Console.WriteLine(car);
     }
 }

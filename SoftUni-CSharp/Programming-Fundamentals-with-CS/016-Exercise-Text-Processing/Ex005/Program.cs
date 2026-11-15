@@ -34,9 +34,11 @@ internal class Program
 
         var finalResult = new StringBuilder();
 
-        if (remainder != 0) finalResult.Append(remainder);
+        if (remainder != 0)
+            finalResult.Append(remainder);
 
-        for (var i = sb.Length - 1; i >= 0; i--) finalResult.Append(sb[i]);
+        for (var i = sb.Length - 1; i >= 0; i--)
+            finalResult.Append(sb[i]);
 
         Console.WriteLine(finalResult.ToString());
     }

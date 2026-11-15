@@ -13,11 +13,13 @@ internal class Program
             var word = Console.ReadLine();
             var synonym = Console.ReadLine();
 
-            if (!map.ContainsKey(word)) map.Add(word, new List<string>());
+            if (!map.ContainsKey(word))
+                map.Add(word, new List<string>());
 
             map[word].Add(synonym);
         }
 
-        foreach (var (key, value) in map) Console.WriteLine($"{key} - {string.Join(", ", value)}");
+        foreach (var (key, value) in map)
+            Console.WriteLine($"{key} - {string.Join(", ", value)}");
     }
 }

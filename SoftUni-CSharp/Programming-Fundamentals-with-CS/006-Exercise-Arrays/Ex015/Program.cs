@@ -4,10 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var numbers = Console.ReadLine()
-            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse)
-            .ToArray();
+        var numbers = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 
         var length = new int[numbers.Length];
         var prev = new int[numbers.Length];
@@ -20,16 +17,19 @@ internal class Program
 
             for (var left = 0; left < p; left++)
             {
-                if (numbers[left] >= numbers[p] || length[left] + 1 <= length[p]) continue;
+                if (numbers[left] >= numbers[p] || length[left] + 1 <= length[p])
+                    continue;
                 length[p] = length[left] + 1;
                 prev[p] = left;
             }
 
-            if (length[p] > length[bestEnd]) bestEnd = p;
+            if (length[p] > length[bestEnd])
+                bestEnd = p;
         }
 
         var lis = new Stack<int>();
-        for (var p = bestEnd; p != -1; p = prev[p]) lis.Push(numbers[p]);
+        for (var p = bestEnd; p != -1; p = prev[p])
+            lis.Push(numbers[p]);
 
         Console.WriteLine(string.Join(" ", lis));
     }

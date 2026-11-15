@@ -14,7 +14,8 @@ internal class Program
             minutes -= 60;
         }
 
-        if (hour > 23) hour = 0;
+        if (hour > 23)
+            hour = 0;
 
         Console.WriteLine($"{hour}:{minutes:d2}");
     }

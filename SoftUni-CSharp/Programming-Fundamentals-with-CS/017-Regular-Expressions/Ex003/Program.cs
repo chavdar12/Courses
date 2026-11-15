@@ -14,6 +14,7 @@ internal class Program
 
         foreach (Match match in matches)
             Console.WriteLine(
-                $"Day: {match.Groups["day"].Value}, Month: {match.Groups["month"].Value}, Year: {match.Groups["year"].Value}");
+                $"Day: {match.Groups["day"].Value}, Month: {match.Groups["month"].Value}, Year: {match.Groups["year"].Value}"
+            );
     }
 }

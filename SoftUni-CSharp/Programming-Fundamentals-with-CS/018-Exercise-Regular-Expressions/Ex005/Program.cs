@@ -6,7 +6,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var demons = Console.ReadLine()
+        var demons = Console
+            .ReadLine()
             .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .Order(StringComparer.Ordinal);
 

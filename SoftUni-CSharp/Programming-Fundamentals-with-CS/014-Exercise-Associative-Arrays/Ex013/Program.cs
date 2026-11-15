@@ -16,7 +16,8 @@ internal class Program
                 var position = data[1];
                 var skill = int.Parse(data[2]);
 
-                if (!players.ContainsKey(player)) players[player] = new Dictionary<string, int>();
+                if (!players.ContainsKey(player))
+                    players[player] = new Dictionary<string, int>();
 
                 players[player][position] = Math.Max(players[player].GetValueOrDefault(position), skill);
             }
@@ -26,7 +27,8 @@ internal class Program
                 if (!players.TryGetValue(data[0], out var first) || !players.TryGetValue(data[1], out var second))
                     continue;
 
-                if (!first.Keys.Intersect(second.Keys).Any()) continue;
+                if (!first.Keys.Intersect(second.Keys).Any())
+                    continue;
 
                 var firstTotal = first.Values.Sum();
                 var secondTotal = second.Values.Sum();

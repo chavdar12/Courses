@@ -14,7 +14,8 @@ internal class Program
             var text = match.Groups["text"].Value.ToUpper();
             var count = int.Parse(match.Groups["count"].Value);
 
-            for (var i = 0; i < count; i++) message.Append(text);
+            for (var i = 0; i < count; i++)
+                message.Append(text);
         }
 
         var result = message.ToString();

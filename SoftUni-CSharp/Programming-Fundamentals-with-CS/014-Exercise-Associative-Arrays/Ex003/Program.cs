@@ -8,7 +8,7 @@ internal class Program
         {
             { "shards", 0 },
             { "fragments", 0 },
-            { "motes", 0 }
+            { "motes", 0 },
         };
 
         var junk = new Dictionary<string, int>();
@@ -17,7 +17,6 @@ internal class Program
 
         var items = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).ToArray();
 
-
         while (string.IsNullOrEmpty(itemObtained))
         {
             for (var i = 1; i < items.Length; i += 2)
@@ -25,7 +24,8 @@ internal class Program
                 if (legendary.ContainsKey(items[i].ToLower()))
                 {
                     legendary[items[i].ToLower()] += int.Parse(items[i - 1]);
-                    if (legendary[items[i].ToLower()] < 250) continue;
+                    if (legendary[items[i].ToLower()] < 250)
+                        continue;
                     switch (items[i].ToLower())
                     {
                         case "shards":
@@ -48,12 +48,14 @@ internal class Program
                         Console.WriteLine($"{keyMaterial}: {qty}");
                     }
 
-                    foreach (var item in junk.OrderBy(m => m.Key)) Console.WriteLine($"{item.Key}: {item.Value}");
+                    foreach (var item in junk.OrderBy(m => m.Key))
+                        Console.WriteLine($"{item.Key}: {item.Value}");
 
                     return;
                 }
 
-                if (!junk.ContainsKey(items[i].ToLower())) junk[items[i].ToLower()] = 0;
+                if (!junk.ContainsKey(items[i].ToLower()))
+                    junk[items[i].ToLower()] = 0;
 
                 junk[items[i].ToLower()] += int.Parse(items[i - 1]);
             }

@@ -9,7 +9,6 @@ internal class Program
         var days = (int)(years * 365.2422);
         var hours = (uint)(days * 24);
         ulong minutes = hours * 60;
-        Console.WriteLine(
-            $"{centuries} centuries = {years} years = {days} days = {hours} hours = {minutes} minutes");
+        Console.WriteLine($"{centuries} centuries = {years} years = {days} days = {hours} hours = {minutes} minutes");
     }
 }

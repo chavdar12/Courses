@@ -4,10 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var array = Console.ReadLine()
-            .Split(' ')
-            .Select(int.Parse)
-            .ToArray();
+        var array = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 
         var firstLength = array.Length;
 
@@ -15,7 +12,8 @@ internal class Program
         {
             var condensed = new int[array.Length - 1];
 
-            for (var j = 0; j < array.Length - 1; j++) condensed[j] = array[j] + array[j + 1];
+            for (var j = 0; j < array.Length - 1; j++)
+                condensed[j] = array[j] + array[j + 1];
 
             array = condensed;
         }

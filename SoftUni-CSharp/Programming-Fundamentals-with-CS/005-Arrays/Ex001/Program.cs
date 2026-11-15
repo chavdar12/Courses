@@ -6,16 +6,7 @@ internal class Program
     {
         var dayNumber = int.Parse(Console.ReadLine());
 
-        string[] day =
-        {
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-        };
+        string[] day = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         switch (dayNumber)
         {
             case >= 1 when dayNumber <= day.Length:

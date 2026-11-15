@@ -18,7 +18,8 @@ internal class Program
     private static double CalculateFactorial(int first)
     {
         var result = 1.0;
-        for (var i = 1; i <= first; i++) result *= i;
+        for (var i = 1; i <= first; i++)
+            result *= i;
 
         return result;
     }

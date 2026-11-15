@@ -25,7 +25,8 @@ internal class Program
 
         var sum = shorter.Select((t, i) => longer[i] * t).Sum();
 
-        for (var j = shorter.Length; j < longer.Length; j++) sum += longer[j];
+        for (var j = shorter.Length; j < longer.Length; j++)
+            sum += longer[j];
 
         Console.WriteLine(sum);
     }

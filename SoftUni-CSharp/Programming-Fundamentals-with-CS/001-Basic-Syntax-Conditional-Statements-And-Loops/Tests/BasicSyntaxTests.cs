@@ -21,7 +21,11 @@ public class BasicSyntaxTests
     [InlineData("Ex007", "Holiday\n15", "5$")]
     [InlineData("Ex007", "Holiday\n-12", "Error!")]
     [InlineData("Ex009", "3", "1\n3\n5\nSum: 9")]
-    [InlineData("Ex010", "2", "2 X 1 = 2\n2 X 2 = 4\n2 X 3 = 6\n2 X 4 = 8\n2 X 5 = 10\n2 X 6 = 12\n2 X 7 = 14\n2 X 8 = 16\n2 X 9 = 18\n2 X 10 = 20")]
+    [InlineData(
+        "Ex010",
+        "2",
+        "2 X 1 = 2\n2 X 2 = 4\n2 X 3 = 6\n2 X 4 = 8\n2 X 5 = 10\n2 X 6 = 12\n2 X 7 = 14\n2 X 8 = 16\n2 X 9 = 18\n2 X 10 = 20"
+    )]
     [InlineData("Ex011", "5\n8", "5 X 8 = 40\n5 X 9 = 45\n5 X 10 = 50")]
     [InlineData("Ex011", "2\n14", "2 X 14 = 28")]
     [InlineData("Ex012", "1\n3\n6", "Please write an even number.\nPlease write an even number.\nThe number is: 6")]
@@ -32,6 +36,5 @@ public class BasicSyntaxTests
 
     [Fact]
     public void Ex008_PrintsMultiplesOfThreeBelow100() =>
-        Assert.Equal(string.Join("\n", Enumerable.Range(1, 33).Select(i => i * 3)),
-            ProgramRunner.Run("Ex008"));
+        Assert.Equal(string.Join("\n", Enumerable.Range(1, 33).Select(i => i * 3)), ProgramRunner.Run("Ex008"));
 }

@@ -19,9 +19,11 @@ internal class Program
 
         var colorCounts = dwarfs.Keys.GroupBy(d => d.Color).ToDictionary(g => g.Key, g => g.Count());
 
-        foreach (var ((name, color), physics) in dwarfs
-                     .OrderByDescending(d => d.Value)
-                     .ThenByDescending(d => colorCounts[d.Key.Color]))
+        foreach (
+            var ((name, color), physics) in dwarfs
+                .OrderByDescending(d => d.Value)
+                .ThenByDescending(d => colorCounts[d.Key.Color])
+        )
             Console.WriteLine($"({color}) {name} <-> {physics}");
     }
 }

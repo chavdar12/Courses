@@ -21,7 +21,14 @@ internal class Program
         for (var i = 0; i < n; i++)
         {
             var data = Console.ReadLine().Split(", ");
-            articles.Add(new Article { Title = data[0], Content = data[1], Author = data[2] });
+            articles.Add(
+                new Article
+                {
+                    Title = data[0],
+                    Content = data[1],
+                    Author = data[2],
+                }
+            );
         }
 
         var criteria = Console.ReadLine();
@@ -29,9 +36,10 @@ internal class Program
         {
             "content" => articles.OrderBy(a => a.Content),
             "author" => articles.OrderBy(a => a.Author),
-            _ => articles.OrderBy(a => a.Title)
+            _ => articles.OrderBy(a => a.Title),
         };
 
-        foreach (var article in sorted) Console.WriteLine(article);
+        foreach (var article in sorted)
+            Console.WriteLine(article);
     }
 }

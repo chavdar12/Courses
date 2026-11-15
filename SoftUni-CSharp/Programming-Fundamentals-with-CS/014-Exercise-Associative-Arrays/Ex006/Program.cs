@@ -14,17 +14,18 @@ internal class Program
             var course = cmdArg[0];
             var student = cmdArg[1];
 
-            if (!data.ContainsKey(course)) data[course] = new List<string>();
+            if (!data.ContainsKey(course))
+                data[course] = new List<string>();
 
             data[course].Add(student);
         }
-
 
         foreach (var (course, students) in data.OrderByDescending(c => c.Value.Count))
         {
             Console.WriteLine($"{course}: {students.Count}");
 
-            foreach (var student in students.Order()) Console.WriteLine($"-- {student}");
+            foreach (var student in students.Order())
+                Console.WriteLine($"-- {student}");
         }
     }
 }

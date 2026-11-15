@@ -46,8 +46,13 @@ internal class Program
                     break;
                 default:
                 {
-                    if (command != "Nuts" && command != "Water" && command != "Crisps" && command != "Soda" &&
-                        command != "Coke")
+                    if (
+                        command != "Nuts"
+                        && command != "Water"
+                        && command != "Crisps"
+                        && command != "Soda"
+                        && command != "Coke"
+                    )
                         Console.WriteLine("Invalid product");
                     else
                         Console.WriteLine("Sorry, not enough money");

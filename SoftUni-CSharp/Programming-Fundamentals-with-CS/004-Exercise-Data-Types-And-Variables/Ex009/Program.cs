@@ -15,7 +15,8 @@ internal class Program
             spicesQuantity -= 26;
         }
 
-        if (spicesQuantity > 26) spicesQuantity -= 26;
+        if (spicesQuantity > 26)
+            spicesQuantity -= 26;
 
         Console.WriteLine(counter);
         Console.WriteLine(spicesQuantity);

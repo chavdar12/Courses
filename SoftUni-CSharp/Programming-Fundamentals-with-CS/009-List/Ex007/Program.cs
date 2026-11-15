@@ -4,8 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var numbers = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse)
-            .ToList();
+        var numbers = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
 
         var command = Console.ReadLine();
 
@@ -94,6 +93,7 @@ internal class Program
             command = Console.ReadLine();
         }
 
-        if (counter > 0) Console.WriteLine(string.Join(" ", numbers));
+        if (counter > 0)
+            Console.WriteLine(string.Join(" ", numbers));
     }
 }

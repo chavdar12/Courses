@@ -9,7 +9,11 @@ public class AssociativeArraysTests
     [InlineData("Ex002", "Java C# PHP PHP JAVA C java", "java c# c")]
     [InlineData("Ex002", "3 5 5 hi pi HO Hi 5 ho 3 hi pi", "5 hi")]
     [InlineData("Ex002", "a a A SQL xx a xx a A a XX c", "a sql xx c")]
-    [InlineData("Ex003", "3\ncute\nadorable\ncute\ncharming\nsmart\nclever", "cute - adorable, charming\nsmart - clever")]
+    [InlineData(
+        "Ex003",
+        "3\ncute\nadorable\ncute\ncharming\nsmart\nclever",
+        "cute - adorable, charming\nsmart - clever"
+    )]
     [InlineData("Ex003", "2\ntask\nproblem\ntask\nassignment", "task - problem, assignment")]
     [InlineData("Ex004", "10 30 15 20 50 5", "50 30 20")]
     [InlineData("Ex004", "20 30", "30 20")]

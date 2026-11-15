@@ -15,10 +15,12 @@ internal class Program
             switch (tokens[0])
             {
                 case "Add":
-                    if (!schedule.Contains(lesson)) schedule.Add(lesson);
+                    if (!schedule.Contains(lesson))
+                        schedule.Add(lesson);
                     break;
                 case "Insert":
-                    if (!schedule.Contains(lesson)) schedule.Insert(int.Parse(tokens[2]), lesson);
+                    if (!schedule.Contains(lesson))
+                        schedule.Insert(int.Parse(tokens[2]), lesson);
                     break;
                 case "Remove":
                     schedule.Remove(lesson);
@@ -28,19 +30,22 @@ internal class Program
                     Swap(schedule, lesson, tokens[2]);
                     break;
                 case "Exercise":
-                    if (!schedule.Contains(lesson)) schedule.Add(lesson);
+                    if (!schedule.Contains(lesson))
+                        schedule.Add(lesson);
                     if (!schedule.Contains(Exercise(lesson)))
                         schedule.Insert(schedule.IndexOf(lesson) + 1, Exercise(lesson));
                     break;
             }
         }
 
-        for (var i = 0; i < schedule.Count; i++) Console.WriteLine($"{i + 1}.{schedule[i]}");
+        for (var i = 0; i < schedule.Count; i++)
+            Console.WriteLine($"{i + 1}.{schedule[i]}");
     }
 
     private static void Swap(List<string> schedule, string first, string second)
     {
-        if (!schedule.Contains(first) || !schedule.Contains(second)) return;
+        if (!schedule.Contains(first) || !schedule.Contains(second))
+            return;
 
         // Pull the exercises out first so they can follow their lessons to the new positions.
         var firstHasExercise = schedule.Remove(Exercise(first));
@@ -51,8 +56,10 @@ internal class Program
         schedule[firstIndex] = second;
         schedule[secondIndex] = first;
 
-        if (firstHasExercise) schedule.Insert(schedule.IndexOf(first) + 1, Exercise(first));
-        if (secondHasExercise) schedule.Insert(schedule.IndexOf(second) + 1, Exercise(second));
+        if (firstHasExercise)
+            schedule.Insert(schedule.IndexOf(first) + 1, Exercise(first));
+        if (secondHasExercise)
+            schedule.Insert(schedule.IndexOf(second) + 1, Exercise(second));
     }
 
     private static string Exercise(string lesson) => $"{lesson}-Exercise";

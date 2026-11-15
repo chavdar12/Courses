@@ -15,7 +15,8 @@ internal class Program
             var price = daysInMonth * numOfCapsules * pricePerCapsule;
             Console.WriteLine($"The price for the coffee is: ${price:f2}");
             total += price;
-            if (i == n) break;
+            if (i == n)
+                break;
 
             pricePerCapsule = double.Parse(Console.ReadLine());
             daysInMonth = int.Parse(Console.ReadLine());

@@ -13,7 +13,8 @@ internal class Program
             result.Add(newElement);
         }
 
-        if (numbers.Count % 2 != 0) result.Add(numbers[numbers.Count / 2]);
+        if (numbers.Count % 2 != 0)
+            result.Add(numbers[numbers.Count / 2]);
 
         Console.WriteLine(string.Join(" ", result));
     }

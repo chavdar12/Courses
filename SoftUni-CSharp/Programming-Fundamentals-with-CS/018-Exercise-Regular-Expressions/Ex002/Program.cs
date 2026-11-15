@@ -20,11 +20,13 @@ internal class Program
             foreach (var @ch in chars)
                 if (char.IsLetter(ch))
                     sb.Append(ch);
-                else if (char.IsDigit(ch)) distance += int.Parse(ch.ToString());
+                else if (char.IsDigit(ch))
+                    distance += int.Parse(ch.ToString());
 
             if (participants.Contains(sb.ToString()))
             {
-                if (!data.ContainsKey(sb.ToString())) data[sb.ToString()] = 0;
+                if (!data.ContainsKey(sb.ToString()))
+                    data[sb.ToString()] = 0;
 
                 data[sb.ToString()] += distance;
             }

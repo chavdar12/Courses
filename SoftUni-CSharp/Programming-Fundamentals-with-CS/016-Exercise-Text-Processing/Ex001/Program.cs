@@ -11,11 +11,14 @@ internal class Program
         {
             var isValid = true;
 
-            if (user.Length is < 3 or > 16) continue;
+            if (user.Length is < 3 or > 16)
+                continue;
 
-            foreach (var i in user.Where(i => !(char.IsLetterOrDigit(i) || i is '-' or '_'))) isValid = false;
+            foreach (var i in user.Where(i => !(char.IsLetterOrDigit(i) || i is '-' or '_')))
+                isValid = false;
 
-            if (isValid) validUsernames.Add(user);
+            if (isValid)
+                validUsernames.Add(user);
         }
 
         Console.WriteLine(string.Join(Environment.NewLine, validUsernames));

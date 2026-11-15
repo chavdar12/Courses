@@ -11,11 +11,13 @@ internal class Program
         foreach (var item in words)
         foreach (var t in item)
         {
-            if (!map.ContainsKey(t)) map[t] = 0;
+            if (!map.ContainsKey(t))
+                map[t] = 0;
 
             map[t]++;
         }
 
-        foreach (var (key, value) in map) Console.WriteLine($"{key} -> {value}");
+        foreach (var (key, value) in map)
+            Console.WriteLine($"{key} -> {value}");
     }
 }

@@ -20,7 +20,11 @@ public class DataTypesExerciseTests
     [InlineData("Ex010", "10\n5\n2", "2\n1")]
     [InlineData("Ex010", "3\n5\n1", "3\n0")]
     [InlineData("Ex011", "2\n10\n2\n3\n5\n5\n5", "10 : 2 = 125 (3)")]
-    [InlineData("Ex012", "5\n2.5\ntrue\nabc\na\nEND", "5 is integer type\n2.5 is floating point type\ntrue is boolean type\nabc is string type\na is character type")]
+    [InlineData(
+        "Ex012",
+        "5\n2.5\ntrue\nabc\na\nEND",
+        "5 is integer type\n2.5 is floating point type\ntrue is boolean type\nabc is string type\na is character type"
+    )]
     [InlineData("Ex013", "2\n1000 2000\n-15 -1", "2\n1")]
     [InlineData("Ex014", "5.3\n6.01", "False")]
     [InlineData("Ex014", "5.00000001\n5.00000003", "True")]

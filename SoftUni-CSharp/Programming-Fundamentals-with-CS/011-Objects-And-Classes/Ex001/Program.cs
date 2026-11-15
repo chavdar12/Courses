@@ -14,6 +14,7 @@ internal class Program
             (words[i], words[index]) = (words[index], words[i]);
         }
 
-        foreach (var item in words) Console.WriteLine(item);
+        foreach (var item in words)
+            Console.WriteLine(item);
     }
 }

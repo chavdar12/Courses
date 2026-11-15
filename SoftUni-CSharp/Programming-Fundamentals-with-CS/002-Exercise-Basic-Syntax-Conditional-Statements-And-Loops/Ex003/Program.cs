@@ -19,7 +19,8 @@ internal class Program
                 break;
             case "Students":
             {
-                if (dayOfTheWeek == "Sunday") price = 10.46;
+                if (dayOfTheWeek == "Sunday")
+                    price = 10.46;
 
                 break;
             }
@@ -31,7 +32,8 @@ internal class Program
                 break;
             case "Business":
             {
-                if (dayOfTheWeek == "Sunday") price = 16;
+                if (dayOfTheWeek == "Sunday")
+                    price = 16;
 
                 break;
             }
@@ -43,7 +45,8 @@ internal class Program
                 break;
             case "Regular":
             {
-                if (dayOfTheWeek == "Sunday") price = 22.50;
+                if (dayOfTheWeek == "Sunday")
+                    price = 22.50;
 
                 break;
             }
@@ -51,7 +54,8 @@ internal class Program
 
         var total = numOfPeople * price;
 
-        if (numOfPeople >= 30 && typeOfGroup == "Students") total -= 0.15 * total;
+        if (numOfPeople >= 30 && typeOfGroup == "Students")
+            total -= 0.15 * total;
 
         switch (numOfPeople)
         {

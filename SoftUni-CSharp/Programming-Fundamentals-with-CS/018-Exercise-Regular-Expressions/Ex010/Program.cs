@@ -16,7 +16,8 @@ internal class Program
             var decrypted = new string(message.Select(c => (char)(c - key)).ToArray());
             var match = Regex.Match(decrypted, pattern);
 
-            if (match.Success && match.Groups["behaviour"].Value == "G") Console.WriteLine(match.Groups["name"].Value);
+            if (match.Success && match.Groups["behaviour"].Value == "G")
+                Console.WriteLine(match.Groups["name"].Value);
         }
     }
 }

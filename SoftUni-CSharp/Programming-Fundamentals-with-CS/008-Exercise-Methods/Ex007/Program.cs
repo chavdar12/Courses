@@ -12,7 +12,8 @@ internal class Program
     {
         for (var j = 0; j < i; j++)
         {
-            for (var k = 0; k < i; k++) Console.Write(i + " ");
+            for (var k = 0; k < i; k++)
+                Console.Write(i + " ");
 
             Console.WriteLine();
         }

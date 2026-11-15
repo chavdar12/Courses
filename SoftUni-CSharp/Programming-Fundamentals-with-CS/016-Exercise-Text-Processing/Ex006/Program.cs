@@ -8,7 +8,8 @@ internal class Program
 
         for (var i = 1; i < text.Length; i++)
         {
-            if (text[i] != text[i - 1]) continue;
+            if (text[i] != text[i - 1])
+                continue;
             text = text.Remove(i, 1);
             i -= 1;
         }

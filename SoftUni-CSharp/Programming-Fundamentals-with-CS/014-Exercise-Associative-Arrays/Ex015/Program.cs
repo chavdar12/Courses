@@ -22,13 +22,14 @@ internal class Program
             var type = data[0];
             var name = data[1];
 
-            if (!types.ContainsKey(type)) types[type] = new SortedDictionary<string, Dragon>(StringComparer.Ordinal);
+            if (!types.ContainsKey(type))
+                types[type] = new SortedDictionary<string, Dragon>(StringComparer.Ordinal);
 
             types[type][name] = new Dragon
             {
                 Damage = ParseStat(data[2], 45),
                 Health = ParseStat(data[3], 250),
-                Armor = ParseStat(data[4], 10)
+                Armor = ParseStat(data[4], 10),
             };
         }
 
@@ -40,7 +41,9 @@ internal class Program
             Console.WriteLine($"{type}::({averageDamage:f2}/{averageHealth:f2}/{averageArmor:f2})");
 
             foreach (var (name, dragon) in dragons)
-                Console.WriteLine($"-{name} -> damage: {dragon.Damage}, health: {dragon.Health}, armor: {dragon.Armor}");
+                Console.WriteLine(
+                    $"-{name} -> damage: {dragon.Damage}, health: {dragon.Health}, armor: {dragon.Armor}"
+                );
         }
     }
 

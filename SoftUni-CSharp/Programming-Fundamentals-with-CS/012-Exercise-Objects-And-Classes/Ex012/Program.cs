@@ -23,9 +23,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var people = ParsePairs(Console.ReadLine())
-            .Select(p => new Person { Name = p.Name, Money = p.Value })
-            .ToList();
+        var people = ParsePairs(Console.ReadLine()).Select(p => new Person { Name = p.Name, Money = p.Value }).ToList();
         var products = ParsePairs(Console.ReadLine())
             .Select(p => new Product { Name = p.Name, Cost = p.Value })
             .ToList();
@@ -48,7 +46,8 @@ internal class Program
             Console.WriteLine($"{person.Name} bought {product.Name}");
         }
 
-        foreach (var person in people) Console.WriteLine(person);
+        foreach (var person in people)
+            Console.WriteLine(person);
     }
 
     private static IEnumerable<(string Name, decimal Value)> ParsePairs(string line) =>

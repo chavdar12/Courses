@@ -7,6 +7,7 @@ internal class Program
         var start = int.Parse(Console.ReadLine());
         var end = int.Parse(Console.ReadLine());
 
-        for (var i = (char)start; i <= end; i++) Console.Write($"{i} ");
+        for (var i = (char)start; i <= end; i++)
+            Console.Write($"{i} ");
     }
 }

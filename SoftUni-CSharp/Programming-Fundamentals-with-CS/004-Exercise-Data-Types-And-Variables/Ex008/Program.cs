@@ -15,7 +15,8 @@ internal class Program
             var radius = double.Parse(Console.ReadLine());
             var height = int.Parse(Console.ReadLine());
             var volume = Math.PI * Math.Pow(radius, 2) * height;
-            if (!(volume > maxValue)) continue;
+            if (!(volume > maxValue))
+                continue;
             maxValue = volume;
             maxModel = model;
         }

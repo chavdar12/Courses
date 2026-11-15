@@ -8,12 +8,16 @@ internal class Program
 
         var field = new bool[fieldSize];
 
-        var initialIndexes = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse).ToArray();
+        var initialIndexes = Console
+            .ReadLine()
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .ToArray();
 
         foreach (var index in initialIndexes)
         {
-            if (index < 0 || index >= field.Length) continue;
+            if (index < 0 || index >= field.Length)
+                continue;
 
             field[index] = true;
         }
@@ -22,7 +26,8 @@ internal class Program
         {
             var line = Console.ReadLine();
 
-            if (line == "end") break;
+            if (line == "end")
+                break;
 
             var parts = line.Split();
 
@@ -30,7 +35,8 @@ internal class Program
             var direction = parts[1];
             var length = int.Parse(parts[2]);
 
-            if (index < 0 || index >= field.Length || !field[index]) continue;
+            if (index < 0 || index >= field.Length || !field[index])
+                continue;
 
             field[index] = false;
 
@@ -41,14 +47,17 @@ internal class Program
                 else
                     index -= length;
 
-                if (index >= field.Length || index < 0) break;
+                if (index >= field.Length || index < 0)
+                    break;
 
-                if (field[index]) continue;
+                if (field[index])
+                    continue;
                 field[index] = true;
                 break;
             }
         }
 
-        foreach (var cell in field) Console.Write(cell ? "1 " : "0 ");
+        foreach (var cell in field)
+            Console.Write(cell ? "1 " : "0 ");
     }
 }

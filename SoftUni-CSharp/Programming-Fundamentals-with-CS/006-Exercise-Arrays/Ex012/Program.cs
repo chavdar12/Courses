@@ -14,7 +14,8 @@ internal class Program
             var next = new long[row.Length + 1];
             next[0] = 1;
             next[^1] = 1;
-            for (var j = 1; j < row.Length; j++) next[j] = row[j - 1] + row[j];
+            for (var j = 1; j < row.Length; j++)
+                next[j] = row[j - 1] + row[j];
 
             row = next;
         }

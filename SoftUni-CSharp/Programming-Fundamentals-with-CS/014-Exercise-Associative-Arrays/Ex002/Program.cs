@@ -11,11 +11,13 @@ internal class Program
         {
             var quantity = int.Parse(Console.ReadLine());
 
-            if (!map.ContainsKey(input)) map[input] = 0;
+            if (!map.ContainsKey(input))
+                map[input] = 0;
 
             map[input] += quantity;
         }
 
-        foreach (var (key, value) in map) Console.WriteLine($"{key} -> {value}");
+        foreach (var (key, value) in map)
+            Console.WriteLine($"{key} -> {value}");
     }
 }

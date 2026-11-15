@@ -10,7 +10,10 @@ internal class Program
 
         for (var i = 0; i < n; i++)
         {
-            var currArray = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse)
+            var currArray = Console
+                .ReadLine()
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
                 .ToArray();
             if (i % 2 == 0)
             {
