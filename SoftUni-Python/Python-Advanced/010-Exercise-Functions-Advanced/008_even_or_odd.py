@@ -4,7 +4,7 @@ def even_odd(*args):
 
     if command == "even":
         filtered_nums = filter(lambda x: x % 2 == 0, numbers)
-    elif command == "odd":
+    else:
         filtered_nums = filter(lambda x: x % 2 == 1, numbers)
 
     return list(filtered_nums)

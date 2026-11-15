@@ -6,7 +6,6 @@ import builtins
 import contextlib
 import io
 import pathlib
-import py_compile
 import runpy
 import sys
 import types

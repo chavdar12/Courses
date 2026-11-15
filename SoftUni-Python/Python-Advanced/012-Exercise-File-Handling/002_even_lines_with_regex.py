@@ -1,8 +1,7 @@
 import re
 
-file = open("Files/even_lines.txt")
-text = file.readlines()
-file.close()
+with open("Files/even_lines.txt") as file:
+    text = file.readlines()
 
 for idx, line in enumerate(text):
     if idx % 2 == 0:

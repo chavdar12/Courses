@@ -9,7 +9,7 @@ names = input().split(", ")
 chairs = int(input())
 
 
-def combination(names, chairs, current_names=[]):
+def combination(names, chairs, current_names):
     if len(current_names) == chairs:
         print(*current_names, sep=", ")
         return
@@ -20,4 +20,4 @@ def combination(names, chairs, current_names=[]):
         current_names.pop()
 
 
-combination(names, chairs)
+combination(names, chairs, [])

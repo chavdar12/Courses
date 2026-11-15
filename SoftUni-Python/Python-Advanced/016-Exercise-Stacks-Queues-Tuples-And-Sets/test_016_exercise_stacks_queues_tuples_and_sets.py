@@ -1,12 +1,7 @@
 """Runs this lesson's scripts with the examples from the course PDF."""
 
-import contextlib
-import io
-import runpy
-import shutil
 import subprocess
 import sys
-import tempfile
 import unittest
 from pathlib import Path
 
