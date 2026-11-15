@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 public class BenchmarkTests {
 
     @Param({"1000", "10000" /*, "100000000"*/})
-    private long n;
+    private int n;
 
     private ArrayList<Integer> arrayList = new ArrayList<>();
     private Stack<Integer> stack = new Stack<>();

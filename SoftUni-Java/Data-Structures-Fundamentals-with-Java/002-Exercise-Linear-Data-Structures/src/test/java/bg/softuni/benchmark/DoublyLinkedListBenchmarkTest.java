@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 public class DoublyLinkedListBenchmarkTest {
 
     @Param({"1000", "10000" /*, "100000000"*/})
-    private long n;
+    private int n;
 
     private DoublyLinkedList<Integer> linkedList;
 
