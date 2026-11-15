@@ -122,7 +122,7 @@ public class SalariesWithNodeclass {
         public long updateSalary() {
             if (this.children.isEmpty()) this.setSalary(1);
             else {
-                int childSalary = 0;
+                long childSalary = 0;
                 for (Node child : this.children) {
                     childSalary += child.updateSalary();
                 }
