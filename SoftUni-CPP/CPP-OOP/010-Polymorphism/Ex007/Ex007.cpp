@@ -36,7 +36,8 @@ int main() {
 
   void *cowPtr = &cow;
   float *weight = static_cast<float *>(cowPtr);
-  bool *eatsPlants = static_cast<bool *>(cowPtr) + sizeof(float);
+  bool *eatsPlants =
+      reinterpret_cast<bool *>(static_cast<char *>(cowPtr) + sizeof(float));
   bool *eatsAnimals = eatsPlants + 1;
 
   std::cout << *weight << " " << *eatsPlants << " " << *eatsAnimals
