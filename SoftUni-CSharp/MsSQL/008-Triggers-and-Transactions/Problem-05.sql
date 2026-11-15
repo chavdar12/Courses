@@ -1,5 +1,5 @@
 -- Problem 5. Money Transfer (Bank database, needs Problems 3 and 4)
-CREATE PROC usp_TransferMoney(@SenderId INT, @ReceiverId INT, @Amount DECIMAL(18, 4))
+CREATE PROC usp_TransferMoney (@SenderId INT, @ReceiverId INT, @Amount DECIMAL(18, 4))
 AS
 BEGIN
     BEGIN TRANSACTION

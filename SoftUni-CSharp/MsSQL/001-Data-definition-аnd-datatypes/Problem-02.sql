@@ -8,12 +8,11 @@ CREATE TABLE [Minions]
     NOT
     NULL, [
     Name]
-    NVARCHAR
-(
-    50
-) NOT NULL,
+    NVARCHAR(
+        50
+    ) NOT NULL,
     [Age] TINYINT NOT NULL
-    )
+)
 
 CREATE TABLE [Towns]
 (
@@ -24,8 +23,7 @@ CREATE TABLE [Towns]
     NOT
     NULL, [
     Name]
-    NVARCHAR
-(
-    50
-) NOT NULL
-    )
+    NVARCHAR(
+        50
+    ) NOT NULL
+)

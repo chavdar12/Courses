@@ -1,0 +1,9 @@
+# SSMS-exported setup dumps (UTF-16), kept byte-for-byte
+*-Database.sql
+*DB.sql
+# T-SQL / MySQL syntax SQLFluff cannot parse yet
+001-Data-definition-аnd-datatypes/Problem-09.sql
+001-Data-definition-аnd-datatypes/Problem-17.sql
+005-Subqueries-and-JOINs/Problem-17.sql
+007-Functions and procedures/Problem-05.sql
+007-Functions and procedures/Problem-11.sql

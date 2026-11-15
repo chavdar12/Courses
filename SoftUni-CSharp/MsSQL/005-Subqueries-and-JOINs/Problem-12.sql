@@ -1,9 +1,14 @@
 -- Problem 12.	Highest Peaks in Bulgaria
-SELECT c.CountryCode, m.MountainRange, p.PeakName, p.Elevation
+SELECT
+    c.CountryCode,
+    m.MountainRange,
+    p.PeakName,
+    p.Elevation
 FROM Countries AS c
-         JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
-         JOIN Mountains AS m ON m.Id = mc.MountainId
-         JOIN Peaks AS p ON m.Id = p.MountainId
-WHERE p.Elevation > 2835
-  AND c.CountryCode = 'BG'
+JOIN MountainsCountries AS mc ON c.CountryCode = mc.CountryCode
+JOIN Mountains AS m ON m.Id = mc.MountainId
+JOIN Peaks AS p ON m.Id = p.MountainId
+WHERE
+    p.Elevation > 2835
+    AND c.CountryCode = 'BG'
 ORDER BY p.Elevation DESC

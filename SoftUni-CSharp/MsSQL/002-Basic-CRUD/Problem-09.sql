@@ -1,5 +1,9 @@
 -- Problem 9
-SELECT FirstName, LastName, JobTitle
+SELECT
+    FirstName,
+    LastName,
+    JobTitle
 FROM Employees
-WHERE Salary >= 20000
-  AND Salary <= 30000
+WHERE
+    Salary >= 20000
+    AND Salary <= 30000

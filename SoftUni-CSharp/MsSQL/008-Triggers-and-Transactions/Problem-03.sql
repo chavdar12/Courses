@@ -1,5 +1,5 @@
 -- Problem 3. Deposit Money (Bank database)
-CREATE PROC usp_DepositMoney(@AccountId INT, @MoneyAmount DECIMAL(18, 4))
+CREATE PROC usp_DepositMoney (@AccountId INT, @MoneyAmount DECIMAL(18, 4))
 AS
 BEGIN
     IF @MoneyAmount <= 0
