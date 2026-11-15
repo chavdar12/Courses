@@ -12,7 +12,8 @@ public class SumOfTwoNumbers {
             for (int j = start; j <= end; j++) {
                 combinations++;
                 if (i + j == magicNumber) {
-                    System.out.printf("Combination N:%d (%d + %d = %d)", combinations, i, j, magicNumber);
+                    System.out.printf(
+                            "Combination N:%d (%d + %d = %d)", combinations, i, j, magicNumber);
                     isFound = true;
                     break;
                 }

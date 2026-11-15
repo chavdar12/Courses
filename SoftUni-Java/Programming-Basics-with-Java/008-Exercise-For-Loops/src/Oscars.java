@@ -15,7 +15,8 @@ public class Oscars {
             }
         }
         if (points > 1250.5) {
-            System.out.printf("Congratulations, %s got a nominee for leading role with %.1f!", actor, points);
+            System.out.printf(
+                    "Congratulations, %s got a nominee for leading role with %.1f!", actor, points);
         } else {
             System.out.printf("Sorry, %s you need %.1f more!", actor, 1250.5 - points);
         }

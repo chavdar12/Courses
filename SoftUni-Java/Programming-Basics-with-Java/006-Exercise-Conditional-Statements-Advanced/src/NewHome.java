@@ -40,7 +40,9 @@ public class NewHome {
             }
         }
         if (budget >= price) {
-            System.out.printf("Hey, you have a great garden with %d %s and %.2f leva left.", quantity, flower, budget - price);
+            System.out.printf(
+                    "Hey, you have a great garden with %d %s and %.2f leva left.",
+                    quantity, flower, budget - price);
         } else {
             System.out.printf("Not enough money, you need %.2f leva more.", price - budget);
         }

@@ -14,7 +14,6 @@ public class ArrayOfWholeNumbers {
             if (num < minNum) {
                 minNum = num;
             }
-
         }
         System.out.printf("Max number: %d%n", maxNum);
         System.out.printf("Min number: %d%n", minNum);

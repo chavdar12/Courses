@@ -9,6 +9,7 @@ public class LandscapingOfYards {
         double discount = pricePerSquareMeter * 0.18;
         double finalPrice = pricePerSquareMeter - discount;
 
-        System.out.printf("The final price is: %.2f lv.%nThe discount is: %.2f lv.", finalPrice, discount);
+        System.out.printf(
+                "The final price is: %.2f lv.%nThe discount is: %.2f lv.", finalPrice, discount);
     }
 }

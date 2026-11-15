@@ -14,7 +14,8 @@ public class FamilyTrip {
         double total = nights * pricePerNight + budget * extraPercent / 100;
 
         if (total <= budget) {
-            System.out.printf("Ivanovi will be left with %.2f leva after vacation.%n", budget - total);
+            System.out.printf(
+                    "Ivanovi will be left with %.2f leva after vacation.%n", budget - total);
         } else {
             System.out.printf("%.2f leva needed.%n", total - budget);
         }

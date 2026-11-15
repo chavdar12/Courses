@@ -7,10 +7,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-/** Runs a console program's main with the given stdin and returns its stdout, trailing spaces trimmed per line. */
+/**
+ * Runs a console program's main with the given stdin and returns its stdout, trailing spaces
+ * trimmed per line.
+ */
 public final class ConsoleRunner {
-    private ConsoleRunner() {
-    }
+    private ConsoleRunner() {}
 
     public static String run(Class<?> program, String input) {
         InputStream originalIn = System.in;
@@ -32,7 +34,8 @@ public final class ConsoleRunner {
             System.setOut(originalOut);
             Locale.setDefault(originalLocale);
         }
-        return out.toString(StandardCharsets.UTF_8).lines()
+        return out.toString(StandardCharsets.UTF_8)
+                .lines()
                 .map(String::stripTrailing)
                 .collect(Collectors.joining("\n"))
                 .strip();

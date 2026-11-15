@@ -10,8 +10,14 @@ public class ToyStore {
         int numberOfMinions = Integer.parseInt(scanner.nextLine());
         int numberOfTrucks = Integer.parseInt(scanner.nextLine());
 
-        double totalNumberOfToys = numberOfPuzzles + numberOfDolls + numberOfBears + numberOfMinions + numberOfTrucks;
-        double totalSum = numberOfPuzzles * 2.60 + numberOfDolls * 3 + numberOfBears * 4.10 + numberOfMinions * 8.20 + numberOfTrucks * 2;
+        double totalNumberOfToys =
+                numberOfPuzzles + numberOfDolls + numberOfBears + numberOfMinions + numberOfTrucks;
+        double totalSum =
+                numberOfPuzzles * 2.60
+                        + numberOfDolls * 3
+                        + numberOfBears * 4.10
+                        + numberOfMinions * 8.20
+                        + numberOfTrucks * 2;
 
         if (totalNumberOfToys >= 50) {
             totalSum = totalSum - totalSum * 0.25;

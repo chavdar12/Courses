@@ -7,6 +7,7 @@ public class ConcatenateText {
         String lastName = scan.nextLine();
         String age = scan.nextLine();
         String town = scan.nextLine();
-        System.out.printf("You are %s %s, a %s-years old person from %s.", firstName, lastName, age, town);
+        System.out.printf(
+                "You are %s %s, a %s-years old person from %s.", firstName, lastName, age, town);
     }
 }
