@@ -32,3 +32,20 @@ cd 004-HATEOAS
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Spring-Advanced.pdf](Spring-Advanced.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Web-API-And-REST-Controllers](001-Web-API-And-REST-Controllers) | [Books-Doc.pdf](001-Web-API-And-REST-Controllers/Books-Doc.pdf) · [Spring-Advanced-Java-Web-Api-And-Rest-Controllers.pdf](001-Web-API-And-REST-Controllers/Spring-Advanced-Java-Web-Api-And-Rest-Controllers.pdf) |
+| [003-Spring-Security](003-Spring-Security) | [New-Spring-Advanced-Security.pdf](003-Spring-Security/New-Spring-Advanced-Security.pdf) |
+| [004-HATEOAS](004-HATEOAS) | [Hateoas.pdf](004-HATEOAS/Hateoas.pdf) |
+| [006-Events](006-Events) | [Eventsinspring.pdf](006-Events/Eventsinspring.pdf) |
+| [007-AOP](007-AOP) | [Spring-Advanced-Aspect-Oriented-Programming-Aop.pdf](007-AOP/Spring-Advanced-Aspect-Oriented-Programming-Aop.pdf) |
+| [008-Unit-And-Integration-Testing](008-Unit-And-Integration-Testing) | [New-Spring-Advanced-Unit-Testing.pdf](008-Unit-And-Integration-Testing/New-Spring-Advanced-Unit-Testing.pdf) |
+| [009-Containerization-And-Documentation](009-Containerization-And-Documentation) | [Containerization-And-Documentation-New.pdf](009-Containerization-And-Documentation/Containerization-And-Documentation-New.pdf) |
+| [010-Deployment-Hosting-And-Monitoring](010-Deployment-Hosting-And-Monitoring) | [Deployment-Hosting-And-Monitoring.pdf](010-Deployment-Hosting-And-Monitoring/Deployment-Hosting-And-Monitoring.pdf) |
