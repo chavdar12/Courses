@@ -43,3 +43,30 @@ python -m unittest -v
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Python-Advanced.pdf](Python-Advanced.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Lists-As-Stacks-And-Queues](001-Lists-As-Stacks-And-Queues) | [Lists-As-Stacks-And-Queues-Lab.pdf](001-Lists-As-Stacks-And-Queues/Resources/Lists-As-Stacks-And-Queues-Lab.pdf) · [Lists-As-Stacks-And-Queues.pdf](001-Lists-As-Stacks-And-Queues/Resources/Lists-As-Stacks-And-Queues.pdf) |
+| [002-Exercise-Lists-As-Stacks-And-Queues](002-Exercise-Lists-As-Stacks-And-Queues) | [Lists-As-Stacks-And-Queues-Exercise.pdf](002-Exercise-Lists-As-Stacks-And-Queues/Resources/Lists-As-Stacks-And-Queues-Exercise.pdf) |
+| [003-Tuples-And-Sets](003-Tuples-And-Sets) | [Tuples-And-Sets-Lab.pdf](003-Tuples-And-Sets/Resources/Tuples-And-Sets-Lab.pdf) · [Tuples-And-Sets.pdf](003-Tuples-And-Sets/Resources/Tuples-And-Sets.pdf) |
+| [004-Exercise-Tuples-And-Sets](004-Exercise-Tuples-And-Sets) | [Tuples-And-Sets-Exercise.pdf](004-Exercise-Tuples-And-Sets/Resources/Tuples-And-Sets-Exercise.pdf) |
+| [005-Multidimensional-Lists](005-Multidimensional-Lists) | [Multidimensional-Lists-Lab.pdf](005-Multidimensional-Lists/Resources/Multidimensional-Lists-Lab.pdf) · [Multidimensional-Lists.pdf](005-Multidimensional-Lists/Resources/Multidimensional-Lists.pdf) |
+| [006-Exercise-Multidimensional-Lists](006-Exercise-Multidimensional-Lists) | [Multidimensional-Lists-Exercise.pdf](006-Exercise-Multidimensional-Lists/Resources/Multidimensional-Lists-Exercise.pdf) |
+| [009-Functions-Advanced](009-Functions-Advanced) | [Functions-Advanced-Lab.pdf](009-Functions-Advanced/Resources/Functions-Advanced-Lab.pdf) · [Functions-Advanced.pdf](009-Functions-Advanced/Resources/Functions-Advanced.pdf) |
+| [010-Exercise-Functions-Advanced](010-Exercise-Functions-Advanced) | [Functions-Advanced-Exercise.pdf](010-Exercise-Functions-Advanced/Resources/Functions-Advanced-Exercise.pdf) |
+| [011-File-Handling](011-File-Handling) | [File-Handling-Lab.pdf](011-File-Handling/Resources/File-Handling-Lab.pdf) · [File-Handling.pdf](011-File-Handling/Resources/File-Handling.pdf) |
+| [012-Exercise-File-Handling](012-Exercise-File-Handling) | [File-Handling-Exercise-Upload-Guide.pdf](012-Exercise-File-Handling/Resources/File-Handling-Exercise-Upload-Guide.pdf) |
+| [013-Modules](013-Modules) | [Modules-Exercise.pdf](013-Modules/Resources/Modules-Exercise.pdf) · [Modules-Lab.pdf](013-Modules/Resources/Modules-Lab.pdf) · [Modules.pdf](013-Modules/Resources/Modules.pdf) |
+| [014-Error-Handling](014-Error-Handling) | [Error-Handling-Lab.pdf](014-Error-Handling/Resources/Error-Handling-Lab.pdf) · [Error-Handling.pdf](014-Error-Handling/Resources/Error-Handling.pdf) |
+| [015-Exercise-Error-Handling](015-Exercise-Error-Handling) | [Error-Handling-Exercise.pdf](015-Exercise-Error-Handling/Resources/Error-Handling-Exercise.pdf) |
+| [016-Exercise-Stacks-Queues-Tuples-And-Sets](016-Exercise-Stacks-Queues-Tuples-And-Sets) | [Stacks-Queues-Tuples-And-Sets-Exercise.pdf](016-Exercise-Stacks-Queues-Tuples-And-Sets/Resources/Stacks-Queues-Tuples-And-Sets-Exercise.pdf) |
+| [017-Exercise-Multidimensional-Lists-Second](017-Exercise-Multidimensional-Lists-Second) | [Multidimensional-Lists-Exercise-Second.pdf](017-Exercise-Multidimensional-Lists-Second/Resources/Multidimensional-Lists-Exercise-Second.pdf) |
+| [018-Workshop-Connect-Four](018-Workshop-Connect-Four) | [Workshop-Description.pdf](018-Workshop-Connect-Four/Resources/Workshop-Description.pdf) |
+| [019-Workshop-Tic-Tac-Toe](019-Workshop-Tic-Tac-Toe) | [Workshop-Description.pdf](019-Workshop-Tic-Tac-Toe/Resources/Workshop-Description.pdf) |
+| [021-Exam-Preparation](021-Exam-Preparation) | [Exam-Preparation.pdf](021-Exam-Preparation/Resources/Exam-Preparation.pdf) |
