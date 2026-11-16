@@ -42,15 +42,22 @@ Course overview: [Programming-Basics-With-Csharp.pdf](Programming-Basics-With-Cs
 
 | Lesson | Materials |
 | ------ | --------- |
-| [001-First-Steps-In-Coding](001-First-Steps-In-Coding) | [.Pb-Csharp-Programming-Basics-Course-Intro.pdf](001-First-Steps-In-Coding/.Pb-Csharp-Programming-Basics-Course-Intro.pdf) · [Pb-Csharp-First-Steps-In-Coding-Lab.pdf](001-First-Steps-In-Coding/Pb-Csharp-First-Steps-In-Coding-Lab.pdf) · [Pb-Csharp-First-Steps-In-Coding.pdf](001-First-Steps-In-Coding/Pb-Csharp-First-Steps-In-Coding.pdf) · [Pb-Csharp-Visual-Studio-Installation-Guidelines.pdf](001-First-Steps-In-Coding/Pb-Csharp-Visual-Studio-Installation-Guidelines.pdf) |
-| [002-Exercise-First-Steps-In-Coding](002-Exercise-First-Steps-In-Coding) | [Pb-Csharp-First-Steps-In-Coding-Exercise.pdf](002-Exercise-First-Steps-In-Coding/Pb-Csharp-First-Steps-In-Coding-Exercise.pdf) |
-| [003-Conditional-Statements](003-Conditional-Statements) | [Pb-Csharp-Conditional-Statements-Lab.pdf](003-Conditional-Statements/Pb-Csharp-Conditional-Statements-Lab.pdf) · [Pb-Csharp-Conditional-Statements.pdf](003-Conditional-Statements/Pb-Csharp-Conditional-Statements.pdf) |
-| [004-Exercise-Conditional-Statements](004-Exercise-Conditional-Statements) | [Pb-Csharp-Conditional-Statements-Exercise.pdf](004-Exercise-Conditional-Statements/Pb-Csharp-Conditional-Statements-Exercise.pdf) |
-| [005-Conditional-Statements-Advanced](005-Conditional-Statements-Advanced) | [Pb-Csharp-Nested-Conditional-Statements-Lab.pdf](005-Conditional-Statements-Advanced/Pb-Csharp-Nested-Conditional-Statements-Lab.pdf) · [Pb-Csharp-Nested-Conditional-Statements.pdf](005-Conditional-Statements-Advanced/Pb-Csharp-Nested-Conditional-Statements.pdf) |
-| [006-Exercise-Conditional-Statements-Advanced](006-Exercise-Conditional-Statements-Advanced) | [Pb-Csharp-Nested-Conditional-Statements-xercise.pdf](006-Exercise-Conditional-Statements-Advanced/Pb-Csharp-Nested-Conditional-Statements-xercise.pdf) |
-| [007-For-Loops](007-For-Loops) | [Pb-Csharp-For-Loop-Lab.pdf](007-For-Loops/Pb-Csharp-For-Loop-Lab.pdf) · [Pb-Csharp-For-Loop.pdf](007-For-Loops/Pb-Csharp-For-Loop.pdf) |
-| [008-Exercise-For-Loops](008-Exercise-For-Loops) | [Pb-Csharp-For-Loop-Exercise.pdf](008-Exercise-For-Loops/Pb-Csharp-For-Loop-Exercise.pdf) |
-| [009-While-Loops](009-While-Loops) | [Pb-Csharp-While-Loop-Lab.pdf](009-While-Loops/Pb-Csharp-While-Loop-Lab.pdf) · [Pb-Csharp-While-Loop.pdf](009-While-Loops/Pb-Csharp-While-Loop.pdf) |
-| [010-Exercise-While-Loops](010-Exercise-While-Loops) | [Pb-Csharp-While-Loop-Exercise.pdf](010-Exercise-While-Loops/Pb-Csharp-While-Loop-Exercise.pdf) |
-| [011-Nested-Loops](011-Nested-Loops) | [Pb-Csharp-Nested-Loops-Lab.pdf](011-Nested-Loops/Pb-Csharp-Nested-Loops-Lab.pdf) · [Pb-Csharp-Nested-Loops.pdf](011-Nested-Loops/Pb-Csharp-Nested-Loops.pdf) |
-| [012-Exercise-Nested-Loops](012-Exercise-Nested-Loops) | [Pb-Csharp-Nested-Loops-Exercise.pdf](012-Exercise-Nested-Loops/Pb-Csharp-Nested-Loops-Exercise.pdf) |
+| [001-First-Steps-In-Coding](001-First-Steps-In-Coding) | [.Pb-Csharp-Programming-Basics-Course-Intro.pdf](001-First-Steps-In-Coding/Resources/.Pb-Csharp-Programming-Basics-Course-Intro.pdf) · [Pb-Csharp-First-Steps-In-Coding-Lab.pdf](001-First-Steps-In-Coding/Resources/Pb-Csharp-First-Steps-In-Coding-Lab.pdf) · [Pb-Csharp-First-Steps-In-Coding.pdf](001-First-Steps-In-Coding/Resources/Pb-Csharp-First-Steps-In-Coding.pdf) · [Pb-Csharp-Visual-Studio-Installation-Guidelines.pdf](001-First-Steps-In-Coding/Resources/Pb-Csharp-Visual-Studio-Installation-Guidelines.pdf) |
+| [002-Exercise-First-Steps-In-Coding](002-Exercise-First-Steps-In-Coding) | [Pb-Csharp-First-Steps-In-Coding-Exercise.pdf](002-Exercise-First-Steps-In-Coding/Resources/Pb-Csharp-First-Steps-In-Coding-Exercise.pdf) |
+| [003-Conditional-Statements](003-Conditional-Statements) | [Pb-Csharp-Conditional-Statements-Lab.pdf](003-Conditional-Statements/Resources/Pb-Csharp-Conditional-Statements-Lab.pdf) · [Pb-Csharp-Conditional-Statements.pdf](003-Conditional-Statements/Resources/Pb-Csharp-Conditional-Statements.pdf) |
+| [004-Exercise-Conditional-Statements](004-Exercise-Conditional-Statements) | [Pb-Csharp-Conditional-Statements-Exercise.pdf](004-Exercise-Conditional-Statements/Resources/Pb-Csharp-Conditional-Statements-Exercise.pdf) |
+| [005-Conditional-Statements-Advanced](005-Conditional-Statements-Advanced) | [Pb-Csharp-Nested-Conditional-Statements-Lab.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Csharp-Nested-Conditional-Statements-Lab.pdf) · [Pb-Csharp-Nested-Conditional-Statements.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Csharp-Nested-Conditional-Statements.pdf) |
+| [006-Exercise-Conditional-Statements-Advanced](006-Exercise-Conditional-Statements-Advanced) | [Pb-Csharp-Nested-Conditional-Statements-xercise.pdf](006-Exercise-Conditional-Statements-Advanced/Resources/Pb-Csharp-Nested-Conditional-Statements-xercise.pdf) |
+| [007-For-Loops](007-For-Loops) | [Pb-Csharp-For-Loop-Lab.pdf](007-For-Loops/Resources/Pb-Csharp-For-Loop-Lab.pdf) · [Pb-Csharp-For-Loop.pdf](007-For-Loops/Resources/Pb-Csharp-For-Loop.pdf) |
+| [008-Exercise-For-Loops](008-Exercise-For-Loops) | [Pb-Csharp-For-Loop-Exercise.pdf](008-Exercise-For-Loops/Resources/Pb-Csharp-For-Loop-Exercise.pdf) |
+| [009-While-Loops](009-While-Loops) | [Pb-Csharp-While-Loop-Lab.pdf](009-While-Loops/Resources/Pb-Csharp-While-Loop-Lab.pdf) · [Pb-Csharp-While-Loop.pdf](009-While-Loops/Resources/Pb-Csharp-While-Loop.pdf) |
+| [010-Exercise-While-Loops](010-Exercise-While-Loops) | [Pb-Csharp-While-Loop-Exercise.pdf](010-Exercise-While-Loops/Resources/Pb-Csharp-While-Loop-Exercise.pdf) |
+| [011-Nested-Loops](011-Nested-Loops) | [Pb-Csharp-Nested-Loops-Lab.pdf](011-Nested-Loops/Resources/Pb-Csharp-Nested-Loops-Lab.pdf) · [Pb-Csharp-Nested-Loops.pdf](011-Nested-Loops/Resources/Pb-Csharp-Nested-Loops.pdf) |
+| [012-Exercise-Nested-Loops](012-Exercise-Nested-Loops) | [Pb-Csharp-Nested-Loops-Exercise.pdf](012-Exercise-Nested-Loops/Resources/Pb-Csharp-Nested-Loops-Exercise.pdf) |
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+| Lesson | Materials |
+| ------ | --------- |
