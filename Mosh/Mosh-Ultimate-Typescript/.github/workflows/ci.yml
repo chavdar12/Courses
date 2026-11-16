@@ -18,4 +18,3 @@ jobs:
     uses: chavdar12-projects/workflows/.github/workflows/ci.yml@v1
     with:
       codeql: '["javascript-typescript"]'
-      build: 'node'
