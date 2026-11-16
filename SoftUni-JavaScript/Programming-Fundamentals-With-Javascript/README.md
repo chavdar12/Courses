@@ -35,3 +35,26 @@ npm test
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Programming-Fundamentals-With-Javascript.pdf](Programming-Fundamentals-With-Javascript.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [003-Data-Types-And-Variables](003-Data-Types-And-Variables) | [Js-Fundamentals-Data-Types-And-Variables-Lab.pdf](003-Data-Types-And-Variables/Js-Fundamentals-Data-Types-And-Variables-Lab.pdf) · [Js-Fundamentals-Data-Types-And-Variables.pdf](003-Data-Types-And-Variables/Js-Fundamentals-Data-Types-And-Variables.pdf) |
+| [004-Exercise-Data-Types-And-Variables](004-Exercise-Data-Types-And-Variables) | [Js-Fundamentals-Data-Types-And-Variables-Exercise.pdf](004-Exercise-Data-Types-And-Variables/Js-Fundamentals-Data-Types-And-Variables-Exercise.pdf) · [Js-Fundamentals-Data-Types-And-Variables-More-Exercise.pdf](004-Exercise-Data-Types-And-Variables/Js-Fundamentals-Data-Types-And-Variables-More-Exercise.pdf) |
+| [005-Arrays](005-Arrays) | [Js-Fundamentals-Arrays-Lab.pdf](005-Arrays/Js-Fundamentals-Arrays-Lab.pdf) · [Js-Fundamentals-Arrays.pdf](005-Arrays/Js-Fundamentals-Arrays.pdf) |
+| [006-Exercise-Arrays](006-Exercise-Arrays) | [Js-Fundamentals-Arrays-Exercise.pdf](006-Exercise-Arrays/Js-Fundamentals-Arrays-Exercise.pdf) · [Js-Fundamentals-Arrays-More-Exercises.pdf](006-Exercise-Arrays/Js-Fundamentals-Arrays-More-Exercises.pdf) |
+| [007-Functions](007-Functions) | [Js-Fundamentals-Methods-Functions-Lab.pdf](007-Functions/Js-Fundamentals-Methods-Functions-Lab.pdf) · [Js-Fundamentals-Methods-Functions.pdf](007-Functions/Js-Fundamentals-Methods-Functions.pdf) |
+| [008-Exercise-Functions](008-Exercise-Functions) | [Js-Fundamentals-Methods-Functions-Exercise.pdf](008-Exercise-Functions/Js-Fundamentals-Methods-Functions-Exercise.pdf) · [Js-Fundamentals-Methods-Functions-More-Exercises.pdf](008-Exercise-Functions/Js-Fundamentals-Methods-Functions-More-Exercises.pdf) |
+| [009-Arrays-Advanced](009-Arrays-Advanced) | [Js-Fundamentals-Arrays-Advanced-Lab.pdf](009-Arrays-Advanced/Js-Fundamentals-Arrays-Advanced-Lab.pdf) · [Js-Fundamentals-Arrays-Advanced.pdf](009-Arrays-Advanced/Js-Fundamentals-Arrays-Advanced.pdf) |
+| [010-Exercise-Arrays-Advanced](010-Exercise-Arrays-Advanced) | [Js-Fundamentals-Arrays-Advanced-Exercise.pdf](010-Exercise-Arrays-Advanced/Js-Fundamentals-Arrays-Advanced-Exercise.pdf) · [Js-Fundamentals-Arrays-Advanced-More-Exercise.pdf](010-Exercise-Arrays-Advanced/Js-Fundamentals-Arrays-Advanced-More-Exercise.pdf) |
+| [011-Objects-And-Classes](011-Objects-And-Classes) | [Js-Fundamentals-Objects-And-Classes-Lab.pdf](011-Objects-And-Classes/Js-Fundamentals-Objects-And-Classes-Lab.pdf) · [Js-Fundamentals-Objects-And-Classes.pdf](011-Objects-And-Classes/Js-Fundamentals-Objects-And-Classes.pdf) |
+| [012-Exercise-Objects-And-Classes](012-Exercise-Objects-And-Classes) | [Js-Fundamentals-Objects-And-Classes-Exercise.pdf](012-Exercise-Objects-And-Classes/Js-Fundamentals-Objects-And-Classes-Exercise.pdf) · [Js-Fundamentals-Objects-And-Classes-More-Exercise.pdf](012-Exercise-Objects-And-Classes/Js-Fundamentals-Objects-And-Classes-More-Exercise.pdf) |
+| [013-Associative-Arrays](013-Associative-Arrays) | [Js-Fundamentals-Associative-Arrays-Lab.pdf](013-Associative-Arrays/Js-Fundamentals-Associative-Arrays-Lab.pdf) · [Js-Fundamentals-Associative-Arrays.pdf](013-Associative-Arrays/Js-Fundamentals-Associative-Arrays.pdf) |
+| [014-Exercise-Associative-Arrays](014-Exercise-Associative-Arrays) | [Js-Fundamentals-Associative-Arrays-Exercise.pdf](014-Exercise-Associative-Arrays/Js-Fundamentals-Associative-Arrays-Exercise.pdf) · [Js-Fundamentals-Associative-Arrays-More-Exercises.pdf](014-Exercise-Associative-Arrays/Js-Fundamentals-Associative-Arrays-More-Exercises.pdf) |
+| [015-Text-Processing](015-Text-Processing) | [Js-Fundamentals-Text-Processing-Lab.pdf](015-Text-Processing/Js-Fundamentals-Text-Processing-Lab.pdf) · [Js-Fundamentals-Text-Processing.pdf](015-Text-Processing/Js-Fundamentals-Text-Processing.pdf) |
+| [016-Exercise-Text-Processing](016-Exercise-Text-Processing) | [Js-Fundamentals-Text-Processing-Exercise.pdf](016-Exercise-Text-Processing/Js-Fundamentals-Text-Processing-Exercise.pdf) · [Js-Fundamentals-Text-Processing-More-Exercise.pdf](016-Exercise-Text-Processing/Js-Fundamentals-Text-Processing-More-Exercise.pdf) |
