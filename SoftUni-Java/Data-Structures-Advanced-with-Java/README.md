@@ -31,3 +31,19 @@ Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Data-Structures-Advanced.pdf](Data-Structures-Advanced.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-B-Trees-2-3-Trees-And-Avl-Trees](001-B-Trees-2-3-Trees-And-Avl-Trees) | [B-Trees-Trees-And-Avl-Trees-Lab.pdf](001-B-Trees-2-3-Trees-And-Avl-Trees/B-Trees-Trees-And-Avl-Trees-Lab.pdf) · [B-Trees-Trees-And-Avl-Trees-Presentation.pdf](001-B-Trees-2-3-Trees-And-Avl-Trees/B-Trees-Trees-And-Avl-Trees-Presentation.pdf) |
+| [002-Exercise-B-Trees-2-3-Trees-And-Avl-Trees](002-Exercise-B-Trees-2-3-Trees-And-Avl-Trees) | [B-Trees-Trees-And-Avl-Trees-Exercises.pdf](002-Exercise-B-Trees-2-3-Trees-And-Avl-Trees/B-Trees-Trees-And-Avl-Trees-Exercises.pdf) |
+| [003-Red-Black-Trees-And-Aa-Trees](003-Red-Black-Trees-And-Aa-Trees) | [Red-Black-Trees-And-Aa-Trees-Lab.pdf](003-Red-Black-Trees-And-Aa-Trees/Red-Black-Trees-And-Aa-Trees-Lab.pdf) · [Red-Black-Trees-And-Aa-Trees-Presentation.pdf](003-Red-Black-Trees-And-Aa-Trees/Red-Black-Trees-And-Aa-Trees-Presentation.pdf) |
+| [004-Exercise-Red-Black-Trees-And-Aa-Trees](004-Exercise-Red-Black-Trees-And-Aa-Trees) | [Red-Black-Trees-And-Aa-Trees-Exercise.pdf](004-Exercise-Red-Black-Trees-And-Aa-Trees/Red-Black-Trees-And-Aa-Trees-Exercise.pdf) |
+| [005-Hash-Tables-Sets-And-Maps](005-Hash-Tables-Sets-And-Maps) | [Hash-Tables-Sets-And-Maps-Lab-Presentation.pdf](005-Hash-Tables-Sets-And-Maps/Hash-Tables-Sets-And-Maps-Lab-Presentation.pdf) · [Hash-Tables-Sets-And-Maps-Lab.pdf](005-Hash-Tables-Sets-And-Maps/Hash-Tables-Sets-And-Maps-Lab.pdf) |
+| [006-Exercise-Hash-Tables-Sets-And-Maps](006-Exercise-Hash-Tables-Sets-And-Maps) | [Hash-Tables-Sets-And-Maps-Exercises-Description.pdf](006-Exercise-Hash-Tables-Sets-And-Maps/Hash-Tables-Sets-And-Maps-Exercises-Description.pdf) |
+| [007-Data-Structures-Augmentation](007-Data-Structures-Augmentation) | [Data-Structures-Advanced-Data-Structures-Augmentation-Lab.pdf](007-Data-Structures-Augmentation/Data-Structures-Advanced-Data-Structures-Augmentation-Lab.pdf) · [Data-Structures-Advanced-Data-Structures-Augmentation-Presentation.pdf](007-Data-Structures-Augmentation/Data-Structures-Advanced-Data-Structures-Augmentation-Presentation.pdf) |
