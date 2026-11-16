@@ -4,30 +4,19 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+  statuses: write
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: npm
-          cache-dependency-path: '**/package-lock.json'
-      # mongodb-memory-server downloads a mongod binary on first use; keep it between runs
-      - uses: actions/cache@v5
-        with:
-          path: ~/.cache/mongodb-binaries
-          key: mongodb-binaries-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: mongodb-binaries-${{ runner.os }}-
-      - name: Syntax check
-        run: git ls-files '*.js' '*.mjs' '*.cjs' | tr '\n' '\0' | xargs -0 -n1 node --check
-      - name: Test every lesson on its own
-        run: |
-          for lesson in [0-9][0-9][0-9]-*/; do
-            echo "::group::$lesson"
-            [ -f "$lesson/package.json" ] || { echo "::endgroup::"; continue; }
-            (cd "$lesson" && npm ci && npm test) || exit 1
-            echo "::endgroup::"
-          done
+  ci:
+    uses: chavdar12-projects/workflows/.github/workflows/ci.yml@v1
+    with:
+      codeql: '["javascript-typescript"]'
+      format: 'prettier'
+      build: 'node'
