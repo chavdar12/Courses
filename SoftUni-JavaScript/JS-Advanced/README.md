@@ -42,3 +42,32 @@ npm test
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Javascript-Advanced.pdf](Javascript-Advanced.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Syntax-Functions-And-Statements](001-Syntax-Functions-And-Statements) | [Js-Advanced-Syntax-Functions-And-Statements-Lab.pdf](001-Syntax-Functions-And-Statements/Resources/Js-Advanced-Syntax-Functions-And-Statements-Lab.pdf) · [Js-Advanced-Syntax-Functions-And-Statements.pdf](001-Syntax-Functions-And-Statements/Resources/Js-Advanced-Syntax-Functions-And-Statements.pdf) |
+| [002-Exercise-Syntax-Functions-And-Statements](002-Exercise-Syntax-Functions-And-Statements) | [Js-Advanced-Syntax-Functions-And-Statements-Exercise.pdf](002-Exercise-Syntax-Functions-And-Statements/Resources/Js-Advanced-Syntax-Functions-And-Statements-Exercise.pdf) |
+| [003-Arrays-And-Nested-Arrays](003-Arrays-And-Nested-Arrays) | [Js-Advanced-Arrays-And-Nested-Arrays-Lab.pdf](003-Arrays-And-Nested-Arrays/Resources/Js-Advanced-Arrays-And-Nested-Arrays-Lab.pdf) · [Js-Advanced-Arrays-And-Nested-Arrays.pdf](003-Arrays-And-Nested-Arrays/Resources/Js-Advanced-Arrays-And-Nested-Arrays.pdf) |
+| [004-Exercise-Arrays-And-Nested-Arrays](004-Exercise-Arrays-And-Nested-Arrays) | [Js-Advanced-Arrays-And-Nested-Arrays-Exercise.pdf](004-Exercise-Arrays-And-Nested-Arrays/Resources/Js-Advanced-Arrays-And-Nested-Arrays-Exercise.pdf) |
+| [005-Objects-And-Composition](005-Objects-And-Composition) | [Js-Advanced-Objects-And-Composition-Lab.pdf](005-Objects-And-Composition/Resources/Js-Advanced-Objects-And-Composition-Lab.pdf) · [Js-Advanced-Objects-And-Composition.pdf](005-Objects-And-Composition/Resources/Js-Advanced-Objects-And-Composition.pdf) |
+| [006-Exercise-Objects-And-Composition](006-Exercise-Objects-And-Composition) | [Js-Advanced-Dom-Introduction.pdf](006-Exercise-Objects-And-Composition/Resources/Js-Advanced-Dom-Introduction.pdf) · [Js-Advanced-Objects-And-Composition-Exercise.pdf](006-Exercise-Objects-And-Composition/Resources/Js-Advanced-Objects-And-Composition-Exercise.pdf) |
+| [007-Dom-Introduction](007-Dom-Introduction) | [Js-Advanced-Dom-Introduction-Lab.pdf](007-Dom-Introduction/Resources/Js-Advanced-Dom-Introduction-Lab.pdf) |
+| [008-Exercise-Dom-Introduction](008-Exercise-Dom-Introduction) | [Js-Advanced-Dom-Introduction-Exercise.pdf](008-Exercise-Dom-Introduction/Resources/Js-Advanced-Dom-Introduction-Exercise.pdf) |
+| [009-Dom-Manipulations-And-Events](009-Dom-Manipulations-And-Events) | [Js-Advanced-Dom-Events-Lab.pdf](009-Dom-Manipulations-And-Events/Resources/Js-Advanced-Dom-Events-Lab.pdf) · [Js-Advanced-Dom-Events.pdf](009-Dom-Manipulations-And-Events/Resources/Js-Advanced-Dom-Events.pdf) |
+| [010-Exercise-Dom-Manipulations-And-Events](010-Exercise-Dom-Manipulations-And-Events) | [Js-Advanced-Dom-Events-Exercise.pdf](010-Exercise-Dom-Manipulations-And-Events/Resources/Js-Advanced-Dom-Events-Exercise.pdf) |
+| [011-Advanced-Functions](011-Advanced-Functions) | [Js-Advanced-Advanced-Functions-Lab.pdf](011-Advanced-Functions/Resources/Js-Advanced-Advanced-Functions-Lab.pdf) · [Js-Advanced-Advanced-Functions.pdf](011-Advanced-Functions/Resources/Js-Advanced-Advanced-Functions.pdf) |
+| [012-Exercise-Advanced-Functions](012-Exercise-Advanced-Functions) | [Js-Advanced-Advanced-Functions-Exercise.pdf](012-Exercise-Advanced-Functions/Resources/Js-Advanced-Advanced-Functions-Exercise.pdf) |
+| [013-Unit-Testing-And-Error-Handling](013-Unit-Testing-And-Error-Handling) | [Js-Advanced-Unit-Testing-And-Error-Handling-Installation-Guide.pdf](013-Unit-Testing-And-Error-Handling/Resources/Js-Advanced-Unit-Testing-And-Error-Handling-Installation-Guide.pdf) · [Js-Advanced-Unit-Testing-And-Error-Handling-Lab.pdf](013-Unit-Testing-And-Error-Handling/Resources/Js-Advanced-Unit-Testing-And-Error-Handling-Lab.pdf) · [Js-Advanced-Unit-Testing-And-Error-Handling.pdf](013-Unit-Testing-And-Error-Handling/Resources/Js-Advanced-Unit-Testing-And-Error-Handling.pdf) |
+| [014-Exercise-Unit-Testing-And-Error-Handling](014-Exercise-Unit-Testing-And-Error-Handling) | [Js-Advanced-Unit-Testing-And-Error-Handling-Exercise.pdf](014-Exercise-Unit-Testing-And-Error-Handling/Resources/Js-Advanced-Unit-Testing-And-Error-Handling-Exercise.pdf) |
+| [015-Classes](015-Classes) | [Js-Advanced-Classes-Lab.pdf](015-Classes/Resources/Js-Advanced-Classes-Lab.pdf) · [Js-Advanced-Classes.pdf](015-Classes/Resources/Js-Advanced-Classes.pdf) |
+| [016-Exercise-Classes](016-Exercise-Classes) | [Js-Advanced-Classes-Exercise.pdf](016-Exercise-Classes/Resources/Js-Advanced-Classes-Exercise.pdf) |
+| [017-Prototypes-And-Inheritance](017-Prototypes-And-Inheritance) | [Js-Advanced-Prototypes-And-Inheritance-Lab.pdf](017-Prototypes-And-Inheritance/Resources/Js-Advanced-Prototypes-And-Inheritance-Lab.pdf) · [Js-Advanced-Prototypes-And-Inheritance.pdf](017-Prototypes-And-Inheritance/Resources/Js-Advanced-Prototypes-And-Inheritance.pdf) |
+| [018-Exercise-Prototypes-And-Inheritance](018-Exercise-Prototypes-And-Inheritance) | [Js-Advanced-Prototypes-And-Inheritance-Exercise.pdf](018-Exercise-Prototypes-And-Inheritance/Resources/Js-Advanced-Prototypes-And-Inheritance-Exercise.pdf) |
+| [019-Exam-Preparation](019-Exam-Preparation) | [Exam-Preparation-.pdf](019-Exam-Preparation/Resources/Exam-Preparation-.pdf) |
+| [020-Exam-Preparation](020-Exam-Preparation) | [Exam-Preparation-.pdf](020-Exam-Preparation/Resources/Exam-Preparation-.pdf) |
