@@ -38,3 +38,19 @@ npm test        # html-validate + node --test
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Html-And-Css.pdf](Html-And-Css.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Introduction-To-HTML-CSS](001-Introduction-To-HTML-CSS) | [Introduction-To-Html-And-Css-Exercise.pdf](001-Introduction-To-HTML-CSS/Resources/Introduction-To-Html-And-Css-Exercise.pdf) · [Introduction-To-Html-And-Css.pdf](001-Introduction-To-HTML-CSS/Resources/Introduction-To-Html-And-Css.pdf) |
+| [002-HTML-Structure](002-HTML-Structure) | [Html-Structure-Exercise.pdf](002-HTML-Structure/Resources/Html-Structure-Exercise.pdf) · [Html-Structure.pdf](002-HTML-Structure/Resources/Html-Structure.pdf) |
+| [003-CSS-Typography](003-CSS-Typography) | [Css-And-Thypography-Exercise.pdf](003-CSS-Typography/Resources/Css-And-Thypography-Exercise.pdf) · [Css-And-Thypography.pdf](003-CSS-Typography/Resources/Css-And-Thypography.pdf) |
+| [004-CSS-Box-Model](004-CSS-Box-Model) | [Css-Box-Model-Exercise.pdf](004-CSS-Box-Model/Resources/Css-Box-Model-Exercise.pdf) · [Css-Box-Model.pdf](004-CSS-Box-Model/Resources/Css-Box-Model.pdf) |
+| [005-Position-And-Float](005-Position-And-Float) | [Position-Grid-Exercise.pdf](005-Position-And-Float/Resources/Position-Grid-Exercise.pdf) · [Position-Grid.pdf](005-Position-And-Float/Resources/Position-Grid.pdf) |
+| [006-Flexbox](006-Flexbox) | [Flexbox-Exercise.pdf](006-Flexbox/Resources/Flexbox-Exercise.pdf) · [Flexbox.pdf](006-Flexbox/Resources/Flexbox.pdf) |
+| [007-Media-Queries](007-Media-Queries) | [Media-Queries-Exercise.pdf](007-Media-Queries/Resources/Media-Queries-Exercise.pdf) · [Media-Queries.pdf](007-Media-Queries/Resources/Media-Queries.pdf) |
