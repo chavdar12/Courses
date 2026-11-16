@@ -4,44 +4,27 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+  statuses: write
 
 jobs:
-  client:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: client
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-          cache-dependency-path: client/package-lock.json
-      - run: npm ci
-      - run: npm test -- --run
-      - run: npm run build
-
-  server:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: server
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-          cache-dependency-path: server/package-lock.json
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm test
+  ci:
+    uses: chavdar12-projects/workflows/.github/workflows/ci.yml@v1
+    with:
+      codeql: '["javascript-typescript"]'
+      format: 'prettier'
+      build: 'node'
 
   e2e:
-    needs: [client, server]
-    runs-on: ubuntu-latest
+    needs: ci
+    if: ${{ !cancelled() }}
+    runs-on: ${{ needs.ci.outputs.runner || 'k8s-runners' }}
     env:
       ADMIN_EMAIL: admin@hms.local
       ADMIN_PASSWORD: ci-admin-password
