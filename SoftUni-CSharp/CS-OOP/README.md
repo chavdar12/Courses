@@ -47,20 +47,27 @@ Course overview: [Csharp-Oop.pdf](Csharp-Oop.pdf)
 
 | Lesson | Materials |
 | ------ | --------- |
-| [001-Inheritance](001-Inheritance) | [Csharp-Oop-Inheritance-Lab.pdf](001-Inheritance/Csharp-Oop-Inheritance-Lab.pdf) · [Csharp-Oop-Inheritance.pdf](001-Inheritance/Csharp-Oop-Inheritance.pdf) |
-| [002-Exercise-Inheritance](002-Exercise-Inheritance) | [Csharp-Oop-Inheritance-Exercise.pdf](002-Exercise-Inheritance/Csharp-Oop-Inheritance-Exercise.pdf) |
-| [003-Encapsulation](003-Encapsulation) | [Csharp-Oop-Encapsulation-Lab.pdf](003-Encapsulation/Csharp-Oop-Encapsulation-Lab.pdf) · [Csharp-Oop-Encapsulation.pdf](003-Encapsulation/Csharp-Oop-Encapsulation.pdf) |
-| [004-Exercise-Encapsulation](004-Exercise-Encapsulation) | [Csharp-Oop-Encapsulation-Exercise.pdf](004-Exercise-Encapsulation/Csharp-Oop-Encapsulation-Exercise.pdf) |
-| [005-Interfaces-And-Abstraction](005-Interfaces-And-Abstraction) | [Csharp-Oop-Interfaces-And-Abstraction-Lab.pdf](005-Interfaces-And-Abstraction/Csharp-Oop-Interfaces-And-Abstraction-Lab.pdf) · [Csharp-Oop-Interfaces-And-Abstraction.pdf](005-Interfaces-And-Abstraction/Csharp-Oop-Interfaces-And-Abstraction.pdf) |
-| [006-Exercise-Interfaces-And-Abstraction](006-Exercise-Interfaces-And-Abstraction) | [Csharp-Oop-Interfaces-And-Abstraction-Exercise.pdf](006-Exercise-Interfaces-And-Abstraction/Csharp-Oop-Interfaces-And-Abstraction-Exercise.pdf) |
-| [007-Polymorphism](007-Polymorphism) | [Csharp-Oop-Polymorphism-Lab.pdf](007-Polymorphism/Csharp-Oop-Polymorphism-Lab.pdf) · [Csharp-Oop-Polymorphism.pdf](007-Polymorphism/Csharp-Oop-Polymorphism.pdf) |
-| [008-Exercise-Polymorphism](008-Exercise-Polymorphism) | [Csharp-Oop-Polymorphism-Exercise.pdf](008-Exercise-Polymorphism/Csharp-Oop-Polymorphism-Exercise.pdf) |
-| [012-Exercise-Solid](012-Exercise-Solid) | [Csharp-Oop-Solid-Exercise.pdf](012-Exercise-Solid/Csharp-Oop-Solid-Exercise.pdf) · [Csharp-Oop-Solid.pdf](012-Exercise-Solid/Csharp-Oop-Solid.pdf) |
-| [013-Reflection-And-Attributes](013-Reflection-And-Attributes) | [Csharp-Oop-Reflection-And-Attributes-Lab.pdf](013-Reflection-And-Attributes/Csharp-Oop-Reflection-And-Attributes-Lab.pdf) · [Csharp-Oop-Reflection-And-Attributes.pdf](013-Reflection-And-Attributes/Csharp-Oop-Reflection-And-Attributes.pdf) |
-| [014-Exercise-Reflection-And-Attributes](014-Exercise-Reflection-And-Attributes) | [Csharp-Oop-Reflection-And-Attributes-Exercise.pdf](014-Exercise-Reflection-And-Attributes/Csharp-Oop-Reflection-And-Attributes-Exercise.pdf) |
-| [015-Unit-Testing](015-Unit-Testing) | [Csharp-Oop-Unit-Testing-Lab.pdf](015-Unit-Testing/Csharp-Oop-Unit-Testing-Lab.pdf) · [Csharp-Oop-Unit-Testing-Presentation.pdf](015-Unit-Testing/Csharp-Oop-Unit-Testing-Presentation.pdf) |
-| [016-Exercise-Unit-Testing](016-Exercise-Unit-Testing) | [Csharp-Oop-Unit-Testing-Exercise.pdf](016-Exercise-Unit-Testing/Csharp-Oop-Unit-Testing-Exercise.pdf) |
-| [017-Mocking-And-Test-Driven-Development](017-Mocking-And-Test-Driven-Development) | [Csharp-Oop-Mocking-And-Test-Driven-Development-Lab.pdf](017-Mocking-And-Test-Driven-Development/Csharp-Oop-Mocking-And-Test-Driven-Development-Lab.pdf) · [Csharp-Oop-Mocking-And-Test-Driven-Development.pdf](017-Mocking-And-Test-Driven-Development/Csharp-Oop-Mocking-And-Test-Driven-Development.pdf) |
-| [018-Exercise-Mocking-And-Test-Driven-Development](018-Exercise-Mocking-And-Test-Driven-Development) | [Csharp-Oop-Mocking-And-Test-Driven-Development-Exercise.pdf](018-Exercise-Mocking-And-Test-Driven-Development/Csharp-Oop-Mocking-And-Test-Driven-Development-Exercise.pdf) |
-| [019-Design-Patterns](019-Design-Patterns) | [Csharp-Oop-Design-Patterns-Lab.pdf](019-Design-Patterns/Csharp-Oop-Design-Patterns-Lab.pdf) · [Csharp-Oop-Design-Patterns.pdf](019-Design-Patterns/Csharp-Oop-Design-Patterns.pdf) |
-| [020-Exercise-Design-Patterns](020-Exercise-Design-Patterns) | [Csharp-Oop-Design-Patterns-Exercise.pdf](020-Exercise-Design-Patterns/Csharp-Oop-Design-Patterns-Exercise.pdf) |
+| [001-Inheritance](001-Inheritance) | [Csharp-Oop-Inheritance-Lab.pdf](001-Inheritance/Resources/Csharp-Oop-Inheritance-Lab.pdf) · [Csharp-Oop-Inheritance.pdf](001-Inheritance/Resources/Csharp-Oop-Inheritance.pdf) |
+| [002-Exercise-Inheritance](002-Exercise-Inheritance) | [Csharp-Oop-Inheritance-Exercise.pdf](002-Exercise-Inheritance/Resources/Csharp-Oop-Inheritance-Exercise.pdf) |
+| [003-Encapsulation](003-Encapsulation) | [Csharp-Oop-Encapsulation-Lab.pdf](003-Encapsulation/Resources/Csharp-Oop-Encapsulation-Lab.pdf) · [Csharp-Oop-Encapsulation.pdf](003-Encapsulation/Resources/Csharp-Oop-Encapsulation.pdf) |
+| [004-Exercise-Encapsulation](004-Exercise-Encapsulation) | [Csharp-Oop-Encapsulation-Exercise.pdf](004-Exercise-Encapsulation/Resources/Csharp-Oop-Encapsulation-Exercise.pdf) |
+| [005-Interfaces-And-Abstraction](005-Interfaces-And-Abstraction) | [Csharp-Oop-Interfaces-And-Abstraction-Lab.pdf](005-Interfaces-And-Abstraction/Resources/Csharp-Oop-Interfaces-And-Abstraction-Lab.pdf) · [Csharp-Oop-Interfaces-And-Abstraction.pdf](005-Interfaces-And-Abstraction/Resources/Csharp-Oop-Interfaces-And-Abstraction.pdf) |
+| [006-Exercise-Interfaces-And-Abstraction](006-Exercise-Interfaces-And-Abstraction) | [Csharp-Oop-Interfaces-And-Abstraction-Exercise.pdf](006-Exercise-Interfaces-And-Abstraction/Resources/Csharp-Oop-Interfaces-And-Abstraction-Exercise.pdf) |
+| [007-Polymorphism](007-Polymorphism) | [Csharp-Oop-Polymorphism-Lab.pdf](007-Polymorphism/Resources/Csharp-Oop-Polymorphism-Lab.pdf) · [Csharp-Oop-Polymorphism.pdf](007-Polymorphism/Resources/Csharp-Oop-Polymorphism.pdf) |
+| [008-Exercise-Polymorphism](008-Exercise-Polymorphism) | [Csharp-Oop-Polymorphism-Exercise.pdf](008-Exercise-Polymorphism/Resources/Csharp-Oop-Polymorphism-Exercise.pdf) |
+| [012-Exercise-Solid](012-Exercise-Solid) | [Csharp-Oop-Solid-Exercise.pdf](012-Exercise-Solid/Resources/Csharp-Oop-Solid-Exercise.pdf) · [Csharp-Oop-Solid.pdf](012-Exercise-Solid/Resources/Csharp-Oop-Solid.pdf) |
+| [013-Reflection-And-Attributes](013-Reflection-And-Attributes) | [Csharp-Oop-Reflection-And-Attributes-Lab.pdf](013-Reflection-And-Attributes/Resources/Csharp-Oop-Reflection-And-Attributes-Lab.pdf) · [Csharp-Oop-Reflection-And-Attributes.pdf](013-Reflection-And-Attributes/Resources/Csharp-Oop-Reflection-And-Attributes.pdf) |
+| [014-Exercise-Reflection-And-Attributes](014-Exercise-Reflection-And-Attributes) | [Csharp-Oop-Reflection-And-Attributes-Exercise.pdf](014-Exercise-Reflection-And-Attributes/Resources/Csharp-Oop-Reflection-And-Attributes-Exercise.pdf) |
+| [015-Unit-Testing](015-Unit-Testing) | [Csharp-Oop-Unit-Testing-Lab.pdf](015-Unit-Testing/Resources/Csharp-Oop-Unit-Testing-Lab.pdf) · [Csharp-Oop-Unit-Testing-Presentation.pdf](015-Unit-Testing/Resources/Csharp-Oop-Unit-Testing-Presentation.pdf) |
+| [016-Exercise-Unit-Testing](016-Exercise-Unit-Testing) | [Csharp-Oop-Unit-Testing-Exercise.pdf](016-Exercise-Unit-Testing/Resources/Csharp-Oop-Unit-Testing-Exercise.pdf) |
+| [017-Mocking-And-Test-Driven-Development](017-Mocking-And-Test-Driven-Development) | [Csharp-Oop-Mocking-And-Test-Driven-Development-Lab.pdf](017-Mocking-And-Test-Driven-Development/Resources/Csharp-Oop-Mocking-And-Test-Driven-Development-Lab.pdf) · [Csharp-Oop-Mocking-And-Test-Driven-Development.pdf](017-Mocking-And-Test-Driven-Development/Resources/Csharp-Oop-Mocking-And-Test-Driven-Development.pdf) |
+| [018-Exercise-Mocking-And-Test-Driven-Development](018-Exercise-Mocking-And-Test-Driven-Development) | [Csharp-Oop-Mocking-And-Test-Driven-Development-Exercise.pdf](018-Exercise-Mocking-And-Test-Driven-Development/Resources/Csharp-Oop-Mocking-And-Test-Driven-Development-Exercise.pdf) |
+| [019-Design-Patterns](019-Design-Patterns) | [Csharp-Oop-Design-Patterns-Lab.pdf](019-Design-Patterns/Resources/Csharp-Oop-Design-Patterns-Lab.pdf) · [Csharp-Oop-Design-Patterns.pdf](019-Design-Patterns/Resources/Csharp-Oop-Design-Patterns.pdf) |
+| [020-Exercise-Design-Patterns](020-Exercise-Design-Patterns) | [Csharp-Oop-Design-Patterns-Exercise.pdf](020-Exercise-Design-Patterns/Resources/Csharp-Oop-Design-Patterns-Exercise.pdf) |
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+| Lesson | Materials |
+| ------ | --------- |
