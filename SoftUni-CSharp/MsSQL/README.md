@@ -37,11 +37,18 @@ Course overview: [Ms-Sql.pdf](Ms-Sql.pdf)
 
 | Lesson | Materials |
 | ------ | --------- |
-| [001-Data-definition-аnd-datatypes](001-Data-definition-%D0%B0nd-datatypes) | [Course-Intro.pdf](001-Data-definition-%D0%B0nd-datatypes/Course-Intro.pdf) · [Database-Introduction-Exercises-Gui.pdf](001-Data-definition-%D0%B0nd-datatypes/Database-Introduction-Exercises-Gui.pdf) · [Database-Introduction-Exercises.pdf](001-Data-definition-%D0%B0nd-datatypes/Database-Introduction-Exercises.pdf) · [Database-Introduction-Installation-Guide.pdf](001-Data-definition-%D0%B0nd-datatypes/Database-Introduction-Installation-Guide.pdf) · [Database-Introduction.pdf](001-Data-definition-%D0%B0nd-datatypes/Database-Introduction.pdf) |
-| [002-Basic-CRUD](002-Basic-CRUD) | [Crud-Exercises.pdf](002-Basic-CRUD/Crud-Exercises.pdf) · [Crud.pdf](002-Basic-CRUD/Crud.pdf) |
-| [003-Table-relations](003-Table-relations) | [Table-Relations-Exercises.pdf](003-Table-relations/Table-Relations-Exercises.pdf) · [Table-Relations.pdf](003-Table-relations/Table-Relations.pdf) |
-| [004-Built-in-Functions](004-Built-in-Functions) | [Built-In-Functions-Exercises.pdf](004-Built-in-Functions/Built-In-Functions-Exercises.pdf) · [Built-In-Functions.pdf](004-Built-in-Functions/Built-In-Functions.pdf) |
-| [005-Subqueries-and-JOINs](005-Subqueries-and-JOINs) | [Subqueries-And-Joins-Exercises.pdf](005-Subqueries-and-JOINs/Subqueries-And-Joins-Exercises.pdf) · [Subqueries-And-Joins.pdf](005-Subqueries-and-JOINs/Subqueries-And-Joins.pdf) |
-| [006-Indices-and-Data-Aggregation](006-Indices-and-Data-Aggregation) | [Indices-And-Data-Aggregation-Exercises.pdf](006-Indices-and-Data-Aggregation/Indices-And-Data-Aggregation-Exercises.pdf) · [Indices-And-Data-Aggregation.pdf](006-Indices-and-Data-Aggregation/Indices-And-Data-Aggregation.pdf) · [Performancedb.txt](006-Indices-and-Data-Aggregation/Performancedb.txt) |
-| [007-Functions and procedures](007-Functions%20and%20procedures) | [Functions-And-Stored-Procedures-Exercise.pdf](007-Functions%20and%20procedures/Functions-And-Stored-Procedures-Exercise.pdf) · [Functions-And-Stored-Procedures.pdf](007-Functions%20and%20procedures/Functions-And-Stored-Procedures.pdf) |
-| [008-Triggers-and-Transactions](008-Triggers-and-Transactions) | [Triggers-And-Transactions-Exercises.pdf](008-Triggers-and-Transactions/Triggers-And-Transactions-Exercises.pdf) · [Triggers-And-Transactions.pdf](008-Triggers-and-Transactions/Triggers-And-Transactions.pdf) |
+| [001-Data-definition-аnd-datatypes](001-Data-definition-%D0%B0nd-datatypes) | [Course-Intro.pdf](001-Data-definition-%D0%B0nd-datatypes/Resources/Course-Intro.pdf) · [Database-Introduction-Exercises-Gui.pdf](001-Data-definition-%D0%B0nd-datatypes/Resources/Database-Introduction-Exercises-Gui.pdf) · [Database-Introduction-Exercises.pdf](001-Data-definition-%D0%B0nd-datatypes/Resources/Database-Introduction-Exercises.pdf) · [Database-Introduction-Installation-Guide.pdf](001-Data-definition-%D0%B0nd-datatypes/Resources/Database-Introduction-Installation-Guide.pdf) · [Database-Introduction.pdf](001-Data-definition-%D0%B0nd-datatypes/Resources/Database-Introduction.pdf) |
+| [002-Basic-CRUD](002-Basic-CRUD) | [Crud-Exercises.pdf](002-Basic-CRUD/Resources/Crud-Exercises.pdf) · [Crud.pdf](002-Basic-CRUD/Resources/Crud.pdf) |
+| [003-Table-relations](003-Table-relations) | [Table-Relations-Exercises.pdf](003-Table-relations/Resources/Table-Relations-Exercises.pdf) · [Table-Relations.pdf](003-Table-relations/Resources/Table-Relations.pdf) |
+| [004-Built-in-Functions](004-Built-in-Functions) | [Built-In-Functions-Exercises.pdf](004-Built-in-Functions/Resources/Built-In-Functions-Exercises.pdf) · [Built-In-Functions.pdf](004-Built-in-Functions/Resources/Built-In-Functions.pdf) |
+| [005-Subqueries-and-JOINs](005-Subqueries-and-JOINs) | [Subqueries-And-Joins-Exercises.pdf](005-Subqueries-and-JOINs/Resources/Subqueries-And-Joins-Exercises.pdf) · [Subqueries-And-Joins.pdf](005-Subqueries-and-JOINs/Resources/Subqueries-And-Joins.pdf) |
+| [006-Indices-and-Data-Aggregation](006-Indices-and-Data-Aggregation) | [Indices-And-Data-Aggregation-Exercises.pdf](006-Indices-and-Data-Aggregation/Resources/Indices-And-Data-Aggregation-Exercises.pdf) · [Indices-And-Data-Aggregation.pdf](006-Indices-and-Data-Aggregation/Resources/Indices-And-Data-Aggregation.pdf) · [Performancedb.txt](006-Indices-and-Data-Aggregation/Resources/Performancedb.txt) |
+| [007-Functions and procedures](007-Functions%20and%20procedures) | [Functions-And-Stored-Procedures-Exercise.pdf](007-Functions%20and%20procedures/Resources/Functions-And-Stored-Procedures-Exercise.pdf) · [Functions-And-Stored-Procedures.pdf](007-Functions%20and%20procedures/Resources/Functions-And-Stored-Procedures.pdf) |
+| [008-Triggers-and-Transactions](008-Triggers-and-Transactions) | [Triggers-And-Transactions-Exercises.pdf](008-Triggers-and-Transactions/Resources/Triggers-And-Transactions-Exercises.pdf) · [Triggers-And-Transactions.pdf](008-Triggers-and-Transactions/Resources/Triggers-And-Transactions.pdf) |
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+| Lesson | Materials |
+| ------ | --------- |
