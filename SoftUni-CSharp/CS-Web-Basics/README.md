@@ -22,3 +22,16 @@ dotnet run --project 003-Web-Server-State-Management/SIS.Demo
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Csharp-Web-Basics.pdf](Csharp-Web-Basics.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Web-Server-Http-Protocol](001-Web-Server-Http-Protocol) | [Csharp-Web-Basics-Server-Http.pdf](001-Web-Server-Http-Protocol/Csharp-Web-Basics-Server-Http.pdf) |
+| [002-Web-Server-Asynchronous-Processing](002-Web-Server-Asynchronous-Processing) | [Csharp-Web-Basics-Web-Server-Asynchronous-Processing-Lab.pdf](002-Web-Server-Asynchronous-Processing/Csharp-Web-Basics-Web-Server-Asynchronous-Processing-Lab.pdf) · [Csharp-Web-Basics-Web-Server-Asynchronous-Processing.pdf](002-Web-Server-Asynchronous-Processing/Csharp-Web-Basics-Web-Server-Asynchronous-Processing.pdf) |
+| [003-Web-Server-State-Management](003-Web-Server-State-Management) | [Csharp-Web-Basics-Web-Server-State-Management-L.pdf](003-Web-Server-State-Management/Csharp-Web-Basics-Web-Server-State-Management-L.pdf) · [Csharp-Web-Basics-Web-Server-State-Management.pdf](003-Web-Server-State-Management/Csharp-Web-Basics-Web-Server-State-Management.pdf) |
+| [005-Mvc-Introduction](005-Mvc-Introduction) | [Csharp-Web-Basics-Mvc-Introduction.pdf](005-Mvc-Introduction/Csharp-Web-Basics-Mvc-Introduction.pdf) |
