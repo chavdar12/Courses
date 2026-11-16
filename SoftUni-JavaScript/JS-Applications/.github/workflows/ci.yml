@@ -4,24 +4,19 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+  statuses: write
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-      - name: Syntax check
-        run: git ls-files '*.js' '*.mjs' '*.cjs' | tr '\n' '\0' | xargs -0 -n1 node --check
-      - name: Test every lesson on its own
-        run: |
-          for lesson in [0-9][0-9][0-9]-*/; do
-            (
-              cd "$lesson" && npm ci
-              # apps that load lit-html / page from their own node_modules
-              find . -mindepth 2 -maxdepth 2 -name package.json -not -path "*/node_modules/*" -execdir npm install \;
-              npm test
-            ) || exit 1
-          done
+  ci:
+    uses: chavdar12-projects/workflows/.github/workflows/ci.yml@v1
+    with:
+      codeql: '["javascript-typescript"]'
+      format: 'prettier'
+      build: 'node'
