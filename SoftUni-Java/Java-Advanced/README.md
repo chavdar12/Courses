@@ -38,3 +38,28 @@ Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Java-Advanced.pdf](Java-Advanced.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Stacks-And-Queues](001-Stacks-And-Queues) | [Java-Advanced-Stacks-And-Queues-Lab.pdf](001-Stacks-And-Queues/Java-Advanced-Stacks-And-Queues-Lab.pdf) · [Java-Advanced-Stacks-And-Queues.pdf](001-Stacks-And-Queues/Java-Advanced-Stacks-And-Queues.pdf) |
+| [002-Exercise-Stacks-And-Queues](002-Exercise-Stacks-And-Queues) | [Java-Advanced-Stacks-And-Queues-Exercises.pdf](002-Exercise-Stacks-And-Queues/Java-Advanced-Stacks-And-Queues-Exercises.pdf) |
+| [003-Multidimensional-Arrays](003-Multidimensional-Arrays) | [Java-Advanced-Multidimensional-Arrays-Lab.pdf](003-Multidimensional-Arrays/Java-Advanced-Multidimensional-Arrays-Lab.pdf) · [Java-Advanced-Multidimensional-Arrays.pdf](003-Multidimensional-Arrays/Java-Advanced-Multidimensional-Arrays.pdf) |
+| [004-Exercise-Multidimensional-Arrays](004-Exercise-Multidimensional-Arrays) | [Java-Advanced-Multidimensional-Arrays-Exercises.pdf](004-Exercise-Multidimensional-Arrays/Java-Advanced-Multidimensional-Arrays-Exercises.pdf) |
+| [005-Sets-And-Maps-Advanced](005-Sets-And-Maps-Advanced) | [Java-Advanced-Sets-And-Maps-Advanced-Lab.pdf](005-Sets-And-Maps-Advanced/Java-Advanced-Sets-And-Maps-Advanced-Lab.pdf) · [Java-Advanced-Sets-And-Maps-Advanced.pdf](005-Sets-And-Maps-Advanced/Java-Advanced-Sets-And-Maps-Advanced.pdf) |
+| [006-Exercise-Sets-And-Maps-Advanced](006-Exercise-Sets-And-Maps-Advanced) | [Java-Advanced-Sets-And-Maps-Advanced-Exercises.pdf](006-Exercise-Sets-And-Maps-Advanced/Java-Advanced-Sets-And-Maps-Advanced-Exercises.pdf) |
+| [007-Streams-Files-And-Directories](007-Streams-Files-And-Directories) | [Java-Advanced-Streams-Files-And-Directories-Lab.pdf](007-Streams-Files-And-Directories/Java-Advanced-Streams-Files-And-Directories-Lab.pdf) · [Java-Advanced-Streams-Files-And-Directories.pdf](007-Streams-Files-And-Directories/Java-Advanced-Streams-Files-And-Directories.pdf) |
+| [008-Exercise-Streams-Files-And-Directories](008-Exercise-Streams-Files-And-Directories) | [Java-Advanced-Streams-Files-And-Directories-Exercises.pdf](008-Exercise-Streams-Files-And-Directories/Java-Advanced-Streams-Files-And-Directories-Exercises.pdf) |
+| [009-Functional-Programming](009-Functional-Programming) | [Java-Advanced-Functional-Programming-Lab.pdf](009-Functional-Programming/Java-Advanced-Functional-Programming-Lab.pdf) · [Java-Advanced-Functional-Programming.pdf](009-Functional-Programming/Java-Advanced-Functional-Programming.pdf) |
+| [010-Exercise-Functional-Programming](010-Exercise-Functional-Programming) | [Java-Advanced-Functional-Programming-Exercises.pdf](010-Exercise-Functional-Programming/Java-Advanced-Functional-Programming-Exercises.pdf) |
+| [011-Defining-Classes](011-Defining-Classes) | [Java-Advanced-Defining-Classes-Lab.pdf](011-Defining-Classes/Java-Advanced-Defining-Classes-Lab.pdf) · [Java-Advanced-Defining-Classes.pdf](011-Defining-Classes/Java-Advanced-Defining-Classes.pdf) |
+| [012-Exercise-Defining-Classes](012-Exercise-Defining-Classes) | [Java-Advanced-Defining-Classes-Exercises.pdf](012-Exercise-Defining-Classes/Java-Advanced-Defining-Classes-Exercises.pdf) |
+| [013-Generics](013-Generics) | [Java-Advanced-Generics-Lab.pdf](013-Generics/Java-Advanced-Generics-Lab.pdf) · [Java-Advanced-Generics.pdf](013-Generics/Java-Advanced-Generics.pdf) |
+| [014-Exercise-Generics](014-Exercise-Generics) | [Java-Advanced-Generics-Exercises.pdf](014-Exercise-Generics/Java-Advanced-Generics-Exercises.pdf) |
+| [015-Iterators-And-Comparators](015-Iterators-And-Comparators) | [Java-Advanced-Iterators-And-Comparators-Lab.pdf](015-Iterators-And-Comparators/Java-Advanced-Iterators-And-Comparators-Lab.pdf) · [Java-Advanced-Iterators-And-Comparators.pdf](015-Iterators-And-Comparators/Java-Advanced-Iterators-And-Comparators.pdf) |
+| [016-Exercise-Iterators-And-Comparators](016-Exercise-Iterators-And-Comparators) | [Java-Advanced-Iterators-And-Comparators-Exercises.pdf](016-Exercise-Iterators-And-Comparators/Java-Advanced-Iterators-And-Comparators-Exercises.pdf) |
