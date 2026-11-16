@@ -34,3 +34,25 @@ python -m unittest -v
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Programming-Basics-With-Python.pdf](Programming-Basics-With-Python.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-First-Steps-In-Coding](001-First-Steps-In-Coding) | [Pb-Python-First-Steps-In-Coding-Lab.pdf](001-First-Steps-In-Coding/Resources/Pb-Python-First-Steps-In-Coding-Lab.pdf) · [Pb-Python-First-Steps-In-Coding.pdf](001-First-Steps-In-Coding/Resources/Pb-Python-First-Steps-In-Coding.pdf) |
+| [002-Exercise-First-Steps-In-Coding](002-Exercise-First-Steps-In-Coding) | [Pb-Python-First-Steps-In-Coding-Exercise.pdf](002-Exercise-First-Steps-In-Coding/Resources/Pb-Python-First-Steps-In-Coding-Exercise.pdf) |
+| [003-Conditional-Statements](003-Conditional-Statements) | [Pb-Python-Conditional-Statements-Lab.pdf](003-Conditional-Statements/Resources/Pb-Python-Conditional-Statements-Lab.pdf) · [Pb-Python-Conditional-Statements.pdf](003-Conditional-Statements/Resources/Pb-Python-Conditional-Statements.pdf) |
+| [004-Exercise-Conditional-Statements](004-Exercise-Conditional-Statements) | [Pb-Python-Conditional-Statements-Exercise.pdf](004-Exercise-Conditional-Statements/Resources/Pb-Python-Conditional-Statements-Exercise.pdf) |
+| [005-Conditional-Statements-Advanced](005-Conditional-Statements-Advanced) | [Pb-Python-Conditional-Statements-Advanced-Lab.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Python-Conditional-Statements-Advanced-Lab.pdf) · [Pb-Python-Conditional-Statements-Advanced.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Python-Conditional-Statements-Advanced.pdf) |
+| [006-Exercise-Conditional-Statements-Advanced](006-Exercise-Conditional-Statements-Advanced) | [Pb-Python-Conditional-Statements-Advanced-Exercise.pdf](006-Exercise-Conditional-Statements-Advanced/Resources/Pb-Python-Conditional-Statements-Advanced-Exercise.pdf) |
+| [007-For-Loops](007-For-Loops) | [Pb-Python-For-Loop-Lab.pdf](007-For-Loops/Resources/Pb-Python-For-Loop-Lab.pdf) · [Pb-Python-For-Loop.pdf](007-For-Loops/Resources/Pb-Python-For-Loop.pdf) |
+| [008-Exercise-For-Loops](008-Exercise-For-Loops) | [Pb-Python-For-Loop-Exercise.pdf](008-Exercise-For-Loops/Resources/Pb-Python-For-Loop-Exercise.pdf) |
+| [009-While-Loops](009-While-Loops) | [Pb-Python-While-Loop-Lab.pdf](009-While-Loops/Resources/Pb-Python-While-Loop-Lab.pdf) · [Pb-Python-While-Loop.pdf](009-While-Loops/Resources/Pb-Python-While-Loop.pdf) |
+| [010-Exercise-While-Loops](010-Exercise-While-Loops) | [Pb-Python-While-Loop-Exercise.pdf](010-Exercise-While-Loops/Resources/Pb-Python-While-Loop-Exercise.pdf) |
+| [011-Nested-Loops](011-Nested-Loops) | [Pb-Python-Nested-Loops-Lab.pdf](011-Nested-Loops/Resources/Pb-Python-Nested-Loops-Lab.pdf) · [Pb-Python-Nested-Loops.pdf](011-Nested-Loops/Resources/Pb-Python-Nested-Loops.pdf) |
+| [012-Exercise-Nested-Loops](012-Exercise-Nested-Loops) | [Pb-Python-Nested-Loops-Exercise.pdf](012-Exercise-Nested-Loops/Resources/Pb-Python-Nested-Loops-Exercise.pdf) |
+| [013-Exam-Preparation](013-Exam-Preparation) | [Exam-Preparation-May-.pdf](013-Exam-Preparation/Resources/Exam-Preparation-May-.pdf) |
