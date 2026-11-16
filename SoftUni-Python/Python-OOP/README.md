@@ -45,3 +45,35 @@ python -m unittest discover -p "*test*.py"
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Python-Oop.pdf](Python-Oop.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-First-Steps-In-OOP](001-First-Steps-In-OOP) | [Defining-Classes-Lab.pdf](001-First-Steps-In-OOP/Resources/Defining-Classes-Lab.pdf) · [Defining-Classes.pdf](001-First-Steps-In-OOP/Resources/Defining-Classes.pdf) |
+| [002-Exercise-First-Steps-In-OOP](002-Exercise-First-Steps-In-OOP) | [Defining-Classes-Exercise.pdf](002-Exercise-First-Steps-In-OOP/Resources/Defining-Classes-Exercise.pdf) |
+| [003-Classes-And-Objects](003-Classes-And-Objects) | [Classes-And-Instances-Lab.pdf](003-Classes-And-Objects/Resources/Classes-And-Instances-Lab.pdf) · [Classes-And-Instances.pdf](003-Classes-And-Objects/Resources/Classes-And-Instances.pdf) |
+| [004-Exercise-Classes-And-Objects](004-Exercise-Classes-And-Objects) | [Classes-And-Instances-Exercise.pdf](004-Exercise-Classes-And-Objects/Resources/Classes-And-Instances-Exercise.pdf) |
+| [005-Inheritance](005-Inheritance) | [Inheritance-Lab.pdf](005-Inheritance/Resources/Inheritance-Lab.pdf) · [Inheritance.pdf](005-Inheritance/Resources/Inheritance.pdf) |
+| [006-Exercise-Inheritance](006-Exercise-Inheritance) | [Inheritance-Exercises.pdf](006-Exercise-Inheritance/Resources/Inheritance-Exercises.pdf) |
+| [007-Encapsulation](007-Encapsulation) | [Encapsulation-Lab.pdf](007-Encapsulation/Resources/Encapsulation-Lab.pdf) · [Encapsulation.pdf](007-Encapsulation/Resources/Encapsulation.pdf) |
+| [008-Exercise-Encapsulation](008-Exercise-Encapsulation) | [Encapsulation-Exercise.pdf](008-Exercise-Encapsulation/Resources/Encapsulation-Exercise.pdf) |
+| [009-Static-And-Class-Methods](009-Static-And-Class-Methods) | [Static-And-Class-Methods-Lab.pdf](009-Static-And-Class-Methods/Resources/Static-And-Class-Methods-Lab.pdf) · [Static-And-Class-Methods.pdf](009-Static-And-Class-Methods/Resources/Static-And-Class-Methods.pdf) |
+| [010-Exercise-Static-And-Class-Methods](010-Exercise-Static-And-Class-Methods) | [Static-And-Class-Methods-Exercise.pdf](010-Exercise-Static-And-Class-Methods/Resources/Static-And-Class-Methods-Exercise.pdf) |
+| [011-Polymorphism-And-Abstraction](011-Polymorphism-And-Abstraction) | [Polymorphism-Lab.pdf](011-Polymorphism-And-Abstraction/Resources/Polymorphism-Lab.pdf) · [Polymorphism.pdf](011-Polymorphism-And-Abstraction/Resources/Polymorphism.pdf) |
+| [012-Exercise-Polymorphism-And-Abstraction](012-Exercise-Polymorphism-And-Abstraction) | [Polymorphism-Exercise.pdf](012-Exercise-Polymorphism-And-Abstraction/Resources/Polymorphism-Exercise.pdf) |
+| [013-Solid](013-Solid) | [Solid-Lab.pdf](013-Solid/Resources/Solid-Lab.pdf) · [Solid.pdf](013-Solid/Resources/Solid.pdf) |
+| [014-Exercise-Solid](014-Exercise-Solid) | [Solid-Exercise.pdf](014-Exercise-Solid/Resources/Solid-Exercise.pdf) |
+| [015-Iterators-And-Generators](015-Iterators-And-Generators) | [Iterators-And-Generators-Lab.pdf](015-Iterators-And-Generators/Resources/Iterators-And-Generators-Lab.pdf) · [Iterators-And-Generators.pdf](015-Iterators-And-Generators/Resources/Iterators-And-Generators.pdf) |
+| [016-Exercise-Iterators-And-Generators](016-Exercise-Iterators-And-Generators) | [Iterators-And-Generators-Exercise.pdf](016-Exercise-Iterators-And-Generators/Resources/Iterators-And-Generators-Exercise.pdf) |
+| [017-Decorators](017-Decorators) | [Decorators-Lab.pdf](017-Decorators/Resources/Decorators-Lab.pdf) · [Decorators.pdf](017-Decorators/Resources/Decorators.pdf) |
+| [018-Exercise-Decorators](018-Exercise-Decorators) | [Decorators-Exercises.pdf](018-Exercise-Decorators/Resources/Decorators-Exercises.pdf) |
+| [019-Testing](019-Testing) | [Testing-Lab.pdf](019-Testing/Resources/Testing-Lab.pdf) · [Testing.pdf](019-Testing/Resources/Testing.pdf) |
+| [020-Exercise-Testing](020-Exercise-Testing) | [Testing-Exercise.pdf](020-Exercise-Testing/Resources/Testing-Exercise.pdf) |
+| [021-Design-Patterns](021-Design-Patterns) | [Design-Patterns-Lab.pdf](021-Design-Patterns/Resources/Design-Patterns-Lab.pdf) · [Design-Patterns.pdf](021-Design-Patterns/Resources/Design-Patterns.pdf) |
+| [022-Workshop-Custom-List](022-Workshop-Custom-List) | [Workshop-Description.pdf](022-Workshop-Custom-List/Resources/Workshop-Description.pdf) |
+| [023-Workshop-Hash-Table](023-Workshop-Hash-Table) | [Workshop-Description-.pdf](023-Workshop-Hash-Table/Resources/Workshop-Description-.pdf) |
