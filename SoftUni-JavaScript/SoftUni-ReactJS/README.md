@@ -39,3 +39,21 @@ Run `npm run server` in one terminal and `npm run dev` in another. Data resets o
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Reactjs.pdf](Reactjs.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Intro-To-React-And-Jsx](001-Intro-To-React-And-Jsx) | [Introduction-To-Reactjs.pdf](001-Intro-To-React-And-Jsx/Resources/Introduction-To-Reactjs.pdf) |
+| [002-Components-Basic-Idea](002-Components-Basic-Idea) | [React-Components-Basic-Idea.pdf](002-Components-Basic-Idea/Resources/React-Components-Basic-Idea.pdf) |
+| [003-Components-Deep-Dive](003-Components-Deep-Dive) | [React-Js-Components-Deep-Dive.pdf](003-Components-Deep-Dive/Resources/React-Js-Components-Deep-Dive.pdf) |
+| [004-Workshop-Components](004-Workshop-Components) | [React-Js-Components-Workshop.pdf](004-Workshop-Components/Resources/React-Js-Components-Workshop.pdf) |
+| [005-Routing](005-Routing) | [React-Js-Routing.pdf](005-Routing/Resources/React-Js-Routing.pdf) |
+| [006-Workshop-Single-Page-Application](006-Workshop-Single-Page-Application) | [Petmypet-.pdf](006-Workshop-Single-Page-Application/Resources/Petmypet-.pdf) |
+| [007-Forms](007-Forms) | [React-Js-Forms.pdf](007-Forms/Resources/React-Js-Forms.pdf) |
+| [008-React-Hooks](008-React-Hooks) | [React-Js-React-Hooks.pdf](008-React-Hooks/Resources/React-Js-React-Hooks.pdf) |
+| [010-Advanced-Techniques](010-Advanced-Techniques) | [React-Js-Advanced-Techniques.pdf](010-Advanced-Techniques/Resources/React-Js-Advanced-Techniques.pdf) |
