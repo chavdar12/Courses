@@ -39,3 +39,24 @@ gradle bootRun     # Spring Boot lectures
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Spring-Data.pdf](Spring-Data.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Database-Access-With-Jdbc](001-Database-Access-With-Jdbc) | [Diablo-Database.sql](001-Database-Access-With-Jdbc/Diablo-Database.sql) · [Soft-Uni-Database.sql](001-Database-Access-With-Jdbc/Soft-Uni-Database.sql) · [Spring-Data-Database-Access-With-Jdbc-Lab.pdf](001-Database-Access-With-Jdbc/Spring-Data-Database-Access-With-Jdbc-Lab.pdf) · [Spring-Data-Database-Access-With-Jdbc.pdf](001-Database-Access-With-Jdbc/Spring-Data-Database-Access-With-Jdbc.pdf) |
+| [002-Exercise-Database-Access-With-Jdbc](002-Exercise-Database-Access-With-Jdbc) | [Minions-Db.sql](002-Exercise-Database-Access-With-Jdbc/Minions-Db.sql) · [Spring-Data-Database-Access-With-Jdbc-Exercises.pdf](002-Exercise-Database-Access-With-Jdbc/Spring-Data-Database-Access-With-Jdbc-Exercises.pdf) |
+| [008-Spring-Data-Intro](008-Spring-Data-Intro) | [Spring-Data-Intro-Lab.pdf](008-Spring-Data-Intro/Spring-Data-Intro-Lab.pdf) · [Spring-Data-Intro.pdf](008-Spring-Data-Intro/Spring-Data-Intro.pdf) |
+| [009-Exercise-Spring-Data-Intro](009-Exercise-Spring-Data-Intro) | [Spring-Data-Intro-Exercises.pdf](009-Exercise-Spring-Data-Intro/Spring-Data-Intro-Exercises.pdf) |
+| [010-Spring-Data-Advanced-Querying](010-Spring-Data-Advanced-Querying) | [Spring-Data-Advanced-Querying-Exercises.pdf](010-Spring-Data-Advanced-Querying/Spring-Data-Advanced-Querying-Exercises.pdf) |
+| [011-Exercise-Spring-Data-Advanced-Querying](011-Exercise-Spring-Data-Advanced-Querying) | [Spring-Data-Advanced-Querying-Exercises-.pdf](011-Exercise-Spring-Data-Advanced-Querying/Spring-Data-Advanced-Querying-Exercises-.pdf) |
+| [012-Spring-Data-Auto-Mapping-Objects](012-Spring-Data-Auto-Mapping-Objects) | [Spring-Data-Auto-Mapping-Objects-Lab.pdf](012-Spring-Data-Auto-Mapping-Objects/Spring-Data-Auto-Mapping-Objects-Lab.pdf) · [Spring-Data-Auto-Mapping-Objects.pdf](012-Spring-Data-Auto-Mapping-Objects/Spring-Data-Auto-Mapping-Objects.pdf) |
+| [013-Exercise-Spring-Data-Auto-Mapping-Objects](013-Exercise-Spring-Data-Auto-Mapping-Objects) | [Spring-Data-Auto-Mapping-Objects-Exercises.pdf](013-Exercise-Spring-Data-Auto-Mapping-Objects/Spring-Data-Auto-Mapping-Objects-Exercises.pdf) |
+| [014-Json-Processing](014-Json-Processing) | [Json-Processing.pdf](014-Json-Processing/Json-Processing.pdf) |
+| [015-Exercise-Json-Processing](015-Exercise-Json-Processing) | [Json-Processing-Exercises.pdf](015-Exercise-Json-Processing/Json-Processing-Exercises.pdf) |
+| [016-Xml-Processing](016-Xml-Processing) | [Xml-Processing.pdf](016-Xml-Processing/Xml-Processing.pdf) |
+| [017-Exercise-Xml-Processing](017-Exercise-Xml-Processing) | [Xml-Processing-Exercises.pdf](017-Exercise-Xml-Processing/Xml-Processing-Exercises.pdf) |
