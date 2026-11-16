@@ -27,6 +27,7 @@ jobs:
         run: |
           for lesson in [0-9][0-9][0-9]-*/; do
             echo "::group::$lesson"
+            [ -f "$lesson/package.json" ] || { echo "::endgroup::"; continue; }
             (cd "$lesson" && npm ci && npm test) || exit 1
             echo "::endgroup::"
           done
