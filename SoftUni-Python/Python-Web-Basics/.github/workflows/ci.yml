@@ -1,29 +1,22 @@
-name: Tests
+name: CI
 
 on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+  statuses: write
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.14"
-      - name: Test every lesson on its own
-        run: |
-          for lesson in [0-9][0-9][0-9]-*/; do
-            echo "::group::$lesson"
-            if [ -f "$lesson/manage.py" ]; then
-              (cd "$lesson" && python -m venv .venv && .venv/bin/pip install -q -r requirements.txt \
-                && .venv/bin/python manage.py makemigrations --check --dry-run \
-                && .venv/bin/python manage.py test) || exit 1
-            else
-              # console tasks: each exercise folder is its own unittest root
-              for task in "$lesson"*/; do [ "$(basename "$task")" = Resources ] && continue; (cd "$task" && python -m unittest discover -p "test_*.py") || exit 1; done
-            fi
-            echo "::endgroup::"
-          done
+  ci:
+    uses: chavdar12-projects/workflows/.github/workflows/ci.yml@v1
+    with:
+      codeql: '["python"]'
+      format: 'ruff'
+      build: 'python'
