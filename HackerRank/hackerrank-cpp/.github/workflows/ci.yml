@@ -4,14 +4,20 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+  statuses: write
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      # CMakeLists.txt requires CMake >= 4.3, newer than the runner image may ship.
-      - run: pip install "cmake>=4.3"
-      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-      - run: cmake --build build --parallel
-      - run: ctest --test-dir build --output-on-failure
+  ci:
+    uses: chavdar12-projects/workflows/.github/workflows/ci.yml@v1
+    with:
+      codeql: '["c-cpp"]'
+      build: 'cpp'
+      # CMakeLists.txt requires CMake >= 4.3, newer than the runner image may ship
+      setup: 'pip install "cmake>=4.3"'
