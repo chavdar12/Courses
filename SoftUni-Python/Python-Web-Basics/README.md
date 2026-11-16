@@ -37,3 +37,24 @@ The HTTP Protocol lecture is plain Python: `cd 003-Http-Protocol/001_url_decode 
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Python-Web-Basics.pdf](Python-Web-Basics.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Introduction-To-Django](001-Introduction-To-Django) | [Intro-To-Django.pdf](001-Introduction-To-Django/Resources/Intro-To-Django.pdf) |
+| [002-Urls-And-Templates](002-Urls-And-Templates) | [Url-S-And-Templates-Lab.pdf](002-Urls-And-Templates/Resources/Url-S-And-Templates-Lab.pdf) · [Url-S-And-Templates.pdf](002-Urls-And-Templates/Resources/Url-S-And-Templates.pdf) |
+| [003-Http-Protocol](003-Http-Protocol) | [Http-Protocol-Lab.pdf](003-Http-Protocol/Resources/Http-Protocol-Lab.pdf) · [Http-Protocol.pdf](003-Http-Protocol/Resources/Http-Protocol.pdf) |
+| [004-Workshop-Petstagram-Part-1](004-Workshop-Petstagram-Part-1) | [Workshop-Part-.pdf](004-Workshop-Petstagram-Part-1/Resources/Workshop-Part-.pdf) |
+| [005-Database-Basics](005-Database-Basics) | [Database-Basics.pdf](005-Database-Basics/Resources/Database-Basics.pdf) |
+| [006-Models-And-Mtv-Pattern](006-Models-And-Mtv-Pattern) | [Models-And-Mtv-Pattern-Lab.pdf](006-Models-And-Mtv-Pattern/Resources/Models-And-Mtv-Pattern-Lab.pdf) · [Models-And-Mtv-Pattern.pdf](006-Models-And-Mtv-Pattern/Resources/Models-And-Mtv-Pattern.pdf) |
+| [007-Workshop-Petstagram-Part-2](007-Workshop-Petstagram-Part-2) | [Workshop-Part-.pdf](007-Workshop-Petstagram-Part-2/Resources/Workshop-Part-.pdf) |
+| [008-Forms](008-Forms) | [Forms-Lab.pdf](008-Forms/Resources/Forms-Lab.pdf) · [Forms.pdf](008-Forms/Resources/Forms.pdf) |
+| [009-Model-Forms](009-Model-Forms) | [Model-Forms-Lab.pdf](009-Model-Forms/Resources/Model-Forms-Lab.pdf) · [Model-Forms.pdf](009-Model-Forms/Resources/Model-Forms.pdf) |
+| [010-Unit-And-Integration-Testing](010-Unit-And-Integration-Testing) | [Unit-And-Integration-Testing-Lab.pdf](010-Unit-And-Integration-Testing/Resources/Unit-And-Integration-Testing-Lab.pdf) · [Unit-And-Integration-Testing.pdf](010-Unit-And-Integration-Testing/Resources/Unit-And-Integration-Testing.pdf) |
+| [011-Workshop-Petstagram-Part-3](011-Workshop-Petstagram-Part-3) | [Workshop-Part-.pdf](011-Workshop-Petstagram-Part-3/Resources/Workshop-Part-.pdf) |
+| [012-Exam-Preparation-Expenses-Tracker](012-Exam-Preparation-Expenses-Tracker) | [Python-Web-Basics-Exam-Preparation.pdf](012-Exam-Preparation-Expenses-Tracker/Resources/Python-Web-Basics-Exam-Preparation.pdf) |
