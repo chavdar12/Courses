@@ -40,13 +40,20 @@ Course overview: [Entry-Framework-Core.pdf](Entry-Framework-Core.pdf)
 
 | Lesson | Materials |
 | ------ | --------- |
-| [002-Exercise-Ado.Net](002-Exercise-Ado.Net) | [Ado-Net-Exercises.pdf](002-Exercise-Ado.Net/Ado-Net-Exercises.pdf) · [Ado-Net.pdf](002-Exercise-Ado.Net/Ado-Net.pdf) · [Csharp-Asp-Net-Core-Course-Introduction-Project-Assignment-Date-.pdf](002-Exercise-Ado.Net/Csharp-Asp-Net-Core-Course-Introduction-Project-Assignment-Date-.pdf) · [Db-Advanced-Course-Introduction.pdf](002-Exercise-Ado.Net/Db-Advanced-Course-Introduction.pdf) |
-| [004-Exercise-Orm-Fundamentals](004-Exercise-Orm-Fundamentals) | [Orm-Fundamentals-Miniorm-Exercise.pdf](004-Exercise-Orm-Fundamentals/Orm-Fundamentals-Miniorm-Exercise.pdf) · [Orm-Fundamentals.pdf](004-Exercise-Orm-Fundamentals/Orm-Fundamentals.pdf) |
-| [006-Exercise-Entity-Framework-Introduction](006-Exercise-Entity-Framework-Introduction) | [Entity-Framework-Introduction-Exercises.pdf](006-Exercise-Entity-Framework-Introduction/Entity-Framework-Introduction-Exercises.pdf) · [Entity-Framework-Introduction.pdf](006-Exercise-Entity-Framework-Introduction/Entity-Framework-Introduction.pdf) |
-| [008-Exercise-Entity-Relations](008-Exercise-Entity-Relations) | [Entity-Relations-Exercises.pdf](008-Exercise-Entity-Relations/Entity-Relations-Exercises.pdf) · [Entity-Relations.pdf](008-Exercise-Entity-Relations/Entity-Relations.pdf) |
-| [010-Exercise-Linq](010-Exercise-Linq) | [Linq-Exercises.pdf](010-Exercise-Linq/Linq-Exercises.pdf) · [Linq.pdf](010-Exercise-Linq/Linq.pdf) |
-| [012-Exercise-Advanced-Querying](012-Exercise-Advanced-Querying) | [Advanced-Querying-Exercises.pdf](012-Exercise-Advanced-Querying/Advanced-Querying-Exercises.pdf) · [Advanced-Querying.pdf](012-Exercise-Advanced-Querying/Advanced-Querying.pdf) |
-| [014-Exercise-Csharp-Auto-Mapping-Objects](014-Exercise-Csharp-Auto-Mapping-Objects) | [Auto-Mapping-Objects-Exercises.pdf](014-Exercise-Csharp-Auto-Mapping-Objects/Auto-Mapping-Objects-Exercises.pdf) · [Auto-Mapping-Objects.pdf](014-Exercise-Csharp-Auto-Mapping-Objects/Auto-Mapping-Objects.pdf) |
-| [016-Exercise-Json-Processing](016-Exercise-Json-Processing) | [Json-Processing-Exercises.pdf](016-Exercise-Json-Processing/Json-Processing-Exercises.pdf) · [Json-Processing.pdf](016-Exercise-Json-Processing/Json-Processing.pdf) |
-| [018-Exercise-Xml-Processing](018-Exercise-Xml-Processing) | [Xml-Processing-Exercises.pdf](018-Exercise-Xml-Processing/Xml-Processing-Exercises.pdf) · [Xml-Processing.pdf](018-Exercise-Xml-Processing/Xml-Processing.pdf) |
-| [020-Exercise-Best-Practices-And-Architecture](020-Exercise-Best-Practices-And-Architecture) | [Best-Practices-And-Architecture-Exercise.pdf](020-Exercise-Best-Practices-And-Architecture/Best-Practices-And-Architecture-Exercise.pdf) · [Best-Practices-And-Architecture.pdf](020-Exercise-Best-Practices-And-Architecture/Best-Practices-And-Architecture.pdf) |
+| [002-Exercise-Ado.Net](002-Exercise-Ado.Net) | [Ado-Net-Exercises.pdf](002-Exercise-Ado.Net/Resources/Ado-Net-Exercises.pdf) · [Ado-Net.pdf](002-Exercise-Ado.Net/Resources/Ado-Net.pdf) · [Csharp-Asp-Net-Core-Course-Introduction-Project-Assignment-Date-.pdf](002-Exercise-Ado.Net/Resources/Csharp-Asp-Net-Core-Course-Introduction-Project-Assignment-Date-.pdf) · [Db-Advanced-Course-Introduction.pdf](002-Exercise-Ado.Net/Resources/Db-Advanced-Course-Introduction.pdf) |
+| [004-Exercise-Orm-Fundamentals](004-Exercise-Orm-Fundamentals) | [Orm-Fundamentals-Miniorm-Exercise.pdf](004-Exercise-Orm-Fundamentals/Resources/Orm-Fundamentals-Miniorm-Exercise.pdf) · [Orm-Fundamentals.pdf](004-Exercise-Orm-Fundamentals/Resources/Orm-Fundamentals.pdf) |
+| [006-Exercise-Entity-Framework-Introduction](006-Exercise-Entity-Framework-Introduction) | [Entity-Framework-Introduction-Exercises.pdf](006-Exercise-Entity-Framework-Introduction/Resources/Entity-Framework-Introduction-Exercises.pdf) · [Entity-Framework-Introduction.pdf](006-Exercise-Entity-Framework-Introduction/Resources/Entity-Framework-Introduction.pdf) |
+| [008-Exercise-Entity-Relations](008-Exercise-Entity-Relations) | [Entity-Relations-Exercises.pdf](008-Exercise-Entity-Relations/Resources/Entity-Relations-Exercises.pdf) · [Entity-Relations.pdf](008-Exercise-Entity-Relations/Resources/Entity-Relations.pdf) |
+| [010-Exercise-Linq](010-Exercise-Linq) | [Linq-Exercises.pdf](010-Exercise-Linq/Resources/Linq-Exercises.pdf) · [Linq.pdf](010-Exercise-Linq/Resources/Linq.pdf) |
+| [012-Exercise-Advanced-Querying](012-Exercise-Advanced-Querying) | [Advanced-Querying-Exercises.pdf](012-Exercise-Advanced-Querying/Resources/Advanced-Querying-Exercises.pdf) · [Advanced-Querying.pdf](012-Exercise-Advanced-Querying/Resources/Advanced-Querying.pdf) |
+| [014-Exercise-Csharp-Auto-Mapping-Objects](014-Exercise-Csharp-Auto-Mapping-Objects) | [Auto-Mapping-Objects-Exercises.pdf](014-Exercise-Csharp-Auto-Mapping-Objects/Resources/Auto-Mapping-Objects-Exercises.pdf) · [Auto-Mapping-Objects.pdf](014-Exercise-Csharp-Auto-Mapping-Objects/Resources/Auto-Mapping-Objects.pdf) |
+| [016-Exercise-Json-Processing](016-Exercise-Json-Processing) | [Json-Processing-Exercises.pdf](016-Exercise-Json-Processing/Resources/Json-Processing-Exercises.pdf) · [Json-Processing.pdf](016-Exercise-Json-Processing/Resources/Json-Processing.pdf) |
+| [018-Exercise-Xml-Processing](018-Exercise-Xml-Processing) | [Xml-Processing-Exercises.pdf](018-Exercise-Xml-Processing/Resources/Xml-Processing-Exercises.pdf) · [Xml-Processing.pdf](018-Exercise-Xml-Processing/Resources/Xml-Processing.pdf) |
+| [020-Exercise-Best-Practices-And-Architecture](020-Exercise-Best-Practices-And-Architecture) | [Best-Practices-And-Architecture-Exercise.pdf](020-Exercise-Best-Practices-And-Architecture/Resources/Best-Practices-And-Architecture-Exercise.pdf) · [Best-Practices-And-Architecture.pdf](020-Exercise-Best-Practices-And-Architecture/Resources/Best-Practices-And-Architecture.pdf) |
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+| Lesson | Materials |
+| ------ | --------- |
