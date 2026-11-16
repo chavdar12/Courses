@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   security-events: write
 
 jobs:
@@ -28,3 +29,10 @@ jobs:
       - uses: github/codeql-action/analyze@v4
         with:
           category: /language:${{ matrix.language }}
+          # code scanning is unavailable on private repos, so keep the findings as an artifact instead
+          upload: never
+          output: codeql-results
+      - uses: actions/upload-artifact@v5
+        with:
+          name: codeql-results-${{ strategy.job-index }}
+          path: codeql-results
