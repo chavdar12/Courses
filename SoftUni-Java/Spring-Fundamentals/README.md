@@ -36,3 +36,21 @@ The Bootstrap lecture is JavaScript: `cd 011-Bootstrap-Front-End-Basics && npm i
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Spring-Fundamentals.pdf](Spring-Fundamentals.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Internet-Explained](001-Internet-Explained) | [Internet-Explained.pdf](001-Internet-Explained/Internet-Explained.pdf) |
+| [001-Spring-Boot-Introduction](001-Spring-Boot-Introduction) | [Spring-Boot-And-Spring-Data-Lab.pdf](001-Spring-Boot-Introduction/Spring-Boot-And-Spring-Data-Lab.pdf) · [Spring-Boot-Introduction-.pdf](001-Spring-Boot-Introduction/Spring-Boot-Introduction-.pdf) · [Spring-Boot-Introduction-More-Ex.pdf](001-Spring-Boot-Introduction/Spring-Boot-Introduction-More-Ex.pdf) |
+| [002-Http-Protocol](002-Http-Protocol) | [Http-Protocol.pdf](002-Http-Protocol/Http-Protocol.pdf) |
+| [003-Spring-Introduction-MVC](003-Spring-Introduction-MVC) | [Spring-Introduction-Mvc-Lab.pdf](003-Spring-Introduction-MVC/Spring-Introduction-Mvc-Lab.pdf) · [Spring-Introduction-Mvc.pdf](003-Spring-Introduction-MVC/Spring-Introduction-Mvc.pdf) |
+| [004-Workshop-Pathfinder-Part-One](004-Workshop-Pathfinder-Part-One) | [Pathfinder-Workshop.pdf](004-Workshop-Pathfinder-Part-One/Pathfinder-Workshop.pdf) |
+| [005-State-Management](005-State-Management) | [Spring-Fundamentals-State-Management.pdf](005-State-Management/Spring-Fundamentals-State-Management.pdf) |
+| [006-Spring-Essentials](006-Spring-Essentials) | [Spring-Essentials-Lab.pdf](006-Spring-Essentials/Spring-Essentials-Lab.pdf) · [Spring-Essentials.pdf](006-Spring-Essentials/Spring-Essentials.pdf) |
+| [008-Workshop-Pathfinder-Part-Two](008-Workshop-Pathfinder-Part-Two) | [Pathfinder-Workshop-Part-Two.pdf](008-Workshop-Pathfinder-Part-Two/Pathfinder-Workshop-Part-Two.pdf) |
+| [009-Thymeleaf-And-Validations](009-Thymeleaf-And-Validations) | [Thymeleaf-And-Validation-Lab.pdf](009-Thymeleaf-And-Validations/Thymeleaf-And-Validation-Lab.pdf) · [Thymeleaf-And-Validation.pdf](009-Thymeleaf-And-Validations/Thymeleaf-And-Validation.pdf) |
