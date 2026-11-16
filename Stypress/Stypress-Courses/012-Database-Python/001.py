@@ -1,7 +1,7 @@
 import sqlite3
 from pathlib import Path
 
-DATA = Path(__file__).resolve().parents[1] / "Stypress-Courses" / "012-Database-Python" / "retn5_dat.txt"
+DATA = Path(__file__).with_name("Resources") / "retn5_dat.txt"
 DB = Path(__file__).with_name("retention.db")
 
 
