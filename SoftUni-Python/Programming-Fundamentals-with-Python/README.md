@@ -44,3 +44,43 @@ python -m unittest -v
 ## License
 
 [MIT](LICENSE)
+
+## Course materials
+
+Slides and task sheets from the course, stored next to each lesson.
+
+Course overview: [Programming-Fundamentals-With-Python.pdf](Programming-Fundamentals-With-Python.pdf)
+
+| Lesson | Materials |
+| ------ | --------- |
+| [001-Basic-Syntax-Conditional-Statements-And-Loops](001-Basic-Syntax-Conditional-Statements-And-Loops) | [Basic-Syntax-Conditional-Statements-And-Loops-Lab.pdf](001-Basic-Syntax-Conditional-Statements-And-Loops/Resources/Basic-Syntax-Conditional-Statements-And-Loops-Lab.pdf) · [Basic-Syntax-Conditional-Statements-And-Loops.pdf](001-Basic-Syntax-Conditional-Statements-And-Loops/Resources/Basic-Syntax-Conditional-Statements-And-Loops.pdf) |
+| [002-Exercise-Basic-Syntax-Conditional-Statements-And-Loops](002-Exercise-Basic-Syntax-Conditional-Statements-And-Loops) | [Basic-Syntax-Conditional-Statements-And-Loops-Exercise.pdf](002-Exercise-Basic-Syntax-Conditional-Statements-And-Loops/Resources/Basic-Syntax-Conditional-Statements-And-Loops-Exercise.pdf) · [Basic-Syntax-Conditional-Statements-And-Loops-More-Exercise.pdf](002-Exercise-Basic-Syntax-Conditional-Statements-And-Loops/Resources/Basic-Syntax-Conditional-Statements-And-Loops-More-Exercise.pdf) |
+| [003-Data-Types-And-Variables](003-Data-Types-And-Variables) | [Data-Types-And-Variables-Lab.pdf](003-Data-Types-And-Variables/Resources/Data-Types-And-Variables-Lab.pdf) · [Data-Types-And-Variables.pdf](003-Data-Types-And-Variables/Resources/Data-Types-And-Variables.pdf) |
+| [003-Http-Basics](003-Http-Basics) | [Http-Basics-Lab.pdf](003-Http-Basics/Resources/Http-Basics-Lab.pdf) · [Http-Basics.pdf](003-Http-Basics/Resources/Http-Basics.pdf) |
+| [004-Exercise-Data-Types-And-Variables](004-Exercise-Data-Types-And-Variables) | [Data-Types-And-Variables-Exercise.pdf](004-Exercise-Data-Types-And-Variables/Resources/Data-Types-And-Variables-Exercise.pdf) · [Data-Types-And-Variables-More-Exercises.pdf](004-Exercise-Data-Types-And-Variables/Resources/Data-Types-And-Variables-More-Exercises.pdf) |
+| [005-Lists-Basics](005-Lists-Basics) | [Lists-Basics-Lab.pdf](005-Lists-Basics/Resources/Lists-Basics-Lab.pdf) · [Lists-Basics.pdf](005-Lists-Basics/Resources/Lists-Basics.pdf) |
+| [006-Exercise-List-Basics](006-Exercise-List-Basics) | [Lists-Basics-Exercise.pdf](006-Exercise-List-Basics/Resources/Lists-Basics-Exercise.pdf) · [Lists-Basics-More-Exercises.docx](006-Exercise-List-Basics/Resources/Lists-Basics-More-Exercises.docx) · [Lists-Basics-More-Exercises.pdf](006-Exercise-List-Basics/Resources/Lists-Basics-More-Exercises.pdf) |
+| [006-Html-And-Css-Basics](006-Html-And-Css-Basics) | [Html-And-Css-Basics-Lab.pdf](006-Html-And-Css-Basics/Resources/Html-And-Css-Basics-Lab.pdf) · [Html-And-Css-Basics.pdf](006-Html-And-Css-Basics/Resources/Html-And-Css-Basics.pdf) |
+| [007-Functions](007-Functions) | [Functions-Lab.pdf](007-Functions/Resources/Functions-Lab.pdf) · [Functions.pdf](007-Functions/Resources/Functions.pdf) |
+| [008-Exercise-Functions](008-Exercise-Functions) | [Functions-Exercise.pdf](008-Exercise-Functions/Resources/Functions-Exercise.pdf) · [Functions-More-Exercises.pdf](008-Exercise-Functions/Resources/Functions-More-Exercises.pdf) |
+| [009-Lists-Advanced](009-Lists-Advanced) | [Lists-Advanced-Lab.pdf](009-Lists-Advanced/Resources/Lists-Advanced-Lab.pdf) · [Lists-Advanced.pdf](009-Lists-Advanced/Resources/Lists-Advanced.pdf) |
+| [009-Software-Development-Concepts-Part-1](009-Software-Development-Concepts-Part-1) | [Software-Development-Concepts-Part-.pdf](009-Software-Development-Concepts-Part-1/Resources/Software-Development-Concepts-Part-.pdf) |
+| [010-Exercise-Lists-Advanced](010-Exercise-Lists-Advanced) | [Lists-Advanced-Exercise.pdf](010-Exercise-Lists-Advanced/Resources/Lists-Advanced-Exercise.pdf) · [Lists-Advanced-More-Exercises.pdf](010-Exercise-Lists-Advanced/Resources/Lists-Advanced-More-Exercises.pdf) |
+| [011-Objects-And-Classes](011-Objects-And-Classes) | [Objects-And-Classes-Lab.pdf](011-Objects-And-Classes/Resources/Objects-And-Classes-Lab.pdf) · [Objects-And-Classes.pdf](011-Objects-And-Classes/Resources/Objects-And-Classes.pdf) |
+| [012-Exercise-Objects-And-Classes](012-Exercise-Objects-And-Classes) | [Objects-And-Classes-Exercise.pdf](012-Exercise-Objects-And-Classes/Resources/Objects-And-Classes-Exercise.pdf) |
+| [012-Software-Development-Concepts-Part-2](012-Software-Development-Concepts-Part-2) | [Software-Development-Concepts-Part-.pdf](012-Software-Development-Concepts-Part-2/Resources/Software-Development-Concepts-Part-.pdf) |
+| [013-Dictionaries](013-Dictionaries) | [Dictionaries-Lab.pdf](013-Dictionaries/Resources/Dictionaries-Lab.pdf) · [Dictionaries.pdf](013-Dictionaries/Resources/Dictionaries.pdf) |
+| [014-Exercise-Dictionaries](014-Exercise-Dictionaries) | [Dictionaries-Exercise.pdf](014-Exercise-Dictionaries/Resources/Dictionaries-Exercise.pdf) · [Dictionaries-More-Exercise.pdf](014-Exercise-Dictionaries/Resources/Dictionaries-More-Exercise.pdf) |
+| [015-Text-Processing](015-Text-Processing) | [Text-Processing-Lab.pdf](015-Text-Processing/Resources/Text-Processing-Lab.pdf) · [Text-Processing.pdf](015-Text-Processing/Resources/Text-Processing.pdf) |
+| [016-Exercise-Text-Processing](016-Exercise-Text-Processing) | [Text-Processing-Exercise.pdf](016-Exercise-Text-Processing/Resources/Text-Processing-Exercise.pdf) · [Text-Processing-More-Exercises.pdf](016-Exercise-Text-Processing/Resources/Text-Processing-More-Exercises.pdf) |
+| [017-Regex](017-Regex) | [Regex-Lab.pdf](017-Regex/Resources/Regex-Lab.pdf) · [Regex.pdf](017-Regex/Resources/Regex.pdf) |
+| [018-Exercise-Regex](018-Exercise-Regex) | [Regex-Exercise.pdf](018-Exercise-Regex/Resources/Regex-Exercise.pdf) · [Regex-More-Exercises.pdf](018-Exercise-Regex/Resources/Regex-More-Exercises.pdf) |
+| [019-Mid-Exam-Preparation](019-Mid-Exam-Preparation) | [Mid-Exam-Preparation.pdf](019-Mid-Exam-Preparation/Resources/Mid-Exam-Preparation.pdf) |
+| [020-Bitwise-Operations](020-Bitwise-Operations) | [Bitwise-Operations-Lab.pdf](020-Bitwise-Operations/Resources/Bitwise-Operations-Lab.pdf) · [Bitwise-Operations.pdf](020-Bitwise-Operations/Resources/Bitwise-Operations.pdf) |
+| [021-Final-Exam-Preparation-1](021-Final-Exam-Preparation-1) | [Final-Exam-Preparation-.pdf](021-Final-Exam-Preparation-1/Resources/Final-Exam-Preparation-.pdf) |
+| [021-Problem-Solving](021-Problem-Solving) | [Problem-Solving.pdf](021-Problem-Solving/Resources/Problem-Solving.pdf) |
+| [022-Final-Exam-Preparation-2](022-Final-Exam-Preparation-2) | [Final-Exam-Preparation-.pdf](022-Final-Exam-Preparation-2/Resources/Final-Exam-Preparation-.pdf) |
+| [024-Database-Basics](024-Database-Basics) | [Database-Basics-Lab.pdf](024-Database-Basics/Resources/Database-Basics-Lab.pdf) · [Database-Basics-Workbench-Installation-Guide.pdf](024-Database-Basics/Resources/Database-Basics-Workbench-Installation-Guide.pdf) · [Database-Basics.pdf](024-Database-Basics/Resources/Database-Basics.pdf) · [Xampp-And-Heidisql-Installation-Guide.pdf](024-Database-Basics/Resources/Xampp-And-Heidisql-Installation-Guide.pdf) |
+| [027-Git-And-Github](027-Git-And-Github) | [Git-And-Github-Lab.pdf](027-Git-And-Github/Resources/Git-And-Github-Lab.pdf) · [Git-And-Github.pdf](027-Git-And-Github/Resources/Git-And-Github.pdf) |
+| [30-Qa-Introduction](30-Qa-Introduction) | [Qa-Introduction.pdf](30-Qa-Introduction/Resources/Qa-Introduction.pdf) |
+| [31-Basic-Web-Project](31-Basic-Web-Project) | [Python-Fundamentals-Basic-Web-Project-Exercise.pdf](31-Basic-Web-Project/Resources/Python-Fundamentals-Basic-Web-Project-Exercise.pdf) |
