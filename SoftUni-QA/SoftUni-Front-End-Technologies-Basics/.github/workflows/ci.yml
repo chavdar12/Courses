@@ -4,33 +4,28 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+  statuses: write
 
 jobs:
-  unit:
-    name: Unit tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-          cache-dependency-path: '**/package-lock.json'
-      - name: Lesson test suites
-        run: |
-          # every lesson is its own npm project; Playwright ones run in the e2e job
-          find . -name package.json -not -path '*/node_modules/*' -not -path './.github/*' | sort | while read -r pkg; do
-            dir=$(dirname "$pkg")
-            grep -q '"test":' "$pkg" || continue
-            grep -q '"test": *"[^"]*playwright' "$pkg" && continue
-            echo "::group::$dir"
-            (cd "$dir" && npm ci --no-audit --no-fund && npm test) || exit 1
-            echo "::endgroup::"
-          done
+  ci:
+    uses: chavdar12-projects/workflows/.github/workflows/ci.yml@v1
+    with:
+      codeql: '["javascript-typescript"]'
+      format: 'prettier'
+      build: 'node'
 
   e2e:
     name: E2E ${{ matrix.dir }}
-    runs-on: ubuntu-latest
+    needs: ci
+    if: ${{ !cancelled() }}
+    runs-on: ${{ needs.ci.outputs.runner || 'k8s-runners' }}
     strategy:
       fail-fast: false
       matrix:
