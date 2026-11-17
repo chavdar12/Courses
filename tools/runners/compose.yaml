@@ -1,0 +1,26 @@
+# Self-hosted runners for Courses CI with plain Docker: the lighter alternative to the ARC setup (setup.sh).
+# Each container registers one ephemeral runner, takes one job, exits, and is restarted fresh.
+#
+#   cp .env.example .env      # token + repo URL (shared with setup.sh); optional RUNNERS=3
+#   docker compose up -d      # start RUNNERS runners
+#   docker compose logs -f    # watch them register and pick up jobs
+#   docker compose down       # stop them (idle runners unregister themselves)
+services:
+  runner:
+    image: ghcr.io/actions/actions-runner:2.338.2
+    entrypoint: ["bash", "/entrypoint.sh"]
+    env_file: .env
+    environment:
+      RUNNER_LABELS: ${RUNNER_NAME:-k8s-runners} # the label CI's runs-on targets
+      RUNNER_TOOL_CACHE: /opt/hostedtoolcache # setup-node/java/python/dotnet keep toolchains here
+      AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
+    volumes:
+      - ./entrypoint.sh:/entrypoint.sh:ro
+      - toolcache:/opt/hostedtoolcache # shared, so toolchains download once, not per job
+    restart: unless-stopped
+    deploy:
+      replicas: ${RUNNERS:-3}
+    stop_grace_period: 30s
+
+volumes:
+  toolcache:
