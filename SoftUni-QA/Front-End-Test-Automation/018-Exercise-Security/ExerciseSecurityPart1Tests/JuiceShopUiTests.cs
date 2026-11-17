@@ -25,6 +25,8 @@ namespace ExerciseSecurityPart1
             driver.Navigate().GoToUrl(BaseUrl);
             driver.Manage().Cookies.AddCookie(new Cookie("welcomebanner_status", "dismiss"));
             driver.Manage().Cookies.AddCookie(new Cookie("cookieconsent_status", "dismiss"));
+            // The app already opened the banner on the first load, and /#/ navigation never reloads: reload so it starts with the cookies.
+            driver.Navigate().Refresh();
         }
 
         [TearDown]
