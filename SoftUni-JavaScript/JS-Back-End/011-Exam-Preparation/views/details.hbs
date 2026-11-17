@@ -1,0 +1,35 @@
+{{#with trip}}
+    <section class="details">
+        <img src="{{carImage}}" alt="{{carBrand}}">
+        <div class="info">
+            <h1>{{startPoint}} - {{endPoint}}</h1>
+            <p><span>Date:</span> {{date}} at {{time}}</p>
+            <p><span>Car Brand:</span> {{carBrand}}</p>
+            <p><span>Seats left:</span> {{seats}}</p>
+            <p><span>Price:</span> {{price}} BGN</p>
+            <p class="description">{{description}}</p>
+
+            <div class="buddies">
+                <p><span>Shared Trip Buddies:</span>
+                    {{#if @root.buddies}}{{@root.buddies}}{{else}}there are no buddies yet...{{/if}}
+                </p>
+                <p><span>Driver:</span> {{creator.email}}</p>
+            </div>
+
+            {{#if @root.user}}
+                <div class="actions">
+                    {{#if @root.isCreator}}
+                        <form action="/trips/{{_id}}/delete" method="post"><button class="btn danger">Delete this trip</button></form>
+                        <a class="btn" href="/trips/{{_id}}/edit">Edit this trip</a>
+                    {{else if @root.hasJoined}}
+                        <p class="joined">Already joined. Don't be late!</p>
+                    {{else if seats}}
+                        <form action="/trips/{{_id}}/join" method="post"><button class="btn">Join now, {{seats}} left</button></form>
+                    {{else}}
+                        <p class="no-seats">No seats available!</p>
+                    {{/if}}
+                </div>
+            {{/if}}
+        </div>
+    </section>
+{{/with}}

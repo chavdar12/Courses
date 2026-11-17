@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Shelter</title>
+    <link rel="stylesheet" href="/content/styles/site.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navigation">
+                <li><a href="/">Home Page</a></li>
+                <li><a href="/cats/add-breed">Add Breed</a></li>
+                <li><a href="/cats/add-cat">Add Cat</a></li>
+            </ul>
+        </nav>
+        <h1>Cat Shelter</h1>
+        <form action="/" method="GET" class="search">
+            <input type="text" name="search" placeholder="Search by name" value="{{search}}">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <main>
+        <section class="cats">
+            <ul>{{cats}}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

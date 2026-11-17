@@ -1,0 +1,19 @@
+<section class="catalog">
+    <h1>My Posts</h1>
+    {{#if posts}}
+        <div class="cards">
+            {{#each posts}}
+                <article class="card mine">
+                    <img src="{{image}}" alt="{{title}}">
+                    <h3>{{title}}</h3>
+                    <p>Keyword: {{keyword}}</p>
+                    <p>Author: {{author.firstName}} {{author.lastName}}</p>
+                    <p>Rating: {{rating}}</p>
+                    <a class="btn" href="/posts/{{_id}}">Details</a>
+                </article>
+            {{/each}}
+        </div>
+    {{else}}
+        <p class="no-posts">You have no posts yet!</p>
+    {{/if}}
+</section>

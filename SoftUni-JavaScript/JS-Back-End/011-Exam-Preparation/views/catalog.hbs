@@ -1,0 +1,20 @@
+<section class="catalog">
+    <h1>Shared Trips</h1>
+    {{#if trips}}
+        <div class="cards">
+            {{#each trips}}
+                <article class="card">
+                    <img src="{{carImage}}" alt="{{carBrand}}">
+                    <div class="card-body">
+                        <h3>{{startPoint}} - {{endPoint}}</h3>
+                        <p>{{date}} at {{time}}</p>
+                        <p class="price">{{price}} BGN</p>
+                        <a class="btn" href="/trips/{{_id}}">Details</a>
+                    </div>
+                </article>
+            {{/each}}
+        </div>
+    {{else}}
+        <p class="no-trips">No trips available yet. <a href="/trips/create">Offer the first one!</a></p>
+    {{/if}}
+</section>

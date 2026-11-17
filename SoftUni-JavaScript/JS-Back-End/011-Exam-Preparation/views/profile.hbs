@@ -1,0 +1,16 @@
+{{#with profile}}
+    <section class="profile">
+        <img class="avatar" src="/static/images/{{gender}}.svg" alt="{{gender}} avatar">
+        <h1>{{email}}</h1>
+        <p>Trips: {{tripsHistory.length}}</p>
+        {{#if tripsHistory}}
+            <div class="trips">
+                {{#each tripsHistory}}
+                    <a class="trip" href="/trips/{{_id}}">{{startPoint}} - {{endPoint}} · {{date}} at {{time}} · {{price}} BGN</a>
+                {{/each}}
+            </div>
+        {{else}}
+            <p class="no-trips">You have not offered any trips yet.</p>
+        {{/if}}
+    </section>
+{{/with}}

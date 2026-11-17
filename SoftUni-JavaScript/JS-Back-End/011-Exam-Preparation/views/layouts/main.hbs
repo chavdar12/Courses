@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} | Shared Trip</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+<header>
+    <a class="logo" href="/">Shared Trip</a>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/trips">Shared Trips</a></li>
+            {{#if user}}
+                <li><a href="/trips/create">Offer Trip</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {{else}}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {{#if error}}
+        <div class="error">
+            <p>{{error}}</p>
+        </div>
+    {{/if}}
+    {{{body}}}
+</main>
+
+<footer>Shared Trip &copy; SoftUni JS Back-End exam preparation</footer>
+</body>
+
+</html>

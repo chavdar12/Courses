@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} | Wildlife Photography</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+<header>
+    <a class="logo" href="/">Wildlife Photography</a>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/posts">All Posts</a></li>
+            {{#if user}}
+                <li><a href="/posts/create">Create Post</a></li>
+                <li><a href="/posts/mine">Posts of {{user.email}}</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {{else}}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {{#if error}}
+        <div class="error-container">
+            <p>{{error}}</p>
+        </div>
+    {{/if}}
+    {{{body}}}
+</main>
+
+<footer>Wildlife Photography &copy; SoftUni JS Back-End exam preparation</footer>
+</body>
+
+</html>
