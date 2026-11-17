@@ -1,0 +1,22 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "udemy-laravel-and-php-mastery",
+  "projectType": "application",
+  "tags": ["track:Udemy", "stack:php"],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash ../../tools/ci.sh build php",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash ../../tools/ci.sh format php-cs-fixer",
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}
