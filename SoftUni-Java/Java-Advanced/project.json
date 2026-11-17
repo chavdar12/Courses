@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "Java-Advanced",
+    "name": "java-advanced",
     "projectType": "application",
     "tags": ["track:SoftUni-Java", "stack:java"],
     "targets": {

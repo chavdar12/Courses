@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "Python-Web-Basics",
+    "name": "python-web-basics",
     "projectType": "application",
     "tags": ["track:SoftUni-Python", "stack:python"],
     "targets": {

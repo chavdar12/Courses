@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "Stypress-Python",
+  "name": "stypress-python",
   "projectType": "application",
   "tags": ["track:Stypress", "stack:python"],
   "targets": {

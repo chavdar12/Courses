@@ -1,0 +1,25 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "qa-front-end-test-automation",
+    "projectType": "application",
+    "tags": ["track:SoftUni-QA", "stack:dotnet"],
+    "targets": {
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh build dotnet",
+                "cwd": "{projectRoot}",
+                "env": {
+                    "SETUP": "# lessons 006 and 015 test SoftUni's Student Registry app, which is no longer hosted, so run it locally on port 8080\ngit clone -q https://github.com/nakov/MVC-app-integration-tests-example-mocha.git \"$RUNNER_TEMP/student-registry\"\ncd \"$RUNNER_TEMP/student-registry\" && git checkout -q 199394948c8a39edf1b7f0dd386a4aaf5787c6d7 && npm install --no-audit --no-fund\nnohup npm start > app.log 2>&1 &\ncurl --silent --fail --retry 15 --retry-connrefused --retry-delay 1 http://localhost:8080/ > /dev/null\n"
+                }
+            }
+        },
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh format csharpier",
+                "cwd": "{projectRoot}"
+            }
+        }
+    }
+}

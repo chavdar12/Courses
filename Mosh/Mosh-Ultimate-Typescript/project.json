@@ -1,7 +1,0 @@
-{
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "Mosh-Ultimate-Typescript",
-  "projectType": "application",
-  "tags": ["track:Mosh"],
-  "targets": {}
-}

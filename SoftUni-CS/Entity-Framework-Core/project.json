@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "Entity-Framework-Core",
+    "name": "cs-entity-framework-core",
     "projectType": "application",
     "tags": ["track:SoftUni-CS", "stack:dotnet"],
     "targets": {

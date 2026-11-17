@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "CS-OOP",
+    "name": "cs-oop",
     "projectType": "application",
     "tags": ["track:SoftUni-CS", "stack:dotnet"],
     "targets": {

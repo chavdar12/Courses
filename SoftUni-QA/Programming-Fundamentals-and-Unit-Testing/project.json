@@ -1,0 +1,22 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "qa-programming-fundamentals-and-unit-testing",
+    "projectType": "application",
+    "tags": ["track:SoftUni-QA", "stack:dotnet"],
+    "targets": {
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh build dotnet",
+                "cwd": "{projectRoot}"
+            }
+        },
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh format csharpier",
+                "cwd": "{projectRoot}"
+            }
+        }
+    }
+}

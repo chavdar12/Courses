@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "Spring-Advanced-Final-Project",
+  "name": "java-spring-advanced-final-project",
   "projectType": "application",
   "tags": ["track:SoftUni-Java", "stack:java", "stack:node"],
   "targets": {

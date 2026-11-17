@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "JS-Applications",
+  "name": "js-applications",
   "projectType": "application",
   "tags": ["track:SoftUni-JS", "stack:node"],
   "targets": {

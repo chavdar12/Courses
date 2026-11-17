@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "MySQL",
+    "name": "java-mysql",
     "projectType": "application",
     "tags": ["track:SoftUni-Java"],
     "targets": {

@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "ASP-Net-Core",
+    "name": "cs-asp-net-core",
     "projectType": "application",
     "tags": ["track:SoftUni-CS", "stack:dotnet"],
     "targets": {

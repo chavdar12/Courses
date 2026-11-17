@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "CPP-Advanced",
+    "name": "cpp-advanced",
     "projectType": "application",
     "tags": ["track:SoftUni-CPP", "stack:cpp"],
     "targets": {

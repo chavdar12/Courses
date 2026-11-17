@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "Spring-Fundamentals",
+    "name": "java-spring-fundamentals",
     "projectType": "application",
     "tags": ["track:SoftUni-Java", "stack:java", "stack:node"],
     "targets": {

@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "PHP-Web-Development-Basics",
+    "name": "php-web-development-basics",
     "projectType": "application",
     "tags": ["track:SoftUni-PHP", "stack:php"],
     "targets": {
