@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   ci:
-    uses: chavdar12-projects/workflows/.github/workflows/ci.yml@v1
+    uses: chavdar12/workflows/.github/workflows/ci.yml@v2
     with:
       lint: 'CSS HTML'
       format: 'prettier'
