@@ -1,0 +1,62 @@
+﻿using System.Collections.Generic;
+using NUnit.Framework;
+
+namespace TestApp.UnitTests;
+
+public class MaxNumberTests
+{
+    [Test]
+    public void Test_FindMax_InputHasOneElement_ShouldReturnTheElement()
+    {
+        List<int> oneElementArray = new() { 110 };
+
+        var actualResult = MaxNumber.FindMax(oneElementArray);
+        var expectedResult = 110;
+
+        Assert.That(expectedResult == actualResult);
+    }
+
+    [Test]
+    public void Test_FindMax_InputHasPositiveIntegers_ShouldReturnMaximum()
+    {
+        List<int> oneElementArray = new() { 10, 20, 30 };
+
+        var actualResult = MaxNumber.FindMax(oneElementArray);
+        var expectedResult = 30;
+
+        Assert.That(expectedResult == actualResult);
+    }
+
+    [Test]
+    public void Test_FindMax_InputHasNegativeIntegers_ShouldReturnMaximum()
+    {
+        List<int> oneElementArray = new() { -10, -20, -30 };
+
+        var actualResult = MaxNumber.FindMax(oneElementArray);
+        var expectedResult = -10;
+
+        Assert.That(expectedResult == actualResult);
+    }
+
+    [Test]
+    public void Test_FindMax_InputHasMixedIntegers_ShouldReturnMaximum()
+    {
+        List<int> oneElementArray = new() { -10, 25, -30, 0 };
+
+        var actualResult = MaxNumber.FindMax(oneElementArray);
+        var expectedResult = 25;
+
+        Assert.That(expectedResult == actualResult);
+    }
+
+    [Test]
+    public void Test_FindMax_InputHasDuplicateMaxValue_ShouldReturnMaximum()
+    {
+        List<int> oneElementArray = new() { -10, 25, -30, 25 };
+
+        var actualResult = MaxNumber.FindMax(oneElementArray);
+        var expectedResult = 25;
+
+        Assert.That(expectedResult == actualResult);
+    }
+}

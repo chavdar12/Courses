@@ -1,0 +1,64 @@
+﻿using System;
+using NUnit.Framework;
+
+namespace TestApp.UnitTests;
+
+public class PatternTests
+{
+    [Test]
+    public void Test_SortInPattern_SortsIntArrayInPattern_SortsCorrectly()
+    {
+        var intsArray = new int[] { 1, 2, 3, 4, 5 };
+
+        var actualResult = Pattern.SortInPattern(intsArray);
+        var expectedResult = new int[] { 1, 5, 2, 4, 3 };
+
+        Assert.AreEqual(expectedResult, actualResult);
+    }
+
+    [Test]
+    public void Test_SortInPattern_EmptyArray_ReturnsEmptyArray()
+    {
+        var intsArray = Array.Empty<int>();
+
+        var actualResult = Pattern.SortInPattern(intsArray);
+        var expectedResult = Array.Empty<int>();
+
+        Assert.AreEqual(expectedResult, actualResult);
+    }
+
+    [Test]
+    public void Test_SortInPattern_SingleElementArray_ReturnsSameArray()
+    {
+        var intsArray = new int[] { 100 };
+
+        var actualResult = Pattern.SortInPattern(intsArray);
+        var expectedResult = new int[] { 100 };
+
+        Assert.AreEqual(expectedResult, actualResult);
+    }
+
+    [Test]
+    public void Test_SortInPattern_RemoveDuplicates_Then_ReturnSortedArray()
+    {
+        var intsArray = new int[] { 5, 3, 4, 4, 18, 2, 2, 3, 5 };
+        //5, 3, 4, 18, 2  - removing duplicates
+        //2, 3, 4, 5, 18  - asc sort
+        //2, 18, 3, 5, 4  - pattern sort
+
+        var actualResult = Pattern.SortInPattern(intsArray);
+        var expectedResult = new int[] { 2, 18, 3, 5, 4 };
+
+        Assert.AreEqual(expectedResult, actualResult);
+    }
+
+    [Test]
+    public void Test_SortInPattern_DoesNotModifyInputArray()
+    {
+        var intsArray = new int[] { 3, 1, 2 };
+
+        Pattern.SortInPattern(intsArray);
+
+        Assert.AreEqual(new int[] { 3, 1, 2 }, intsArray);
+    }
+}
