@@ -1,0 +1,50 @@
+package bg.softuni.solutions;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import java.util.Collections;
+import java.util.List;
+
+public class TopViewTest {
+
+    @Test
+    public void testLCA() {
+        BinaryTree binaryTree =
+                new BinaryTree(
+                        1,
+                        new BinaryTree(
+                                2, new BinaryTree(4, null, null), new BinaryTree(5, null, null)),
+                        new BinaryTree(
+                                3, new BinaryTree(6, null, null), new BinaryTree(7, null, null)));
+
+        List<Integer> list = binaryTree.topView();
+
+        Collections.sort(list);
+        Integer[] expected = {1, 2, 3, 4, 7};
+
+        assertEquals(expected.length, list.size());
+
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], list.get(i));
+        }
+    }
+
+    @Test
+    public void testShallowerNodeWinsOverDeeperLeftSubtreeNode() {
+        BinaryTree binaryTree =
+                new BinaryTree(
+                        1,
+                        new BinaryTree(
+                                2,
+                                null,
+                                new BinaryTree(
+                                        4,
+                                        null,
+                                        new BinaryTree(5, null, new BinaryTree(6, null, null)))),
+                        new BinaryTree(3, null, null));
+
+        assertEquals(List.of(2, 1, 3, 6), binaryTree.topView());
+    }
+}
