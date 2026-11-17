@@ -1,0 +1,27 @@
+# Monthly, grouped version updates for every course; security updates arrive as soon as an advisory lands.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories: ["/", "/**/*"]
+    schedule: { interval: monthly }
+    groups: { npm: { patterns: ["*"] } }
+    open-pull-requests-limit: 5
+  - package-ecosystem: gradle
+    directories: ["/**/*"]
+    schedule: { interval: monthly }
+    groups: { gradle: { patterns: ["*"] } }
+    open-pull-requests-limit: 5
+  - package-ecosystem: nuget
+    directories: ["/**/*"]
+    schedule: { interval: monthly }
+    groups: { nuget: { patterns: ["*"] } }
+    open-pull-requests-limit: 5
+  - package-ecosystem: pip
+    directories: ["/**/*"]
+    schedule: { interval: monthly }
+    groups: { pip: { patterns: ["*"] } }
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: monthly }
+    groups: { actions: { patterns: ["*"] } }

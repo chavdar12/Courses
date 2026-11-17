@@ -1,4 +1,4 @@
-# Self-hosted runners for Courses CI (runs-on: self-hosted).
+# Optional self-hosted runners (CI uses GitHub-hosted runners; switch runs-on to self-hosted to use these).
 #   cp .env.example .env   # put the token in .env
 #   docker compose up -d   # 3 runners; each takes one job, exits, and is restarted fresh
 #   docker compose down
