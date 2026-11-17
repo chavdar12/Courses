@@ -1,0 +1,12 @@
+namespace Ex002;
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var input = args.Length > 0 ? args[0] : "input.txt";
+        var output = args.Length > 1 ? args[1] : "output.txt";
+
+        File.WriteAllLines(output, File.ReadLines(input).Select((line, i) => $"{i + 1}. {line}"));
+    }
+}
