@@ -38,29 +38,20 @@ Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Programming-Basics-With-Java.pdf](Programming-Basics-With-Java.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-First-Steps-In-Coding](001-First-Steps-In-Coding) | [Pb-Java-First-Steps-In-Coding-Lab.pdf](001-First-Steps-In-Coding/Resources/Pb-Java-First-Steps-In-Coding-Lab.pdf) · [Pb-Java-First-Steps-In-Coding.pdf](001-First-Steps-In-Coding/Resources/Pb-Java-First-Steps-In-Coding.pdf) |
-| [002-Exercise-First-Steps-In-Coding](002-Exercise-First-Steps-In-Coding) | [Pb-Java-First-Steps-In-Coding-Exercise.pdf](002-Exercise-First-Steps-In-Coding/Resources/Pb-Java-First-Steps-In-Coding-Exercise.pdf) |
-| [003-Conditional-Statements](003-Conditional-Statements) | [Pb-Java-Conditional-Statements-Lab.pdf](003-Conditional-Statements/Resources/Pb-Java-Conditional-Statements-Lab.pdf) · [Pb-Java-Conditional-Statements.pdf](003-Conditional-Statements/Resources/Pb-Java-Conditional-Statements.pdf) |
-| [004-Exercise-Conditional-Statements](004-Exercise-Conditional-Statements) | [Pb-Java-Conditional-Statements-Exercise.pdf](004-Exercise-Conditional-Statements/Resources/Pb-Java-Conditional-Statements-Exercise.pdf) |
-| [005-Conditional-Statements-Advanced](005-Conditional-Statements-Advanced) | [Pb-Java-Conditional-Statements-Advanced-Lab.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Java-Conditional-Statements-Advanced-Lab.pdf) · [Pb-Java-Conditional-Statements-Advanced.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Java-Conditional-Statements-Advanced.pdf) |
-| [006-Exercise-Conditional-Statements-Advanced](006-Exercise-Conditional-Statements-Advanced) | [Pb-Java-Conditional-Statements-Advanced-Exercise.pdf](006-Exercise-Conditional-Statements-Advanced/Resources/Pb-Java-Conditional-Statements-Advanced-Exercise.pdf) |
-| [007-For-Loops](007-For-Loops) | [Pb-Java-For-Loop-Lab.pdf](007-For-Loops/Resources/Pb-Java-For-Loop-Lab.pdf) · [Pb-Java-For-Loop.pdf](007-For-Loops/Resources/Pb-Java-For-Loop.pdf) |
-| [008-Exercise-For-Loops](008-Exercise-For-Loops) | [Pb-Java-For-Loop-Exercise.pdf](008-Exercise-For-Loops/Resources/Pb-Java-For-Loop-Exercise.pdf) |
-| [009-While-Loops](009-While-Loops) | [Pb-Java-While-Loop-Lab.pdf](009-While-Loops/Resources/Pb-Java-While-Loop-Lab.pdf) · [Pb-Java-While-Loop.pdf](009-While-Loops/Resources/Pb-Java-While-Loop.pdf) |
-| [010-Exercise-While-Loops](010-Exercise-While-Loops) | [Pb-Java-While-Loop-Exercise.pdf](010-Exercise-While-Loops/Resources/Pb-Java-While-Loop-Exercise.pdf) |
-| [011-Nested-Loops](011-Nested-Loops) | [Pb-Java-Nested-Loops-.pdf](011-Nested-Loops/Resources/Pb-Java-Nested-Loops-.pdf) · [Pb-Java-Nested-Loops-Lab.pdf](011-Nested-Loops/Resources/Pb-Java-Nested-Loops-Lab.pdf) |
-| [012-Exercise-Nested-Loops](012-Exercise-Nested-Loops) | [Pb-Java-Nested-Loops-Exercise.pdf](012-Exercise-Nested-Loops/Resources/Pb-Java-Nested-Loops-Exercise.pdf) |
-| [013-Exam-Preparation](013-Exam-Preparation) | [Exam-Preparation-Sept-.pdf](013-Exam-Preparation/Resources/Exam-Preparation-Sept-.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-First-Steps-In-Coding](001-First-Steps-In-Coding) | [Pb-Java-First-Steps-In-Coding-Lab.pdf](001-First-Steps-In-Coding/Resources/Pb-Java-First-Steps-In-Coding-Lab.pdf) · [Pb-Java-First-Steps-In-Coding.pdf](001-First-Steps-In-Coding/Resources/Pb-Java-First-Steps-In-Coding.pdf) | [Video](https://youtu.be/7ljEC4a2mn0) |
+| [002-Exercise-First-Steps-In-Coding](002-Exercise-First-Steps-In-Coding) | [Pb-Java-First-Steps-In-Coding-Exercise.pdf](002-Exercise-First-Steps-In-Coding/Resources/Pb-Java-First-Steps-In-Coding-Exercise.pdf) | [Video](https://youtu.be/EvEB-_HM6TE) |
+| [003-Conditional-Statements](003-Conditional-Statements) | [Pb-Java-Conditional-Statements-Lab.pdf](003-Conditional-Statements/Resources/Pb-Java-Conditional-Statements-Lab.pdf) · [Pb-Java-Conditional-Statements.pdf](003-Conditional-Statements/Resources/Pb-Java-Conditional-Statements.pdf) | [Video](https://youtu.be/DJ7KvzDCTdo) |
+| [004-Exercise-Conditional-Statements](004-Exercise-Conditional-Statements) | [Pb-Java-Conditional-Statements-Exercise.pdf](004-Exercise-Conditional-Statements/Resources/Pb-Java-Conditional-Statements-Exercise.pdf) | [Video](https://youtu.be/WAK2hygyvvY) |
+| [005-Conditional-Statements-Advanced](005-Conditional-Statements-Advanced) | [Pb-Java-Conditional-Statements-Advanced-Lab.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Java-Conditional-Statements-Advanced-Lab.pdf) · [Pb-Java-Conditional-Statements-Advanced.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Java-Conditional-Statements-Advanced.pdf) | [Video](https://youtu.be/1zKuAWHLgn8) |
+| [006-Exercise-Conditional-Statements-Advanced](006-Exercise-Conditional-Statements-Advanced) | [Pb-Java-Conditional-Statements-Advanced-Exercise.pdf](006-Exercise-Conditional-Statements-Advanced/Resources/Pb-Java-Conditional-Statements-Advanced-Exercise.pdf) | [Video](https://youtu.be/e6_KjgDldRM) |
+| [007-For-Loops](007-For-Loops) | [Pb-Java-For-Loop-Lab.pdf](007-For-Loops/Resources/Pb-Java-For-Loop-Lab.pdf) · [Pb-Java-For-Loop.pdf](007-For-Loops/Resources/Pb-Java-For-Loop.pdf) | [Video](https://youtu.be/aLBKpMtEviE) |
+| [008-Exercise-For-Loops](008-Exercise-For-Loops) | [Pb-Java-For-Loop-Exercise.pdf](008-Exercise-For-Loops/Resources/Pb-Java-For-Loop-Exercise.pdf) | [Video](https://youtu.be/ojgw3ote4QI) |
+| [009-While-Loops](009-While-Loops) | [Pb-Java-While-Loop-Lab.pdf](009-While-Loops/Resources/Pb-Java-While-Loop-Lab.pdf) · [Pb-Java-While-Loop.pdf](009-While-Loops/Resources/Pb-Java-While-Loop.pdf) | [Video](https://youtu.be/e2gmFyQRhII) |
+| [010-Exercise-While-Loops](010-Exercise-While-Loops) | [Pb-Java-While-Loop-Exercise.pdf](010-Exercise-While-Loops/Resources/Pb-Java-While-Loop-Exercise.pdf) | [Video](https://youtu.be/o-ph7xDLAuo) |
+| [011-Nested-Loops](011-Nested-Loops) | [Pb-Java-Nested-Loops-.pdf](011-Nested-Loops/Resources/Pb-Java-Nested-Loops-.pdf) · [Pb-Java-Nested-Loops-Lab.pdf](011-Nested-Loops/Resources/Pb-Java-Nested-Loops-Lab.pdf) | [Video](https://youtu.be/LH5i_RijCSQ) |
+| [012-Exercise-Nested-Loops](012-Exercise-Nested-Loops) | [Pb-Java-Nested-Loops-Exercise.pdf](012-Exercise-Nested-Loops/Resources/Pb-Java-Nested-Loops-Exercise.pdf) | [Video](https://youtu.be/hW9Vq-Ug-BA) |
+| [013-Exam-Preparation](013-Exam-Preparation) | [Exam-Preparation-Sept-.pdf](013-Exam-Preparation/Resources/Exam-Preparation-Sept-.pdf) | [Video](https://youtu.be/CVYuqDfFn1k) |
