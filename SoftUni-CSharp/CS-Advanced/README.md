@@ -41,32 +41,23 @@ dotnet test CS-Advanced.slnx
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Csharp-Advanced.pdf](Csharp-Advanced.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Stacks-And-Queues](001-Stacks-And-Queues) | [Csharp-Advanced-Stacks-And-Queues-Lab.pdf](001-Stacks-And-Queues/Resources/Csharp-Advanced-Stacks-And-Queues-Lab.pdf) · [Csharp-Advanced-Stacks-And-Queues.pdf](001-Stacks-And-Queues/Resources/Csharp-Advanced-Stacks-And-Queues.pdf) |
-| [002-Exercise-Stacks-And-Queues](002-Exercise-Stacks-And-Queues) | [Csharp-Advanced-Stacks-And-Queues-Exercises.pdf](002-Exercise-Stacks-And-Queues/Resources/Csharp-Advanced-Stacks-And-Queues-Exercises.pdf) |
-| [003-Multidimensional-Arrays](003-Multidimensional-Arrays) | [Csharp-Advanced-Multidimensional-Arrays-Lab.pdf](003-Multidimensional-Arrays/Resources/Csharp-Advanced-Multidimensional-Arrays-Lab.pdf) · [Csharp-Advanced-Multidimensional-Arrays.pdf](003-Multidimensional-Arrays/Resources/Csharp-Advanced-Multidimensional-Arrays.pdf) |
-| [004-Exercise-Multidimensional-Arrays](004-Exercise-Multidimensional-Arrays) | [Csharp-Advanced-Multidimensional-Arrays-Exercises.pdf](004-Exercise-Multidimensional-Arrays/Resources/Csharp-Advanced-Multidimensional-Arrays-Exercises.pdf) |
-| [005-Sets-And-Dictionaries-Advanced](005-Sets-And-Dictionaries-Advanced) | [Csharp-Advanced-Sets-And-Dictionaries-Advanced-Lab.pdf](005-Sets-And-Dictionaries-Advanced/Resources/Csharp-Advanced-Sets-And-Dictionaries-Advanced-Lab.pdf) · [Csharp-Advanced-Sets-And-Dictionaries-Advanced.pdf](005-Sets-And-Dictionaries-Advanced/Resources/Csharp-Advanced-Sets-And-Dictionaries-Advanced.pdf) |
-| [006-Exercise-Sets-And-Dictionaries-Advanced](006-Exercise-Sets-And-Dictionaries-Advanced) | [Csharp-Advanced-Sets-And-Dictionaries-Advanced-Exercise.pdf](006-Exercise-Sets-And-Dictionaries-Advanced/Resources/Csharp-Advanced-Sets-And-Dictionaries-Advanced-Exercise.pdf) |
-| [007-Streams-Files-And-Directories](007-Streams-Files-And-Directories) | [Csharp-Advanced-Streams-Files-And-Directories-Lab.pdf](007-Streams-Files-And-Directories/Resources/Csharp-Advanced-Streams-Files-And-Directories-Lab.pdf) · [Csharp-Advanced-Streams-Files-And-Directories.pdf](007-Streams-Files-And-Directories/Resources/Csharp-Advanced-Streams-Files-And-Directories.pdf) |
-| [008-Exercise-Streams-Files-And-Directories](008-Exercise-Streams-Files-And-Directories) | [Csharp-Advanced-Streams-Files-And-Directories-Exercise.pdf](008-Exercise-Streams-Files-And-Directories/Resources/Csharp-Advanced-Streams-Files-And-Directories-Exercise.pdf) |
-| [009-Functional-Programming](009-Functional-Programming) | [Csharp-Advanced-Functional-Programming-Lab.pdf](009-Functional-Programming/Resources/Csharp-Advanced-Functional-Programming-Lab.pdf) · [Csharp-Advanced-Functional-Programming.pdf](009-Functional-Programming/Resources/Csharp-Advanced-Functional-Programming.pdf) |
-| [010-Exercise-Functional-Programming](010-Exercise-Functional-Programming) | [Csharp-Advanced-Functional-Programming-Exercises.pdf](010-Exercise-Functional-Programming/Resources/Csharp-Advanced-Functional-Programming-Exercises.pdf) |
-| [011-Defining-Classes](011-Defining-Classes) | [Csharp-Advanced-Defining-Classes-Lab.pdf](011-Defining-Classes/Resources/Csharp-Advanced-Defining-Classes-Lab.pdf) · [Csharp-Advanced-Defining-Classes.pdf](011-Defining-Classes/Resources/Csharp-Advanced-Defining-Classes.pdf) |
-| [012-Exercise-Defining-Classes](012-Exercise-Defining-Classes) | [Csharp-Advanced-Defining-Classes-Exercises.pdf](012-Exercise-Defining-Classes/Resources/Csharp-Advanced-Defining-Classes-Exercises.pdf) |
-| [013-Generics](013-Generics) | [Csharp-Advanced-Generics-Lab.pdf](013-Generics/Resources/Csharp-Advanced-Generics-Lab.pdf) · [Csharp-Advanced-Generics.pdf](013-Generics/Resources/Csharp-Advanced-Generics.pdf) |
-| [014-Exercise-Generics](014-Exercise-Generics) | [Csharp-Advanced-Generics-Exercises.pdf](014-Exercise-Generics/Resources/Csharp-Advanced-Generics-Exercises.pdf) |
-| [015-Iterators-And-Comparators](015-Iterators-And-Comparators) | [Csharp-Advanced-Iterators-And-Comparators-Lab.pdf](015-Iterators-And-Comparators/Resources/Csharp-Advanced-Iterators-And-Comparators-Lab.pdf) · [Csharp-Advanced-Iterators-And-Comparators.pdf](015-Iterators-And-Comparators/Resources/Csharp-Advanced-Iterators-And-Comparators.pdf) |
-| [016-Exercise-Iterators-And-Comparators](016-Exercise-Iterators-And-Comparators) | [Csharp-Advanced-Iterators-And-Comparators-Exercises.pdf](016-Exercise-Iterators-And-Comparators/Resources/Csharp-Advanced-Iterators-And-Comparators-Exercises.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Stacks-And-Queues](001-Stacks-And-Queues) | [Csharp-Advanced-Stacks-And-Queues-Lab.pdf](001-Stacks-And-Queues/Resources/Csharp-Advanced-Stacks-And-Queues-Lab.pdf) · [Csharp-Advanced-Stacks-And-Queues.pdf](001-Stacks-And-Queues/Resources/Csharp-Advanced-Stacks-And-Queues.pdf) | [Video](https://youtu.be/0DNCQRisf-0) |
+| [002-Exercise-Stacks-And-Queues](002-Exercise-Stacks-And-Queues) | [Csharp-Advanced-Stacks-And-Queues-Exercises.pdf](002-Exercise-Stacks-And-Queues/Resources/Csharp-Advanced-Stacks-And-Queues-Exercises.pdf) | [Video](https://youtu.be/ahJNFgbcbc8) |
+| [003-Multidimensional-Arrays](003-Multidimensional-Arrays) | [Csharp-Advanced-Multidimensional-Arrays-Lab.pdf](003-Multidimensional-Arrays/Resources/Csharp-Advanced-Multidimensional-Arrays-Lab.pdf) · [Csharp-Advanced-Multidimensional-Arrays.pdf](003-Multidimensional-Arrays/Resources/Csharp-Advanced-Multidimensional-Arrays.pdf) | [Video](https://youtu.be/3dVoFMcC2qE) |
+| [004-Exercise-Multidimensional-Arrays](004-Exercise-Multidimensional-Arrays) | [Csharp-Advanced-Multidimensional-Arrays-Exercises.pdf](004-Exercise-Multidimensional-Arrays/Resources/Csharp-Advanced-Multidimensional-Arrays-Exercises.pdf) | [Video](https://youtu.be/rNr4KTwKwk8) |
+| [005-Sets-And-Dictionaries-Advanced](005-Sets-And-Dictionaries-Advanced) | [Csharp-Advanced-Sets-And-Dictionaries-Advanced-Lab.pdf](005-Sets-And-Dictionaries-Advanced/Resources/Csharp-Advanced-Sets-And-Dictionaries-Advanced-Lab.pdf) · [Csharp-Advanced-Sets-And-Dictionaries-Advanced.pdf](005-Sets-And-Dictionaries-Advanced/Resources/Csharp-Advanced-Sets-And-Dictionaries-Advanced.pdf) | [Video](https://youtu.be/xSFlKL5FZi8) |
+| [006-Exercise-Sets-And-Dictionaries-Advanced](006-Exercise-Sets-And-Dictionaries-Advanced) | [Csharp-Advanced-Sets-And-Dictionaries-Advanced-Exercise.pdf](006-Exercise-Sets-And-Dictionaries-Advanced/Resources/Csharp-Advanced-Sets-And-Dictionaries-Advanced-Exercise.pdf) | [Video](https://youtu.be/xcJPwhcPNHc) |
+| [007-Streams-Files-And-Directories](007-Streams-Files-And-Directories) | [Csharp-Advanced-Streams-Files-And-Directories-Lab.pdf](007-Streams-Files-And-Directories/Resources/Csharp-Advanced-Streams-Files-And-Directories-Lab.pdf) · [Csharp-Advanced-Streams-Files-And-Directories.pdf](007-Streams-Files-And-Directories/Resources/Csharp-Advanced-Streams-Files-And-Directories.pdf) | [Video](https://youtu.be/ulFLjTqEciA) |
+| [008-Exercise-Streams-Files-And-Directories](008-Exercise-Streams-Files-And-Directories) | [Csharp-Advanced-Streams-Files-And-Directories-Exercise.pdf](008-Exercise-Streams-Files-And-Directories/Resources/Csharp-Advanced-Streams-Files-And-Directories-Exercise.pdf) | [Video](https://youtu.be/wl_qSDbUil8) |
+| [009-Functional-Programming](009-Functional-Programming) | [Csharp-Advanced-Functional-Programming-Lab.pdf](009-Functional-Programming/Resources/Csharp-Advanced-Functional-Programming-Lab.pdf) · [Csharp-Advanced-Functional-Programming.pdf](009-Functional-Programming/Resources/Csharp-Advanced-Functional-Programming.pdf) | [Video](https://youtu.be/hEwSqJdZp9Y) |
+| [010-Exercise-Functional-Programming](010-Exercise-Functional-Programming) | [Csharp-Advanced-Functional-Programming-Exercises.pdf](010-Exercise-Functional-Programming/Resources/Csharp-Advanced-Functional-Programming-Exercises.pdf) | [Video](https://youtu.be/kGT5xX4Vvu4) |
+| [011-Defining-Classes](011-Defining-Classes) | [Csharp-Advanced-Defining-Classes-Lab.pdf](011-Defining-Classes/Resources/Csharp-Advanced-Defining-Classes-Lab.pdf) · [Csharp-Advanced-Defining-Classes.pdf](011-Defining-Classes/Resources/Csharp-Advanced-Defining-Classes.pdf) | [Video](https://youtu.be/2NAUIxo3bJA) |
+| [012-Exercise-Defining-Classes](012-Exercise-Defining-Classes) | [Csharp-Advanced-Defining-Classes-Exercises.pdf](012-Exercise-Defining-Classes/Resources/Csharp-Advanced-Defining-Classes-Exercises.pdf) | [Video](https://youtu.be/pd_6ElH6B78) |
+| [013-Generics](013-Generics) | [Csharp-Advanced-Generics-Lab.pdf](013-Generics/Resources/Csharp-Advanced-Generics-Lab.pdf) · [Csharp-Advanced-Generics.pdf](013-Generics/Resources/Csharp-Advanced-Generics.pdf) | [Video](https://youtu.be/BXyFCyfgYqk) |
+| [014-Exercise-Generics](014-Exercise-Generics) | [Csharp-Advanced-Generics-Exercises.pdf](014-Exercise-Generics/Resources/Csharp-Advanced-Generics-Exercises.pdf) | [Video](https://youtu.be/I4R3BnjDR0M) |
+| [015-Iterators-And-Comparators](015-Iterators-And-Comparators) | [Csharp-Advanced-Iterators-And-Comparators-Lab.pdf](015-Iterators-And-Comparators/Resources/Csharp-Advanced-Iterators-And-Comparators-Lab.pdf) · [Csharp-Advanced-Iterators-And-Comparators.pdf](015-Iterators-And-Comparators/Resources/Csharp-Advanced-Iterators-And-Comparators.pdf) | [Video](https://youtu.be/raKE0ABuWOo) |
+| [016-Exercise-Iterators-And-Comparators](016-Exercise-Iterators-And-Comparators) | [Csharp-Advanced-Iterators-And-Comparators-Exercises.pdf](016-Exercise-Iterators-And-Comparators/Resources/Csharp-Advanced-Iterators-And-Comparators-Exercises.pdf) | [Video](https://youtu.be/75wvJHW6N9A) |
