@@ -37,6 +37,10 @@ cd 006-Exercise-Arrays
 
 Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
+## Certificate
+
+[SoftUni · Java Fundamentals, September 2020](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

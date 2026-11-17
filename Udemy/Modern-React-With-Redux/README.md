@@ -55,6 +55,10 @@ npm run server     # http://localhost:3001/streams
 npm run dev        # in another terminal
 ```
 
+## Certificate
+
+[Udemy · Modern React with Redux](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

@@ -40,6 +40,10 @@ npm test
 
 Open an app's `index.html` through any static server (e.g. `npx http-server`) while the practice server is running.
 
+## Certificate
+
+[SoftUni · JS Applications, February 2022](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

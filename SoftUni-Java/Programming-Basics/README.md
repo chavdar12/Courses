@@ -32,6 +32,10 @@ cd 005-Conditional-Statements-Advanced
 
 Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
+## Certificate
+
+[SoftUni · Programming Basics, June 2020 — honorable mention, 6.00 / 6.00](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

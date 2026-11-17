@@ -36,6 +36,10 @@ gradle build
 gradle bootRun     # Spring Boot lectures
 ```
 
+## Certificate
+
+[SoftUni · Spring Data, June 2021](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

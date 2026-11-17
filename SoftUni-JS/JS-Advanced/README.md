@@ -39,6 +39,10 @@ npm install
 npm test
 ```
 
+## Certificate
+
+[SoftUni · JS Advanced, May 2022](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

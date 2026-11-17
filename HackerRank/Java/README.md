@@ -15,3 +15,7 @@ Words.
 ```bash
 ./gradlew test
 ```
+
+## Certificate
+
+[HackerRank · Java (Basic) skill certificate](Certificate.pdf)

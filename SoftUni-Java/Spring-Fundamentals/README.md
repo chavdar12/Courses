@@ -33,6 +33,10 @@ cd 012-Regular-Exam-Battle-Ships
 
 The Bootstrap lecture is JavaScript: `cd 011-Bootstrap-Front-End-Basics && npm install && npm test`.
 
+## Certificate
+
+[SoftUni · Spring Fundamentals, September 2021](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

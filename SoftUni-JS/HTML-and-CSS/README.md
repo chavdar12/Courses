@@ -35,6 +35,10 @@ npm install
 npm test        # html-validate + node --test
 ```
 
+## Certificate
+
+[SoftUni · HTML & CSS, May 2022](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

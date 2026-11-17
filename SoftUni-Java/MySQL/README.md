@@ -24,6 +24,10 @@ Load the course's sample database, then run a problem:
 mysql -u root -p soft_uni < 002-Basic-CRUD/01-Find-All-Information-About-Departments.sql
 ```
 
+## Certificate
+
+[SoftUni · MySQL, May 2021](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

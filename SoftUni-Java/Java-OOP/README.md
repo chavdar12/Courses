@@ -34,6 +34,10 @@ cd 004-Interfaces-and-Abstraction
 
 Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
+## Certificate
+
+[SoftUni · Java OOP, February 2021](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

@@ -55,6 +55,10 @@ ADMIN_PASSWORD=choose-a-password docker compose up --build   # http://localhost:
 
 Post images from the course are left out; posts are text only.
 
+## Certificate
+
+[Udemy · PHP for Beginners – Become a PHP Master – CMS Project](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

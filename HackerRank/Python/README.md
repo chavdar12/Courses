@@ -29,3 +29,7 @@ My solutions to the [HackerRank Python track](https://www.hackerrank.com/domains
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m unittest discover -s tests -p "test_*.py"
 ```
+
+## Certificate
+
+[HackerRank · Python (Basic) skill certificate](Certificate.pdf)

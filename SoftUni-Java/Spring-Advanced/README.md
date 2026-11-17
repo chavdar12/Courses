@@ -29,6 +29,10 @@ cd 004-HATEOAS
 ./gradlew build      # tests
 ```
 
+## Certificate
+
+[SoftUni · Spring Advanced, October 2021](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)

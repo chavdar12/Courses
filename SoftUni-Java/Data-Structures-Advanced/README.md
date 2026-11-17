@@ -28,6 +28,10 @@ cd 004-Exercise-Red-Black-Trees-And-Aa-Trees
 
 Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
+## Certificate
+
+[SoftUni · Data Structures Advanced (with Java), April 2022](Certificate.pdf)
+
 ## License
 
 [MIT](LICENSE)
