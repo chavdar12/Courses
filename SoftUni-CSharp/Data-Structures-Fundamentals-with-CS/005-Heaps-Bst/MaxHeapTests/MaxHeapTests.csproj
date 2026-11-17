@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\MaxHeap\MaxHeap.csproj" />
+  </ItemGroup>
+</Project>
