@@ -31,21 +31,14 @@ Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Data-Structures-Fundamentals-With-Java.pdf](Data-Structures-Fundamentals-With-Java.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Data-Structures-And-Complexity](001-Data-Structures-And-Complexity) | [Data-Structures-And-Complexity-New.pdf](001-Data-Structures-And-Complexity/Resources/Data-Structures-And-Complexity-New.pdf) |
-| [001-Linear-Data-Structures](001-Linear-Data-Structures) | [Data-Structures-Linear-Data-Structures-Lab.pdf](001-Linear-Data-Structures/Resources/Data-Structures-Linear-Data-Structures-Lab.pdf) · [Data-Structures-Linear-Data-Structures-New.pdf](001-Linear-Data-Structures/Resources/Data-Structures-Linear-Data-Structures-New.pdf) |
-| [002-Exercise-Linear-Data-Structures](002-Exercise-Linear-Data-Structures) | [Linear-Data-Structures-Exercises.pdf](002-Exercise-Linear-Data-Structures/Resources/Linear-Data-Structures-Exercises.pdf) |
-| [005-Heaps-Bst](005-Heaps-Bst) | [Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-Lab.pdf](005-Heaps-Bst/Resources/Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-Lab.pdf) · [Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-New.pdf](005-Heaps-Bst/Resources/Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-New.pdf) |
-| [006-Exercise-Heaps-Bst](006-Exercise-Heaps-Bst) | [Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-Exercises.pdf](006-Exercise-Heaps-Bst/Resources/Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-Exercises.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Data-Structures-And-Complexity](001-Data-Structures-And-Complexity) | [Data-Structures-And-Complexity-New.pdf](001-Data-Structures-And-Complexity/Resources/Data-Structures-And-Complexity-New.pdf) | [Video](https://youtu.be/tbE6_lmFpo0) |
+| [001-Linear-Data-Structures](001-Linear-Data-Structures) | [Data-Structures-Linear-Data-Structures-Lab.pdf](001-Linear-Data-Structures/Resources/Data-Structures-Linear-Data-Structures-Lab.pdf) · [Data-Structures-Linear-Data-Structures-New.pdf](001-Linear-Data-Structures/Resources/Data-Structures-Linear-Data-Structures-New.pdf) | [Video](https://youtu.be/MmtS6qmbFHE) |
+| [002-Exercise-Linear-Data-Structures](002-Exercise-Linear-Data-Structures) | [Linear-Data-Structures-Exercises.pdf](002-Exercise-Linear-Data-Structures/Resources/Linear-Data-Structures-Exercises.pdf) | [Video](https://youtu.be/Db4_Vk8TiKI) |
+| 004-Trees-Representation-And-Traversal-Bfs-Dfs | — | [Video](https://youtu.be/vvn-Vr_1F2U) |
+| [005-Heaps-Bst](005-Heaps-Bst) | [Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-Lab.pdf](005-Heaps-Bst/Resources/Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-Lab.pdf) · [Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-New.pdf](005-Heaps-Bst/Resources/Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-New.pdf) | [Video](https://youtu.be/HyABStWM3Lg) |
+| 005-Exercise-Trees-Representation-And-Traversal-Bfs-Dfs | — | [Video](https://youtu.be/ijMFkTV0HUI) |
+| [006-Exercise-Heaps-Bst](006-Exercise-Heaps-Bst) | [Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-Exercises.pdf](006-Exercise-Heaps-Bst/Resources/Data-Structures-Binary-Trees-Heaps-Priorityqueue-Bst-Exercises.pdf) | [Video](https://youtu.be/FJ5XOFSvoEQ) |
