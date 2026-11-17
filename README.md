@@ -4,7 +4,7 @@
 [![CodeQL](https://github.com/chavdar12/Courses/actions/workflows/codeql.yml/badge.svg)](https://github.com/chavdar12/Courses/actions/workflows/codeql.yml)
 
 My solutions to 56 programming courses in one repository: the SoftUni Java, C#, JavaScript, Python, C++, PHP and QA
-tracks, plus HackerRank, Code with Mosh, Strypes and the Technical University of Varna. Every exercise comes with tests,
+tracks, plus HackerRank, Ultimate Courses, Strypes and the Technical University of Varna. Every exercise comes with tests,
 and every course builds and tests on its own.
 
 It is an [Nx](https://nx.dev) workspace: each course is one Nx project, so a change only rebuilds the courses it
@@ -104,12 +104,12 @@ touches, and unchanged courses come from the cache.
 | [Java](HackerRank/Java) | HackerRank practice problems in Java. | Java | `hackerrank-java` |
 | [Python](HackerRank/Python) | HackerRank practice problems in Python. | Python | `hackerrank-python` |
 
-### Mosh (Code with Mosh)
+### Mosh (Ultimate Courses)
 
 | Course | What it covers | Stack | Nx project |
 | ------ | -------------- | ----- | ---------- |
-| [Ultimate Angular](Mosh/Ultimate-Angular) | Code from Mosh Hamedani's Ultimate Angular course. | TypeScript | `mosh-ultimate-angular` |
-| [Ultimate TypeScript](Mosh/Ultimate-TypeScript) | Code from Mosh Hamedani's Ultimate TypeScript course. | TypeScript | `mosh-ultimate-typescript` |
+| [Ultimate Angular](Mosh/Ultimate-Angular) | Package scaffolds of Ultimate Courses' Angular libraries (lite-store, ngx-fullscreen, ngx-pagevisibility); the library code is not included. | TypeScript | `mosh-ultimate-angular` |
+| [Ultimate TypeScript](Mosh/Ultimate-TypeScript) | Package scaffold of Ultimate Courses' `@ultimate/vault` storage utility; the implementation is not included. | TypeScript | `mosh-ultimate-typescript` |
 
 ### Technical University of Varna
 
