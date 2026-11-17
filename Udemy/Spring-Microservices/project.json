@@ -1,0 +1,22 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "udemy-spring-microservices",
+    "projectType": "application",
+    "tags": ["track:Udemy", "stack:java"],
+    "targets": {
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh build java",
+                "cwd": "{projectRoot}"
+            }
+        },
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh format google-java-format",
+                "cwd": "{projectRoot}"
+            }
+        }
+    }
+}
