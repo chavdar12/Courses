@@ -79,7 +79,7 @@ jobs:
       - if: contains(matrix.tools, ' cpp ') || contains(matrix.tools, ' clang-format ')
         run: sudo apt-get update -qq && sudo apt-get install -y -qq cmake g++ clang-format
       - run: npm ci --no-audit --no-fund
-      - run: npx nx run-many -t format test -p "${{ matrix.project }}" --outputStyle=static
+      - run: npx nx run-many -t format test -p "${{ matrix.project }}" --parallel=1 --outputStyle=static # one runner per course: format and test share its temp dir and the .NET first-run setup
 
   # One stable check for rulesets to require, however many courses ran.
   result:
