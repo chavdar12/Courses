@@ -1,0 +1,42 @@
+## .NET build output
+bin/
+obj/
+artifacts/
+*.nupkg
+
+## Test results and coverage
+TestResults/
+*.trx
+coverage*.xml
+coverage*.json
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+## Visual Studio / VS Code
+.vs/
+*.user
+*.suo
+.vscode/
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+## Windows / Linux
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*~
+*.swp
+
+## Logs and temp files
+*.log
+*.tmp
