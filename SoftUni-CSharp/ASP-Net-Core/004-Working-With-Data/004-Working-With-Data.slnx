@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WorkingWithData/WorkingWithData.csproj" />
+  <Project Path="WorkingWithDataTests/WorkingWithDataTests.csproj" />
+</Solution>

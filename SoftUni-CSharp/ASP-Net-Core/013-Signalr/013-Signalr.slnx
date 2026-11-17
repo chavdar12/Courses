@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Chat/Chat.csproj" />
+  <Project Path="ChatTests/ChatTests.csproj" />
+</Solution>

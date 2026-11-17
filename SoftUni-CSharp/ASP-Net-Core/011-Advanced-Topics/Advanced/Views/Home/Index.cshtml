@@ -1,0 +1,25 @@
+@{ var consent = Context.Features.Get<ITrackingConsentFeature>(); }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Advanced Topics</title>
+    @* SEO: a description and a canonical URL per page *@
+    <meta name="description" content="Sessions, TempData, cache, logging, areas and GDPR in ASP.NET Core." />
+    <link rel="canonical" href="@($"{Context.Request.Scheme}://{Context.Request.Host}/")" />
+</head>
+<body>
+@if (consent?.CanTrack == false)
+{
+    <div id="cookie-consent" role="dialog" aria-label="Cookie consent">
+        We use cookies. <a asp-action="Consent">Accept</a>
+    </div>
+}
+@if (TempData["Message"] is string message)
+{
+    <p class="alert" role="status">@message</p>
+}
+<h1>Advanced Topics</h1>
+<form asp-action="Save" method="post"><button>Save</button></form>
+</body>
+</html>

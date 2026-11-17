@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RazorViews/RazorViews.csproj" />
+  <Project Path="RazorViewsTests/RazorViewsTests.csproj" />
+</Solution>

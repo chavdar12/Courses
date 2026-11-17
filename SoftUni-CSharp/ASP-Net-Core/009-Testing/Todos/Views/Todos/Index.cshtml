@@ -1,0 +1,25 @@
+@model IReadOnlyList<Todo>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>Todos</title></head>
+<body>
+<h1>Todos</h1>
+<ul>
+    @foreach (var todo in Model)
+    {
+        <li class="@(todo.IsDone ? "done" : "open")">
+            @todo.Title
+            @if (!todo.IsDone)
+            {
+                <form asp-action="Complete" asp-route-id="@todo.Id" method="post"><button>Done</button></form>
+            }
+        </li>
+    }
+</ul>
+<form asp-action="Create" method="post">
+    <label for="title">New todo</label>
+    <input id="title" name="title" required />
+    <button>Add</button>
+</form>
+</body>
+</html>

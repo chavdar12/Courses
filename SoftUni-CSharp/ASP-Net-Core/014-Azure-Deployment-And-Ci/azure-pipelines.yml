@@ -1,0 +1,55 @@
+# Azure Pipelines: build + test on every push to main, then deploy to App Service.
+trigger:
+  branches:
+    include: [main]
+  paths:
+    include: [014-Azure-Deployment-And-Ci/*]
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  module: 014-Azure-Deployment-And-Ci
+  azureSubscription: '<service-connection-name>'
+  webAppName: '<app-service-name>'
+
+stages:
+  - stage: Build
+    jobs:
+      - job: BuildAndTest
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              version: 10.0.x
+
+          - script: dotnet test $(module)/$(module).slnx -c Release --logger trx --results-directory $(Agent.TempDirectory)/tests
+            displayName: Test
+
+          - task: PublishTestResults@2
+            condition: always()
+            inputs:
+              testResultsFormat: VSTest
+              testResultsFiles: $(Agent.TempDirectory)/tests/*.trx
+
+          - script: dotnet publish $(module)/Deployable/Deployable.csproj -c Release -o $(Build.ArtifactStagingDirectory)/app
+            displayName: Publish
+
+          - publish: $(Build.ArtifactStagingDirectory)/app
+            artifact: app
+
+  - stage: Deploy
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - deployment: AppService
+        environment: production
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureWebApp@1
+                  inputs:
+                    azureSubscription: $(azureSubscription)
+                    appName: $(webAppName)
+                    package: $(Pipeline.Workspace)/app
+                    appSettings: -Build__Version $(Build.SourceVersion)

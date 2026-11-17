@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Advanced/Advanced.csproj" />
+  <Project Path="AdvancedTests/AdvancedTests.csproj" />
+</Solution>

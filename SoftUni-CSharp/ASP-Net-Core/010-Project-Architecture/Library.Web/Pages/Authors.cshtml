@@ -1,0 +1,15 @@
+@page
+@model Library.Web.Pages.AuthorsModel
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>Authors</title></head>
+<body>
+<h1>Authors</h1>
+<ul>
+    @foreach (var (name, count) in Model.Authors)
+    {
+        <li>@name (@count books)</li>
+    }
+</ul>
+</body>
+</html>
