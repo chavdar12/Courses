@@ -37,29 +37,20 @@ npm test
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Programming-Basics-With-Javascript.pdf](Programming-Basics-With-Javascript.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-First-Steps-In-Coding](001-First-Steps-In-Coding) | [Pb-Js-First-Steps-In-Coding-Lab.pdf](001-First-Steps-In-Coding/Resources/Pb-Js-First-Steps-In-Coding-Lab.pdf) · [Pb-Js-First-Steps-In-Coding.pdf](001-First-Steps-In-Coding/Resources/Pb-Js-First-Steps-In-Coding.pdf) |
-| [002-Exercise-First-Steps-In-Coding](002-Exercise-First-Steps-In-Coding) | [Pb-Js-First-Steps-In-Coding-Exercise.pdf](002-Exercise-First-Steps-In-Coding/Resources/Pb-Js-First-Steps-In-Coding-Exercise.pdf) |
-| [003-Conditional-Statements](003-Conditional-Statements) | [Pb-Js-Conditional-Statements-Lab.pdf](003-Conditional-Statements/Resources/Pb-Js-Conditional-Statements-Lab.pdf) · [Pb-Js-Conditional-Statements.pdf](003-Conditional-Statements/Resources/Pb-Js-Conditional-Statements.pdf) |
-| [004-Exercise-Conditional-Statements](004-Exercise-Conditional-Statements) | [Pb-Js-Conditional-Statements-Exercise.pdf](004-Exercise-Conditional-Statements/Resources/Pb-Js-Conditional-Statements-Exercise.pdf) |
-| [005-Conditional-Statements-Advanced](005-Conditional-Statements-Advanced) | [Pb-Js-Nested-Conditional-Statements-Lab.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Js-Nested-Conditional-Statements-Lab.pdf) · [Pb-Js-Nested-Conditional-Statements.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Js-Nested-Conditional-Statements.pdf) |
-| [006-Exercise-Conditional-Statements-Advanced](006-Exercise-Conditional-Statements-Advanced) | [Pb-Js-Nested-Conditional-Statements-xercise.pdf](006-Exercise-Conditional-Statements-Advanced/Resources/Pb-Js-Nested-Conditional-Statements-xercise.pdf) |
-| [007-For-Loops](007-For-Loops) | [Pb-Js-For-Loop-Lab.pdf](007-For-Loops/Resources/Pb-Js-For-Loop-Lab.pdf) · [Pb-Js-For-Loop.pdf](007-For-Loops/Resources/Pb-Js-For-Loop.pdf) |
-| [008-Exercise-For-Loops](008-Exercise-For-Loops) | [Pb-Js-For-Loop-Exercise.pdf](008-Exercise-For-Loops/Resources/Pb-Js-For-Loop-Exercise.pdf) |
-| [009-While-Loops](009-While-Loops) | [Pb-Js-While-Loop-Lab.pdf](009-While-Loops/Resources/Pb-Js-While-Loop-Lab.pdf) · [Pb-Js-While-Loop.pdf](009-While-Loops/Resources/Pb-Js-While-Loop.pdf) |
-| [010-Exercise-While-Loops](010-Exercise-While-Loops) | [Pb-Js-While-Loop-Exercise.pdf](010-Exercise-While-Loops/Resources/Pb-Js-While-Loop-Exercise.pdf) |
-| [011-Nested-Loops](011-Nested-Loops) | [Pb-Js-Nested-Loops-Lab.pdf](011-Nested-Loops/Resources/Pb-Js-Nested-Loops-Lab.pdf) · [Pb-Js-Nested-Loops.pdf](011-Nested-Loops/Resources/Pb-Js-Nested-Loops.pdf) |
-| [012-Exercise-Nested-Loops](012-Exercise-Nested-Loops) | [Pb-Js-Nested-Loops-Exercise.pdf](012-Exercise-Nested-Loops/Resources/Pb-Js-Nested-Loops-Exercise.pdf) |
-| [013-Exam-Preparation](013-Exam-Preparation) | [Exam-Preparation-Sept-.pdf](013-Exam-Preparation/Resources/Exam-Preparation-Sept-.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-First-Steps-In-Coding](001-First-Steps-In-Coding) | [Pb-Js-First-Steps-In-Coding-Lab.pdf](001-First-Steps-In-Coding/Resources/Pb-Js-First-Steps-In-Coding-Lab.pdf) · [Pb-Js-First-Steps-In-Coding.pdf](001-First-Steps-In-Coding/Resources/Pb-Js-First-Steps-In-Coding.pdf) | [Video](https://youtu.be/oTKVsF7Fzp4) |
+| [002-Exercise-First-Steps-In-Coding](002-Exercise-First-Steps-In-Coding) | [Pb-Js-First-Steps-In-Coding-Exercise.pdf](002-Exercise-First-Steps-In-Coding/Resources/Pb-Js-First-Steps-In-Coding-Exercise.pdf) | [Video](https://youtu.be/Cxpwg872ExM) |
+| [003-Conditional-Statements](003-Conditional-Statements) | [Pb-Js-Conditional-Statements-Lab.pdf](003-Conditional-Statements/Resources/Pb-Js-Conditional-Statements-Lab.pdf) · [Pb-Js-Conditional-Statements.pdf](003-Conditional-Statements/Resources/Pb-Js-Conditional-Statements.pdf) | [Video](https://youtu.be/Zw06znXT17s) |
+| [004-Exercise-Conditional-Statements](004-Exercise-Conditional-Statements) | [Pb-Js-Conditional-Statements-Exercise.pdf](004-Exercise-Conditional-Statements/Resources/Pb-Js-Conditional-Statements-Exercise.pdf) | [Video](https://youtu.be/9I5twmmpMy0) |
+| [005-Conditional-Statements-Advanced](005-Conditional-Statements-Advanced) | [Pb-Js-Nested-Conditional-Statements-Lab.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Js-Nested-Conditional-Statements-Lab.pdf) · [Pb-Js-Nested-Conditional-Statements.pdf](005-Conditional-Statements-Advanced/Resources/Pb-Js-Nested-Conditional-Statements.pdf) | [Video](https://youtu.be/Jbwj95VGCs4) |
+| [006-Exercise-Conditional-Statements-Advanced](006-Exercise-Conditional-Statements-Advanced) | [Pb-Js-Nested-Conditional-Statements-xercise.pdf](006-Exercise-Conditional-Statements-Advanced/Resources/Pb-Js-Nested-Conditional-Statements-xercise.pdf) | [Video](https://youtu.be/18_nsMWZelY) |
+| [007-For-Loops](007-For-Loops) | [Pb-Js-For-Loop-Lab.pdf](007-For-Loops/Resources/Pb-Js-For-Loop-Lab.pdf) · [Pb-Js-For-Loop.pdf](007-For-Loops/Resources/Pb-Js-For-Loop.pdf) | [Video](https://youtu.be/V6NfGj_fGPo) |
+| [008-Exercise-For-Loops](008-Exercise-For-Loops) | [Pb-Js-For-Loop-Exercise.pdf](008-Exercise-For-Loops/Resources/Pb-Js-For-Loop-Exercise.pdf) | [Video](https://youtu.be/pIHsaah_sDM) |
+| [009-While-Loops](009-While-Loops) | [Pb-Js-While-Loop-Lab.pdf](009-While-Loops/Resources/Pb-Js-While-Loop-Lab.pdf) · [Pb-Js-While-Loop.pdf](009-While-Loops/Resources/Pb-Js-While-Loop.pdf) | [Video](https://youtu.be/M1ga4IZpr3U) |
+| [010-Exercise-While-Loops](010-Exercise-While-Loops) | [Pb-Js-While-Loop-Exercise.pdf](010-Exercise-While-Loops/Resources/Pb-Js-While-Loop-Exercise.pdf) | [Video](https://youtu.be/R2_6TlGvO40) |
+| [011-Nested-Loops](011-Nested-Loops) | [Pb-Js-Nested-Loops-Lab.pdf](011-Nested-Loops/Resources/Pb-Js-Nested-Loops-Lab.pdf) · [Pb-Js-Nested-Loops.pdf](011-Nested-Loops/Resources/Pb-Js-Nested-Loops.pdf) | [Video](https://youtu.be/JIfQ1FWkN3M) |
+| [012-Exercise-Nested-Loops](012-Exercise-Nested-Loops) | [Pb-Js-Nested-Loops-Exercise.pdf](012-Exercise-Nested-Loops/Resources/Pb-Js-Nested-Loops-Exercise.pdf) | [Video](https://youtu.be/9zrHKXlv8k4) |
+| [013-Exam-Preparation](013-Exam-Preparation) | [Exam-Preparation-Sept-.pdf](013-Exam-Preparation/Resources/Exam-Preparation-Sept-.pdf) | [Video](https://youtu.be/rtYzeEfE_vI) |
