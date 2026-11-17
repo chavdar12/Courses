@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parts>
+  <Part><name>Master cylinder</name><price>130.99</price><quantity>2</quantity><supplierId>2</supplierId></Part>
+  <Part><name>Water tank</name><price>100.99</price><quantity>1</quantity><supplierId>2</supplierId></Part>
+  <Part><name>Front door handle</name><price>100.50</price><quantity>4</quantity><supplierId>3</supplierId></Part>
+  <Part><name>Bonnet</name><price>1001.34</price><quantity>10</quantity><supplierId>1</supplierId></Part>
+  <Part><name>Ghost part</name><price>1.00</price><quantity>1</quantity><supplierId>99</supplierId></Part>
+</Parts>

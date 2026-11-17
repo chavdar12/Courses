@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="P01_StudentSystem/P01_StudentSystem.csproj" />
+  <Project Path="P03_FootballBetting.Data.Models/P03_FootballBetting.Data.Models.csproj" />
+  <Project Path="P03_FootballBetting.Data/P03_FootballBetting.Data.csproj" />
+  <Project Path="P03_FootballBetting/P03_FootballBetting.csproj" />
+  <Project Path="EntityRelationsTests/EntityRelationsTests.csproj" />
+</Solution>

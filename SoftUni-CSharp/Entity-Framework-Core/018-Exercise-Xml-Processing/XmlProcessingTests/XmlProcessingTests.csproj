@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.13" />
+    <ProjectReference Include="../ProductShop/ProductShop.csproj" />
+    <ProjectReference Include="../CarDealer/CarDealer.csproj" />
+  </ItemGroup>
+</Project>

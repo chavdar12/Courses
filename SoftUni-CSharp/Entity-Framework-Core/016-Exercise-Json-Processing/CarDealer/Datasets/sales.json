@@ -1,0 +1,5 @@
+[
+  { "carId": 2, "customerId": 3, "discount": 30 },
+  { "carId": 4, "customerId": 2, "discount": 10 },
+  { "carId": 3, "customerId": 2, "discount": 0 }
+]

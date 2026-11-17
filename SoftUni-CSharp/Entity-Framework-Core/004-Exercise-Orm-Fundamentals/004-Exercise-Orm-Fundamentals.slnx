@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MiniORM/MiniORM.csproj" />
+  <Project Path="MiniORM.App/MiniORM.App.csproj" />
+  <Project Path="MiniORMTests/MiniORMTests.csproj" />
+</Solution>

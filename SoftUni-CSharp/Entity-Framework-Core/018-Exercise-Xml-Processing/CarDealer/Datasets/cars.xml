@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Cars>
+  <Car><make>Opel</make><model>Astra</model><traveledDistance>516628215</traveledDistance>
+    <parts><partId id="2" /><partId id="1" /><partId id="3" /><partId id="1" /><partId id="99" /></parts></Car>
+  <Car><make>BMW</make><model>E88</model><traveledDistance>27453411</traveledDistance>
+    <parts><partId id="4" /></parts></Car>
+  <Car><make>BMW</make><model>1M Coupe</model><traveledDistance>39826890</traveledDistance>
+    <parts /></Car>
+  <Car><make>BMW</make><model>E88</model><traveledDistance>1500</traveledDistance>
+    <parts><partId id="2" /></parts></Car>
+</Cars>

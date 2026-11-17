@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.13" />
+    <ProjectReference Include="../MusicHub/MusicHub.csproj" />
+  </ItemGroup>
+</Project>
