@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Build/test or format-check ONE course, run from that course's folder (Nx sets the cwd).
 # The same logic as chavdar12/workflows ci.yml, scoped to a folder instead of a whole repo.
-#   tools/ci.sh build  <java|node|python|dotnet|cpp|php>...
+#   tools/ci.sh build  <java|node|python|dotnet|cpp|php>...   (php: also composer + artisan test for Laravel apps)
 #   tools/ci.sh format <prettier|ruff|sqlfluff|google-java-format|csharpier|clang-format|php-cs-fixer>...
 # Optional env (set per course in its project.json): SETUP, DOTNET_TEST_FILTER, PYTHON_RUN_SCRIPTS=true
 set -uo pipefail
@@ -85,7 +85,16 @@ build:cpp)
   done ;;
 build:php)
   git ls-files -z '*.php' | xargs -0 -r -n1 php -l > /dev/null || fail "php -l"
+  # Laravel apps (composer.json + artisan) run their own suite; their tests are not plain scripts
+  apps=$(git ls-files '*artisan' | xargs -r -n1 dirname | while read -r d; do [ -f "$d/composer.json" ] && echo "$d"; done)
+  for dir in $apps; do
+    group "$dir"
+    (cd "$dir" && composer install --no-interaction --no-progress -q && { [ -f .env ] || cp .env.example .env; } \
+      && php artisan test) || fail "$dir"
+    endgroup
+  done
   for t in $(git ls-files '*test_*.php' '*Test.php'); do
+    for app in $apps; do case "$t" in "$app"/*) continue 2;; esac; done
     group "$t"; (cd "$(dirname "$t")" && php "$(basename "$t")") || fail "$t"; endgroup
   done ;;
 format:prettier) npx --yes prettier@3.9.10 --check . || fail prettier ;;
