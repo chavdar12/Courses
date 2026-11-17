@@ -4,3 +4,5 @@ node_modules/
 # local IDE / AI-assistant config
 .mcp.json
 .claude/settings.local.json
+# runner token
+tools/runners/.env
