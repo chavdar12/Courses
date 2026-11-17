@@ -1,0 +1,55 @@
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+### Windows ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Python ###
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.python-version
+
+# Test / coverage output
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+coverage.xml
+
+# Tooling caches
+.mypy_cache/
+.ruff_cache/
+
+### Django ###
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+.env
+
+### IDEs ###
+.idea/
+*.iml
+.vscode/
+*.swp
+*~

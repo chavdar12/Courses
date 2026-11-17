@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
+    <p>Budget left: <span class="budget-left">{{ budget_left|floatformat:2 }}$</span></p>
+    <p>Expenses: {{ expenses_count }}</p>
+    <a href="{% url 'edit profile' %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'delete profile' %}" class="btn btn-danger">Delete</a>
+{% endblock %}
