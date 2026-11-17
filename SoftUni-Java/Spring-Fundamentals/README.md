@@ -39,25 +39,18 @@ The Bootstrap lecture is JavaScript: `cd 011-Bootstrap-Front-End-Basics && npm i
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Spring-Fundamentals.pdf](Spring-Fundamentals.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Internet-Explained](001-Internet-Explained) | [Internet-Explained.pdf](001-Internet-Explained/Resources/Internet-Explained.pdf) |
-| [001-Spring-Boot-Introduction](001-Spring-Boot-Introduction) | [Spring-Boot-And-Spring-Data-Lab.pdf](001-Spring-Boot-Introduction/Resources/Spring-Boot-And-Spring-Data-Lab.pdf) · [Spring-Boot-Introduction-.pdf](001-Spring-Boot-Introduction/Resources/Spring-Boot-Introduction-.pdf) · [Spring-Boot-Introduction-More-Ex.pdf](001-Spring-Boot-Introduction/Resources/Spring-Boot-Introduction-More-Ex.pdf) |
-| [002-Http-Protocol](002-Http-Protocol) | [Http-Protocol.pdf](002-Http-Protocol/Resources/Http-Protocol.pdf) |
-| [003-Spring-Introduction-MVC](003-Spring-Introduction-MVC) | [Spring-Introduction-Mvc-Lab.pdf](003-Spring-Introduction-MVC/Resources/Spring-Introduction-Mvc-Lab.pdf) · [Spring-Introduction-Mvc.pdf](003-Spring-Introduction-MVC/Resources/Spring-Introduction-Mvc.pdf) |
-| [004-Workshop-Pathfinder-Part-One](004-Workshop-Pathfinder-Part-One) | [Pathfinder-Workshop.pdf](004-Workshop-Pathfinder-Part-One/Resources/Pathfinder-Workshop.pdf) |
-| [005-State-Management](005-State-Management) | [Spring-Fundamentals-State-Management.pdf](005-State-Management/Resources/Spring-Fundamentals-State-Management.pdf) |
-| [006-Spring-Essentials](006-Spring-Essentials) | [Spring-Essentials-Lab.pdf](006-Spring-Essentials/Resources/Spring-Essentials-Lab.pdf) · [Spring-Essentials.pdf](006-Spring-Essentials/Resources/Spring-Essentials.pdf) |
-| [008-Workshop-Pathfinder-Part-Two](008-Workshop-Pathfinder-Part-Two) | [Pathfinder-Workshop-Part-Two.pdf](008-Workshop-Pathfinder-Part-Two/Resources/Pathfinder-Workshop-Part-Two.pdf) |
-| [009-Thymeleaf-And-Validations](009-Thymeleaf-And-Validations) | [Thymeleaf-And-Validation-Lab.pdf](009-Thymeleaf-And-Validations/Resources/Thymeleaf-And-Validation-Lab.pdf) · [Thymeleaf-And-Validation.pdf](009-Thymeleaf-And-Validations/Resources/Thymeleaf-And-Validation.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Internet-Explained](001-Internet-Explained) | [Internet-Explained.pdf](001-Internet-Explained/Resources/Internet-Explained.pdf) | [Video](https://youtu.be/zTEWO1Ozrsk) |
+| [001-Spring-Boot-Introduction](001-Spring-Boot-Introduction) | [Spring-Boot-And-Spring-Data-Lab.pdf](001-Spring-Boot-Introduction/Resources/Spring-Boot-And-Spring-Data-Lab.pdf) · [Spring-Boot-Introduction-.pdf](001-Spring-Boot-Introduction/Resources/Spring-Boot-Introduction-.pdf) · [Spring-Boot-Introduction-More-Ex.pdf](001-Spring-Boot-Introduction/Resources/Spring-Boot-Introduction-More-Ex.pdf) | [Video](https://youtu.be/xC7B6fpNLrs) |
+| [002-Http-Protocol](002-Http-Protocol) | [Http-Protocol.pdf](002-Http-Protocol/Resources/Http-Protocol.pdf) | [Video](https://youtu.be/7X3fLce5AJQ) |
+| [003-Spring-Introduction-MVC](003-Spring-Introduction-MVC) | [Spring-Introduction-Mvc-Lab.pdf](003-Spring-Introduction-MVC/Resources/Spring-Introduction-Mvc-Lab.pdf) · [Spring-Introduction-Mvc.pdf](003-Spring-Introduction-MVC/Resources/Spring-Introduction-Mvc.pdf) | [Video](https://youtu.be/nP-4pXEyG9U) |
+| [004-Workshop-Pathfinder-Part-One](004-Workshop-Pathfinder-Part-One) | [Pathfinder-Workshop.pdf](004-Workshop-Pathfinder-Part-One/Resources/Pathfinder-Workshop.pdf) | — |
+| [005-State-Management](005-State-Management) | [Spring-Fundamentals-State-Management.pdf](005-State-Management/Resources/Spring-Fundamentals-State-Management.pdf) | [Video](https://youtu.be/maw1U5wJTco) |
+| 005-Workshop | — | [Video](https://youtu.be/81Oh1duRiQc) |
+| [006-Spring-Essentials](006-Spring-Essentials) | [Spring-Essentials-Lab.pdf](006-Spring-Essentials/Resources/Spring-Essentials-Lab.pdf) · [Spring-Essentials.pdf](006-Spring-Essentials/Resources/Spring-Essentials.pdf) | [Video](https://youtu.be/98Tpwi4YEOk) |
+| [008-Workshop-Pathfinder-Part-Two](008-Workshop-Pathfinder-Part-Two) | [Pathfinder-Workshop-Part-Two.pdf](008-Workshop-Pathfinder-Part-Two/Resources/Pathfinder-Workshop-Part-Two.pdf) | — |
+| 008-Workshop | — | [Video](https://youtu.be/hEmwHQmlqc0) |
+| [009-Thymeleaf-And-Validations](009-Thymeleaf-And-Validations) | [Thymeleaf-And-Validation-Lab.pdf](009-Thymeleaf-And-Validations/Resources/Thymeleaf-And-Validation-Lab.pdf) · [Thymeleaf-And-Validation.pdf](009-Thymeleaf-And-Validations/Resources/Thymeleaf-And-Validation.pdf) | [Video](https://youtu.be/BN__Tlzpw_E) |
