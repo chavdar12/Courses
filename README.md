@@ -3,7 +3,7 @@
 [![CI](https://github.com/chavdar12/Courses/actions/workflows/ci.yml/badge.svg)](https://github.com/chavdar12/Courses/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/chavdar12/Courses/actions/workflows/codeql.yml/badge.svg)](https://github.com/chavdar12/Courses/actions/workflows/codeql.yml)
 
-My solutions to 62 programming courses in one repository: the SoftUni Java, C#, JavaScript, Python, C++, PHP and QA
+My solutions to 63 programming courses in one repository: the SoftUni Java, C#, JavaScript, Python, C++, PHP and QA
 tracks, plus Udemy, HackerRank, Ultimate Courses, Strypes and the Technical University of Varna. Every exercise comes with tests,
 and every course builds and tests on its own.
 
@@ -101,6 +101,7 @@ touches, and unchanged courses come from the cache.
 | Course | What it covers | Stack | Nx project |
 | ------ | -------------- | ----- | ---------- |
 | [Angular – The Complete Guide](Udemy/Angular-The-Complete-Guide) | One Angular 22 app per section: components, directives, pipes, services and DI, change detection, RxJS, HTTP, forms, routing, lazy loading and SSR. | Node.js | `udemy-angular-the-complete-guide` |
+| [Java DSA Masterclass](Udemy/Java-DSA-Masterclass) | Big O, recursion, hand-written lists, stacks, queues, trees (BST, AVL), heaps, tries and hash tables, sorting and searching, graphs and shortest paths, greedy, divide and conquer and dynamic programming, plus the interview questions. | Java | `udemy-java-dsa-masterclass` |
 | [Laravel & PHP Mastery](Udemy/Laravel-And-PHP-Mastery) | Five Laravel 13 apps: task list, book reviews, an event-management REST API with Sanctum, a Livewire poll and a job board, each with feature tests. | PHP | `udemy-laravel-and-php-mastery` |
 | [Modern React with Redux](Udemy/Modern-React-With-Redux) | Twelve React 19 + TypeScript apps from JSX and hooks to API search apps, Redux Toolkit and RTK Query, ending with a streams CRUD app and its own API. | Node.js | `udemy-modern-react-with-redux` |
 | [PHP for Beginners – CMS Project](Udemy/PHP-CMS-Project) | Beginner PHP exercises, then a blog CMS in plain PHP 8.5: posts, categories, search, moderated comments, accounts and an admin panel with roles, on PDO with CSRF protection. | PHP | `udemy-php-cms-project` |
