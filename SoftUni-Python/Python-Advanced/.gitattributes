@@ -1,0 +1,13 @@
+# Normalize line endings to LF in the repo; Windows checkouts still get native endings.
+* text=auto eol=lf
+
+*.py   text diff=python
+*.txt  text
+*.json text
+*.md   text diff=markdown
+*.yml  text
+
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.ico  binary
