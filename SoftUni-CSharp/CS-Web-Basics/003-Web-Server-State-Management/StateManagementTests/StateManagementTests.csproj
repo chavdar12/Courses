@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../SIS.Demo/SIS.Demo.csproj" />
+  </ItemGroup>
+</Project>

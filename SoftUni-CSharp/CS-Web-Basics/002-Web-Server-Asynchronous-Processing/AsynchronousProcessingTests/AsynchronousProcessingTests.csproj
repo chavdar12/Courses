@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Chronometer/Chronometer.csproj" />
+    <ProjectReference Include="../EvenNumbersThread/EvenNumbersThread.csproj" />
+    <ProjectReference Include="../ParallelMergeSort/ParallelMergeSort.csproj" />
+    <ProjectReference Include="../SIS.Demo/SIS.Demo.csproj" />
+    <ProjectReference Include="../SumPrimes/SumPrimes.csproj" />
+  </ItemGroup>
+</Project>
