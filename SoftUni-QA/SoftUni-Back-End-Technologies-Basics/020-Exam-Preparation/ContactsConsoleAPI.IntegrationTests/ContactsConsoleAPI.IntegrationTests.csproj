@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\ContactsConsoleAPI\ContactsConsoleAPI.csproj" />
+  </ItemGroup>
+</Project>

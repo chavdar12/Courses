@@ -1,0 +1,62 @@
+# .NET build output
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+artifacts/
+*.nupkg
+*.snupkg
+
+# Test results & coverage
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+coverage/
+coverage*.json
+coverage*.xml
+coverage*.info
+*.coverage
+*.coveragexml
+StrykerOutput/
+.nyc_output/
+
+# Local databases created by the apps
+*.db
+*.db-shm
+*.db-wal
+
+# User-specific settings & secrets
+*.user
+*.userprefs
+*.suo
+appsettings.*.local.json
+.env
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+.idea_modules/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.DocumentRevisions-V100
+Icon?
