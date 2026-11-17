@@ -1,0 +1,18 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "Stypress-Python",
+  "projectType": "application",
+  "tags": ["track:Stypress", "stack:python"],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash ../../tools/ci.sh build python",
+        "cwd": "{projectRoot}",
+        "env": {
+          "PYTHON_RUN_SCRIPTS": "true"
+        }
+      }
+    }
+  }
+}
