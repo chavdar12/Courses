@@ -40,27 +40,28 @@ Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Java-Oop.pdf](Java-Oop.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Working-With-Abstraction](001-Working-With-Abstraction) | [Java-Oop-Working-With-Abstraction-Exercises.pdf](001-Working-With-Abstraction/Resources/Java-Oop-Working-With-Abstraction-Exercises.pdf) · [Java-Oop-Working-With-Abstraction-Lab.pdf](001-Working-With-Abstraction/Resources/Java-Oop-Working-With-Abstraction-Lab.pdf) · [Java-Oop-Working-With-Abstraction.pdf](001-Working-With-Abstraction/Resources/Java-Oop-Working-With-Abstraction.pdf) |
-| [002-Encapsulation](002-Encapsulation) | [Java-Oop-Encapsulation-Exercises.pdf](002-Encapsulation/Resources/Java-Oop-Encapsulation-Exercises.pdf) · [Java-Oop-Encapsulation-Lab.pdf](002-Encapsulation/Resources/Java-Oop-Encapsulation-Lab.pdf) · [Java-Oop-Encapsulation.pdf](002-Encapsulation/Resources/Java-Oop-Encapsulation.pdf) |
-| [003-Inheritance](003-Inheritance) | [Java-Oop-Inheritance-Exercises.pdf](003-Inheritance/Resources/Java-Oop-Inheritance-Exercises.pdf) · [Java-Oop-Inheritance-Lab.pdf](003-Inheritance/Resources/Java-Oop-Inheritance-Lab.pdf) · [Java-Oop-Inheritance.pdf](003-Inheritance/Resources/Java-Oop-Inheritance.pdf) |
-| [004-Interfaces-and-Abstraction](004-Interfaces-and-Abstraction) | [Java-Oop-Interfaces-And-Abstraction-Exercises.pdf](004-Interfaces-and-Abstraction/Resources/Java-Oop-Interfaces-And-Abstraction-Exercises.pdf) · [Java-Oop-Interfaces-And-Abstraction-Lab.pdf](004-Interfaces-and-Abstraction/Resources/Java-Oop-Interfaces-And-Abstraction-Lab.pdf) · [Java-Oop-Interfaces-And-Abstraction.pdf](004-Interfaces-and-Abstraction/Resources/Java-Oop-Interfaces-And-Abstraction.pdf) |
-| [005-Polymorphism](005-Polymorphism) | [Java-Oop-Polymorphism-Exercises.pdf](005-Polymorphism/Resources/Java-Oop-Polymorphism-Exercises.pdf) · [Java-Oop-Polymorphism-Lab.pdf](005-Polymorphism/Resources/Java-Oop-Polymorphism-Lab.pdf) · [Java-Oop-Polymorphism.pdf](005-Polymorphism/Resources/Java-Oop-Polymorphism.pdf) |
-| [006-Solid](006-Solid) | [Java-Oop-Solid-Exercises.pdf](006-Solid/Resources/Java-Oop-Solid-Exercises.pdf) · [Java-Oop-Solid.pdf](006-Solid/Resources/Java-Oop-Solid.pdf) |
-| [007-Reflection-and-Annotation](007-Reflection-and-Annotation) | [Java-Oop-Reflection-And-Annotations-Exercises.pdf](007-Reflection-and-Annotation/Resources/Java-Oop-Reflection-And-Annotations-Exercises.pdf) · [Java-Oop-Reflection-And-Annotations-Lab.pdf](007-Reflection-and-Annotation/Resources/Java-Oop-Reflection-And-Annotations-Lab.pdf) · [Java-Oop-Reflection-And-Annotations.pdf](007-Reflection-and-Annotation/Resources/Java-Oop-Reflection-And-Annotations.pdf) |
-| [010-Unit-Testing](010-Unit-Testing) | [Java-Oop-Unit-Testing-Exercises.pdf](010-Unit-Testing/Resources/Java-Oop-Unit-Testing-Exercises.pdf) · [Java-Oop-Unit-Testing-Lab.pdf](010-Unit-Testing/Resources/Java-Oop-Unit-Testing-Lab.pdf) · [Java-Oop-Unit-Testing.pdf](010-Unit-Testing/Resources/Java-Oop-Unit-Testing.pdf) |
-| [011-Test-Driven-Development](011-Test-Driven-Development) | [Java-Oop-Test-Driven-Development-Exercise.pdf](011-Test-Driven-Development/Resources/Java-Oop-Test-Driven-Development-Exercise.pdf) · [Java-Oop-Test-Driven-Development-Lab.pdf](011-Test-Driven-Development/Resources/Java-Oop-Test-Driven-Development-Lab.pdf) · [Java-Oop-Test-Driven-Development.pdf](011-Test-Driven-Development/Resources/Java-Oop-Test-Driven-Development.pdf) |
-| [013-Design-Patterns](013-Design-Patterns) | [Java-Oop-Design-Patterns-Exercises.pdf](013-Design-Patterns/Resources/Java-Oop-Design-Patterns-Exercises.pdf) · [Java-Oop-Design-Patterns-Lab.pdf](013-Design-Patterns/Resources/Java-Oop-Design-Patterns-Lab.pdf) · [Java-Oop-Design-Patterns.pdf](013-Design-Patterns/Resources/Java-Oop-Design-Patterns.pdf) |
-| [014-Exceptions-And-Error-Handling](014-Exceptions-And-Error-Handling) | [Java-Oop-Exceptions-And-Error-Handling-Lab.pdf](014-Exceptions-And-Error-Handling/Resources/Java-Oop-Exceptions-And-Error-Handling-Lab.pdf) · [Java-Oop-Exceptions-And-Error-Handling.pdf](014-Exceptions-And-Error-Handling/Resources/Java-Oop-Exceptions-And-Error-Handling.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Working-With-Abstraction](001-Working-With-Abstraction) | [Java-Oop-Working-With-Abstraction-Exercises.pdf](001-Working-With-Abstraction/Resources/Java-Oop-Working-With-Abstraction-Exercises.pdf) · [Java-Oop-Working-With-Abstraction-Lab.pdf](001-Working-With-Abstraction/Resources/Java-Oop-Working-With-Abstraction-Lab.pdf) · [Java-Oop-Working-With-Abstraction.pdf](001-Working-With-Abstraction/Resources/Java-Oop-Working-With-Abstraction.pdf) | [Video](https://youtu.be/fFYp45rjLG4) |
+| [002-Encapsulation](002-Encapsulation) | [Java-Oop-Encapsulation-Exercises.pdf](002-Encapsulation/Resources/Java-Oop-Encapsulation-Exercises.pdf) · [Java-Oop-Encapsulation-Lab.pdf](002-Encapsulation/Resources/Java-Oop-Encapsulation-Lab.pdf) · [Java-Oop-Encapsulation.pdf](002-Encapsulation/Resources/Java-Oop-Encapsulation.pdf) | [Video](https://youtu.be/ISG-aLUzVRw) |
+| 002-Exercise-Working-With-Abstraction | — | [Video](https://youtu.be/ndF91GvWB_s) |
+| [003-Inheritance](003-Inheritance) | [Java-Oop-Inheritance-Exercises.pdf](003-Inheritance/Resources/Java-Oop-Inheritance-Exercises.pdf) · [Java-Oop-Inheritance-Lab.pdf](003-Inheritance/Resources/Java-Oop-Inheritance-Lab.pdf) · [Java-Oop-Inheritance.pdf](003-Inheritance/Resources/Java-Oop-Inheritance.pdf) | [Video](https://youtu.be/n-Jzj64CUb8) |
+| [004-Interfaces-and-Abstraction](004-Interfaces-and-Abstraction) | [Java-Oop-Interfaces-And-Abstraction-Exercises.pdf](004-Interfaces-and-Abstraction/Resources/Java-Oop-Interfaces-And-Abstraction-Exercises.pdf) · [Java-Oop-Interfaces-And-Abstraction-Lab.pdf](004-Interfaces-and-Abstraction/Resources/Java-Oop-Interfaces-And-Abstraction-Lab.pdf) · [Java-Oop-Interfaces-And-Abstraction.pdf](004-Interfaces-and-Abstraction/Resources/Java-Oop-Interfaces-And-Abstraction.pdf) | [Video](https://youtu.be/4urTQIeC1HM) |
+| 004-Exercise-Encapsulation | — | [Video](https://youtu.be/ZYKAsW0JFmM) |
+| [005-Polymorphism](005-Polymorphism) | [Java-Oop-Polymorphism-Exercises.pdf](005-Polymorphism/Resources/Java-Oop-Polymorphism-Exercises.pdf) · [Java-Oop-Polymorphism-Lab.pdf](005-Polymorphism/Resources/Java-Oop-Polymorphism-Lab.pdf) · [Java-Oop-Polymorphism.pdf](005-Polymorphism/Resources/Java-Oop-Polymorphism.pdf) | [Video](https://youtu.be/Oa3vxl8YRDU) |
+| [006-Solid](006-Solid) | [Java-Oop-Solid-Exercises.pdf](006-Solid/Resources/Java-Oop-Solid-Exercises.pdf) · [Java-Oop-Solid.pdf](006-Solid/Resources/Java-Oop-Solid.pdf) | [Video](https://youtu.be/-t8KAICcVMg) |
+| 006-Exercise-Inheritance | — | [Video](https://youtu.be/0LK7Xo5QSj4) |
+| [007-Reflection-and-Annotation](007-Reflection-and-Annotation) | [Java-Oop-Reflection-And-Annotations-Exercises.pdf](007-Reflection-and-Annotation/Resources/Java-Oop-Reflection-And-Annotations-Exercises.pdf) · [Java-Oop-Reflection-And-Annotations-Lab.pdf](007-Reflection-and-Annotation/Resources/Java-Oop-Reflection-And-Annotations-Lab.pdf) · [Java-Oop-Reflection-And-Annotations.pdf](007-Reflection-and-Annotation/Resources/Java-Oop-Reflection-And-Annotations.pdf) | [Video](https://youtu.be/IhmIU6pRU0M) |
+| 008-Exercise-Interfaces-And-Abstraction | — | [Video](https://youtu.be/ATtG1i70KsM) |
+| [010-Unit-Testing](010-Unit-Testing) | [Java-Oop-Unit-Testing-Exercises.pdf](010-Unit-Testing/Resources/Java-Oop-Unit-Testing-Exercises.pdf) · [Java-Oop-Unit-Testing-Lab.pdf](010-Unit-Testing/Resources/Java-Oop-Unit-Testing-Lab.pdf) · [Java-Oop-Unit-Testing.pdf](010-Unit-Testing/Resources/Java-Oop-Unit-Testing.pdf) | [Video](https://youtu.be/C7juxMworwQ) |
+| 010-Exercise-Polymorphism | — | [Video](https://youtu.be/-rc6uQuVg18) |
+| [011-Test-Driven-Development](011-Test-Driven-Development) | [Java-Oop-Test-Driven-Development-Exercise.pdf](011-Test-Driven-Development/Resources/Java-Oop-Test-Driven-Development-Exercise.pdf) · [Java-Oop-Test-Driven-Development-Lab.pdf](011-Test-Driven-Development/Resources/Java-Oop-Test-Driven-Development-Lab.pdf) · [Java-Oop-Test-Driven-Development.pdf](011-Test-Driven-Development/Resources/Java-Oop-Test-Driven-Development.pdf) | [Video](https://youtu.be/umG4TmbyzwU) |
+| 012-Exercise-Solid | — | [Video](https://youtu.be/Uxb-OtzG3Xo) |
+| [013-Design-Patterns](013-Design-Patterns) | [Java-Oop-Design-Patterns-Exercises.pdf](013-Design-Patterns/Resources/Java-Oop-Design-Patterns-Exercises.pdf) · [Java-Oop-Design-Patterns-Lab.pdf](013-Design-Patterns/Resources/Java-Oop-Design-Patterns-Lab.pdf) · [Java-Oop-Design-Patterns.pdf](013-Design-Patterns/Resources/Java-Oop-Design-Patterns.pdf) | [Video](https://youtu.be/GRfnLLbLysU) |
+| [014-Exceptions-And-Error-Handling](014-Exceptions-And-Error-Handling) | [Java-Oop-Exceptions-And-Error-Handling-Lab.pdf](014-Exceptions-And-Error-Handling/Resources/Java-Oop-Exceptions-And-Error-Handling-Lab.pdf) · [Java-Oop-Exceptions-And-Error-Handling.pdf](014-Exceptions-And-Error-Handling/Resources/Java-Oop-Exceptions-And-Error-Handling.pdf) | [Video](https://youtu.be/3h2leimm1qc) |
+| 014-Exercise-Reflection-And-Annotation | — | [Video](https://youtu.be/2fGpgnrQc-c) |
+| 018-Exercise-Unit-Testing | — | [Video](https://youtu.be/XpobQ6b4vcs) |
+| 020-Exercise-Test-Driven-Development | — | [Video](https://youtu.be/-bgf5vwE4Ig) |
+| 022-Exercise-Design-Patterns | — | [Video](https://youtu.be/kAPBR5v0Ld0) |
