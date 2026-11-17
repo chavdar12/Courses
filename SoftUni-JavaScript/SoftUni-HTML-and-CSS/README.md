@@ -41,16 +41,20 @@ npm test        # html-validate + node --test
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Html-And-Css.pdf](Html-And-Css.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Introduction-To-HTML-CSS](001-Introduction-To-HTML-CSS) | [Introduction-To-Html-And-Css-Exercise.pdf](001-Introduction-To-HTML-CSS/Resources/Introduction-To-Html-And-Css-Exercise.pdf) · [Introduction-To-Html-And-Css.pdf](001-Introduction-To-HTML-CSS/Resources/Introduction-To-Html-And-Css.pdf) |
-| [002-HTML-Structure](002-HTML-Structure) | [Html-Structure-Exercise.pdf](002-HTML-Structure/Resources/Html-Structure-Exercise.pdf) · [Html-Structure.pdf](002-HTML-Structure/Resources/Html-Structure.pdf) |
-| [003-CSS-Typography](003-CSS-Typography) | [Css-And-Thypography-Exercise.pdf](003-CSS-Typography/Resources/Css-And-Thypography-Exercise.pdf) · [Css-And-Thypography.pdf](003-CSS-Typography/Resources/Css-And-Thypography.pdf) |
-| [004-CSS-Box-Model](004-CSS-Box-Model) | [Css-Box-Model-Exercise.pdf](004-CSS-Box-Model/Resources/Css-Box-Model-Exercise.pdf) · [Css-Box-Model.pdf](004-CSS-Box-Model/Resources/Css-Box-Model.pdf) |
-| [005-Position-And-Float](005-Position-And-Float) | [Position-Grid-Exercise.pdf](005-Position-And-Float/Resources/Position-Grid-Exercise.pdf) · [Position-Grid.pdf](005-Position-And-Float/Resources/Position-Grid.pdf) |
-| [006-Flexbox](006-Flexbox) | [Flexbox-Exercise.pdf](006-Flexbox/Resources/Flexbox-Exercise.pdf) · [Flexbox.pdf](006-Flexbox/Resources/Flexbox.pdf) |
-| [007-Media-Queries](007-Media-Queries) | [Media-Queries-Exercise.pdf](007-Media-Queries/Resources/Media-Queries-Exercise.pdf) · [Media-Queries.pdf](007-Media-Queries/Resources/Media-Queries.pdf) |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Introduction-To-HTML-CSS](001-Introduction-To-HTML-CSS) | [Introduction-To-Html-And-Css-Exercise.pdf](001-Introduction-To-HTML-CSS/Resources/Introduction-To-Html-And-Css-Exercise.pdf) · [Introduction-To-Html-And-Css.pdf](001-Introduction-To-HTML-CSS/Resources/Introduction-To-Html-And-Css.pdf) | [Video](https://youtu.be/GVkNqiXwb9c) |
+| [002-HTML-Structure](002-HTML-Structure) | [Html-Structure-Exercise.pdf](002-HTML-Structure/Resources/Html-Structure-Exercise.pdf) · [Html-Structure.pdf](002-HTML-Structure/Resources/Html-Structure.pdf) | [Video](https://youtu.be/J5FYdEsXTzA) |
+| [003-CSS-Typography](003-CSS-Typography) | [Css-And-Thypography-Exercise.pdf](003-CSS-Typography/Resources/Css-And-Thypography-Exercise.pdf) · [Css-And-Thypography.pdf](003-CSS-Typography/Resources/Css-And-Thypography.pdf) | [Video](https://youtu.be/y6udZikvtus) |
+| [004-CSS-Box-Model](004-CSS-Box-Model) | [Css-Box-Model-Exercise.pdf](004-CSS-Box-Model/Resources/Css-Box-Model-Exercise.pdf) · [Css-Box-Model.pdf](004-CSS-Box-Model/Resources/Css-Box-Model.pdf) | [Video](https://youtu.be/yStOgz3GJRs) |
+| 004-Exercise-HHTML-And-CSS | — | [Video](https://youtu.be/_MncSiV2jEE) |
+| [005-Position-And-Float](005-Position-And-Float) | [Position-Grid-Exercise.pdf](005-Position-And-Float/Resources/Position-Grid-Exercise.pdf) · [Position-Grid.pdf](005-Position-And-Float/Resources/Position-Grid.pdf) | — |
+| [006-Flexbox](006-Flexbox) | [Flexbox-Exercise.pdf](006-Flexbox/Resources/Flexbox-Exercise.pdf) · [Flexbox.pdf](006-Flexbox/Resources/Flexbox.pdf) | [Video](https://youtu.be/hKcOsh24FvE) |
+| 006- Exercise-CSS Box Model | — | [Video](https://youtu.be/FTEnYS_w5cQ) |
+| [007-Media-Queries](007-Media-Queries) | [Media-Queries-Exercise.pdf](007-Media-Queries/Resources/Media-Queries-Exercise.pdf) · [Media-Queries.pdf](007-Media-Queries/Resources/Media-Queries.pdf) | [Video](https://youtu.be/Tu_FaUzCZKs) |
+| 007-Position-And-Grid | — | [Video](https://youtu.be/M1tYnxsHqZ8) |
+| 008- Exercise-Position-And-Grid | — | [Video](https://youtu.be/OOXdt4cOGzU) |
+| 010- Exercise-Flexbox | — | [Video](https://youtu.be/CvlqwoNQ9go) |
+| 012-Exam-Preparation | — | [Video](https://youtu.be/BUOGlCMsJLA) |
