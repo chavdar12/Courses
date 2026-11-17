@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h1>REST API Example</h1>
+<a href="#" id="all-users">Show all users</a>
+<div id="users"></div>
+<a href="#" id="hide-users" style="display: none">Hide users</a><br>
+<a href="#" id="add-user">Add user</a>
+
+<script>
+    const apiUrl = "api.php/users";
+    // usernames come from other visitors, so escape them before putting them in HTML
+    const escape = text => String(text).replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'})[c]);
+    const usersContainer = document.getElementById("users");
+    const allUsersLink = document.getElementById("all-users");
+    const hideUsersLink = document.getElementById("hide-users");
+
+    allUsersLink.onclick = () => {
+        fetch(apiUrl)
+            .then(res => res.json())
+            .then(users => {
+                const table = `
+                <table border=1>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Username</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${users.map(user => `
+                            <tr>
+                                <td>${user.id}</td>
+                                <td><a href="#" class="user-info" data-id="${user.id}">${escape(user.username)}</a></td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+                usersContainer.innerHTML = table;
+                allUsersLink.style.display = "none";
+                hideUsersLink.style.display = "block";
+
+                document.querySelectorAll(".user-info").forEach(link => {
+                    link.onclick = (event) => {
+                        const userId = event.target.dataset.id;
+                        fetch(`${apiUrl}/${userId}`)
+                            .then(res => res.json())
+                            .then(user => {
+                                usersContainer.innerHTML = `
+                                <ul>
+                                    <li>Id: ${user.id}</li>
+                                    <li>Username: ${escape(user.username)}</li>
+                                </ul>
+                            `;
+                            });
+                    };
+                });
+            });
+    };
+
+    hideUsersLink.onclick = () => {
+        usersContainer.innerHTML = '';
+        allUsersLink.style.display = "block";
+        hideUsersLink.style.display = "none";
+    };
+
+    document.getElementById("add-user").onclick = () => {
+        usersContainer.innerHTML = `
+        <span id="error" style="color: red"></span><br />
+        Username: <input type="text" id="username"><br />
+        Password: <input type="password" id="password"><br />
+        Confirm Password: <input type="password" id="confirm"><br />
+        <button type="submit" id="reg">Register!</button>
+    `;
+
+        document.getElementById("reg").onclick = () => {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const confirm = document.getElementById("confirm").value;
+
+            if (password !== confirm) {
+                document.getElementById("error").innerText = "Password mismatch";
+            } else {
+                fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({username, password})
+                })
+                    .then(res => res.ok ? allUsersLink.click() : res.json().then(body => {
+                        document.getElementById("error").innerText = body.error;
+                    }));
+            }
+        };
+    };
+</script>
+</body>
+</html>
