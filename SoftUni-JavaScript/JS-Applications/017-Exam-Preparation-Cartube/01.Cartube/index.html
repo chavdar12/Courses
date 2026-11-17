@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarTube</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="importmap">
+        { "imports": { "lit-html": "/node_modules/lit-html/lit-html.js", "lit-html/": "/node_modules/lit-html/", "page": "/node_modules/page/page.mjs" } }
+    </script>
+    <script src="/src/app.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="active" href="/">Home</a>
+            <a href="/catalog">All Listings</a>
+            <a href="/search">By Year</a>
+            <div id="guest">
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            </div>
+            <div id="profile">
+                <a id="welcome">Welcome</a>
+                <a href="/my-listings">My Listings</a>
+                <a href="/create">Create Listing</a>
+                <a id="logoutBtn" href="javascript:void(0)">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main id="site-content"></main>
+    <footer>&copy; CarTube</footer>
+</body>
+
+</html>

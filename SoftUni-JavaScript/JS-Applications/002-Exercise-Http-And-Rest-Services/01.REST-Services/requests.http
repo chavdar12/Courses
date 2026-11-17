@@ -1,0 +1,95 @@
+@local = http://localhost:3030
+
+### 1. REST Countries – manual HTTP request for Bulgaria:
+#   GET /v2/name/Bulgaria HTTP/1.1
+#   Host: restcountries.com
+GET https://restcountries.com/v2/name/Bulgaria
+
+### 1. Italy – only name, capital, region and population
+GET https://restcountries.com/v2/name/Italy?fields=name,capital,region,population
+
+### 1. German-speaking countries – only name and region
+GET https://restcountries.com/v2/lang/de?fields=name,region
+
+### 2. Bus Stop (valid ids: 1287, 1308, 1327, 2334)
+GET {{local}}/jsonstore/bus/businfo/1287
+
+### 3. Phonebook GET
+GET {{local}}/jsonstore/phonebook
+
+### 4. Phonebook POST
+POST {{local}}/jsonstore/phonebook
+Content-Type: application/json
+
+{ "person": "Maya", "phone": "+1-555-7653" }
+
+### 4. Phonebook POST (second entry)
+POST {{local}}/jsonstore/phonebook
+Content-Type: application/json
+
+{ "person": "Peter", "phone": "+1-555-1234" }
+
+### 5. Employees – all
+GET https://dummy.restapiexample.com/api/v1/employees
+
+### 5. Employees – one
+GET https://dummy.restapiexample.com/api/v1/employee/1
+
+### 5. Employees – create
+POST https://dummy.restapiexample.com/api/v1/create
+Content-Type: application/json
+
+{ "name": "test", "salary": "123", "age": "23" }
+
+### 5. Employees – update
+PUT https://dummy.restapiexample.com/api/v1/update/21
+Content-Type: application/json
+
+{ "name": "test", "salary": "1123", "age": "23" }
+
+### 5. Employees – delete
+DELETE https://dummy.restapiexample.com/api/v1/delete/2
+
+### 6. Firebase – create a book (set @firebase to your Realtime Database URL)
+@firebase = https://your-project-default-rtdb.firebaseio.com
+POST {{firebase}}/books.json
+Content-Type: application/json
+
+{ "genre": "Thrillers", "title": "Gone Girl", "author": "Gillian Flynn" }
+
+### 6. Firebase – read all books
+GET {{firebase}}/books.json
+
+### 6. Firebase – delete a book (id returned by POST as "name")
+DELETE {{firebase}}/books/{{bookId}}.json
+
+### 7. Backendless – create a song
+@backendless = https://api.backendless.com/{{appId}}/{{restApiKey}}
+POST {{backendless}}/data/Music
+Content-Type: application/json
+
+{ "singer": "Alan Walker", "title": "Faded" }
+
+### 7. Backendless – read all songs
+GET {{backendless}}/data/Music
+
+### 7. Backendless – delete a song
+DELETE {{backendless}}/data/Music/{{objectId}}
+
+### 8. Back4App – create a student
+POST https://parseapi.back4app.com/classes/Students
+X-Parse-Application-Id: {{appId}}
+X-Parse-REST-API-Key: {{restApiKey}}
+Content-Type: application/json
+
+{ "firstName": "Sarah", "lastName": "Johnson", "averageGrade": 5.9 }
+
+### 8. Back4App – read all students
+GET https://parseapi.back4app.com/classes/Students
+X-Parse-Application-Id: {{appId}}
+X-Parse-REST-API-Key: {{restApiKey}}
+
+### 8. Back4App – delete a student
+DELETE https://parseapi.back4app.com/classes/Students/{{objectId}}
+X-Parse-Application-Id: {{appId}}
+X-Parse-REST-API-Key: {{restApiKey}}

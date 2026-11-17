@@ -1,0 +1,15 @@
+### 1. REST Countries – details about Bulgaria
+GET https://restcountries.com/v2/name/Bulgaria
+
+### 2. GitHub: Labels Issue – first issue of test-nakov-repo
+GET https://api.github.com/repos/testnakov/test-nakov-repo/issues/1
+
+### 3. GitHub: Create Issue (GitHub no longer accepts passwords – use a personal access token)
+POST https://api.github.com/repos/testnakov/test-nakov-repo/issues
+Authorization: Basic {{username}}:{{token}}
+Content-Type: application/json
+
+{
+  "title": "Found a bug",
+  "body": "I'm having a problem with this."
+}

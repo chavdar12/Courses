@@ -1,0 +1,23 @@
+{
+  "name": "softterest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "http-server -a localhost -p 3000 -P http://localhost:3000?"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lit-html": "^3.3.3",
+    "page": "^1.11.6"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "overrides": {
+    "path-to-regexp": "~1.9.0"
+  }
+}

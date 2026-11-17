@@ -1,0 +1,21 @@
+{
+  "name": "07.-js-applications-routing-exercise-resources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "http-server -a localhost -p 3000 -P http://localhost:3000? -c-1",
+    "test": "node --test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "lit-html": "^3.3.3",
+    "page": "^1.11.6"
+  },
+  "overrides": {
+    "path-to-regexp": "~1.9.0"
+  }
+}
