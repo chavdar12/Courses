@@ -42,18 +42,19 @@ Run `npm run server` in one terminal and `npm run dev` in another. Data resets o
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Reactjs.pdf](Reactjs.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Intro-To-React-And-Jsx](001-Intro-To-React-And-Jsx) | [Introduction-To-Reactjs.pdf](001-Intro-To-React-And-Jsx/Resources/Introduction-To-Reactjs.pdf) |
-| [002-Components-Basic-Idea](002-Components-Basic-Idea) | [React-Components-Basic-Idea.pdf](002-Components-Basic-Idea/Resources/React-Components-Basic-Idea.pdf) |
-| [003-Components-Deep-Dive](003-Components-Deep-Dive) | [React-Js-Components-Deep-Dive.pdf](003-Components-Deep-Dive/Resources/React-Js-Components-Deep-Dive.pdf) |
-| [004-Workshop-Components](004-Workshop-Components) | [React-Js-Components-Workshop.pdf](004-Workshop-Components/Resources/React-Js-Components-Workshop.pdf) |
-| [005-Routing](005-Routing) | [React-Js-Routing.pdf](005-Routing/Resources/React-Js-Routing.pdf) |
-| [006-Workshop-Single-Page-Application](006-Workshop-Single-Page-Application) | [Petmypet-.pdf](006-Workshop-Single-Page-Application/Resources/Petmypet-.pdf) |
-| [007-Forms](007-Forms) | [React-Js-Forms.pdf](007-Forms/Resources/React-Js-Forms.pdf) |
-| [008-React-Hooks](008-React-Hooks) | [React-Js-React-Hooks.pdf](008-React-Hooks/Resources/React-Js-React-Hooks.pdf) |
-| [010-Advanced-Techniques](010-Advanced-Techniques) | [React-Js-Advanced-Techniques.pdf](010-Advanced-Techniques/Resources/React-Js-Advanced-Techniques.pdf) |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Intro-To-React-And-Jsx](001-Intro-To-React-And-Jsx) | [Introduction-To-Reactjs.pdf](001-Intro-To-React-And-Jsx/Resources/Introduction-To-Reactjs.pdf) | [Video](https://youtu.be/YQOYcmRCZzo) |
+| [002-Components-Basic-Idea](002-Components-Basic-Idea) | [React-Components-Basic-Idea.pdf](002-Components-Basic-Idea/Resources/React-Components-Basic-Idea.pdf) | [Video](https://youtu.be/qVTD9iF7lCE) |
+| [003-Components-Deep-Dive](003-Components-Deep-Dive) | [React-Js-Components-Deep-Dive.pdf](003-Components-Deep-Dive/Resources/React-Js-Components-Deep-Dive.pdf) | [Video](https://youtu.be/mmvsb6zHbh0) |
+| [004-Workshop-Components](004-Workshop-Components) | [React-Js-Components-Workshop.pdf](004-Workshop-Components/Resources/React-Js-Components-Workshop.pdf) | [Video](https://youtu.be/04WCVktHj2o) |
+| [005-Routing](005-Routing) | [React-Js-Routing.pdf](005-Routing/Resources/React-Js-Routing.pdf) | [Video](https://youtu.be/0n902TIhuRo) |
+| [006-Workshop-Single-Page-Application](006-Workshop-Single-Page-Application) | [Petmypet-.pdf](006-Workshop-Single-Page-Application/Resources/Petmypet-.pdf) | [Video](https://youtu.be/X7imBmuOL7s) |
+| [007-Forms](007-Forms) | [React-Js-Forms.pdf](007-Forms/Resources/React-Js-Forms.pdf) | [Video](https://youtu.be/Ja6AbAgLT7I) |
+| [008-React-Hooks](008-React-Hooks) | [React-Js-React-Hooks.pdf](008-React-Hooks/Resources/React-Js-React-Hooks.pdf) | [Video](https://youtu.be/JrJ-jbuxSKo) |
+| 009-Workshop-Authentication | — | [Video](https://youtu.be/mXyUKEsEmrc) |
+| [010-Advanced-Techniques](010-Advanced-Techniques) | [React-Js-Advanced-Techniques.pdf](010-Advanced-Techniques/Resources/React-Js-Advanced-Techniques.pdf) | [Video](https://youtu.be/PkclaCE-Iug) |
+| 011-Workshop-Advanced-Techniques-Part-1 | — | — |
+| 012-Workshop-Advanced-Techniques-Part-2 | — | — |
