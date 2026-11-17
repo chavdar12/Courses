@@ -16,7 +16,7 @@ permissions:
 jobs:
   # Nx works out which courses a change touched; only those get a job.
   plan:
-    runs-on: k8s-runners # self-hosted ARC scale set registered to this repo (gh-runner-k8s)
+    runs-on: self-hosted # Docker Compose runners from tools/runners
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
@@ -45,7 +45,7 @@ jobs:
     needs: plan
     if: ${{ fromJSON(needs.plan.outputs.matrix).include[0] != null }}
     name: ${{ matrix.project }}
-    runs-on: k8s-runners # self-hosted ARC scale set registered to this repo (gh-runner-k8s)
+    runs-on: self-hosted # Docker Compose runners from tools/runners
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
@@ -85,7 +85,7 @@ jobs:
   result:
     needs: [plan, course]
     if: ${{ always() }}
-    runs-on: k8s-runners # self-hosted ARC scale set registered to this repo (gh-runner-k8s)
+    runs-on: self-hosted # Docker Compose runners from tools/runners
     steps:
       - run: |
           for r in ${{ needs.plan.result }} ${{ needs.course.result }}; do

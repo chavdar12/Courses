@@ -12,7 +12,7 @@ token() {
 sudo chown runner "$RUNNER_TOOL_CACHE" # the named volume starts out root-owned
 cd /home/runner
 ./config.sh --unattended --url "$GITHUB_CONFIG_URL" --token "$(token registration)" \
-  --name "compose-$(hostname)" --labels "$RUNNER_LABELS" --ephemeral --replace --disableupdate
+  --name "compose-$(hostname)" --ephemeral --replace --disableupdate
 
 ./run.sh &
 pid=$!

@@ -1,26 +1,29 @@
-# Self-hosted runners for Courses CI with plain Docker: the lighter alternative to the ARC setup (setup.sh).
-# Each container registers one ephemeral runner, takes one job, exits, and is restarted fresh.
-#
-#   cp .env.example .env      # token + repo URL (shared with setup.sh); optional RUNNERS=3
-#   docker compose up -d      # start RUNNERS runners
-#   docker compose logs -f    # watch them register and pick up jobs
-#   docker compose down       # stop them (idle runners unregister themselves)
+# Self-hosted runners for Courses CI (runs-on: self-hosted).
+#   cp .env.example .env   # put the token in .env
+#   docker compose up -d   # 3 runners; each takes one job, exits, and is restarted fresh
+#   docker compose down
 services:
   runner:
     image: ghcr.io/actions/actions-runner:2.338.2
-    entrypoint: ["bash", "/entrypoint.sh"]
     env_file: .env
     environment:
-      RUNNER_LABELS: ${RUNNER_NAME:-k8s-runners} # the label CI's runs-on targets
-      RUNNER_TOOL_CACHE: /opt/hostedtoolcache # setup-node/java/python/dotnet keep toolchains here
+      RUNNER_TOOL_CACHE: /opt/hostedtoolcache
       AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
     volumes:
-      - ./entrypoint.sh:/entrypoint.sh:ro
-      - toolcache:/opt/hostedtoolcache # shared, so toolchains download once, not per job
+      - toolcache:/opt/hostedtoolcache # toolchains download once, not per job
+    entrypoint:
+      - bash
+      - -ec
+      - |
+        sudo chown runner /opt/hostedtoolcache
+        token=$$(curl -fsS -X POST -H "Authorization: Bearer $$GITHUB_TOKEN" \
+          https://api.github.com/repos/chavdar12/Courses/actions/runners/registration-token | jq -r .token)
+        ./config.sh --unattended --url https://github.com/chavdar12/Courses --token "$$token" \
+          --name "compose-$$(hostname)" --ephemeral --replace --disableupdate
+        exec ./run.sh
     restart: unless-stopped
     deploy:
-      replicas: ${RUNNERS:-3}
-    stop_grace_period: 30s
+      replicas: 3
 
 volumes:
   toolcache:
