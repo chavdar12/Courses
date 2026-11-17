@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace CourseIntroduction
 {
@@ -35,7 +36,12 @@ namespace CourseIntroduction
         public void Test_SubmitForm()
         {
             driver.FindElement(By.Name("my-text")).SendKeys("Selenium");
-            driver.FindElement(By.CssSelector("button[type='submit']")).Click();
+            var submit = driver.FindElement(By.CssSelector("button[type='submit']"));
+            submit.Click();
+            // The click loads a new page; until then the old h1 ("Web form") is still there.
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(
+                SeleniumExtras.WaitHelpers.ExpectedConditions.StalenessOf(submit)
+            );
 
             Assert.That(driver.FindElement(By.TagName("h1")).Text, Is.EqualTo("Form submitted"));
             Assert.That(driver.FindElement(By.Id("message")).Text, Is.EqualTo("Received!"));
