@@ -1,0 +1,28 @@
+# Normalize line endings: LF in the repo, auto-converted on checkout.
+* text=auto
+
+# Source and config: always LF so the Linux CI and local Windows/macOS agree.
+*.cs    text eol=lf
+*.csproj text eol=lf
+*.props text eol=lf
+*.targets text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.md    text eol=lf
+*.gitattributes text eol=lf
+*.gitignore text eol=lf
+
+# Windows-only scripts keep CRLF.
+*.cmd   text eol=crlf
+*.bat   text eol=crlf
+*.ps1   text eol=crlf
+
+# Selenium IDE recordings and binaries: leave untouched / treat as binary.
+*.side  binary
+*.png   binary
+*.jpg   binary
+*.exe   binary
+*.apk   binary
+
+# Keep generated/vendored files out of language stats and diffs.
+*.side linguist-generated=true

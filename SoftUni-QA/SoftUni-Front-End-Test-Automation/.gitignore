@@ -1,0 +1,32 @@
+# .NET build output
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.nupkg
+*.snupkg
+
+# Test results & coverage
+TestResults/
+*.trx
+coverage*.json
+coverage*.xml
+*.coverage
+
+# IDEs
+.idea/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+*.DotSettings.user
+*.sln.iml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
