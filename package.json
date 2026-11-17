@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "nx": "24.0.4"
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
   }
 }
