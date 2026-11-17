@@ -54,7 +54,6 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 24
-          cache: npm
       - if: contains(matrix.tools, ' java ') || contains(matrix.tools, ' google-java-format ')
         uses: actions/setup-java@v6
         with:
@@ -78,6 +77,15 @@ jobs:
           php-version: "8.5"
       - if: contains(matrix.tools, ' cpp ') || contains(matrix.tools, ' clang-format ')
         run: sudo apt-get update -qq && sudo apt-get install -y -qq cmake g++ clang-format
+      # package caches per course: the key changes whenever the course's lockfiles, .csproj files or requirements do
+      - uses: actions/cache@v6
+        with:
+          path: |
+            ~/.npm
+            ~/.nuget/packages
+            ~/.cache/pip
+          key: deps-${{ matrix.project }}-${{ hashFiles('package-lock.json', format('{0}/**/package-lock.json', matrix.root), format('{0}/**/*.csproj', matrix.root), format('{0}/**/requirements*.txt', matrix.root)) }}
+          restore-keys: deps-${{ matrix.project }}-
       - run: npm ci --no-audit --no-fund
       - run: npx nx run-many -t format test -p "${{ matrix.project }}" --parallel=1 --outputStyle=static # one runner per course: format and test share its temp dir and the .NET first-run setup
 
