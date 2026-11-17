@@ -38,30 +38,25 @@ npm test
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Programming-Fundamentals-With-Javascript.pdf](Programming-Fundamentals-With-Javascript.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [003-Data-Types-And-Variables](003-Data-Types-And-Variables) | [Js-Fundamentals-Data-Types-And-Variables-Lab.pdf](003-Data-Types-And-Variables/Resources/Js-Fundamentals-Data-Types-And-Variables-Lab.pdf) · [Js-Fundamentals-Data-Types-And-Variables.pdf](003-Data-Types-And-Variables/Resources/Js-Fundamentals-Data-Types-And-Variables.pdf) |
-| [004-Exercise-Data-Types-And-Variables](004-Exercise-Data-Types-And-Variables) | [Js-Fundamentals-Data-Types-And-Variables-Exercise.pdf](004-Exercise-Data-Types-And-Variables/Resources/Js-Fundamentals-Data-Types-And-Variables-Exercise.pdf) · [Js-Fundamentals-Data-Types-And-Variables-More-Exercise.pdf](004-Exercise-Data-Types-And-Variables/Resources/Js-Fundamentals-Data-Types-And-Variables-More-Exercise.pdf) |
-| [005-Arrays](005-Arrays) | [Js-Fundamentals-Arrays-Lab.pdf](005-Arrays/Resources/Js-Fundamentals-Arrays-Lab.pdf) · [Js-Fundamentals-Arrays.pdf](005-Arrays/Resources/Js-Fundamentals-Arrays.pdf) |
-| [006-Exercise-Arrays](006-Exercise-Arrays) | [Js-Fundamentals-Arrays-Exercise.pdf](006-Exercise-Arrays/Resources/Js-Fundamentals-Arrays-Exercise.pdf) · [Js-Fundamentals-Arrays-More-Exercises.pdf](006-Exercise-Arrays/Resources/Js-Fundamentals-Arrays-More-Exercises.pdf) |
-| [007-Functions](007-Functions) | [Js-Fundamentals-Methods-Functions-Lab.pdf](007-Functions/Resources/Js-Fundamentals-Methods-Functions-Lab.pdf) · [Js-Fundamentals-Methods-Functions.pdf](007-Functions/Resources/Js-Fundamentals-Methods-Functions.pdf) |
-| [008-Exercise-Functions](008-Exercise-Functions) | [Js-Fundamentals-Methods-Functions-Exercise.pdf](008-Exercise-Functions/Resources/Js-Fundamentals-Methods-Functions-Exercise.pdf) · [Js-Fundamentals-Methods-Functions-More-Exercises.pdf](008-Exercise-Functions/Resources/Js-Fundamentals-Methods-Functions-More-Exercises.pdf) |
-| [009-Arrays-Advanced](009-Arrays-Advanced) | [Js-Fundamentals-Arrays-Advanced-Lab.pdf](009-Arrays-Advanced/Resources/Js-Fundamentals-Arrays-Advanced-Lab.pdf) · [Js-Fundamentals-Arrays-Advanced.pdf](009-Arrays-Advanced/Resources/Js-Fundamentals-Arrays-Advanced.pdf) |
-| [010-Exercise-Arrays-Advanced](010-Exercise-Arrays-Advanced) | [Js-Fundamentals-Arrays-Advanced-Exercise.pdf](010-Exercise-Arrays-Advanced/Resources/Js-Fundamentals-Arrays-Advanced-Exercise.pdf) · [Js-Fundamentals-Arrays-Advanced-More-Exercise.pdf](010-Exercise-Arrays-Advanced/Resources/Js-Fundamentals-Arrays-Advanced-More-Exercise.pdf) |
-| [011-Objects-And-Classes](011-Objects-And-Classes) | [Js-Fundamentals-Objects-And-Classes-Lab.pdf](011-Objects-And-Classes/Resources/Js-Fundamentals-Objects-And-Classes-Lab.pdf) · [Js-Fundamentals-Objects-And-Classes.pdf](011-Objects-And-Classes/Resources/Js-Fundamentals-Objects-And-Classes.pdf) |
-| [012-Exercise-Objects-And-Classes](012-Exercise-Objects-And-Classes) | [Js-Fundamentals-Objects-And-Classes-Exercise.pdf](012-Exercise-Objects-And-Classes/Resources/Js-Fundamentals-Objects-And-Classes-Exercise.pdf) · [Js-Fundamentals-Objects-And-Classes-More-Exercise.pdf](012-Exercise-Objects-And-Classes/Resources/Js-Fundamentals-Objects-And-Classes-More-Exercise.pdf) |
-| [013-Associative-Arrays](013-Associative-Arrays) | [Js-Fundamentals-Associative-Arrays-Lab.pdf](013-Associative-Arrays/Resources/Js-Fundamentals-Associative-Arrays-Lab.pdf) · [Js-Fundamentals-Associative-Arrays.pdf](013-Associative-Arrays/Resources/Js-Fundamentals-Associative-Arrays.pdf) |
-| [014-Exercise-Associative-Arrays](014-Exercise-Associative-Arrays) | [Js-Fundamentals-Associative-Arrays-Exercise.pdf](014-Exercise-Associative-Arrays/Resources/Js-Fundamentals-Associative-Arrays-Exercise.pdf) · [Js-Fundamentals-Associative-Arrays-More-Exercises.pdf](014-Exercise-Associative-Arrays/Resources/Js-Fundamentals-Associative-Arrays-More-Exercises.pdf) |
-| [015-Text-Processing](015-Text-Processing) | [Js-Fundamentals-Text-Processing-Lab.pdf](015-Text-Processing/Resources/Js-Fundamentals-Text-Processing-Lab.pdf) · [Js-Fundamentals-Text-Processing.pdf](015-Text-Processing/Resources/Js-Fundamentals-Text-Processing.pdf) |
-| [016-Exercise-Text-Processing](016-Exercise-Text-Processing) | [Js-Fundamentals-Text-Processing-Exercise.pdf](016-Exercise-Text-Processing/Resources/Js-Fundamentals-Text-Processing-Exercise.pdf) · [Js-Fundamentals-Text-Processing-More-Exercise.pdf](016-Exercise-Text-Processing/Resources/Js-Fundamentals-Text-Processing-More-Exercise.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| 001-Basic-Syntax-Conditional-Statements-And-Loops | — | [Video](https://youtu.be/l4bqhdHuAGw) |
+| 002-Exercise-Basic-Syntax-Conditional-Statements-And-Loops | — | [Video](https://youtu.be/gTjnWFAG48Q) |
+| [003-Data-Types-And-Variables](003-Data-Types-And-Variables) | [Js-Fundamentals-Data-Types-And-Variables-Lab.pdf](003-Data-Types-And-Variables/Resources/Js-Fundamentals-Data-Types-And-Variables-Lab.pdf) · [Js-Fundamentals-Data-Types-And-Variables.pdf](003-Data-Types-And-Variables/Resources/Js-Fundamentals-Data-Types-And-Variables.pdf) | [Video](https://youtu.be/H2b0_-kYIFE) |
+| [004-Exercise-Data-Types-And-Variables](004-Exercise-Data-Types-And-Variables) | [Js-Fundamentals-Data-Types-And-Variables-Exercise.pdf](004-Exercise-Data-Types-And-Variables/Resources/Js-Fundamentals-Data-Types-And-Variables-Exercise.pdf) · [Js-Fundamentals-Data-Types-And-Variables-More-Exercise.pdf](004-Exercise-Data-Types-And-Variables/Resources/Js-Fundamentals-Data-Types-And-Variables-More-Exercise.pdf) | [Video](https://youtu.be/IsS7wt9pltU) |
+| [005-Arrays](005-Arrays) | [Js-Fundamentals-Arrays-Lab.pdf](005-Arrays/Resources/Js-Fundamentals-Arrays-Lab.pdf) · [Js-Fundamentals-Arrays.pdf](005-Arrays/Resources/Js-Fundamentals-Arrays.pdf) | [Video](https://youtu.be/C53142oYFzE) |
+| [006-Exercise-Arrays](006-Exercise-Arrays) | [Js-Fundamentals-Arrays-Exercise.pdf](006-Exercise-Arrays/Resources/Js-Fundamentals-Arrays-Exercise.pdf) · [Js-Fundamentals-Arrays-More-Exercises.pdf](006-Exercise-Arrays/Resources/Js-Fundamentals-Arrays-More-Exercises.pdf) | [Video](https://youtu.be/cYPdFWdADdk) |
+| [007-Functions](007-Functions) | [Js-Fundamentals-Methods-Functions-Lab.pdf](007-Functions/Resources/Js-Fundamentals-Methods-Functions-Lab.pdf) · [Js-Fundamentals-Methods-Functions.pdf](007-Functions/Resources/Js-Fundamentals-Methods-Functions.pdf) | [Video](https://youtu.be/3t_UYfo5J3M) |
+| [008-Exercise-Functions](008-Exercise-Functions) | [Js-Fundamentals-Methods-Functions-Exercise.pdf](008-Exercise-Functions/Resources/Js-Fundamentals-Methods-Functions-Exercise.pdf) · [Js-Fundamentals-Methods-Functions-More-Exercises.pdf](008-Exercise-Functions/Resources/Js-Fundamentals-Methods-Functions-More-Exercises.pdf) | [Video](https://youtu.be/gg0l9um4m9g) |
+| [009-Arrays-Advanced](009-Arrays-Advanced) | [Js-Fundamentals-Arrays-Advanced-Lab.pdf](009-Arrays-Advanced/Resources/Js-Fundamentals-Arrays-Advanced-Lab.pdf) · [Js-Fundamentals-Arrays-Advanced.pdf](009-Arrays-Advanced/Resources/Js-Fundamentals-Arrays-Advanced.pdf) | [Video](https://youtu.be/-xb0I1QOlec) |
+| [010-Exercise-Arrays-Advanced](010-Exercise-Arrays-Advanced) | [Js-Fundamentals-Arrays-Advanced-Exercise.pdf](010-Exercise-Arrays-Advanced/Resources/Js-Fundamentals-Arrays-Advanced-Exercise.pdf) · [Js-Fundamentals-Arrays-Advanced-More-Exercise.pdf](010-Exercise-Arrays-Advanced/Resources/Js-Fundamentals-Arrays-Advanced-More-Exercise.pdf) | [Video](https://youtu.be/w5UgmcXRCnY) |
+| [011-Objects-And-Classes](011-Objects-And-Classes) | [Js-Fundamentals-Objects-And-Classes-Lab.pdf](011-Objects-And-Classes/Resources/Js-Fundamentals-Objects-And-Classes-Lab.pdf) · [Js-Fundamentals-Objects-And-Classes.pdf](011-Objects-And-Classes/Resources/Js-Fundamentals-Objects-And-Classes.pdf) | [Video](https://youtu.be/FNcW-kYQeEQ) |
+| [012-Exercise-Objects-And-Classes](012-Exercise-Objects-And-Classes) | [Js-Fundamentals-Objects-And-Classes-Exercise.pdf](012-Exercise-Objects-And-Classes/Resources/Js-Fundamentals-Objects-And-Classes-Exercise.pdf) · [Js-Fundamentals-Objects-And-Classes-More-Exercise.pdf](012-Exercise-Objects-And-Classes/Resources/Js-Fundamentals-Objects-And-Classes-More-Exercise.pdf) | [Part 1](https://youtu.be/ep9ni7qAGQI) · [Part 2](https://youtu.be/QPBTkLsK1t8) |
+| [013-Associative-Arrays](013-Associative-Arrays) | [Js-Fundamentals-Associative-Arrays-Lab.pdf](013-Associative-Arrays/Resources/Js-Fundamentals-Associative-Arrays-Lab.pdf) · [Js-Fundamentals-Associative-Arrays.pdf](013-Associative-Arrays/Resources/Js-Fundamentals-Associative-Arrays.pdf) | [Video](https://youtu.be/wD2eMH3hv_o) |
+| [014-Exercise-Associative-Arrays](014-Exercise-Associative-Arrays) | [Js-Fundamentals-Associative-Arrays-Exercise.pdf](014-Exercise-Associative-Arrays/Resources/Js-Fundamentals-Associative-Arrays-Exercise.pdf) · [Js-Fundamentals-Associative-Arrays-More-Exercises.pdf](014-Exercise-Associative-Arrays/Resources/Js-Fundamentals-Associative-Arrays-More-Exercises.pdf) | [Video](https://youtu.be/JS93b0Mog_M) |
+| [015-Text-Processing](015-Text-Processing) | [Js-Fundamentals-Text-Processing-Lab.pdf](015-Text-Processing/Resources/Js-Fundamentals-Text-Processing-Lab.pdf) · [Js-Fundamentals-Text-Processing.pdf](015-Text-Processing/Resources/Js-Fundamentals-Text-Processing.pdf) | [Video](https://youtu.be/Ark6-xe9mno) |
+| [016-Exercise-Text-Processing](016-Exercise-Text-Processing) | [Js-Fundamentals-Text-Processing-Exercise.pdf](016-Exercise-Text-Processing/Resources/Js-Fundamentals-Text-Processing-Exercise.pdf) · [Js-Fundamentals-Text-Processing-More-Exercise.pdf](016-Exercise-Text-Processing/Resources/Js-Fundamentals-Text-Processing-More-Exercise.pdf) | [Video](https://youtu.be/ZhwQRBpidus) |
+| 017-Regular-Expressions | — | [Video](https://youtu.be/PPH4jiTDJ3g) |
+| 018-Exercise-Regular-Expressions | — | [Video](https://youtu.be/SgCKJBLtKEU) |
