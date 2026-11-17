@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "main",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": ["{workspaceRoot}/tools/ci.sh"]
+  },
+  "targetDefaults": {
+    "test": { "cache": true, "inputs": ["default"] },
+    "format": { "cache": true, "inputs": ["default"] }
+  },
+  "parallel": 2
+}

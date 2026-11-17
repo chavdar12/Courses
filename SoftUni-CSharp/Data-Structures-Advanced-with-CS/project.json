@@ -1,0 +1,25 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "Data-Structures-Advanced-with-CS",
+    "projectType": "application",
+    "tags": ["track:SoftUni-CSharp", "stack:dotnet"],
+    "targets": {
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh build dotnet",
+                "cwd": "{projectRoot}",
+                "env": {
+                    "DOTNET_TEST_FILTER": "FullyQualifiedName!~Performance"
+                }
+            }
+        },
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh format csharpier",
+                "cwd": "{projectRoot}"
+            }
+        }
+    }
+}

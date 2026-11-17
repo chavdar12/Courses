@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  # Nx works out which courses a change touched; only those get a job.
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - id: matrix
+        env:
+          BEFORE: ${{ github.event.before }}
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          # first push to a branch has no "before": build everything
+          if [ -n "$BASE_REF" ]; then export NX_BASE=origin/$BASE_REF NX_HEAD=HEAD; all=
+          elif [ -n "$BEFORE" ] && [ "$BEFORE" != 0000000000000000000000000000000000000000 ]; then export NX_BASE=$BEFORE NX_HEAD=HEAD; all=
+          else all=--all; fi
+          echo "matrix=$(node tools/affected-matrix.mjs $all)" >> "$GITHUB_OUTPUT"
+
+  course:
+    needs: plan
+    if: ${{ fromJSON(needs.plan.outputs.matrix).include[0] != null }}
+    name: ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - if: contains(matrix.tools, ' java ') || contains(matrix.tools, ' google-java-format ')
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 25
+      - if: contains(matrix.tools, ' java ')
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: "9.9.1" # only used by projects without a wrapper
+      - if: contains(matrix.tools, ' python ') || contains(matrix.tools, ' ruff ') || contains(matrix.tools, ' sqlfluff ')
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - if: contains(matrix.tools, ' dotnet ') || contains(matrix.tools, ' csharpier ')
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+      - if: contains(matrix.tools, ' php ') || contains(matrix.tools, ' php-cs-fixer ')
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.5"
+      - if: contains(matrix.tools, ' cpp ') || contains(matrix.tools, ' clang-format ')
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq cmake g++ clang-format
+      - run: npm ci --no-audit --no-fund
+      - run: npx nx run-many -t format test -p "${{ matrix.project }}" --outputStyle=static
+
+  # One stable check for rulesets to require, however many courses ran.
+  result:
+    needs: [plan, course]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for r in ${{ needs.plan.result }} ${{ needs.course.result }}; do
+            case $r in success|skipped) ;; *) echo "a job ended with: $r"; exit 1 ;; esac
+          done

@@ -1,0 +1,13 @@
+{
+  "name": "courses",
+  "private": true,
+  "description": "Every course in one Nx workspace: <Track>/<Course>, one Nx project per course.",
+  "scripts": {
+    "graph": "nx graph",
+    "test:affected": "nx affected -t format test",
+    "test:all": "nx run-many -t format test"
+  },
+  "devDependencies": {
+    "nx": "24.0.4"
+  }
+}

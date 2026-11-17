@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "hackerrank-java",
+  "projectType": "application",
+  "tags": ["track:HackerRank", "stack:java"],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash ../../tools/ci.sh build java",
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}

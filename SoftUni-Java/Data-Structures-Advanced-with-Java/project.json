@@ -1,0 +1,22 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "Data-Structures-Advanced-with-Java",
+    "projectType": "application",
+    "tags": ["track:SoftUni-Java", "stack:java"],
+    "targets": {
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh build java",
+                "cwd": "{projectRoot}"
+            }
+        },
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh format google-java-format",
+                "cwd": "{projectRoot}"
+            }
+        }
+    }
+}

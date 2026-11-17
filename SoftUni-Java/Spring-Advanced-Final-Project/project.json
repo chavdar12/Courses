@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "Spring-Advanced-Final-Project",
+  "projectType": "application",
+  "tags": ["track:SoftUni-Java", "stack:java", "stack:node"],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash ../../tools/ci.sh build java node",
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}

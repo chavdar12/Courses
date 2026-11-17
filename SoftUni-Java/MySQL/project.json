@@ -1,0 +1,15 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "MySQL",
+    "projectType": "application",
+    "tags": ["track:SoftUni-Java"],
+    "targets": {
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bash ../../tools/ci.sh format sqlfluff",
+                "cwd": "{projectRoot}"
+            }
+        }
+    }
+}

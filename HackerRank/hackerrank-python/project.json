@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "hackerrank-python",
+  "projectType": "application",
+  "tags": ["track:HackerRank", "stack:python"],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash ../../tools/ci.sh build python",
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}
