@@ -1,0 +1,12 @@
+{
+  "name": "005-javascript-async-functions",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test \"**/*.unit.mjs\""
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

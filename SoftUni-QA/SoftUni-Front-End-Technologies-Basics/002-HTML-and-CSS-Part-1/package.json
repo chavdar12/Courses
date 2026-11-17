@@ -1,0 +1,12 @@
+{
+  "name": "002-html-and-css-part-1",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test pages.unit.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

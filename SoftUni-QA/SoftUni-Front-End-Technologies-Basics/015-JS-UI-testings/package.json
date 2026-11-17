@@ -1,0 +1,19 @@
+{
+  "name": "new-folder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -a localhost -p 8090 -P http://localhost:8090? -c-1",
+    "test": "playwright test",
+    "test:unit": "node --test script.unit.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "http-server": "^14.1.1",
+    "jsdom": "^26.1.0"
+  }
+}
