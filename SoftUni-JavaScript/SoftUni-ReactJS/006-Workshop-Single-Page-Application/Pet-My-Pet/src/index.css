@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #fffaf2;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 2rem;
+    background: #e07a3f;
+}
+
+header a,
+header span,
+button.link {
+    color: #fff;
+    text-decoration: none;
+    font: inherit;
+}
+
+button.link {
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+main {
+    padding: 1.5rem 2rem;
+}
+
+.pets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.pet-card,
+form,
+.details {
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px #0002;
+}
+
+.pet-card img,
+.details img {
+    width: 100%;
+    max-width: 20rem;
+    border-radius: 6px;
+}
+
+form {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 24rem;
+}
+
+label {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}

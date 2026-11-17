@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 1rem 2rem;
+    font-family: system-ui, sans-serif;
+}
+
+form div {
+    margin-bottom: 0.5rem;
+}
+
+.error {
+    margin-left: 0.5rem;
+    color: crimson;
+}
