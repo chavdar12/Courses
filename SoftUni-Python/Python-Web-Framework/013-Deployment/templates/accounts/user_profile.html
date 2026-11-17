@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img class="img-fluid rounded-circle mb-3" src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }}">
+            <h2>{{ profile.user.username }}</h2>
+            {% if profile.user == user %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-primary" type="submit">Change picture</button>
+                </form>
+            {% endif %}
+        </div>
+        <div class="col-md-8 d-flex flex-wrap">
+            {% for pet in pets %}
+                {% include 'pets/pet_card.html' %}
+            {% empty %}
+                <h3>No pets yet.</h3>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

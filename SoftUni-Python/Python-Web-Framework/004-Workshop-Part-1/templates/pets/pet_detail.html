@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-fluid rounded" src="{{ pet.image.url }}" alt="{{ pet.name }}">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ pet.name }}, Age: {{ pet.age }}</h2>
+            <p>{{ pet.description }}</p>
+            <a href="{% url 'like pet' pet.pk %}"><i class="far fa-heart"></i> Like</a>
+            <span>{{ pet.like_set.count }} likes</span>
+            <div class="mt-2">
+                <a href="{% url 'edit pet' pet.pk %}" class="btn btn-success">Edit</a>
+                <a href="{% url 'delete pet' pet.pk %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div class="d-block mt-4" style="background-color: #f1e3e3; padding: 2%">
+        {% for comment in comments %}
+            <div class="box">
+                <h5><em>{{ comment.comment }}</em></h5>
+                <hr>
+            </div>
+        {% empty %}
+            <div class="box">
+                <h3>There are no comments for this pet.</h3>
+            </div>
+        {% endfor %}
+        {% if comment_form %}
+            <div class="box">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comment_form }}
+                    <button class="btn btn-primary mt-2" type="submit">Add comment</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

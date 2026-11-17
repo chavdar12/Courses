@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-fluid rounded" src="{{ pet.image.url }}" alt="{{ pet.name }}">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ pet.name }}, Age: {{ pet.age }}</h2>
+            <p>{{ pet.description }}</p>
+            <p>Owner: <a href="{% url 'user profile' pet.user.pk %}">{{ pet.user }}</a></p>
+            {% if is_owner %}
+                <a href="{% url 'edit pet' pet.pk %}" class="btn btn-success">Edit</a>
+                <a href="{% url 'delete pet' pet.pk %}" class="btn btn-danger">Delete</a>
+            {% else %}
+                <form action="{% url 'like pet' pet.pk %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button class="btn btn-link p-0" type="submit">
+                        <i class="{% if is_liked %}fas{% else %}far{% endif %} fa-heart"></i>
+                    </button>
+                </form>
+            {% endif %}
+            <span>{{ pet.like_set.count }} likes</span>
+        </div>
+    </div>
+    <div class="d-block mt-4" style="background-color: #f1e3e3; padding: 2%">
+        {% for comment in comments %}
+            <div class="box">
+                <h5><em>{{ comment.comment }}</em></h5>
+                <small>by {{ comment.user }}</small>
+                <hr>
+            </div>
+        {% empty %}
+            <div class="box">
+                <h3>There are no comments for this pet.</h3>
+            </div>
+        {% endfor %}
+        {% if comment_form %}
+            <div class="box">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comment_form }}
+                    <button class="btn btn-primary mt-2" type="submit">Add comment</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
