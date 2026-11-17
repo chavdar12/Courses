@@ -1,10 +1,12 @@
 // Prints a GitHub Actions matrix of the affected courses and the toolchains each one needs.
-// Usage: node tools/affected-matrix.mjs [--all]
+// Usage: node tools/affected-matrix.mjs [--all | --projects=a,b]
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
 const nx = (...args) => execFileSync("npx", ["nx", ...args], { encoding: "utf8" });
-const names = JSON.parse(nx("show", "projects", ...(process.argv.includes("--all") ? [] : ["--affected"]), "--json"));
+const pick = process.argv.find((a) => a.startsWith("--projects="));
+const names = pick ? pick.slice(11).split(",")
+  : JSON.parse(nx("show", "projects", ...(process.argv.includes("--all") ? [] : ["--affected"]), "--json"));
 const include = names.map((name) => {
   const { root } = JSON.parse(nx("show", "project", name, "--json"));
   const { tags = [], targets = {} } = JSON.parse(readFileSync(`${root}/project.json`, "utf8"));

@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      projects:
+        description: Comma-separated Nx projects to run (empty = every course)
+        default: ""
 
 permissions:
   contents: read
@@ -11,7 +16,7 @@ permissions:
 jobs:
   # Nx works out which courses a change touched; only those get a job.
   plan:
-    runs-on: ubuntu-latest
+    runs-on: k8s-runners # self-hosted ARC scale set registered to this repo (gh-runner-k8s)
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
@@ -27,9 +32,11 @@ jobs:
         env:
           BEFORE: ${{ github.event.before }}
           BASE_REF: ${{ github.base_ref }}
+          PROJECTS: ${{ inputs.projects }}
         run: |
           # first push to a branch has no "before": build everything
-          if [ -n "$BASE_REF" ]; then export NX_BASE=origin/$BASE_REF NX_HEAD=HEAD; all=
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then all="${PROJECTS:+--projects=$PROJECTS}"; all="${all:---all}"
+          elif [ -n "$BASE_REF" ]; then export NX_BASE=origin/$BASE_REF NX_HEAD=HEAD; all=
           elif [ -n "$BEFORE" ] && [ "$BEFORE" != 0000000000000000000000000000000000000000 ]; then export NX_BASE=$BEFORE NX_HEAD=HEAD; all=
           else all=--all; fi
           echo "matrix=$(node tools/affected-matrix.mjs $all)" >> "$GITHUB_OUTPUT"
@@ -38,7 +45,7 @@ jobs:
     needs: plan
     if: ${{ fromJSON(needs.plan.outputs.matrix).include[0] != null }}
     name: ${{ matrix.project }}
-    runs-on: ubuntu-latest
+    runs-on: k8s-runners # self-hosted ARC scale set registered to this repo (gh-runner-k8s)
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
@@ -78,7 +85,7 @@ jobs:
   result:
     needs: [plan, course]
     if: ${{ always() }}
-    runs-on: ubuntu-latest
+    runs-on: k8s-runners # self-hosted ARC scale set registered to this repo (gh-runner-k8s)
     steps:
       - run: |
           for r in ${{ needs.plan.result }} ${{ needs.course.result }}; do
