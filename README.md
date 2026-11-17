@@ -3,8 +3,8 @@
 [![CI](https://github.com/chavdar12/Courses/actions/workflows/ci.yml/badge.svg)](https://github.com/chavdar12/Courses/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/chavdar12/Courses/actions/workflows/codeql.yml/badge.svg)](https://github.com/chavdar12/Courses/actions/workflows/codeql.yml)
 
-My solutions to 56 programming courses in one repository: the SoftUni Java, C#, JavaScript, Python, C++, PHP and QA
-tracks, plus HackerRank, Ultimate Courses, Strypes and the Technical University of Varna. Every exercise comes with tests,
+My solutions to 61 programming courses in one repository: the SoftUni Java, C#, JavaScript, Python, C++, PHP and QA
+tracks, plus Udemy, HackerRank, Ultimate Courses, Strypes and the Technical University of Varna. Every exercise comes with tests,
 and every course builds and tests on its own.
 
 It is an [Nx](https://nx.dev) workspace: each course is one Nx project, so a change only rebuilds the courses it
@@ -95,6 +95,16 @@ touches, and unchanged courses come from the cache.
 | [Front End Test Automation](SoftUni-QA/Front-End-Test-Automation) | Selenium IDE, Selenium WebDriver, Page Object Model, Appium, SikuliX and security testing. | .NET | `qa-front-end-test-automation` |
 | [Programming Advanced for QA](SoftUni-QA/Programming-Advanced-for-QA) | Text processing and regex, dictionaries and LINQ, classes, exception handling and OOP in C# with NUnit tests for each topic, then JavaScript with Mocha + Chai. | .NET, Node.js | `qa-programming-advanced-for-qa` |
 | [Programming Fundamentals and Unit Testing](SoftUni-QA/Programming-Fundamentals-and-Unit-Testing) | C# from simple commands through conditionals, loops, methods, arrays and lists, with NUnit tests for every exercise and dedicated unit-testing lectures. | .NET | `qa-programming-fundamentals-and-unit-testing` |
+
+### Udemy
+
+| Course | What it covers | Stack | Nx project |
+| ------ | -------------- | ----- | ---------- |
+| [Angular – The Complete Guide](Udemy/Angular-The-Complete-Guide) | One Angular 22 app per section: components, directives, pipes, services and DI, change detection, RxJS, HTTP, forms, routing, lazy loading and SSR. | Node.js | `udemy-angular-the-complete-guide` |
+| [Laravel & PHP Mastery](Udemy/Laravel-And-PHP-Mastery) | Five Laravel 13 apps: task list, book reviews, an event-management REST API with Sanctum, a Livewire poll and a job board, each with feature tests. | PHP | `udemy-laravel-and-php-mastery` |
+| [Modern React with Redux](Udemy/Modern-React-With-Redux) | Twelve React 19 + TypeScript apps from JSX and hooks to API search apps, Redux Toolkit and RTK Query, ending with a streams CRUD app and its own API. | Node.js | `udemy-modern-react-with-redux` |
+| [Spring Microservices](Udemy/Spring-Microservices) | A Spring Boot 4 REST API, then microservices with Spring Cloud: config server, Eureka, OpenFeign, Resilience4j, Gateway and Docker Compose. | Java | `udemy-spring-microservices` |
+| [Svelte 5 and SvelteKit](Udemy/Svelte-5-And-SvelteKit) | SvelteKit data loading, then three projects: an ebook landing page with Stripe, a Sanity-powered portfolio and a Supabase + OpenAI book tracker. | Node.js | `udemy-svelte-5-and-sveltekit` |
 
 ### HackerRank
 
