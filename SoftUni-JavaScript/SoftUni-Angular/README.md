@@ -66,20 +66,18 @@ Then run `npm start` in the `Forum` folder next to it. See each `rest-api/README
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Angular.pdf](Angular.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Intro-To-Angular-And-Typescript](001-Intro-To-Angular-And-Typescript) | [Angular-Introduction.pdf](001-Intro-To-Angular-And-Typescript/Resources/Angular-Introduction.pdf) · [Angular-Typescript-Playground.pdf](001-Intro-To-Angular-And-Typescript/Resources/Angular-Typescript-Playground.pdf) |
-| [002-Components](002-Components) | [Angular-Components-And-Data-Binding.pdf](002-Components/Resources/Angular-Components-And-Data-Binding.pdf) · [Angular-Components-Lab.pdf](002-Components/Resources/Angular-Components-Lab.pdf) |
-| [003-Di-Intro-To-Rxjs-Services](003-Di-Intro-To-Rxjs-Services) | [Angular-Fundamentals-Dependency-Injection-And-Services.pdf](003-Di-Intro-To-Rxjs-Services/Resources/Angular-Fundamentals-Dependency-Injection-And-Services.pdf) |
-| [004-Workshop-Components](004-Workshop-Components) | [Angular-Workshop-Part-.pdf](004-Workshop-Components/Resources/Angular-Workshop-Part-.pdf) · [Mongodb-Installation-Guide.pdf](004-Workshop-Components/Resources/Mongodb-Installation-Guide.pdf) · [Rest-Api-Endpoints.pdf](004-Workshop-Components/Resources/Rest-Api-Endpoints.pdf) |
-| [005-Modules-And-Routing](005-Modules-And-Routing) | [Angular-Modules-And-Routing.pdf](005-Modules-And-Routing/Resources/Angular-Modules-And-Routing.pdf) |
-| [006-Workshop-Modules-And-Routing](006-Workshop-Modules-And-Routing) | [Angular-Workshop-Part-.pdf](006-Workshop-Modules-And-Routing/Resources/Angular-Workshop-Part-.pdf) |
-| [007-Forms](007-Forms) | [Angular-Fundamentals-Directives-And-Forms-Lab.pdf](007-Forms/Resources/Angular-Fundamentals-Directives-And-Forms-Lab.pdf) · [Angular-Fundamentals-Directives-And-Forms.pdf](007-Forms/Resources/Angular-Fundamentals-Directives-And-Forms.pdf) |
-| [008-Workshop-Forms](008-Workshop-Forms) | [Angular-Workshop-Part-.pdf](008-Workshop-Forms/Resources/Angular-Workshop-Part-.pdf) |
-| [009-Pipes-Interceptors-And-Subjects](009-Pipes-Interceptors-And-Subjects) | [Angular-Fundamentals-Pipes-Jwt-Interceptors.pdf](009-Pipes-Interceptors-And-Subjects/Resources/Angular-Fundamentals-Pipes-Jwt-Interceptors.pdf) |
-| [010-Workshop-Pipes-Interceptors-And-Subjects](010-Workshop-Pipes-Interceptors-And-Subjects) | [Angular-Workshop-Part-.pdf](010-Workshop-Pipes-Interceptors-And-Subjects/Resources/Angular-Workshop-Part-.pdf) |
-| [011-State-Management](011-State-Management) | [Angular-State-Management.pdf](011-State-Management/Resources/Angular-State-Management.pdf) |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Intro-To-Angular-And-Typescript](001-Intro-To-Angular-And-Typescript) | [Angular-Introduction.pdf](001-Intro-To-Angular-And-Typescript/Resources/Angular-Introduction.pdf) · [Angular-Typescript-Playground.pdf](001-Intro-To-Angular-And-Typescript/Resources/Angular-Typescript-Playground.pdf) | [Video](https://youtu.be/K6QIaf7deWc) |
+| [002-Components](002-Components) | [Angular-Components-And-Data-Binding.pdf](002-Components/Resources/Angular-Components-And-Data-Binding.pdf) · [Angular-Components-Lab.pdf](002-Components/Resources/Angular-Components-Lab.pdf) | [Video](https://youtu.be/0fj_AOQ2_5k) |
+| [003-Di-Intro-To-Rxjs-Services](003-Di-Intro-To-Rxjs-Services) | [Angular-Fundamentals-Dependency-Injection-And-Services.pdf](003-Di-Intro-To-Rxjs-Services/Resources/Angular-Fundamentals-Dependency-Injection-And-Services.pdf) | [Video](https://youtu.be/iMEIHWa0304) |
+| [004-Workshop-Components](004-Workshop-Components) | [Angular-Workshop-Part-.pdf](004-Workshop-Components/Resources/Angular-Workshop-Part-.pdf) · [Mongodb-Installation-Guide.pdf](004-Workshop-Components/Resources/Mongodb-Installation-Guide.pdf) · [Rest-Api-Endpoints.pdf](004-Workshop-Components/Resources/Rest-Api-Endpoints.pdf) | [Video](https://youtu.be/Kipm3h9dF_Q) |
+| [005-Modules-And-Routing](005-Modules-And-Routing) | [Angular-Modules-And-Routing.pdf](005-Modules-And-Routing/Resources/Angular-Modules-And-Routing.pdf) | [Video](https://youtu.be/2MiGqXq_ZDs) |
+| [006-Workshop-Modules-And-Routing](006-Workshop-Modules-And-Routing) | [Angular-Workshop-Part-.pdf](006-Workshop-Modules-And-Routing/Resources/Angular-Workshop-Part-.pdf) | [Video](https://youtu.be/LJk3p1pvFgk) |
+| [007-Forms](007-Forms) | [Angular-Fundamentals-Directives-And-Forms-Lab.pdf](007-Forms/Resources/Angular-Fundamentals-Directives-And-Forms-Lab.pdf) · [Angular-Fundamentals-Directives-And-Forms.pdf](007-Forms/Resources/Angular-Fundamentals-Directives-And-Forms.pdf) | [Video](https://youtu.be/hj4FScmhFbI) |
+| [008-Workshop-Forms](008-Workshop-Forms) | [Angular-Workshop-Part-.pdf](008-Workshop-Forms/Resources/Angular-Workshop-Part-.pdf) | [Video](https://youtu.be/jpf79iMsgKo) |
+| [009-Pipes-Interceptors-And-Subjects](009-Pipes-Interceptors-And-Subjects) | [Angular-Fundamentals-Pipes-Jwt-Interceptors.pdf](009-Pipes-Interceptors-And-Subjects/Resources/Angular-Fundamentals-Pipes-Jwt-Interceptors.pdf) | [Video](https://youtu.be/nzfgpX35QSk) |
+| [010-Workshop-Pipes-Interceptors-And-Subjects](010-Workshop-Pipes-Interceptors-And-Subjects) | [Angular-Workshop-Part-.pdf](010-Workshop-Pipes-Interceptors-And-Subjects/Resources/Angular-Workshop-Part-.pdf) | [Video](https://youtu.be/iefoLgc8AMs) |
+| [011-State-Management](011-State-Management) | [Angular-State-Management.pdf](011-State-Management/Resources/Angular-State-Management.pdf) | [Video](https://youtu.be/t1qkXJa49cw) |
