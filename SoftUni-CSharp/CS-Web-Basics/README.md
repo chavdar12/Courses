@@ -25,20 +25,16 @@ dotnet run --project 003-Web-Server-State-Management/SIS.Demo
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Csharp-Web-Basics.pdf](Csharp-Web-Basics.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Web-Server-Http-Protocol](001-Web-Server-Http-Protocol) | [Csharp-Web-Basics-Server-Http.pdf](001-Web-Server-Http-Protocol/Resources/Csharp-Web-Basics-Server-Http.pdf) |
-| [002-Web-Server-Asynchronous-Processing](002-Web-Server-Asynchronous-Processing) | [Csharp-Web-Basics-Web-Server-Asynchronous-Processing-Lab.pdf](002-Web-Server-Asynchronous-Processing/Resources/Csharp-Web-Basics-Web-Server-Asynchronous-Processing-Lab.pdf) · [Csharp-Web-Basics-Web-Server-Asynchronous-Processing.pdf](002-Web-Server-Asynchronous-Processing/Resources/Csharp-Web-Basics-Web-Server-Asynchronous-Processing.pdf) |
-| [003-Web-Server-State-Management](003-Web-Server-State-Management) | [Csharp-Web-Basics-Web-Server-State-Management-L.pdf](003-Web-Server-State-Management/Resources/Csharp-Web-Basics-Web-Server-State-Management-L.pdf) · [Csharp-Web-Basics-Web-Server-State-Management.pdf](003-Web-Server-State-Management/Resources/Csharp-Web-Basics-Web-Server-State-Management.pdf) |
-| [005-Mvc-Introduction](005-Mvc-Introduction) | [Csharp-Web-Basics-Mvc-Introduction.pdf](005-Mvc-Introduction/Resources/Csharp-Web-Basics-Mvc-Introduction.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Web-Server-Http-Protocol](001-Web-Server-Http-Protocol) | [Csharp-Web-Basics-Server-Http.pdf](001-Web-Server-Http-Protocol/Resources/Csharp-Web-Basics-Server-Http.pdf) | [Video](https://youtu.be/f0sqOnKwIMg) |
+| [002-Web-Server-Asynchronous-Processing](002-Web-Server-Asynchronous-Processing) | [Csharp-Web-Basics-Web-Server-Asynchronous-Processing-Lab.pdf](002-Web-Server-Asynchronous-Processing/Resources/Csharp-Web-Basics-Web-Server-Asynchronous-Processing-Lab.pdf) · [Csharp-Web-Basics-Web-Server-Asynchronous-Processing.pdf](002-Web-Server-Asynchronous-Processing/Resources/Csharp-Web-Basics-Web-Server-Asynchronous-Processing.pdf) | [Video](https://youtu.be/6ibb0RHTO8k) |
+| [003-Web-Server-State-Management](003-Web-Server-State-Management) | [Csharp-Web-Basics-Web-Server-State-Management-L.pdf](003-Web-Server-State-Management/Resources/Csharp-Web-Basics-Web-Server-State-Management-L.pdf) · [Csharp-Web-Basics-Web-Server-State-Management.pdf](003-Web-Server-State-Management/Resources/Csharp-Web-Basics-Web-Server-State-Management.pdf) | [Video](https://youtu.be/rGFb9OJXJpw) |
+| 004-Workshop | — | [Video](https://youtu.be/YPiuv8sljlY) |
+| [005-Mvc-Introduction](005-Mvc-Introduction) | [Csharp-Web-Basics-Mvc-Introduction.pdf](005-Mvc-Introduction/Resources/Csharp-Web-Basics-Mvc-Introduction.pdf) | [Video](https://youtu.be/PDvQOQ42jaI) |
+| 006-MVC-Advanced-View-Engine | — | [Video](https://youtu.be/jy4owq-aR3g) |
+| 007-Workshop | — | [Video](https://youtu.be/Hri4BW3o6w8) |
+| 008-MVC-Advanced-IoC-and-Data-Binding | — | [Video](https://youtu.be/DO_H4eLIwGA) |
+| 009-Workshop | — | [Video](https://youtu.be/CItncWowEPY) |
