@@ -36,28 +36,22 @@ dotnet run --project 013-Signalr/Chat
 
 ## Course materials
 
-Slides and task sheets from the course, stored next to each lesson.
+Slides, task sheets and lecture videos for each lesson.
 
-Course overview: [Asp.Net-Core.pdf](Asp.Net-Core.pdf)
-
-| Lesson | Materials |
-| ------ | --------- |
-| [001-Asp.Net-Core-Introduction](001-Asp.Net-Core-Introduction) | [Csharp-Asp-Net-Core-Introduction-To-Asp.Net-Core.pdf](001-Asp.Net-Core-Introduction/Resources/Csharp-Asp-Net-Core-Introduction-To-Asp.Net-Core.pdf) |
-| [002-Razor-Views](002-Razor-Views) | [Csharp-Asp-Net-Core-Razor-Views.pdf](002-Razor-Views/Resources/Csharp-Asp-Net-Core-Razor-Views.pdf) |
-| [003-Application-Flow-Filters-And-Middleware](003-Application-Flow-Filters-And-Middleware) | [Csharp-Asp-Net-Core-Application-Flow-And-Middleware.pdf](003-Application-Flow-Filters-And-Middleware/Resources/Csharp-Asp-Net-Core-Application-Flow-And-Middleware.pdf) |
-| [004-Working-With-Data](004-Working-With-Data) | [Csharp-Asp-Net-Core-Working-With-Data.pdf](004-Working-With-Data/Resources/Csharp-Asp-Net-Core-Working-With-Data.pdf) |
-| [006-Web-Api](006-Web-Api) | [Csharp-Asp-Net-Core-Web-Api.pdf](006-Web-Api/Resources/Csharp-Asp-Net-Core-Web-Api.pdf) |
-| [007-Security-And-Identity](007-Security-And-Identity) | [Csharp-Asp-Net-Core-Security-And-Identity.pdf](007-Security-And-Identity/Resources/Csharp-Asp-Net-Core-Security-And-Identity.pdf) |
-| [009-Testing](009-Testing) | [Csharp-Asp-Net-Core-Testing.pdf](009-Testing/Resources/Csharp-Asp-Net-Core-Testing.pdf) |
-| [010-Project-Architecture](010-Project-Architecture) | [Csharp-Asp-Net-Core-Project-Architecture.pdf](010-Project-Architecture/Resources/Csharp-Asp-Net-Core-Project-Architecture.pdf) |
-| [011-Advanced-Topics](011-Advanced-Topics) | [Csharp-Asp-Net-Core-Advanced-Topics.pdf](011-Advanced-Topics/Resources/Csharp-Asp-Net-Core-Advanced-Topics.pdf) |
-| [013-Signalr](013-Signalr) | [Csharp-Asp-Net-Core-Signalr.pdf](013-Signalr/Resources/Csharp-Asp-Net-Core-Signalr.pdf) |
-| [014-Azure-Deployment-And-Ci](014-Azure-Deployment-And-Ci) | [Csharp-Asp-Net-Core-Azure-Deployment-And-Ci.pdf](014-Azure-Deployment-And-Ci/Resources/Csharp-Asp-Net-Core-Azure-Deployment-And-Ci.pdf) |
-| [015-Blazor](015-Blazor) | [Csharp-Asp-Net-Core-Blazor.pdf](015-Blazor/Resources/Csharp-Asp-Net-Core-Blazor.pdf) |
-
-## Course materials
-
-Slides and task sheets from the course, stored next to each lesson.
-
-| Lesson | Materials |
-| ------ | --------- |
+| Lesson | Materials | Video |
+| ------ | --------- | ----- |
+| [001-Asp.Net-Core-Introduction](001-Asp.Net-Core-Introduction) | [Csharp-Asp-Net-Core-Introduction-To-Asp.Net-Core.pdf](001-Asp.Net-Core-Introduction/Resources/Csharp-Asp-Net-Core-Introduction-To-Asp.Net-Core.pdf) | [Video](https://youtu.be/L77Y4rXspGI) |
+| [002-Razor-Views](002-Razor-Views) | [Csharp-Asp-Net-Core-Razor-Views.pdf](002-Razor-Views/Resources/Csharp-Asp-Net-Core-Razor-Views.pdf) | [Video](https://youtu.be/GowHCMX7QAM) |
+| [003-Application-Flow-Filters-And-Middleware](003-Application-Flow-Filters-And-Middleware) | [Csharp-Asp-Net-Core-Application-Flow-And-Middleware.pdf](003-Application-Flow-Filters-And-Middleware/Resources/Csharp-Asp-Net-Core-Application-Flow-And-Middleware.pdf) | [Video](https://youtu.be/MGImtEJKeHk) |
+| [004-Working-With-Data](004-Working-With-Data) | [Csharp-Asp-Net-Core-Working-With-Data.pdf](004-Working-With-Data/Resources/Csharp-Asp-Net-Core-Working-With-Data.pdf) | [Video](https://youtu.be/jrqvRkOHqJA) |
+| 005-Workshop | — | [Video](https://youtu.be/FC1netko7_I) |
+| [006-Web-Api](006-Web-Api) | [Csharp-Asp-Net-Core-Web-Api.pdf](006-Web-Api/Resources/Csharp-Asp-Net-Core-Web-Api.pdf) | [Video](https://youtu.be/WOfpc3-VPbQ) |
+| [007-Security-And-Identity](007-Security-And-Identity) | [Csharp-Asp-Net-Core-Security-And-Identity.pdf](007-Security-And-Identity/Resources/Csharp-Asp-Net-Core-Security-And-Identity.pdf) | [Video](https://youtu.be/itT73BVRuEQ) |
+| 008-Workshop | — | [Video](https://youtu.be/wt-L_Dlf-n8) |
+| [009-Testing](009-Testing) | [Csharp-Asp-Net-Core-Testing.pdf](009-Testing/Resources/Csharp-Asp-Net-Core-Testing.pdf) | [Video](https://youtu.be/hm5G4KRLdpk) |
+| [010-Project-Architecture](010-Project-Architecture) | [Csharp-Asp-Net-Core-Project-Architecture.pdf](010-Project-Architecture/Resources/Csharp-Asp-Net-Core-Project-Architecture.pdf) | [Video](https://youtu.be/FkhPqmaVNtI) |
+| [011-Advanced-Topics](011-Advanced-Topics) | [Csharp-Asp-Net-Core-Advanced-Topics.pdf](011-Advanced-Topics/Resources/Csharp-Asp-Net-Core-Advanced-Topics.pdf) | [Video](https://youtu.be/qLYeDAs0qjo) |
+| 012-Workshop | — | [Video](https://youtu.be/ZIuQzAus5rc) |
+| [013-Signalr](013-Signalr) | [Csharp-Asp-Net-Core-Signalr.pdf](013-Signalr/Resources/Csharp-Asp-Net-Core-Signalr.pdf) | [Video](https://youtu.be/0sw5v3-1gbY) |
+| [014-Azure-Deployment-And-Ci](014-Azure-Deployment-And-Ci) | [Csharp-Asp-Net-Core-Azure-Deployment-And-Ci.pdf](014-Azure-Deployment-And-Ci/Resources/Csharp-Asp-Net-Core-Azure-Deployment-And-Ci.pdf) | [Video](https://youtu.be/5c5m8Su7l1c) |
+| [015-Blazor](015-Blazor) | [Csharp-Asp-Net-Core-Blazor.pdf](015-Blazor/Resources/Csharp-Asp-Net-Core-Blazor.pdf) | [Video](https://youtu.be/OZ7JBDcZo3Y) |
