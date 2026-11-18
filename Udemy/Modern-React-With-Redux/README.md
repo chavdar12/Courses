@@ -57,7 +57,7 @@ npm run dev        # in another terminal
 
 ## Certificate
 
-[Udemy · Modern React with Redux](Certificate.pdf)
+[Udemy · Modern React with Redux](Resources/Certificate.pdf)
 
 ## License
 

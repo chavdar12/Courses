@@ -57,7 +57,7 @@ Post images from the course are left out; posts are text only.
 
 ## Certificate
 
-[Udemy · PHP for Beginners – Become a PHP Master – CMS Project](Certificate.pdf)
+[Udemy · PHP for Beginners – Become a PHP Master – CMS Project](Resources/Certificate.pdf)
 
 ## License
 

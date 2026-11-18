@@ -41,7 +41,7 @@ npm test
 
 ## Certificate
 
-[SoftUni · JS Advanced, May 2022](Certificate.pdf)
+[SoftUni · JS Advanced, May 2022](Resources/Certificate.pdf)
 
 ## License
 

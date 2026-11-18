@@ -35,7 +35,7 @@ The Bootstrap lecture is JavaScript: `cd 011-Bootstrap-Front-End-Basics && npm i
 
 ## Certificate
 
-[SoftUni · Spring Fundamentals, September 2021](Certificate.pdf)
+[SoftUni · Spring Fundamentals, September 2021](Resources/Certificate.pdf)
 
 ## License
 

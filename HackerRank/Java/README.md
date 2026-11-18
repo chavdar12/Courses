@@ -18,4 +18,4 @@ Words.
 
 ## Certificate
 
-[HackerRank · Java (Basic) skill certificate](Certificate.pdf)
+[HackerRank · Java (Basic) skill certificate](Resources/Certificate.pdf)

@@ -30,7 +30,7 @@ Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
 ## Certificate
 
-[SoftUni · Data Structures Advanced (with Java), April 2022](Certificate.pdf)
+[SoftUni · Data Structures Advanced (with Java), April 2022](Resources/Certificate.pdf)
 
 ## License
 

@@ -8,4 +8,4 @@ Only the package setup is here (`package.json`, `tsconfig.json`, the `src/index.
 
 ## Certificate
 
-[Code with Mosh · The Ultimate TypeScript Course, April 2023](Certificate.pdf)
+[Code with Mosh · The Ultimate TypeScript Course, April 2023](Resources/Certificate.pdf)

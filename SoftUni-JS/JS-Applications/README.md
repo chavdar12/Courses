@@ -42,7 +42,7 @@ Open an app's `index.html` through any static server (e.g. `npx http-server`) wh
 
 ## Certificate
 
-[SoftUni · JS Applications, February 2022](Certificate.pdf)
+[SoftUni · JS Applications, February 2022](Resources/Certificate.pdf)
 
 ## License
 

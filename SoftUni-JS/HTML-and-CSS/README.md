@@ -37,7 +37,7 @@ npm test        # html-validate + node --test
 
 ## Certificate
 
-[SoftUni · HTML & CSS, May 2022](Certificate.pdf)
+[SoftUni · HTML & CSS, May 2022](Resources/Certificate.pdf)
 
 ## License
 

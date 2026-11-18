@@ -60,7 +60,7 @@ npm run serve:ssr          # http://localhost:4000
 
 ## Certificate
 
-[Udemy · Angular – The Complete Guide](Certificate.pdf)
+[Udemy · Angular – The Complete Guide](Resources/Certificate.pdf)
 
 ## License
 

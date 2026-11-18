@@ -37,7 +37,7 @@ Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
 ## Certificate
 
-[SoftUni · Java Advanced, January 2021](Certificate.pdf)
+[SoftUni · Java Advanced, January 2021](Resources/Certificate.pdf)
 
 ## License
 

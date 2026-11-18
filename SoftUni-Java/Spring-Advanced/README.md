@@ -31,7 +31,7 @@ cd 004-HATEOAS
 
 ## Certificate
 
-[SoftUni · Spring Advanced, October 2021](Certificate.pdf)
+[SoftUni · Spring Advanced, October 2021](Resources/Certificate.pdf)
 
 ## License
 

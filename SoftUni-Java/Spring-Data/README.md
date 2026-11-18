@@ -38,7 +38,7 @@ gradle bootRun     # Spring Boot lectures
 
 ## Certificate
 
-[SoftUni · Spring Data, June 2021](Certificate.pdf)
+[SoftUni · Spring Data, June 2021](Resources/Certificate.pdf)
 
 ## License
 

@@ -32,4 +32,4 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 ## Certificate
 
-[HackerRank · Python (Basic) skill certificate](Certificate.pdf)
+[HackerRank · Python (Basic) skill certificate](Resources/Certificate.pdf)

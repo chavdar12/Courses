@@ -26,7 +26,7 @@ mysql -u root -p soft_uni < 002-Basic-CRUD/01-Find-All-Information-About-Departm
 
 ## Certificate
 
-[SoftUni · MySQL, May 2021](Certificate.pdf)
+[SoftUni · MySQL, May 2021](Resources/Certificate.pdf)
 
 ## License
 

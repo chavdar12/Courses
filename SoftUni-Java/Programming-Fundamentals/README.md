@@ -39,7 +39,7 @@ Or open the lecture folder in IntelliJ IDEA and run a class's `main`.
 
 ## Certificate
 
-[SoftUni · Java Fundamentals, September 2020](Certificate.pdf)
+[SoftUni · Java Fundamentals, September 2020](Resources/Certificate.pdf)
 
 ## License
 
