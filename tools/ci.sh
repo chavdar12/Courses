@@ -14,6 +14,8 @@ fail() { echo "${GITHUB_ACTIONS:+::error::}$1 failed"; status=1; }
 tops() { find . \( -name node_modules -o -name build -o -name .git -o -name .venv \) -prune -o \( "$@" \) -print \
   | xargs -n1 dirname | sort -u | awk '{ for (i in top) if (index($0 "/", top[i] "/") == 1) next; top[NR] = $0; print }'; }
 status=0
+# parallel compile jobs: one per CPU (a bare -j is unlimited and runs out of memory on ASan builds)
+jobs_n() { nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 2; }
 # Python tools and test requirements go into a private venv: works on CI and on machines that block global pip
 py() { [ -x "$TMP/venv/bin/python" ] || python3 -m venv "$TMP/venv"; "$TMP/venv/bin/python" "$@"; }
 pytool() { [ -x "$TMP/venv/bin/$1" ] || py -m pip install -q "$1==$2"; "$TMP/venv/bin/$1" "${@:3}"; }
@@ -80,7 +82,7 @@ build:cpp)
     group "$dir"
     ASAN_OPTIONS=detect_leaks=0 cmake -S "$dir" -B "$TMP/build/$dir" -DCMAKE_BUILD_TYPE=Debug \
       -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-sanitize-recover=undefined" \
-      && cmake --build "$TMP/build/$dir" -j && ASAN_OPTIONS=detect_leaks=0 ctest --test-dir "$TMP/build/$dir" --output-on-failure -j || fail "$dir"
+      && cmake --build "$TMP/build/$dir" -j "$(jobs_n)" && ASAN_OPTIONS=detect_leaks=0 ctest --test-dir "$TMP/build/$dir" --output-on-failure -j "$(jobs_n)" || fail "$dir"
     endgroup
   done ;;
 build:php)

@@ -1,6 +1,9 @@
 {
-  // Zero-setup environment (Codespaces / VS Code "Reopen in Container"): the toolchains CI uses.
+  // Zero-setup environment (Codespaces, VS Code "Reopen in Container", JetBrains Gateway / IDE "Dev Containers"):
+  // the toolchains CI uses.
   "name": "Courses",
+  // a readable name instead of Docker's random one; memory capped at 8 GB (only binds if Docker has more than that)
+  "runArgs": ["--name", "courses-dev", "--memory=8g"],
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
     "ghcr.io/devcontainers/features/node:1": { "version": "24" },
@@ -9,7 +12,10 @@
     "ghcr.io/devcontainers/features/python:1": { "version": "3.14" },
     "ghcr.io/devcontainers/features/php:1": { "version": "8.5" }
   },
-  "postCreateCommand": "sudo apt-get update -qq && sudo apt-get install -y -qq cmake g++ clang-format && npm install",
+  // the container's own node_modules: sharing the host's through the workspace mount would swap in Linux binaries
+  // (Nx's native module) and break npx nx on the host
+  "mounts": ["source=courses-node-modules,target=${containerWorkspaceFolder}/node_modules,type=volume"],
+  "postCreateCommand": "sudo chown vscode node_modules && sudo apt-get update -qq && sudo apt-get install -y -qq cmake g++ clang-format && npm ci --no-audit --no-fund",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -24,6 +30,11 @@
         "ms-vscode.cpptools-extension-pack",
         "bmewburn.vscode-intelephense-client"
       ]
+    },
+    // IntelliJ IDEA Ultimate covers every stack here with these plugins (Java/Kotlin, JS/TS and EditorConfig are built in)
+    "jetbrains": {
+      "backend": "IntelliJ",
+      "plugins": ["dev.nx.console", "intellij.prettierJS", "com.intellij.csharpier", "Pythonid", "com.jetbrains.php"]
     }
   }
 }
