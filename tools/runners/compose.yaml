@@ -1,29 +1,45 @@
-# Optional self-hosted runners (CI uses GitHub-hosted runners; switch runs-on to self-hosted to use these).
-#   cp .env.example .env   # put the token in .env
-#   docker compose up -d   # 3 runners; each takes one job, exits, and is restarted fresh
+# Self-hosted runners for chavdar12's repos. A personal account can't share runners across repos, so each repo gets
+# its own registration from the one definition below (add a repo: copy a service, change REPO).
+#   cp .env.example .env   # put the token in .env (needs Administration read/write on every repo below)
+#   docker compose up -d   # each runner takes one job, exits, and is restarted fresh
 #   docker compose down
+x-runner: &runner
+  image: ghcr.io/actions/actions-runner:2.338.2
+  env_file: .env
+  volumes:
+    - toolcache:/opt/hostedtoolcache # toolchains download once, not per job
+  entrypoint:
+    - bash
+    - -ec
+    - |
+      sudo chown runner /opt/hostedtoolcache
+      [ -S /var/run/docker.sock ] && sudo chgrp docker /var/run/docker.sock
+      # a restart reuses this container: drop the finished ephemeral runner's config, or config.sh refuses to run
+      rm -f .runner .credentials .credentials_rsaparams
+      token=$$(curl -fsS -X POST -H "Authorization: Bearer $$GITHUB_TOKEN" \
+        https://api.github.com/repos/$$REPO/actions/runners/registration-token | jq -r .token)
+      # random suffix: replicas on host networking all share the VM's hostname
+      ./config.sh --unattended --url "https://github.com/$$REPO" --token "$$token" \
+        --name "$${REPO#*/}-$$(head -c4 /dev/urandom | od -An -tx1 | tr -d ' \n')" --ephemeral --disableupdate
+      exec ./run.sh
+  restart: unless-stopped
+  deploy:
+    replicas: 3
+
 services:
-  runner:
-    image: ghcr.io/actions/actions-runner:2.338.2
-    env_file: .env
-    environment:
-      RUNNER_TOOL_CACHE: /opt/hostedtoolcache
-      AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
+  courses:
+    <<: *runner
+    environment: { REPO: chavdar12/Courses, RUNNER_TOOL_CACHE: /opt/hostedtoolcache, AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache }
+
+  # shoe-sector's CI starts a Postgres service container, builds images and runs linters with docker: its jobs use the
+  # host's Docker daemon, and host networking lets them reach the service's port on localhost
+  shoe-sector:
+    <<: *runner
+    environment: { REPO: chavdar12/shoe-sector, RUNNER_TOOL_CACHE: /opt/hostedtoolcache, AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache }
+    network_mode: host
     volumes:
-      - toolcache:/opt/hostedtoolcache # toolchains download once, not per job
-    entrypoint:
-      - bash
-      - -ec
-      - |
-        sudo chown runner /opt/hostedtoolcache
-        token=$$(curl -fsS -X POST -H "Authorization: Bearer $$GITHUB_TOKEN" \
-          https://api.github.com/repos/chavdar12/Courses/actions/runners/registration-token | jq -r .token)
-        ./config.sh --unattended --url https://github.com/chavdar12/Courses --token "$$token" \
-          --name "compose-$$(hostname)" --ephemeral --replace --disableupdate
-        exec ./run.sh
-    restart: unless-stopped
-    deploy:
-      replicas: 3
+      - toolcache:/opt/hostedtoolcache
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   toolcache:

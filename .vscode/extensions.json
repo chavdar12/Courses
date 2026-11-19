@@ -1,0 +1,17 @@
+{
+  // Suggested when the repo is opened: formatters CI checks with, plus each stack's language support.
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "nrwl.angular-console",
+    "vscjava.vscode-java-pack",
+    "ms-dotnettools.csdevkit",
+    "csharpier.csharpier-vscode",
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "ms-vscode.cpptools-extension-pack",
+    "bmewburn.vscode-intelephense-client",
+    "angular.ng-template",
+    "svelte.svelte-vscode"
+  ]
+}

@@ -1,8 +1,78 @@
+# Applies to every course. Generated projects keep their own .gitignore (Angular CLI, Laravel, ...).
+
+# Workspace
 node_modules/
 .nx/
+
+# OS
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs (shared settings a scaffold ships, like an Angular app's .vscode/, stay tracked)
+.idea/
+*.iml
+.vs/
+*.suo
+*.user
+*.swp
+*~
+
+# Local secrets and env (commit an .env.example instead)
+.env
+.env.*
+!.env.example
+
+# Java / Kotlin (Gradle, Maven)
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+target/
+*.class
+hs_err_pid*
+
+# C# / .NET
+[Bb]in/
+# PHP source, not .NET output
+!Udemy/PHP-CMS-Project/002-CMS/bin/
+[Oo]bj/
+TestResults/
+*.nupkg
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# JavaScript / TypeScript
+dist/
+coverage/
+.angular/
+.svelte-kit/
+.next/
+.vite/
+*.tsbuildinfo
+npm-debug.log*
+
+# C / C++
+cmake-build-*/
+*.o
+*.obj
+*.exe
+
+# PHP
+vendor/
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+# Logs
+*.log
+
 # local IDE / AI-assistant config
 .mcp.json
 .claude/settings.local.json
-# runner token
-tools/runners/.env

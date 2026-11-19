@@ -1,0 +1,13 @@
+# Every toolchain the courses need, at the versions CI uses (.github/workflows/ci.yml).
+#   curl https://mise.run | sh   # or: brew install mise
+#   mise install                 # then `npm install` and work as in the README
+# Only need some stacks? `mise install node java` etc. installs just those.
+[tools]
+node = "24"
+java = "temurin-25"
+gradle = "9.9.1"   # for courses without a Gradle wrapper
+dotnet = "10"
+python = "3.14"
+cmake = "4"
+# PHP is built from source (needs a C toolchain + libs); `brew install php` is quicker on macOS
+php = "8.5"
