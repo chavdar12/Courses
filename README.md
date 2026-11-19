@@ -150,9 +150,8 @@ tools/runners/         self-hosted runners for Courses and shoe-sector (Docker C
 ## Working locally
 
 Needs Node.js 24, plus the toolchain of the courses you run: JDK 25, .NET 10, Python 3.14, PHP 8.5 or CMake.
-`mise install` sets all of them up at CI's versions ([`mise.toml`](mise.toml)), or open the repo in its
-dev container (Codespaces / VS Code "Reopen in Container") to skip local setup. VS Code suggests the
-matching extensions on open.
+`mise install` sets all of them up at CI's versions ([`mise.toml`](mise.toml)). VS Code suggests the matching
+extensions on open.
 
 ```bash
 npm install
